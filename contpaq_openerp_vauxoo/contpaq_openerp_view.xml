@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="contact_form_view" model="ir.ui.view">
+            <field name="name">Contact form</field>
+            <field name="model">contpaq_openerp.contpaq_openerp_upload</field>
+            <field name="arch" type="xml">
+                <form string="Up Form" version="7.0" class="vx">
+                    <div class="container text-center">
+                        <h1>Upload Form</h1>
+                    </div>
+                    <hr></hr>
+                    <div style="row-fluid">
+                        <div class="row-fluid col-md-12">
+                        <field name="process_ids" nolabel="1" widget="many2many_kanban" class="col-md-12">
+                            <kanban>
+                                <field name="name"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="col-md-9">
+                                        <h4><field name="name"/></h4>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                        </div>
+                        <div class="row col-md-12">
+                            <field name="name" placeholder="YT-dsds777ss....." nolabel="1" colspan="2"/>
+                            <field name="partner_name" string="Name" placeholder="Your name..." required="True"/>
+                            <field name="email_from" placeholder="Your email..." required="True"/>
+                            <field name="phone" placeholder="Your phone number..."/>
+                            <field name="description" String="Notes" placeholder="Content... If you think we must consider something special in your database." nolabel="1" colspan="2"/>
+                            <hr></hr>
+                            <button string="Submit" name="submit" type="object" class="oe_highlight"/>
+                        </div>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- wizard thanks message (shows after submitting the form) -->
+        <record id="wizard_contact_form_view_thanks" model="ir.ui.view">
+            <field name="name">Wizard thanks message</field>
+            <field name="model">contpaq_openerp.contpaq_openerp_upload</field>
+            <!-- give it a low priority to ensure this won't be the default view -->
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+                <form string="Thank you" version="7.0">
+                    <!--
+                        make sure there is at least one field in the view,
+                        otherwise the orm will try to select all the model's
+                        records and this will result in a permission denied error
+                    -->
+                    <field name="partner_name" invisible="1"/>
+                    <label string="Thank you for your interest, we'll respond to your request shortly."/>
+                    <footer>
+                        <button string="Close" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_contpaq_openerp_upload" model="ir.actions.act_window">
+            <field name="name">Load your DataBase</field>
+            <field name="res_model">contpaq_openerp.contpaq_openerp_upload</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="contact_form_view"/>
+            <field name="target">inline</field>
+        </record>
+
+        <!-- attach it to the portal menu -->
+        <menuitem name="Load Your Db Contpaq" id="portal_company_contact"
+            parent="portal.portal_company" action="action_contpaq_openerp_upload" sequence="40"/>
+
+    </data>
+</openerp>
