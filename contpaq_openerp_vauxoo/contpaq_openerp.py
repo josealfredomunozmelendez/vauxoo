@@ -37,9 +37,6 @@ class contpaq_openerp_upload(osv.TransientModel):
 
         @return a list of ids of the companies
         """
-        from openerp.osv.orm import MAGIC_COLUMNS
-        print MAGIC_COLUMNS
-        print context
         r = self.pool.get('process.process').search(cr, SUPERUSER_ID, [], context=context)
         return r
 
@@ -90,7 +87,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         This is why the create() method is overwritten.
         """
         crm_lead = self.pool.get('crm.lead')
-
+        print values
         """
         Because of the complex inheritance of the crm.lead model and the other
         models implied (like mail.thread, among others, that performs a read
@@ -118,7 +115,7 @@ class contpaq_openerp_upload(osv.TransientModel):
             'view_type': 'form',
             'res_model': self._name,
             'res_id': ids[0],
-            'view_id': self.pool.get('ir.model.data').get_object_reference(cr, uid, 'contpaq_openerp', 'wizard_contact_form_view_thanks')[1],
+            'view_id': self.pool.get('ir.model.data').get_object_reference(cr, uid, 'contpaq_openerp_vauxoo', 'wizard_contact_form_view_thanks')[1],
             'target': 'new',
         }
 
