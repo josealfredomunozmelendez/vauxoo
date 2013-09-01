@@ -28,7 +28,8 @@ class contpaq_openerp_upload(osv.TransientModel):
     _description = 'Contact form for the portal'
     _inherit = 'crm.lead'
     _columns = {
-        'process_ids' : fields.many2many('process.process', string='Companies', readonly=True),
+        'process_ids': fields.many2many('process.process', string='Companies', readonly=True),
+        'database_file': fields.binary("Select your file", store=False, filters="*.zip,*.tar.gz,*.tar,*.rar"),
     }
 
     def _get_process(self, cr, uid, context=None):

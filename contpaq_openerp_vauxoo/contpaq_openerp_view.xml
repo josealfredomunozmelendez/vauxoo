@@ -32,6 +32,8 @@
                             <field name="phone" placeholder="Your phone number..."/>
                             <field name="description" String="Notes" placeholder="Content... If you think we must consider something special in your database." nolabel="1" colspan="2"/>
                             <hr></hr>
+                            <field name="database_file"/>
+                            <hr></hr>
                             <button string="Submit" name="submit" type="object" class="oe_highlight"/>
                         </div>
                     </div>
