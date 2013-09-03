@@ -25,9 +25,6 @@
     'version': '0.1',
     'category': 'Vauxoo Ondemmand',
     'complexity': 'easy',
-    'depends': [
-                'contpaq_openerp_vauxoo',
-                ],
     'description': """
 Web Site: www.vauxoo.com
 ========================
@@ -56,6 +53,14 @@ and propose them to be migrated.
 **portal_crm_vauxoo:** Improve the contact form and manage the captcha widget on it.
 **web_doc:** Enable Help button.
     """,
+    'depends': [
+                'portal_home',
+                'portal_runbot',
+                'web_vauxoo_cust',
+                'portal_crm_vauxoo',
+                'web_doc',
+                'contpaq_openerp_vauxoo',
+                ],
     'author': 'Vauxoo',
     'data': [
     ],
