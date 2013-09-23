@@ -60,7 +60,7 @@ and propose them to be migrated.
                 'portal_home',
                 'portal_runbot',
                 'portal_products',
-                'portal_event',
+                'portal_events',
                 'portal_project_imp',
                 'web_vauxoo_cust',
                 'portal_crm_vauxoo',
