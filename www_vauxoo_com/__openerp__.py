@@ -46,8 +46,10 @@ Dependencies and why:
 **contpaq_openerp_vauxoo:** activate the service to upload contpaq databases
 and propose them to be migrated.
 
+**portal_news:** activate the blog page and the main API.
 **portal_home:** activate the home page.
-**portal_news:** activate the blog page.
+**portal_products:** activate the products page.
+**portal_project_imp:** activate the event page.
 **portal_runbot:** activate the runbot page to test openerp.
 **web_vauxoo_cust:** Improve the styles in all openerp and login page.
 **portal_crm_vauxoo:** Improve the contact form and manage the captcha widget on it.
@@ -56,10 +58,13 @@ and propose them to be migrated.
     'depends': [
                 'portal_home',
                 'portal_runbot',
+                'portal_products',
+                'portal_event',
+                'portal_project_imp',
                 'web_vauxoo_cust',
                 'portal_crm_vauxoo',
                 'web_doc',
-                'contpaq_openerp_vauxoo',
+                #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
     'data': [
