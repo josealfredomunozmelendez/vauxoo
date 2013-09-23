@@ -48,6 +48,7 @@ and propose them to be migrated.
 
 **portal_news:** activate the blog page and the main API.
 **portal_home:** activate the home page.
+**portal_events:** activate the events page.
 **portal_products:** activate the products page.
 **portal_project_imp:** activate the event page.
 **portal_runbot:** activate the runbot page to test openerp.
