@@ -88,7 +88,6 @@ class contpaq_openerp_upload(osv.TransientModel):
         This is why the create() method is overwritten.
         """
         crm_lead = self.pool.get('crm.lead')
-        print values
         """
         Because of the complex inheritance of the crm.lead model and the other
         models implied (like mail.thread, among others, that performs a read
@@ -97,7 +96,17 @@ class contpaq_openerp_upload(osv.TransientModel):
         Therefore, user SUPERUSER_ID will perform the creation.
         """
         values['contact_name'] = values['partner_name']
-        crm_lead.create(cr, SUPERUSER_ID, dict(values, user_id=False), context)
+        lead_id = crm_lead.create(cr, SUPERUSER_ID, dict(values, user_id=False), context=context)
+        partner_id = self.pool.get('res.users').browse(cr, uid, [uid], context=context)[0].partner_id.id
+        att_dict = {'res_model': 'crm.lead',                                                                
+                   'res_id': lead_id,
+                   'name':  values['contact_name'] + '-database',
+                   'type': 'binary',
+                   'user_id': uid,
+                   'parent_id': 10,
+                   'datas': values['database_file'],
+                   'partner_id': partner_id }
+        att_id = self.pool.get('ir.attachment').create(cr, SUPERUSER_ID,att_dict, context=context)
 
         """
         Create an empty record in the contact table.
@@ -106,6 +115,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         leads to a message_subscribe_user, that triggers access right issues.
         """
         empty_values = dict((k, False) if k != 'name' else (k, '') for k, v in values.iteritems())
+        print "empty_values", empty_values
         return super(contpaq_openerp_upload, self).create(cr, SUPERUSER_ID, empty_values, {'mail_create_nosubscribe': True})
 
     def submit(self, cr, uid, ids, context=None):
