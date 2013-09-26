@@ -103,7 +103,6 @@ class contpaq_openerp_upload(osv.TransientModel):
                    'name':  values['contact_name'] + '-database',
                    'type': 'binary',
                    'user_id': uid,
-                   'parent_id': 10,
                    'datas': values['database_file'],
                    'partner_id': partner_id }
         att_id = self.pool.get('ir.attachment').create(cr, SUPERUSER_ID,att_dict, context=context)
