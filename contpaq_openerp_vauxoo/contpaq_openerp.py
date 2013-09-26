@@ -117,7 +117,7 @@ class contpaq_openerp_upload(osv.TransientModel):
             'res_model': self._name,
             'res_id': ids[0],
             'view_id': self.pool.get('ir.model.data').get_object_reference(cr, uid, 'contpaq_openerp_vauxoo', 'wizard_contact_form_view_thanks')[1],
-            'target': 'new',
+            'target': 'inline',
         }
 
     def _needaction_domain_get(self, cr, uid, context=None):

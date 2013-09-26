@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-        <record id="contact_form_view" model="ir.ui.view">
+<record id="contact_form_view" model="ir.ui.view">
             <field name="name">Contact form</field>
             <field name="model">contpaq_openerp.contpaq_openerp_upload</field>
             <field name="arch" type="xml">
-                <form string="Up Form" version="7.0" class="vx">
-                    <div class="container text-center">
-                        <h1>Upload Form</h1>
-                    </div>
-                    <hr></hr>
-                    <div style="row-fluid">
-                        <div class="row-fluid col-md-12">
-                        <field name="process_ids" nolabel="1" widget="many2many_kanban" class="col-md-12">
-                            <kanban>
-                                <field name="name"/>
-                                <templates>
-                                    <t t-name="kanban-box">
-                                        <div class="col-md-9">
-                                        <h4><field name="name"/></h4>
+                <form string="Contact form" version="7.0" class="bs3 bs3-form-bg bs3-footer">
+                <section class="bgvauxoo">
+                <div class="form-horizontal mt32">
+                    <div class="container"> 
+                        <h1><i class="icon-info-sign"></i><span>Upload Form</span></h1>
+                            <div class="row"> 
+                                <div class ="col-md-2">
+                                </div>
+                                <div class ="col-md-8">
+                                    <label for="name" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="name" widget="FieldCharBS3" placeholder="YT-dsds777ss....." nolabel="1" required="True"/>
+                                    <label for="partner_name" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="partner_name" widget="FieldCharBS3" string="Name" placeholder="Your name..." required="True" nolabel="1"/>
+                                    <label for="email_from" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="email_from" widget="FieldEmailBS3" placeholder="Your email..." required="True" nolabel="1"/>
+                                    <label for="phone" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="phone" widget="FieldCharBS3" placeholder="Your phone number..." nolabel="1"/>
+                                    <label for="description" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="description" widget="FieldTextBS3" placeholder="Content..." nolabel="1"/>
+                                    <field name="database_file"/>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
+                                            <button string="Submit" name="submit" type="object" 
+                                                    class="btn btn-danger btn-lg"/>
                                         </div>
-                                    </t>
-                                </templates>
-                            </kanban>
-                        </field>
-                        </div>
-                        <div class="row-fluid col-md-12">
-                            <field name="name" placeholder="YT-dsds777ss....." nolabel="1" colspan="2"/>
-                            <field name="partner_name" string="Name" placeholder="Your name..." required="True"/>
-                            <field name="email_from" placeholder="Your email..." required="True"/>
-                            <field name="phone" placeholder="Your phone number..."/>
-                            <field name="description" String="Notes" placeholder="Content... If you think we must consider something special in your database." nolabel="1" colspan="2"/>
-                            <hr></hr>
-                            <field name="database_file"/>
-                            <hr></hr>
-                            <button string="Submit" name="submit" type="object" class="oe_highlight"/>
-                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
+                </div>
+                </section>
                 </form>
             </field>
         </record>
@@ -48,22 +47,36 @@
             <!-- give it a low priority to ensure this won't be the default view -->
             <field name="priority">99</field>
             <field name="arch" type="xml">
-                <form  class="vx" string="Thank you" version="7.0">
+                <form string="Thank you" version="7.0" class="bs3 bs3-form-bg bs3-footer">
+                <section class="jumbotron bgvauxoo">
+                <div class="form-horizontal mt32">
+                    <div class="container"> 
+                        <div class="row"> 
+                                <div class ="col-md-2">
+                                </div>
+                                <div class ="col-md-8">
                     <!--
                         make sure there is at least one field in the view,
                         otherwise the orm will try to select all the model's
                         records and this will result in a permission denied error
                     -->
-                    <field name="partner_name" invisible="1"/>
-                    <label string="Thank you for your interest, we'll respond to your request shortly."/>
-                    <footer>
-                        <button string="Upload Other Db" class="oe_highlight" special="cancel" />
-                        or
-                        <a class="oe_link" href="/">Go to Home</a>
-                    </footer>
+                                    <field name="partner_name" invisible="1"/>
+                                    <label string="Thank you for your interest, we'll respond to your request shortly."/>
+                                    <footer>
+                                        <a href="/" class="btn btn-danger btn-lg"><i class="icon-home"></i><span>Go to Home</span></a>
+                                    </footer>
+                                </div>
+                                <div class ="col-md-2">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
                 </form>
             </field>
         </record>
+
+
 
         <record id="action_contpaq_openerp_upload" model="ir.actions.act_window">
             <field name="name">Load your DataBase</field>
