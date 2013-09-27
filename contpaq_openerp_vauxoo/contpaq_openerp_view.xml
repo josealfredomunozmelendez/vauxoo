@@ -24,7 +24,8 @@
                                     <field name="phone" widget="FieldCharBS3" placeholder="Your phone number..." nolabel="1"/>
                                     <label for="description" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="description" widget="FieldTextBS3" placeholder="Content..." nolabel="1"/>
-                                    <field name="database_file"/>
+                                    <label for="database_file" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="database_file" widget="FieldBinaryBS3"/>
                                     <div class="form-group">
                                         <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
                                             <button string="Submit" name="submit" type="object" 
