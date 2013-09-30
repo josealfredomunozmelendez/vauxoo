@@ -19,31 +19,27 @@
                     t-att-name="widget.name"
                     t-att-tabindex="widget.node.attrs.tabindex"
                     t-att-autofocus="widget.node.attrs.autofocus"
-                    t-att-class="'field_binary form-control '+widget.widget_class"
-                    style="width:250px;"
+                    t-att-class="'field_binary form-control'"
+                    style="width:255px;"
            />
         </div>
         <div class="col-md-1">
            <t t-call="HiddenInputFileBS3">
                 <t t-set="fileupload_id" t-value="widget.fileupload_id"/>
-                <div class="button-group">
-                <button class="btn btn-success" type="button">
-                    <i class="icon-plus"></i>
+                <button class="btn btn-success" type="button" >
+                     <i class="icon-plus"></i>
                 </button>
-                </div>
            </t>
         </div>
-        <div class="col-md-1">
-                <a class="oe_form_binary_file_save_data">                                   
-                    <button class="btn btn-primary oe_form_binary_file_save" type="button" title="Save As">
-                        <i class="icon-download"></i>
-                    </button>                                                               
-                </a>
-        </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
+        <div class="btn-group">
+                <button class="btn btn-primary oe_form_binary_file_save" type="button" title="Save As">
+                   <i class="icon-download"></i>
+                </button>                                                               
                 <button class="btn btn-danger oe_button oe_form_binary_file_clear" type="button" title="Clear">
-                     <i class="icon-trash"></i>
+                   <i class="icon-trash"></i>
                 </button>
+        </div>
         </div>
 </div>
 </templates>

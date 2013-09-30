@@ -4,7 +4,7 @@ var _t = instance.web._t,
 var QWeb = instance.web.qweb;
 
 instance.web.form.FieldBinaryBS3 = instance.web.form.FieldBinaryFile.extend({                                   
-    template: 'FieldBinaryBS3',                                                                       
+    template: 'FieldBinaryBS3',
 });
 
 instance.web.form.widgets.add('FieldBinaryBS3','instance.web.form.FieldBinaryBS3');                     
