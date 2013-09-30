@@ -62,8 +62,10 @@ and propose them to be migrated.
                 'portal_products',
                 'portal_events',
                 'portal_project_imp',
+                'portal_hr_imp',
                 'web_vauxoo_cust',
                 'portal_crm_vauxoo',
+                'portal_public_documents',
                 'web_doc',
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
