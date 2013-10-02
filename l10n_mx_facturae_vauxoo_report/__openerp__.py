@@ -2,7 +2,7 @@
 ###########################################################################
 #    Module Writen to OpenERP, Open Source Management Solution
 #
-#    Copyright (c) 2010 Vauxoo - http://www.vauxoo.com/
+#    Copyright (c) 2013 Vauxoo - http://www.vauxoo.com/
 #    All Rights Reserved.
 #    info Vauxoo (info@vauxoo.com)
 ############################################################################
@@ -30,8 +30,8 @@
     "version" : "1.0",
     "author" : "Vauxoo",
     "category" : "Localization/Mexico",
-    "description" : """This module add a report for facturae, this includes report for
-        cfd, cfdi and cbb
+    "description" : """This module adds a report to electronic invoice, 
+        this includes report to cfd, cfdi and cbb customized to Vauxoo.
     """,
     "website" : "http://www.vauxoo.com/",
     "license" : "AGPL-3",
