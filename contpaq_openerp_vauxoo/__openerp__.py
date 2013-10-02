@@ -45,6 +45,8 @@ Client Pay (Gain Positive Money Balance) > Client gain access to View to upload
                 'project_issue', #Each contract will have an issue per database. 
                 'portal_anonymous', #Necesary to marketing Stuff.
                 'account', #Necesary to compute balance.
+                'portal',
+                'portal_news',
                 ],
     'data': [
         'contpaq_openerp_view.xml',
@@ -55,5 +57,7 @@ Client Pay (Gain Positive Money Balance) > Client gain access to View to upload
     'installable': True,
     'auto_install': False,
     'css': ['static/src/css/contpaq_openerp.css'],
+    'js': [ 'static/src/js/contpaq_openerp.js'],
+    'qweb': ['static/src/xml/contpaq_openerp.xml'], 
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
