@@ -24,6 +24,8 @@
 
 import time
 from datetime import datetime                                                                          
+import random
+import string
                                                                                                        
 from openerp.osv import fields, osv                                                                 
 from openerp import tools                                                                           
@@ -37,3 +39,16 @@ class account_analytic_account(osv.Model):
         'vx_contract_code':fields.char('Contract Code', 12, help='Contract Code'), 
             }
 
+    def _contract_code_generator(self, cr, uid, context=None):
+        cond = True
+        while cond:
+            code =  ''.join(random.choice(string.ascii_uppercase + string.digits) for x in
+                    range(12))
+            code_ids = self.search(cr, uid, [('vx_contract_code','=',code)], context=context)
+            if len(code_ids) == 0:
+                cond = False
+        return code
+
+    _defaults = {
+        'vx_contract_code': _contract_code_generator,
+            }
