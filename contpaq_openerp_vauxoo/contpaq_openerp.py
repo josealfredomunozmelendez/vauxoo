@@ -48,7 +48,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         'partner_name':fields.char('Name', 255, help='Partner Name'), 
         'email_from':fields.char('Email', 255, help='Email'), 
         'phone':fields.char('Phone Number', 255, help='Phone Number'), 
-        'description':fields.text('Phone Number', help='Description'), 
+        'description':fields.text('Description', help='Description'), 
         'process_ids': fields.many2many('process.process', string='Companies', readonly=True),
         'database_file': fields.binary("Select your file", store=False, filters="*.zip,*.tar.gz,*.tar,*.rar"),
     }
