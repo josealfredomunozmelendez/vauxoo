@@ -32,15 +32,14 @@ class contpaq_openerp_upload(osv.TransientModel):
         partner = self.pool.get('res.users').read(cr, uid, uid, ['partner_id'],
                 context)['partner_id']
         cont_ids = self.pool.get('account.analytic.account').search(cr, uid,
-                [('partner_id','=',partner[0]), ('date','!=',False),
-                    ('vx_contract_code','!=',False)], context=context)
+                [('date','!=',False), ('vx_contract_code','!=',False)], context=context)
         res = self.pool.get('account.analytic.account').read(cr, uid, cont_ids,
-                ['code','vx_contract_code','date_start','date'], context=context)
+                ['id','vx_contract_code','date_start','date'], context=context)
         result = []
         for list in res:
             name_contract = list['vx_contract_code'] + ' [' + list['date_start']+ ' / ' + \
             list['date']+ ']' 
-            result.append((list['code'],name_contract))
+            result.append((list['id'],name_contract))
         return result 
 
     _columns = {
@@ -101,8 +100,42 @@ class contpaq_openerp_upload(osv.TransientModel):
         'process_ids': _get_process,
     }
 
+    def create(self, cr, uid, values, context=None):
+        sf = ['description','partner_name','email_from','phone','database_file','name']
+        r = True
+        if set(sf).issubset(values.keys()):
+            r = super(contpaq_openerp_upload,self).create(cr,SUPERUSER_ID,values,context=context)
+        else:
+            raise osv.except_osv(('Error'), ("""No Tiene permitido esta operacion"""))
+        return r
+
     def submit(self, cr, uid, ids, context=None):
         """ When the form is submitted, redirect the user to a "Thanks" message """
+        wz_obj = self.read(cr, uid, ids, [], context=context)
+        cont_id = int(wz_obj[0]['name'])
+        descr = wz_obj[0]['description']
+        partner_id = wz_obj[0]['partner_id']
+        contract = self.pool.get('account.analytic.account').read(cr, uid, [cont_id], ['vx_contract_code'], context=context)
+        code = contract[0]['vx_contract_code'] 
+        proj_id = self.pool.get('project.project').search(cr, SUPERUSER_ID,
+                [('analytic_account_id','=',cont_id)], context=context)
+        issue = {
+            'name': "Mensaje desde el Contrato " + code, 
+            'project_id': proj_id[0],
+            'description': descr, 
+        }
+        if wz_obj[0]['database_file']:
+            issue_id = self.pool.get('project.issue').create(cr, SUPERUSER_ID, issue,
+                    context=context)
+            att_dict = {'res_model': 'project.issue',                                                                
+                   'res_id': issue_id,
+                   'name':  code + '-database',
+                   'type': 'binary',
+                   'user_id': uid,
+                   'datas': wz_obj[0]['database_file'],
+                   'partner_id': partner_id }
+            att_id = self.pool.get('ir.attachment').create(cr, SUPERUSER_ID,att_dict,
+                    context=context)
         return {
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
