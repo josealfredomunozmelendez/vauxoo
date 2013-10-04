@@ -23,11 +23,33 @@ from openerp.osv import osv, fields
 from openerp import SUPERUSER_ID
 
 class contpaq_openerp_upload(osv.TransientModel):
-    """ Create new leads through the "contact us" form """
+    """ Create new issues through the "contact us" form """
     _name = 'contpaq_openerp.contpaq_openerp_upload'
     _description = 'Contact form for the portal'
-    _inherit = 'crm.lead'
+    _inherit = 'project.issue'
+
+    def _get_domain_contracts(self, cr, uid,context=None):
+        partner = self.pool.get('res.users').read(cr, uid, uid, ['partner_id'],
+                context)['partner_id']
+        cont_ids = self.pool.get('account.analytic.account').search(cr, uid,
+                [('partner_id','=',partner[0]), ('date','!=',False),
+                    ('vx_contract_code','!=',False)], context=context)
+        res = self.pool.get('account.analytic.account').read(cr, uid, cont_ids,
+                ['code','vx_contract_code','date_start','date'], context=context)
+        result = []
+        for list in res:
+            name_contract = list['vx_contract_code'] + ' [' + list['date_start']+ ' / ' + \
+            list['date']+ ']' 
+            result.append((list['code'],name_contract))
+        return result 
+
     _columns = {
+        'name':fields.selection(_get_domain_contracts, 'Contract Codes',
+             help="""Contract Codes"""), 
+        'partner_name':fields.char('Name', 255, help='Partner Name'), 
+        'email_from':fields.char('Email', 255, help='Email'), 
+        'phone':fields.char('Phone Number', 255, help='Phone Number'), 
+        'description':fields.text('Phone Number', help='Description'), 
         'process_ids': fields.many2many('process.process', string='Companies', readonly=True),
         'database_file': fields.binary("Select your file", store=False, filters="*.zip,*.tar.gz,*.tar,*.rar"),
     }
@@ -78,44 +100,6 @@ class contpaq_openerp_upload(osv.TransientModel):
         'phone': _get_user_phone,
         'process_ids': _get_process,
     }
-
-    def create(self, cr, uid, values, context=None):
-        """
-        Since they are potentially sensitive, we don't want any user to be able
-        to read datas generated through this module.  Therefore we'll write
-        these information directly in the crm.lead table and leave blank
-        entries in the contact table.
-        This is why the create() method is overwritten.
-        """
-        crm_lead = self.pool.get('crm.lead')
-        """
-        Because of the complex inheritance of the crm.lead model and the other
-        models implied (like mail.thread, among others, that performs a read
-        when its create() method is called (in method message_get_subscribers()),
-        it is quite complicated to set proper rights for this object.
-        Therefore, user SUPERUSER_ID will perform the creation.
-        """
-        values['contact_name'] = values['partner_name']
-        lead_id = crm_lead.create(cr, SUPERUSER_ID, dict(values, user_id=False), context=context)
-        partner_id = self.pool.get('res.users').browse(cr, uid, [uid], context=context)[0].partner_id.id
-        att_dict = {'res_model': 'crm.lead',                                                                
-                   'res_id': lead_id,
-                   'name':  values['contact_name'] + '-database',
-                   'type': 'binary',
-                   'user_id': uid,
-                   'datas': values['database_file'],
-                   'partner_id': partner_id }
-        att_id = self.pool.get('ir.attachment').create(cr, SUPERUSER_ID,att_dict, context=context)
-
-        """
-        Create an empty record in the contact table.
-        Since the 'name' field is mandatory, give an empty string to avoid an integrity error.
-        Pass mail_create_nosubscribe key in context because otherwise the inheritance
-        leads to a message_subscribe_user, that triggers access right issues.
-        """
-        empty_values = dict((k, False) if k != 'name' else (k, '') for k, v in values.iteritems())
-        print "empty_values", empty_values
-        return super(contpaq_openerp_upload, self).create(cr, SUPERUSER_ID, empty_values, {'mail_create_nosubscribe': True})
 
     def submit(self, cr, uid, ids, context=None):
         """ When the form is submitted, redirect the user to a "Thanks" message """

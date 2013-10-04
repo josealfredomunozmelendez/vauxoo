@@ -15,7 +15,11 @@
                                 </div>
                                 <div class ="col-md-8">
                                     <label for="name" class="col-md-3 col-sm-4 control-label"/>
-                                    <field name="name" widget="FieldCharBS3" placeholder="YT-dsds777ss....." nolabel="1" required="True"/>
+                                    <div class="form-group">
+                                        <div class="col-md-7 col-sm-8">
+                                            <field name="name" nolabel="1" required="True"/>
+                                        </div>
+                                    </div>
                                     <label for="partner_name" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="partner_name" widget="FieldCharBS3" string="Name" placeholder="Your name..." required="True" nolabel="1"/>
                                     <label for="email_from" class="col-md-3 col-sm-4 control-label"/>
