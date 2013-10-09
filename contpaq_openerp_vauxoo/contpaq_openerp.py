@@ -21,6 +21,7 @@
 
 from openerp.osv import osv, fields
 from openerp import SUPERUSER_ID
+from datetime import datetime
 
 class contpaq_openerp_upload(osv.TransientModel):
     """ Create new issues through the "contact us" form """
@@ -115,8 +116,10 @@ class contpaq_openerp_upload(osv.TransientModel):
         cont_id = int(wz_obj[0]['name'])
         descr = wz_obj[0]['description']
         partner_id = wz_obj[0]['partner_id']
-        contract = self.pool.get('account.analytic.account').read(cr, uid, [cont_id], ['vx_contract_code'], context=context)
+        contract = self.pool.get('account.analytic.account').read(cr, uid, [cont_id],
+                ['vx_contract_code','date'], context=context)
         code = contract[0]['vx_contract_code'] 
+        venc = contract[0]['date']
         proj_id = self.pool.get('project.project').search(cr, SUPERUSER_ID,
                 [('analytic_account_id','=',cont_id)], context=context)
         issue = {
@@ -124,7 +127,19 @@ class contpaq_openerp_upload(osv.TransientModel):
             'project_id': proj_id[0],
             'description': descr, 
         }
+        now = datetime.now().strftime("%Y-%m-%d")
         if wz_obj[0]['database_file']:
+            if now > venc:
+                return {
+                    'type': 'ir.actions.act_window',
+                    'view_mode': 'form',
+                    'view_type': 'form',
+                    'res_model': self._name,
+                    'res_id': ids[0],
+                    'view_id': self.pool.get('ir.model.data').get_object_reference(cr, uid,
+                        'contpaq_openerp_vauxoo', 'wizard_contact_form_view_venc')[1],
+                    'target': 'inline',
+                }
             issue_id = self.pool.get('project.issue').create(cr, SUPERUSER_ID, issue,
                     context=context)
             att_dict = {'res_model': 'project.issue',                                                                
