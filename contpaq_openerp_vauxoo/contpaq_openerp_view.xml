@@ -112,6 +112,37 @@
             </field>
         </record>
 
+        <!-- wizard No Contracts message (shows after submitting the form) -->
+        <record id="wizard_contact_form_view_nocontract" model="ir.ui.view">
+            <field name="name">Wizard No Contracts message</field>
+            <field name="model">contpaq_openerp.contpaq_openerp_upload</field>
+            <!-- give it a low priority to ensure this won't be the default view -->
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+                <form string="No Contracts" version="7.0" class="bs3 bs3-form-bg bs3-footer">
+                <section class="jumbotron bgvauxoo">
+                <div class="form-horizontal mt32">
+                    <div class="container"> 
+                        <div class="row"> 
+                                <div class ="col-md-2">
+                                </div>
+                                <div class ="col-md-8">
+                                    <field name="partner_name" invisible="1"/>
+                                    <label string="You don't have any valid contract, please contact with our Sales Staff"/>
+                                    <footer>
+                                        <a href="/" class="btn btn-danger btn-lg"><i class="icon-home"></i><span>Go to Home</span></a>
+                                    </footer>
+                                </div>
+                                <div class ="col-md-2">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+                </form>
+            </field>
+        </record>
+
         <record id="action_contpaq_openerp_upload" model="ir.actions.act_window">
             <field name="name">Load your DataBase</field>
             <field name="res_model">contpaq_openerp.contpaq_openerp_upload</field>
