@@ -78,5 +78,6 @@ and propose them to be migrated.
     'installable': True,
     'auto_install': False,
     'css': [
+        'static/src/css/vauxoo.css',
         ],
 }
