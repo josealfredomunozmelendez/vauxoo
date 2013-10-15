@@ -79,5 +79,8 @@ and propose them to be migrated.
     'auto_install': False,
     'css': [
         'static/src/css/vauxoo.css',
-        ],
+    ],
+    'qweb': [
+        'static/src/xml/base.xml',
+    ],
 }
