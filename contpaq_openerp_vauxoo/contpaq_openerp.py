@@ -34,13 +34,14 @@ class contpaq_openerp_upload(osv.TransientModel):
                 context)['partner_id']
         cont_ids = self.pool.get('account.analytic.account').search(cr, uid,
                 [('date','!=',False), ('vx_contract_code','!=',False)], context=context)
-        res = self.pool.get('account.analytic.account').read(cr, uid, cont_ids,
-                ['id','vx_contract_code','date_start','date'], context=context)
         result = []
-        for list in res:
-            name_contract = list['vx_contract_code'] + ' [' + list['date_start']+ ' / ' + \
-            list['date']+ ']' 
-            result.append((list['id'],name_contract))
+        if len(cont_ids) > 0:
+            res = self.pool.get('account.analytic.account').read(cr, uid, cont_ids,
+                ['id','vx_contract_code','date_start','date'], context=context)
+            for list in res:
+                name_contract = list['vx_contract_code'] + ' [' + list['date_start']+ ' / ' + \
+                list['date']+ ']' 
+                result.append((list['id'],name_contract))
         return result 
 
     _columns = {
