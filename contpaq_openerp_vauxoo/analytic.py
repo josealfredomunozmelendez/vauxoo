@@ -49,6 +49,29 @@ class account_analytic_account(osv.Model):
                 cond = False
         return code
 
+    def create(self, cr, uid, values, context=None):
+        values.update({'vx_contract_code': self._contract_code_generator(cr, uid,
+            context=context)})
+        return super(account_analytic_account, self).create(cr, uid, values, context=context)
+
     _defaults = {
-        'vx_contract_code': _contract_code_generator,
-            }
+        'vx_contract_code': '<<CONTRACT CODE>>',
+           }
+
+class account_analytic_accounti_installer(osv.TransientModel):
+    _name = 'account.analytic.account.installer'
+    _inherit = 'res.config.installer'
+
+    def execute(self, cr, uid, ids, context=None):
+        cr.execute("""SELECT vx_contract_code, count(*) cc_count 
+                      FROM account_analytic_account
+                      GROUP BY vx_contract_code 
+                      HAVING count(*) > 1""") 
+        contr_obj = self.pool.get('account.analytic.account')
+        for row in cr.dictfetchall():
+            for idcontract in contr_obj.search(cr, uid,
+                    [('vx_contract_code','=',row['vx_contract_code'])], context=context):
+                contr_obj.write(cr, uid, [idcontract], {
+                  'vx_contract_code': contr_obj._contract_code_generator(cr, uid, context=context),
+                }, context=context)
+
