@@ -13,29 +13,24 @@
 .openerp .oe_topbar .oe_topbar_anonymous_login a,
 .openerp .oe_topbar .oe_menu_more_container .oe_menu_more_link {
     font-size: 17px;
-    line-height: 20px;
+    line-height: 30px;
     height: auto;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.openerp .oe_topbar .oe_systray {
-    height: auto;
-    margin: 0 0 0 0;
-}
-
 .openerp .oe_topbar span.oe_user_menu {
-    margin-bottom: 0px;
-    line-height: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     font-size: 17px;
 }
 
 .openerp .oe_topbar span.oe_user_menu img {
     vertical-align: middle;
 }
+
 .openerp .oe_topbar_item.oe_topbar_compose_full_email,
-.openerp .oe_topbar_item.oe_topbar_compose_full_email span,
-.openerp .oe_topbar .oe_topbar_item {
+.openerp .oe_topbar_item.oe_topbar_compose_full_email span {
     font-size: 15px;
     height: auto;
     top: 0px;
@@ -43,14 +38,14 @@
     padding-top: 0;
 }
 
-.openerp .oe_topbar_item.oe_topbar_compose_full_email button.oe_e {
+.openerp .oe_topbar .oe_topbar_item {
+    height: auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
 
 .openerp .oe_topbar .oe_systray > button {
     line-height: 20px;
-}
-
-.openerp .oe_topbar .oe_menu > li > a i {
 }
 
 .openerp td.oe_topbar ul{
