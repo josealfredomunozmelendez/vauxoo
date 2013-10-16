@@ -1,25 +1,61 @@
-.openerp .oe_topbar, .openerp .oe_topbar .oe_topbar_anonymous_login a  {
-  background-color: #A41D35;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#AB0000), to(#646060));
-  background-image: -webkit-linear-gradient(top, #A41D35, #A41D35);
-  background-image: -moz-linear-gradient(top, #A41D35, #A41D35);
-  background-image: -ms-linear-gradient(top, #A41D35, #A41D35);
-  background-image: -o-linear-gradient(top, #A41D35, #A41D35);
-  background-image: linear-gradient(to bottom, #A41D35, #A41D35);
+.openerp .oe_topbar,
+.openerp .oe_topbar .oe_topbar_anonymous_login a  {
+    background-color: #A41D35;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#AB0000), to(#646060));
+    background-image: -webkit-linear-gradient(top, #A41D35, #A41D35);
+    background-image: -moz-linear-gradient(top, #A41D35, #A41D35);
+    background-image: -ms-linear-gradient(top, #A41D35, #A41D35);
+    background-image: -o-linear-gradient(top, #A41D35, #A41D35);
+    background-image: linear-gradient(to bottom, #A41D35, #A41D35);
 }
-.openerp .oe_topbar .oe_menu > li > a, .openerp .oe_topbar .oe_topbar_anonymous_login a  {
+
+.openerp .oe_topbar .oe_menu > li > a,
+.openerp .oe_topbar .oe_topbar_anonymous_login a,
+.openerp .oe_topbar .oe_menu_more_container .oe_menu_more_link {
     font-size: 17px;
     line-height: 20px;
     height: auto;
     padding-top: 15px;
     padding-bottom: 15px;
- }
+}
+
+.openerp .oe_topbar .oe_systray {
+    height: auto;
+    margin: 0 0 0 0;
+}
+
+.openerp .oe_topbar span.oe_user_menu {
+    margin-bottom: 0px;
+    line-height: 32px;
+    font-size: 17px;
+}
+
+.openerp .oe_topbar span.oe_user_menu img {
+    vertical-align: middle;
+}
+.openerp .oe_topbar_item.oe_topbar_compose_full_email,
+.openerp .oe_topbar_item.oe_topbar_compose_full_email span,
+.openerp .oe_topbar .oe_topbar_item {
+    font-size: 15px;
+    height: auto;
+    top: 0px;
+    vertical-align: middle;
+    padding-top: 0;
+}
+
+.openerp .oe_topbar_item.oe_topbar_compose_full_email button.oe_e {
+}
+
+.openerp .oe_topbar .oe_systray > button {
+    line-height: 20px;
+}
+
 .openerp .oe_topbar .oe_menu > li > a i {
- }
+}
 
 .openerp td.oe_topbar ul{
-  border-color: rgb(70, 50, 101);
-  border-width: 0px 0px 1px;
-  box-sizing: border-box;
-  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
+    border-color: rgb(70, 50, 101);
+    border-width: 0px 0px 1px;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1);
 }
