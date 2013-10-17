@@ -33,7 +33,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         partner = self.pool.get('res.users').read(cr, uid, uid, ['partner_id'],
                 context)['partner_id']
         cont_ids = self.pool.get('account.analytic.account').search(cr, uid,
-                [('date','!=',False), ('vx_contract_code','!=',False)], context=context)
+                [('date','!=',False), ('partner_id','=',partner[0])], context=context)
         result = []
         if len(cont_ids) > 0:
             res = self.pool.get('account.analytic.account').read(cr, uid, cont_ids,
