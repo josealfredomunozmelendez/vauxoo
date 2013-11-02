@@ -6,7 +6,6 @@
     <t t-jquery="td.oe_topbar" t-operation="replace">
     <td colspan="2" class="oe_topbar">
         <div class="bs3">
-            <t t-log="'Hola Minddddd'"/>
             <div class="container">
                     <div class="oe_menu_placeholder"/>
                     <div class="oe_user_menu_placeholder"/>
