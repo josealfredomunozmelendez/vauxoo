@@ -13,7 +13,7 @@
 .openerp .oe_topbar .oe_topbar_anonymous_login a,
 .openerp .oe_topbar .oe_menu_more_container .oe_menu_more_link {
     font-size: 17px;
-    line-height: 30px;
+    line-height: auto;
     height: auto;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -45,7 +45,7 @@
 }
 
 .openerp .oe_topbar .oe_systray > button {
-    line-height: 20px;
+    line-height: auto;
 }
 
 .openerp td.oe_topbar ul{

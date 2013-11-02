@@ -67,6 +67,8 @@ and propose them to be migrated.
                 'portal_crm_vauxoo',
                 'portal_public_documents',
                 'web_doc',
+                # Because the little button TODO: Create 2 modeules www and erp dependencies should be differents
+                'hr_attendance', 
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
@@ -79,6 +81,9 @@ and propose them to be migrated.
     'auto_install': False,
     'css': [
         'static/src/css/vauxoo.css',
+    ],
+    'js': [
+        'static/src/js/www_vauxoo_com.js',
     ],
     'qweb': [
         'static/src/xml/base.xml',
