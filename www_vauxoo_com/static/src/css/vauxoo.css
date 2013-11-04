@@ -54,3 +54,7 @@ td .bs3 .navbar {
 .openerp .oe_menu {
     font-size: auto;
 }
+
+.bs3 .navbar-inverse .navbar-collapse {
+    background-color: #A41D35;
+}

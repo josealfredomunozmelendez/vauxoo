@@ -14,7 +14,12 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <!--
+                <a class="navbar-brand oe_logo" t-attf-href="/?ts=#{Date.now()}#{debug}">
+                    <span class="oe_logo_edit">Edit Company data</span>
+                    <img t-att-src='widget.session.url("/web/binary/company_logo")'/>
+                </a>
+                -->
               </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
               <div class="oe_menu_placeholder"/>
@@ -27,13 +32,16 @@
         </div>
     </td>
     </t>
+    <!-- If the logo is needed on menubar uncomment this. 
+    <t t-jquery="td.oe_leftbar .oe_logo" t-operation="replace">
+    </t>-->
 </t>
 
 <t t-name="web_doc.DocButton">
 <span>
     <button t-if="widget.av.action.doc_body"
     title='See Embeded doc for the actual Elements'
-    class="btn btn-default oe_doc_doc_show navbar-btn"><span class="glyphicon glyphicon-question-sign"></span></button>
+    class="btn btn-link oe_doc_doc_show navbar-btn"><span class="glyphicon glyphicon-question-sign"></span></button>
     <button t-if="!(widget.av.action.doc_body)"
     title='See Embeded doc for the actual Elements'
     class="btn btn-danger oe_doc_doc_show navbar-btn"><span class="glyphicon glyphicon-question-sign"></span></button>
@@ -48,7 +56,7 @@
 
 <t t-name="mail.ComposeMessageTopButton">
     <span title='Compose new Message' class="oe_topbar_compose_full_email">
-        <button class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-envelope"></span>
+        <button class="btn btn-link navbar-btn"><span class="glyphicon glyphicon-envelope"></span>
         </button>
     </span>
 </t>
