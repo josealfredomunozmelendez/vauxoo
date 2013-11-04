@@ -1,15 +1,31 @@
-
 openerp.www_vauxoo_com = function (instance) {
+    instance.web.UserMenu.include({
+    /**
+     * This hacking is only to overwrite some widets to addapt to our look and feel, no logic should
+     * be here the user menu was mixed with dropdown feature, we removed this class and add our own
+     * not related with dropdown.
+     */
+        start: function() {
+            var self = this;
+            this._super.apply(this, arguments);
+            this.$el.on('click', '.oe_user_menu_bs3 li a[data-menu]', function(ev) {
+                ev.preventDefault();
+                var f = self['on_menu_' + $(this).data('menu')];
+                if (f) {
+                    f($(this));
+                }
+            });
+        }
+    });
     /**
      * This hacking is only to overwrite some widets to addapt to our look and feel, no logic should
      * be here
-     */
     instance.hr_attendance.AttendanceSlider.include({
         start: function() {
             var self = this;
             var tmp = function() {
-                this.$el.toggleClass("oe_attendance_nosigned", ! this.get("signed_in"));
-                this.$el.toggleClass("oe_attendance_signed", this.get("signed_in"));
+                this.$el.toggleClass("oebs3_attendance_nosigned", ! this.get("signed_in"));
+                this.$el.toggleClass("oebs3_attendance_signed", this.get("signed_in"));
             };
             this.on("change:signed_in", this, tmp);
             _.bind(tmp, this)();
@@ -35,29 +51,5 @@ openerp.www_vauxoo_com = function (instance) {
             return this.check_attendance();
         },
     });
-    instance.web.UserMenu.include({
-        /**
-         * Button attendance was included not generically -append- only -prepend- wich bring look
-         * and feel incompatibilities.
-         */
-        do_update: function () {
-            this._super();
-            var self = this;
-            this.update_promise.done(function () {
-                if (!_.isUndefined(self.attendanceslider)) {
-                    return;
-                }
-                // check current user is an employee
-                var Users = new instance.web.Model('res.users');
-                Users.call('has_group', ['base.group_user']).done(function(is_employee) {
-                    if (is_employee) {
-                        self.attendanceslider = new instance.hr_attendance.AttendanceSlider(self);
-                        self.attendanceslider.prependTo(instance.webclient.$('.oe_systray'));
-                    } else {
-                        self.attendanceslider = null;
-                    }
-                });
-            });
-        },
-    });
+     */
 };

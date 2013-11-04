@@ -6,12 +6,23 @@
     <t t-jquery="td.oe_topbar" t-operation="replace">
     <td colspan="2">
         <div class="bs3">
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="oe_menu_placeholder"/>
-                <div class="oe_user_menu_placeholder"/>
-                <!-- Now all module wich will be in this systray part MUST bw a list elements
+            <nav class="navbar navbar-inverse" role="navigation">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+              </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <div class="oe_menu_placeholder"/>
+              <div class="oe_user_menu_placeholder"/>
+              <!-- Now all module wich will be in this systray part MUST bw a list elements
                      -->
-                <div class="oe_systray"/>
+              <div class="oe_systray"/>
+            </div>
             </nav>
         </div>
     </td>
@@ -29,19 +40,30 @@
 </span>
 <t t-call="web_doc.HelpContent"/>
 </t>
-
+<!--
 <t t-name="AttendanceSlider">
-    <span data-tipsy="true">
-         <button class="oebs3_attendance_signin btn btn-default navbar-btn"><span class="glyphicon glyphicon-arrow-right"></span></button>
-         <button class="oebs3_attendance_signout btn btn-default navbar-btn"><span class="glyphicon glyphicon-arrow-left"></span></button>
-    </span>
+    <button data-tipsy="true" class="btn btn-success navbar-btn"><span class="glyphicon glyphicon-arrow-right"></span></button>
 </t>
+-->
 
 <t t-name="mail.ComposeMessageTopButton">
     <span title='Compose new Message' class="oe_topbar_compose_full_email">
         <button class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-envelope"></span>
         </button>
     </span>
+</t>
+<t t-name="Menu">
+    <ul class="oe_menu nav navbar-nav" t-if="widget.data">
+        <li t-foreach="widget.data.data.children" t-as="menu">
+            <t t-call="Menu.link"/>
+        </li>
+        <li class="oe_menu_more_container" style="display: none;">
+            <a class="dropdown-toggle sr-only oe_menu_more_link" data-toggle="dropdown" type="button" href="#"><span class="glyphicon glyphicon-plus"></span>
+            </a>
+            <ul class="oe_menu_more dropdown-menu" role="menu"/>
+
+        </li>
+    </ul>
 </t>
 <t t-name="UserMenu">
     <ul class="nav navbar-nav navbar-right">
@@ -50,7 +72,7 @@
         </a>
         <!--
         <img class="oe_topbar_avatar img-circle" t-att-data-default-src="_s + '/web/static/src/img/user_menu_avatar.png'"/>-->
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu oe_user_menu_bs3">
             <li><a href="#" data-menu="settings">Preferences</a></li>
             <li><a href="#" data-menu="account">My OpenERP.com account</a></li>
             <li><a href="#" data-menu="about">About OpenERP</a></li>
@@ -63,23 +85,10 @@
     <a t-attf-href="#menu_id=#{menu.id}&amp;action=#{menu.action ? menu.action.split(',')[1] : ''}"
         t-att-class="menu.children.length ? 'oe_menu_toggler' : 'oe_menu_leaf'"
         t-att-data-menu="menu.id"
+        role="menuitem"
         t-att-data-action-model="menu.action ? menu.action.split(',')[0] : ''"
         t-att-data-action-id="menu.action ? menu.action.split(',')[1] : ''">
             <t t-esc="menu.name"/>
     </a>
-</t>
-<t t-name="Menu">
-    <ul class="oe_menu nav navbar-nav" t-if="widget.data">
-        <li t-foreach="widget.data.data.children" t-as="menu">
-            <t t-call="Menu.link"/>
-        </li>
-        <li class="oe_menu_more_container" style="display: none;">
-            <a class="oe_menu_more_link oe_dropdown_toggle" href="#">More <b class="caret"/>
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="oe_menu_more oe_dropdown_menu dropdown-menu"/>
-                </div>
-            </a>
-        </li>
-    </ul>
 </t>
 </templates>
