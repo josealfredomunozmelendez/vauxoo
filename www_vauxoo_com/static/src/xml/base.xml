@@ -96,6 +96,7 @@
         role="menuitem"
         t-att-data-action-model="menu.action ? menu.action.split(',')[0] : ''"
         t-att-data-action-id="menu.action ? menu.action.split(',')[1] : ''">
+            <t t-if="menu.web_icon"> <i t-att-class="menu.web_icon.split(',')[1]"></i> </t>
             <t t-esc="menu.name"/>
     </a>
 </t>
