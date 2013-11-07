@@ -50,30 +50,29 @@ class test_yaml_facturae(osv.osv_memory):
         this = self.browse(cr, uid, ids)[0]
         number_invoices = int(context.get('number_invoice'))
         files_names = []
+
+        #~ TODO: Remplazar todos los xml_ids
+        all_paths = tools.config["addons_path"].split(",")
+        for my_path in all_paths:
+            if os.path.isdir(os.path.join(my_path, u'l10n_mx_facturae_pac_sf', u'demo')):
+                file_original_xml =  open(os.path.join(my_path, u'l10n_mx_facturae_pac_sf', u'demo','account_invoice_cfdi_pac_sf_demo.xml'), "r")
+                file_original_xml_read = file_original_xml.read()
+                file_original_xml.close()
+            if os.path.isdir(os.path.join(my_path, u'l10n_mx_facturae_pac_sf', u'test')):
+                file_original_yml =  open(os.path.join(my_path, u'l10n_mx_facturae_pac_sf', u'test','account_invoice_cfdi_pac_sf.yml'), "r")
+                file_original_yml_read = file_original_yml.read()
+                file_original_yml.close()
+        
         for create_invoice in range(0, number_invoices):
-            #~ Copiar los xml
             file_name_xml = '%s/account_invoice_cfdi_pac_sf_demo_%s.xml' % (tmp_path , str(create_invoice))
-            shutil.copyfile(os.path.join(tools.config["addons_path"], u'l10n_mx_facturae_pac_sf', u'demo','account_invoice_cfdi_pac_sf_demo.xml'), file_name_xml)
-            new_file_xml = open('%s/account_invoice_cfdi_pac_sf_demo_%s.xml' % (tmp_path , str(create_invoice)), "r")
-            new_file_read_xml = new_file_xml.read()
-            new_file_modify_xml = new_file_read_xml.replace('account_invoice_cfdi_pac_sf0','account_invoice_cfdi_pac_sf0_%s' % (str(create_invoice)))
-            new_file_modify_xml = new_file_read_xml.replace('900.0','%s' % (str(901+create_invoice)))
-            new_file_xml.close()
             new_file_xml = open('%s/account_invoice_cfdi_pac_sf_demo_%s.xml' % (tmp_path , str(create_invoice)), "w")
-            new_file_xml.write(new_file_modify_xml)
+            new_file_modify_xml = file_original_xml_read.replace('account_invoice_cfdi_pac_sf0','account_invoice_cfdi_pac_sf0_%s' % (str(create_invoice)))
+            new_file_modify_xml2 = new_file_modify_xml.replace('900.0','%s' % (str(901+create_invoice)))
+            new_file_xml.write(new_file_modify_xml2)
             new_file_xml.close()
-            
-            #~ TODO: Hacer lectura del origen una vez y cuando se crea el write remplazar. Omitir el shutil.copyfile
-            #~ TODO: Mejora de addons_path
-            #~ TODO: Remplazar todos los xml_ids
-            
-            #~ Copiar los yml
+
             file_name_yml = '%s/account_invoice_cfdi_pac_sf_%s.yml' % (tmp_path , str(create_invoice))
-            shutil.copyfile(os.path.join(tools.config["addons_path"], u'l10n_mx_facturae_pac_sf', u'test','account_invoice_cfdi_pac_sf.yml'), file_name_yml)
-            new_file_yml = open('%s/account_invoice_cfdi_pac_sf_%s.yml' % (tmp_path , str(create_invoice)), "r")
-            new_file_read_yml = new_file_yml.read()
-            new_file_modify_yml = new_file_read_yml.replace('account_invoice_cfdi_pac_sf0','account_invoice_cfdi_pac_sf0_%s' % (str(create_invoice)))
-            new_file_yml.close()
+            new_file_modify_yml = file_original_yml_read.replace('account_invoice_cfdi_pac_sf0','account_invoice_cfdi_pac_sf0_%s' % (str(create_invoice)))
             new_file_yml = open('%s/account_invoice_cfdi_pac_sf_%s.yml' % (tmp_path , str(create_invoice)), "w")
             new_file_yml.write(new_file_modify_yml)
             new_file_yml.close()
