@@ -50,6 +50,8 @@ Client Pay (Gain Positive Money Balance) > Client gain access to View to upload
                 ],
     'data': [
         'contpaq_openerp_view.xml',
+        'analytic_view.xml',
+        'analytic_installer.xml',
     ],
     'test': [
         #'test/contact_form.yml',

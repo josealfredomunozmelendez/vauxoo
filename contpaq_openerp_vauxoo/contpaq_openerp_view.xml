@@ -15,7 +15,11 @@
                                 </div>
                                 <div class ="col-md-8">
                                     <label for="name" class="col-md-3 col-sm-4 control-label"/>
-                                    <field name="name" widget="FieldCharBS3" placeholder="YT-dsds777ss....." nolabel="1" required="True"/>
+                                    <div class="form-group">
+                                        <div class="col-md-7 col-sm-8">
+                                            <field name="name" nolabel="1" required="True"/>
+                                        </div>
+                                    </div>
                                     <label for="partner_name" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="partner_name" widget="FieldCharBS3" string="Name" placeholder="Your name..." required="True" nolabel="1"/>
                                     <label for="email_from" class="col-md-3 col-sm-4 control-label"/>
@@ -77,7 +81,67 @@
             </field>
         </record>
 
+        <!-- wizard Contract Expiration message (shows after submitting the form) -->
+        <record id="wizard_contact_form_view_venc" model="ir.ui.view">
+            <field name="name">Wizard Contract Expiration message</field>
+            <field name="model">contpaq_openerp.contpaq_openerp_upload</field>
+            <!-- give it a low priority to ensure this won't be the default view -->
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+                <form string="Contract Expired" version="7.0" class="bs3 bs3-form-bg bs3-footer">
+                <section class="jumbotron bgvauxoo">
+                <div class="form-horizontal mt32">
+                    <div class="container"> 
+                        <div class="row"> 
+                                <div class ="col-md-2">
+                                </div>
+                                <div class ="col-md-8">
+                                    <field name="partner_name" invisible="1"/>
+                                    <label string="Your contract is expired, please contact with our Sales Staff"/>
+                                    <footer>
+                                        <a href="/" class="btn btn-danger btn-lg"><i class="icon-home"></i><span>Go to Home</span></a>
+                                    </footer>
+                                </div>
+                                <div class ="col-md-2">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+                </form>
+            </field>
+        </record>
 
+        <!-- wizard No Contracts message (shows after submitting the form) -->
+        <record id="wizard_contact_form_view_nocontract" model="ir.ui.view">
+            <field name="name">Wizard No Contracts message</field>
+            <field name="model">contpaq_openerp.contpaq_openerp_upload</field>
+            <!-- give it a low priority to ensure this won't be the default view -->
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+                <form string="No Contracts" version="7.0" class="bs3 bs3-form-bg bs3-footer">
+                <section class="jumbotron bgvauxoo">
+                <div class="form-horizontal mt32">
+                    <div class="container"> 
+                        <div class="row"> 
+                                <div class ="col-md-2">
+                                </div>
+                                <div class ="col-md-8">
+                                    <field name="partner_name" invisible="1"/>
+                                    <label string="You don't have any valid contract, please contact with our Sales Staff"/>
+                                    <footer>
+                                        <a href="/" class="btn btn-danger btn-lg"><i class="icon-home"></i><span>Go to Home</span></a>
+                                    </footer>
+                                </div>
+                                <div class ="col-md-2">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+                </form>
+            </field>
+        </record>
 
         <record id="action_contpaq_openerp_upload" model="ir.actions.act_window">
             <field name="name">Load your DataBase</field>
@@ -85,6 +149,7 @@
             <field name="view_mode">form</field>
             <field name="view_id" ref="contact_form_view"/>
             <field name="target">inline</field>
+            <field name="context">{'fromview':True}</field>
         </record>
 
         <!-- attach it to the portal menu -->

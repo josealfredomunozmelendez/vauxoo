@@ -21,16 +21,48 @@
 
 from openerp.osv import osv, fields
 from openerp import SUPERUSER_ID
+from datetime import datetime
 
 class contpaq_openerp_upload(osv.TransientModel):
-    """ Create new leads through the "contact us" form """
+    """ Create new issues through the "contact us" form """
     _name = 'contpaq_openerp.contpaq_openerp_upload'
     _description = 'Contact form for the portal'
-    _inherit = 'crm.lead'
+    _inherit = 'project.issue'
+
+    def _get_domain_contracts(self, cr, uid,context=None):
+        partner = self.pool.get('res.users').read(cr, uid, uid, ['partner_id'],
+                context)['partner_id']
+        cont_ids = self.pool.get('account.analytic.account').search(cr, uid,
+                [('date','!=',False), ('partner_id','=',partner[0])], context=context)
+        result = []
+        if len(cont_ids) > 0:
+            res = self.pool.get('account.analytic.account').read(cr, uid, cont_ids,
+                ['id','vx_contract_code','date_start','date'], context=context)
+            for list in res:
+                name_contract = list['vx_contract_code'] + ' [' + list['date_start']+ ' / ' + \
+                list['date']+ ']' 
+                result.append((list['id'],name_contract))
+        return result 
+
     _columns = {
+        'name':fields.selection(_get_domain_contracts, 'Contract Codes',
+             help="""Contract Codes"""), 
+        'partner_name':fields.char('Name', 255, help='Partner Name'), 
+        'email_from':fields.char('Email', 255, help='Email'), 
+        'phone':fields.char('Phone Number', 255, help='Phone Number'), 
+        'description':fields.text('Description', help='Description'), 
         'process_ids': fields.many2many('process.process', string='Companies', readonly=True),
         'database_file': fields.binary("Select your file", store=False, filters="*.zip,*.tar.gz,*.tar,*.rar"),
     }
+
+    def fields_view_get(self, cr, uid, view_id=None, view_type=False, context=None, toolbar=False,
+            submenu=False):
+        if context.get('fromview') and len(self._get_domain_contracts(cr, uid,context=context)) == 0:
+            mod_obj = self.pool.get('ir.model.data') 
+            model, view_id = mod_obj.get_object_reference(cr, uid, 'contpaq_openerp_vauxoo',
+                'wizard_contact_form_view_nocontract')
+        return super(contpaq_openerp_upload, self).fields_view_get(cr, uid, view_id=view_id,
+                view_type=view_type, context=context, toolbar=toolbar, submenu=submenu)
 
     def _get_process(self, cr, uid, context=None):
         """
@@ -80,45 +112,55 @@ class contpaq_openerp_upload(osv.TransientModel):
     }
 
     def create(self, cr, uid, values, context=None):
-        """
-        Since they are potentially sensitive, we don't want any user to be able
-        to read datas generated through this module.  Therefore we'll write
-        these information directly in the crm.lead table and leave blank
-        entries in the contact table.
-        This is why the create() method is overwritten.
-        """
-        crm_lead = self.pool.get('crm.lead')
-        """
-        Because of the complex inheritance of the crm.lead model and the other
-        models implied (like mail.thread, among others, that performs a read
-        when its create() method is called (in method message_get_subscribers()),
-        it is quite complicated to set proper rights for this object.
-        Therefore, user SUPERUSER_ID will perform the creation.
-        """
-        values['contact_name'] = values['partner_name']
-        lead_id = crm_lead.create(cr, SUPERUSER_ID, dict(values, user_id=False), context=context)
-        partner_id = self.pool.get('res.users').browse(cr, uid, [uid], context=context)[0].partner_id.id
-        att_dict = {'res_model': 'crm.lead',                                                                
-                   'res_id': lead_id,
-                   'name':  values['contact_name'] + '-database',
-                   'type': 'binary',
-                   'user_id': uid,
-                   'datas': values['database_file'],
-                   'partner_id': partner_id }
-        att_id = self.pool.get('ir.attachment').create(cr, SUPERUSER_ID,att_dict, context=context)
-
-        """
-        Create an empty record in the contact table.
-        Since the 'name' field is mandatory, give an empty string to avoid an integrity error.
-        Pass mail_create_nosubscribe key in context because otherwise the inheritance
-        leads to a message_subscribe_user, that triggers access right issues.
-        """
-        empty_values = dict((k, False) if k != 'name' else (k, '') for k, v in values.iteritems())
-        print "empty_values", empty_values
-        return super(contpaq_openerp_upload, self).create(cr, SUPERUSER_ID, empty_values, {'mail_create_nosubscribe': True})
+        sf = ['description','partner_name','email_from','phone','database_file','name']
+        r = True
+        if set(sf).issubset(values.keys()):
+            r = super(contpaq_openerp_upload,self).create(cr,SUPERUSER_ID,values,context=context)
+        else:
+            raise osv.except_osv(('Error'), ("""No Tiene permitido esta operacion"""))
+        return r
 
     def submit(self, cr, uid, ids, context=None):
         """ When the form is submitted, redirect the user to a "Thanks" message """
+        wz_obj = self.read(cr, uid, ids, [], context=context)
+        cont_id = int(wz_obj[0]['name'])
+        descr = wz_obj[0]['description']
+        partner_id = wz_obj[0]['partner_id']
+        contract = self.pool.get('account.analytic.account').read(cr, uid, [cont_id],
+                ['vx_contract_code','date'], context=context)
+        code = contract[0]['vx_contract_code'] 
+        venc = contract[0]['date']
+        proj_id = self.pool.get('project.project').search(cr, SUPERUSER_ID,
+                [('analytic_account_id','=',cont_id)], context=context)
+        issue = {
+            'name': "Mensaje desde el Contrato " + code, 
+            'project_id': proj_id[0],
+            'description': descr, 
+        }
+        now = datetime.now().strftime("%Y-%m-%d")
+        if wz_obj[0]['database_file']:
+            if now > venc:
+                return {
+                    'type': 'ir.actions.act_window',
+                    'view_mode': 'form',
+                    'view_type': 'form',
+                    'res_model': self._name,
+                    'res_id': ids[0],
+                    'view_id': self.pool.get('ir.model.data').get_object_reference(cr, uid,
+                        'contpaq_openerp_vauxoo', 'wizard_contact_form_view_venc')[1],
+                    'target': 'inline',
+                }
+            issue_id = self.pool.get('project.issue').create(cr, SUPERUSER_ID, issue,
+                    context=context)
+            att_dict = {'res_model': 'project.issue',                                                                
+                   'res_id': issue_id,
+                   'name':  code + '-database',
+                   'type': 'binary',
+                   'user_id': uid,
+                   'datas': wz_obj[0]['database_file'],
+                   'partner_id': partner_id }
+            att_id = self.pool.get('ir.attachment').create(cr, SUPERUSER_ID,att_dict,
+                    context=context)
         return {
             'type': 'ir.actions.act_window',
             'view_mode': 'form',
