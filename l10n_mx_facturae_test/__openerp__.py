@@ -38,12 +38,14 @@
 Facturae Test CFDI
 ==================
 
+This wizard execute test yaml of electronic invoice CFDI "N" times. 
+This with finally of make test to the server.
     """,
     "website": "http://vauxoo.com",
     "category": "Addons Vauxoo",
     "data": [
-            'wizard/facturae_test_wizard.xml',
-            ],
+        'wizard/facturae_test_wizard.xml',
+    ],
     "test": [],
     "active": False,
     "installable": True,
