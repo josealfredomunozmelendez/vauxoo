@@ -56,19 +56,82 @@ class contpaq_openerp_upload(osv.TransientModel):
         model_ids = self.search(cr, uid, ['|', ('vat', '=', partner_brw.vat),
                                                ('email_from', '=', partner_brw.email)],
                                 context=context)
+        a = '''
+<head>                                                                                              
+    <body>                                                                                          
+        <div style="position:relative;">                                                            
+            <table style="text-align:center;">                               
+                <tr>                                                                                                                                                                                                                   
+                    <td style="right:12px; position:absolute;">%s(date)</td>                           
+                </tr>                                                                               
+                <tr style="height:100px;">                                                          
+                    <td style="border-top: 30px solid transparent;" >%s(company)</td>                                                            
+                </tr>                                                                               
+                <tr>                                                                                
+                    <td style=" max-width: 30%; word-wrap: break-word; right:12px;                     
+                        position:absolute;">Asunto: Manifestación de Conocimiento y                 
+                        Autorización de entrega de CFDI para que                                    
+                        %s(company), entregue al SAT, copia de                                       
+                        los comprobantes certificados. </td>                                        
+                    </tr>                                                                           
+                <tr style="margin-bottom: 100px;">                                                  
+                    <td style="border-top: 200px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
+                        %s(partner) con registro federal de contribuyentes %s(vat)                  
+                        y con domicilio fiscal en %s(street), CP %s(zip), %s(locality),           
+                        %s(state), %(country); con la finalidad de que la presente sirva como constancia de lo
+                        previsto en la regla I.2.7.2.1 de la Resolución Miscelánea Fiscal en vigor manifiesto que:
+            </td>                                                                                   
+                    </tr>                                                                           
+                <tr >                                                                               
+                    <td style=" border-top: 20px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
+                        1. Haré uso de los servicios de %s(company) para la certificación de        
+                        Comprobantes Fiscales                                                       
+                                                                                                    
+                        Digitales a través de Internet.                                             
+                                                                                                    
+            </td>                                                                                   
+                    </tr>                                                                           
+                <tr >                                                                               
+                    <td style=" border-bottom: 30px solid transparent;border-top: 10px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
+                         2. Tengo conocimiento y autorizo a %s(company) para que entregue al        
+                         Servicio de                                                                
+                                                                                                    
+                         Administración Tributaria, copia de los comprobantes fiscales que haya     
+                         certificado a mí                                                           
+                                                                                                    
+                         persona en dicho servicio.                                                 
+            </td>                                                                                   
+                    </tr>                                                                           
+            </table>                                                                                
+        </div>                                                                                      
+    </body>                                                                                         
+</head>      
+
+
+        '''
+        res.update({'term_conditions':a})
         
        # if model_ids:
        #     raise osv.except_osv(('Error'), ("""You have a server created"""))
        #     return self.read(cr, uid, model_ids[0], [], context=context)
             
         return res
+
     
     _columns = {
 
         'name':fields.selection(_get_domain_contracts, 'Contract Codes',
                                 help="""Contract Codes"""), 
         'company_name':fields.char('Name', 255, help='Company Name'), 
+        'accept':fields.boolean('I accept the terms and conditions',
+                                help='Select if you accept the terms and conditions to continue '
+                                     'the register'), 
+        
         'vat':fields.char('RFC', 32, help='Your Company RFC to do commercial operation'), 
+        'term_conditions':fields.html("Terms and Conditions", help="You need agree with the terms "
+                                                                   "and condition to continue "
+                                                                   "with the register for create "
+                                                                   "your test instance"),
         'zip':fields.char('ZIP', 24, help='ZIP code for your city'), 
         'email_from':fields.char('Email', 255, help='Email to receive information'), 
         'phone':fields.char('Phone Number', 255, help='Phone Number'), 
@@ -210,7 +273,6 @@ class contpaq_openerp_upload(osv.TransientModel):
     def create(self, cr, uid, values, context=None):
         sf =  ['city', 'name', 'zip', 'locality', 'country_id', 'phone', 'street', 'company_name',
               'state_id', 'email_from', 'vat']
-        print 'values', values.keys()
         r = True
         if set(sf).issubset(values.keys()):
             r = super(contpaq_openerp_upload,self).create(cr,SUPERUSER_ID,values,context=context)

@@ -70,79 +70,7 @@
                                                </div>
                                             <div class="form-group">
                                                 <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
-                                                    <button string="Submit2" name="submit2" type="object" 
-                                                            class="btn btn-danger btn-lg"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        </section>
-                        </form>
-                    </field>
-                </record>
-        <record id="instance_create_form_view" model="ir.ui.view">
-                    <field name="name">Contact form</field>
-                    <field name="model">create.instance.openerp</field>
-                    <field name="arch" type="xml">
-                        <form string="Contact form" version="7.0" class="bs3 bs3-form-bg bs3-footer">
-                        <section class="bgvauxoo">
-                        <div class="form-horizontal mt32">
-                            <div class="container"> 
-                                <h1><i class="icon-info-sign"></i><span>Data Register</span></h1>
-                                    <div class="row"> 
-                                        <div class ="col-md-2">
-                                        </div>
-                                        <div class ="col-md-8">
-                                            <label for="name" class="col-md-3 col-sm-4 control-label"/>
-                                            <div class="form-group">
-                                                <div class="col-md-7 col-sm-8">
-                                                    <field name="name" nolabel="1" required="True"/>
-                                                </div>
-                                            </div>
-                                            <label for="company_name" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="company_name" widget="FieldCharBS3" string="Name" placeholder="Your name..." required="True" nolabel="1"/>
-                                            <label for="vat" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="vat"
-                                                   widget="FieldEmailBS3"
-                                                   placeholder="e.g. MXABC131106T1B"
-                                                   required="True"
-                                                   nolabel="1"/>
-                                            <label for="email_from" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="email_from"
-                                                   widget="FieldEmailBS3"
-                                                   placeholder="Your email..."
-                                                   required="True"
-                                                   nolabel="1"/>
-                                            <label for="phone" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="phone"
-                                                   widget="FieldCharBS3"
-                                                   placeholder="Your phone number..."
-                                                   nolabel="1"/>
-                                            <label for="country_id" class="col-md-3 col-sm-4 control-label"/>
-                                            <div class="form-group ">
-                                            <div class="col-md-7 col-sm-8">
-                                                <field name="country_id" placeholder="Your country..." nolabel="1" required="True"/>
-                                            </div>
-                                            </div>
-                                                <label for="state_id" class="col-md-3 col-sm-4 control-label"/>
-                                            <div class="form-group">
-                                            <div class="col-md-7 col-sm-8">
-                                                <field name="state_id" domai="[('country_id', '=', country_id)]" placeholder="Your State..." nolabel="1" required="True"/>
-                                            </div>
-                                            </div>
-                                            <label for="street" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="street" widget="FieldCharBS3" placeholder="Your Street..." nolabel="1" required="True"/>
-                                            <label for="city" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="city" widget="FieldCharBS3" placeholder="Your city..." nolabel="1" required="True"/>
-                                            <label for="locality" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="locality" widget="FieldCharBS3" placeholder="Your Locality..." nolabel="1" required="True"/>
-                                            <label for="zip" class="col-md-3 col-sm-4 control-label"/>
-                                            <field name="zip" widget="FieldCharBS3" placeholder="Your ZIP Code..." nolabel="1" required="True"/>
-                                            <div class="form-group">
-                                                <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
-                                                    <button string="Submit" name="submit" type="object" 
+                                                    <button string="Submit" name="submit2" type="object" 
                                                             class="btn btn-danger btn-lg"/>
                                                 </div>
                                             </div>
@@ -248,7 +176,7 @@
                                     <field name="zip" widget="FieldCharBS3" placeholder="Your ZIP Code..." nolabel="1" required="True"/>
                                     <div class="form-group">
                                         <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
-                                            <button string="Submit2" name="submit2" type="object" 
+                                            <button string="Submit" name="submit2" type="object" 
                                                     class="btn btn-danger btn-lg"/>
                                         </div>
                                     </div>
@@ -318,10 +246,30 @@
                                     <field name="locality" widget="FieldCharBS3" placeholder="Your Locality..." nolabel="1" required="True"/>
                                     <label for="zip" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="zip" widget="FieldCharBS3" placeholder="Your ZIP Code..." nolabel="1" required="True"/>
-                                    <div class="form-group">
-                                        <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
-                                            <button string="Submit" name="submit" type="object" 
-                                                    class="btn btn-danger btn-lg"/>
+                                            <label for="term_conditions" class="col-md-3 col-sm-4 control-label"/>
+                                            <div class="panel-group col-md-8 col-sm-4" id="accordion">
+                                              <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                  <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                      Terms and Conditions
+                                                    </a>
+                                                  </h4>
+                                                </div>
+                                                <div id="collapseOne" class="panel-collapse collapse in">
+                                                  <div class="panel-body">
+                                                        <field name="term_conditions" readonly="1"  nolabel="1" />
+                                                        <label for="accept" />
+                                                        <field name="accept" />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-6">
+                                                <button string="Submit" name="submit" type="object" 
+                                                        class="btn btn-danger btn-lg"/>
                                         </div>
                                     </div>
                                 </div>

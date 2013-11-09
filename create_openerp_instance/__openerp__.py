@@ -57,7 +57,7 @@ Client Pay (Gain Positive Money Balance) > Client gain access to View to upload
     ],
     'installable': True,
     'auto_install': False,
-    'css': [],
+    'css': ['static/src/css/style.css', ],
     'js': [],
     'qweb': [], 
 }
