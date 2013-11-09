@@ -24,6 +24,7 @@ from openerp import SUPERUSER_ID
 from datetime import datetime
 import re
 from openerp.tools.translate import _
+import time
 
 class contpaq_openerp_upload(osv.TransientModel):
     """ Create new issues through the "contact us" form """
@@ -52,6 +53,17 @@ class contpaq_openerp_upload(osv.TransientModel):
         context = context or {}
         res = super(contpaq_openerp_upload, self).default_get(cr, uid, fields, context=context)
         user_brw = self.pool.get('res.users').browse(cr, uid, uid, context=context)
+        admin_brw = self.pool.get('res.users').browse(cr, uid, SUPERUSER_ID, context=context)
+        country_name = ''
+        if res.get('country_id', False):
+            country_name = self.pool.get('res.country').browse(cr, uid, res.get('country_id'),
+                                                              context=context).name
+        state_name = ''
+        if res.get('state_id', False):
+            state_name = self.pool.get('res.country.state').browse(cr, uid, res.get('state_id'),
+                                                              context=context).name
+            
+            
         partner_brw = user_brw.partner_id
         model_ids = self.search(cr, uid, ['|', ('vat', '=', partner_brw.vat),
                                                ('email_from', '=', partner_brw.email)],
@@ -62,38 +74,37 @@ class contpaq_openerp_upload(osv.TransientModel):
         <div style="position:relative;">                                                            
             <table style="text-align:center;">                               
                 <tr>                                                                                                                                                                                                                   
-                    <td style="right:12px; position:absolute;">%s(date)</td>                           
+            <td style="right:12px; position:absolute;">'''+time.strftime('%d-%m-%Y')+'''</td>                           
                 </tr>                                                                               
                 <tr style="height:100px;">                                                          
-                    <td style="border-top: 30px solid transparent;" >%s(company)</td>                                                            
+        <td style="border-top: 30px solid transparent;" >'''+admin_brw.company_id.name+'''</td>                                                            
                 </tr>                                                                               
                 <tr>                                                                                
-                    <td style=" max-width: 30%; word-wrap: break-word; right:12px;                     
-                        position:absolute;">Asunto: Manifestación de Conocimiento y                 
+                    <td style="text-align:center; max-width: 100%; word-wrap: break-word; 
+                        ">Asunto: Manifestación de Conocimiento y                 
                         Autorización de entrega de CFDI para que                                    
-                        %s(company), entregue al SAT, copia de                                       
+                        '''+admin_brw.company_id.name+''', entregue al SAT, copia de                                       
                         los comprobantes certificados. </td>                                        
                     </tr>                                                                           
                 <tr style="margin-bottom: 100px;">                                                  
-                    <td style="border-top: 200px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                        %s(partner) con registro federal de contribuyentes %s(vat)                  
-                        y con domicilio fiscal en %s(street), CP %s(zip), %s(locality),           
-                        %s(state), %(country); con la finalidad de que la presente sirva como constancia de lo
+                    <td style="border-top: 80px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
+                       '''+res.get('company_name', '')+''' con registro federal de contribuyentes
+                       '''+res.get('vat', '')+''' y con domicilio fiscal en '''+res.get('street',
+                               '')+'''
+                   , CP '''+res.get('zip', '')+', '+res.get('locality', '')+ ', '+state_name+''', 
+                   '''+country_name+''', con la finalidad de que la presente sirva como constancia de lo
                         previsto en la regla I.2.7.2.1 de la Resolución Miscelánea Fiscal en vigor manifiesto que:
             </td>                                                                                   
                     </tr>                                                                           
                 <tr >                                                                               
                     <td style=" border-top: 20px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                        1. Haré uso de los servicios de %s(company) para la certificación de        
-                        Comprobantes Fiscales                                                       
-                                                                                                    
-                        Digitales a través de Internet.                                             
-                                                                                                    
+                        1. Haré uso de los servicios de '''+admin_brw.company_id.name+'''
+                        para la certificación de Comprobantes Fiscales Digitales a través de Internet.                                             
             </td>                                                                                   
                     </tr>                                                                           
                 <tr >                                                                               
                     <td style=" border-bottom: 30px solid transparent;border-top: 10px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                         2. Tengo conocimiento y autorizo a %s(company) para que entregue al        
+                         2. Tengo conocimiento y autorizo a '''+admin_brw.company_id.name+''' para que entregue al        
                          Servicio de                                                                
                                                                                                     
                          Administración Tributaria, copia de los comprobantes fiscales que haya     
@@ -106,9 +117,8 @@ class contpaq_openerp_upload(osv.TransientModel):
         </div>                                                                                      
     </body>                                                                                         
 </head>      
+'''
 
-
-        '''
         res.update({'term_conditions':a})
         
        # if model_ids:
@@ -382,3 +392,75 @@ class contpaq_openerp_upload(osv.TransientModel):
 
         return res
         
+    def onchange_fill_terms(self, cr, uid, ids, company_name, vat, country, state, street,
+                            city, locality, zip, context=None):
+        context = context or {}
+        company_name = company_name or ''
+        vat = vat or ''
+        street = street or ''
+        city = city or ''
+        locality = locality or ''
+        zip = zip or ''
+        admin_brw = self.pool.get('res.users').browse(cr, uid, SUPERUSER_ID, context=context)
+        country_name = ''
+        if country:
+            country_name = self.pool.get('res.country').browse(cr, uid, country,
+                                                              context=context).name
+        state_name = ''
+        if state:
+            state_name = self.pool.get('res.country.state').browse(cr, uid, state,
+                                                              context=context).name
+            
+        a = '''
+<head>                                                                                              
+    <body>                                                                                          
+        <div style="position:relative;">                                                            
+            <table style="text-align:center;">                               
+                <tr>                                                                                                                                                                                                                   
+            <td style="right:12px; position:absolute;">'''+time.strftime('%d-%m-%Y')+'''</td>                           
+                </tr>                                                                               
+                <tr style="height:100px;">                                                          
+        <td style="border-top: 30px solid transparent;" >'''+admin_brw.company_id.name+'''</td>                                                            
+                </tr>                                                                               
+                <tr>                                                                                
+                    <td style="text-align:center; max-width: 100%; word-wrap: break-word;                     
+                        position:absolute;">Asunto: Manifestación de Conocimiento y                 
+                        Autorización de entrega de CFDI para que                                    
+                        '''+admin_brw.company_id.name+''', entregue al SAT, copia de                                       
+                        los comprobantes certificados. </td>                                        
+                    </tr>                                                                           
+                <tr style="margin-bottom: 100px;">                                                  
+                    <td style="border-top: 80px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
+                       '''+company_name+''' con registro federal de contribuyentes
+                       '''+vat +''' y con domicilio fiscal en '''+street+'''
+                   , CP '''+zip+', '+locality + ', '+state_name+''', 
+                   '''+country_name+''', con la finalidad de que la presente sirva como constancia de lo
+                        previsto en la regla I.2.7.2.1 de la Resolución Miscelánea Fiscal en vigor manifiesto que:
+            </td>                                                                                   
+                    </tr>                                                                           
+                <tr >                                                                               
+                    <td style=" border-top: 20px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
+                        1. Haré uso de los servicios de '''+admin_brw.company_id.name+'''
+                        para la certificación de Comprobantes Fiscales Digitales a través de Internet.                                             
+            </td>                                                                                   
+                    </tr>                                                                           
+                <tr >                                                                               
+                    <td style=" border-bottom: 30px solid transparent;border-top: 10px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
+                         2. Tengo conocimiento y autorizo a '''+admin_brw.company_id.name+''' para que entregue al        
+                         Servicio de                                                                
+                                                                                                    
+                         Administración Tributaria, copia de los comprobantes fiscales que haya     
+                         certificado a mí                                                           
+                                                                                                    
+                         persona en dicho servicio.                                                 
+            </td>                                                                                   
+                    </tr>                                                                           
+            </table>                                                                                
+        </div>                                                                                      
+    </body>                                                                                         
+</head>      
+'''
+        res = {'value':{'term_conditions':a}}
+    
+        return res
+    

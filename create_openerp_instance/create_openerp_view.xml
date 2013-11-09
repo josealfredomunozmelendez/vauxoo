@@ -207,13 +207,19 @@
                                             <field name="name" nolabel="1" required="True"/>
                                         </div>
                                     </div>
-                                    <label for="company_name" class="col-md-3 col-sm-4 control-label"/>
-                                    <field name="company_name" widget="FieldCharBS3" string="Name" placeholder="Your name..." required="True" nolabel="1"/>
+                                    <label for="company_name" string="Company Name" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="company_name"
+                                           widget="FieldCharBS3" 
+                                           string="Name" 
+                                           on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                           placeholder="Your Company name..." 
+                                           required="True" nolabel="1"/>
                                     <label for="vat" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="vat"
                                            widget="FieldEmailBS3"
                                            placeholder="e.g. MXABC131106T1B"
                                            required="True"
+                                           on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
                                            nolabel="1"/>
                                     <label for="email_from" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="email_from"
@@ -229,23 +235,52 @@
                                     <label for="country_id" class="col-md-3 col-sm-4 control-label"/>
                                     <div class="form-group ">
                                     <div class="col-md-7 col-sm-8">
-                                        <field name="country_id" placeholder="Your country..." nolabel="1" required="True"/>
+                                        <field name="country_id"
+                                               placeholder="Your country..."
+                                               nolabel="1" 
+                                               on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                               required="True"/>
                                     </div>
                                     </div>
                                         <label for="state_id" class="col-md-3 col-sm-4 control-label"/>
                                     <div class="form-group">
                                     <div class="col-md-7 col-sm-8">
-                                        <field name="state_id" domai="[('country_id', '=', country_id)]" placeholder="Your State..." nolabel="1" required="True"/>
+                                        <field name="state_id"
+                                               domai="[('country_id', '=', country_id)]"
+                                               placeholder="Your State..."
+                                               on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                               nolabel="1"
+                                               required="True"/>
                                     </div>
                                     </div>
                                     <label for="street" class="col-md-3 col-sm-4 control-label"/>
-                                    <field name="street" widget="FieldCharBS3" placeholder="Your Street..." nolabel="1" required="True"/>
+                                    <field name="street"
+                                           widget="FieldCharBS3" 
+                                           placeholder="Your Street..." 
+                                           nolabel="1" 
+                                           on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                           required="True"/>
                                     <label for="city" class="col-md-3 col-sm-4 control-label"/>
-                                    <field name="city" widget="FieldCharBS3" placeholder="Your city..." nolabel="1" required="True"/>
+                                    <field name="city" 
+                                           widget="FieldCharBS3" 
+                                           placeholder="Your city..." 
+                                           nolabel="1" 
+                                           on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                           required="True"/>
                                     <label for="locality" class="col-md-3 col-sm-4 control-label"/>
-                                    <field name="locality" widget="FieldCharBS3" placeholder="Your Locality..." nolabel="1" required="True"/>
+                                    <field name="locality" 
+                                           widget="FieldCharBS3" 
+                                           placeholder="Your Locality..." 
+                                           nolabel="1" 
+                                           on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                           required="True"/>
                                     <label for="zip" class="col-md-3 col-sm-4 control-label"/>
-                                    <field name="zip" widget="FieldCharBS3" placeholder="Your ZIP Code..." nolabel="1" required="True"/>
+                                    <field name="zip" 
+                                           widget="FieldCharBS3" 
+                                           placeholder="Your ZIP Code..." 
+                                           on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                           nolabel="1" 
+                                           required="True"/>
                                             <label for="term_conditions" class="col-md-3 col-sm-4 control-label"/>
                                             <div class="panel-group col-md-8 col-sm-4" id="accordion">
                                               <div class="panel panel-default">
@@ -256,7 +291,7 @@
                                                     </a>
                                                   </h4>
                                                 </div>
-                                                <div id="collapseOne" class="panel-collapse collapse in">
+                                                <div id="collapseOne" class="panel-collapse collapse">
                                                   <div class="panel-body">
                                                         <field name="term_conditions" readonly="1"  nolabel="1" />
                                                         <label for="accept" />
