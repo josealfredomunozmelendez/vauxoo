@@ -348,7 +348,11 @@ class contpaq_openerp_upload(osv.TransientModel):
         """ When the form is submitted, redirect the user to a "Thanks" message """
         wz_obj = self.browse(cr, uid, ids[0], context=context)
         if not re.match("[^@]+@[^@]+\.[^@]+", wz_obj.email_from):
-            raise osv.except_osv(('Error'), ("""You need a valid email account"""))
+            raise osv.except_osv(_('Error'), _("""You need a valid email account"""))
+
+        elif not wz_obj.accept:
+            raise osv.except_osv(_('Error'),
+                                 _("You need accept the terms and conditions to continue"))
 
         else:
             self.send_emails(cr, uid, uid, wz_obj.id, wz_obj.email_from, context)
