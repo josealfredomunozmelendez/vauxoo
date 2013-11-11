@@ -38,8 +38,6 @@ class contpaq_openerp_upload(osv.TransientModel):
         cont_ids = self.pool.get('account.analytic.account').search(cr, uid,
                 [('date','!=',False), ('partner_id','=',partner[0])], context=context)
         result = []
-        print 'partner',partner
-        print 'cont_ids',cont_ids
         if len(cont_ids) > 0:
             res = self.pool.get('account.analytic.account').read(cr, uid, cont_ids,
                 ['id','vx_contract_code','date_start','date'], context=context)
@@ -68,7 +66,8 @@ class contpaq_openerp_upload(osv.TransientModel):
         model_ids = self.search(cr, uid, ['|', ('vat', '=', partner_brw.vat),
                                                ('email_from', '=', partner_brw.email)],
                                 context=context)
-        a = '''
+        if context.get('fromview', False):
+            a = '''
 <head>                                                                                              
     <body>                                                                                          
         <div style="position:relative;">                                                            
@@ -119,7 +118,7 @@ class contpaq_openerp_upload(osv.TransientModel):
 </head>      
 '''
 
-        res.update({'term_conditions':a})
+            res.update({'term_conditions':a})
         
        # if model_ids:
        #     raise osv.except_osv(('Error'), ("""You have a server created"""))
@@ -284,6 +283,8 @@ class contpaq_openerp_upload(osv.TransientModel):
         sf =  ['city', 'name', 'zip', 'locality', 'country_id', 'phone', 'street', 'company_name',
               'state_id', 'email_from', 'vat']
         r = True
+        print 'values', values
+        print 'context', context
         if set(sf).issubset(values.keys()):
             r = super(contpaq_openerp_upload,self).create(cr,SUPERUSER_ID,values,context=context)
         else:

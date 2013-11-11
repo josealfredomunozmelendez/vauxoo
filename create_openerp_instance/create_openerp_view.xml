@@ -174,6 +174,25 @@
                                            />
                                     <label for="zip" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="zip" widget="FieldCharBS3" placeholder="Your ZIP Code..." nolabel="1" required="True"/>
+                                    <label for="term_conditions" class="col-md-3 col-sm-4 control-label"/>
+                                    <div class="panel-group col-md-8 col-sm-4" id="accordion">
+                                      <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                              Terms and Conditions
+                                            </a>
+                                          </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                                <field name="term_conditions" readonly="1"  nolabel="1" />
+                                                <label for="accept" />
+                                                <field name="accept" />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
                                             <button string="Submit" name="submit2" type="object" 
@@ -204,7 +223,10 @@
                                     <label for="name" class="col-md-3 col-sm-4 control-label"/>
                                     <div class="form-group">
                                         <div class="col-md-7 col-sm-8">
-                                            <field name="name" nolabel="1" required="True"/>
+                                            <field name="name"
+                                                   nolabel="1"
+                                                   on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                                   required="True"/>
                                         </div>
                                     </div>
                                     <label for="company_name" string="Company Name" class="col-md-3 col-sm-4 control-label"/>
@@ -276,6 +298,7 @@
                                            required="True"/>
                                     <label for="zip" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="zip" 
+                                           context="{'term_conditions':term_conditions}"
                                            widget="FieldCharBS3" 
                                            placeholder="Your ZIP Code..." 
                                            on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
@@ -293,9 +316,15 @@
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse">
                                                   <div class="panel-body">
-                                                        <field name="term_conditions" readonly="1"  nolabel="1" />
+                                                      <field name="term_conditions"
+                                                             widget='html_readonly'
+                                                             context="{'term_conditions':term_conditions}"
+                                                             nolabel="1" />
                                                         <label for="accept" />
-                                                        <field name="accept" />
+                                                        <field name="accept" 
+                                                               on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                                            />
+
                                                   </div>
                                                 </div>
                                               </div>
@@ -303,7 +332,10 @@
 
                                         <div class="form-group">
                                             <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-6">
-                                                <button string="Submit" name="submit" type="object" 
+                                                <button string="Submit"
+                                                        name="submit"
+                                                        type="object"
+                                                        context="{'term_conditions':term_conditions}"
                                                         class="btn btn-danger btn-lg"/>
                                         </div>
                                     </div>

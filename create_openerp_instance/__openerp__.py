@@ -58,7 +58,7 @@ Client Pay (Gain Positive Money Balance) > Client gain access to View to upload
     'installable': True,
     'auto_install': False,
     'css': ['static/src/css/style.css', ],
-    'js': [],
+    'js': ['static/src/js/smart.js'],
     'qweb': [], 
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
