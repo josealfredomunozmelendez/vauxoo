@@ -210,6 +210,7 @@
 <record id="instance_create_form_view" model="ir.ui.view">
             <field name="name">Contact form</field>
             <field name="model">create.instance.openerp</field>
+            <field name="priority">200</field>
             <field name="arch" type="xml">
                 <form string="Contact form" version="7.0" class="bs3 bs3-form-bg bs3-footer">
                 <section class="bgvauxoo">
