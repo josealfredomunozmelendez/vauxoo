@@ -5,15 +5,11 @@ var QWeb = instance.web.qweb;
 
 instance.web.form.FieldTextHtmlReadonly = instance.web.form.FieldTextHtml.extend({                                   
     render_value: function() {                                                                          
-        if (! this.get("effective_readonly")) {                                                         
-            this.$textarea.val(this.get('value') || '');                                                
-            this._updating_editor = true;                                                               
-            this.$cleditor.updateFrame();                                                               
-            this._updating_editor = false;                                                              
-            this.$el.html(this.get('value'));                                                           
-        } else {                                                                                        
-            this.$el.html(this.get('value'));                                                           
-        }                                                                                               
+        this.$textarea.val(this.get('value') || '');                                                
+        this._updating_editor = true;                                                               
+        this.$cleditor.updateFrame();                                                               
+        this._updating_editor = false;                                                              
+        this.$el.html(this.get('value'));                                                           
     }, 
 
 });
