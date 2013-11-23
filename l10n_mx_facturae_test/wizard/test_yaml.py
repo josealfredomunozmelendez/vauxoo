@@ -56,6 +56,9 @@ class test_yaml_facturae(osv.osv_memory):
         this = self.browse(cr, uid, ids)[0]
         number_invoices = int(context.get('number_invoice'))
         files_names = []
+        commit_value = False
+        if this.test_commit:
+            commit_value = True
 
         #~ TODO: Remplazar todos los xml_ids
         all_paths = tools.config["addons_path"].split(",")
@@ -95,30 +98,35 @@ class test_yaml_facturae(osv.osv_memory):
             files_names.append([file_name_xml, file_name_yml])
 
         for file_name_xml, file_name_yml in files_names:
-            args = (cr, uid, ids, file_name_xml, file_name_yml)
+            args = (cr, uid, ids, file_name_xml, file_name_yml,commit_value)
             t = threading.Thread(target=self.execute_test_yaml, name=(
-                'test_facturae' + file_name_yml), args = args)
+                'threading_test_facturae: ' + file_name_yml), args = args)
             t.daemon = False
             t.start()
-
         return True
 
-    def execute_test_yaml(self, cr_original, uid, ids, file_name_xml, file_name_yml):
+    def execute_test_yaml(self, cr_original, uid, ids, file_name_xml, file_name_yml,commit_value):
         assertion_obj = assertion_report.assertion_report()
-        fp_data = tools.file_open(os.path.join(file_name_xml))
-        fp_test = tools.file_open(os.path.join(file_name_yml))
-        cr = pooler.get_db(cr_original.dbname).cursor()
+        cr = None
+        fp_data = None
+        fp_test = None
         try:
-            cr.execute("SAVEPOINT test_yaml_facturae")
+            cr = pooler.get_db(cr_original.dbname).cursor()
+            fp_data = tools.file_open(os.path.join(file_name_xml))
+            fp_test = tools.file_open(os.path.join(file_name_yml))
+            #~ cr.execute("SAVEPOINT test_yaml_facturae")
+            #~ import pdb;pdb.set_trace()
             tools.convert_xml_import(
-                cr, 'l10n_mx_facturae_pac_sf', fp_data, {}, 'init', False, assertion_obj)
+                cr, 'l10n_mx_facturae_pac_sf', fp_data, None, 'init', False, assertion_obj)
+            #~ import pdb;pdb.set_trace()
             tools.convert_yaml_import(
-                cr, 'l10n_mx_facturae_pac_sf', fp_test, 'test', {}, 'init', False, assertion_obj)
+                cr, 'l10n_mx_facturae_pac_sf', fp_test, 'test' , None, 'init' , False, assertion_obj)
         finally:
+            #~ cr.execute("ROLLBACK TO test_yaml_facturae")
             #~ cr.execute("RELEASE SAVEPOINT test_yaml_facturae")
-            cr.execute("ROLLBACK TO test_yaml_facturae")
-            cr.commit()
+            cr.rollback()
+            #~ cr.commit()
             cr.close()
-        fp_data.close()
-        fp_test.close()
+            fp_data.close()
+            fp_test.close()
         return True
