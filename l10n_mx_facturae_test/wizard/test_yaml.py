@@ -96,11 +96,14 @@ class test_yaml_facturae(osv.osv_memory):
             new_file_yml.close()
 
             files_names.append([file_name_xml, file_name_yml])
-
+        
+        threading_list = []
         for file_name_xml, file_name_yml in files_names:
             args = (cr, uid, ids, file_name_xml, file_name_yml,commit_value)
             t = threading.Thread(target=self.execute_test_yaml, name=(
                 'threading_test_facturae: ' + file_name_yml), args = args)
+            threading_list.append( t )
+        for t in threading_list:
             t.daemon = False
             t.start()
         return True
@@ -110,6 +113,7 @@ class test_yaml_facturae(osv.osv_memory):
         cr = None
         fp_data = None
         fp_test = None
+        #process_name = os.path.splitext( os.path.basename( file_name_xml ) )[0]#unique file name then unique process name
         try:
             cr = False
             cr = pooler.get_db(cr_original.dbname).cursor()#Create a new cursor for close it when is necessary
