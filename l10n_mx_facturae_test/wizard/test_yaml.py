@@ -111,22 +111,21 @@ class test_yaml_facturae(osv.osv_memory):
         fp_data = None
         fp_test = None
         try:
-            cr = pooler.get_db(cr_original.dbname).cursor()
+            cr = False
+            cr = pooler.get_db(cr_original.dbname).cursor()#Create a new cursor for close it when is necessary
             fp_data = tools.file_open(os.path.join(file_name_xml))
             fp_test = tools.file_open(os.path.join(file_name_yml))
-            #~ cr.execute("SAVEPOINT test_yaml_facturae")
-            #~ import pdb;pdb.set_trace()
             tools.convert_xml_import(
                 cr, 'l10n_mx_facturae_pac_sf', fp_data, None, 'init', False, assertion_obj)
-            #~ import pdb;pdb.set_trace()
             tools.convert_yaml_import(
                 cr, 'l10n_mx_facturae_pac_sf', fp_test, 'test' , None, 'init' , False, assertion_obj)
         finally:
-            #~ cr.execute("ROLLBACK TO test_yaml_facturae")
-            #~ cr.execute("RELEASE SAVEPOINT test_yaml_facturae")
-            cr.rollback()
-            #~ cr.commit()
-            cr.close()
-            fp_data.close()
-            fp_test.close()
+            if cr:
+                cr.rollback()
+                self.pool.get('ir.model.data').clear_caches()#This is necessary, for clean xml_id_ref var
+                cr.close()
+            if fp_data:
+                fp_data.close()
+            if fp_test:
+                fp_test.close()
         return True
