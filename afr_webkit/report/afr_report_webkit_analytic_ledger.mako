@@ -50,9 +50,11 @@
         <tr>
             <td class="celdaTituloTabla" style="text-align:left;" width="10%">${_('DATE')}</td>
             <td class="celdaTituloTabla" width="10%">${_('PERIOD')}</td>
-            <td class="celdaTituloTabla" width="30%">${_('REFERENCE')}</td>
-            <td class="celdaTituloTabla" width="30%">${_('JOURNAL ENTRY')}</td>
+            <td class="celdaTituloTabla" width="20%">${_('REFERENCE')}</td>
+            <td class="celdaTituloTabla" width="20%">${_('JOURNAL ENTRY')}</td>
             <td class="celdaTituloTabla" width="10%">${_('PARTNER')}</td>
+            <td class="celdaTituloTabla" width="10%" ></td>
+            <td class="celdaTituloTabla" width="10%" ></td>
             <td class="celdaTituloTabla" width="10%" ></td>
         </tr>
     </thead>
@@ -74,12 +76,12 @@
             %if line['type']!= 'view':   
                 <tbody>     
                     <tr>
-                        <td class="celdaLineDataTotal" style="text-align:right;font-style:italic;" width="10%">${line['code'] or ''}</td>
+                        <td class="celdaLineDataTotal" style="text-align:right;font-style:italic;" width="10%">${line['label'] == True and line['code'] or ''}</td>
                         <td class="celdaLineDataNameTotal" colspan="5">${line['name'].upper() or line['name'].title() or ''}</td>
-                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${formatLang(line['balanceinit'] and line['balanceinit'] * line.get('change_sign',1.0) or 0.0, digits=2, grouping=True)  or ''}</td>
-                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${formatLang(line['debit'], digits=2, grouping=True) or ''}</td>
-                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${formatLang(line['credit'], digits=2, grouping=True) or ''}</td>
-                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${formatLang(line['balance'] and line['balance'] * line.get('change_sign',1.0) or 0.0, digits=2, grouping=True) or ''}</td>
+                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${(line['total']==True) and formatLang(line['balanceinit'] and line['balanceinit'] * line.get('change_sign',1.0) or 0.0, digits=2, grouping=True)  or ''}</td>
+                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${(line['total']==True) and formatLang(line['debit'], digits=2, grouping=True) or ''}</td>
+                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${(line['total']==True) and formatLang(line['credit'], digits=2, grouping=True) or ''}</td>
+                        <td class="celdaLineDataTotal" width="10%" style="text-align:right;">${(line['total']==True) and formatLang(line['balance'] and line['balance'] * line.get('change_sign',1.0) or 0.0, digits=2, grouping=True) or ''}</td>
                     </tr>
                 </tbody>
                 %for m in line['mayor']:
@@ -87,10 +89,12 @@
                         <tr>
                             <td class="celdaLineData" style="text-align:left;font-style:italic;" width="10%">${formatLang( m['date'], date=True) or ''}</td>
                             <td class="celdaLineData" style="text-align:left;" width="10%">${m['period'] or ''}</td>
-                            <td class="celdaLineDataNamePartner" colspan="3">${m['name'] or ''} ${m['ref'] and (' - Ref %s'%m['ref']) or ''}</td>
-                            <td class="celdaLineDataNamePartner" colspan="3">${m['entry'] or ''}</td>
+                            <td class="celdaLineDataNamePartner" colspan="2">${m['name'] or ''} ${m['ref'] and (' - Ref %s'%m['ref']) or ''}</td>
+                            <td class="celdaLineDataNamePartner" colspan="2">${m['entry'] or ''}</td>
                             <td class="celdaLineDataNamePartner" width="10%">${m['partner']  or ''}</td>
-                            <td class="celdaLineData" width="10%"></td>
+                            <td class="celdaLineDataNamePartner" width="10%">${(line['total']==True) and formatLang(m['debit'], digits=2, grouping=True) or ''}</td>
+                            <td class="celdaLineDataNamePartner" width="10%">${(line['total']==True) and formatLang(m['credit'], digits=2, grouping=True) or ''}</td>
+                            <td class="celdaLineDataNamePartner" width="10%">${(line['total']==True) and formatLang(m['balance'] and m['balance'] * line.get('change_sign',1.0) or 0.0, digits=2, grouping=True) or ''}</td>
                         </tr>
                     </tbody>
                 %endfor
