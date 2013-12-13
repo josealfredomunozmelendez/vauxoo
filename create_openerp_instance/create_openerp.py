@@ -283,8 +283,6 @@ class contpaq_openerp_upload(osv.TransientModel):
         sf =  ['city', 'name', 'zip', 'locality', 'country_id', 'phone', 'street', 'company_name',
               'state_id', 'email_from', 'vat']
         r = True
-        print 'values', values
-        print 'context', context
         if set(sf).issubset(values.keys()):
             r = super(contpaq_openerp_upload,self).create(cr,SUPERUSER_ID,values,context=context)
         else:
