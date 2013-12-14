@@ -33,6 +33,8 @@ class contpaq_openerp_upload(osv.TransientModel):
 
 
     def _get_domain_contracts(self, cr, uid,context=None):
+        context = context or {}
+        uid = context.get('uid', False) or uid
         partner = self.pool.get('res.users').read(cr, uid, uid, ['partner_id'],
                 context)['partner_id']
         cont_ids = self.pool.get('account.analytic.account').search(cr, uid,
@@ -73,37 +75,37 @@ class contpaq_openerp_upload(osv.TransientModel):
         <div style="position:relative;">                                                            
             <table style="text-align:center;">                               
                 <tr>                                                                                                                                                                                                                   
-            <td style="right:12px; position:absolute;">'''+time.strftime('%d-%m-%Y')+'''</td>                           
+            <td style="right:12px; position:absolute;">'''+time.strftime('%d-%m-%Y')+u'''</td>                           
                 </tr>                                                                               
                 <tr style="height:100px;">                                                          
-        <td style="border-top: 30px solid transparent;" >'''+admin_brw.company_id.name+'''</td>                                                            
+        <td style="border-top: 30px solid transparent;" >'''+admin_brw.company_id.name+u'''</td>                                                            
                 </tr>                                                                               
                 <tr>                                                                                
                     <td style="text-align:center; max-width: 100%; word-wrap: break-word; 
                         ">Asunto: Manifestación de Conocimiento y                 
                         Autorización de entrega de CFDI para que                                    
-                        '''+admin_brw.company_id.name+''', entregue al SAT, copia de                                       
+                        '''+admin_brw.company_id.name+u''', entregue al SAT, copia de                                       
                         los comprobantes certificados. </td>                                        
                     </tr>                                                                           
                 <tr style="margin-bottom: 100px;">                                                  
                     <td style="border-top: 80px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                       '''+res.get('company_name', '')+''' con registro federal de contribuyentes
-                       '''+res.get('vat', '')+''' y con domicilio fiscal en '''+res.get('street',
-                               '')+'''
-                   , CP '''+res.get('zip', '')+', '+res.get('locality', '')+ ', '+state_name+''', 
-                   '''+country_name+''', con la finalidad de que la presente sirva como constancia de lo
+                       '''+res.get('company_name', '')+u''' con registro federal de contribuyentes
+                       '''+res.get('vat', '')+u''' y con domicilio fiscal en '''+res.get('street',
+                               '')+u'''
+                   , CP '''+res.get('zip', '')+u', '+res.get('locality', '')+ ', '+state_name+u''', 
+                   '''+country_name+u''', con la finalidad de que la presente sirva como constancia de lo
                         previsto en la regla I.2.7.2.1 de la Resolución Miscelánea Fiscal en vigor manifiesto que:
             </td>                                                                                   
                     </tr>                                                                           
                 <tr >                                                                               
                     <td style=" border-top: 20px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                        1. Haré uso de los servicios de '''+admin_brw.company_id.name+'''
+                        1. Haré uso de los servicios de '''+admin_brw.company_id.name+u'''
                         para la certificación de Comprobantes Fiscales Digitales a través de Internet.                                             
             </td>                                                                                   
                     </tr>                                                                           
                 <tr >                                                                               
                     <td style=" border-bottom: 30px solid transparent;border-top: 10px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                         2. Tengo conocimiento y autorizo a '''+admin_brw.company_id.name+''' para que entregue al        
+                         2. Tengo conocimiento y autorizo a '''+admin_brw.company_id.name+u''' para que entregue al        
                          Servicio de                                                                
                                                                                                     
                          Administración Tributaria, copia de los comprobantes fiscales que haya     
@@ -117,7 +119,7 @@ class contpaq_openerp_upload(osv.TransientModel):
     </body>                                                                                         
 </head>      
 '''
-
+            a = a.encode('utf-8', 'ignore')
             res.update({'term_conditions':a})
         
        # if model_ids:
@@ -152,6 +154,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         'state_id':fields.many2one('res.country.state', 'State',
                                    help='State of your company address'), 
         'process_ids': fields.many2many('process.process', string='Companies', readonly=True),
+        'cif_file':fields.binary("CIF", help="Fiscal identification card"),
         'certificate_file':fields.binary("Certificate File",
                                          help="The .cer file that was given by the SAT"),
         'certificate_file_pem':fields.binary("Certificate File PEM",
@@ -161,7 +164,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         'certificate_key_file_pem':fields.binary("Certificate Key File",
                                                  help="This file is generated with the .cer file"),
         'password_sat':fields.char('Certificate Password', 64,
-                                   help='Street of your company address'), 
+                                   help='This is the password was given by SAT'), 
         'serial_number':fields.char('Serial Number', 64,
                                     help='Number of serie of the certificate'), 
         'date_start':fields.date('Date Start', help='Date start the certificate before the SAT'), 
@@ -200,7 +203,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous'):
             return self.pool.get('res.users').name_get(cr, uid, uid, context)[0][1]
         else:
-            return None
+            return ''
 
     def _get_user_email(self, cr, uid, context=None):
         user = self.pool.get('res.users').read(cr, uid, uid, ['login', 'email'], context)
@@ -208,7 +211,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user['email']):
             return user['email']
         else:
-            return None
+            return ''
 
     def _get_rfc(self, cr, uid, context=None):
         user = self.pool.get('res.users').browse(cr, uid, uid, context)
@@ -216,7 +219,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user.partner_id.vat):
             return user.partner_id.vat
         else:
-            return None
+            return ''
 
     def _get_street(self, cr, uid, context=None):
         user = self.pool.get('res.users').browse(cr, uid, uid, context)
@@ -224,7 +227,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user.partner_id.street):
             return user.partner_id.street
         else:
-            return None
+            return ''
 
     def _get_city(self, cr, uid, context=None):
         user = self.pool.get('res.users').browse(cr, uid, uid, context)
@@ -232,7 +235,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user.partner_id.city):
             return user.partner_id.city
         else:
-            return None
+            return ''
 
     def _get_locality(self, cr, uid, context=None):
         user = self.pool.get('res.users').browse(cr, uid, uid, context)
@@ -240,7 +243,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user.partner_id.l10n_mx_city2):
             return user.partner_id.l10n_mx_city2
         else:
-            return None
+            return ''
 
     def _get_country(self, cr, uid, context=None):
         user = self.pool.get('res.users').browse(cr, uid, uid, context)
@@ -248,7 +251,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user.partner_id.country_id):
             return user.partner_id.country_id.id
         else:
-            return None
+            return ''
 
     def _get_state(self, cr, uid, context=None):
         user = self.pool.get('res.users').browse(cr, uid, uid, context)
@@ -256,7 +259,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user.partner_id.state_id):
             return user.partner_id.state_id.id
         else:
-            return None
+            return ''
 
     def _get_user_phone(self, cr, uid, context=None):
         user = self.pool.get('res.users').read(cr, uid, uid, ['login', 'phone'], context)
@@ -264,7 +267,7 @@ class contpaq_openerp_upload(osv.TransientModel):
         if (user['login'] != 'anonymous' and user['phone']):
             return user['phone']
         else:
-            return None
+            return ''
 
     _defaults = {
         'company_name': _get_user_name,
@@ -282,9 +285,17 @@ class contpaq_openerp_upload(osv.TransientModel):
     def create(self, cr, uid, values, context=None):
         sf =  ['city', 'name', 'zip', 'locality', 'country_id', 'phone', 'street', 'company_name',
               'state_id', 'email_from', 'vat']
+        context = context or {}
+        context.update({'uid':uid})
         r = True
         if set(sf).issubset(values.keys()):
             r = super(contpaq_openerp_upload,self).create(cr,SUPERUSER_ID,values,context=context)
+            cr.commit()
+            cr.execute('''
+                       UPDATE create_instance_openerp
+                       SET create_uid=%d
+                       WHERE id=%d
+                       ''' % (uid, r))
         else:
             raise osv.except_osv(('Error'), ("""No Tiene permitido esta operacion"""))
         return r
@@ -345,6 +356,7 @@ class contpaq_openerp_upload(osv.TransientModel):
 
     def submit(self, cr, uid, ids, context=None):
         """ When the form is submitted, redirect the user to a "Thanks" message """
+        context = context or {}
         wz_obj = self.browse(cr, uid, ids[0], context=context)
         if not re.match("[^@]+@[^@]+\.[^@]+", wz_obj.email_from):
             raise osv.except_osv(_('Error'), _("""You need a valid email account"""))
@@ -365,6 +377,12 @@ class contpaq_openerp_upload(osv.TransientModel):
         
         model, view_id = mod_obj.get_object_reference(cr, uid, 'create_openerp_instance',
                                                       'cfdi_register_form_view_readonly')
+        if not re.match("[^@]+@[^@]+\.[^@]+", wz_obj.email_from):
+            raise osv.except_osv(_('Error'), _("""You need a valid email account"""))
+
+        elif not wz_obj.accept:
+            raise osv.except_osv(_('Error'),
+                                 _("You need accept the terms and conditions to continue"))
 
         return {
                 'type': 'ir.actions.act_window',
@@ -376,6 +394,10 @@ class contpaq_openerp_upload(osv.TransientModel):
                 'view_id': view_id,
                 }
 
+    def storage_cfdi(self, cr, uid, ids, context=None):
+        """ Dummy Function """
+
+        return True
     def _needaction_domain_get(self, cr, uid, context=None):
         """
         This model doesn't need the needactions mechanism inherited from
@@ -420,36 +442,36 @@ class contpaq_openerp_upload(osv.TransientModel):
         <div style="position:relative;">                                                            
             <table style="text-align:center;">                               
                 <tr>                                                                                                                                                                                                                   
-            <td style="right:12px; position:absolute;">'''+time.strftime('%d-%m-%Y')+'''</td>                           
+            <td style="right:12px; position:absolute;">'''+time.strftime('%d-%m-%Y')+u'''</td>                           
                 </tr>                                                                               
                 <tr style="height:100px;">                                                          
-        <td style="border-top: 30px solid transparent;" >'''+admin_brw.company_id.name+'''</td>                                                            
+        <td style="border-top: 30px solid transparent;" >'''+admin_brw.company_id.name+u'''</td>                                                            
                 </tr>                                                                               
                 <tr>                                                                                
                     <td style="text-align:center; max-width: 100%; word-wrap: break-word;                     
                         position:absolute;">Asunto: Manifestación de Conocimiento y                 
                         Autorización de entrega de CFDI para que                                    
-                        '''+admin_brw.company_id.name+''', entregue al SAT, copia de                                       
+                        '''+admin_brw.company_id.name+u''', entregue al SAT, copia de                                       
                         los comprobantes certificados. </td>                                        
                     </tr>                                                                           
                 <tr style="margin-bottom: 100px;">                                                  
                     <td style="border-top: 80px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                       '''+company_name+''' con registro federal de contribuyentes
-                       '''+vat +''' y con domicilio fiscal en '''+street+'''
-                   , CP '''+zip+', '+locality + ', '+state_name+''', 
-                   '''+country_name+''', con la finalidad de que la presente sirva como constancia de lo
+                       '''+company_name+u''' con registro federal de contribuyentes
+                       '''+vat +u''' y con domicilio fiscal en '''+street+u'''
+                   , CP '''+zip+u', '+locality + ', '+state_name+u''', 
+                   '''+country_name+u''', con la finalidad de que la presente sirva como constancia de lo
                         previsto en la regla I.2.7.2.1 de la Resolución Miscelánea Fiscal en vigor manifiesto que:
             </td>                                                                                   
                     </tr>                                                                           
                 <tr >                                                                               
                     <td style=" border-top: 20px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                        1. Haré uso de los servicios de '''+admin_brw.company_id.name+'''
+                        1. Haré uso de los servicios de '''+admin_brw.company_id.name+u'''
                         para la certificación de Comprobantes Fiscales Digitales a través de Internet.                                             
             </td>                                                                                   
                     </tr>                                                                           
                 <tr >                                                                               
                     <td style=" border-bottom: 30px solid transparent;border-top: 10px solid transparent;text-align:center; max-width: 80%; word-wrap: break-word;">
-                         2. Tengo conocimiento y autorizo a '''+admin_brw.company_id.name+''' para que entregue al        
+                         2. Tengo conocimiento y autorizo a '''+admin_brw.company_id.name+u''' para que entregue al        
                          Servicio de                                                                
                                                                                                     
                          Administración Tributaria, copia de los comprobantes fiscales que haya     
@@ -463,6 +485,7 @@ class contpaq_openerp_upload(osv.TransientModel):
     </body>                                                                                         
 </head>      
 '''
+        a = a.encode('utf-8', 'ignore')
         res = {'value':{'term_conditions':a}}
     
         return res

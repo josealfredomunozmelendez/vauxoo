@@ -127,7 +127,6 @@
                                 <div class ="col-md-2">
                                 </div>
                                 <div class ="col-md-8">
-                                    <field name="partner_name" invisible="1"/>
                                     <label string="You don't have any valid contract, please contact with our Sales Staff"/>
                                     <footer>
                                         <a href="/" class="btn btn-danger btn-lg"><i class="icon-home"></i><span>Go to Home</span></a>

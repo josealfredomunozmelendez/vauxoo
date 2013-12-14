@@ -70,7 +70,7 @@
                                                </div>
                                             <div class="form-group">
                                                 <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
-                                                    <button string="Submit" name="submit2" type="object" 
+                                                    <button string="Submit" name="storage_cfdi" type="object" 
                                                             class="btn btn-danger btn-lg"/>
                                                 </div>
                                             </div>
@@ -195,8 +195,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-7">
-                                            <button string="Submit" name="submit2" type="object" 
-                                                    class="btn btn-danger btn-lg"/>
+                                            <!--   <button string="Submit" name="submit2" type="object" 
+                                                    class="btn btn-danger btn-lg"/>-->
                                         </div>
                                     </div>
                                 </div>
@@ -243,6 +243,12 @@
                                            placeholder="e.g. MXABC131106T1B"
                                            required="True"
                                            on_change="onchange_fill_terms(company_name, vat, country_id, state_id, street, city, locality, zip)"
+                                           nolabel="1"/>
+                                    <label for="cif_file" class="col-md-3 col-sm-4 control-label"/>
+                                    <field name="cif_file"
+                                           widget="FieldBinaryBS3"
+                                           placeholder="Fiscal Identification Card"
+                                           required="True"
                                            nolabel="1"/>
                                     <label for="email_from" class="col-md-3 col-sm-4 control-label"/>
                                     <field name="email_from"
@@ -334,7 +340,7 @@
                                         <div class="form-group">
                                             <div class="col-md-offset-8 col-sm-offset-8 col-sm-8 col-md-6">
                                                 <button string="Submit"
-                                                        name="submit"
+                                                        name="submit2"
                                                         type="object"
                                                         context="{'term_conditions':term_conditions}"
                                                         class="btn btn-danger btn-lg"/>
@@ -357,11 +363,31 @@
             <field name="target">inline</field>
             <field name="context">{'fromview':True}</field>
         </record>
+        <record id="action_contpaq_openerp_cfdi_register" model="ir.actions.act_window">
+            <field name="name">Create your DataBase</field>
+            <field name="res_model">create.instance.openerp</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="cfdi_register_form_view_readonly"/>
+            <field name="target">inline</field>
+            <field name="context">{'fromview':True}</field>
+        </record>
 
         <!-- attach it to the portal menu -->
         <menuitem name="Create your Instance"
                   id="portal_company_create_db"
                   parent="portal.portal_company"
+                  action="action_contpaq_openerp_create_intance"
+                  sequence="40"/>
+        <menuitem name="CFDI Register"
+                  id="portal_company_cfdi_register"
+                  sequence="1"/>
+        <menuitem name="CFDI"
+                  id="portal_company_cfdi_register2"
+                  parent="portal_company_cfdi_register"
+                  sequence="40"/>
+        <menuitem name="CFDI"
+                  id="portal_company_cfdi_register3"
+                  parent="portal_company_cfdi_register2"
                   action="action_contpaq_openerp_create_intance"
                   sequence="40"/>
     </data>
