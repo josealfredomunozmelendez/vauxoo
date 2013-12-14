@@ -55,6 +55,7 @@ and propose them to be migrated.
 **web_vauxoo_cust:** Improve the styles in all openerp and login page.
 **portal_crm_vauxoo:** Improve the contact form and manage the captcha widget on it.
 **web_doc:** Enable Help button.
+**create_openerp_instance:** Enable Openerp Instance creation for opencfdi.
     """,
     'depends': [
                 'portal_home',
@@ -71,6 +72,7 @@ and propose them to be migrated.
                 # Because the little button TODO: Create 2 modeules www and erp dependencies should be differents
                 'hr_attendance', 
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
+                'create_openerp_instance',
                 ],
     'author': 'Vauxoo',
     'data': [
