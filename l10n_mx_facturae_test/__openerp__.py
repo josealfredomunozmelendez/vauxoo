@@ -31,7 +31,8 @@
         "account",
         "product",
         "l10n_mx_partner_address",
-        "l10n_mx_facturae_pac_sf",
+        #~ "l10n_mx_facturae_pac_sf",
+        "l10n_mx_facturae_pac_finkok",
     ],
     "author": "Vauxoo",
     "description": """

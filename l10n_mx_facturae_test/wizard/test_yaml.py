@@ -47,7 +47,100 @@ class test_yaml_facturae(osv.osv_memory):
     _defaults = {
         'test_commit': False,
     }
+    
+    
+    def test_factuare_run(self, cr, uid, ids, context=None):
+        if context == None:
+            context = {}
+        tmp_path = tempfile.gettempdir()
+        assertion_obj = assertion_report.assertion_report()
+        this = self.browse(cr, uid, ids)[0]
+        number_invoices = int(context.get('number_invoice'))
+        files_names = []
+        commit_value = False
+        if this.test_commit:
+            commit_value = True
 
+        #~ TODO: Remplazar todos los xml_ids
+        all_paths = tools.config["addons_path"].split(",")
+        for my_path in all_paths:
+            if os.path.isdir(os.path.join(my_path, u'l10n_mx_facturae_pac_finkok', u'demo')):
+                file_original_xml = open(
+                    os.path.join(my_path, u'l10n_mx_facturae_pac_finkok', u'demo', 'account_invoice_cfdi_pac_finkok_demo.xml'), "r")
+                file_original_xml_read = file_original_xml.read()
+                file_original_xml.close()
+            if os.path.isdir(os.path.join(my_path, u'l10n_mx_facturae_pac_finkok', u'test')):
+                file_original_yml = open(
+                    os.path.join(my_path, u'l10n_mx_facturae_pac_finkok', u'test', 'account_invoice_cfdi_pac_finkok.yml'), "r")
+                file_original_yml_read = file_original_yml.read()
+                file_original_yml.close()
+
+        for create_invoice in range(0, number_invoices):
+            file_name_xml = '%s/account_invoice_cfdi_pac_finkok_demo_%s.xml' % (
+                tmp_path, str(create_invoice))
+            new_file_xml = open('%s/account_invoice_cfdi_pac_finkok_demo_%s.xml' %
+                                (tmp_path, str(create_invoice)), "w")
+            new_file_modify_xml = file_original_xml_read.replace(
+                'ai_pac_finkok_0', 'ai_pac_finkok_0_%s' % (str(create_invoice)))
+            new_file_modify_xml2 = new_file_modify_xml.replace(
+                '900.0', '%s' % (str(901 + create_invoice)))
+            new_file_modify_xml3 = new_file_modify_xml2.replace(
+                'ail_pac_finkok_0', 'ail_pac_finkok_0_%s' % (str(create_invoice)))
+            new_file_xml.write(new_file_modify_xml3)
+            new_file_xml.close()
+
+            file_name_yml = '%s/account_invoice_cfdi_pac_finkok_%s.yml' % (
+                tmp_path, str(create_invoice))
+            new_file_modify_yml = file_original_yml_read.replace(
+                'ai_pac_finkok_0', 'ai_pac_finkok_0_%s' % (str(create_invoice)))
+            new_file_yml = open('%s/account_invoice_cfdi_pac_finkok_%s.yml' %
+                                (tmp_path, str(create_invoice)), "w")
+            new_file_yml.write(new_file_modify_yml)
+            new_file_yml.close()
+
+            files_names.append([file_name_xml, file_name_yml])
+        
+        threading_list = []
+        for file_name_xml, file_name_yml in files_names:
+            args = (cr, uid, ids, file_name_xml, file_name_yml,commit_value)
+            t = threading.Thread(target=self.execute_test_yaml, name=(
+                'threading_test_facturae: ' + file_name_yml), args = args)
+            threading_list.append( t )
+        for t in threading_list:
+            #~ t.daemon = False
+            t.setDaemon(False)
+            t.start()
+        return True
+
+    def execute_test_yaml(self, cr_original, uid, ids, file_name_xml, file_name_yml,commit_value):
+        assertion_obj = assertion_report.assertion_report()
+        cr = None
+        fp_data = None
+        fp_test = None
+        #process_name = os.path.splitext( os.path.basename( file_name_xml ) )[0]#unique file name then unique process name
+        try:
+            cr = False
+            cr = pooler.get_db(cr_original.dbname).cursor()#Create a new cursor for close it when is necessary
+            fp_data = tools.file_open(os.path.join(file_name_xml))
+            fp_test = tools.file_open(os.path.join(file_name_yml))
+            print threading.currentThread().getName()
+            tools.convert_xml_import(
+                cr, 'l10n_mx_facturae_pac_finkok', fp_data, None, 'init', False, assertion_obj)
+            #~ import pdb;pdb.set_trace()
+            tools.convert_yaml_import(
+                cr, 'l10n_mx_facturae_pac_finkok', fp_test, 'test' , None, 'init' , False, assertion_obj)
+        finally:
+            if cr:
+                cr.rollback()
+                self.pool.get('ir.model.data').clear_caches()#This is necessary, for clean xml_id_ref var
+                cr.close()
+            if fp_data:
+                fp_data.close()
+            if fp_test:
+                fp_test.close()
+        return True
+    
+    '''
     def test_factuare_run(self, cr, uid, ids, context=None):
         if context == None:
             context = {}
@@ -104,11 +197,13 @@ class test_yaml_facturae(osv.osv_memory):
                 'threading_test_facturae: ' + file_name_yml), args = args)
             threading_list.append( t )
         for t in threading_list:
-            t.daemon = False
+            #~ t.daemon = False
+            t.setDaemon(True)
             t.start()
         return True
 
     def execute_test_yaml(self, cr_original, uid, ids, file_name_xml, file_name_yml,commit_value):
+        print threading.currentThread().getName()
         assertion_obj = assertion_report.assertion_report()
         cr = None
         fp_data = None
@@ -133,3 +228,4 @@ class test_yaml_facturae(osv.osv_memory):
             if fp_test:
                 fp_test.close()
         return True
+    '''
