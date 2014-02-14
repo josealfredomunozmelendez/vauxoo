@@ -76,7 +76,7 @@
         "contacts",
         "contpaq_openerp_vauxoo",
         "contract_enterprise_openerp",
-        "create_openerp_instance",
+        #"create_openerp_instance",#Installed by error
         "decimal_precision",
         "document",
         "document_ftp",
