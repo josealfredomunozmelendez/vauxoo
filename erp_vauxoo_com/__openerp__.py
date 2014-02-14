@@ -154,7 +154,7 @@
         "risk_management",
         "sale_crm",
         "sale_multicompany_report",
-        "sale_order_report",
+        #"sale_order_report",#Temp delete because directory structure not standard. TODO: Fix directory structure.
         "sale_stock",
         "share",
         "sprint_kanban",
