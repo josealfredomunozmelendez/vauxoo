@@ -79,7 +79,7 @@
         #"create_openerp_instance",#Installed by error
         "decimal_precision",
         "document",
-        "document_ftp",
+        #"document_ftp",#No enable for testing
         "document_page",
         "document_webdav",
         "edi",
