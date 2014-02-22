@@ -135,7 +135,7 @@
         "portal_project",
         "portal_project_imp",
         "portal_project_issue",
-        "portal_public_documents",
+        #"portal_public_documents",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
         "portal_runbot",
         "portal_sale",
         "portal_stock",
@@ -165,22 +165,22 @@
         "vauxoo_doc",
         "warning",
         "web",
-        "web_allow_custom_root",
+        #"web_allow_custom_root",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
         "web_analytics",
-        "web_bootstrap3",
+        #"web_bootstrap3",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
         "web_calendar",
         "web_captcha",
         "web_diagram",
         "web_doc",
-        "web_export_view",
-        "web_fancybox",
-        "web_flagicons",
-        "web_fontawesome",
+        #"web_export_view",#TODO: Fix error into saas3 and trunk version
+        #"web_fancybox",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        #"web_flagicons",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        #"web_fontawesome",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
         "web_gantt",
         "web_graph",
         "web_kanban",
-        "web_many2many_attachments",
-        "web_nocreatedb",
+        #"web_many2many_attachments",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        #"web_nocreatedb",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
         "web_tests",
         "web_vauxoo_cust",
         "web_view_editor",
