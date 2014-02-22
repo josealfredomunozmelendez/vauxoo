@@ -67,7 +67,7 @@ and propose them to be migrated.
                 'portal_crm_vauxoo',
                 'portal_public_documents',
                 'web_doc',
-                'web_allow_custom_root',
+                #'web_allow_custom_root',#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
                 # Because the little button TODO: Create 2 modeules www and erp dependencies should be differents
                 'hr_attendance', 
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
