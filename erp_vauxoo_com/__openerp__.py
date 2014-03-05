@@ -76,7 +76,6 @@
         "contacts",
         "contpaq_openerp_vauxoo",
         "contract_enterprise_openerp",
-        #"create_openerp_instance",#Installed by error
         "decimal_precision",
         "document",
         #"document_ftp",#No enable for testing
@@ -135,7 +134,7 @@
         "portal_project",
         "portal_project_imp",
         "portal_project_issue",
-        #"portal_public_documents",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        "portal_public_documents",
         "portal_runbot",
         "portal_sale",
         "portal_stock",
@@ -154,7 +153,7 @@
         #"risk_management",#Temp delete because use a bad test. TODO: Trace test and fix it.
         "sale_crm",
         "sale_multicompany_report",
-        #"sale_order_report",#Temp delete because directory structure not standard. TODO: Fix directory structure.
+        "sale_order_report",
         "sale_stock",
         "share",
         "sprint_kanban",
@@ -165,22 +164,22 @@
         "vauxoo_doc",
         "warning",
         "web",
-        #"web_allow_custom_root",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        "web_allow_custom_root",
         "web_analytics",
-        #"web_bootstrap3",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        "web_bootstrap3",
         "web_calendar",
         "web_captcha",
         "web_diagram",
         "web_doc",
-        #"web_export_view",#TODO: Fix error into saas3 and trunk version
-        #"web_fancybox",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
-        #"web_flagicons",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
-        #"web_fontawesome",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        "web_export_view",
+        "web_fancybox",
+        "web_flagicons",
+        "web_fontawesome",
         "web_gantt",
         "web_graph",
         "web_kanban",
-        #"web_many2many_attachments",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
-        #"web_nocreatedb",#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
+        "web_many2many_attachments",
+        "web_nocreatedb",
         "web_tests",
         "web_vauxoo_cust",
         "web_view_editor",
