@@ -33,6 +33,7 @@ import tempfile
 import shutil
 import threading
 from openerp import pooler
+import time
 
 
 class test_yaml_facturae(osv.osv_memory):
@@ -92,6 +93,7 @@ class test_yaml_facturae(osv.osv_memory):
         for t in threading_list:
             #~ t.daemon = False
             t.setDaemon(False)
+            time.sleep(1)
             t.start()
         return True
 
