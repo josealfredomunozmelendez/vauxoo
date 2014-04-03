@@ -100,7 +100,6 @@ class test_yaml_facturae(osv.osv_memory):
     def execute_test_yaml(self, cr_original, uid, ids, file_name_yml,commit_value):
         assertion_obj = assertion_report.assertion_report()
         cr = None
-        fp_data = None
         fp_test = None
         #process_name = os.path.splitext( os.path.basename( file_name_xml ) )[0]#unique file name then unique process name
         try:
@@ -112,11 +111,12 @@ class test_yaml_facturae(osv.osv_memory):
                 cr, 'l10n_mx_cfdi_test', fp_test, 'test' , None, 'init' , False, assertion_obj)
         finally:
             if cr:
-                cr.rollback()
-                self.pool.get('ir.model.data').clear_caches()#This is necessary, for clean xml_id_ref var
+                if commit_value:
+                    cr.commit()
+                else:
+                    cr.rollback()
+                    self.pool.get('ir.model.data').clear_caches()#This is necessary, for clean xml_id_ref var
                 cr.close()
-            if fp_data:
-                fp_data.close()
             if fp_test:
                 fp_test.close()
         return True
