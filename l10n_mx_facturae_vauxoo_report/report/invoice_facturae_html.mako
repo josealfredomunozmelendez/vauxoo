@@ -1,4 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE>
 <html>
 <head>
     <style type="text/css">
@@ -244,6 +244,9 @@
             
         </table>
         <br/>${o.comment or '' |entity}<br/>
+         %if o.payment_term.name:
+			Condición de pago: ${o.payment_term.note or o.payment_term.name or ''|entity}
+		%endif
         <br clear="all"/>
         <!--code for cfd-->
         %if 'cfdi' in o.invoice_sequence_id.approval_id.type:
