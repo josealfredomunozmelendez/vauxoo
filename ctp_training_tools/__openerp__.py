@@ -35,13 +35,16 @@ This module has the intention of automate some needs related to CTP training.
 1.- Add a security rule to trat this information. 
     """,
     'depends': [
+        'base',
         'mail',
+        'contacts',
                 ],
     'author': 'Vauxoo',
     'data': [
+        'view/res_partner_view.xml',
+        'security/res_groups.xml',
     ],
     'test': [
-        #'test/contact_form.yml', #TODO This module should have all tests for the site.
     ],
     'installable': True,
     'auto_install': False,
