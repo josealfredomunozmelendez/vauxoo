@@ -43,6 +43,7 @@ This module has the intention of automate some needs related to CTP training.
     'data': [
         'view/res_partner_view.xml',
         'security/res_groups.xml',
+        'data/template_email.xml',
     ],
     'test': [
     ],
