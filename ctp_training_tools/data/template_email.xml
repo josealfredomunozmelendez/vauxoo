@@ -3,7 +3,7 @@
     <!-- Mail template is done in a NOUPDATE block
          so users can freely customize/delete them -->
     <data noupdate="1">
-        <!--Email template -->
+        <!--Email template Post training -->
         <record id="email_template_post_training" model="email.template">
             <field name="name">Post Training Functional Template</field>
             <field name="email_to">${(object.email or '')|safe}</field>
@@ -46,10 +46,83 @@
 ]]>
             </field>
         </record>
-        <function
-            eval="[[ref('email_template_post_training')]]"
-            id="create_action_email"
-            model="email.template"
-            name="create_action"/>
+        <!-- Create Action to test at same time the method create_action -->
+        <function name="create_action" model="email.template">
+            <value eval="[ref('email_template_post_training')]"/>
+        </function>
+        <!--Email template Pre (Welcome) training -->
+        <record id="email_template_welcome_training" model="email.template">
+            <field name="name">Welcome Functional Training Template</field>
+            <field name="email_to">${(object.email or '')|safe}</field>
+            <field name="email_from">${(user.email or '')|safe}</field>
+            <field name="reply_to">${(user.email or '')|safe}</field>
+            <field name="subject">[Openerp Functional training] Info. Importante</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.lang}</field>
+            <field name="body_html">
+<![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+    <div style="width:500px; margin: auto; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 14px; color: #DDD;">
+            <strong style="text-transform:uppercase;">Bienvenidos al
+                entrenamiento Funcional</strong></h3>
+    </div>
+    <div style="width: 500px; margin: auto; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        </span>
+<p>Hola a ${object.name}.</p>
+<p>Gracias por participar en el curso Funcional de OpenERP.</p>
+<p>Algunas instrucciones son necesarias para porder participar durante la semana.</p>
+<p>1.- Su cuenta de correo debe ser una cuenta google, ya que utilizaremos google hangout para comunicarnos, as&iacute; no dependeremos del sistema operativo. (Funcionan cuentas google apps).</p>
+<p>¿C&oacute;mo te afecta &eacute;sto?.</p>
+<p>Si tu cuenta no es @gmail.com o google apps, solo necesitar&aacute;s crear una y activar tu google+ y pasarnos c&oacute;mo respuesta a &eacute;ste email la cuenta.</p>
+<p>1.B.- ¿Que debo hacer despu&eacute;s de activar la cuenta gmail?
+<p>Agreganos a tu google+ con los correos:</p>
+  <ol>
+  <li>moylop260@vauxoo.com</li>
+  <li>nhomar@vauxoo.com</li>
+  </ol>
+<p>Y escribenos un chat para establecer el primer contacto.</p>
+<p>1.C.- ¿Que navegador es el recomendable.?</p>
+<p>Es recomendable que usen Firefox o Google Chrome.</p>
+<p>1.D.- ¿Debo Instalar alg&uacute;n plugin adicional?</p>
+<p>S&iacute;, necesitar&aacute; el plugin para video llamadas, en la primera llamada que reciban de nuestra parte el chat responder&aacute; on la solicitud de instalaci&oacute;n, digan si a las opciones reinicia tu navegador y listo, &eacute;ste procedimiento lo har&aacute;s una sola vez.</>
+<p>2.- Los que no tengan a&uacute;n acceso a los videos no duden en solicitarlo por &eacute;sta v&iacute;a, en el transcurso del d&iacute;a se les dar&aacute; acceso.</p>
+<p>3.- Hoy como primer d&iacute;a, estaremos todo el d&iacute;a conectados para resolver cualquier inconveniente operativo.</p>
+<p>4.- ¿Cu&aacute;l es la din&aacute;mica del curso?</p>
+<ul>
+    <li> El curso est&aacute; dividido en 5 d&iacute;as de materiales audiovisuales.</li>
+    <li> El objetivo es que el participante durante las mañanas vea el material audivisual compartido y durante la tarde puedan elaborar sus preguntas.</li>
+    <li> Mientras mejor elaboradas est&eacute;n sus preguntas mejor podremos preparar las respuestas, las preguntas deber&aacute;n ser enviadas a entrenamiento@vauxoo.com donde Moises L&oacute;pez o Nhomar Hernandez, entrenadores le daremos respuestas en un tiempo no mayor a 24 horas.</li>
+    <li> Los convocaremos a todos a un chat grupal por google+ por d&iacute;a con el objetivo de mantener comunicaci&oacute;n constante.</li>
+</ul>
+<p>5.- Datos Adicionales:</p>
+<p>El acceso a una instancia con datos "demo" para hacer los videos del d&iacute;a n&uacute;mero 1 es:</p>
+https://www.openerp.com/saas_master/demo?lang=en_US&module=crm
+<p>Con &eacute;sto podr&aacute;n acceder a los datos de navegaci&oacute;n.</p>
+<p>En &eacute;ste video podr&aacute;n acceder al Intro Funcional un poco m&aacute;s actualizado.</p>
+<p>http://youtu.be/x_jitCf9L3Y</p>
+<p>Este video es necesario para los que no han comprado todos los d&iacute;as del curso tambi&eacute;n.</p>
+<p>Esperamos sus preguntas v&iacute;a mail para consolidarlas y mostrarlas, una vez tengan acceso al material est&aacute; una breve explicaci&oacute;n de que tipo de preguntas y c&oacute;mo enviarlas.</p>
+<p>Cualquier duda operativa adicional seremos sus coach durante &eacute;sta semana no duden en escribirnos.</p>
+<p>6.- Estaremos durante &eacute;ste d&iacute;a comunicandonos con cada uno de los participantes para validar que los medios de comunicaci&oacute;n est&aacute;n establecidos.</p>
+<p>Saludos y muchas gracias por participar.</p>
+<p>PS: Por favor si &eacute;ste correo no te ha llegado a una cuenta gmail, respondelo enviandome la cuenta gmail correspondiente para poder validar que la comunicaci&oacute;n est&aacute; establecida.</p>
+<p>7.- ¿Solo estar&aacute; disponible el material por 5 d&iacute;as?
+No, se dejar&aacute; disponible un par de d&iacute;as m&aacute;s para que puedan terminar todos los ejercicios.</p>
+    <br/>
+    </div>
+    <p>If you have any question, do not hesitate to contact us.</p>
+    <p>Thank you for choosing ${object.company_id.name or 'us'}! as your
+        Official trainer company.</p>
+    <br/>
+</div>            
+]]>
+            </field>
+        </record>
+        <function name="create_action" model="email.template">
+            <value eval="[ref('email_template_post_training')]"/>
+        </function>
     </data>
 </openerp>
