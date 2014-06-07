@@ -39,37 +39,6 @@ class user_story(osv.Model):
     _description = 'User Story'
     _inherit = ['mail.thread']
 
-    def _get_tasks(self, cr, uid, ids, field_name, arg, context=None):
-        if context is None:
-            context = {}
-        result = {}
-        task_obj = self.pool.get('project.task')
-        for orderpoint in self.browse(cr, uid, ids, context=context):
-            task_ids = task_obj.search(cr, uid, [
-                                       ('userstory_id', '=', orderpoint.id)])
-            result[orderpoint.id] = task_ids
-        return result
-
-    def _set_task(self, cr, uid, id, name, value, arg, ctx=None):
-
-        task_ids = self.pool.get('project.task').search(
-            cr, uid, [("userstory_id", '=', id)])
-        task_id = list(set(value[0][2]) - set(task_ids))
-        if task_id:
-            for i in task_id:
-                sql_str = """UPDATE project_task set
-                            userstory_id='%s'
-                            WHERE id=%s """ % (id, i)
-                cr.execute(sql_str)
-        else:
-            task_id = list(set(task_ids) - set(value[0][2]))
-            for i in task_id:
-                    sql_str = """UPDATE project_task set
-                                userstory_id=Null
-                                WHERE id=%s """ % (i)
-                    cr.execute(sql_str)
-        return True
-
     def write(self, cr, uid, ids, vals, context=None):
         task_obj = self.pool.get('project.task')
         
@@ -132,9 +101,18 @@ class user_story(osv.Model):
             user_id = self.pool.get('res.users').browse(cr,uid,[uid],context=context)[0]
             hu = self.browse(cr, uid, ids[0], context=context)
 
-            body_html = body_html.replace('NAME_OWNER', hu.owner)
+            if hu.owner_id and hu.owner_id.name:
+                body_html = body_html.replace('NAME_OWNER', hu.owner_id.name)
+            else:
+                body_html = body_html.replace('NAME_OWNER', '')
+            
             body_html = body_html.replace('NAME_USER', user_id.name)
-            body_html = body_html.replace('NAME_CRI', criteria)
+
+            if criteria:
+                body_html = body_html.replace('NAME_CRI', criteria)
+            else:
+                body_html = body_html.replace('NAME_CRI', 'None')
+
             body_html = body_html.replace('NAME_HU', hu.name)
             
             return body_html
@@ -152,9 +130,7 @@ class user_story(osv.Model):
             user_obj = self.pool.get('res.users')
             hu = self.browse(cr, uid, res_id, context=context)
             
-            owner_name = unicodedata.normalize('NFKD', hu.owner)
-            owner_name = owner_name.encode('ASCII','ignore')
-            owner_id = user_obj.search(cr, uid, [('name','=',owner_name)], context=context)
+            owner_id = hu.owner_id
             
             if hu.user_id and hu.user_id.partner_id:
                 followers.append(hu.user_id.partner_id.id)
@@ -185,21 +161,41 @@ class user_story(osv.Model):
 
 
         return False
-
-    def create(self, cr, uid, vals, context=None):
-        if context is None: context = {}
-        # Prevent double project creation when 'use_tasks' is checked!
-        context = dict(context, user_story_creation_in_progress=True)
-        context['name'] = "User Story / %s" % (vals['name'])
-        if vals.get('type', False) not in ('template','contract'):
-            vals['type'] = 'contract'
-        user_story_id = super(user_story, self).create(cr, uid, vals, context=context)
-        return user_story_id
      
+    def _hours_get(self, cr, uid, ids, field_names, args, context=None):
+        res = {}
+        cr.execute('''
+            SELECT us.id, COALESCE(SUM(ptw.hours))
+            FROM project_task_work ptw
+            INNER JOIN project_task pt ON pt.id = ptw.task_id
+            INNER JOIN user_story us ON us.id = pt.userstory_id
+            WHERE us.id IN %s 
+            GROUP BY us.id
+        ''',(tuple(ids),))
+        hours = dict(cr.fetchall())
+        for us_brw in self.browse(cr, uid, ids, context=context):
+            res[us_brw.id] = hours.get(us_brw.id, 0.0)
+        return res
+
+    def _get_user_story_from_ptw(self, cr, uid, ids, context=None):
+        result = {}
+        task_ids = {}
+        for work in self.pool.get('project.task.work').browse(cr, uid, ids, context=context):
+            if work.task_id: result[work.task_id.id] = True
+        task_ids = task_ids.keys()
+        for task in self.pool.get('project.task').browse(cr, uid, task_ids, context=context):
+            if task.userstory_id: result[task.userstory_id.id] = True
+        return result.keys()
+
+    def _get_user_story_from_pt(self, cr, uid, ids, context=None):
+        result = {}
+        for task in self.pool.get('project.task').browse(cr, uid, ids, context=context):
+            if task.userstory_id: result[task.userstory_id.id] = True
+        return result.keys()
+
     _columns = {
-        'name': fields.char('Title', size=255, required=True, readonly=False,
-            translate=True),
-        'owner': fields.char('Owner', size=255, required=True, readonly=False),
+        'name': fields.char('Title', size=255, required=True, readonly=False, translate=True),
+        'owner_id': fields.many2one('res.users', 'Owner', help="User Story's Owner"),
         'code': fields.char('Code', size=64, readonly=False),
         'planned_hours': fields.float('Planned Hours'),
         'project_id': fields.many2one('project.project', 'Project',
@@ -226,15 +222,20 @@ class user_story(osv.Model):
         'user_execute_id': fields.many2one('res.users', 'Execution Responsible',help="Person responsible for user story takes place, either by delegating work to other human resource or running it by itself. For delegate work should monitor the proper implementation of associated activities."),
         'sk_id': fields.many2one('sprint.kanban', 'Sprint Kanban'),
         'state': fields.selection(_US_STATE, 'State', readonly=True),
-        'task_ids': fields.function(_get_tasks, type='many2many',
-                                    relation="project.task",
-                                    fnct_inv=_set_task,
-                                    string="Tasks",
-                                    help="""Draft procurement of
-                                            the product and location
-                                            of that orderpoint"""),
+        'task_ids': fields.one2many(
+            'project.task', 'userstory_id',
+            string="Tasks",
+            help=("Draft procurement of the product and location of that"
+                  " orderpoint")),
         'categ_ids': fields.many2many('project.category','project_category_user_story_rel','userstory_id','categ_id', string="Tags"),
         'implementation': fields.text('Implementation Conclusions', translate=True),
+        'help': fields.boolean('Show Help', help='Allows you to show the help in the form'),
+        'effective_hours': fields.function(_hours_get, string='Hours Spent', help="Computed using the sum of the task work done.",
+            store = {
+                _name: (lambda s, c, u, ids, cx={}: ids, ['task_ids'], 10),
+                'project.task': (_get_user_story_from_pt, ['work_ids','userstory_id'], 10),
+                'project.task.work': (_get_user_story_from_ptw, ['hours'], 10),
+            }),
     }
     _defaults = {
         'name': lambda *a: None,
@@ -244,7 +245,8 @@ class user_story(osv.Model):
         'state': 'draft',
         'priority_level': lambda self, cr, uid, ctx: self.pool.get(
             'user.story.priority').search(
-                cr, uid, [('name', 'like', 'Secondary')], context=ctx)[0]
+                cr, uid, [('name', 'like', 'Secondary')], context=ctx)[0],
+        'help' : True,
     }
 
     def do_draft(self, cr, uid, ids, context=None):
