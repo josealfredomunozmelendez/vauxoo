@@ -273,5 +273,8 @@ No, se dejar&aacute; disponible un par de d&iacute;as m&aacute;s para que puedan
         <function name="create_action" model="email.template">
             <value eval="[ref('email_template_post_training')]"/>
         </function>
+        <function name="create_action" model="email.template">
+            <value eval="[ref('email_template_welcome_training')]"/>
+        </function>
     </data>
 </openerp>
