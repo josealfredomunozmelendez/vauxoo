@@ -22,6 +22,10 @@
 {   "name" : "OpenERP Vauxoo COM",
     "version" : "1.0",
     "depends" : [
+
+        #new modules
+        "project_followers_rule",
+
         #TODO: Clean modules list. This version 1 is copy& paste from installed modules
         #TODO: Add icon
         "crm",
