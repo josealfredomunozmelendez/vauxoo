@@ -73,7 +73,7 @@
         </span>
 <p>Hola a ${object.name}.</p>
 <p>Gracias por participar en el curso Funcional de OpenERP.</p>
-<p>Algunas instrucciones son necesarias para porder participar durante la semana.</p>
+<p>Algunas instrucciones son necesarias para poder participar durante la semana.</p>
 
 <!-- Requerimientos -->
 
@@ -86,16 +86,16 @@
 <p>&iquest;C&oacute;mo te afecta &eacute;sto?.</p>
 <p>Si tu cuenta no es @gmail.com o google apps, solo necesitar&aacute;s crear una y activar tu google+ y pasarnos c&oacute;mo respuesta a &eacute;ste email la cuenta.</p>
 <p>&iquest;Que debo hacer despu&eacute;s de activar la cuenta gmail?
-<p>Agreganos a tu google+ con los correos:</p>
+<p>Agréganos a tu google+ con los correos:</p>
   <ol>
   <li>moylop260@vauxoo.com</li>
   <li>nhomar@vauxoo.com</li>
   </ol>
-<p>Y escribenos un chat para establecer el primer contacto a trav&eacute;s de &eacute;sta cuenta.</p>
+<p>Y escríbenos un chat para establecer el primer contacto a trav&eacute;s de &eacute;sta cuenta.</p>
 <p>&iquest;Que navegador es el recomendable.?</p>
 <p>Es recomendable que usen Firefox o Google Chrome.</p>
 <p>&iquest;Debo Instalar alg&uacute;n plugin adicional?</p>
-<p>S&iacute;, necesitar&aacute; el plugin para video llamadas, en la primera llamada que reciban de nuestra parte el chat responder&aacute; on la solicitud de instalaci&oacute;n, digan si a las opciones reinicia tu navegador y listo, &eacute;ste procedimiento lo har&aacute;s una sola vez.</p>
+<p>S&iacute;, necesitar&aacute; el plugin para video llamadas, en la primera llamada que reciban de nuestra parte el chat responder&aacute; con la solicitud de instalaci&oacute;n, digan si a las opciones reinicia tu navegador y listo, &eacute;ste procedimiento lo har&aacute;s una sola vez.</p>
 
 <!-- Acceso al material -->
 
@@ -129,7 +129,7 @@
 <p>Durante el curso la din&aacute;mica est&aacute; dise&ntilde;ada para que el estudiante aproveche el m&aacute;ximo del tiempo posible a los instructores es por &eacute;sto que el proceso del curso estar&aacute; dividido en dos parte sumamente importantes y donde el estudiante tendr&aacute; gran parte de la responsabilidad en la transformaci&oacute;n de los conocimientos ofrecidos.</p>
 <ul>
     <li> El curso est&aacute; dividido en 5 d&iacute;as de materiales audiovisuales, los cuales los estudiantes deber&aacute; ver y seguir durante los d&iacute;as previos al curso o durante los d&iacute;as del curso.</li>
-    <li> Cada video es un ejercicio resuelto, estos cuentan tambien con un material escrito que explica la teor&iacute;a detras de cada ejercicio.</li>
+    <li> Cada video es un ejercicio resuelto, estos cuentan tambi&eacute;n con un material escrito que explica la teor&iacute;a detr&aacute;s de cada ejercicio.</li>
     <li> La lectura del <a href="https://doc.openerp.com/book/#books-link">libro</a> es importante, gran parte de la teor&iacute;a detr&aacute;s de los ejercicios se encuentra documentada en el, para que el estudiante pueda plantear preguntas m&aacute;s precisas es altamente recomendable contar con esta lectura.</li>
     <li>Durante los cinco d&iacute;as del curso contar&aacute;n con un consultor en l&iacute;nea para responder sus preguntas relacionadas con el tema del d&iacute;a.</li>
     <li> Mientras mejor elaboradas est&eacute;n sus preguntas mejor podremos preparar las respuestas, las preguntas deber&aacute;n ser enviadas a entrenamientos@vauxoo.com donde Moises L&oacute;pez o Nhomar Hernandez, entrenadores, le daremos respuestas en un tiempo no mayor a 24 horas.</li>
@@ -255,13 +255,13 @@ td.bold_font {font-weight:bold;}
 
 <p>Esperamos sus preguntas v&iacute;a mail para consolidarlas y mostrarlas, una vez tengan acceso al material est&aacute; una breve explicaci&oacute;n de que tipo de preguntas y c&oacute;mo enviarlas.</p>
 <p>Cualquier duda operativa adicional seremos sus coach durante &eacute;sta semana no duden en escribirnos.</p>
-<p>Estaremos durante &eacute;ste d&iacute;a comunicandonos con cada uno de los participantes para validar que los medios de comunicaci&oacute;n est&aacute;n establecidos.</p>
+<p>Estaremos durante &eacute;ste d&iacute;a comunic&aacute;ndonos con cada uno de los participantes para validar que los medios de comunicaci&oacute;n est&aacute;n establecidos.</p>
 <div style="width:100%; padding: 0px; background-color: #8E0000; background-repeat: repeat no-repeat;">
   <h1 style="margin: 0px; padding: 2px 14px; font-size: 16px; color: #DDD;">
     c.- Algunas notas adicionales.
   </h1>
 </div>
-<p>Por favor si &eacute;ste correo no te ha llegado a una cuenta gmail, respondelo enviandome la cuenta gmail correspondiente para poder validar que la comunicaci&oacute;n est&aacute; establecida.</p>
+<p>Por favor si &eacute;ste correo no te ha llegado a una cuenta gmail, resp&oacute;ndelo envi&aacute;ndome la cuenta gmail correspondiente para poder validar que la comunicaci&oacute;n est&aacute; establecida.</p>
 <p>&iquest;Solo estar&aacute; disponible el material por 5 d&iacute;as?
 No, se dejar&aacute; disponible un par de d&iacute;as m&aacute;s para que puedan terminar todos los ejercicios.</p>
     <br/>
