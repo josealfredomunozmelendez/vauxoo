@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+         <report auto="False"
+                id="sale_order_vauxoo_report_webkit_0"
+                model="sale.order"
+                name="sale.order.vauxoo.webkit"
+                file="sale_order_vauxoo_report_webkit/report/sale_order_vauxoo_report_html.mako"
+                string="Sale Order Vauxoo Report"
+                report_type="webkit"
+                attachment_use="0"
+                attachment=""
+                menu="True"/>
+        
+
+        <record id="property_sale_order_vauxoo_report_webkit" model="ir.property">
+            <field name="name">webkit_header</field>
+            <field name="fields_id" ref="report_webkit.field_ir_act_report_xml_webkit_header"/>
+            <field eval="'ir.header_webkit,'+str(ref('sale_order_vauxoo_report_webkit.ir_header_webkit_sale_order_vauxoo_report'))" model="ir.header_webkit" name="value"/>
+            <field eval="'ir.actions.report.xml,'+str(ref('sale_order_vauxoo_report_webkit.sale_order_vauxoo_report_webkit_0'))" model="ir.actions.report.xml" name="res_id"/>
+        </record>
+
+    </data>
+</openerp>
