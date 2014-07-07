@@ -146,6 +146,7 @@
         "procurement",
         "product",
         "project_conf",
+        "project_btree",
         "project_gtd",
         "project_issue_sheet",
         "project_long_term",
