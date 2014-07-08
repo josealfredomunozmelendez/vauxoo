@@ -188,7 +188,8 @@
         "web_tests",
         "web_vauxoo_cust",
         "web_view_editor",
-        "www_vauxoo_com"
+        "www_vauxoo_com",
+        "project_task_domain"
             ],
     "author" : "Vauxoo",
     "description" : """
