@@ -22,8 +22,8 @@
                     <body style="border:0; margin: 0;" onload="subst()">
                         <table style="border-top: 1px solid black; width: 100%">
                             <tr >
-                                <td style="text-align:right;font-size:9;" width="35%">Generado con software libre en OpenERP y Webkit por http://www.vauxoo.com</td>
-                                <td style="text-align:right;font-size:12;" width="55%">Page <span class="page"/></td><td style="text-align:left;font-size:12;">  of <span class="topage"/></td>
+                                <td style="text-align:left;font-size:7;" width="50%">Generado con software libre en OpenERP y Webkit por http://www.vauxoo.com</td>
+                                <td style="text-align:right;font-size:11;" width="45%">Page <span class="page"/></td><td style="text-align:left;font-size:11;" width="5%">  of <span class="topage"/></td>
                             </tr>
                         </table>
                     </body>
@@ -80,7 +80,7 @@
     border-bottom: 1px solid #bfbfbf;
     border-top: 1px solid #bfbfbf;
     background-color: #99182c;
-    font-size: 9;
+    font-size: 7;
     color: white; }
 
 .table_title {
@@ -90,7 +90,7 @@
   .table_title > tbody > tr > th,
   .table_title > tfoot > tr > th {
     border-bottom: 2px solid #bfbfbf;
-    font-size: 9;
+    font-size: 7;
     color: white; }
 
 .table_row_border {
@@ -243,7 +243,7 @@
 body {
   color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans_serif;
-  font-size: 8;
+  font-size: 7;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -261,21 +261,41 @@ table.basic_table {
   vertical-align: top;
   color: black;
   text-align: right;
-  font-size: 8; }
+  font-size: 7; }
 
 .data_customer {
   vertical-align: top;
   color: black;
   text-align: left;
-  font-size: 8; }
+  font-size: 7; }
 
 th {
   padding-right: 2px;
   padding-left: 2px;
   text-align: center;
-  font-size: 8; }
+  font-size: 7; }
+
+strong{
+  font-size: 12; 
+  font-weight: bold;
+}
+
+.data_company{
+  font-size: 10;
+}
+
 
 pre {
+  font-size: 6pt;
+  font-family: helvetica;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap !important;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word; }
+
+
+.pre_description {
   font-size: 7pt;
   font-family: helvetica;
   white-space: pre-wrap;
@@ -285,12 +305,12 @@ pre {
   word-wrap: break-word; }
 
 hr{
-  width:80%;
+  width:95%;
   color:lightgrey;
 }
 
 td{
-  font-size:8;
+  font-size:7;
 }
 
 .td_without_bottom{
@@ -310,6 +330,10 @@ font-weight: bold; }
 .th_widht {
   widht: 33%; }
 
+.td_condiciones{
+  font-size:6;
+}
+
 table.fixed { 
 table-layout:fixed;
 width:33%;
@@ -318,7 +342,7 @@ word-break:break-all;
 
 td.total_td {
 border-top: solid 1.5px #99182c;
-font-size: 10;
+font-size: 8;
 padding-right: 2px;
 padding-left: 2px;
 font-weight: bold;
@@ -326,7 +350,7 @@ color: black; }
 
 td.sub_total_td {
 border-top: solid 1.5px #99182c;
-font-size: 11;
+font-size: 8;
 padding-right: 2px;
 padding-left: 2px;
 color: black; }

@@ -7,7 +7,6 @@
 </head>
 <body>
     %for o in objects :
-    <% setLang(o.partner_id.lang) %>
     <table class="basic_table" width="100%">
         <tr>
             <td width="30%">
@@ -18,20 +17,42 @@
             <td style="vertical-align: bottom;">
                 <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
                     <tr>
-                        <td class="data_emitter" style="text-align:right;background-color:FFFFFF;">
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.name or '' | entity}, 
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.vat[2:] or ''| entity}</br>
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.street or '' | entity} 
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.street2 or '' | entity} 
-                            ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Ext. %s' % (o.user_id.company_id.partner_id.l10n_mx_street3)) or '' | entity}
-                            ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Int. %s' % (o.user_id.company_id.partner_id.l10n_mx_street4)) or '' | entity}, </br>
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.country_id and o.user_id.company_id.partner_id.country_id.name or ''| entity},
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.city or ''| entity }, 
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.zip or  '' | entity} </br>
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.email or  '' | entity} - 
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.phone or  '' | entity} - 
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.fax or  ''| entity } - 
-                            ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.mobile or ''| entity }
+                        <td style="text-align:center;background-color:FFFFFF;">
+                            <table width="100%">
+                                <tr>
+                                    <td class="td_center">
+                                        <strong>${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.name.upper() or '' | entity}</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td_center">
+                                        <p class="data_company"><b>${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.vat[2:] or ''| entity}</b></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td_center">
+                                        <p class="data_company">${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.street or '' | entity} 
+                                        ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.street2 or '' | entity} 
+                                        ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Ext. %s' % (o.user_id.company_id.partner_id.l10n_mx_street3)) or '' | entity}
+                                        ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Int. %s' % (o.user_id.company_id.partner_id.l10n_mx_street4)) or '' | entity},</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td_center">
+                                        <p class="data_company">${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.country_id and o.user_id.company_id.partner_id.country_id.name or ''| entity},
+                                        ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.city or ''| entity }, 
+                                        ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.zip or  '' | entity}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td_center">
+                                        <p class="data_company">${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.email or  '' | entity} - 
+                                        ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.phone or  '' | entity} - 
+                                        ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.fax or  ''| entity } - 
+                                        ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.mobile or ''| entity }</p>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                     <tr>
@@ -140,28 +161,29 @@
             <tbody>
             %for line in o.order_line :
                 <tr>
-                    <td class="td_center">
-                        ${formatLang(line.product_uos and line.product_uos_qty or line.product_uom_qty)}</br>
+                    <td class="td_center" valign="top">
+                        ${formatLang(line.product_uos and line.product_uos_qty or line.product_uom_qty ,digits=2, grouping=True)}</br>
                         <hr>
                         [ ${line.sequence or '' | entity} ]
                     </td>
                     <td>
-                        <pre>${line.name or '' | entity}</pre>
+                        <b>[${line.product_id and line.product_id.default_code or '' |entity}]${line.product_id and line.product_id.name or '' |entity}</b></br>
                         <hr>
-                        <pre>${line.product_id and line.product_id.description or '' |entity}</pre>
+                        <pre>${line.name or '' | entity}</pre>
+                        <pre class="pre_description">${line.product_id and line.product_id.description or '' |entity}</pre>
                         <hr>
                         %if not line.delay==0.00:
-                            PLAZO DE ENTREGA: ${formatLang(line.delay, digits=0, date=False, date_time=False, grouping=True, monetary=False) or '' }${line.delay==0.00 or ''} DÍAS </br>
+                            <i>PLAZO DE ENTREGA: ${formatLang(line.delay, digits=2, grouping=True) or '' }${line.delay==0.00 or ''} DÍAS</i></br>
                         %endif
-                        ${line.delay==0.00 and 'A CONVENIR' or '' | entity}
+                        <i>${line.delay==0.00 and 'A CONVENIR' or '' | entity}</i>
                     </td>
-                    <td class="td_center">
+                    <td class="td_center" valign="top">
                         [ ${line.product_uom and line.product_uom.name or '' |entity} ]
                         <hr>
-                        ${formatLang(line.price_unit) or '' |entity}
+                        ${formatLang(line.price_unit, digits=2, grouping=True) or '' |entity}
                     </td>
-                    <td class="td_amount">
-                        ${formatLang(line.price_subtotal) or '' |entity }
+                    <td class="td_amount" valign="top">
+                        ${formatLang(line.price_subtotal, digits=2, grouping=True) or '' |entity }
                     </td>
                 </tr>
             %endfor
@@ -172,18 +194,18 @@
     <table  width="100%" style="border-collapse:collapse" class="table_only_border_bottom">
         <tr>
             <td width="80%" class="td_without_bottom"></td>
-            <td width="10%"  class="sub_total_td">${_('SUBTOTAL')}</td>
-            <td width="10%" align="right" class="sub_total_td">${o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or '' |entity} ${formatLang(o.amount_untaxed)}</td>
+            <td width="5%"  class="sub_total_td">${_('SUBTOTAL')}</td>
+            <td width="15%" align="right" class="sub_total_td">${o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or '' |entity} ${formatLang(o.amount_untaxed,digits=2, grouping=True)}</td>
         </tr>
         <tr>
             <td class="td_without_bottom"></td>
             <td class="sub_total_td">${_('IVA')}</td>
-            <td align="right" class="sub_total_td">${o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or '' |entity} ${formatLang(o.amount_tax)}</td>
+            <td align="right" class="sub_total_td">${o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or '' |entity} ${formatLang(o.amount_tax,digits=2, grouping=True)}</td>
         </tr>
         <tr>
             <td class="td_without_bottom"></td>
             <td class="td_without_bottom total_td">${_('TOTAL')}</td>
-            <td align="right" class="td_without_bottom total_td">${o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or '' |entity} ${formatLang(o.amount_total, digits=2, date=False, date_time=False, grouping=True, monetary=True)}</td>
+            <td align="right" class="td_without_bottom total_td">${o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or '' |entity} ${o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''} ${formatLang(o.amount_total, digits=2, grouping=True)}</td>
         </tr>
     </table>
      <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
@@ -193,18 +215,18 @@
                 </th>
             </tr>
             <tr>
-                <td>
+                <td style="font-size: 6;">
                     %if (o.note):
                         NOTAS:</br>
-                        ${o.note and o.note or '' |entity}</br></br>
+                        <pre style="font-size: 6;">${o.note and o.note or '' |entity}</pre>
                     %endif
                     %if (o.payment_term and o.payment_term.name) and (o.payment_term and o.payment_term.note):
                         (1) T&Eacute;RMINOS DE PAGO:</br>
-                        <pre>${o.payment_term and o.payment_term.name or '' |entity} ${o.payment_term and o.payment_term.note or '' |entity}</pre></br>
+                        <pre style="font-size: 6;">${o.payment_term and o.payment_term.name or '' |entity} ${o.payment_term and o.payment_term.note or '' |entity}</pre></br>
                     %endif
                     %if o.incoterm and o.incoterm.description:
                         (2) T&Eacute;RMINOS DE ENTREGA:</br>
-                        <pre>${o.incoterm and o.incoterm.description or 'No se ha estipulado términos comerciales de transporte' |entity}</pre></br>
+                        <pre style="font-size: 6;">${o.incoterm and o.incoterm.description or 'No se ha estipulado términos comerciales de transporte' |entity}</pre></br>
                     %endif
                 </td>
             </tr>
@@ -224,8 +246,9 @@
             </tr>
         </table>
     </center>
-    <p style="page-break-after:always"></p>
+    <p style="page-break-before: always;"></p>
 
     %endfor
+
 </body>
 </html>
