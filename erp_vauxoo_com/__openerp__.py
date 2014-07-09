@@ -109,7 +109,6 @@
         "l10n_mx_company_cif",
         "l10n_mx_company_multi_address",
         "l10n_mx_facturae_pac_sf",
-        "l10n_mx_facturae_vauxoo_report",
         "l10n_mx_invoice_currency_chgdft",
         "l10n_mx_notes_invoice",
         "l10n_mx_partner_address",
