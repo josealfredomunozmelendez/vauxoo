@@ -187,7 +187,8 @@
         "web_tests",
         "web_vauxoo_cust",
         "web_view_editor",
-        "www_vauxoo_com"
+        "www_vauxoo_com",
+        "sale_order_vauxoo_report_webkit",
             ],
     "author" : "Vauxoo",
     "description" : """
