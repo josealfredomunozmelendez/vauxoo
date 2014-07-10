@@ -41,6 +41,6 @@
         "data.xml",
         "l10n_mx_facturae_report_webkit.xml",
     ],
-    "installable" : True,
+    "installable" : False,
     "active" : False,
 }

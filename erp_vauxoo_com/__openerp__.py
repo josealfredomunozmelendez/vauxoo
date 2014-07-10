@@ -22,6 +22,10 @@
 {   "name" : "OpenERP Vauxoo COM",
     "version" : "1.0",
     "depends" : [
+
+        #new modules
+        "project_followers_rule",
+
         #TODO: Clean modules list. This version 1 is copy& paste from installed modules
         #Comment repeated dependencies
         #TODO: Add icon
@@ -106,7 +110,6 @@
         #~ "l10n_mx_company_cif",
         #~ "l10n_mx_company_multi_address",
         "l10n_mx_facturae_pac_sf",
-        "l10n_mx_facturae_vauxoo_report",
         #~ "l10n_mx_invoice_currency_chgdft",
         #~ "l10n_mx_notes_invoice",
         #~ "l10n_mx_partner_address",
@@ -143,6 +146,7 @@
         #~ "procurement",
         #~ "product",
         "project_conf",
+        "project_btree",
         "project_gtd",
         "project_issue_sheet",
         "project_long_term",
