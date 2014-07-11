@@ -135,7 +135,7 @@
     </table>
 </br>
     <section>
-        <table class="table_column_border table_alter_color_row table_title_bg_color">
+        <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
             <tr>
                 <th width="10%">
                     CANTIDAD</br>
