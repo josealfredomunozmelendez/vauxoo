@@ -35,10 +35,16 @@ Sale Order Vauxoo Report Webkit
 ===============================
 
 This module add sale order report for Vauxoo Company in format webkit.
+
+This module l10n_mx_partner_address will found in this branch: 
+
+    lp:vauxoo-private/openerp-mexico-localization-autonomy-v2
+
+
     """,
     "website" : "http://www.vauxoo.com/",
     "license" : "AGPL-3",
-    "depends" : ["sale"],
+    "depends" : ["sale","l10n_mx_partner_address"],
     "demo" : [],
     "data" : [
         "data/data.xml",

@@ -26,7 +26,7 @@
                                 </tr>
                                 <tr>
                                     <td class="td_center">
-                                        <p class="data_company"><b>${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.vat[2:] or ''| entity}</b></p>
+                                        <p class="data_company"><b>${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.partner_invoice_id.vat and o.user_id.company_id.partner_id.vat[2:] or ''| entity}</b></p>
                                     </td>
                                 </tr>
                                 <tr>
