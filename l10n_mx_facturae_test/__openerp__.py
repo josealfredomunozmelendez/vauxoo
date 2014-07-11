@@ -24,19 +24,19 @@
 #
 #
 {
-    "name": "Facturae Test CFDI",
+    "name": "Electronic Invoice Test CFDI",
     "version": "1.0",
     "depends": [
         "base",
         "account",
         "product",
         "l10n_mx_partner_address",
-        #~ "l10n_mx_facturae_pac_sf",
         "l10n_mx_facturae_pac_finkok",
+        "l10n_mx_cfdi_test",
     ],
     "author": "Vauxoo",
     "description": """
-Facturae Test CFDI
+Electronic Invoice Test CFDI
 ==================
 
 This wizard execute test yaml of electronic invoice CFDI "N" times. 
