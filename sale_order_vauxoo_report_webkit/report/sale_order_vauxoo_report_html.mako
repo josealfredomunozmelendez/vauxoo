@@ -33,8 +33,8 @@
                                     <td class="td_center">
                                         <p class="data_company">${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.street or '' | entity} 
                                         ${o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.street2 or '' | entity} 
-                                        ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Ext. %s' % (o.user_id.company_id.partner_id.l10n_mx_street3)) or '' | entity}
-                                        ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Int. %s' % (o.user_id.company_id.partner_id.l10n_mx_street4)) or '' | entity},</p>
+                                        ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Ext. %s' % (o.user_id.company_id.partner_id.l10n_mx_street3 or '')) or '' | entity}
+                                        ${ o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and ('Int. %s' % (o.user_id.company_id.partner_id.l10n_mx_street4 or '')) or '' | entity},</p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -80,7 +80,7 @@
        </tr>
     </table>
 </br> 
-    <table class="table_column_border table_alter_color_row table_title_bg_color">
+    <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
         <tr>
             <th width="40%">CLIENTE</th>
             <th width="40%">CONTACTO</th>
@@ -99,7 +99,7 @@
         </tr>
     </table>
     </br>
-    <table class="table_column_border table_alter_color_row table_title_bg_color">
+    <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
         <tr>
             <th width="30%">FACTURAR A</th>
             <th width="30%">ENTREGAR EN</th>
