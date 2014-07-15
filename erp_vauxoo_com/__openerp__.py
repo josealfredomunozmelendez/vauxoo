@@ -100,6 +100,7 @@
         #~ "hr_expense_analytic",
         #~ "hr_expense_replenishment",
         "hr_expense_replenishment_tax",
+        "hr_payslip_paid",
         #~ "hr_timesheet_invoice",
         #~ "incoterm_ext",
         #~ "knowledge",
@@ -137,6 +138,7 @@
         #~ "portal_products",
         #~ "portal_project",
         #~ "portal_project_imp",
+        "payroll_amount_residual",
         "portal_project_issue",
         #~ "portal_public_documents",
         #~ "portal_runbot",
@@ -150,6 +152,7 @@
         "project_gtd",
         "project_issue_sheet",
         "project_long_term",
+        "project_task_domain",
         #~ "project_timesheet",
         "purchase_analytic_plans",
         #~ "report_multicompany",
@@ -189,7 +192,6 @@
         #~ "web_vauxoo_cust",
         "web_view_editor",
         "www_vauxoo_com",
-        "project_task_domain"
             ],
     "author" : "Vauxoo",
     "description" : """
