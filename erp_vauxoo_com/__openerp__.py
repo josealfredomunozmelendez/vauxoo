@@ -92,6 +92,7 @@
         #~ "event",
         "event_sale",
         "expired_task_information",
+        "forward_mail",
         #~ "fetchmail",
         #~ "google_base_account",
         "google_docs",
