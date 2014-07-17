@@ -102,6 +102,7 @@
         #~ "hr_expense_replenishment",
         "hr_expense_replenishment_tax",
         "hr_payslip_paid",
+        "ifrs_report",
         #~ "hr_timesheet_invoice",
         #~ "incoterm_ext",
         #~ "knowledge",
@@ -193,6 +194,7 @@
         #~ "web_vauxoo_cust",
         "web_view_editor",
         "www_vauxoo_com",
+        "sale_order_vauxoo_report_webkit",
             ],
     "author" : "Vauxoo",
     "description" : """
