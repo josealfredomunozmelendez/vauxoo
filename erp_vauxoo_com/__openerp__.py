@@ -102,6 +102,7 @@
         #~ "hr_expense_replenishment",
         "hr_expense_replenishment_tax",
         "hr_payslip_paid",
+        "ifrs_report",
         #~ "hr_timesheet_invoice",
         #~ "incoterm_ext",
         #~ "knowledge",
