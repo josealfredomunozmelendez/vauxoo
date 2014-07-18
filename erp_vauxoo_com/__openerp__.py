@@ -196,6 +196,8 @@
         "web_view_editor",
         "www_vauxoo_com",
         "sale_order_vauxoo_report_webkit",
+        "sale_order_copy_line",  #Added module for add button in sale order line  Task #1887 
+        "sale_order_line_seq",  #Added module for add sequence in sale order line  Task #1888 
             ],
     "author" : "Vauxoo",
     "description" : """
