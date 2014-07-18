@@ -90,6 +90,7 @@
         #~ "email_template",
         #~ "email_template_multicompany",
         #~ "event",
+        "email_template_followers",
         "event_sale",
         "expired_task_information",
         "forward_mail",
