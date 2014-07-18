@@ -195,6 +195,8 @@
         "web_view_editor",
         "www_vauxoo_com",
         "sale_order_vauxoo_report_webkit",
+        "sale_order_copy_line",
+        "sale_order_line_seq",
             ],
     "author" : "Vauxoo",
     "description" : """
