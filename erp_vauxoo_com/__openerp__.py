@@ -165,6 +165,7 @@
         #~ "sale_crm",
         "sale_multicompany_report",
         "sale_order_report",
+        "sale_order_vauxoo_report_webkit",       # This depends is add for install sale order report webkit for Vauxoo Company  Task #1776
         #~ "sale_stock",
         #~ "share",
         #~ "sprint_kanban",
