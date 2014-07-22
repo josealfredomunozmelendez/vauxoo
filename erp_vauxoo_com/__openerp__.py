@@ -114,12 +114,9 @@
         #~ "l10n_mx_company_cif",
         #~ "l10n_mx_company_multi_address",
         "l10n_mx_facturae_pac_sf",
-        "l10n_mx_facturae_pac_finkok",
-        "l10n_mx_payroll_base",
-        "l10n_mx_validate_xml_sat",
-        #~ "l10n_mx_invoice_currency_chgdft",
-        #~ "l10n_mx_notes_invoice",
-        #~ "l10n_mx_partner_address",
+        "l10n_mx_facturae_pac_finkok",         #Added module of  finkok pac for signed with it invoices and payroll.  Task #1886
+        "l10n_mx_payroll_base",                #This module install all about  mexican payroll.  Task #1886
+        "l10n_mx_validate_xml_sat",            #This module install a wizard for validate XML signed in SAT  Task #1886
         #~ "l10n_mx_res_partner_bank",
         #~ "l10n_mx_settings_facturae",
         #~ "l10n_mx_states",
