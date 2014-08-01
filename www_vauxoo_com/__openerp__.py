@@ -31,15 +31,14 @@ Web Site: www.vauxoo.com
 
 This module has the intention to build automatically all the vauxoo site,
 The main objective is to have all the technical information necesary to build
-the web-site mixing all necesary branches.
+the web-site mixing all necesary Github repositories.
 
-Branches necesary to comply with dependencies.
+Necesary Github repositories to comply with dependencies.
 
-- 0 lp:openobject-addons/7.0
-- 1 lp:~vauxoo/web-addons/7.0-web_hideleftmenu 
-- 2 lp:vauxoo-private/cms
-- 3 lp:vauxoo-private/autodoc
-- 4 lp:addons-vauxoo/7.0
+- 0 https://github.com/Vauxoo/addons-vauxoo/
+- 1 https://github.com/Vauxoo/hideleftmenu
+- 2 https://github.com/vauxoo-dev/cms
+- 3 https://github.com/vauxoo-dev/autodoc
 
 Dependencies and why:
 
@@ -69,8 +68,8 @@ and propose them to be migrated.
                 'web_doc',
                 #'web_allow_custom_root',#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
                 # Because the little button TODO: Create 2 modeules www and erp dependencies should be differents
-                'hr_attendance', 
-                'ctp_training_tools', 
+                'hr_attendance',
+                'ctp_training_tools',
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
