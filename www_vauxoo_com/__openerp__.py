@@ -72,6 +72,7 @@ and propose them to be migrated.
                 'web_doc',
                 'hr_attendance',
                 'ctp_training_tools',
+                'theme_zen',
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
