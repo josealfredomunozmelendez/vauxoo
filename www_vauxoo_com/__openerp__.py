@@ -60,7 +60,7 @@ and propose them to be migrated.
     """,
     'depends': [
                 'website',
-                'runbot',
+                #'runbot',
                 'website_vauxoo_home',
                 'website_sale',
                 'website_blog',
@@ -70,9 +70,9 @@ and propose them to be migrated.
                 'website_event_track',
                 'website_crm',
                 'website_forum_doc',
-                'web_doc',
-                'hr_attendance',
-                'ctp_training_tools',
+                #'web_doc',
+                #'hr_attendance',
+                #'ctp_training_tools',
                 'theme_zen',
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
