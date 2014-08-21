@@ -61,6 +61,7 @@ and propose them to be migrated.
     'depends': [
                 'website',
                 'runbot',
+                'website_vauxoo_home',
                 'website_sale',
                 'website_blog',
                 'website_event',
