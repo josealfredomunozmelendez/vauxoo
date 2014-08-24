@@ -114,9 +114,9 @@
         #~ "l10n_mx_company_cif",
         #~ "l10n_mx_company_multi_address",
         "l10n_mx_facturae_pac_sf",
-        #~ "l10n_mx_invoice_currency_chgdft",
-        #~ "l10n_mx_notes_invoice",
-        #~ "l10n_mx_partner_address",
+        "l10n_mx_facturae_pac_finkok",         #Added module of  finkok pac for signed with it invoices and payroll.  Task #1886
+        "l10n_mx_payroll_base",                #This module install all about  mexican payroll.  Task #1886
+        "l10n_mx_validate_xml_sat",            #This module install a wizard for validate XML signed in SAT  Task #1886
         #~ "l10n_mx_res_partner_bank",
         #~ "l10n_mx_settings_facturae",
         #~ "l10n_mx_states",
@@ -165,6 +165,7 @@
         #~ "sale_crm",
         "sale_multicompany_report",
         "sale_order_report",
+        "sale_order_vauxoo_report_webkit",       # This depends is add for install sale order report webkit for Vauxoo Company  Task #1776
         #~ "sale_stock",
         #~ "share",
         #~ "sprint_kanban",

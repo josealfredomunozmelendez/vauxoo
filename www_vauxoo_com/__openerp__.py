@@ -31,46 +31,49 @@ Web Site: www.vauxoo.com
 
 This module has the intention to build automatically all the vauxoo site,
 The main objective is to have all the technical information necesary to build
-the web-site mixing all necesary branches.
+the web-site mixing all necesary Github repositories.
 
-Branches necesary to comply with dependencies.
+Necesary Github repositories to comply with dependencies.
 
-- 0 lp:openobject-addons/7.0
-- 1 lp:~vauxoo/web-addons/7.0-web_hideleftmenu 
-- 2 lp:vauxoo-private/cms
-- 3 lp:vauxoo-private/autodoc
-- 4 lp:addons-vauxoo/7.0
+- 0 https://github.com/Vauxoo/addons-vauxoo/
+- 1 https://github.com/Vauxoo/hideleftmenu
+- 2 https://github.com/vauxoo-dev/cms
+- 3 https://github.com/vauxoo-dev/autodoc
+- 4 https://github.com/odoo/odoo-extra
+- 5 https://github.com/Vauxoo/design-themes
 
 Dependencies and why:
 
 **contpaq_openerp_vauxoo:** activate the service to upload contpaq databases
 and propose them to be migrated.
 
-**portal_news:** activate the blog page and the main API.
-**portal_home:** activate the home page.
-**portal_events:** activate the events page.
-**portal_products:** activate the products page.
-**portal_project_imp:** activate the event page.
-**portal_runbot:** activate the runbot page to test openerp.
-**web_vauxoo_cust:** Improve the styles in all openerp and login page.
-**portal_crm_vauxoo:** Improve the contact form and manage the captcha widget on it.
+**website_blog:** activate the blog page and the main API.
+**website:** activate the home page and the whole structure of the website
+**website_event:** activate the events page.
+**website_sale:** activate the products page and the e-commerce platform.
+**website_project:** activate the public projects page.
+**runbot:** activate the runbot page to test odoo.
+**theme_vauxoo:** Improve the styles in all odoo, must install and select the theme.
+**website_crm:** This simple application integrates a contact form in your
+    "Contact us" page. Forms submissions create leads automatically in Odoo CRM..
 **web_doc:** Enable Help button.
     """,
     'depends': [
-                'portal_home',
-                'portal_runbot',
-                'portal_products',
-                'portal_events',
-                'portal_project_imp',
-                'portal_hr_imp',
-                'web_vauxoo_cust',
-                'portal_crm_vauxoo',
-                'portal_public_documents',
-                'web_doc',
-                #'web_allow_custom_root',#Branch 7.0-web_hideleftmenu disable because web_export_view make errors
-                # Because the little button TODO: Create 2 modeules www and erp dependencies should be differents
-                'hr_attendance', 
-                'ctp_training_tools', 
+                'website',
+                #'runbot',
+                'website_vauxoo_home',
+                'website_sale',
+                'website_blog',
+                'website_event',
+                'website_project',
+                'website_hr_recruitment',
+                'website_event_track',
+                'website_crm',
+                'website_forum_doc',
+                #'web_doc',
+                #'hr_attendance',
+                #'ctp_training_tools',
+                'theme_zen',
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
