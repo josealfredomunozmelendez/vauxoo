@@ -21,9 +21,10 @@
 
 
 {
-    'name': 'Vauxoo Site Build Module',
-    'version': '0.1',
-    'category': 'Vauxoo Ondemmand',
+    'name': 'Vauxoo Site',
+    'version': '0.4',
+    'category': 'Vauxoo',
+    'summary': 'Module to stablish the base for development on our website',
     'complexity': 'easy',
     'description': """
 Web Site: www.vauxoo.com
@@ -45,22 +46,20 @@ Necesary Github repositories to comply with dependencies.
 Dependencies and why:
 
 **contpaq_openerp_vauxoo:** activate the service to upload contpaq databases
-and propose them to be migrated.
+    and propose them to be migrated. #TODO: think where should go commented for now.
 
 **website_blog:** activate the blog page and the main API.
-**website:** activate the home page and the whole structure of the website
 **website_event:** activate the events page.
 **website_sale:** activate the products page and the e-commerce platform.
 **website_project:** activate the public projects page.
-**runbot:** activate the runbot page to test odoo.
 **theme_vauxoo:** Improve the styles in all odoo, must install and select the theme.
 **website_crm:** This simple application integrates a contact form in your
     "Contact us" page. Forms submissions create leads automatically in Odoo CRM..
 **web_doc:** Enable Help button.
     """,
     'depends': [
-                'website',
-                #'runbot',
+                #'runbot', #In development time this module is not necesary it must be renamed due to runbot is in other instance
+                'theme_vauxoo',
                 'website_vauxoo_home',
                 'website_sale',
                 'website_blog',
@@ -70,10 +69,9 @@ and propose them to be migrated.
                 'website_event_track',
                 'website_crm',
                 'website_forum_doc',
-                #'web_doc',
-                #'hr_attendance',
-                #'ctp_training_tools',
-                'theme_zen',
+                #'web_doc', #Not migrated Yet
+                #'hr_attendance', #Not migrated Yet (it must go to erp_vauxoo_com 'Business part')
+                #'ctp_training_tools', #Not Migrated Yet
                 #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
@@ -85,12 +83,12 @@ and propose them to be migrated.
     'installable': True,
     'auto_install': False,
     'css': [
-        'static/src/css/vauxoo.css',
+        #'static/src/css/vauxoo.css', Now it should be an asset, didn't it?
     ],
     'js': [
         'static/src/js/www_vauxoo_com.js',
     ],
     'qweb': [
-        'static/src/xml/base.xml',
+        #'static/src/xml/base.xml', #Not necesary anymore due to change of concepts.
     ],
 }
