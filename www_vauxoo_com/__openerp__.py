@@ -59,7 +59,6 @@ Dependencies and why:
     """,
     'depends': [
                 #'runbot', #In development time this module is not necesary it must be renamed due to runbot is in other instance
-                'theme_vauxoo',
                 'website_vauxoo_home',
                 'website_sale',
                 'website_blog',
