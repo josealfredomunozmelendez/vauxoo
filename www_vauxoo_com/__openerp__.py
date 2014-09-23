@@ -36,14 +36,12 @@ the web-site mixing all necesary Github repositories.
 
 Necesary Github repositories to comply with dependencies.
 
-- 0 https://github.com/Vauxoo/addons-vauxoo/
-- 1 https://github.com/Vauxoo/hideleftmenu
-- 2 https://github.com/vauxoo-dev/cms
-- 3 https://github.com/vauxoo-dev/autodoc
-- 4 https://github.com/odoo/odoo-extra
-- 5 https://github.com/Vauxoo/design-themes
+- 0 https://github.com/Vauxoo/addons-vauxoo/ #migration to V8 not started yet [delete repo and reconvert] - ?
+- 1 https://github.com/Vauxoo/hideleftmenu #missing some forks to origin web_addons - nhomar
+- 2 https://github.com/vauxoo-dev/cms #WIP branch 8.0 - oscar 
+- 3 https://github.com/vauxoo-dev/autodoc #not migrated yet - ? [Possibly complete depreciation]
 
-Dependencies and why:
+Dependencies and why: 
 
 **contpaq_openerp_vauxoo:** activate the service to upload contpaq databases
     and propose them to be migrated. #TODO: think where should go commented for now.
@@ -59,7 +57,6 @@ Dependencies and why:
     """,
     'depends': [
                 #'runbot', #In development time this module is not necesary it must be renamed due to runbot is in other instance
-                'theme_vauxoo',
                 'website_vauxoo_home',
                 'website_sale',
                 'website_blog',
