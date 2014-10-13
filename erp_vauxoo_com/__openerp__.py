@@ -63,7 +63,6 @@
         "sync_youtube",
         "user_story",
         "warning",
-        "web_view_editor",
         "sale_order_copy_line",
         "sale_order_line_seq",
         ],
