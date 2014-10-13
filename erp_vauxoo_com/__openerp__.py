@@ -19,9 +19,19 @@
 #
 ##############################################################################
 {   "name" : "Odoo Vauxoo Instance",
-    "version" : "1.0",
+    "author" : "Vauxoo",
+    "summary": "All the necesary modules to auto install our instance.",
+    "description" : """
+Install all apps needed to comply with Vauxoo instance
+======================================================
+
+TODO: Document all the references (read www_vauxoo_com module as an example)
+                    """,
+    "website" : "http://www.vauxoo.com",
+    "category" : "Vauxoo",
+    "version" : "2.0",
     "depends" : [
-        #new modules
+        # ERP modules (here nothing with website)
         "project_followers_rule",
         "hr_recruitment",
         "hr_evaluation",
@@ -66,20 +76,11 @@
         "sale_order_copy_line",
         "sale_order_line_seq",
         ],
-    "author" : "Vauxoo",
-    "description" : """
-Install all apps needed to comply with Vauxoo instance
-======================================================
-
-
-                    """,
-    "website" : "http://www.vauxoo.com",
-    "category" : "Localization/Application",
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" : [],
-    "test" : [],
-    "images" : [],
+    "data" : [],
+    "demo" : [],
+    "test" : [
+        # Only our tests (the custom ones)
+    ],
     "auto_install": False,
     "application": True,
     "installable": True,
