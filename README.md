@@ -75,16 +75,16 @@ Building the docker instance
 
 3. After the build is done the image can be run in this way.
     `
-    docker run -p 8069:8069 -d -t tag_name:odoo /entry_point.py
+    docker run -p 8069:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
     `
     Optionally you can set the container name with --name option (name must be unique)
     `
-    docker run --name my_odoo_container -p 8069:8069 -d -t tag_name:odoo /entry_point.py
+    docker run --name my_odoo_container -p 8069:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
     `
 You can  run as many images as you want, but be sure to attach them to diferents ports:
     `
-    docker run --name my_odoo_container01 -p 8060:8069 -d -t tag_name:odoo /entry_point.py
-    docker run --name my_odoo_container02 -p 8070:8069 -d -t tag_name:odoo /entry_point.py
-    docker run --name my_odoo_container03 -p 8080:8069 -d -t tag_name:odoo /entry_point.py
+    docker run --name my_odoo_container01 -p 8060:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
+    docker run --name my_odoo_container02 -p 8070:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
+    docker run --name my_odoo_container03 -p 8080:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
     `
 Read more about docker run options in: https://docs.docker.com/reference/run/
