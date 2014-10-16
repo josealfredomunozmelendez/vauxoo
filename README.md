@@ -61,8 +61,7 @@ Modules:
 Building the docker instance
 ---
 
-1. Fix line "ADD id_rsa /home/odoo/.ssh" and add the path to your key or
-    you can create a hard link to your private key
+1. Create a hard link to your private key (if you dont push the image your key will be only local)
 
     `
     cd deployment_files/docker_files/
