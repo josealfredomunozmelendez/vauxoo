@@ -6,7 +6,7 @@ RUN echo 'root:odoo' |chpasswd
 
 RUN mkdir /home/odoo/.ssh
 ADD id_rsa /home/odoo/.ssh/id_rsa
-RUN chown odoo:odoo -R /home/odoo/.ssh \
+RUN chown odoo:odoo -R /home/odoo \
     && chmod 600 /home/odoo/.ssh/id_rsa
 
 USER odoo
