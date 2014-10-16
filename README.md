@@ -61,9 +61,14 @@ Modules:
 Building the docker instance
 ---
 
-1. Fix line "ADD id_rsa /home/odoo/.ssh" and add the path to your key
+1. Fix line "ADD id_rsa /home/odoo/.ssh" and add the path to your key or
+    you can create a hard link to your private key
+    `
+    cd deployment_files/docker_files/
+    ln ~/.ssh/id_rsa .
+    `
 
-2. Build the Dockerfile image in the root path.
+2. Build the Dockerfile image.
     `
     docker build -t tag_name:odoo .
     `
@@ -72,7 +77,14 @@ Building the docker instance
     `
     docker run -p 8069:8069 -d -t tag_name:odoo /entry_point.py
     `
-    Optionally you can set the container name with --name option
+    Optionally you can set the container name with --name option (name must be unique)
     `
     docker run --name my_odoo_container -p 8069:8069 -d -t tag_name:odoo /entry_point.py
     `
+You can  run as many images as you want, but be sure to attach them to diferents ports:
+    `
+    docker run --name my_odoo_container01 -p 8060:8069 -d -t tag_name:odoo /entry_point.py
+    docker run --name my_odoo_container02 -p 8070:8069 -d -t tag_name:odoo /entry_point.py
+    docker run --name my_odoo_container03 -p 8080:8069 -d -t tag_name:odoo /entry_point.py
+    `
+Read more about docker run options in: https://docs.docker.com/reference/run/
