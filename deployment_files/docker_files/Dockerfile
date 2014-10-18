@@ -38,7 +38,7 @@ RUN wget -O /entry_point.py https://raw.githubusercontent.com/vauxoo-dev/docker_
     && chmod +x /entry_point.py
 RUN mkdir -p /var/log/supervisor
 VOLUME ["/var/log/supervisor", \
-        "/home/odoo/instance/odoo/openerp/filestore", \
+        "/home/odoo/instance/filestore", \
         "/home/odoo/instance/odoo/config"]
 
 EXPOSE 8069
