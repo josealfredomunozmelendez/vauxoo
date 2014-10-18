@@ -34,17 +34,16 @@ This module has the intention to build automatically all the vauxoo site,
 The main objective is to have all the technical information necesary to build
 the web-site mixing all necesary Github repositories.
 
+In this module we will add only the website_* dependencies and the `portal*`
+features.
+
 Necesary Github repositories to comply with dependencies.
 
-- 0 https://github.com/Vauxoo/addons-vauxoo/ #migration to V8 not started yet [delete repo and reconvert] - ?
-- 1 https://github.com/Vauxoo/hideleftmenu #missing some forks to origin web_addons - nhomar
-- 2 https://github.com/vauxoo-dev/cms #WIP branch 8.0 - oscar 
-- 3 https://github.com/vauxoo-dev/autodoc #not migrated yet - ? [Possibly complete depreciation]
+- 0 https://github.com/Vauxoo/addons-vauxoo/ # migration to V8 not started yet [delete repo and reconvert] - ?
+- 1 https://github.com/Vauxoo/hideleftmenu # missing some forks to origin web_addons - nhomar
+- 2 https://github.com/vauxoo-dev/cms # WIP branch 8.0 - oscar
 
-Dependencies and why: 
-
-**contpaq_openerp_vauxoo:** activate the service to upload contpaq databases
-    and propose them to be migrated. #TODO: think where should go commented for now.
+Dependencies and why:
 
 **website_blog:** activate the blog page and the main API.
 **website_event:** activate the events page.
@@ -53,10 +52,8 @@ Dependencies and why:
 **theme_vauxoo:** Improve the styles in all odoo, must install and select the theme.
 **website_crm:** This simple application integrates a contact form in your
     "Contact us" page. Forms submissions create leads automatically in Odoo CRM..
-**web_doc:** Enable Help button.
     """,
     'depends': [
-                #'runbot', #In development time this module is not necesary it must be renamed due to runbot is in other instance
                 'website_vauxoo_home',
                 'website_sale',
                 'website_blog',
@@ -66,26 +63,13 @@ Dependencies and why:
                 'website_event_track',
                 'website_crm',
                 'website_forum_doc',
-                #'web_doc', #Not migrated Yet
-                #'hr_attendance', #Not migrated Yet (it must go to erp_vauxoo_com 'Business part')
-                #'ctp_training_tools', #Not Migrated Yet
-                #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
     'data': [
     ],
     'test': [
-        #'test/contact_form.yml', #TODO This module should have all tests for the site.
+        # Our tests for only our site - (the no generic ones)
     ],
     'installable': True,
     'auto_install': False,
-    'css': [
-        #'static/src/css/vauxoo.css', Now it should be an asset, didn't it?
-    ],
-    'js': [
-        'static/src/js/www_vauxoo_com.js',
-    ],
-    'qweb': [
-        #'static/src/xml/base.xml', #Not necesary anymore due to change of concepts.
-    ],
 }

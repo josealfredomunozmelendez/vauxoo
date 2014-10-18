@@ -25,4 +25,4 @@
 #
 ##############################################################################
 
-import sale_order_vauxoo_report
+#import sale_order_vauxoo_report
