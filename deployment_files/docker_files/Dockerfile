@@ -16,7 +16,7 @@ RUN ssh-keyscan github.com > /home/odoo/.ssh/known_hosts \
 RUN /bin/bash -c "mkdir -p /home/odoo/instance/{config,extra_addons}"
 RUN cd /home/odoo/instance && git clone -b 8.0 --single-branch --depth=1 https://github.com/odoo/odoo.git odoo
 RUN cd /home/odoo/instance/extra_addons \
-    && git clone -b oml-8-dev-julio --single-branch --depth=1 git@bitbucket.org:julioserna/oml-v2-8-dev-julio.git oml \
+    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/odoo-mexico-v2.git oml \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo-dev/cms.git cms \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-network.git odoo_network \
     && git clone -b master --single-branch --depth=1 git@github.com:vauxoo/server-tools.git server_tools\
