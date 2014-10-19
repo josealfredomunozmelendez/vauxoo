@@ -12,7 +12,7 @@ RUN ssh-keyscan github.com > /home/odoo/.ssh/known_hosts \
     && ssh-keyscan 172.17.42.1 >> /home/odoo/.ssh/known_hosts \
     && ssh-keyscan bitbucket.org >> /home/odoo/.ssh/known_hosts
 RUN /bin/bash -c "mkdir -p /home/odoo/instance/{config,extra_addons}"
-RUN cd /home/odoo/instance && git clone -b 8.0 --single-branch --depth=1 nhomar@172.17.42.1:/home/nhomar/RepositoriesVauxoo/odoo.git odoo
+RUN cd /home/odoo/instance && git clone -b 8.0 --single-branch --depth=1 https://github.com/odoo/odoo.git odoo
 RUN cd /home/odoo/instance/extra_addons \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/odoo-mexico-v2.git oml \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo-dev/cms.git cms \
@@ -29,9 +29,10 @@ ENV XDG_DATA_HOME /home/odoo/.local/share
 USER root
 RUN mkdir /external_files
 ADD files/supervisord.conf /external_files/supervisord.conf
-ADD files/.openerp_serverrc /home/odoo/
-RUN chown odoo:odoo -R /home/odoo/.openerp_serverrc
+ADD files/.openerp_serverrc /external_files/.openerp_serverrc
 RUN mkdir -p /var/log/supervisor
-VOLUME ["/var/log/supervisor", \
-        "/home/odoo/instance/odoo/config"]
+RUN wget -O /entry_point.py https://raw.githubusercontent.com/vauxoo-dev/docker_entrypoint/master/entry_point.py \
+    && chmod +x /entry_point.py
+VOLUME ["/var/log/supervisor"]
 EXPOSE 8069
+CMD /entry_point.py
