@@ -1,8 +1,10 @@
 odoo:
- build: .
+ image: vauxoo:odoo
  ports:
   - "18069:8069"
  environment:
-  DB_SERVER: 192.168.0.101
-  HOSTALIASES: ~/.hosts
- command: /usr/bin/supervisord
+  - DB_SERVER="192.168.0.106"
+  - DB_PORT="5433"
+ volumes:
+  - ./logs/odoo:/var/log/supervisor
+ command: /entry_point.py
