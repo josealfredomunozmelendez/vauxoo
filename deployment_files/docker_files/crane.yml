@@ -1,0 +1,10 @@
+containers:
+    odooinstance:
+        image: vauxoo:odoo
+        dockerfile: .
+        run:
+            volume: ["/home/truiz/docker_files/instance-vauxoo-com/deployment_files/docker_files/logs:/var/log/supervisor"]
+            publish: ["18069:8069"]
+            detach: true
+            env: ["DB_SERVER=192.168.0.106", "DB_PORT=5433"]
+            cmd: /entry_point.py
