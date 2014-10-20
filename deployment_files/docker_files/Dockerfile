@@ -6,6 +6,7 @@ RUN mkdir /home/odoo/.ssh
 ADD id_rsa /home/odoo/.ssh/id_rsa
 RUN chown odoo:odoo -R /home/odoo \
     && chmod 600 /home/odoo/.ssh/id_rsa
+ADD files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 USER odoo
 RUN ssh-keyscan github.com > /home/odoo/.ssh/known_hosts \
     && ssh-keyscan launchpad.net >> /home/odoo/.ssh/known_hosts \
@@ -20,9 +21,9 @@ RUN cd /home/odoo/instance/extra_addons \
     && git clone -b master --single-branch --depth=1 git@github.com:vauxoo/server-tools.git server_tools\
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo-dev/instance-vauxoo-com.git instance_vauxoo_com \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-ifrs.git odoo_ifrs \
-    && git clone --depth=1 git@bitbucket.org:julioserna/pdf-format.git pdf_format \
+#    && git clone --depth=1 git@bitbucket.org:julioserna/pdf-format.git pdf_format \
     && bzr checkout lp:addons-vauxoo --lightweight addons_vauxoo
-ADD files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD files/.openerp_serverrc /home/odoo/.openerp_serverrc
 RUN rm /home/odoo/.ssh/id_rsa
 RUN mkdir -p /home/odoo/.local/share
 ENV XDG_DATA_HOME /home/odoo/.local/share

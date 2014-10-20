@@ -1,14 +1,14 @@
 [options]
-addons_path=/home/odoo/instance/odoo/addons,/home/odoo/instance/extra_addons/oml,/home/odoo/instance/extra_addons/addons_vauxoo,/home/odoo/instance/extra_addons/cms,/home/odoo/instance/extra_addons/odoo_network,/home/odoo/instance/extra_addons/server_tools,/home/odoo/instance/extra_addons/instance_vauxoo_com,/home/odoo/instance/extra_addons/odoo_ifrs,/home/odoo/instance/extra_addons/pdf_format
+addons_path=/home/odoo/instance/odoo/addons,/home/odoo/instance/extra_addons/oml,/home/odoo/instance/extra_addons/addons_vauxoo,/home/odoo/instance/extra_addons/cms,/home/odoo/instance/extra_addons/odoo_network,/home/odoo/instance/extra_addons/server_tools,/home/odoo/instance/extra_addons/instance_vauxoo_com,/home/odoo/instance/extra_addons/odoo_ifrs
 admin_passwd = admin
 auto_reload = False
 csv_internal_sep = ,
 data_dir = /home/odoo/.local/share/Odoo
-db_host = databases
+db_host = 192.168.0.106
 db_maxconn = 64
 db_name = False
 db_password = odoo
-db_port = False
+db_port = 5433
 db_template = template1
 db_user = odoo
 dbfilter = .*
