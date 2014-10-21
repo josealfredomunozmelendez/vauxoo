@@ -1,0 +1,11 @@
+odootesting:
+ build: .
+ ports:
+  - "28069:8069"
+ environment:
+  - DB_SERVER=databases
+  - DB_PORT=5458
+ volumes:
+  - ./logs/odoo:/var/log/supervisor
+ command: /entry_point.py
+

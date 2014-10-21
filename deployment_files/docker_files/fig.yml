@@ -1,10 +1,10 @@
-odoo:
+odoodev:
  build: .
  ports:
   - "18069:8069"
  environment:
-  - DB_SERVER=192.168.0.106
-  - DB_PORT=5433
+  - DB_SERVER=192.168.0.101
+  - DB_PORT=5432
  volumes:
-  - ./logs/odoo:/var/log/supervisor
+  - ./logs-dev/odoo:/var/log/supervisor
  command: /entry_point.py
