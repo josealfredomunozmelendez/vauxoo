@@ -1,5 +1,5 @@
 [options]
-addons_path=/home/odoo/instance/odoo/addons,/home/odoo/instance/extra_addons/oml,/home/odoo/instance/extra_addons/addons_vauxoo,/home/odoo/instance/extra_addons/cms,/home/odoo/instance/extra_addons/odoo_network,/home/odoo/instance/extra_addons/server_tools,/home/odoo/instance/extra_addons/instance_vauxoo_com,/home/odoo/instance/extra_addons/odoo_ifrs
+addons_path=/home/odoo/instance/odoo/addons,/home/odoo/instance/extra_addons/oml,/home/odoo/instance/extra_addons/addons_vauxoo,/home/odoo/instance/extra_addons/cms,/home/odoo/instance/extra_addons/odoo_network/addons,/home/odoo/instance/extra_addons/server_tools,/home/odoo/instance/extra_addons/instance_vauxoo_com,/home/odoo/instance/extra_addons/odoo_ifrs
 admin_passwd = admin
 auto_reload = False
 csv_internal_sep = ,
