@@ -1,4 +1,4 @@
-FROM quay.io/ruiztulio/odoo-base-image
+FROM quay.io/ruiztulio/odoo-80-base
 MAINTAINER Tulio Ruiz <tulio@vauxoo.com>
 RUN adduser --home=/home/odoo --disabled-password --gecos "" --shell=/bin/bash odoo
 RUN echo 'root:odoo' |chpasswd
