@@ -54,7 +54,6 @@ TODO: Document all the references (read www_vauxoo_com module as an example)
         "l10n_mx_facturae_pac_finkok",         #Added module of  finkok pac for signed with it invoices and payroll.  Task #1886
         "l10n_mx_payroll_base",                #This module install all about  mexican payroll.  Task #1886
         "l10n_mx_validate_xml_sat",            #This module install a wizard for validate XML signed in SAT  Task #1886
-        "mass_editing",
         "procurement_jit",
         "multi_company",
         "network",
