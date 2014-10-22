@@ -53,4 +53,5 @@ coverage.xml
 id_rsa
 id_rsa.pub
 deployment_files/docker_files/logs-dev/odoo
-deployment_files/docker_files/logs/odoo
+deployment_files/docker_files/logs
+deployment_files/docker_files/data
