@@ -1,10 +1,20 @@
 odoodev:
- build: .
- ports:
-  - "18069:8069"
- environment:
-  - DB_SERVER=192.168.0.101
-  - DB_PORT=5432
- volumes:
-  - ./logs-dev/odoo:/var/log/supervisor
- command: /entry_point.py
+  build: .
+  ports:
+    - "18069:8069"
+  environment:
+    - DB_SERVER=odoodb
+  volumes:
+    - ./logs-dev/odoo:/var/log/supervisor
+  command: /entry_point.py
+  links:
+    - odoodb
+odoodb:
+  image: quay.io/ruiztulio/odoo-postgresql:master
+  volumes:
+    - ./logs/postgres:/var/log/supervisor
+    - ./data/postgres_data:/var/lib/postgresql
+    - ./data/postgres_config:/etc/postgresql
+  ports:
+    - "5432"
+    - "5433:5432"
