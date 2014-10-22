@@ -5,7 +5,7 @@ odoodev:
   environment:
     - DB_SERVER=odoodb
   volumes:
-    - ./logs-dev/odoo:/var/log/supervisor
+    - ./logs/odoo:/var/log/supervisor
   command: /entry_point.py
   links:
     - odoodb
