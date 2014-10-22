@@ -1,0 +1,21 @@
+odoodev:
+  build: ../docker_files/
+  ports:
+    - "18069:8069"
+  environment:
+    - DB_SERVER=odoodb
+    - DB_PORT=5432
+  volumes:
+    - ../docker_files/logs/odoo:/var/log/supervisor
+  command: /entry_point.py
+  links:
+    - odoodb
+odoodb:
+  image: quay.io/ruiztulio/odoo-postgresql:master
+  volumes:
+    - ../docker_files/logs/postgres:/var/log/supervisor
+    - ../docker_files/data/postgres_data:/var/lib/postgresql
+    - ../docker_files/data/postgres_config:/etc/postgresql
+  ports:
+    - "5432"
+    - "5433:5432"
