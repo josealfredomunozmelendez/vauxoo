@@ -1,0 +1,91 @@
+---
+- hosts: localhost
+  remote_user: "{{ ansible_ssh_user }}"
+  user: "{{ ansible_ssh_user }}"
+  vars_files: 
+    - vars.yml
+  vars:
+    actual_path: "{{ lookup('pipe', 'pwd') }}/../docker_files/"
+  tasks:
+
+  - name: Add user key to authorized_key so we can ssh locallly
+    authorized_key: user="{{ ansible_ssh_user }}" key="{{ lookup('file', '{{ ssh_pub_key }}') }}"
+    when: '"localhost" == inventory_hostname'
+
+  - name: localhost is a known host
+    lineinfile:
+      dest: ~/.ssh/known_hosts
+      create: yes
+      state: present
+      line: "{{ lookup('pipe', 'ssh-keyscan -t rsa localhost') }}"
+      regexp: "^localhost"
+    when: '"localhost" == inventory_hostname'
+
+  - include: tasks/install_deps.yml 
+    when: ansible_os_family=="Debian"
+
+  - include: tasks/pull_images.yml sudo=yes
+
+  - include: tasks/kill_containers.yml
+
+  - name: Copy Dockerfile
+    copy: src=../docker_files dest=/tmp
+    when: '"localhost" != inventory_hostname'
+
+  - name: Let the private key be available for docker build process
+    shell: cp {{ ssh_piv_key }} {{ actual_path }}
+    when: '"localhost" == inventory_hostname'
+
+  - name: Drop the Vauxoo Odoo image
+    docker_image:
+      name: "vauxoo_odoo80"
+      state: absent
+
+  - name: Build the Vauxoo Odoo image
+    docker_image: 
+      path: "{{ actual_path }}"
+      name: "vauxoo_odoo80"
+      state: build
+      nocache: True
+
+  - name: Start Redis container
+    docker:
+      image: dockerfile/redis
+      name: "{{ redis_server_name }}"
+      ports: "{{ redis_mapped_port }}:6379"
+
+  - name: Start PostgreSQL container
+    docker:
+      image: quay.io/ruiztulio/odoo-postgresql
+      name: "{{ postgres_server_name }}"
+      ports: "{{ postgres_mapped_port }}:5432"
+      links:
+        - "{{ redis_server_name }}:redis_server"
+
+  - name: Start a new dev conatiner with instance-vauxoo-com
+    docker: 
+      image: vauxoo_odoo80
+      name: "{{ odoo_server_name }}"
+      command: "/entry_point.py" 
+      ports: "{{ odoo_mapped_port }}:8069"
+      env: "STAGE={{ stage }},REDIS_SERVER=redis_server"
+      links:
+        - "{{ postgres_server_name }}:postgres_server"
+        - "{{ redis_server_name }}:redis_server"
+
+  - name: Load database host in redis server
+    shell: redis-cli -p {{ redis_mapped_port }} HSET {{ stage }} DB_HOST postgres_server
+
+  - name: Load database port in redis server
+    shell: redis-cli -p {{ redis_mapped_port }} HSET {{ stage }} DB_PORT 5432
+
+#  - name: Display IP address and port mappings for containers
+#    debug: msg={{inventory_hostname}}:{{item['HostConfig']['PortBindings']['8069/tcp'][0]['HostPort']}}
+#    with_items: docker_containers
+
+  - name: Display IP address and port mappings for containers
+    debug: msg="ip  ":{{item['NetworkSettings']['IPAddress']}}
+    with_items: docker_containers
+
+  handlers:
+    - include: handlers/docker.yml
