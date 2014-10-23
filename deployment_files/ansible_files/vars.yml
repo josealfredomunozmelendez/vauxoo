@@ -1,0 +1,33 @@
+system_packages:
+  - build-essential
+  - git
+  - python-dev
+  - python-setuptools
+  - docker.io
+  - libpq-dev
+  - tcl8.5
+  - redis-tools
+  - sshpass
+
+python_packages:
+  - pip
+  - docker-py
+  - psycopg2
+
+stage: development
+
+###### Changes can be made from here #######
+
+## User's key path
+ssh_pub_key: ~/.ssh/id_rsa.pub
+ssh_piv_key: ~/.ssh/id_rsa
+
+## Mapped ports on the host
+redis_mapped_port: 6379
+postgres_mapped_port: 5433
+odoo_mapped_port: 18069
+
+## Containers names
+redis_server_name: redis_server_aqui
+postgres_server_name: postgres_server_este
+odoo_server_name: local_erp_vauxoo_com_el_bonito
