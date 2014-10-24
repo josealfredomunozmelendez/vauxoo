@@ -3,6 +3,7 @@
   remote_user: "{{ ansible_ssh_user }}"
   user: "{{ ansible_ssh_user }}"
   vars_files: 
+    - dependencies.yml
     - vars.yml
   vars:
     actual_path: "{{ lookup('pipe', 'pwd') }}/../docker_files/"
@@ -78,14 +79,6 @@
 
   - name: Load database port in redis server
     shell: redis-cli -p {{ redis_mapped_port }} HSET {{ stage }} DB_PORT 5432
-
-#  - name: Display IP address and port mappings for containers
-#    debug: msg={{inventory_hostname}}:{{item['HostConfig']['PortBindings']['8069/tcp'][0]['HostPort']}}
-#    with_items: docker_containers
-
-  - name: Display IP address and port mappings for containers
-    debug: msg="ip  ":{{item['NetworkSettings']['IPAddress']}}
-    with_items: docker_containers
 
   handlers:
     - include: handlers/docker.yml
