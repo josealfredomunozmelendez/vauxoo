@@ -4,6 +4,8 @@
     image: dockerfile/redis
     name: "{{ redis_server_name }}"
     ports: "{{ redis_mapped_port }}:6379"
+    volumes:
+      - "{{ data_path }}/data/redis_data:/data"
 
 - name: Start PostgreSQL container
   docker:
@@ -12,6 +14,10 @@
     ports: "{{ postgres_mapped_port }}:5432"
     links:
       - "{{ redis_server_name }}:redis_server"
+    volumes:
+      - "{{ data_path }}/logs/postgres:/var/log/supervisor"
+      - "{{ data_path }}/data/postgres_data:/var/lib/postgresql"
+      - "{{ data_path }}/data/postgres_config:/etc/postgresql"
 
 - name: Start a new dev conatiner with instance-vauxoo-com
   docker: 
@@ -23,3 +29,6 @@
     links:
       - "{{ postgres_server_name }}:postgres_server"
       - "{{ redis_server_name }}:redis_server"
+    volumes:
+      - "{{ data_path }}/logs/odoo:/var/log/supervisor"
+
