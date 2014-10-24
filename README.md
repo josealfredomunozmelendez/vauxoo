@@ -107,11 +107,9 @@ Building the docker instance
 
 You can  run as many images as you want, but be sure to attach them to diferents ports:
 
-    ```
     docker run --name my_odoo_container01 -p 8060:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
     docker run --name my_odoo_container02 -p 8070:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
     docker run --name my_odoo_container03 -p 8080:8069 -d --env DB_SERVER=db_host --env DB_PORT=db_port -t tag_name:odoo /entry_point.py
-    ```
 
 Read more about docker run options in: https://docs.docker.com/reference/run/
 
@@ -136,4 +134,4 @@ cd to the **deployment_files/ansible_files** folder and run:
 
 This will run ansible in your localhost and ask for sudo password (to perform the installation of basic dependencies for running docker containers)
 
-If you need to change ssh_keys to download git and bzr repos just edit them in the *vars.yml* file, read the comments for other configuration options
+If you need to change ssh_keys to download git and bzr repos just edit them in the *vars.yml* file, read the comments for other configuration options, by deffault it will use the users keys
