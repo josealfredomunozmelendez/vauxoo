@@ -114,3 +114,32 @@ You can  run as many images as you want, but be sure to attach them to diferents
     ```
 
 Read more about docker run options in: https://docs.docker.com/reference/run/
+
+Building using ansible scripts
+---
+
+# First you must install ansible and docker_facts on the machine that will be running ansible playbooks
+
+## Install ansible
+
+Follow this link according to your preferred method http://docs.ansible.com/intro_installation.html, installing using pip is recommended http://docs.ansible.com/intro_installation.html#latest-releases-via-pip
+
+## Install docker_facts
+
+Docker_facts is a module developed by Patrick Galbraith (https://github.com/CaptTofu), you can simply run:
+
+    ```
+    sudo wget -O /usr/share/ansible/cloud/docker_facts https://raw.githubusercontent.com/CaptTofu/ansible/docker_facts/library/cloud/docker_facts
+    ```
+
+## Running ansible playbook
+
+cd to the **deployment_files/ansible_files** folder and run:
+
+    ```
+    ansible-playbook site.yml -i inventory --ask-sudo-pass
+    ```
+
+This will run ansible in your localhost and ask for sudo password (to perform the installation of basic dependencies for running docker containers)
+
+If you need to change ssh_keys to download git and bzr repos just edit them in the *vars.yml* file, read the comments for other configuration options
