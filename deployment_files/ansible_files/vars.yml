@@ -28,6 +28,6 @@ postgres_mapped_port: 5433
 odoo_mapped_port: 18069
 
 ## Containers names
-redis_server_name: redis_server_aqui
-postgres_server_name: postgres_server_este
-odoo_server_name: local_erp_vauxoo_com_el_bonito
+redis_server_name: redis_server
+postgres_server_name: postgres_server
+odoo_server_name: local_erp_vauxoo_com
