@@ -7,6 +7,7 @@
     - vars.yml
   vars:
     actual_path: "{{ lookup('pipe', 'pwd') }}/../docker_files"
+
   tasks:
 
   - name: Add user key to authorized_key so we can ssh locallly
@@ -42,14 +43,16 @@
       name: "vauxoo_odoo80"
       state: absent
 
+  - include: tasks/check_data_volumes.yml data_path="{{ actual_path }}"
+
   - name: Build the Vauxoo Odoo image
     docker_image: 
       path: "{{ actual_path }}"
       name: "vauxoo_odoo80"
-      state: build
+      state: present
       nocache: yes
 
-  - include: tasks/start_containers.yml
+  - include: tasks/start_containers.yml data_path="{{ actual_path }}"
 
   - name: Load database host in redis server
     shell: redis-cli -p {{ redis_mapped_port }} HSET {{ stage }} DB_HOST postgres_server
