@@ -1,0 +1,17 @@
+system_packages:
+  - build-essential
+  - git
+  - python-dev
+  - python-setuptools
+  - docker.io
+  - libpq-dev
+  - tcl8.5
+  - redis-tools
+  - sshpass
+
+python_packages:
+  - pip
+  - docker-py
+  - psycopg2
+
+stage: development
