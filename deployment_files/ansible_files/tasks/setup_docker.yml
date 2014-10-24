@@ -42,4 +42,4 @@
   sudo: yes
   notify:
     Restart docker
-
+  when: not sdenter.stat.exists or not slink.stat.exists
