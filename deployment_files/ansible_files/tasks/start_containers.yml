@@ -1,0 +1,25 @@
+---
+- name: Start Redis container
+  docker:
+    image: dockerfile/redis
+    name: "{{ redis_server_name }}"
+    ports: "{{ redis_mapped_port }}:6379"
+
+- name: Start PostgreSQL container
+  docker:
+    image: quay.io/ruiztulio/odoo-postgresql
+    name: "{{ postgres_server_name }}"
+    ports: "{{ postgres_mapped_port }}:5432"
+    links:
+      - "{{ redis_server_name }}:redis_server"
+
+- name: Start a new dev conatiner with instance-vauxoo-com
+  docker: 
+    image: vauxoo_odoo80
+    name: "{{ odoo_server_name }}"
+    command: "/entry_point.py" 
+    ports: "{{ odoo_mapped_port }}:8069"
+    env: "STAGE={{ stage }},REDIS_SERVER=redis_server"
+    links:
+      - "{{ postgres_server_name }}:postgres_server"
+      - "{{ redis_server_name }}:redis_server"
