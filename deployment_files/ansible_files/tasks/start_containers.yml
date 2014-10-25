@@ -7,6 +7,16 @@
     volumes:
       - "{{ data_path }}/data/redis_data:/data"
 
+- name: Check postgres data folder
+  file:
+    path: "{{ data_path }}/data/postgres_data"
+    state: directory
+    group: "messagebus"
+    owner: "messagebus"
+    mode: 0700
+    recurse: yes
+  sudo: yes
+
 - name: Start PostgreSQL container
   docker:
     image: quay.io/ruiztulio/odoo-postgresql

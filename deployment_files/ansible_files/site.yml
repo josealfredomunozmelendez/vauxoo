@@ -43,7 +43,7 @@
       name: "vauxoo_odoo80"
       state: absent
 
-  - include: tasks/check_data_volumes.yml data_path="{{ actual_path }}"
+  - include: tasks/check_data_volumes.yml data_path="{{ actual_path }}" user="{{ ansible_ssh_user }}"
 
   - name: Build the Vauxoo Odoo image
     docker_image: 
