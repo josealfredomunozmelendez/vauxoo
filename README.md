@@ -120,6 +120,8 @@ Building using ansible scripts
 
 Follow this link according to your preferred method http://docs.ansible.com/intro_installation.html, installing using pip is recommended http://docs.ansible.com/intro_installation.html#latest-releases-via-pip
 
+You''ll need **python-dev**, **build-essential** and **sshpass** packages previously installed
+
 ### Install docker_facts
 
 Docker_facts is a module developed by Patrick Galbraith (https://github.com/CaptTofu), you can simply run:
