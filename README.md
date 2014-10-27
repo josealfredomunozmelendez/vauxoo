@@ -130,9 +130,15 @@ Docker_facts is a module developed by Patrick Galbraith (https://github.com/Capt
 
 ### Running ansible playbook
 
+** Before running ansible playbook you must ensure that you can ssh to localhost **
+
 cd to the **deployment_files/ansible_files** folder and run:
 
     ansible-playbook site.yml -i inventory --ask-sudo-pass
+
+if you cahve password for connecting to localhost add *--ask-pass* parameter
+
+    ansible-playbook site.yml -i inventory --ask-sudo-pass  --ask-pass
 
 This will run ansible in your localhost and ask for sudo password (to perform the installation of basic dependencies for running docker containers)
 
