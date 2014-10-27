@@ -143,3 +143,5 @@ if you cahve password for connecting to localhost add *--ask-pass* parameter
 This will run ansible in your localhost and ask for sudo password (to perform the installation of basic dependencies for running docker containers)
 
 If you need to change ssh_keys to download git and bzr repos just edit them in the *vars.yml* file, read the comments for other configuration options, by deffault it will use the users keys
+
+The first time you run the playbook and if you doon't have previously configured Docker you'll get an error when trying to pull the images, just run the script again (this is because the user will be added to docker group and changes take effect after starting the session again)
