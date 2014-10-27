@@ -10,17 +10,14 @@
 
   tasks:
 
-  - name: Add user key to authorized_key so we can ssh locallly
-    authorized_key: user="{{ ansible_ssh_user }}" key="{{ lookup('file', '{{ ssh_pub_key }}') }}"
+  - name: localhost is a known host
+    local_action:
+      module: lineinfile dest=~/.ssh/known_hosts create=yes state=present line="{{ lookup('pipe', 'ssh-keyscan -t rsa localhost') }}" regexp="^localhost"
     when: '"localhost" == inventory_hostname'
 
-  - name: localhost is a known host
-    lineinfile:
-      dest: ~/.ssh/known_hosts
-      create: yes
-      state: present
-      line: "{{ lookup('pipe', 'ssh-keyscan -t rsa localhost') }}"
-      regexp: "^localhost"
+  - name: Add user key to authorized_key so we can ssh locallly
+    local_action:
+      module: authorized_key user="{{ ansible_ssh_user }}" key="{{ lookup('file', '{{ ssh_pub_key }}') }}"
     when: '"localhost" == inventory_hostname'
 
   - include: tasks/install_deps.yml 
