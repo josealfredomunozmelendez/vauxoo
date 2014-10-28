@@ -122,6 +122,9 @@ Follow this link according to your preferred method http://docs.ansible.com/intr
 
 You''ll need **python-dev**, **build-essential** and **sshpass** packages previously installed
 
+    sudo apt-get install python-dev build-essential sshpass
+    sudo pip install ansible
+
 ### Install docker_facts
 
 Docker_facts is a module developed by Patrick Galbraith (https://github.com/CaptTofu), you can simply run:
