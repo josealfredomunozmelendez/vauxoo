@@ -38,10 +38,10 @@ Necesary Github repositories to comply with dependencies.
 
 - 0 https://github.com/Vauxoo/addons-vauxoo/ #migration to V8 not started yet [delete repo and reconvert] - ?
 - 1 https://github.com/Vauxoo/hideleftmenu #missing some forks to origin web_addons - nhomar
-- 2 https://github.com/vauxoo-dev/cms #WIP branch 8.0 - oscar 
+- 2 https://github.com/vauxoo-dev/cms #WIP branch 8.0 - oscar
 - 3 https://github.com/vauxoo-dev/autodoc #not migrated yet - ? [Possibly complete depreciation]
 
-Dependencies and why: 
+Dependencies and why:
 
 **contpaq_openerp_vauxoo:** activate the service to upload contpaq databases
     and propose them to be migrated. #TODO: think where should go commented for now.
@@ -73,6 +73,8 @@ Dependencies and why:
                 ],
     'author': 'Vauxoo',
     'data': [
+        'views/layout.xml',
+        'views/login_view.xml',
     ],
     'test': [
         #'test/contact_form.yml', #TODO This module should have all tests for the site.
