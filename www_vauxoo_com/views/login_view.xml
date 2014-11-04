@@ -4,6 +4,7 @@
         <template id="web.login" name="Login">
             <t t-call="web.login_layout">
                 <div class='login-container'>
+                <div class="avatar"></div>
                 <form class="oe_login_form form-box" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
 
                     <t t-call="web.database_select"/>
