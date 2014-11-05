@@ -73,6 +73,7 @@ Dependencies and why:
                 ],
     'author': 'Vauxoo',
     'data': [
+        'oauth_data.xml',
         'views/layout.xml',
         'views/login_view.xml',
     ],
