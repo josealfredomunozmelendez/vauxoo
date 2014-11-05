@@ -4,6 +4,7 @@
         <template id="web.login" name="Login">
             <t t-call="web.login_layout">
                 <div class='login-container'>
+                    <div class="avatar"></div>
                 <form class="oe_login_form form-box" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
 
                     <t t-call="web.database_select"/>
@@ -33,6 +34,69 @@
             <xpath expr="//button[@type='submit']" position="after">
                 <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}" class="btn btn-link pull-right">Sign up</a>
                 <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}" class="btn btn-link pull-right">Reset Password</a>
+            </xpath>
+        </template>
+        <template id="auth_signup.fields" name="Auth Signup/ResetPassword form fields">
+            <t t-call="web.database_select"/>
+            <div class="login-container form-box">
+            <div class="form-group field-login">
+                <label for="login" class="control-label">Your Email</label>
+                <input type="text" name="login" t-att-value="login" id="login" class="form-control" autofocus="autofocus"
+                    required="required" t-att-readonly="'readonly' if only_passwords else None"/>
+            </div>
+
+            <div class="form-group field-name">
+                <label for="name" class="control-label">Your Name</label>
+                <input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g. John Doe"
+                    required="required" t-att-readonly="'readonly' if only_passwords else None"
+                    t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+            </div>
+
+            <div class="form-group field-password">
+                <label for="password" class="control-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control"
+                    required="required" t-att-autofocus="'autofocus' if only_passwords else None"/>
+            </div>
+
+            <div class="form-group field-confirm_password">
+                <label for="confirm_password" class="control-label">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="form-control" required="required"/>
+            </div>
+            </div>
+        </template>
+
+        <template id="auth_oauth.providers" name="OAuth Providers">
+            <div class="row omb_row-sm-offset-3 omb_socialButtons">
+            <div t-foreach="providers" t-as="p" class="row omb_row-sm-offset-3 omb_socialButtons">
+                <a t-att-href="p['auth_link']" class="btn btn-lg btn-block omb_btn-facebook">
+                    <i t-att-class="p['css_class']"/>
+                    <t t-esc="p['body']" t-att-class="p['css_class']"/>
+                </a>
+            </div>
+            </div>
+        </template>
+
+        <template id="auth_oauth.login" inherit_id="web.login" name="OAuth Login buttons">
+            <xpath expr="//button[@type='submit']" position="after">
+                <div class="pull-right">
+                    <t t-call="auth_oauth.providers"/>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="auth_oauth.signup" inherit_id="auth_signup.signup" name="OAuth Signup buttons">
+            <xpath expr="//button[@type='submit']" position="after">
+                <div class="pull-right">
+                    <t t-call="auth_oauth.providers"/>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="auth_oauth.reset_password" inherit_id="auth_signup.reset_password" name="OAuth Reset Password buttons">
+            <xpath expr="//button[@type='submit']" position="after">
+                <div class="pull-right">
+                    <t t-call="auth_oauth.providers"/>
+                </div>
             </xpath>
         </template>
 
