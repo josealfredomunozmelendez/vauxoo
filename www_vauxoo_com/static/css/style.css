@@ -204,6 +204,15 @@ html,body{
         margin-top:10px;
     }       
 }
+.first-column {
+  width: 40%;
+  float: left;
+}
+
+.second-column {
+  width: 40%;
+  float: left;
+}
 
 
 
