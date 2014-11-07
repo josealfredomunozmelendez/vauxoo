@@ -66,6 +66,7 @@ Dependencies and why:
                 'website_event_track',
                 'website_crm',
                 'website_forum_doc',
+                'auth_oauth',
                 #'web_doc', #Not migrated Yet
                 #'hr_attendance', #Not migrated Yet (it must go to erp_vauxoo_com 'Business part')
                 #'ctp_training_tools', #Not Migrated Yet
