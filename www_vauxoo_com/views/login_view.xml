@@ -106,6 +106,9 @@
         </template>
         <template id="login_layout" inherit_id="website.login_layout" name="Website Login Layout">
             <xpath expr="t" position="replace">
+                        <head>
+                            <t t-call-assets="website.assets_frontend" t-js="false"/>
+                        </head>
                     <div class="modal-body">
                         <div class="section vx_background">
                             <div class="oe_website_login_container" t-raw="0"/>
