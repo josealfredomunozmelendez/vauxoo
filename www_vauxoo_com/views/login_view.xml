@@ -3,15 +3,15 @@
     <data>
         <template id="web.login" name="Login">
             <t t-call="web.login_layout">
-                <div class='login-container'>
-                    <div class="avatar"></div>
-                <form class="oe_login_form form-box" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
 
                     <t t-call="web.database_select"/>
 
                     <div class="form-group field-login">
-                        <input type="text" name="login" t-att-value="login" id="login" class="form-control" required="required" autofocus="autofocus"/>
-                        <input type="password" name="password" id="password" class="form-control" required="required" t-att-autofocus="'autofocus' if login else None"/>
+                <label for="login" class="control-label" >Username</label>
+                        <input type="text" name="login" t-att-value="login" id="login" class="form-control transparent-input" required="required" autofocus="autofocus" placeholder="e.g. Jose Morales"/>
+                <label for="password" class="control-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control transparent-input" required="required" t-att-autofocus="'autofocus' if login else None" placeholder="**********"/>
                     </div>
 
                     <p class="alert alert-danger" t-if="error">
@@ -27,7 +27,6 @@
                     </div>
 
                 </form>
-                    </div>
             </t>
         </template>
         <template id="auth_signup.login" inherit_id="web.login" name="Sign up - Reset Password">
@@ -41,26 +40,26 @@
             <div class="login-container form-box">
             <div class="form-group field-login">
                 <label for="login" class="control-label">Your Email</label>
-                <input type="text" name="login" t-att-value="login" id="login" class="form-control" autofocus="autofocus"
+                <input type="text" name="login" t-att-value="login" id="login" class="form-control transparent-input" autofocus="autofocus"
                     required="required" t-att-readonly="'readonly' if only_passwords else None"/>
             </div>
 
             <div class="form-group field-name">
                 <label for="name" class="control-label">Your Name</label>
-                <input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g. John Doe"
+                <input type="text" name="name" t-att-value="name" id="name" class="form-control transparent-input" placeholder="e.g. John Doe"
                     required="required" t-att-readonly="'readonly' if only_passwords else None"
                     t-att-autofocus="'autofocus' if login and not only_passwords else None" />
             </div>
 
             <div class="form-group field-password">
                 <label for="password" class="control-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control"
+                <input type="password" name="password" id="password" class="form-control transparent-input"
                     required="required" t-att-autofocus="'autofocus' if only_passwords else None"/>
             </div>
 
             <div class="form-group field-confirm_password">
                 <label for="confirm_password" class="control-label">Confirm Password</label>
-                <input type="password" name="confirm_password" id="confirm_password" class="form-control" required="required"/>
+                <input type="password" name="confirm_password" id="confirm_password" class="form-control transparent-input" required="required"/>
             </div>
             </div>
         </template>
@@ -109,11 +108,14 @@
                         <head>
                             <t t-call-assets="website.assets_frontend" t-js="false"/>
                         </head>
+                    <body>
+                    <div class="bg-blurry"></div>
                     <div class="modal-body">
-                        <div class="section vx_background">
+                        <div class="section">
                             <div class="oe_website_login_container" t-raw="0"/>
                         </div>
                     </div>
+                    </body>
             </xpath>
         </template>
 

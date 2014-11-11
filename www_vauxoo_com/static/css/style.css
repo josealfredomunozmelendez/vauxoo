@@ -1,4 +1,5 @@
-.vx_background{background: #eee url(/website_vauxoo_home/static/img/vauxoo_opacity.png);}
+.vx_background{background: #eee url(/website_vauxoo_home/static/img/vauxoo_opacity.png);
+}
 html,body{
     position: relative;
     height: 100%;
@@ -214,6 +215,35 @@ html,body{
   float: left;
 }
 
+input.transparent-input { 
+    border:none !important
+}
+
+.transparent-input {
+   background-color: rgba(0, 0, 0, 0);
+   border:none;
+}
+
+ input.transparent-input{
+       background-color:rgba(0,0,0,0) !important;
+       border:none !important;
+    }
+.bg-blurry {
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  display: block;
+  background-image: url(/website_vauxoo_trainnings/static/img/trainning.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
 
 
 
