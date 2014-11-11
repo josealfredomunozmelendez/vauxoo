@@ -13,7 +13,8 @@ html,body{
     text-align: center;
     background: #fff;
     border: 1px solid #ccc;
-    opacity: 0.9;
+    opacity: 0.7;
+    border-radius: 10px;
 }
 
 #output{
@@ -33,28 +34,7 @@ html,body{
 }
 
 
-.login-container::before,.login-container::after{
-    content: "";
-    position: absolute;
-    width: 100%;height: 100%;
-    top: 3.5px;left: 0;
-    background: #fff;
-    z-index: -1;
-    -webkit-transform: rotateZ(4deg);
-    -moz-transform: rotateZ(4deg);
-    -ms-transform: rotateZ(4deg);
-    border: 1px solid #ccc;
 
-}
-
-.login-container::after{
-    top: 5px;
-    z-index: -2;
-    -webkit-transform: rotateZ(-2deg);
-     -moz-transform: rotateZ(-2deg);
-      -ms-transform: rotateZ(-2deg);
-
-}
 
 .avatar{
     width: 100px;height: 100px;
@@ -95,53 +75,6 @@ html,body{
     padding: 10px 20px;
 }
 
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    -ms-transform: translateY(20px);
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-
-/*
-    Note: It is best to use a less version of this file ( see http://css2less.cc
-    For the media queries use @screen-sm-min instead of 768px.
-    For .omb_spanOr use @body-bg instead of white.
-*/
-
 @media (min-width: 768px) {
     .omb_row-sm-offset-3 div:first-child[class*="col-"] {
         margin-left: 25%;
@@ -166,69 +99,6 @@ html,body{
 .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
 
 
-.omb_login .omb_loginOr {
-    position: relative;
-    font-size: 1.5em;
-    color: #aaa;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-}
-.omb_login .omb_loginOr .omb_hrOr {
-    background-color: #cdcdcd;
-    height: 1px;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-}
-.omb_login .omb_loginOr .omb_spanOr {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: -0.6em;
-    margin-left: -1.5em;
-    background-color: white;
-    width: 3em;
-    text-align: center;
-}           
-
-.omb_login .omb_loginForm .input-group.i {
-    width: 2em;
-}
-.omb_login .omb_loginForm  .help-block {
-    color: red;
-}
-
-    
-@media (min-width: 768px) {
-    .omb_login .omb_forgotPwd {
-        text-align: right;
-        margin-top:10px;
-    }       
-}
-.first-column {
-  width: 40%;
-  float: left;
-}
-
-.second-column {
-  width: 40%;
-  float: left;
-}
-
-input.transparent-input { 
-    border:none !important
-}
-
-.transparent-input {
-   background-color: rgba(0, 0, 0, 0);
-   border:none;
-}
-
- input.transparent-input{
-       background-color:rgba(0,0,0,0) !important;
-       border:none !important;
-    }
 .bg-blurry {
   position: fixed;
   left: 0;
