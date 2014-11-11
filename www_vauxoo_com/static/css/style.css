@@ -13,6 +13,7 @@ html,body{
     text-align: center;
     background: #fff;
     border: 1px solid #ccc;
+    opacity: 0.9;
 }
 
 #output{
