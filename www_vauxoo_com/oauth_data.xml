@@ -10,6 +10,7 @@
             <field name="css_class">zocial openerp</field>
             <field name="body">Log in with Odoo.com</field>
             <field name="enabled" eval="True"/>
+            <field name="btn_class">btn btn-dribbble</field>
         </record>
         <record id="provider_facebook" model="auth.oauth.provider">
             <field name="name">Facebook Graph</field>
@@ -19,6 +20,7 @@
             <field name="data_endpoint"></field>
             <field name="css_class">fa fa-facebook-square</field>
             <field name="body">Log in with facebook</field>
+            <field name="btn_class">btn btn-facebook</field>
         </record>
         <record id="provider_google" model="auth.oauth.provider">
             <field name="name">Google OAuth2</field>
@@ -28,6 +30,7 @@
             <field name="data_endpoint">https://www.googleapis.com/oauth2/v1/userinfo</field>
             <field name="css_class">fa fa-google-plus-square omb_btn-google</field>
             <field name="body">Log in with google</field>
+            <field name="btn_class">btn btn-google-plus</field>
         </record>
         <!--
         <record id="provider_twitter" model="auth.oauth.provider">

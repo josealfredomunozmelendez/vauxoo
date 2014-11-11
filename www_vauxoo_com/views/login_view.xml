@@ -68,7 +68,7 @@
         <template id="auth_oauth.providers" name="OAuth Providers">
             <div class="row omb_row-sm-offset-3 omb_socialButtons">
             <div t-foreach="providers" t-as="p" class="row omb_row-sm-offset-3 omb_socialButtons">
-                <a t-att-href="p['auth_link']" class="btn btn-lg btn-block omb_btn-facebook">
+                <a t-att-href="p['auth_link']" t-att-class="p['btn_class']">
                     <i t-att-class="p['css_class']"/>
                     <t t-esc="p['body']" t-att-class="p['css_class']"/>
                 </a>
@@ -104,6 +104,7 @@
                     <div class="oe_website_login_container" t-raw="0"/>
             </xpath>
         </template>
+
         <template id="login_layout" inherit_id="website.login_layout" name="Website Login Layout">
             <xpath expr="t" position="replace">
                         <head>
