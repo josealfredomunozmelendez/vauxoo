@@ -33,7 +33,7 @@
         </template>
         <template id="auth_signup.login" inherit_id="web.login" name="Sign up - Reset Password">
             <xpath expr="//button[@type='submit']" position="after">
-                <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}" class="btn btn-link pull-right">Sign up</a>
+                <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}" class="btn btn-link pull-center">Sign up</a>
                 <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}" class="btn btn-link pull-right">Reset Password</a>
             </xpath>
         </template>
@@ -67,7 +67,7 @@
 
         <template id="auth_oauth.providers" name="OAuth Providers">
             <div class="row omb_row-sm-offset-3 omb_socialButtons">
-            <div t-foreach="providers" t-as="p" class="row omb_row-sm-offset-3 omb_socialButtons">
+                <div t-foreach="providers" t-as="p" class="col-xs-4 col-sm-2">
                 <a t-att-href="p['auth_link']" t-att-class="p['btn_class']">
                     <i t-att-class="p['css_class']"/>
                     <t t-esc="p['body']" t-att-class="p['css_class']"/>
@@ -76,25 +76,24 @@
             </div>
         </template>
 
-        <template id="auth_oauth.login" inherit_id="web.login" name="OAuth Login buttons">
-            <xpath expr="//button[@type='submit']" position="after">
-                <div class="pull-right">
+        <template id="auth_oauth.login" inherit_id="login_layout" name="OAuth Login buttons">
+            <xpath expr="//div[@class='oe_website_login_container']" position="after">
+                <div class="pull-center">
                     <t t-call="auth_oauth.providers"/>
                 </div>
             </xpath>
         </template>
 
         <template id="auth_oauth.signup" inherit_id="auth_signup.signup" name="OAuth Signup buttons">
-            <xpath expr="//button[@type='submit']" position="after">
-                <div class="pull-right">
-                    <t t-call="auth_oauth.providers"/>
+            <xpath expr="//div[@class='login-container form-box']" position="after">
+                <div class="pull-center">
                 </div>
             </xpath>
         </template>
 
         <template id="auth_oauth.reset_password" inherit_id="auth_signup.reset_password" name="OAuth Reset Password buttons">
             <xpath expr="//button[@type='submit']" position="after">
-                <div class="pull-right">
+                <div class="pull-center">
                     <t t-call="auth_oauth.providers"/>
                 </div>
             </xpath>
@@ -132,8 +131,8 @@
                     <input type="hidden" name="redirect" t-att-value="redirect"/>
                     <input type="hidden" name="token" t-att-value="token"/>
                     <div class="clearfix oe_login_buttons">
-                        <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link pull-right">Back to Login</a>
-                        <button type="submit" class="btn btn-primary pull-left">Sign up</button>
+                        <button type="submit" class="btn btn-primary pull-center">Sign up</button>
+                        <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link pull-center">Back to Login</a>
                     </div>
                 </form>
             </div>
