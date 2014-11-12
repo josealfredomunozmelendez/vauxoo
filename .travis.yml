@@ -15,6 +15,7 @@ install:
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - git clone git@github.com:Vauxoo/odoo-mexico-v2.git -b ${VERSION} ${HOME}/odoo-mexico-v2
+  - git clone git@github.com:Vauxoo/cms.git -b ${VERSION} ${HOME}/cms
   - export PATH=${HOME}/odoo-mexico-v2/travis:${PATH}
   - travis_install_mx_nightly
   - bzr branch lp:addons-vauxoo/ ${HOME}/addons-vauxoo
