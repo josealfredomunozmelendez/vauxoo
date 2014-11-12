@@ -76,28 +76,6 @@
             </div>
         </template>
 
-        <template id="auth_oauth.login" inherit_id="login_layout" name="OAuth Login buttons">
-            <xpath expr="//div[@class='oe_website_login_container']" position="after">
-                <div class="pull-center">
-                    <t t-call="auth_oauth.providers"/>
-                </div>
-            </xpath>
-        </template>
-
-        <template id="auth_oauth.signup" inherit_id="auth_signup.signup" name="OAuth Signup buttons">
-            <xpath expr="//div[@class='login-container form-box']" position="after">
-                <div class="pull-center">
-                </div>
-            </xpath>
-        </template>
-
-        <template id="auth_oauth.reset_password" inherit_id="auth_signup.reset_password" name="OAuth Reset Password buttons">
-            <xpath expr="//button[@type='submit']" position="after">
-                <div class="pull-center">
-                    <t t-call="auth_oauth.providers"/>
-                </div>
-            </xpath>
-        </template>
         <template id="login_layout" inherit_id="web.login_layout" name="Website Login Layout">
             <xpath expr="//div" position="replace">
                     <div class="oe_website_login_container" t-raw="0"/>
@@ -137,6 +115,28 @@
                 </form>
             </div>
             </t>
+        </template>
+        <template id="auth_oauth.login" inherit_id="login_layout" name="OAuth Login buttons">
+            <xpath expr="//div[@class='oe_website_login_container']" position="after">
+                <div class="pull-center">
+                    <t t-call="auth_oauth.providers"/>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="auth_oauth.signup" inherit_id="auth_signup.signup" name="OAuth Signup buttons">
+            <xpath expr="//div[@class='login-container form-box']" position="after">
+                <div class="pull-center">
+                </div>
+            </xpath>
+        </template>
+
+        <template id="auth_oauth.reset_password" inherit_id="auth_signup.reset_password" name="OAuth Reset Password buttons">
+            <xpath expr="//button[@type='submit']" position="after">
+                <div class="pull-center">
+                    <t t-call="auth_oauth.providers"/>
+                </div>
+            </xpath>
         </template>
     </data>
 </openerp>
