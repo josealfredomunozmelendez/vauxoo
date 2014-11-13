@@ -1,3 +1,0 @@
-- name: Restart docker
-  action: service name=docker.io state=restarted
-  sudo: yes

@@ -17,10 +17,10 @@ RUN /bin/bash -c "mkdir -p /home/odoo/instance/{config,extra_addons}"
 RUN cd /home/odoo/instance && git clone -b 8.0 --single-branch --depth=1 https://github.com/odoo/odoo.git odoo
 RUN cd /home/odoo/instance/extra_addons \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/odoo-mexico-v2.git oml \
-    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo-dev/cms.git cms \
+    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/cms.git cms \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-network.git odoo_network \
     && git clone -b master --single-branch --depth=1 git@github.com:vauxoo/server-tools.git server_tools\
-    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo-dev/instance-vauxoo-com.git instance_vauxoo_com \
+    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/instance-vauxoo-com.git instance_vauxoo_com \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-ifrs.git odoo_ifrs \
     && git clone --depth=1 git@bitbucket.org:julioserna/pdf-format.git pdf_format \
     && bzr checkout lp:addons-vauxoo --lightweight addons_vauxoo
