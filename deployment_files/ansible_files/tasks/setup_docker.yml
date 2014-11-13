@@ -1,0 +1,45 @@
+---
+- stat: path=/usr/local/bin/docker
+  register: slink
+
+- name: Link docker binary.
+  shell: ln -sf /usr/bin/docker.io /usr/local/bin/docker
+  sudo: yes
+  when: not slink.stat.exists
+
+- name: Set autocomplete for docker.
+  shell: sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+  sudo: yes
+  when: not slink.stat.exists
+
+- stat: path=/usr/sbin/docker-enter
+  register: sdenter
+
+- name: Download Docker enter
+  get_url: url=https://raw.githubusercontent.com/Pithikos/docker-enter/master/docker-enter.c dest=.
+  when: not sdenter.stat.exists
+
+- name: Compile docker enter
+  shell: gcc docker-enter.c -o docker-enter
+  when: not sdenter.stat.exists
+
+- name: Change binary permissions
+  file:  path=docker-enter state=file mode="0655" owner=root group=root
+  sudo: yes
+  when: not sdenter.stat.exists
+
+- name: Move file to binary folder
+  shell: mv docker-enter /usr/sbin/.
+  sudo: yes
+  when: not sdenter.stat.exists
+
+- name: Clean up
+  shell: rm docker-enter.c
+  when: not sdenter.stat.exists
+
+- name: Adding user "{{ ansible_ssh_user }}" to docker group
+  shell: gpasswd -a {{ ansible_ssh_user }} docker
+  sudo: yes
+  notify:
+    Restart docker
+  when: not sdenter.stat.exists or not slink.stat.exists

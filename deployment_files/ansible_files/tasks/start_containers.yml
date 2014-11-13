@@ -1,0 +1,44 @@
+---
+- name: Start Redis container
+  docker:
+    image: dockerfile/redis
+    name: "{{ redis_server_name }}"
+    ports: "{{ redis_mapped_port }}:6379"
+    volumes:
+      - "{{ data_path }}/data/redis_data:/data"
+
+- name: Check postgres data folder
+  file:
+    path: "{{ data_path }}/data/postgres_data"
+    state: directory
+    group: "messagebus"
+    owner: "messagebus"
+    mode: 0700
+    recurse: yes
+  sudo: yes
+
+- name: Start PostgreSQL container
+  docker:
+    image: quay.io/ruiztulio/odoo-postgresql
+    name: "{{ postgres_server_name }}"
+    ports: "{{ postgres_mapped_port }}:5432"
+    links:
+      - "{{ redis_server_name }}:redis_server"
+    volumes:
+      - "{{ data_path }}/logs/postgres:/var/log/supervisor"
+      - "{{ data_path }}/data/postgres_data:/var/lib/postgresql"
+      - "{{ data_path }}/data/postgres_config:/etc/postgresql"
+
+- name: Start a new dev conatiner with instance-vauxoo-com
+  docker: 
+    image: vauxoo_odoo80
+    name: "{{ odoo_server_name }}"
+    command: "/entry_point.py" 
+    ports: "{{ odoo_mapped_port }}:8069"
+    env: "STAGE={{ stage }},REDIS_SERVER=redis_server"
+    links:
+      - "{{ postgres_server_name }}:postgres_server"
+      - "{{ redis_server_name }}:redis_server"
+    volumes:
+      - "{{ data_path }}/logs/odoo:/var/log/supervisor"
+

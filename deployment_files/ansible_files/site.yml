@@ -1,0 +1,61 @@
+---
+- hosts: localhost
+  remote_user: "{{ ansible_ssh_user }}"
+  user: "{{ ansible_ssh_user }}"
+  vars_files: 
+    - dependencies.yml
+    - vars.yml
+  vars:
+    actual_path: "{{ lookup('pipe', 'pwd') }}/../docker_files"
+
+  tasks:
+
+  - name: localhost is a known host
+    local_action:
+      module: lineinfile dest=~/.ssh/known_hosts create=yes state=present line="{{ lookup('pipe', 'ssh-keyscan -t rsa localhost') }}" regexp="^localhost"
+    when: '"localhost" == inventory_hostname'
+
+  - name: Add user key to authorized_key so we can ssh locallly
+    local_action:
+      module: authorized_key user="{{ ansible_ssh_user }}" key="{{ lookup('file', '{{ ssh_pub_key }}') }}"
+    when: '"localhost" == inventory_hostname'
+
+  - include: tasks/install_deps.yml 
+    when: ansible_os_family=="Debian"
+
+  - include: tasks/pull_images.yml sudo=yes
+
+  - include: tasks/kill_containers.yml
+
+  - name: Copy Dockerfile
+    copy: src=../docker_files dest=/tmp
+    when: '"localhost" != inventory_hostname'
+
+  - name: Let the private key be available for docker build process
+    shell: cp {{ ssh_piv_key }} {{ actual_path }}
+    when: '"localhost" == inventory_hostname'
+
+  - name: Drop the Vauxoo Odoo image
+    docker_image:
+      name: "vauxoo_odoo80"
+      state: absent
+
+  - include: tasks/check_data_volumes.yml data_path="{{ actual_path }}" user="{{ ansible_ssh_user }}"
+
+  - name: Build the Vauxoo Odoo image
+    docker_image: 
+      path: "{{ actual_path }}"
+      name: "vauxoo_odoo80"
+      state: present
+      nocache: yes
+
+  - include: tasks/start_containers.yml data_path="{{ actual_path }}"
+
+  - name: Load database host in redis server
+    shell: redis-cli -p {{ redis_mapped_port }} HSET {{ stage }} DB_HOST postgres_server
+
+  - name: Load database port in redis server
+    shell: redis-cli -p {{ redis_mapped_port }} HSET {{ stage }} DB_PORT 5432
+
+  handlers:
+    - include: handlers/docker.yml
