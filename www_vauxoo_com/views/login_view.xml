@@ -25,6 +25,7 @@
                     <input type="hidden" name="redirect" t-att-value="redirect"/>
                     <div class="clearfix oe_login_buttons">
                         <button type="submit" class="btn btn-primary btn-block login">Log in</button>
+                        <a t-attf-href="/" class="btn btn-link pull-center">Home</a>
                     </div>
 
                 </form>
@@ -111,6 +112,7 @@
                     <div class="clearfix oe_login_buttons">
                         <button type="submit" class="btn btn-primary pull-center">Sign up</button>
                         <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link pull-center">Back to Login</a>
+                        <a t-attf-href="/" class="btn btn-link pull-center">Home</a>
                     </div>
                 </form>
             </div>
