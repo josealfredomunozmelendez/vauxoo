@@ -1,3 +1,5 @@
+[![Build Status](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com)
+
 Site Services Vauxoo
 ---
 
