@@ -32,12 +32,14 @@
                     </div>
             </t>
         </template>
+
         <template id="auth_signup.login" inherit_id="web.login" name="Sign up - Reset Password">
             <xpath expr="//button[@type='submit']" position="after">
                 <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}" class="btn btn-link pull-center">Sign up</a>
                 <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}" class="btn btn-link pull-right">Reset Password</a>
             </xpath>
         </template>
+
         <!-- HERE IS THE SIGN UP TEMPLATE -->
         <template id="auth_signup.fields" name="Auth Signup/ResetPassword form fields">
             <t t-call="web.database_select"/>
@@ -80,22 +82,6 @@
         <template id="login_layout" inherit_id="web.login_layout" name="Website Login Layout">
             <xpath expr="//div" position="replace">
                     <div class="oe_website_login_container" t-raw="0"/>
-            </xpath>
-        </template>
-
-        <template id="login_layout" inherit_id="website.login_layout" name="Website Login Layout">
-            <xpath expr="t" position="replace">
-                        <head>
-                            <t t-call-assets="website.assets_frontend" t-js="false"/>
-                        </head>
-                    <body>
-                    <div class="bg-blurry"></div>
-                    <div class="modal-body">
-                        <div class="section">
-                            <div class="oe_website_login_container" t-raw="0"/>
-                        </div>
-                    </div>
-                    </body>
             </xpath>
         </template>
 
