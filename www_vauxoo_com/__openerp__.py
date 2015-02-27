@@ -19,7 +19,6 @@
 #
 ##############################################################################
 
-
 {
     'name': 'Vauxoo Site',
     'version': '0.4',
@@ -56,7 +55,6 @@ Dependencies and why:
 **web_doc:** Enable Help button.
     """,
     'depends': [
-                #'runbot', #In development time this module is not necesary it must be renamed due to runbot is in other instance
                 'website',
                 'website_vauxoo_home',
                 'website_sale',
@@ -68,29 +66,23 @@ Dependencies and why:
                 'website_crm',
                 'website_forum_doc',
                 'auth_oauth',
-                #'web_doc', #Not migrated Yet
-                #'hr_attendance', #Not migrated Yet (it must go to erp_vauxoo_com 'Business part')
-                #'ctp_training_tools', #Not Migrated Yet
-                #'contpaq_openerp_vauxoo', Commented until it is stable.
                 ],
     'author': 'Vauxoo',
     'data': [
-        'oauth_data.xml',
+        'data/oauth_data.xml',
+        'data/set_configuration.yml',
         'views/layout.xml',
         'views/login_view.xml',
     ],
     'test': [
-        #'test/contact_form.yml', #TODO This module should have all tests for the site.
     ],
     'installable': True,
     'auto_install': False,
     'css': [
-        #'static/src/css/vauxoo.css', Now it should be an asset, didn't it?
     ],
     'js': [
         'static/src/js/www_vauxoo_com.js',
     ],
     'qweb': [
-        #'static/src/xml/base.xml', #Not necesary anymore due to change of concepts.
     ],
 }

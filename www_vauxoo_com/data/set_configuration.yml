@@ -1,0 +1,24 @@
+-
+  Setting General Information only regarding website stuff
+-
+  !record {model: base.config.settings, id: vauxoo_base_config_settings}:
+    {'module_multi_company': 1,
+     'alias_domain': 'www.vauxoo.com',
+     'auth_signup_reset_password': 1,
+     'auth_oauth_google_enabled': 1}
+-
+  !python {model: base.config.settings}: |
+    self.execute(cr, uid, [ref('vauxoo_base_config_settings')], context=context)
+-
+  Setting Website Information
+-
+  !record {model: website.config.settings, id: vauxoo_website_config_settings}:
+    {'website_name': 'www.vauxoo.com',
+     'social_twitter': 'https://twitter.com/vauxoo',
+     'social_facebook': 'https://facebook.com/vauxoo',
+     'social_github': 'https://github.com/vauxoo',
+     'social_linkedin': 'https://www.linkedin.com/company/vauxoo',
+     'social_googleplus': '' }
+-
+  !python {model: website.config.settings}: |
+    self.execute(cr, uid, [ref('vauxoo_website_config_settings')], context=context)
