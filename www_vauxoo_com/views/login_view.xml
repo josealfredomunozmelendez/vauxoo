@@ -10,7 +10,9 @@
 
                     <div class="form-group field-login">
                 <label for="login" class="control-label" >Username</label>
-                        <input type="text" name="login" t-att-value="login" id="login" class="form-control" required="required" autofocus="autofocus" placeholder="e.g. Jose Morales"/>
+                        <input type="text" name="login" t-att-value="login"
+                            id="login" class="form-control" required="required"
+                            autofocus="autofocus" placeholder="e.g. me@mycompany.com"/>
                 <label for="password" class="control-label">Password</label>
                         <input type="password" name="password" id="password" class="form-control" required="required" t-att-autofocus="'autofocus' if login else None" placeholder="**********"/>
                     </div>
