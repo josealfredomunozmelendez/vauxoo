@@ -73,7 +73,6 @@ TODO: Document all the references (read www_vauxoo_com module as an example)
         "user_story",
         "warning",
         "sale_order_copy_line",
-        "sale_order_line_seq",
         ],
     "data" : [],
     "demo" : [],
