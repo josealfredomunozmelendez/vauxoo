@@ -78,6 +78,7 @@ Dependencies and why:
     ],
     'installable': True,
     'auto_install': False,
+    'application': True,
     'css': [
     ],
     'js': [
