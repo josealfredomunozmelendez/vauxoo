@@ -65,8 +65,9 @@ Dependencies and why:
                 'website_event_track',
                 'website_crm',
                 'website_forum_doc',
+                'website_variants_extra',
                 'auth_oauth',
-                ],
+    ],
     'author': 'Vauxoo',
     'data': [
         'data/oauth_data.xml',
