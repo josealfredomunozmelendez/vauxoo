@@ -55,7 +55,7 @@ Dependencies and why:
 **web_doc:** Enable Help button.
     """,
     'depends': [
-        'website_vauxoo_home',
+        'website_vauxoo',
         'website_blog',
         'website_crm',
         'website_event',
