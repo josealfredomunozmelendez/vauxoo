@@ -14,7 +14,7 @@ npm install -g less-plugin-clean-css
 sudo pip install recaptcha-client egenix-mx-base
 
 # odoo default packages without depend in setup.py
-sudo pip install PyWebDAV mygengo
+sudo pip install PyWebDAV mygengo BeautifulSoup4
 sudo apt-get install pdftotext antiword
 
 #webkit patched process #FIXME: Fix modules to use new webkit version
