@@ -26,7 +26,7 @@
 ##############################################################################
 
 from openerp.report import report_sxw
-from report_webkit import webkit_report
+from openerp.addons.report_webkit import webkit_report
 
 
 import logging
