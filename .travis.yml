@@ -6,16 +6,16 @@ python:
   - "2.7"
 
 env:
-  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
+#  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
   - VERSION="8.0" ODOO_REPO="odoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
 #  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" UNIT_TEST="1"
-#  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1" temporary commented to test quickly.
+  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1" temporary commented to test quickly.
 
 virtualenv:
   system_site_packages: true
 
 install:
-  - git clone https://github.com/oca/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
+  - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master-vauxoo-cms-todelete ${HOME}/maintainer-quality-tools
   - git clone https://github.com/vauxoo/addons-vauxoo.git -b ${VERSION} ${HOME}/addons-vauxoo
   - git clone git@github.com:Vauxoo/odoo-themes.git -b ${VERSION} ${HOME}/odoo-themes
   - git clone git@github.com:Vauxoo/instance-vauxoo-com.git -b ${VERSION} ${HOME}/instance-vauxoo-com
