@@ -27,6 +27,7 @@ install:
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - ${TRAVIS_BUILD_DIR}/travis/travis_install_cms_nightly ${VERSION}
+  - ${TRAVIS_BUILD_DIR}/travis/travis_install_mx_nightly ${VERSION}
 
 script:
   - travis_run_tests ${VERSION}
