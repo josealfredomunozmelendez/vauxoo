@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from openerp.osv import osv, fields
+from openerp import models
 from openerp.tools.translate import _
 
 
-class email_template(osv.Model):
+class email_template(models.Model):
     _inherit = "email.template"
 
     def create_action(self, cr, uid, ids, context=None):
@@ -24,7 +24,7 @@ class email_template(osv.Model):
                 'res_model': 'mail.compose.message',
                 'src_model': src_obj,
                 'view_type': 'form',
-                'context': "{'default_composition_mode': 'mass_mail', 'default_template_id' : %d, 'default_use_template': True}" % (template.id),
+                'context': "{'default_composition_mode': 'mass_mail', 'default_template_id' : %d, 'default_use_template': True}" % (template.id),  # noqa
                 'view_mode': 'form,tree',
                 'view_id': res_id,
                 'target': 'new',

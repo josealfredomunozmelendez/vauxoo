@@ -48,7 +48,6 @@
         "project_task_domain",
         "purchase_analytic_plans",
         "sale_multicompany_report",
-        "sale_order_report",
         "sync_youtube",
         "user_story",
         "warning",
