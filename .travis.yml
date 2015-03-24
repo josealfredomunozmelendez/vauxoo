@@ -14,13 +14,13 @@ virtualenv:
 
 install:
   - git clone https://github.com/oca/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
-  - git clone https://github.com/vauxoo/addons-vauxoo.git -b 8.0 ${HOME}/addons-vauxoo
-  - git clone git@github.com:Vauxoo/odoo-themes.git -b 8.0 ${HOME}/odoo-themes
-  - git clone git@github.com:Vauxoo/instance-vauxoo-com.git -b 8.0 ${HOME}/instance-vauxoo-com
-  - git clone git@github.com:oca/server-tools.git -b 8.0 ${HOME}/server-tools
-  - git clone git@github.com:Vauxoo/odoo-mexico-v2.git -b 8.0 ${VERSION} ${HOME}/odoo-mexico-v2
-  - git clone git@github.com:Vauxoo/odoo-ifrs.git -b 8.0 ${VERSION} ${HOME}/odoo-ifrs
-  - git clone git@github.com:Vauxoo/odoo-afr.git -b 8.0 ${VERSION} ${HOME}/odoo-afr
+  - git clone https://github.com/vauxoo/addons-vauxoo.git -b ${VERSION} ${HOME}/addons-vauxoo
+  - git clone git@github.com:Vauxoo/odoo-themes.git -b ${VERSION} ${HOME}/odoo-themes
+  - git clone git@github.com:Vauxoo/instance-vauxoo-com.git -b ${VERSION} ${HOME}/instance-vauxoo-com
+  - git clone git@github.com:oca/server-tools.git -b ${VERSION} ${HOME}/server-tools
+  - git clone git@github.com:Vauxoo/odoo-mexico-v2.git -b ${VERSION} ${HOME}/odoo-mexico-v2
+  - git clone git@github.com:Vauxoo/odoo-ifrs.git -b ${VERSION} ${HOME}/odoo-ifrs
+  - git clone git@github.com:Vauxoo/odoo-afr.git -b ${VERSION} ${HOME}/odoo-afr
   - git clone git@github.com:Vauxoo/cms.git -b ${VERSION} ${HOME}/cms
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
