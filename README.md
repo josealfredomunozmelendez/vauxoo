@@ -23,7 +23,7 @@ CI Status.
 This tests is what I need "only" tested/mixed with dependency repositories, and tested 1 by 1 modules on this repository in order to be sure they are all installables.
 
 
-[![Build Status](https://magnum.travis-ci.com/Vauxoo/cms.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/cms)
+[![Build Status](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com)
 
 
 Repositories which we depend from.
@@ -35,7 +35,7 @@ Repositories which we depend from.
 | vauxoo/addons-vauxoo       | WIP  | WIP  | WIP   | WIP      |         |
 | vauxoo/odoo-themes         | WIP  | WIP  | WIP   | WIP      |         |
 | oca/server-tools           | WIP  | WIP  | WIP   | WIP      |         |
-| vauxoo/instance-vauxoo-com | [![Build Status[![Build Status](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com) |   |   |   |
+| vauxoo/instance-vauxoo-com | [![Build Status](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com) |   |   |   |
 
 Hacking Our Website
 ---
@@ -51,9 +51,9 @@ How add a new features:
 0. Clone this repository:
 
     ```bash
-    $ git clone git@github.com:vauxoo/cms.git -b 8.0
+    $ git clone git@github.com:vauxoo/instance-vauxoo-com.git -b 8.0
     $ cd cms
-    $ git remote add vauxoo-dev git@github.com:vauxoo-dev/cms.git # << to push your changes
+    $ git remote add vauxoo-dev git@github.com:vauxoo-dev/instance-vauxoo-com.git # << to push your changes
     ```
 
 1. Install all dependencies (read travis folder for more information). **note**: You will need some non normal packages (npm and lessc to be precise) when you have v8.0 normally installed, run this command in order to have them all in linux and avoid unexpected runtimes.
@@ -61,6 +61,7 @@ How add a new features:
     ```bash
     $ cd cms
     $ ./travis/travis_install_cms_nightly
+    $ ./travis/travis_install_mx_nightly
     ```
 
 2. Create your own branch locally.
@@ -81,7 +82,7 @@ How add a new features:
     $ git clone https://github.com/odoo/odoo.git -b 8.0
     $ git clone https://github.com/vauxoo/addons-vauxoo.git -b 8.0
     $ git clone git@github.com:Vauxoo/odoo-themes.git -b 8.0
-    $ git clone git@github.com:Vauxoo/instance-vauxoo-com.git -b 8.0
+    $ git clone git@github.com:Vauxoo/cms.git -b 8.0
     $ git clone git@github.com:oca/server-tools.git -b 8.0
     ```
 
@@ -98,7 +99,8 @@ How add a new features:
 
     ```bash
     $ cd path/to/odoo/odoo
-    $ ./openerp-server --addons-path=addons/,../instance-vauxoo-com,../cms -r \
+    $ ./openerp-server \
+    --addons-path=addons/,../instance-vauxoo-com,../cms,../addons-vauxoo,../odoo-themes,../server-tools -r \
     cmsuser -w 1 --db-filter=cms \
     -i www_vauxoo_com -d cms
     ```
@@ -112,7 +114,8 @@ How add a new features:
     $ sudo su postgres
     $ dropbd cms
     $ createdb cms -U cmsuser -O cmsuser -T remplate0 -E UTF8
-    $ ./openerp-server --addons-path=addons/,../instance-vauxoo-com,../cms -r \
+    $ ./openerp-server \
+    --addons-path=addons/,../instance-vauxoo-com,../cms,../addons-vauxoo,../odoo-themes,../server-tools -r \
     cmsuser -w 1 --db-filter=cms \
     -i www_vauxoo_com -d cms
     ```
@@ -122,7 +125,7 @@ How add a new features:
     ```bash
     $ ./openerp-server --addons-path=addons/,../instance-vauxoo-com,../cms -r \
     cmsuser -w 1 --db-filter=cms \
-    -i www_vauxoo_com -d cms --test-enable
+    -i erp_vauxoo_com,www_vauxoo_com -d cms --test-enable
     ```
 
 **Note:**
