@@ -9,7 +9,7 @@ env:
 #  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
   - VERSION="8.0" ODOO_REPO="odoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
 #  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" UNIT_TEST="1"
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1"
+#  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1"
 
 virtualenv:
   system_site_packages: true
