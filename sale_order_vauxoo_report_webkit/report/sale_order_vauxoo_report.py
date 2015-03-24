@@ -26,13 +26,6 @@
 ##############################################################################
 
 from openerp.report import report_sxw
-from openerp import pooler
-from openerp.tools.translate import _
-from openerp import tools
-from openerp import tests
-from openerp.osv import osv
-from openerp import netsvc
-import openerp
 from report_webkit import webkit_report
 
 
@@ -48,7 +41,7 @@ class sale_order_vauxoo_report_html(report_sxw.rml_parse):
 
 webkit_report.WebKitParser('report.sale.order.vauxoo.webkit',
                            'sale.order',
-                           'addons/sale_order_vauxoo_report_webkit/report/sale_order_vauxoo_report_html.mako',
+                           'addons/sale_order_vauxoo_report_webkit/report/sale_order_vauxoo_report_html.mako',  # noqa
                            parser=sale_order_vauxoo_report_html)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

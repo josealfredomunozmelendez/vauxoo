@@ -52,6 +52,8 @@
         "user_story",
         "warning",
         "sale_order_copy_line",
+        # Technical tools.
+        'group_xml_id',
     ],
     "data": [],
     "demo": [],
