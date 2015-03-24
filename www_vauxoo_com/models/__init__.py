@@ -1,1 +1,2 @@
-import auth_oauth
+# -*- encoding: utf-8 -*-
+from . import auth_oauth

@@ -84,7 +84,6 @@ class test_yaml_facturae(osv.osv_memory):
             # Create a new cursor for close it when is necessary
             cr = pooler.get_db(cr_original.dbname).cursor()
             fp_test = tools.file_open(os.path.join(file_name_yml[0]))
-            print threading.currentThread().getName()
             tools.convert_yaml_import(
                 cr, 'l10n_mx_cfdi_test', fp_test, 'test', None, 'init', False, assertion_obj)
         finally:
