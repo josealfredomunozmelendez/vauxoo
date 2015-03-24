@@ -26,11 +26,11 @@
 ##############################################################################
 
 {
-    "name" : "Sale Order Vauxoo Report Webkit",
-    "version" : "1.0",
-    "author" : "Vauxoo",
-    "category" : "Sale",
-    "description" : """
+    "name": "Sale Order Vauxoo Report Webkit",
+    "version": "1.0",
+    "author": "Vauxoo",
+    "category": "Sale",
+    "description": """
 Sale Order Vauxoo Report Webkit
 ===============================
 
@@ -42,14 +42,14 @@ This module l10n_mx_partner_address will found in this branch:
 
 
     """,
-    "website" : "http://www.vauxoo.com/",
-    "license" : "AGPL-3",
-    "depends" : ["sale","l10n_mx_partner_address"],
-    "demo" : [],
-    "data" : [
+    "website": "http://www.vauxoo.com/",
+    "license": "AGPL-3",
+    "depends": ["sale", "l10n_mx_partner_address"],
+    "demo": [],
+    "data": [
         "data/data.xml",
         "sale_order_vauxoo_report_webkit.xml",
     ],
-    "installable" : True,
-    "active" : False,
+    "installable": True,
+    "active": False,
 }

@@ -38,7 +38,7 @@ This module has the intention of automate some needs related to CTP training.
         'base',
         'mail',
         'contacts',
-                ],
+    ],
     'author': 'Vauxoo',
     'data': [
         'view/res_partner_view.xml',

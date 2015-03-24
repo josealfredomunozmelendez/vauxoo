@@ -41,15 +41,14 @@ _logger = logging.getLogger(__name__)
 
 
 class sale_order_vauxoo_report_html(report_sxw.rml_parse):
-    
-    
+
     def __init__(self, cr, uid, name, context):
         super(sale_order_vauxoo_report_html, self).__init__(
             cr, uid, name, context=context)
 
 webkit_report.WebKitParser('report.sale.order.vauxoo.webkit',
-            'sale.order',
-            'addons/sale_order_vauxoo_report_webkit/report/sale_order_vauxoo_report_html.mako',
-            parser=sale_order_vauxoo_report_html)
+                           'sale.order',
+                           'addons/sale_order_vauxoo_report_webkit/report/sale_order_vauxoo_report_html.mako',
+                           parser=sale_order_vauxoo_report_html)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

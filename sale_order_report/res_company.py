@@ -27,13 +27,15 @@ from osv import osv
 from osv import fields
 from tools.translate import _
 
+
 class invoice_multicompany_report(osv.osv):
-  """
-  invoice_multicompany_report
-  """
-  
-  _inherit = 'res.company'
-  _columns = {
-    'sale_report_id':fields.many2one('ir.actions.report.xml', 'Sale Order Report', required=False, domain="[('model','=','sale.order')]"),
-  }
+
+    """
+    invoice_multicompany_report
+    """
+
+    _inherit = 'res.company'
+    _columns = {
+        'sale_report_id': fields.many2one('ir.actions.report.xml', 'Sale Order Report', required=False, domain="[('model','=','sale.order')]"),
+    }
 invoice_multicompany_report()

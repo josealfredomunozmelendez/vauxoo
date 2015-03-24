@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution    
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    author.name@company.com
 #
@@ -25,20 +25,24 @@ from osv import osv
 from tools.translate import _
 from report import pyPdf
 
+
 class comercializadora_m321_sale(report_sxw.rml_parse):
+
     def __init__(self, cr, uid, name, context):
-        super(comercializadora_m321_sale, self).__init__(cr, uid, name, context=context)
+        super(comercializadora_m321_sale, self).__init__(
+            cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
             'hello': self._hello,
         })
-    def _hello(self,p):
+
+    def _hello(self, p):
         print "estoy en hello"
         output = pyPdf.PdfFileWriter()
         print output
         return "Hello World %s" % output
 report_sxw.report_sxw(
-'report.sale_cm321_report',
-'sale.order',
-'addons/sale_order_report/report/comercializadora_m321_sale_report.rml',
-parser=comercializadora_m321_sale)
+    'report.sale_cm321_report',
+    'sale.order',
+    'addons/sale_order_report/report/comercializadora_m321_sale_report.rml',
+    parser=comercializadora_m321_sale)

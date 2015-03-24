@@ -41,17 +41,16 @@ class test_yaml_facturae(osv.osv_memory):
     _name = 'test.yaml.facturae'
 
     _columns = {
-        'test_commit': fields.boolean('Commit', help='If this field is active, the registers '\
-            'that are created in the test will be saved, else the registers not are saved'),
-        'number_invoice': fields.integer('Numbers of invoices', help='Number of invoices that '\
-            'will be created for test'),
+        'test_commit': fields.boolean('Commit', help='If this field is active, the registers '
+                                      'that are created in the test will be saved, else the registers not are saved'),
+        'number_invoice': fields.integer('Numbers of invoices', help='Number of invoices that '
+                                         'will be created for test'),
     }
 
     _defaults = {
         'test_commit': False,
     }
-    
-    
+
     def test_factuare_run(self, cr, uid, ids, context=None):
         if context == None:
             context = {}
@@ -76,7 +75,7 @@ class test_yaml_facturae(osv.osv_memory):
             file_name_yml = '%s/account_invoice_cfdi_pac_finkok_%s.yml' % (
                 tmp_path, str(create_invoice))
             new_file_modify_yml = file_original_yml_read.replace(
-                "journal_ids = acc_jour_obj.search(cr, uid, [], context=context)", 
+                "journal_ids = acc_jour_obj.search(cr, uid, [], context=context)",
                 "journal_ids = acc_jour_obj.search(cr, uid, [('id', '=', ref('l10n_mx_facturae_pac_finkok.l10n_mx_cfdi_pac_finkok_journal_0'))], context=context)").replace(
                 "list_invoice_demo = ir_model_data.search(cr, uid, [('name', 'ilike', '%'+'facturae_mx'+'%'),('model','=',self._name)], context=context)",
                 "list_invoice_demo = ir_model_data.search(cr, uid, [('name', 'ilike', '%'+'facturae_mx'+'%'),('model','=',self._name)], limit=1, context=context)")
@@ -87,13 +86,13 @@ class test_yaml_facturae(osv.osv_memory):
             new_file_yml.write(new_file_modify_yml2)
             new_file_yml.close()
             files_names.append([file_name_yml])
-        
+
         threading_list = []
         for file_name_yml in files_names:
             args = (cr, uid, ids, file_name_yml, commit_value)
             t = threading.Thread(target=self.execute_test_yaml, name=(
-                'threading_test_facturae %s' % (create_invoice) ), args = args)
-            threading_list.append( t )
+                'threading_test_facturae %s' % (create_invoice)), args = args)
+            threading_list.append(t)
         for t in threading_list:
             t.setDaemon(False)
             t.start()
@@ -105,7 +104,8 @@ class test_yaml_facturae(osv.osv_memory):
         fp_test = None
         try:
             cr = False
-            cr = pooler.get_db(cr_original.dbname).cursor()#Create a new cursor for close it when is necessary
+            # Create a new cursor for close it when is necessary
+            cr = pooler.get_db(cr_original.dbname).cursor()
             fp_test = tools.file_open(os.path.join(file_name_yml[0]))
             print threading.currentThread().getName()
             tools.convert_yaml_import(
@@ -116,12 +116,13 @@ class test_yaml_facturae(osv.osv_memory):
                     cr.commit()
                 else:
                     cr.rollback()
-                    self.pool.get('ir.model.data').clear_caches()#This is necessary, for clean xml_id_ref var
+                    # This is necessary, for clean xml_id_ref var
+                    self.pool.get('ir.model.data').clear_caches()
                 cr.close()
             if fp_test:
                 fp_test.close()
         return True
-    
+
     '''
     def test_factuare_run(self, cr, uid, ids, context=None):
         if context == None:

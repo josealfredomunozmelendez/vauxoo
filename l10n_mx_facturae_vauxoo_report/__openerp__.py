@@ -26,21 +26,21 @@
 ##############################################################################
 
 {
-    "name" : "Creacion del Reporte de Factura Electronica para Mexico",
-    "version" : "1.0",
-    "author" : "Vauxoo",
-    "category" : "Localization/Mexico",
+    "name": "Creacion del Reporte de Factura Electronica para Mexico",
+    "version": "1.0",
+    "author": "Vauxoo",
+    "category": "Localization/Mexico",
     "description" : """This module adds a report to electronic invoice, 
         this includes report to cfd, cfdi and cbb customized to Vauxoo.
     """,
-    "website" : "http://www.vauxoo.com/",
-    "license" : "AGPL-3",
-    "depends" : ["l10n_mx_facturae_report"],
-    "demo" : [],
-    "data" : [
+    "website": "http://www.vauxoo.com/",
+    "license": "AGPL-3",
+    "depends": ["l10n_mx_facturae_report"],
+    "demo": [],
+    "data": [
         "data.xml",
         "l10n_mx_facturae_report_webkit.xml",
     ],
-    "installable" : False,
-    "active" : False,
+    "installable": False,
+    "active": False,
 }

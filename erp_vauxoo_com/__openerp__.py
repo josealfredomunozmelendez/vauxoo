@@ -18,8 +18,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{   "name" : "Odoo Vauxoo Instance",
-    "author" : "Vauxoo",
+{"name": "Odoo Vauxoo Instance",
+    "author": "Vauxoo",
     "summary": "All the necesary modules to auto install our instance.",
     "description" : """
 Install all apps needed to comply with Vauxoo instance
@@ -27,10 +27,10 @@ Install all apps needed to comply with Vauxoo instance
 
 TODO: Document all the references (read www_vauxoo_com module as an example)
                     """,
-    "website" : "http://www.vauxoo.com",
-    "category" : "Vauxoo",
-    "version" : "2.0",
-    "depends" : [
+    "website": "http://www.vauxoo.com",
+    "category": "Vauxoo",
+    "version": "2.0",
+    "depends": [
         # ERP modules (here nothing with website)
         "project_followers_rule",
         "account_asset",
@@ -46,9 +46,14 @@ TODO: Document all the references (read www_vauxoo_com module as an example)
         "ifrs_report",
         "l10n_mx_cities",
         "l10n_mx_facturae_pac_sf",
-        "l10n_mx_facturae_pac_finkok",         #Added module of  finkok pac for signed with it invoices and payroll.  Task #1886
-        "l10n_mx_payroll_base",                #This module install all about  mexican payroll.  Task #1886
-        "l10n_mx_validate_xml_sat",            #This module install a wizard for validate XML signed in SAT  Task #1886
+        # Added module of  finkok pac for signed with it invoices and payroll.
+        # Task #1886
+        "l10n_mx_facturae_pac_finkok",
+        # This module install all about  mexican payroll.  Task #1886
+        "l10n_mx_payroll_base",
+        # This module install a wizard for validate XML signed in SAT  Task
+        # #1886
+        "l10n_mx_validate_xml_sat",
         "procurement_jit",
         "multi_company",
         "note_pad",
@@ -72,13 +77,13 @@ TODO: Document all the references (read www_vauxoo_com module as an example)
         "user_story",
         "warning",
         "sale_order_copy_line",
-        ],
-    "data" : [],
-    "demo" : [],
-    "test" : [
+    ],
+    "data": [],
+    "demo": [],
+    "test": [
         # Only our tests (the custom ones)
     ],
     "auto_install": False,
     "application": True,
     "installable": True,
-}
+ }

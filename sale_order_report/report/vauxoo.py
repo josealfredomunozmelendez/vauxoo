@@ -21,9 +21,12 @@
 ##############################################################################
 from openerp.report import report_sxw
 
+
 class sale_vauxoo_report(report_sxw.rml_parse):
+
     def __init__(self, cr, uid, name, context):
-        super(sale_vauxoo_report, self).__init__(cr, uid, name, context=context)
+        super(sale_vauxoo_report, self).__init__(
+            cr, uid, name, context=context)
         self.localcontext.update({
             'get_addr': self._get_addr,
             'get_delay': self._get_delay,
@@ -32,26 +35,25 @@ class sale_vauxoo_report(report_sxw.rml_parse):
         })
 
     def _get_imp(self, obj):
-        dict_imp={}
-        lista=[]
+        dict_imp = {}
+        lista = []
         for l in obj.order_line:
             for tax in l.tax_id:
-                if dict_imp.get(tax.name,False):
-                    dict_imp[tax.name]+= l.price_subtotal*tax.amount
+                if dict_imp.get(tax.name, False):
+                    dict_imp[tax.name] += l.price_subtotal * tax.amount
                 else:
                     if tax.name != 'EXENTO':
-                        dict_imp[tax.name] = l.price_subtotal*tax.amount
+                        dict_imp[tax.name] = l.price_subtotal * tax.amount
         for i in dict_imp.keys():
-            lista.append((i,dict_imp[i]))
+            lista.append((i, dict_imp[i]))
 
         if len(lista) > 0:
             return lista
         else:
             return False
 
-
     def _get_delay(self, obj):
-        aux=[]
+        aux = []
         for aux2 in obj.order_line:
             if aux2.delay > 0:
                 aux.append(True)
@@ -59,19 +61,21 @@ class sale_vauxoo_report(report_sxw.rml_parse):
                 aux.append(False)
         return any(aux)
 
-    def _get_rif(self,partner,label=False):
+    def _get_rif(self, partner, label=False):
         lb = ""
         if partner.country_id.code == "VE":
             if label:
                 lb = "RIF: "
-            rif = partner.vat and lb+partner.vat[2]+'-'+partner.vat[3:-1]+'-'+partner.vat[-1] or ''
+            rif = partner.vat and lb + \
+                partner.vat[2] + '-' + partner.vat[3:-1] + \
+                '-' + partner.vat[-1] or ''
         else:
             if label:
                 lb = "RFC: "
-            rif = partner.vat and lb+partner.vat[2:] or ''
+            rif = partner.vat and lb + partner.vat[2:] or ''
         return rif
 
-    def _get_addr(self, idpartner=None,type_r=None):
+    def _get_addr(self, idpartner=None, type_r=None):
         if not idpartner:
             return []
 
@@ -91,24 +95,26 @@ class sale_vauxoo_report(report_sxw.rml_parse):
         addr_obj = self.pool.get('res.partner')
         res = ''
 
-        addr_ids = addr_obj.search(self.cr,self.uid,[('id','=',idp)])
+        addr_ids = addr_obj.search(self.cr, self.uid, [('id', '=', idp)])
 
-        lista=""
+        lista = ""
 
         if addr_ids:
-            addr = addr_obj.browse(self.cr,self.uid, addr_ids[0])
+            addr = addr_obj.browse(self.cr, self.uid, addr_ids[0])
             if addr.country_id.code == "MX":
-                lista=(addr.street and ('%s'%(addr.street)) or '') +(hasattr(addr,'l10n_mx_street4') and addr.l10n_mx_street4 and (' %s'%(addr.l10n_mx_street4)) or '')+(hasattr(addr,'street2') and addr.street2 and (', %s'%(addr.street2)) or '')+(hasattr(addr,'city') and addr.city and ('\n %s'%(addr.city)) or '')+(hasattr(addr,'l10n_mx_city2') and addr.l10n_mx_city2 and (', %s'%(addr.l10n_mx_city2)) or '')+(addr.state_id and (', %s'%(hasattr(addr,'state_id') and addr.state_id.name)) or '')+(hasattr(addr,'country_id') and addr.country_id and (', %s'%(addr.country_id.name)) or '')+(hasattr(addr,'zip') and addr.zip and (', %s'%(addr.zip)) or '')+(hasattr(addr,'phone') and addr.phone and ('\n TELF.: %s'%(addr.phone)) or '') + (hasattr(addr,'fax') and  addr.fax and (',FAX: %s'%(addr.fax)) or '') +(hasattr(addr,'mobile') and addr.mobile and (',CEL.: %s'%(addr.mobile)) or '')
+                lista = (addr.street and ('%s' % (addr.street)) or '') + (hasattr(addr, 'l10n_mx_street4') and addr.l10n_mx_street4 and (' %s' % (addr.l10n_mx_street4)) or '') + (hasattr(addr, 'street2') and addr.street2 and (', %s' % (addr.street2)) or '') + (hasattr(addr, 'city') and addr.city and ('\n %s' % (addr.city)) or '') + (hasattr(addr, 'l10n_mx_city2') and addr.l10n_mx_city2 and (', %s' % (addr.l10n_mx_city2)) or '') + (addr.state_id and (', %s' %
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (hasattr(addr, 'state_id') and addr.state_id.name)) or '') + (hasattr(addr, 'country_id') and addr.country_id and (', %s' % (addr.country_id.name)) or '') + (hasattr(addr, 'zip') and addr.zip and (', %s' % (addr.zip)) or '') + (hasattr(addr, 'phone') and addr.phone and ('\n TELF.: %s' % (addr.phone)) or '') + (hasattr(addr, 'fax') and addr.fax and (',FAX: %s' % (addr.fax)) or '') + (hasattr(addr, 'mobile') and addr.mobile and (',CEL.: %s' % (addr.mobile)) or '')
             else:
-                lista=(addr.street and ('%s'%(addr.street)) or '') +(hasattr(addr,'street2') and addr.street2 and (', %s'%(addr.street2)) or '')+(hasattr(addr,'zip') and addr.zip and (',C.P: %s'%(addr.zip)) or '')+(hasattr(addr,'city') and addr.city and (', %s'%(addr.city)) or '')+(addr.state_id and (', %s'%(hasattr(addr,'state_id') and addr.state_id.name)) or '')+(hasattr(addr,'country_id') and addr.country_id and (', %s'%(addr.country_id.name)) or '')+(hasattr(addr,'phone') and addr.phone and (',TELF.: %s'%(addr.phone)) or '') + (hasattr(addr,'fax') and  addr.fax and (',FAX: %s'%(addr.fax)) or '') +(hasattr(addr,'mobile') and addr.mobile and (',CEL.: %s'%(addr.mobile)) or '')
+                lista = (addr.street and ('%s' % (addr.street)) or '') + (hasattr(addr, 'street2') and addr.street2 and (', %s' % (addr.street2)) or '') + (hasattr(addr, 'zip') and addr.zip and (',C.P: %s' % (addr.zip)) or '') + (hasattr(addr, 'city') and addr.city and (', %s' % (addr.city)) or '') + (addr.state_id and (', %s' % (hasattr(addr, 'state_id') and addr.state_id.name))
+                                                                                                                                                                                                                                                                                                               or '') + (hasattr(addr, 'country_id') and addr.country_id and (', %s' % (addr.country_id.name)) or '') + (hasattr(addr, 'phone') and addr.phone and (',TELF.: %s' % (addr.phone)) or '') + (hasattr(addr, 'fax') and addr.fax and (',FAX: %s' % (addr.fax)) or '') + (hasattr(addr, 'mobile') and addr.mobile and (',CEL.: %s' % (addr.mobile)) or '')
         if lista:
-            respuesta=lista
+            respuesta = lista
         else:
-            respuesta=res
+            respuesta = res
         return respuesta
 
 report_sxw.report_sxw(
-'report.sale_order_vauxoo',
-'sale.order',
-'addons/sale_order_report/report/vauxoo.rml',
-parser=sale_vauxoo_report)
+    'report.sale_order_vauxoo',
+    'sale.order',
+    'addons/sale_order_report/report/vauxoo.rml',
+    parser=sale_vauxoo_report)
