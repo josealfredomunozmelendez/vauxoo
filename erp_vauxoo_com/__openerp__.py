@@ -33,7 +33,6 @@
         "procurement_jit",
         "multi_company",
         "note_pad",
-        "email_template_followers",
         "expired_task_information",
         "forward_mail",
         "google_drive",
