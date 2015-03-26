@@ -23,7 +23,7 @@ install:
   - git clone git@github.com:Vauxoo/odoo-themes.git -b ${VERSION} ${HOME}/odoo-themes
   - git clone git@github.com:Vauxoo/instance-vauxoo-com.git -b ${VERSION} ${HOME}/instance-vauxoo-com
   - git clone git@github.com:oca/server-tools.git -b ${VERSION} ${HOME}/server-tools
-  - git clone git@github.com:Vauxoo/odoo-mexico-v2.git -b ${VERSION} ${HOME}/odoo-mexico-v2
+  - git clone git@github.com:vauxoo-dev/odoo-mexico-v2.git -b 8.0-fixes-travis-erpvauxoocom ${HOME}/odoo-mexico-v2
   - git clone git@github.com:Vauxoo/odoo-ifrs.git -b ${VERSION} ${HOME}/odoo-ifrs
   - git clone git@github.com:Vauxoo/odoo-afr.git -b ${VERSION} ${HOME}/odoo-afr
   - git clone git@github.com:Vauxoo/cms.git -b ${VERSION} ${HOME}/cms
