@@ -34,7 +34,8 @@ class email_template(models.Model):
                 'name': button_name,
                 'model': src_obj,
                 'key2': 'client_action_multi',
-                'value': "ir.actions.act_window," + str(vals['ref_ir_act_window']),
+                'value': "ir.actions.act_window," +
+                         str(vals['ref_ir_act_window']),
             }, context)
         self.write(cr, uid, ids, {
             'ref_ir_act_window': vals.get('ref_ir_act_window', False),
