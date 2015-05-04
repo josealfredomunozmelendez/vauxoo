@@ -53,6 +53,7 @@
         "sale_order_copy_line",
         # Technical tools.
         'group_xml_id',
+        'hr_payroll_multicompany',
     ],
     "data": [],
     "demo": [],
