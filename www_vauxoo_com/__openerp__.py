@@ -7,16 +7,6 @@
     'complexity': 'easy',
     'depends': [
         'website_vauxoo',
-        'website_blog',
-        'website_crm',
-        'website_event',
-        'website_event_track',
-        'website_hr_recruitment',
-        'website_forum_doc',
-        'website_sale',
-        'website_project',
-        'website_variants_extra',
-        'auth_oauth',
         # Tools necesary to work with this enviroment.
         'admin_technical_features',
     ],
