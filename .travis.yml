@@ -8,7 +8,6 @@ python:
 
 env:
   - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"  # Tested with vauxoo in order to validate the next -u all
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1" EXCLUDE="erp_vauxoo_com,www_vauxoo_com" # Tested with odoo in order to determine an error with odoo itself
 
 virtualenv:
   system_site_packages: true
