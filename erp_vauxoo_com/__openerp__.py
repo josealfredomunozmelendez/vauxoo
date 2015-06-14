@@ -48,9 +48,10 @@
         "purchase_analytic_plans",
         "sale_multicompany_report",
         "sync_youtube",
-        "user_story",
         "warning",
         "sale_order_copy_line",
+        # Portal (not website) modules
+        "portal_user_story",
         # Technical tools.
         'group_xml_id',
         'hr_payroll_multicompany',
