@@ -23,6 +23,7 @@
         "l10n_mx_cities",
         "l10n_mx_facturae_pac_sf",
         "auth_crypt",
+        "project_issue_management",
         # Added module of  finkok pac for signed with it invoices and payroll.
         # Task #1886
         "l10n_mx_facturae_pac_finkok",
