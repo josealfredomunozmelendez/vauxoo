@@ -12,10 +12,8 @@
     ],
     'author': 'Vauxoo',
     'data': [
-        'data/oauth_data.xml',
         'data/set_configuration.yml',
         'data/lang.xml',
-        'views/layout.xml',
     ],
     'test': [
     ],
