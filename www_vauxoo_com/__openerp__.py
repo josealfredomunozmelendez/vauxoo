@@ -16,7 +16,6 @@
         'data/set_configuration.yml',
         'data/lang.xml',
         'views/layout.xml',
-        'views/login_view.xml',
     ],
     'test': [
     ],
