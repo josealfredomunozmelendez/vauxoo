@@ -4,8 +4,7 @@
   !record {model: base.config.settings, id: vauxoo_base_config_settings}:
     {
      'alias_domain': 'www.vauxoo.com',
-     'auth_signup_reset_password': 1,
-     'auth_oauth_google_enabled': 1}
+    }
 -
   !python {model: base.config.settings}: |
     self.execute(cr, uid, [ref('vauxoo_base_config_settings')], context=context)
