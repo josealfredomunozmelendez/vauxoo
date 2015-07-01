@@ -1,28 +1,31 @@
 language: python
 
+build_image: vauxoo/odoo-80-image-shippable-auto
+commit_container: cowardvassal/vauxoo-dev
+
 python:
   - "2.7"
 
 env:
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" INCLUDE="www_vauxoo_com"
-  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1"
+  - VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"  # Tested with vauxoo in order to validate the next -u all
 
 virtualenv:
   system_site_packages: true
 
 install:
-  - git clone https://github.com/oca/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
+  - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
+  - git clone --single-branch --depth=1 https://github.com/vauxoo/addons-vauxoo.git -b ${VERSION} ${HOME}/addons-vauxoo
+  - git clone --single-branch --depth=1 git@github.com:Vauxoo/odoo-themes.git -b ${VERSION} ${HOME}/odoo-themes
+  - git clone --single-branch --depth=1 git@github.com:Vauxoo/instance-vauxoo-com.git -b ${VERSION} ${HOME}/instance-vauxoo-com
+  - git clone --single-branch --depth=1 git@github.com:oca/server-tools.git -b ${VERSION} ${HOME}/server-tools
+  - git clone --single-branch --depth=1 git@github.com:vauxoo/odoo-mexico-v2.git -b ${VERSION} ${HOME}/odoo-mexico-v2
+  - git clone --single-branch --depth=1 git@github.com:Vauxoo/odoo-ifrs.git -b ${VERSION} ${HOME}/odoo-ifrs
+  - git clone --single-branch --depth=1 git@github.com:Vauxoo/odoo-afr.git -b ${VERSION} ${HOME}/odoo-afr
+  - git clone --single-branch --depth=1 git@github.com:Vauxoo/cms.git -b ${VERSION} ${HOME}/cms
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
-  - git clone git@github.com:Vauxoo/odoo-mexico-v2.git -b ${VERSION} ${HOME}/odoo-mexico-v2
-  - git clone git@github.com:Vauxoo/cms.git -b ${VERSION} ${HOME}/cms
-  - export PATH=${HOME}/odoo-mexico-v2/travis:${PATH}
-  - travis_install_mx_nightly
-  - bzr branch lp:addons-vauxoo/ ${HOME}/addons-vauxoo
-  - ${TRAVIS_BUILD_DIR}/travis/travis_install_vauxoo_com_nightly ${VERSION}
+  - ${TRAVIS_BUILD_DIR}/travis/travis_install_cms_nightly ${VERSION}
+  - ${HOME}/odoo-mexico-v2/travis/travis_install_mx_nightly ${VERSION}
 
 script:
-  - travis_run_tests ${VERSION}
-
-after_success:
-  coveralls
+  - travis_run_tests

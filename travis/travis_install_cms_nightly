@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set -v
+
+# vauxoo com packages
+# empty
+
+# themes system needs lessc.
+
+npm install -g less
+npm install -g less-plugin-clean-css
+
+# addons-vauxoo packages #FIXME: This modules make error use or not use it
+sudo pip install recaptcha-client egenix-mx-base
+
+# odoo default packages without depend in setup.py
+sudo pip install PyWebDAV mygengo BeautifulSoup4
+sudo apt-get install pdftotext antiword
+
+#webkit patched process #FIXME: Fix modules to use new webkit version
+mkdir -p /tmp/webkit_patched
+wget -O /tmp/webkit_patched/wkhtmltopdf.tar.bz2 https://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
+bzip2 -dc /tmp/webkit_patched/wkhtmltopdf.tar.bz2 | tar -xvO >/tmp/webkit_patched/webkit-patched
+sudo cp /tmp/webkit_patched/webkit-patched /usr/bin/wkhtmltopdf
+
+
+##MX PACKAGES
+sudo apt-get install xsltproc xmlstarlet m2crypto openssl
+sudo pip install SOAPpy pyopenssl suds
+sudo pip install pillow qrcode xmltodict
+
+##ADDONS-VAUXOO PACKAGES#FIXME: This modules make error use or not use it
+sudo pip install recaptcha-client egenix-mx-base
+
+##ODOO PACKAGES#FIXME: This package should be within the main script
+sudo pip install PyWebDAV mygengo
+#sudo apt-get install pdftotext antiword
+sudo apt-get install poppler-utils # pdftotext is here
+sudo apt-get install antiword
+
+# Install webkit and patched process
+sudo apt-get install wkhtmltopdf
+mkdir -p /tmp/webkit_patched
+wget -O /tmp/webkit_patched/wkhtmltopdf.tar.bz2 https://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
+bzip2 -dc /tmp/webkit_patched/wkhtmltopdf.tar.bz2 | tar -xvO >/tmp/webkit_patched/webkit-patched
+sudo cp /tmp/webkit_patched/webkit-patched /usr/bin/wkhtmltopdf
+
+exit 0
+

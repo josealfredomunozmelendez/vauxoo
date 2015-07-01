@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
-import res_partner
-import email_template
+from . import res_partner
+from . import email_template
