@@ -59,6 +59,7 @@
         'group_xml_id',
         'hr_payroll_multicompany',
         "l10n_mx_diot_report",
+        "account_financial_report",
     ],
     "data": [],
     "demo": [],
