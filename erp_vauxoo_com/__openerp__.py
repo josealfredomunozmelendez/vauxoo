@@ -58,6 +58,7 @@
         # Technical tools.
         'group_xml_id',
         'hr_payroll_multicompany',
+        "l10n_mx_diot_report",
     ],
     "data": [],
     "demo": [],
