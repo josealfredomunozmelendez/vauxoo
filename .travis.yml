@@ -16,12 +16,12 @@ install:
   - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
   - git clone --single-branch --depth=1 https://github.com/vauxoo/addons-vauxoo.git -b ${VERSION} ${HOME}/addons-vauxoo
   - git clone --single-branch --depth=1 git@github.com:Vauxoo/odoo-themes.git -b ${VERSION} ${HOME}/odoo-themes
-  - git clone --single-branch --depth=1 git@github.com:Vauxoo/instance-vauxoo-com.git -b ${VERSION} ${HOME}/instance-vauxoo-com
   - git clone --single-branch --depth=1 git@github.com:oca/server-tools.git -b ${VERSION} ${HOME}/server-tools
   - git clone --single-branch --depth=1 git@github.com:vauxoo/odoo-mexico-v2.git -b ${VERSION} ${HOME}/odoo-mexico-v2
   - git clone --single-branch --depth=1 git@github.com:Vauxoo/odoo-ifrs.git -b ${VERSION} ${HOME}/odoo-ifrs
   - git clone --single-branch --depth=1 git@github.com:Vauxoo/odoo-afr.git -b ${VERSION} ${HOME}/odoo-afr
   - git clone --single-branch --depth=1 git@github.com:Vauxoo/cms.git -b ${VERSION} ${HOME}/cms
+  - git clone --single-branch --depth=1 git@github.com:Vauxoo/l10n-mx-invoice-pdf-formats.git -b ${VERSION} ${HOME}/l10n-mx-invoice-pdf-formats
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - ${TRAVIS_BUILD_DIR}/travis/travis_install_cms_nightly ${VERSION}
