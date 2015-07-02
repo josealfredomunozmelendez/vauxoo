@@ -14,6 +14,7 @@
         "account_followup",
         "account_invoice_number",
         "account_reconcile_grouping",
+        "account_smart_unreconcile",
         "analytic_contract_hr_expense",
         "hr_contract",
         "hr_expense_replenishment_tax",
