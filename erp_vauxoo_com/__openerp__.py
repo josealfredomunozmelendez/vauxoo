@@ -33,6 +33,8 @@
         # This module install a wizard for validate XML signed in SAT  Task
         # #1886
         "l10n_mx_validate_xml_sat",
+        "l10n_mx_diot_report",
+        "account_financial_report",
         "procurement_jit",
         "multi_company",
         "note_pad",
