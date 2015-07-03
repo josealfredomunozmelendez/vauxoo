@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id='vauxoo_sale_quotatio_report' inherit_id="sale.report_saleorder_document">
+    <xpath expr="//div[@id='informations']" position="replace">
+        <div>
+            <p>TODO</p>
+        </div>
+    </xpath>
+
+</template>
+
+</data>
+</openerp>
