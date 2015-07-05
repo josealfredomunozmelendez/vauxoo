@@ -27,6 +27,7 @@
         "auth_crypt",
         "project_issue_management",
         "hr_timesheet_reports",
+        "vauxoo_sale_reports",
         # Added module of  finkok pac for signed with it invoices and payroll.
         # Task #1886
         "l10n_mx_facturae_pac_finkok",
@@ -54,7 +55,6 @@
         "project_issue_sheet",
         "project_task_domain",
         "purchase_analytic_plans",
-        "sale_multicompany_report",
         "sync_youtube",
         "warning",
         "sale_order_copy_line",
