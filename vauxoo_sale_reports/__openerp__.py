@@ -8,6 +8,8 @@ Quotation Report
     ''',
     'depends': [
         'sale',
+        'sale_stock',
+        'l10n_mx_partner_address',
     ],
     'author': 'Vauxoo',
     'data': [
