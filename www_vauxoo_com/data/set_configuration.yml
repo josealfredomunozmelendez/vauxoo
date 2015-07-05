@@ -21,3 +21,18 @@
 -
   !python {model: website.config.settings}: |
     self.execute(cr, uid, [ref('vauxoo_website_config_settings')], context=context)
+-
+  Blessing public Menus
+  Remove from the list of ids one time you are sure
+  they will come back publically
+-
+  !python {model: website.menu}: |
+    self.write(cr, uid, [
+        ref('website_blog.menu_news'),
+        ref('website_event.menu_events'),
+        ref('website_forum.menu_questions'),
+        ref('website_forum_doc.menu_questions'),
+        ref('website_sale.menu_shop'),
+        ref('website_hr_recruitment.menu_jobs'),
+    ],
+    {'parent_id': False}, context=context)
