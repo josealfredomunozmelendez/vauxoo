@@ -63,6 +63,7 @@
         # Technical tools.
         'group_xml_id',
         'hr_payroll_multicompany',
+        'send_author_mail',
     ],
     "data": [],
     "demo": [],
