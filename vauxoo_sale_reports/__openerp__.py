@@ -14,6 +14,7 @@ Quotation Report
     'author': 'Vauxoo',
     'data': [
         'view/vauxoo_report_sale.xml',
+        'view/layout.xml',
     ],
     'test': [
     ],
