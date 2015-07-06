@@ -36,3 +36,10 @@
         ref('website_hr_recruitment.menu_jobs'),
     ],
     {'parent_id': False}, context=context)
+-
+  Setting the sequence to public menus
+-
+  !python {model: website.menu}: |
+    self.write(cr, uid, [
+        ref('website.menu_homepage'),
+    ], {'sequence': 5}, context=context)
