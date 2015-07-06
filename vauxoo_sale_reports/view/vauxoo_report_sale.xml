@@ -3,6 +3,8 @@
 <data>
     <template id='vauxoo_sale_quotatio_report' inherit_id="sale.report_saleorder_document">
     <xpath expr="//div[@class='oe_structure']" position="replace">
+        &lt;!DOCTYPE&gt;
+        <t t-call="vauxoo_sale_reports.layout">
         <table class="basic_table" width="100%">
             <tr>
                 <td style="vertical-align: bottom;">
@@ -17,30 +19,30 @@
                                     </tr>
                                     <tr>
                                         <td class="td_center">
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.vat and o.user_id.company_id.partner_id.vat[2:] or ''"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.vat and o.user_id.company_id.partner_id.vat[2:] or ''"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="td_center">
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.street"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.street2"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.l10n_mx_street3"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.l10n_mx_street4"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.street"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.street2"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.l10n_mx_street3"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.l10n_mx_street4"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="td_center">
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.country_id.name"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.city"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.zip"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.country_id.name"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.city"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.zip"/>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="td_center">
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.email"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.phone"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.fax"/>
-                                            <p class="data_company" t-esc="o.user_id.company_id.partner_id.mobile"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.email"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.phone"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.fax"/>
+                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.mobile"/>
                                         </td>
                                     </tr>
                                 </table>
@@ -106,8 +108,8 @@
         <tr>
             <th width="30%">FACTURAR A</th>
             <th width="30%">ENTREGAR EN</th>
-            <th width="20%">TeRMINOS DE PAGO <sup>(1)</sup></th>
-            <th width="20%">TeRMINOS DE ENTREGA <sup>(2)</sup></th>
+            <th width="20%">T&#233;RMINOS DE PAGO <sup>(1)</sup></th>
+            <th width="20%">T&#233;RMINOS DE ENTREGA <sup>(2)</sup></th>
         </tr>
         <tr>
             <td>
@@ -149,9 +151,9 @@
                     [ LiNEA ]
                 </th>
                 <th width="70%">
-                    [CoDIGO] PRODUCTO
+                    [C&#243;DIGO] PRODUCTO
                     <hr/>
-                    DESCRIPCIoN
+                    DESCRIPCI&#243;N
                     <hr/>
                     PLAZO DE ENTREGA
                 </th>
@@ -237,11 +239,11 @@
                         <pre style="font-size: 6;"><span t-field="o.note"/></pre>
                     </t>
                     <t t-if='(o.payment_term and o.payment_term.name) and (o.payment_term and o.payment_term.note)'>
-                        (1) TeRMINOS DE PAGO:
+                        (1) T&#233;RMINOS DE PAGO:
                         <pre style="font-size: 6;"><span t-esc="o.payment_term and o.payment_term.name or ''"/><span t-esc="o.payment_term and o.payment_term.note or ''"/></pre>
                     </t>
                     <t t-if='o.incoterm and o.incoterm.description'>
-                        (2) TeRMINOS DE ENTREGA:
+                        (2) T&#233;RMINOS DE ENTREGA:
                         <pre style="font-size: 6;"><span t-esc="o.incoterm and o.incoterm.description or 'No se ha estipulado términos comerciales de transporte'"/></pre>
                     </t>
                 </td>
@@ -263,6 +265,7 @@
         </table>
     </center>
     <p style="page-break-before: always;"></p>
+</t>
         </xpath>
 
 </template>
