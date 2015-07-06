@@ -43,6 +43,9 @@
     self.write(cr, uid, [
         ref('website.menu_homepage'),
     ], {'sequence': 5}, context=context)
+    self.write(cr, uid, [
+        ref('website.menu_contactus'),
+    ], {'sequence': 100}, context=context)
 -
   Setting blog views the one actives.
 -

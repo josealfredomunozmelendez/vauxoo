@@ -12,6 +12,7 @@
     ],
     'author': 'Vauxoo',
     'data': [
+        'data/data.xml',
         'data/set_configuration.yml',
         'data/lang.xml',
     ],
