@@ -51,9 +51,9 @@
                         <tr>
                             <table class="table_column_border table_alter_color_row table_title_bg_color td_center" width="100%">
                                 <tr>
-                                    <th width="33%"><b>FECHA</b></th>
-                                    <th width="33%"><b>PRESUPUESTO</b></th>
-                                    <th width="33%"><b>MONEDA</b></th>
+                                    <th width="33%"><b>Date</b></th>
+                                    <th width="33%"><b>Budget</b></th>
+                                    <th width="33%"><b>Currency</b></th>
                                 </tr>
                                 <tr>
                                     <td class="td_bold">
@@ -75,9 +75,9 @@
         </table>
     <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
         <tr>
-            <th width="40%">CLIENTE</th>
-            <th width="40%">CONTACTO</th>
-            <th width="20%">ORIGEN/REFERENCIA/REF. CLIENTE</th>
+            <th width="40%">Customer</th>
+            <th width="40%">Contact</th>
+            <th width="20%">Origin/Reference/Client Ref.</th>
         </tr>
         <tr>
             <td>
@@ -86,15 +86,15 @@
             <td>
                 <strong>N°:</strong>
                 <span t-field="o.name"/>
-                <strong>SR(A).:</strong>
+                <strong>Mr/Ms.:</strong>
                 <span t-esc="o.partner_id and o.partner_id.name"/>
-                <strong>TELF.:</strong>
+                <strong>Phone.:</strong>
                 <span t-field="o.partner_id.phone"/>
-                <strong>FAX.:</strong>
+                <strong>Fax.:</strong>
                 <span t-field="o.partner_id.fax"/>
-                <strong>CEL.:</strong>
+                <strong>Cel. Phone.:</strong>
                 <span t-field="o.partner_id.mobile"/>
-                <strong>EMAIL.:</strong>
+                <strong>Email.:</strong>
                 <span t-field="o.partner_id.email"/>
             </td>
             <td class="td_center td_bold">
@@ -106,25 +106,25 @@
     </table>
     <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
         <tr>
-            <th width="30%">FACTURAR A</th>
-            <th width="30%">ENTREGAR EN</th>
-            <th width="20%">T&#233;RMINOS DE PAGO <sup>(1)</sup></th>
-            <th width="20%">T&#233;RMINOS DE ENTREGA <sup>(2)</sup></th>
+            <th width="30%">Invoice to</th>
+            <th width="30%">Devilery In</th>
+            <th width="20%">Payment Term <sup>(1)</sup></th>
+            <th width="20%">Delivery Term <sup>(2)</sup></th>
         </tr>
         <tr>
             <td>
                 ${ o.partner_id and o.partner_id.name or '' }
                 <span t-field="o.partner_id.name"/>
-                <strong>RIF.:</strong>
+                <strong>VAT.:</strong>
                 <span t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or 'No Hay Suficiente Informacion para Facturar'"/>
-                <strong>Direccion</strong>
+                <strong>Address</strong>
                 <span t-field="o.partner_invoice_id.street"/>
                 <span t-field="o.partner_invoice_id.street2"/>
                 <span t-field="o.partner_invoice_id.city"/>
                 <span t-esc="o.partner_invoice_id.state_id and o.partner_invoice_id.state_id.name"/>
                 <span t-esc="o.partner_invoice_id.country_id and o.partner_invoice_id.country_id.name"/>
                 <span t-field="o.partner_invoice_id.phone"/>
-                <strong>Contacto: </strong>
+                <strong>Contac: </strong>
                 <span t-field="o.partner_invoice_id and o.partner_invoice_id.name"/>
             </td>
             <td>
@@ -146,24 +146,24 @@
         <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
             <tr>
                 <th width="10%">
-                    CANTIDAD
+                    Quantity
                     <hr/>
                     [ LiNEA ]
                 </th>
                 <th width="70%">
-                    [C&#243;DIGO] PRODUCTO
+                    Product Code
                     <hr/>
-                    DESCRIPCI&#243;N
+                    Description
                     <hr/>
-                    PLAZO DE ENTREGA
+                    Deadline
                 </th>
                 <th width="10%">
-                    UNIDAD
+                    Unit
                     <hr/>
-                    PRECIO<sup>(4)</sup>
+                    Price<sup>(4)</sup>
                 </th>
                 <th width="10%">
-                    SUBTOTAL
+                    SubTotal
                 </th>
             </tr>
             <tbody>
@@ -179,7 +179,7 @@
                     <span t-field="line.name"/>
                     <pre class="pre_description"><span t-esc="line.product_id and line.product_id.description"/></pre>
                     <hr/>
-                    <i t-if='not line.delay==0.00'>PLAZO DE ENTREGA: <span t-field="line.delay"/></i>
+                    <i t-if='not line.delay==0.00'>Deadline: <span t-field="line.delay"/></i>
                     <i><span t-esc="line.delay == 0.00 and 'A CONVENIR'"/></i>
                 </td>
                 <td class="td_center" valign="top">
@@ -199,7 +199,7 @@
         <tr>
             <td width="80%" class="td_without_bottom"></td>
             <td width="5%"  class="sub_total_td">
-                <strong>SUBTOTAL</strong></td>
+                <strong>SubTotal</strong></td>
             <td width="15%" align="right" class="sub_total_td">
                 <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
                 <span t-field="o.amount_untaxed"/>
@@ -208,7 +208,7 @@
         <tr>
             <td class="td_without_bottom"></td>
             <td class="sub_total_td">
-                <strong>IVA</strong></td>
+                <strong>Tax</strong></td>
             <td align="right" class="sub_total_td">
                 <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
                 <span t-field="o.amount_tax"/>
@@ -217,7 +217,7 @@
         <tr>
             <td class="td_without_bottom"></td>
             <td class="td_without_bottom total_td">
-                <strong>TOTAL</strong></td>
+                <strong>Total</strong></td>
             <td align="right" class="sub_total_td">
                 <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
                 <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''"/>
@@ -228,22 +228,22 @@
      <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
             <tr>
                 <th>
-                    CONDICIONES
+                    Conditions
                 </th>
             </tr>
             <tr>
                 <td style="font-size: 6;">
                     <t t-if='o.note'>
-                    <strong>Notas</strong>
-                        NOTAS:
+                    <strong>Notes</strong>
+                        Notes:
                         <pre style="font-size: 6;"><span t-field="o.note"/></pre>
                     </t>
                     <t t-if='(o.payment_term and o.payment_term.name) and (o.payment_term and o.payment_term.note)'>
-                        (1) T&#233;RMINOS DE PAGO:
+                        (1) Payment Terms:
                         <pre style="font-size: 6;"><span t-esc="o.payment_term and o.payment_term.name or ''"/><span t-esc="o.payment_term and o.payment_term.note or ''"/></pre>
                     </t>
                     <t t-if='o.incoterm and o.incoterm.description'>
-                        (2) T&#233;RMINOS DE ENTREGA:
+                        (2) Delivery Terms:
                         <pre style="font-size: 6;"><span t-esc="o.incoterm and o.incoterm.description or 'No se ha estipulado términos comerciales de transporte'"/></pre>
                     </t>
                 </td>
@@ -253,7 +253,7 @@
     <center>
         <table class="table_column_border table_alter_color_row table_title_bg_color" width="30%">
             <tr>
-                <th>ASESOR DE VENTAS</th>
+                <th>Salesman</th>
             </tr>
             <tr>
                 <td class="td_bold td_center">
