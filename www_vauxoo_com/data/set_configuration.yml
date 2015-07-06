@@ -3,7 +3,7 @@
 -
   !record {model: base.config.settings, id: vauxoo_base_config_settings}:
     {
-     'alias_domain': 'www.vauxoo.com',
+     'alias_domain': 'erp.vauxoo.com',
     }
 -
   !python {model: base.config.settings}: |
@@ -43,3 +43,25 @@
     self.write(cr, uid, [
         ref('website.menu_homepage'),
     ], {'sequence': 5}, context=context)
+-
+  Setting blog views the one actives.
+-
+  !python {model: ir.ui.view}: |
+    self.write(cr, uid, [
+        ref('website_blog.index_right'),
+        ref('website_blog.opt_blog_rc_history'),
+        ref('website_blog.opt_blog_rc_blogs'),
+    ], {'active': True}, context=context)
+-
+  Setting blog views.
+  The one that are managed manually simply will be intentionally
+  deactivated, only views setted manually here for POC
+-
+  !python {model: ir.ui.view}: |
+    self.write(cr, uid, [
+        ref('website_blog.opt_blog_rc_about_us'),
+        ref('website_blog.opt_blog_rc_follow_us'),
+        ref('website_blog.opt_blog_post_complete_tags'),
+        ref('website_blog.opt_blog_post_short_tags'),
+        ref('website_blog.opt_blog_rc_tags'),
+    ], {'active': False}, context=context)
