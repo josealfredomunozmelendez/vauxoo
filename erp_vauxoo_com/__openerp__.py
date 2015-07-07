@@ -15,7 +15,6 @@
         "account_invoice_number",
         "account_reconcile_grouping",
         "account_smart_unreconcile",
-        "account_secondary_currency",
         "analytic_contract_hr_expense",
         "hr_contract",
         "hr_expense_replenishment_tax",
