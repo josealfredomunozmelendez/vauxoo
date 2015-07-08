@@ -60,13 +60,16 @@
         "sale_order_copy_line",
         # Portal (not website) modules
         "portal_user_story",
+        "crm_partner_assign",
         # Technical tools.
         'group_xml_id',
         'hr_payroll_multicompany',
         'send_author_mail',
         'mass_editing',
     ],
-    "data": [],
+    "data": [
+        "data/set_configuration.yml",
+    ],
     "demo": [],
     "test": [
     ],

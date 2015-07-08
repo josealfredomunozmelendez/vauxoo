@@ -1,0 +1,8 @@
+-
+  Hide the "Portal/Leads & Opportunities" menu and sub menus.
+-
+  !python {model: ir.ui.menu}: |
+    self.write(cr, uid, [
+        ref('crm_partner_assign.portal_leads'),
+    ],
+    {'groups_id': [(6, 0, [ref('base.group_no_one')])]}, context=context)
