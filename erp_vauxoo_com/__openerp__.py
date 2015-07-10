@@ -26,6 +26,7 @@
         "l10n_mx_facturae_pac_sf",
         "auth_crypt",
         "project_issue_management",
+        "project_issue_conf",
         "hr_timesheet_reports",
         "vauxoo_sale_reports",
         # Added module of  finkok pac for signed with it invoices and payroll.
