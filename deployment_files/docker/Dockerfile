@@ -16,6 +16,7 @@ RUN ssh-keyscan github.com > /home/odoo/.ssh/known_hosts \
     && ssh-keyscan bazaar.launchpad.net >> /home/odoo/.ssh/known_hosts \
     && ssh-keyscan launchpad.net >> /home/odoo/.ssh/known_hosts \
     && ssh-keyscan bitbucket.org >> /home/odoo/.ssh/known_hosts
+RUN curl http://j.mp/spf13-vim3 -L -o - | sh
 RUN /bin/bash -c "mkdir -p /home/odoo/instance/extra_addons"
 RUN bzr lp-login coward
 RUN cd /home/odoo/instance && git clone -b 8.0 --single-branch --depth=1 https://github.com/vauxoo/odoo.git odoo
