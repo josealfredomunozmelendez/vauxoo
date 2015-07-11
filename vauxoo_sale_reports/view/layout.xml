@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<template id="vauxoo_sale_reports.layout" inherit_id="web.layout" primary="True">
+<template id="vauxoo_sale_reports.layout" inherit_id="report.layout" primary="True">
     <!-- Add report attributes -->
     <xpath expr="//html" position="attributes">
         <attribute name="t-att-data-report-margin-top">data_report_margin_top if data_report_margin_top else None</attribute>
         <attribute name="t-att-data-report-header-spacing">data_report_header_spacing if data_report_header_spacing else None</attribute>
         <attribute name="t-att-data-report-dpi">data_report_dpi if data_report_dpi else None</attribute>
     </xpath>
-    <!-- Add report style -->
-    <xpath expr="//head" position="inside">
-        <link href="/vauxoo_sale_reports/static/src/css/layout.css" rel="stylesheet"/>
-    </xpath>
-    <!-- Remove conflicting style -->
-    <xpath expr="//head/link[@href='/web/static/src/css/full.css']" position="replace"></xpath>
 </template>
 
 
@@ -29,7 +23,7 @@
 </template>
 
 <template id="vauxoo_sale_reports.external_layout_header">
-    <div class="header"></div>
+    <div class="header">PRUEBA</div>
 </template>
 
 <template id="vauxoo_sale_reports.external_layout_footer">

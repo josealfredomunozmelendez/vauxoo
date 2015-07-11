@@ -5,6 +5,10 @@
     'category': 'Vauxoo',
     'description': '''
 Quotation Report
+</template>
+    <!-- Remove conflicting style -->
+    <xpath expr="//head/link[@href='/web/static/src/css/full.css']" position="replace"></xpath>
+
     ''',
     'depends': [
         'sale',
