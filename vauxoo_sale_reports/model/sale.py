@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields, osv
+from openerp import models, fields, api
 from . import rst2html
 
+
+class SaleOrderLine(models.Model):
+    _inherit = "sale.order.line"
+
+    @api.one
+    def _rst2html(self):
+        self.desc2html = rst2html.html.rst2html(self.name)
+
+    desc2html = fields.Text(string="Converted RST", compute="_rst2html")
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
