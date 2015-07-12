@@ -10,15 +10,28 @@
     <t t-if="not o or not 'company_id' in o">
         <t t-set="company" t-value="res_company"></t>
     </t>
+    <t t-call="vauxoo_sale_reports.external_layout_header"/>
     <t t-raw="0" />
+    <t t-call="vauxoo_sale_reports.external_layout_footer"/>
 </template>
 
 <template id="vauxoo_sale_reports.external_layout_header">
-    <div class="header">PRUEBA</div>
+    <div class="header">
+        <div class="row">
+            <div class="col-xs-4">
+                <img class="img img-responsive" t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 45px;"/>
+            </div>
+            <div class="col-xs-8 text-right">
+                <div t-field="o.section_id.address_id"
+                    t-field-options='{"widget": "contact", "fields": ["address", "name", "email", "phone", "website"], "no_marker": false}' />
+            </div>
+            <hr/>
+        </div>
+    </div>
 </template>
 
 <template id="vauxoo_sale_reports.external_layout_footer">
-    <div class="footer"></div>
+    <div class="footer">FOOTER</div>
 </template>
 
 
