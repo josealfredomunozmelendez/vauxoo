@@ -7,6 +7,7 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     @api.one
+    @api.depends('name')
     def _rst2html(self):
         self.desc2html = rst2html.html.rst2html(self.name)
 
@@ -15,6 +16,7 @@ class SaleOrderLine(models.Model):
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    @api.depends('note')
     def _rst2html(self):
         self.note2html = rst2html.html.rst2html(self.note)
 

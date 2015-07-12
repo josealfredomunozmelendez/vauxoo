@@ -72,13 +72,13 @@
                         </td>
                         <td>
                             [<span t-field="line.product_id.default_code"/>] <span t-field="line.product_id and line.product_id.name"/>
-                            <span t-field="line.name"/>
+                            <t t-raw="line.desc2html"/>
                         </td>
                         <td class="text-center">
                             <span t-field="line.price_unit"/><br/>
                         </td>
                         <td class="text-center">
-                            <span t-field="line.product_uom.name"/>
+                            <p><t t-raw="line.product_uom.name"/></p>
                         </td>
                         <td class="text-right">
                             <span t-field="line.price_subtotal"/>
@@ -89,36 +89,15 @@
             </div>
             </div>
             <div class="row">
-            <table  width="100%" style="border-collapse:collapse" class="table_only_border_bottom">
-                <tr>
-                    <td width="80%" class="td_without_bottom"></td>
-                    <td width="5%"  class="sub_total_td">
-                        <strong>SubTotal</strong></td>
-                    <td width="15%" align="right" class="sub_total_td">
-                        <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
-                        <span t-field="o.amount_untaxed"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td_without_bottom"></td>
-                    <td class="sub_total_td">
-                        <strong>Tax</strong></td>
-                    <td align="right" class="sub_total_td">
-                        <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
-                        <span t-field="o.amount_tax"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="td_without_bottom"></td>
-                    <td class="td_without_bottom total_td">
-                        <strong>Total</strong></td>
-                    <td align="right" class="sub_total_td">
-                        <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
-                        <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''"/>
-                        <span t-field="o.amount_total"/>
-                    </td>
-                </tr>
-            </table>
+                <div class="col-xs-6 col-md-8">
+                    <small><span><strong>All amounts are represented in </strong>: </span><span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
+                    <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''"/></small>
+                </div>
+                <div class="col-xs-6 col-md-4 text-right">
+                    <span class="col-xs-4 text-left"><strong>SubTotal</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_untaxed"/><br/>
+                    <span class="col-xs-4 text-left"><strong>Tax</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_tax"/><br/>
+                    <span class="col-xs-4 text-left"><strong>Total</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_total"/>
+                </div>
             </div>
             <div class="row" t-if="o.note">
                 <p class="text-justified"><t  t-raw="o.note2html"/></p>
