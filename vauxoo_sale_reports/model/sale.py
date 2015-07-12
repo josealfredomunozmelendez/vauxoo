@@ -21,3 +21,8 @@ class SaleOrder(models.Model):
         self.note2html = rst2html.html.rst2html(self.note)
 
     note2html = fields.Text(string="Converted RST", compute="_rst2html")
+
+class Section(models.Model):
+    _inherit = "crm.case.section"
+
+    address_id = fields.Many2one('res.partner', string="Address to show in the Header of the sale Order")
