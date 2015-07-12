@@ -6,28 +6,40 @@
         <t t-call="report.external_layout">
         <div class="page">
             <div class="row">
-                <div class="col-xs-6 col-xs-offset-6">
-                </div>
                 <div class="col-xs-6">
-                    <h5>Your Fiscal Information:</h5>
+                    <h5>Your Fiscal Information</h5>
                     <address>
                         <strong><t t-esc="o.partner_invoice_id and o.partner_invoice_id.name"/></strong><br/>
-                        <t t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or 'Not enought info to invoice:'"/><br/>
-                        <t t-esc="o.partner_invoice_id.street"/>
-                        <t t-esc="o.partner_invoice_id.street2"/>
-                        <t t-esc="o.partner_invoice_id.city"/>
-                        <t t-esc="o.partner_invoice_id.state_id and o.partner_invoice_id.state_id.name"/>
-                        <t t-esc="o.partner_invoice_id.country_id and o.partner_invoice_id.country_id.name"/>
+                        <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat"><br t-if="o.partner_invoice_id.vat"/></t>
+                        <t t-if="o.partner_invoice_id.street" t-esc="o.partner_invoice_id.street"><br t-if="o.partner_invoice_id.street"/></t>
+                        <t t-if="o.partner_invoice_id.street2" t-esc="o.partner_invoice_id.street2"><br t-if="o.partner_invoice_id.street2"/></t>
+                        <t t-if="o.partner_invoice_id.city_id" t-esc="o.partner_invoice_id.city_id.name"><br t-if="o.partner_invoice_id.city_id"/></t>
+                        <t t-if="o.partner_invoice_id.state_id" t-esc="o.partner_invoice_id.state_id.name"><br t-if="o.partner_invoice_id.city_id"/></t>
+                        <t t-if="o.partner_invoice_id.country_id" t-esc="o.partner_invoice_id.country_id.name"></t>
                     </address>
                 </div>
                 <div class="col-xs-6">
                     <h5 class="text-right">Quotation Number: <span t-raw="o.name"/></h5>
-                    <address t-if="o.partner_shipping_id.id != o.partner_invoice_id.id ">
-                        Contact Name: <span t-esc="o.partner_shipping_id.name"/><br/>
-                        Phone: <span t-if="o.partner_shipping_id.phone and o.partner_shipping_id.phone != o.partner_invoice_id.phone" t-esc="o.partner_shipping_id.phone"/><br/>
-                        Email: <span t-if="o.partner_shipping_id.email" t-esc="o.partner_shipping_id.email"/><br/>
-                    </address>
+                    <div class="col-xs-12">
+                        <div class="row" t-if="o.partner_shipping_id.id != o.partner_invoice_id.id ">
+                            <div class="row">
+                                <span class="col-xs-4">Contact:</span><span class="col-xs-8" t-esc="o.partner_shipping_id.name"/><br/>
+                            </div>
+                            <div class="row" t-if="o.partner_shipping_id.phone and o.partner_shipping_id.phone != o.partner_invoice_id.phone">
+                                <span class="col-xs-4">Phone:</span><span class="col-xs-8" t-esc="o.partner_shipping_id.phone"/><br/>
+                            </div>
+                            <div class="row" t-if="o.partner_shipping_id.email and o.partner_shipping_id.email != o.partner_invoice_id.email">
+                                <span class="col-xs-4">Email:</span><span class="col-xs-8" t-esc="o.partner_shipping_id.email"/><br/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="col-xs-12">
+                <h4 class="text-center hidden">Details</h4>
+                <h5 class="text-right">
+                    <span><strong>Salesman</strong>: </span><span t-esc="o.user_id.partner_id.name.replace('[Vauxoo]','')"/>
+                </h5>
             </div>
             <div class="row">
             <div class="col-xs-12">
@@ -41,7 +53,9 @@
                     </th>
                     <th>
                         <span>Unit</span>
-                        <span>Price<sup>(4)</sup></span>
+                    </th>
+                    <th>
+                        <span>Price</span>
                     </th>
                     <th>
                         <span>SubTotal</span>
@@ -50,24 +64,23 @@
                 </thead>
                 <tbody>
                     <tr t-foreach="o.order_line" t-as="line">
-                        <td class="td_center" valign="top">
+                        <td>
                             [<span t-field="line.sequence"/>]
                         </td>
-                        <td class="td_center" valign="top">
+                        <td>
                             <span t-esc="line.product_uos and line.product_uos_qty or line.product_uom_qty"/><br/>
                         </td>
                         <td>
                             [<span t-field="line.product_id.default_code"/>] <span t-field="line.product_id and line.product_id.name"/>
                             <span t-field="line.name"/>
-                            <span t-esc="line.product_id and line.product_id.description"/>
-                            <t t-if='not line.delay==0.00'><strong>Deadline:</strong> <span t-field="line.delay"/></t>
-                            <span t-esc="line.delay == 0.00 and 'A CONVENIR'"/>
                         </td>
-                        <td class="td_center" valign="top">
+                        <td class="text-center">
                             <span t-field="line.price_unit"/><br/>
+                        </td>
+                        <td class="text-center">
                             <span t-field="line.product_uom.name"/>
                         </td>
-                        <td class="td_amount" valign="top">
+                        <td class="text-right">
                             <span t-field="line.price_subtotal"/>
                         </td>
                     </tr>
@@ -75,6 +88,7 @@
             </table>
             </div>
             </div>
+            <div class="row">
             <table  width="100%" style="border-collapse:collapse" class="table_only_border_bottom">
                 <tr>
                     <td width="80%" class="td_without_bottom"></td>
@@ -105,44 +119,10 @@
                     </td>
                 </tr>
             </table>
-            <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
-                    <tr>
-                        <th>
-                            Conditions
-                        </th>
-                    </tr>
-                    <tr>
-                        <td style="font-size: 6;">
-                            <t t-if='o.note'>
-                            <strong>Notes</strong>
-                                Notes:
-                                <pre style="font-size: 6;"><span t-field="o.note"/></pre>
-                            </t>
-                            <t t-if='(o.payment_term and o.payment_term.name) and (o.payment_term and o.payment_term.note)'>
-                                (1) Payment Terms:
-                                <pre style="font-size: 6;"><span t-esc="o.payment_term and o.payment_term.name or ''"/><span t-esc="o.payment_term and o.payment_term.note or ''"/></pre>
-                            </t>
-                            <t t-if='o.incoterm and o.incoterm.description'>
-                                (2) Delivery Terms:
-                                <pre style="font-size: 6;"><span t-esc="o.incoterm and o.incoterm.description or 'No se ha estipulado términos comerciales de transporte'"/></pre>
-                            </t>
-                        </td>
-                    </tr>
-            </table>
-        <center>
-            <table class="table_column_border table_alter_color_row table_title_bg_color" width="30%">
-                <tr>
-                    <th>Salesman</th>
-                </tr>
-                <tr>
-                    <td class="td_bold td_center">
-                        <t t-if='o.user_id'>
-                            <span t-esc="o.user_id.name.upper()"/>
-                        </t>
-                    </td>
-                </tr>
-            </table>
-        </center>
+            </div>
+            <div class="row" t-if="o.note">
+                <p class="text-justified"><t  t-raw="o.note2html"/></p>
+            </div>
         </div>
         </t>
         </xpath>
