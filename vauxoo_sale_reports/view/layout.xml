@@ -19,7 +19,7 @@
     <div class="header" style="margin-bottom: 5px; border-bottom: 1px solid #ccc;">
         <div class="row">
             <div class="col-xs-6">
-                <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 200px;"/>
+                <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 2height00px;"/>
                 <h2>Quotation: <span t-field="o.name"/></h2>
                 <h5>Date: <span t-field="o.date_order"/></h5>
                 <h5>Your Reference: <span t-field="o.origin"/>/<span t-field="o.client_order_ref"/></h5>
