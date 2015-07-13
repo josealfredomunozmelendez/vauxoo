@@ -8,6 +8,7 @@ Qweb Vauxoo's Quotation Report
     ''',
     'depends': [
         'city',  # l10n_mx should depends of it
+        'website_report',  # Horizontal references dependency sucks.
                  # It is on odoo-mexico-v2.
         'sales_team',  # Because we need to be supported by the section_id to
                        # print where the Sale order is being printed from.

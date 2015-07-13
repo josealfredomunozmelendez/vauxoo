@@ -8,7 +8,7 @@
             <div class="row" style="padding-top: 10px;">
                 <div class="col-xs-6">
                     <h5 style="border-bottom: 1px solid #ccc; line-height: 2em;">Your Fiscal Information</h5>
-                    <address>
+                    <address class="address">
                         <strong><t t-esc="o.partner_invoice_id and o.partner_invoice_id.name.capitalize()"/></strong><br/>
                         <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat"></t><span t-esc="', '" t-if="o.partner_invoice_id.vat"/>
                         <t t-if="o.partner_invoice_id.street" t-esc="o.partner_invoice_id.street"></t><span t-esc="', '" t-if="o.partner_invoice_id.street"/>

@@ -2,6 +2,43 @@
 <openerp>
 <data>
 
+<template id="vauxoo_sale_reports.layout_html" inherit_id="website_report.layout">
+    <xpath expr="//style" position="after">
+        <link href="/vauxoo_sale_reports/static/src/css/layout.css" rel="stylesheet"/>
+    </xpath>
+</template>
+
+<template id="vauxoo_sale_reports.layout_pdf" inherit_id="report.layout">
+    <xpath expr="//style" position="after">
+        <link href="/vauxoo_sale_reports/static/src/css/layout.css" rel="stylesheet"/>
+    </xpath>
+</template>
+
+<template id="vauxoo_sale_reports.minimal_layout" inherit_id="report.minimal_layout">
+    <xpath expr="//style" position="after">
+        <link href="/vauxoo_sale_reports/static/src/css/layout.css" rel="stylesheet"/>
+    </xpath>
+</template>
+
+<template id="report.style">
+    body {
+        color: #000;
+        word-wrap: break-word;
+    }
+    .border-black td {
+        border-top: 1px solid black !important;
+    }
+    .table-condensed > thead > tr > th {
+        border-bottom: 1px solid black !important;
+    }
+    .table-condensed > tbody > tr {
+        page-break-inside: avoid !important;
+    }
+    .zero_min_height {
+        min-height: 0px !important;
+    }
+</template>
+
 <template id="vauxoo_sale_reports.external_layout">
     <!-- Multicompany -->
     <t t-if="o and 'company_id' in o">
@@ -19,8 +56,8 @@
     <div class="header" style="margin-bottom: 5px; border-bottom: 1px solid #ccc;">
         <div class="row">
             <div class="col-xs-6">
-                <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 2height00px;"/>
-                <h2>Quotation: <span t-field="o.name"/></h2>
+                <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 175px;"/>
+                <h3>Quotation: <span t-field="o.name"/></h3>
                 <h5>Date: <span t-field="o.date_order"/></h5>
                 <h5>Your Reference: <span t-field="o.origin"/>/<span t-field="o.client_order_ref"/></h5>
             </div>
