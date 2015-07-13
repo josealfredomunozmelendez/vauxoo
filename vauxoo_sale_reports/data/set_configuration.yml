@@ -1,0 +1,11 @@
+-
+  Setting General allow group sale_tem necessary
+  to print the company info in this report.
+-
+  !record {model: sale.config.settings, id: vauxoo_sale_config_settings}:
+    {
+     'group_multi_salesteams': True,
+    }
+-
+  !python {model: sale.config.settings}: |
+    self.execute(cr, uid, [ref('vauxoo_sale_config_settings')], context=context)

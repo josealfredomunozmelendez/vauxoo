@@ -101,6 +101,7 @@
                 </div>
             </div>
             <div class="row" t-if="o.note">
+                <h3>Terms and Conditions</h3>
                 <p class="text-justified"><t  t-raw="o.note2html"/></p>
             </div>
         </div>
