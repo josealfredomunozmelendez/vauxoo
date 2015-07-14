@@ -96,9 +96,7 @@
                     <t t-if="o.payment_term">
                         <strong>Payment Information:</strong> <br/>
                         <p t-field="o.payment_term"/>
-                        <div class="col-xs-12">
-                            <t t-if="o.payment_term.name != o.payment_term.note" t-raw="o.payment_term.note"/>
-                        </div>
+                        <t t-if="o.payment_term.name.strip() != o.payment_term.note.strip()"><t t-raw="o.payment_term.note"/></t>
                     </t>
                 </div>
                 <div class="col-xs-6 col-md-4 text-right">

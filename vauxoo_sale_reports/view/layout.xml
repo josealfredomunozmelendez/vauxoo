@@ -79,9 +79,10 @@ TODO: In order to be consistent this overwritting should be in a separate module
         <div class="row">
             <div class="col-xs-6">
                 <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 175px;"/>
-                <h4>Quotation: <span t-field="o.name"/></h4>
-                <h5>Date: <span t-field="o.date_order"/></h5>
-                <h5>Your Reference: <span t-field="o.origin"/>/<span t-field="o.client_order_ref"/></h5>
+                <strong>Quotation: <span t-field="o.name"/></strong><br/>
+                <strong>Date: </strong><span t-field="o.date_order"/><br/>
+                <t t-set="ref" t-value="'%s/%s' % (o.origin or '', o.client_order_ref or '')"/>
+                <strong t-if="len(ref)>2">Your Reference: </strong><span t-raw="len(ref)>2 and ref or ''"/>
             </div>
             <div class="col-xs-4 col-xs-offset-2 text-right">
                 <t t-set="address" t-value="o.section_id.address_id"/>
