@@ -1,3 +1,16 @@
-    address.address {
-        color: red;
+/**
+    To show correctly the report in the screen only using website
+    Features.
+*/
+@media screen {
+    .header .vauxoo, .page {
+        padding-right: 40px;
+        padding-left: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #ccc;
     }
+}

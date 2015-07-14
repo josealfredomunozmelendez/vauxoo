@@ -55,6 +55,9 @@ TODO: In order to be consistent this overwritting should be in a separate module
             <t t-call="report.style"/>
         </style>
     </xpath>
+    <xpath expr="//main" position="attributes">
+        <attribute name="class">report</attribute>
+    </xpath>
     <xpath expr="//body" position="attributes">
         <attribute name="class">vauxoo</attribute>
     </xpath>
@@ -70,7 +73,8 @@ TODO: In order to be consistent this overwritting should be in a separate module
 </template>
 <!-- End of what needs to be in a separate module -->
 <template id="vauxoo_sale_reports.external_layout_header">
-    <div class="header" style="margin-bottom: 5px; border-bottom: 1px solid #ccc;">
+    <div class="header">
+        <div class="vauxoo border-bottom"> <!-- in v9 this style maybe is not necessary or it will be done with less. -->
         <div class="row">
             <div class="col-xs-6">
                 <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 175px;"/>
@@ -83,6 +87,7 @@ TODO: In order to be consistent this overwritting should be in a separate module
                     t-field-options='{"widget": "contact", "fields": ["address", "name", "email", "phone", "website"], "no_marker": false}' />
             </div>
             <hr/>
+        </div>
         </div>
     </div>
 </template>

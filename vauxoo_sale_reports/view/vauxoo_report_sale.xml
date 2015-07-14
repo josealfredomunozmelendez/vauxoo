@@ -10,7 +10,7 @@
                     <h5 style="border-bottom: 1px solid #ccc; line-height: 2em;">Your Fiscal Information</h5>
                     <address class="address">
                         <strong><t t-esc="o.partner_invoice_id and o.partner_invoice_id.name.capitalize()"/></strong><br/>
-                        <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat[2:]"></t><span t-esc="', '" t-if="o.partner_invoice_id.vat"/>
+                        <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or ''"></t><span t-esc="', '" t-if="o.partner_invoice_id.vat"/>
                         <t t-if="o.partner_invoice_id.street" t-esc="o.partner_invoice_id.street"></t><span t-esc="', '" t-if="o.partner_invoice_id.street"/>
                         <t t-if="o.partner_invoice_id.l10n_mx_street3" t-esc="o.partner_invoice_id.l10n_mx_street3"></t><span t-esc="', '" t-if="o.partner_invoice_id.l10n_mx_street3"/>
                         <t t-if="o.partner_invoice_id.l10n_mx_street4" t-esc="o.partner_invoice_id.l10n_mx_street4"></t><span t-esc="', '" t-if="o.partner_invoice_id.l10n_mx_street4"/>
