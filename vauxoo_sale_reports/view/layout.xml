@@ -25,18 +25,6 @@
         color: #000;
         word-wrap: break-word;
     }
-    .border-black td {
-        border-top: 1px solid black !important;
-    }
-    .table-condensed > thead > tr > th {
-        border-bottom: 1px solid black !important;
-    }
-    .table-condensed > tbody > tr {
-        page-break-inside: avoid !important;
-    }
-    .zero_min_height {
-        min-height: 0px !important;
-    }
 </template>
 
 <template id="vauxoo_sale_reports.external_layout">
@@ -51,7 +39,36 @@
     <t t-raw="0" />
     <t t-call="vauxoo_sale_reports.external_layout_footer"/>
 </template>
+<!--
+TODO: In order to be consistent this overwritting should be in a separate module.
+-->
+<template id="website_report.layout" inherit_id="website.layout" primary="True">
+    <!-- Add report attributes -->
+    <xpath expr="//html" position="attributes">
+        <attribute name="t-att-data-report-margin-top">data_report_margin_top if data_report_margin_top else None</attribute>
+        <attribute name="t-att-data-report-header-spacing">data_report_header_spacing if data_report_header_spacing else None</attribute>
+        <attribute name="t-att-data-report-dpi">data_report_dpi if data_report_dpi else None</attribute>
+    </xpath>
+    <!-- Add report style -->
+    <xpath expr="//head" position="inside">
+        <style type="text/css">
+            <t t-call="report.style"/>
+        </style>
+    </xpath>
+    <xpath expr="//body" position="attributes">
+        <attribute name="class">vauxoo</attribute>
+    </xpath>
+    <xpath expr="//header" position="replace"/>
+    <!-- TODO: I do not see necessary overwrite the footer ever and use langs is not good either-->
+</template>
 
+<template id="report.html_container">
+    <t t-set="body_classname" t-value="'vauxoo'"/>
+    <t t-call="report.layout">
+        <t t-raw="0"/>
+    </t>
+</template>
+<!-- End of what needs to be in a separate module -->
 <template id="vauxoo_sale_reports.external_layout_header">
     <div class="header" style="margin-bottom: 5px; border-bottom: 1px solid #ccc;">
         <div class="row">
@@ -71,18 +88,22 @@
 </template>
 
 <template id="vauxoo_sale_reports.external_layout_footer">
-    <div class="footer">
-    <div class="row" style="border-top: 1px solid #ccc;">
-        <div class="col-xs-6">
+    <div class="footer" style="border-top: 1px solid #ccc; padding-top: 10px;">
+    <div class="row">
+        <div class="col-xs-3">
+            <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_gold_partner_rgb.png" style="max-width: 125px;"/>
+        </div>
+        <div class="col-xs-6 text-center">
             <t t-if="company.custom_footer">
                 <span t-raw="company.rml_footer"/>
             </t>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-3">
             <div class="text-right">
                 <ul class="list-inline">
-                    <li>Quotation Number: <span t-field="o.name"/></li>
-                    <li>&amp;bull;</li>
+                    <li><strong>Quotation Number: <span t-field="o.name"/></strong></li>
+                </ul>
+                <ul class="list-inline hidden-md hidden-lg hidden-sm">
                     <li>Page:</li>
                     <li><span class="page"/></li>
                     <li>/</li>
