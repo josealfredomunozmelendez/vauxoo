@@ -1,161 +1,61 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* vauxoo_sale_reports
+#   * vauxoo_sale_reports
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-06 05:18+0000\n"
-"PO-Revision-Date: 2015-07-06 00:25-0600\n"
+"POT-Creation-Date: 2015-07-14 23:30+0000\n"
+"PO-Revision-Date: 2015-07-14 18:36-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: es_VE\n"
-"X-Generator: Poedit 1.8.1\n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
+
+#. module: vauxoo_sale_reports
+#: field:crm.case.section,address_id:0
+msgid "Address to show in the Header of the sale Order"
+msgstr "Dirección para mostrar en el encabezado de la Orden de Venta"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "${ o.partner_id and o.partner_id.name or '' }"
-msgstr "${ o.partner_id and o.partner_id.name or '' }"
+msgid "All amounts are represented in:"
+msgstr "Todos los montos representados en:"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "(1) Payment Terms:"
-msgstr "(1) Términos de Pago:"
+msgid "Code and Description"
+msgstr "Código y descripción"
+
+#. module: vauxoo_sale_reports
+#: view:website:vauxoo_sale_reports.external_layout_header
+msgid "Date:"
+msgstr "Fecha:"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "(2) Delivery Terms:"
-msgstr "(2) Términos de Entrega:"
+msgid "Details"
+msgstr "Detalles"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "<!DOCTYPE>"
-msgstr "<!DOCTYPE>"
+msgid "Line"
+msgstr "Línea"
+
+#. module: vauxoo_sale_reports
+#: view:website:vauxoo_sale_reports.external_layout_footer
+msgid "Page:"
+msgstr "Página:"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "Address"
-msgstr "Dirección"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Budget"
-msgstr "Presupuesto"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Cel. Phone.:"
-msgstr "Celular.:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Conditions"
-msgstr "Condiciones"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Contac:"
-msgstr "Contacto:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Contact"
-msgstr "Contacto"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Currency"
-msgstr "Moneda"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Customer"
-msgstr "Cliente"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Date"
-msgstr "Fecha"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Deadline"
-msgstr "Plazo de Entrega"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Delivery Term"
-msgstr "Términos de Entrega"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Description"
-msgstr "Descripción"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Devilery In"
-msgstr "Entregar en"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Email.:"
-msgstr "Email.:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Fax.:"
-msgstr "Fax.:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Invoice to"
-msgstr "Facturar a"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Mr/Ms.:"
-msgstr "Sr(a).:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Notes"
-msgstr "Notas"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Notes:"
-msgstr "Notas:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "N°:"
-msgstr "N°:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Origin/Reference/Client Ref."
-msgstr "Origen/Referencia/Ref. Cliente."
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Deadline:"
-msgstr "Plazo de Entrega:"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Payment Term"
-msgstr "Términos de Pago"
-
-#. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Phone.:"
-msgstr "Teléfono.:"
+msgid "Payment Information:"
+msgstr "Información para pagos:"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
@@ -164,13 +64,33 @@ msgstr "Precio"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "Product Code"
-msgstr "Código del Producto"
+msgid "Qty"
+msgstr "Ctd"
 
 #. module: vauxoo_sale_reports
-#: view:website:sale.report_saleorder_document
-msgid "Quantity"
-msgstr "Cantidad"
+#: view:website:vauxoo_sale_reports.external_layout_footer
+msgid "Quotation Number:"
+msgstr "Número de la cotización:"
+
+#. module: vauxoo_sale_reports
+#: view:website:vauxoo_sale_reports.external_layout_header
+msgid "Quotation:"
+msgstr "Cotización:"
+
+#. module: vauxoo_sale_reports
+#: model:ir.model,name:vauxoo_sale_reports.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: vauxoo_sale_reports
+#: model:ir.model,name:vauxoo_sale_reports.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: vauxoo_sale_reports
+#: model:ir.model,name:vauxoo_sale_reports.model_crm_case_section
+msgid "Sales Teams"
+msgstr "Equipos de ventas"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
@@ -180,12 +100,17 @@ msgstr "Asistente de Ventas"
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
 msgid "SubTotal"
-msgstr "SubTotal"
+msgstr "Sub total"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
 msgid "Tax"
 msgstr "Impuesto"
+
+#. module: vauxoo_sale_reports
+#: view:website:sale.report_saleorder_document
+msgid "Terms and Conditions"
+msgstr "Términos y condiciones"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
@@ -195,34 +120,25 @@ msgstr "Total"
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
 msgid "Unit"
-msgstr "Unidad"
+msgstr "Und"
+
+#. module: vauxoo_sale_reports
+#: view:website:vauxoo_sale_reports.external_layout_header
+msgid "Vauxoo"
+msgstr "Vauxoo"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "VAT.:"
-msgstr "RFC.:"
+msgid "Your Contact Information"
+msgstr "Su Información de contacto"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
-msgid "[ LiNEA ]"
-msgstr "[ LiNEA ]"
+msgid "Your Fiscal Information"
+msgstr "Su información fiscal"
 
 #. module: vauxoo_sale_reports
-#: view:website:vauxoo_sale_reports.layout
-msgid "data_report_dpi if data_report_dpi else None"
-msgstr "data_report_dpi if data_report_dpi else None"
+#: view:website:vauxoo_sale_reports.external_layout_header
+msgid "Your Reference:"
+msgstr "Su referencia:"
 
-#. module: vauxoo_sale_reports
-#: view:website:vauxoo_sale_reports.layout
-msgid "data_report_header_spacing if data_report_header_spacing else None"
-msgstr "data_report_header_spacing if data_report_header_spacing else None"
-
-#. module: vauxoo_sale_reports
-#: view:website:vauxoo_sale_reports.layout
-msgid "data_report_margin_top if data_report_margin_top else None"
-msgstr "data_report_margin_top if data_report_margin_top else None"
-
-#. module: vauxoo_sale_reports
-#: view:website:vauxoo_sale_reports.layout
-msgid "vauxoo_sale_reports.layout"
-msgstr "vauxoo_sale_reports.layout"
