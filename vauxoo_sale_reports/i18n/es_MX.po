@@ -175,7 +175,7 @@ msgstr "Cantidad"
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document
 msgid "Salesman"
-msgstr "Asistente de Venta"
+msgstr "Asistente de Ventas"
 
 #. module: vauxoo_sale_reports
 #: view:website:sale.report_saleorder_document

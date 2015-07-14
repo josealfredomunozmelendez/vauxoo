@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<template id="vauxoo_sale_reports.layout" inherit_id="web.layout" primary="True">
-    <!-- Add report attributes -->
-    <xpath expr="//html" position="attributes">
-        <attribute name="t-att-data-report-margin-top">data_report_margin_top if data_report_margin_top else None</attribute>
-        <attribute name="t-att-data-report-header-spacing">data_report_header_spacing if data_report_header_spacing else None</attribute>
-        <attribute name="t-att-data-report-dpi">data_report_dpi if data_report_dpi else None</attribute>
-    </xpath>
-    <!-- Add report style -->
-    <xpath expr="//head" position="inside">
+
+<template id="vauxoo_sale_reports.layout_html" inherit_id="website_report.layout">
+    <xpath expr="//style" position="after">
         <link href="/vauxoo_sale_reports/static/src/css/layout.css" rel="stylesheet"/>
     </xpath>
-    <!-- Remove conflicting style -->
-    <xpath expr="//head/link[@href='/web/static/src/css/full.css']" position="replace"></xpath>
 </template>
 
+<template id="vauxoo_sale_reports.layout_pdf" inherit_id="report.layout">
+    <xpath expr="//style" position="after">
+        <link href="/vauxoo_sale_reports/static/src/css/layout.css" rel="stylesheet"/>
+    </xpath>
+</template>
+
+<template id="vauxoo_sale_reports.minimal_layout" inherit_id="report.minimal_layout">
+    <xpath expr="//style" position="after">
+        <link href="/vauxoo_sale_reports/static/src/css/layout.css" rel="stylesheet"/>
+    </xpath>
+</template>
+
+<template id="report.style">
+    body {
+        color: #000;
+        word-wrap: break-word;
+    }
+</template>
 
 <template id="vauxoo_sale_reports.external_layout">
     <!-- Multicompany -->
@@ -25,15 +35,139 @@
     <t t-if="not o or not 'company_id' in o">
         <t t-set="company" t-value="res_company"></t>
     </t>
+    <t t-set="website" t-value="env['website'].search([])[0]"></t>
+    <t t-call="vauxoo_sale_reports.external_layout_header"/>
     <t t-raw="0" />
+    <t t-call="vauxoo_sale_reports.external_layout_footer"/>
+</template>
+<!--
+TODO: In order to be consistent this overwritting should be in a separate module.
+-->
+<template id="website_report.layout" inherit_id="website.layout" primary="True">
+    <!-- Add report attributes -->
+    <xpath expr="//html" position="attributes">
+        <attribute name="t-att-data-report-margin-top">data_report_margin_top if data_report_margin_top else None</attribute>
+        <attribute name="t-att-data-report-header-spacing">data_report_header_spacing if data_report_header_spacing else None</attribute>
+        <attribute name="t-att-data-report-dpi">data_report_dpi if data_report_dpi else None</attribute>
+    </xpath>
+    <!-- Add report style -->
+    <xpath expr="//head" position="inside">
+        <style type="text/css">
+            <t t-call="report.style"/>
+        </style>
+    </xpath>
+    <xpath expr="//main" position="attributes">
+        <attribute name="class">report</attribute>
+    </xpath>
+    <xpath expr="//body" position="attributes">
+        <attribute name="class">vauxoo</attribute>
+    </xpath>
+    <xpath expr="//header" position="replace"/>
+    <!-- TODO: I do not see necessary overwrite the footer ever and use langs is not good either-->
 </template>
 
+<template id="report.html_container">
+    <t t-set="body_classname" t-value="'vauxoo'"/>
+    <t t-call="report.layout">
+        <t t-raw="0"/>
+    </t>
+</template>
+<!-- End of what needs to be in a separate module -->
 <template id="vauxoo_sale_reports.external_layout_header">
-    <div class="header"></div>
+    <div class="header vauxoo">
+        <div class="border-bottom"> <!-- in v9 this style maybe is not necessary or it will be done with less. -->
+        <div class="row">
+            <div class="col-xs-6">
+                <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 175px;"/>
+                <strong>Quotation: <span t-field="o.name"/></strong><br/>
+                <strong>Date: </strong><span t-field="o.date_order"/><br/>
+                <t t-set="ref" t-value="'%s/%s' % (o.origin or '', o.client_order_ref or '')"/>
+                <strong t-if="len(ref)>2">Your Reference: </strong><span t-raw="len(ref)>2 and ref or ''"/>
+            </div>
+            <div class="col-xs-4 col-xs-offset-2 text-right">
+                <t t-set="address" t-value="o.section_id.address_id"/>
+                <t t-if="address">
+                    <div>
+                        <strong>Vauxoo</strong>, <strong t-raw="address.name"/><br/>
+                        <t t-if="address.parent_id.country_id.code=='MX'">
+                        <i class="fa fa-legal"/>
+                        <span t-raw="address.parent_id.vat"/><br/>
+                        </t>
+                        <i class="fa fa-map-marker"/>
+                        <t t-if="address.street">
+                            <span t-raw="address.street"/>,
+                        </t>
+                        <t t-if="address.street2">
+                            <span t-if="address.street2" t-raw="address.street2"/>,
+                        </t>
+                        <t t-if="address.l10n_mx_street3">
+                            <span t-if="address.l10n_mx_street3" t-raw="address.l10n_mx_street3"/>,
+                        </t>
+                        <t t-if="address.l10n_mx_street4">
+                            <span t-if="address.l10n_mx_street4" t-raw="address.l10n_mx_street4"/>,
+                        </t>
+                        <t t-if="address.city_id">
+                            <span t-if="address.city_id" t-raw="address.city_id.name.capitalize()"/>,
+                        </t>
+                        <t t-if="address.state_id">
+                            <span t-if="address.state_id" t-raw="address.state_id.name.capitalize()"/>,
+                        </t>
+                        <t t-if="address.country_id">
+                            <span t-if="address.country_id" t-raw="address.country_id.name.capitalize()"/>
+                        </t>
+                            <span t-raw="address.zip"/><br/>
+                        <t t-if="address.phone">
+                            <i class="fa fa-phone"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.phone"/>,
+                        </t>
+                        <t t-if="address.mobile">
+                            <i class="fa fa-mobile-phone"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.mobile"/>,
+                        </t>
+                        <t t-if="address.fax">
+                            <i class="fa fa-fax"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.fax"/>,
+                        </t>
+                        <t t-if="address.email">
+                            <i class="fa fa-envelope"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.email"/><br/>
+                        </t>
+                    </div>
+                </t>
+            </div>
+            <hr/>
+        </div>
+        </div>
+    </div>
 </template>
 
 <template id="vauxoo_sale_reports.external_layout_footer">
-    <div class="footer"></div>
+    <t t-set="website" t-value="env['website'].search([])[0]"></t>
+    <div class="footer" style="border-top: 1px solid #ccc; padding-top: 10px;">
+    <div class="row">
+        <div class="col-xs-3">
+            <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_gold_partner_rgb.png" style="max-width: 125px;"/>
+        </div>
+        <div class="col-xs-6 text-center">
+            <t t-if="company.custom_footer">
+                <span t-raw="company.rml_footer"/>
+            </t>
+        </div>
+        <div class="col-xs-3">
+            <div class="text-right">
+                <ul class="list-inline">
+                    <li><strong>Quotation Number: <span t-field="o.name"/></strong></li>
+                </ul>
+                <ul class="list-inline hidden-md hidden-lg hidden-sm">
+                    <li>Page:</li>
+                    <li><span class="page"/></li>
+                    <li>/</li>
+                    <li><span class="topage"/></li>
+                </ul>
+            </div>
+        </div>
+   </div>
+   </div>
 </template>
 
 

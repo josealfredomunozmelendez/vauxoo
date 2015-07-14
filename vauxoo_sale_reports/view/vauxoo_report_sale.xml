@@ -1,274 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-    <template id='vauxoo_sale_quotatio_report' inherit_id="sale.report_saleorder_document">
-    <xpath expr="//div[@class='oe_structure']" position="replace">
-        &lt;!DOCTYPE&gt;
-        <t t-call="vauxoo_sale_reports.layout">
-        <table class="basic_table" width="100%">
-            <tr>
-                <td style="vertical-align: bottom;">
-                    <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
-                        <tr>
-                            <td style="text-align:center;background-color:FFFFFF;">
-                                <table width="100%">
-                                    <tr>
-                                        <td class="td_center">
-                                             <span t-esc="o.user_id and o.user_id.company_id and o.user_id.company_id.partner_id and o.user_id.company_id.partner_id.name.upper() or ''"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td_center">
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.vat and o.user_id.company_id.partner_id.vat[2:] or ''"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td_center">
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.street"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.street2"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.l10n_mx_street3"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.l10n_mx_street4"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td_center">
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.country_id.name"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.city"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.zip"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td_center">
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.email"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.phone"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.fax"/>
-                                            <span class="data_company" t-esc="o.user_id.company_id.partner_id.mobile"/>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <table class="table_column_border table_alter_color_row table_title_bg_color td_center" width="100%">
-                                <tr>
-                                    <th width="33%"><b>Date</b></th>
-                                    <th width="33%"><b>Budget</b></th>
-                                    <th width="33%"><b>Currency</b></th>
-                                </tr>
-                                <tr>
-                                    <td class="td_bold">
-                                        <span t-field="o.date_order"/>
-                                    </td>
-                                    <td class="td_bold">
-                                        <strong>N°:</strong>
-                                        <span t-field="o.name"/>
-                                    </td>
-                                    <td class="td_bold">
-                                        <span t-esc="'%s(%s)'%(o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or '',o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or '')"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </tr>
-                    </table>
-                </td>
-           </tr>
-        </table>
-    <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
-        <tr>
-            <th width="40%">Customer</th>
-            <th width="40%">Contact</th>
-            <th width="20%">Origin/Reference/Client Ref.</th>
-        </tr>
-        <tr>
-            <td>
-                <span t-esc="o.partner_id.name.upper()"/>
-            </td>
-            <td>
-                <strong>N°:</strong>
-                <span t-field="o.name"/>
-                <strong>Mr/Ms.:</strong>
-                <span t-esc="o.partner_id and o.partner_id.name"/>
-                <strong>Phone.:</strong>
-                <span t-field="o.partner_id.phone"/>
-                <strong>Fax.:</strong>
-                <span t-field="o.partner_id.fax"/>
-                <strong>Cel. Phone.:</strong>
-                <span t-field="o.partner_id.mobile"/>
-                <strong>Email.:</strong>
-                <span t-field="o.partner_id.email"/>
-            </td>
-            <td class="td_center td_bold">
-                <p class="data_company" t-field="o.origin"/>
-                <p class="data_company" t-field="o.name"/>
-                <p class="data_company" t-field="o.client_order_ref"/>
-            </td>
-        </tr>
-    </table>
-    <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
-        <tr>
-            <th width="30%">Invoice to</th>
-            <th width="30%">Devilery In</th>
-            <th width="20%">Payment Term <sup>(1)</sup></th>
-            <th width="20%">Delivery Term <sup>(2)</sup></th>
-        </tr>
-        <tr>
-            <td>
-                ${ o.partner_id and o.partner_id.name or '' }
-                <span t-field="o.partner_id.name"/>
-                <strong>VAT.:</strong>
-                <span t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or 'No Hay Suficiente Informacion para Facturar'"/>
-                <strong>Address</strong>
-                <span t-field="o.partner_invoice_id.street"/>
-                <span t-field="o.partner_invoice_id.street2"/>
-                <span t-field="o.partner_invoice_id.city"/>
-                <span t-esc="o.partner_invoice_id.state_id and o.partner_invoice_id.state_id.name"/>
-                <span t-esc="o.partner_invoice_id.country_id and o.partner_invoice_id.country_id.name"/>
-                <span t-field="o.partner_invoice_id.phone"/>
-                <strong>Contac: </strong>
-                <span t-field="o.partner_invoice_id and o.partner_invoice_id.name"/>
-            </td>
-            <td>
-                <span t-esc="o.partner_shipping_id.name or 'NO APLICA'"/>
-                <span t-field="o.partner_shipping_id.street"/>
-                <span t-field="o.partner_shipping_id.street2"/>
-                <span t-field="o.partner_shipping_id.zip"/>
-                <span t-field="o.partner_shipping_id.city"/>
-                <span t-esc="o.partner_shipping_id.state_id and o.partner_shipping_id.state_id.name"/>
-                <span t-esc="o.partner_shipping_id.country_id and o.partner_shipping_id.country_id.name"/>
-                <span t-field="o.partner_shipping_id.phone"/>
-            </td>
-            <td class="td_center">
-                <span t-field="o.payment_term"/>
-            </td>
-        </tr>
-    </table>
-    <section>
-        <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
-            <tr>
-                <th width="10%">
-                    Quantity
-                    <hr/>
-                    [ LiNEA ]
-                </th>
-                <th width="70%">
-                    Product Code
-                    <hr/>
-                    Description
-                    <hr/>
-                    Deadline
-                </th>
-                <th width="10%">
-                    Unit
-                    <hr/>
-                    Price<sup>(4)</sup>
-                </th>
-                <th width="10%">
-                    SubTotal
-                </th>
-            </tr>
-            <tbody>
-            <tr t-foreach="o.order_line" t-as="line">
-                <td class="td_center" valign="top">
-                    <span t-esc="line.product_uos and line.product_uos_qty or line.product_uom_qty"/>
-                    <hr/>
-                        <p>[<span t-field="line.sequence"/>]</p>
-                </td>
-                <td>
-                    <p>[<span t-field="line.product_id.default_code"/>] <span t-field="line.product_id and line.product_id.name"/></p>
-                    <hr/>
-                    <span t-field="line.name"/>
-                    <pre class="pre_description"><span t-esc="line.product_id and line.product_id.description"/></pre>
-                    <hr/>
-                    <i t-if='not line.delay==0.00'>Deadline: <span t-field="line.delay"/></i>
-                    <i><span t-esc="line.delay == 0.00 and 'A CONVENIR'"/></i>
-                </td>
-                <td class="td_center" valign="top">
-                    <span t-field="line.product_uom.name"/>
-                    <hr/>
-                    <span t-field="line.price_unit"/>
-                </td>
-                <td class="td_amount" valign="top">
-                    <span t-field="line.price_subtotal"/>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </section>
-    <p style="word-wrap:break-word;"></p>
-    <table  width="100%" style="border-collapse:collapse" class="table_only_border_bottom">
-        <tr>
-            <td width="80%" class="td_without_bottom"></td>
-            <td width="5%"  class="sub_total_td">
-                <strong>SubTotal</strong></td>
-            <td width="15%" align="right" class="sub_total_td">
-                <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
-                <span t-field="o.amount_untaxed"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="td_without_bottom"></td>
-            <td class="sub_total_td">
-                <strong>Tax</strong></td>
-            <td align="right" class="sub_total_td">
-                <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
-                <span t-field="o.amount_tax"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="td_without_bottom"></td>
-            <td class="td_without_bottom total_td">
-                <strong>Total</strong></td>
-            <td align="right" class="sub_total_td">
-                <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>
-                <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''"/>
-                <span t-field="o.amount_total"/>
-            </td>
-        </tr>
-    </table>
-     <table class="table_column_border table_alter_color_row table_title_bg_color" width="100%">
-            <tr>
-                <th>
-                    Conditions
-                </th>
-            </tr>
-            <tr>
-                <td style="font-size: 6;">
-                    <t t-if='o.note'>
-                    <strong>Notes</strong>
-                        Notes:
-                        <pre style="font-size: 6;"><span t-field="o.note"/></pre>
-                    </t>
-                    <t t-if='(o.payment_term and o.payment_term.name) and (o.payment_term and o.payment_term.note)'>
-                        (1) Payment Terms:
-                        <pre style="font-size: 6;"><span t-esc="o.payment_term and o.payment_term.name or ''"/><span t-esc="o.payment_term and o.payment_term.note or ''"/></pre>
-                    </t>
-                    <t t-if='o.incoterm and o.incoterm.description'>
-                        (2) Delivery Terms:
-                        <pre style="font-size: 6;"><span t-esc="o.incoterm and o.incoterm.description or 'No se ha estipulado términos comerciales de transporte'"/></pre>
-                    </t>
-                </td>
-            </tr>
-    </table>
+        <template id='vauxoo_sale_quotatio_report' inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-call='report.external_layout']" position="replace">
+        <t t-call="vauxoo_sale_reports.external_layout">
+        <div class="page">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-xs-6">
+                    <h5 style="border-bottom: 1px solid #ccc; line-height: 2em;">Your Fiscal Information</h5>
+                    <address class="address">
+                        <strong><t t-esc="o.partner_invoice_id and o.partner_invoice_id.name.capitalize()"/></strong><br/>
+                        <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or ''"></t><span t-if="o.partner_invoice_id.vat">,</span>
+                        <t t-if="o.partner_invoice_id.street" t-esc="o.partner_invoice_id.street"></t><span t-if="o.partner_invoice_id.street">,</span>
+                        <t t-if="o.partner_invoice_id.street2" t-esc="o.partner_invoice_id.street2"></t><span t-if="o.partner_invoice_id.street2">,</span>
+                        <t t-if="o.partner_invoice_id.l10n_mx_street3" t-esc="o.partner_invoice_id.l10n_mx_street3"></t><span t-if="o.partner_invoice_id.l10n_mx_street3">,</span>
+                        <t t-if="o.partner_invoice_id.l10n_mx_street4" t-esc="o.partner_invoice_id.l10n_mx_street4"></t><span t-if="o.partner_invoice_id.l10n_mx_street4">,</span>
+                        <t t-if="o.partner_invoice_id.city_id" t-esc="o.partner_invoice_id.city_id.name"></t><span t-if="o.partner_invoice_id.city_id">,</span>
+                        <t t-if="o.partner_invoice_id.state_id" t-esc="o.partner_invoice_id.state_id.name"></t><span t-if="o.partner_invoice_id.state_id">,</span>
+                        <t t-if="o.partner_invoice_id.country_id" t-esc="o.partner_invoice_id.country_id.name"></t>.
+                        <t t-if="o.partner_invoice_id.zip" t-esc="o.partner_invoice_id.zip"></t><span t-if="o.partner_invoice_id.zip">,</span>
+                    </address>
+                </div>
+                <div class="col-xs-6" t-if="o.partner_shipping_id.id != o.partner_invoice_id.id">
+                    <h5 style="border-bottom: 1px solid #ccc; line-height: 2em;">Your Contact Information</h5> <!-- TODO: Dear future me, please send this to a css -->
+                    <address>
+                        <strong><t t-esc="o.partner_shipping_id and o.partner_shipping_id.name"/></strong><br/>
+                        <t t-esc="o.partner_shipping_id.phone"></t><br t-if="o.partner_shipping_id.phone"/>
+                        <t t-esc="o.partner_shipping_id.fax"></t><br t-if="o.partner_shipping_id.fax"/>
+                        <t t-esc="o.partner_shipping_id.mobile"></t><br t-if="o.partner_shipping_id.mobile"/>
+                        <t t-esc="o.partner_shipping_id.email"></t><br t-if="o.partner_shipping_id.email"/>
+                    </address>
+                </div>
+            </div>
+            <div class="row">
 
-    <center>
-        <table class="table_column_border table_alter_color_row table_title_bg_color" width="30%">
-            <tr>
-                <th>Salesman</th>
-            </tr>
-            <tr>
-                <td class="td_bold td_center">
-                    <t t-if='o.user_id'>
-                        <span t-esc="o.user_id.name.upper()"/>
+            </div>
+            <div class="col-xs-12">
+                <h4 class="text-center hidden">Details</h4>
+                <h5 class="text-right">
+                    <span><strong>Salesman</strong>: </span><span t-esc="o.user_id.partner_id.name.replace('[Vauxoo]','')"/>
+                </h5>
+            </div>
+            <div class="row">
+            <div class="col-xs-12">
+            <table class="table-striped table-bordered  table-condensed table" width="100%">
+                <thead class="text-center">
+                <tr>
+                    <th> <span>Line</span> </th>
+                    <th> <span>Qty</span> </th>
+                    <th>
+                        <span>Code and Description</span>
+                    </th>
+                    <th>
+                        <span>Price</span>
+                    </th>
+                    <th>
+                        <span>Unit</span>
+                    </th>
+                    <th>
+                        <span>SubTotal</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="o.order_line" t-as="line">
+                        <td>
+                            [<span t-field="line.sequence"/>]
+                        </td>
+                        <td>
+                            <span t-esc="line.product_uos and line.product_uos_qty or line.product_uom_qty"/><br/>
+                        </td>
+                        <td>
+                            <div class="col-xs-12">
+                            <t t-raw="line.desc2html"/>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="line.price_unit"/><br/>
+                        </td>
+                        <td class="text-center">
+                            <p><t t-raw="line.product_uom.name"/></p>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.price_subtotal"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-8">
+                    <span><strong>All amounts are represented in:</strong> (</span><span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>)
+                    <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''"/><br/>
+                    <t t-if="o.payment_term">
+                        <strong>Payment Information:</strong> <br/>
+                        <p t-field="o.payment_term"/>
+                        <t t-if="o.payment_term.name.strip() != o.payment_term.note.strip()"><t t-raw="o.payment_term.note"/></t>
                     </t>
-                </td>
-            </tr>
-        </table>
-    </center>
-    <p style="page-break-before: always;"></p>
-</t>
+                </div>
+                <div class="col-xs-6 col-md-4 text-right">
+                    <span class="col-xs-4 text-left"><strong>SubTotal</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_untaxed"/><br/>
+                    <span class="col-xs-4 text-left"><strong>Tax</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_tax"/><br/>
+                    <span class="col-xs-4 text-left"><strong>Total</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_total"/>
+                </div>
+            </div>
+            <div class="row" t-if="o.note">
+                <h3>Terms and Conditions</h3>
+                <div class="col-xs-12 text-justified"><t  t-raw="o.note2html"/></div>
+            </div>
+        </div>
+        </t>
         </xpath>
-
-</template>
-
+    </template>
 </data>
 </openerp>
