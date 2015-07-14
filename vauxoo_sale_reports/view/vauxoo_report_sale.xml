@@ -10,15 +10,15 @@
                     <h5 style="border-bottom: 1px solid #ccc; line-height: 2em;">Your Fiscal Information</h5>
                     <address class="address">
                         <strong><t t-esc="o.partner_invoice_id and o.partner_invoice_id.name.capitalize()"/></strong><br/>
-                        <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or ''"></t><span t-esc="', '" t-if="o.partner_invoice_id.vat"/>
-                        <t t-if="o.partner_invoice_id.street" t-esc="o.partner_invoice_id.street"></t><span t-esc="', '" t-if="o.partner_invoice_id.street"/>
-                        <t t-if="o.partner_invoice_id.l10n_mx_street3" t-esc="o.partner_invoice_id.l10n_mx_street3"></t><span t-esc="', '" t-if="o.partner_invoice_id.l10n_mx_street3"/>
-                        <t t-if="o.partner_invoice_id.l10n_mx_street4" t-esc="o.partner_invoice_id.l10n_mx_street4"></t><span t-esc="', '" t-if="o.partner_invoice_id.l10n_mx_street4"/>
-                        <t t-if="o.partner_invoice_id.street2" t-esc="o.partner_invoice_id.street2"></t><span t-esc="', '" t-if="o.partner_invoice_id.street2"/>
-                        <t t-if="o.partner_invoice_id.city_id" t-esc="o.partner_invoice_id.city_id.name"></t><span t-esc="', '" t-if="o.partner_invoice_id.city_id"/>
-                        <t t-if="o.partner_invoice_id.state_id" t-esc="o.partner_invoice_id.state_id.name"></t><span t-esc="', '" t-if="o.partner_invoice_id.state_id"/>
-                        <t t-if="o.partner_invoice_id.zip" t-esc="o.partner_invoice_id.zip"></t><span t-esc="', '" t-if="o.partner_invoice_id.zip"/>
+                        <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or ''"></t><span t-if="o.partner_invoice_id.vat">,</span>
+                        <t t-if="o.partner_invoice_id.street" t-esc="o.partner_invoice_id.street"></t><span t-if="o.partner_invoice_id.street">,</span>
+                        <t t-if="o.partner_invoice_id.street2" t-esc="o.partner_invoice_id.street2"></t><span t-if="o.partner_invoice_id.street2">,</span>
+                        <t t-if="o.partner_invoice_id.l10n_mx_street3" t-esc="o.partner_invoice_id.l10n_mx_street3"></t><span t-if="o.partner_invoice_id.l10n_mx_street3">,</span>
+                        <t t-if="o.partner_invoice_id.l10n_mx_street4" t-esc="o.partner_invoice_id.l10n_mx_street4"></t><span t-if="o.partner_invoice_id.l10n_mx_street4">,</span>
+                        <t t-if="o.partner_invoice_id.city_id" t-esc="o.partner_invoice_id.city_id.name"></t><span t-if="o.partner_invoice_id.city_id">,</span>
+                        <t t-if="o.partner_invoice_id.state_id" t-esc="o.partner_invoice_id.state_id.name"></t><span t-if="o.partner_invoice_id.state_id">,</span>
                         <t t-if="o.partner_invoice_id.country_id" t-esc="o.partner_invoice_id.country_id.name"></t>.
+                        <t t-if="o.partner_invoice_id.zip" t-esc="o.partner_invoice_id.zip"></t><span t-if="o.partner_invoice_id.zip">,</span>
                     </address>
                 </div>
                 <div class="col-xs-6" t-if="o.partner_shipping_id.id != o.partner_invoice_id.id">
@@ -26,6 +26,8 @@
                     <address>
                         <strong><t t-esc="o.partner_shipping_id and o.partner_shipping_id.name"/></strong><br/>
                         <t t-esc="o.partner_shipping_id.phone"></t><br t-if="o.partner_shipping_id.phone"/>
+                        <t t-esc="o.partner_shipping_id.fax"></t><br t-if="o.partner_shipping_id.fax"/>
+                        <t t-esc="o.partner_shipping_id.mobile"></t><br t-if="o.partner_shipping_id.mobile"/>
                         <t t-esc="o.partner_shipping_id.email"></t><br t-if="o.partner_shipping_id.email"/>
                     </address>
                 </div>
@@ -69,8 +71,9 @@
                             <span t-esc="line.product_uos and line.product_uos_qty or line.product_uom_qty"/><br/>
                         </td>
                         <td>
-                            [<span t-field="line.product_id.default_code"/>] <span t-field="line.product_id and line.product_id.name"/>
+                            <div class="col-xs-12">
                             <t t-raw="line.desc2html"/>
+                            </div>
                         </td>
                         <td class="text-center">
                             <span t-field="line.price_unit"/><br/>
@@ -91,7 +94,11 @@
                     <span><strong>All amounts are represented in:</strong> (</span><span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>)
                     <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''"/><br/>
                     <t t-if="o.payment_term">
-                        <strong>Payment Information:</strong> <p t-field="o.payment_term"/><t t-raw="o.payment_term.note"/>
+                        <strong>Payment Information:</strong> <br/>
+                        <p t-field="o.payment_term"/>
+                        <div class="col-xs-12">
+                            <t t-if="o.payment_term.name != o.payment_term.note" t-raw="o.payment_term.note"/>
+                        </div>
                     </t>
                 </div>
                 <div class="col-xs-6 col-md-4 text-right">
@@ -102,7 +109,7 @@
             </div>
             <div class="row" t-if="o.note">
                 <h3>Terms and Conditions</h3>
-                <p class="text-justified"><t  t-raw="o.note2html"/></p>
+                <div class="col-xs-12 text-justified"><t  t-raw="o.note2html"/></div>
             </div>
         </div>
         </t>

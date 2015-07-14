@@ -83,9 +83,56 @@ TODO: In order to be consistent this overwritting should be in a separate module
                 <h5>Date: <span t-field="o.date_order"/></h5>
                 <h5>Your Reference: <span t-field="o.origin"/>/<span t-field="o.client_order_ref"/></h5>
             </div>
-            <div class="col-xs-6 text-right">
-                <div t-field="o.section_id.address_id"
-                    t-field-options='{"widget": "contact", "fields": ["address", "name", "email", "phone", "website"], "no_marker": false}' />
+            <div class="col-xs-4 col-xs-offset-2 text-right">
+                <t t-set="address" t-value="o.section_id.address_id"/>
+                <t t-if="address">
+                    <div>
+                        <strong>Vauxoo</strong>, <strong t-raw="address.name"/><br/>
+                        <t t-if="address.parent_id.country_id.code=='MX'">
+                        <i class="fa fa-legal"/>
+                        <span t-raw="address.parent_id.vat"/><br/>
+                        </t>
+                        <i class="fa fa-map-marker"/>
+                        <t t-if="address.street">
+                            <span t-raw="address.street"/>,
+                        </t>
+                        <t t-if="address.street2">
+                            <span t-if="address.street2" t-raw="address.street2"/>,
+                        </t>
+                        <t t-if="address.l10n_mx_street3">
+                            <span t-if="address.l10n_mx_street3" t-raw="address.l10n_mx_street3"/>,
+                        </t>
+                        <t t-if="address.l10n_mx_street4">
+                            <span t-if="address.l10n_mx_street4" t-raw="address.l10n_mx_street4"/>,
+                        </t>
+                        <t t-if="address.city_id">
+                            <span t-if="address.city_id" t-raw="address.city_id.name.capitalize()"/>,
+                        </t>
+                        <t t-if="address.state_id">
+                            <span t-if="address.state_id" t-raw="address.state_id.name.capitalize()"/>,
+                        </t>
+                        <t t-if="address.country_id">
+                            <span t-if="address.country_id" t-raw="address.country_id.name.capitalize()"/>
+                        </t>
+                            <span t-raw="address.zip"/><br/>
+                        <t t-if="address.phone">
+                            <i class="fa fa-phone"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.phone"/>,
+                        </t>
+                        <t t-if="address.mobile">
+                            <i class="fa fa-mobile-phone"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.mobile"/>,
+                        </t>
+                        <t t-if="address.fax">
+                            <i class="fa fa-fax"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.fax"/>,
+                        </t>
+                        <t t-if="address.email">
+                            <i class="fa fa-envelope"/>
+                            <span class="text-muted" style="font-size: 12px; line-height: 13px;" t-raw="address.email"/><br/>
+                        </t>
+                    </div>
+                </t>
             </div>
             <hr/>
         </div>
