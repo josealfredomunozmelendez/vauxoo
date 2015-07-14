@@ -69,6 +69,7 @@
         'mass_editing',
     ],
     "data": [
+        "security/res_groups.xml",
         "data/set_configuration.yml",
     ],
     "demo": [],
