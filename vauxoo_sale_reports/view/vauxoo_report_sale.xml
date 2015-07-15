@@ -12,9 +12,9 @@
                         <strong><t t-esc="o.partner_invoice_id and o.partner_invoice_id.name.capitalize()"/></strong><br/>
                         <t t-if="o.partner_invoice_id.vat" t-esc="o.partner_invoice_id.vat and o.partner_invoice_id.vat[2:] or ''"></t><span t-if="o.partner_invoice_id.vat">,</span>
                         <t t-if="o.partner_invoice_id.street" t-esc="o.partner_invoice_id.street"></t><span t-if="o.partner_invoice_id.street">,</span>
-                        <t t-if="o.partner_invoice_id.street2" t-esc="o.partner_invoice_id.street2"></t><span t-if="o.partner_invoice_id.street2">,</span>
                         <t t-if="o.partner_invoice_id.l10n_mx_street3" t-esc="o.partner_invoice_id.l10n_mx_street3"></t><span t-if="o.partner_invoice_id.l10n_mx_street3">,</span>
                         <t t-if="o.partner_invoice_id.l10n_mx_street4" t-esc="o.partner_invoice_id.l10n_mx_street4"></t><span t-if="o.partner_invoice_id.l10n_mx_street4">,</span>
+                        <t t-if="o.partner_invoice_id.street2" t-esc="o.partner_invoice_id.street2"></t><span t-if="o.partner_invoice_id.street2">,</span>
                         <t t-if="o.partner_invoice_id.city_id" t-esc="o.partner_invoice_id.city_id.name"></t><span t-if="o.partner_invoice_id.city_id">,</span>
                         <t t-if="o.partner_invoice_id.state_id" t-esc="o.partner_invoice_id.state_id.name"></t><span t-if="o.partner_invoice_id.state_id">,</span>
                         <t t-if="o.partner_invoice_id.country_id" t-esc="o.partner_invoice_id.country_id.name"></t>.

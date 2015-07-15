@@ -97,14 +97,14 @@ TODO: In order to be consistent this overwritting should be in a separate module
                         <t t-if="address.street">
                             <span t-raw="address.street"/>,
                         </t>
-                        <t t-if="address.street2">
-                            <span t-if="address.street2" t-raw="address.street2"/>,
-                        </t>
                         <t t-if="address.l10n_mx_street3">
                             <span t-if="address.l10n_mx_street3" t-raw="address.l10n_mx_street3"/>,
                         </t>
                         <t t-if="address.l10n_mx_street4">
                             <span t-if="address.l10n_mx_street4" t-raw="address.l10n_mx_street4"/>,
+                        </t>
+                        <t t-if="address.street2">
+                            <span t-if="address.street2" t-raw="address.street2"/>,
                         </t>
                         <t t-if="address.city_id">
                             <span t-if="address.city_id" t-raw="address.city_id.name.capitalize()"/>,
