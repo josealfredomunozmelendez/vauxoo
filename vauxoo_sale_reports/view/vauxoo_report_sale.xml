@@ -104,10 +104,10 @@
                     <span class="col-xs-4 text-left"><strong>Tax</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_tax"/><br/>
                     <span class="col-xs-4 text-left"><strong>Total</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_total"/>
                 </div>
-                <div class="col-xs-12" t-if="o.note">
-                    <h3 class="text-center">Terms and Conditions</h3>
-                    <div t-raw="o.note2html"/>
-                </div>
+            </div>
+            <div class="row vauxoo" t-if="o.note" style="page-break-before: always;">
+                <h1 class="text-center">Terms and Conditions</h1>
+                <div t-raw="o.note2html"/>
             </div>
         </div>
         </t>
