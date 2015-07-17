@@ -71,8 +71,8 @@
                             <span t-esc="line.product_uos and line.product_uos_qty or line.product_uom_qty"/><br/>
                         </td>
                         <td>
-                            <div class="col-xs-12">
-                            <t t-raw="line.desc2html"/>
+                            <div class="col-xs-12 vauxoo">
+                                <t t-raw="line.desc2html"/>
                             </div>
                         </td>
                         <td class="text-center">
