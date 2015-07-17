@@ -5,3 +5,7 @@
 .vauxoo .border-bottom {
     border-bottom: 1px solid #ccc;
 }
+
+.vauxoo ul {
+    margin-left: 15px;
+}

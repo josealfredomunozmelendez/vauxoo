@@ -91,7 +91,7 @@ TODO: In order to be consistent this overwritting should be in a separate module
                         <strong>Vauxoo</strong>, <strong t-raw="address.name"/><br/>
                         <t t-if="address.parent_id.country_id.code=='MX'">
                         <i class="fa fa-legal"/>
-                        <span t-raw="address.parent_id.vat"/><br/>
+                        <span t-raw="address.parent_id.vat[2:]"/><br/>
                         </t>
                         <i class="fa fa-map-marker"/>
                         <t t-if="address.street">
