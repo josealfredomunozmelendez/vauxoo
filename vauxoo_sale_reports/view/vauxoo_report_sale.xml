@@ -89,7 +89,7 @@
             </table>
             </div>
             </div>
-            <div class="row">
+            <div class="row vauxoo">
                 <div class="col-xs-6 col-md-8">
                     <span><strong>All amounts are represented in:</strong> (</span><span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/>)
                     <span t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.name or ''"/><br/>
@@ -105,9 +105,8 @@
                     <span class="col-xs-4 text-left"><strong>Total</strong>:</span> <span class="col-xs-1" t-esc="o.pricelist_id and o.pricelist_id.currency_id and o.pricelist_id.currency_id.symbol or ''"/> <span class="col-xs-7" t-field="o.amount_total"/>
                 </div>
                 <div class="col-xs-12" t-if="o.note">
-                    <h3>Terms and Conditions</h3>
-                    <div class="col-xs-12 text-justified"><t  t-raw="o.note2html"/></div>
-                    <div class="col-xs-12 text-justified"><t  t-raw="o.note"/></div>
+                    <h3 class="text-center">Terms and Conditions</h3>
+                    <div t-raw="o.note2html"/>
                 </div>
             </div>
         </div>
