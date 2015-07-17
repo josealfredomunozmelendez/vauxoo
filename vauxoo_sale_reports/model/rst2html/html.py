@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 '''
 Very simple tool to convert rst fields to html
 
@@ -15,7 +16,7 @@ default_rst_opts = {
     'file_insertion_enabled': True,
     'raw_enabled': True,
     'stylesheet_path': None,
-    'traceback': False,
+    'traceback': True,
     'halt_level': 2,
 }
 
@@ -29,9 +30,9 @@ def rst2html(rst, opts=None):
 
     Example:
 
-        >>> chain = "Text in rst"
+        >>> chain = "Text in rst with especial ñ"
         >>> rst2html(chain)
-        u'<div class="document">\\n<p>Text in rst</p>\\n</div>\\n'
+        u'<div class="document">\\n<p>Text in rst with especial \\xf1</p>\\n</div>\\n'
 
     @param: rst Text multiline in rst format
     '''
