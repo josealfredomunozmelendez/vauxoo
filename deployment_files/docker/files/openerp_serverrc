@@ -1,5 +1,5 @@
 [options]
-addons_path=/home/odoo/instance/odoo/addons,/home/odoo/instance/extra_addons/oml,/home/odoo/instance/extra_addons/addons_vauxoo,/home/odoo/instance/extra_addons/cms,/home/odoo/instance/extra_addons/odoo_network/addons,/home/odoo/instance/extra_addons/server_tools,/home/odoo/instance/extra_addons/vauxoo,/home/odoo/instance/extra_addons/odoo_ifrs,/home/odoo/instance/extra_addons/odoo_themes,/home/odoo/instance/extra_addons/odoo_afr,/home/odoo/instance/extra_addons/l10n-mx-invoice-pdf-formats
+addons_path=/home/odoo/instance/odoo/addons,/home/odoo/instance/extra_addons/oml,/home/odoo/instance/extra_addons/addons_vauxoo,/home/odoo/instance/extra_addons/page,/home/odoo/instance/extra_addons/odoo_network/addons,/home/odoo/instance/extra_addons/server_tools,/home/odoo/instance/extra_addons/vauxoo,/home/odoo/instance/extra_addons/odoo_ifrs,/home/odoo/instance/extra_addons/odoo_themes,/home/odoo/instance/extra_addons/odoo_afr,/home/odoo/instance/extra_addons/l10n-mx-invoice-pdf-formats
 admin_passwd = admin
 auto_reload = False
 csv_internal_sep = ,

@@ -22,10 +22,10 @@ RUN bzr lp-login coward
 RUN cd /home/odoo/instance && git clone -b 8.0 --single-branch --depth=1 https://github.com/vauxoo/odoo.git odoo
 RUN cd /home/odoo/instance/extra_addons \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/odoo-mexico-v2.git oml \
-    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/cms.git cms \
+    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/page.git page \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-network.git odoo_network \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:oca/server-tools.git server_tools\
-    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/instance-vauxoo-com.git vauxoo \
+    && git clone -b 8.0 --single-branch --depth=1 git@github.com:vauxoo/instance.git vauxoo \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-ifrs.git odoo_ifrs \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-afr.git odoo_afr \
     && git clone -b 8.0 --single-branch --depth=1 git@github.com:Vauxoo/odoo-themes.git odoo_themes \
