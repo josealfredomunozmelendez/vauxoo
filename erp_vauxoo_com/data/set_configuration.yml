@@ -20,8 +20,8 @@
      'task_work': 1,
      # This to options than follow are related with the value of tast_work
      # As they need to be triggered with a onchange I simply change them manually.
-     'module_project_timesheet': 1, # It is dependency already
-     'module_sale_service': 1, # It is dependency already
+     # 'module_project_timesheet': 1, # It is dependency already
+     # 'module_sale_service': 1, # It is dependency already
      'timesheet': 1,
      'default_order_policy': 'manual',
      'module_delivery': 1,
