@@ -20,14 +20,13 @@
      'task_work': 1,
      # This to options than follow are related with the value of tast_work
      # As they need to be triggered with a onchange I simply change them manually.
-     'module_project_timesheet': 1,
-     'module_sale_service': 1,
-     'task_work': 1,
+     'module_project_timesheet': 1, # It is dependency already
+     'module_sale_service': 1, # It is dependency already
      'timesheet': 1,
      'default_order_policy': 'manual',
      'module_delivery': 1,
      'group_sale_pricelist': 1,
-     'module_warning': 1,
+     'module_warning': 1,  # It is dependency already
      'group_sale_delivery_address': 1,
      'module_sale_stock': 1,
      'group_mrp_properties': 1,
@@ -50,15 +49,15 @@
 -
   !python {model: sale.config.settings}: |
     self.execute(cr, uid, [ref('default_sale_properties')], context=context)
-
 -
-  Setting sale options.
+  Setting project options.
   The order of this parameters is exactly the order shown in the view, what will not
   be selected parameter 0 what will be selected, parameter 1
 -
   !record {model: project.config.settings, id: default_project_properties}:
-    {'module_project_timesheet': 1,
-     'module_sale_service': 1,
+    {
+     # 'module_project_timesheet': 1,  # Already configured in sales
+     # 'module_sale_service': 1,  # Already configured in sales
      'module_pad': 1,
      'group_manage_delegation_task': 1,
      'module_project_issue': 1,
