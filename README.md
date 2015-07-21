@@ -8,34 +8,31 @@ On this branch you will find all the set of landing pages, features for cms and 
 Reasons because a module can be here.
 ---
 
-1. The page is our own content to promote a product/service.
+1. The module is our own content to promote a product/service.
 2. The feature is to give us a competitive advange and such feature is related to our process with no posibility to be generic.
 3. It is a huge PoC which we are not sure it can be public for security/strategic reason.
-
-**If you are not on 1, 2 or 3:** please create a website_* module in [addons-vauxoo](https://github.com/addons-vauxoo).
+4. It is a configuration module.
+5. It is a overwrite of a formal report with our wired information.
+6. It is NOT a website_* module which should be in the frontend on this other [repository](http://github.com/Vauxoo/page).
+ 
+**If you are not on 1 to 6:** please create a module in [addons-vauxoo](https://github.com/addons-vauxoo).
 
 CI Status.
 ---
 
-[![Build Status](http://runbot.odoo.com/logo.png)](http://runbot.vauxoo.com/runbot/team/website-vauxoo-16)
+[![Build Status](http://runbot.odoo.com/logo.png)](http://runbot.vauxoo.com/runbot/team/vauxoo-20#64)
 
 
 This tests is what I need "only" tested/mixed with dependency repositories, and tested 1 by 1 modules on this repository in order to be sure they are all installables.
 
 
-[![Build Status](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com)
+[![Build Status](https://magnum.travis-ci.com/Vauxoo/instance.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/instance)
 
 
 Repositories which we depend from.
 ---
 
-| Repository                 | Travis  | Shippable | Coveral  | Runbot  |
-|----------------------------|------|------|-------|----------|---------|
-| odoo/odoo                  | N/A  | WIP  | WIP   | WIP      |         |
-| vauxoo/addons-vauxoo       | WIP  | WIP  | WIP   | WIP      |         |
-| vauxoo/odoo-themes         | WIP  | WIP  | WIP   | WIP      |         |
-| oca/server-tools           | WIP  | WIP  | WIP   | WIP      |         |
-| vauxoo/instance-vauxoo-com | [![Build Status](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com.svg?token=VAty1EWicYm2yKQxZptp&branch=8.0)](https://magnum.travis-ci.com/Vauxoo/instance-vauxoo-com) |   |   |   |
+Read the .travis file
 
 Hacking Our Website
 ---
