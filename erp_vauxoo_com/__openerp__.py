@@ -55,6 +55,7 @@
         "project_btree",
         "project_issue_sheet",
         "project_task_domain",
+        "user_story_scrum",
         "purchase_analytic_plans",
         "sync_youtube",
         "warning",
