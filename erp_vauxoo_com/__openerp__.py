@@ -68,6 +68,7 @@
         'hr_payroll_multicompany',
         'send_author_mail',
         'mass_editing',
+        'mail_add_followers_multirecord',
     ],
     "data": [
         "security/res_groups.xml",
