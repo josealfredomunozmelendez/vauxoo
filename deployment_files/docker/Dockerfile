@@ -8,6 +8,7 @@ RUN chown odoo:odoo -R /home/odoo \
     && chmod 600 /home/odoo/.ssh/id_rsa
 ADD files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN pip install gitpython && pip install werkzeug==0.10.4
+RUN apt-get update && apt-get install vim-nox && apt-get clean
 USER odoo
 ENV HOME /home/odoo
 ENV ODOO_CONFIG_FILE /home/odoo/.openerp_serverrc
