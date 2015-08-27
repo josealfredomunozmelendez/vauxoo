@@ -13,6 +13,7 @@ class SaleOrderLine(models.Model):
 
     desc2html = fields.Text(string="Converted RST", compute="_rst2html")
 
+
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
@@ -22,7 +23,10 @@ class SaleOrder(models.Model):
 
     note2html = fields.Text(string="Converted RST", compute="_rst2html")
 
+
 class Section(models.Model):
     _inherit = "crm.case.section"
 
-    address_id = fields.Many2one('res.partner', string="Address to show in the Header of the sale Order")
+    address_id = fields.Many2one(
+        'res.partner',
+        string="Address to show in the Header of the sale Order")

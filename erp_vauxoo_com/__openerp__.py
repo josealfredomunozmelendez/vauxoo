@@ -69,7 +69,7 @@
         'send_author_mail',
         'mass_editing',
         'mail_add_followers_multirecord',
-	'account_move_filters',
+        'account_move_filters',
     ],
     "data": [
         "security/res_groups.xml",
