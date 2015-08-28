@@ -4,7 +4,7 @@ from openerp import models
 from openerp.tools.translate import _
 
 
-class email_template(models.Model):
+class EmailTemplate(models.Model):
     _inherit = "email.template"
 
     def create_action(self, cr, uid, ids, context=None):
