@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# coding: utf-8
 {
     "name": "Electronic invoice report",
     "version": "1.0",
@@ -13,5 +13,4 @@
         "l10n_mx_facturae_report_webkit.xml",
     ],
     "installable": False,
-    "active": False,
 }

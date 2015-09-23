@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 {
     'name': 'Vauxoo Site',
     'version': '0.6',

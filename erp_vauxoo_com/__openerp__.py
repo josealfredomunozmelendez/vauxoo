@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# coding: utf-8
 {
     "name": "Odoo Vauxoo ERP Instance",
     "author": "Vauxoo",
