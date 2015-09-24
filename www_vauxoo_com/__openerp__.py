@@ -11,6 +11,7 @@
         'admin_technical_features',
     ],
     'author': 'Vauxoo',
+    'license': 'AGPL-3',
     'data': [
         'data/data.xml',
         'data/set_configuration.yml',

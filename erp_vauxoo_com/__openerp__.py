@@ -4,6 +4,7 @@
     "author": "Vauxoo",
     "summary": "All the necesary modules to auto install our instance.",
     "website": "http://www.vauxoo.com",
+    "license": "AGPL-3",
     "category": "Vauxoo",
     "version": "2.0",
     "depends": [

@@ -13,6 +13,7 @@
         'l10n_mx_partner_address',
     ],
     'author': 'Vauxoo',
+    'license': 'AGPL-3',
     'data': [
         'view/vauxoo_report_sale.xml',
         'view/layout.xml',

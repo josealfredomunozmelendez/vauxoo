@@ -31,6 +31,7 @@
         'contacts',
     ],
     'author': 'Vauxoo',
+    'license': 'AGPL-3',
     'data': [
         'view/res_partner_view.xml',
         'security/res_groups.xml',
