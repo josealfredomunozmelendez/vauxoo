@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 {
     'name': 'Vauxoo Site',
     'version': '0.6',
@@ -11,6 +11,7 @@
         'admin_technical_features',
     ],
     'author': 'Vauxoo',
+    'license': 'AGPL-3',
     'data': [
         'data/data.xml',
         'data/set_configuration.yml',

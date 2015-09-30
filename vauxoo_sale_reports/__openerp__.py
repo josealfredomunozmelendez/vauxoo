@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 {
     'name': 'Vauxoo Report',
     'version': '0.6',
     'category': 'Vauxoo',
-    'description': '''
-Qweb Vauxoo's Quotation Report
-    ''',
     'depends': [
         'city',  # l10n_mx should depends of it
         'website_report',  # Horizontal references dependency sucks.
@@ -16,6 +13,7 @@ Qweb Vauxoo's Quotation Report
         'l10n_mx_partner_address',
     ],
     'author': 'Vauxoo',
+    'license': 'AGPL-3',
     'data': [
         'view/vauxoo_report_sale.xml',
         'view/layout.xml',
