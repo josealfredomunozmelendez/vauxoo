@@ -38,8 +38,12 @@ install:
   - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
-  - ${TRAVIS_BUILD_DIR}/travis/travis_install_cms_nightly ${VERSION}
-  - ${HOME}/odoo-mexico-v2/travis/travis_install_mx_nightly ${VERSION}
+  - 
+    if [ "$TESTS" = "1"];
+    then
+      ${TRAVIS_BUILD_DIR}/travis/travis_install_cms_nightly ${VERSION};
+      ${HOME}/odoo-mexico-v2/travis/travis_install_mx_nightly ${VERSION};
+    fi
   - pip install beautifulsoup4 # Required for bs4
 
 script:
