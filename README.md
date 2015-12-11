@@ -79,6 +79,7 @@ How add a new features:
     $ git clone https://github.com/odoo/odoo.git -b 8.0
     $ git clone https://github.com/vauxoo/addons-vauxoo.git -b 8.0
     $ git clone git@github.com:Vauxoo/odoo-themes.git -b 8.0
+    $ git clone git@github.com:Vauxoo/web.git -b 8.0
     $ git clone git@github.com:Vauxoo/cms.git -b 8.0
     $ git clone git@github.com:oca/server-tools.git -b 8.0
     ```
@@ -97,7 +98,7 @@ How add a new features:
     ```bash
     $ cd path/to/odoo/odoo
     $ ./openerp-server \
-    --addons-path=addons/,../instance-vauxoo-com,../cms,../addons-vauxoo,../odoo-themes,../server-tools -r \
+    --addons-path=addons/,../instance-vauxoo-com,../web,../cms,../vauxoo-web,../addons-vauxoo,../odoo-themes,../server-tools -r \
     cmsuser -w 1 --db-filter=cms \
     -i www_vauxoo_com -d cms
     ```
@@ -112,7 +113,7 @@ How add a new features:
     $ dropbd cms
     $ createdb cms -U cmsuser -O cmsuser -T remplate0 -E UTF8
     $ ./openerp-server \
-    --addons-path=addons/,../instance-vauxoo-com,../cms,../addons-vauxoo,../odoo-themes,../server-tools -r \
+    --addons-path=addons/,../instance-vauxoo-com,../web,../cms,../addons-vauxoo,../odoo-themes,../server-tools -r \
     cmsuser -w 1 --db-filter=cms \
     -i www_vauxoo_com -d cms
     ```
