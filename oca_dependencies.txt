@@ -6,3 +6,4 @@ odoo-ifrs git@github.com:Vauxoo/odoo-ifrs.git
 odoo-afr git@github.com:Vauxoo/odoo-afr.git
 cms git@github.com:Vauxoo/cms.git
 l10n-mx-invoice-pdf-formats git@github.com:Vauxoo/l10n-mx-invoice-pdf-formats.git
+web git@github.com:Vauxoo/web.git

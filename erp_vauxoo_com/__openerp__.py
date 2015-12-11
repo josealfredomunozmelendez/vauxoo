@@ -61,6 +61,7 @@
         "sync_youtube",
         "warning",
         "sale_order_copy_line",
+        "web_export_view",
         # Portal (not website) modules
         "portal_user_story",
         "crm_partner_assign",
