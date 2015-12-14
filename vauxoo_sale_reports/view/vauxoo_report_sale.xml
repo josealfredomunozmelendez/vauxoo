@@ -47,10 +47,10 @@
                 <thead class="text-center">
                 <tr>
                     <th> <span>Line</span> </th>
-                    <th> <span>Qty</span> </th>
                     <th>
                         <span>Code and Description</span>
                     </th>
+                    <th> <span>Qty</span> </th>
                     <th>
                         <span>Price</span>
                     </th>
@@ -68,12 +68,12 @@
                             [<span t-field="line.sequence"/>]
                         </td>
                         <td>
-                            <span t-esc="line.product_uos and line.product_uos_qty or line.product_uom_qty"/><br/>
-                        </td>
-                        <td>
                             <div class="col-xs-12 vauxoo">
                                 <t t-raw="line.desc2html"/>
                             </div>
+                        </td>
+                        <td>
+                            <span t-esc="line.product_uos and line.product_uos_qty or line.product_uom_qty"/><br/>
                         </td>
                         <td class="text-center">
                             <span t-field="line.price_unit"/><br/>
