@@ -41,6 +41,7 @@
         "l10n_mx_diot_report",
         "l10n_mx_facturae_report_zebra",
         "account_financial_report",
+        "aging_due_report",
         "procurement_jit",
         "multi_company",
         "note_pad",
