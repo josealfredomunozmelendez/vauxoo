@@ -29,7 +29,7 @@ virtualenv:
 
 env:
   global:
-  - PHANTOMJS_TESTS="0" TEST_OTHER_PROJECTS=${HOME}/addons-vauxoo LINT_CHECK=0 TESTS="0" VERSION="8.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
+  - PHANTOMJS_TESTS="0" TEST_OTHER_PROJECTS=${HOME}/addons-vauxoo LINT_CHECK=0 TESTS="0" VERSION="9.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
 
   matrix:
   - LINT_CHECK=1
