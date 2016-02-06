@@ -8,7 +8,6 @@
     'depends': [
         'website_vauxoo',
         # Tools necesary to work with this enviroment.
-        'admin_technical_features',
     ],
     'author': 'Vauxoo',
     'license': 'AGPL-3',
