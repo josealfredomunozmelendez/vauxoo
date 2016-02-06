@@ -20,14 +20,11 @@
         "hr_contract",
         # "hr_expense_replenishment_tax",
         # "hr_payslip_paid",
-        "hr_recruitment",
         # "hr_evaluation",
         # "ifrs_report",
         # "l10n_mx_cities",
         # "l10n_mx_facturae_pac_sf",
         # "auth_crypt",
-        # "project_issue_management",
-        # "project_issue_conf",
         # "hr_timesheet_reports",
         # "vauxoo_sale_reports",
         # Added module of  finkok pac for signed with it invoices and payroll.
@@ -52,12 +49,15 @@
         # "portal_project_issue",
         # "portal_sale", in favor of website_sale
         # "portal_stock",
+        # Project Section.
+        "project_issue_sheet",
+        'project_timesheet_synchro',  # Enable the sync of timesheet.
         # "project_conf",
         # "project_btree",
-        # "project_issue_sheet",
         # "project_task_domain",
+        # "project_issue_management",
+        # "project_issue_conf",
         # "user_story_scrum",
-        # "purchase_analytic_plans",
         # "sync_youtube",
         "warning",
         # "sale_order_copy_line",
