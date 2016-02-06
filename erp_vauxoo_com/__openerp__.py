@@ -52,10 +52,10 @@
         # Project Section.
         "project_issue_sheet",
         'project_timesheet_synchro',  # Enable the sync of timesheet.
+        "project_issue_management",
         # "project_conf",
         # "project_btree",
         # "project_task_domain",
-        # "project_issue_management",
         # "project_issue_conf",
         # "user_story_scrum",
         # "sync_youtube",
