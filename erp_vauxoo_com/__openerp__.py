@@ -12,26 +12,27 @@
         # "project_followers_rule",
         "account_asset",
         "account_budget",
+        # "ifrs_report",
         # "account_followup",
         # "account_invoice_number",
         # "account_reconcile_grouping",
         # "account_smart_unreconcile",
         # "analytic_contract_hr_expense",
-        "hr_contract",
+        # Human Resourse section, try to avoid double dependency.
+        'hr_payroll_multicompany',
+        # "l10n_mx_payroll_base",  # Review task 1886
         # "hr_expense_replenishment_tax",
         # "hr_payslip_paid",
         # "hr_evaluation",
-        # "ifrs_report",
         # "l10n_mx_cities",
         # "l10n_mx_facturae_pac_sf",
         # "auth_crypt",
         # "hr_timesheet_reports",
         # "vauxoo_sale_reports",
-        # Added module of  finkok pac for signed with it invoices and payroll.
+        # Added module of finkok pac for signed with it invoices and payroll.
         # Task #1886
         # "l10n_mx_facturae_pac_finkok",
         # This module install all about  mexican payroll.  Task #1886
-        # "l10n_mx_payroll_base",
         # This module install a wizard for validate XML signed in SAT  Task
         # #1886
         # "l10n_mx_validate_xml_sat",
@@ -56,13 +57,12 @@
         # "project_issue_conf",
         # "user_story_scrum",
         "warning",
-        # "sale_order_copy_line",
-        # "web_export_view",
+        # "sale_order_copy_line",  [MIG] vauxoo/addons-vauxoo#722
+        # "web_export_view", Tool used but better for next iteration
         # Portal (not website) modules
         # "portal_user_story",
-        # "crm_partner_assign",
+        "crm_partner_assign",  # NECESARY BUT NOT SINC BEGINING.
         # Technical tools.
-        # 'hr_payroll_multicompany',
         # 'send_author_mail',
         # 'mass_editing',
         # 'account_move_filters',
