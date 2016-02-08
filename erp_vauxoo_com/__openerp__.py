@@ -47,9 +47,6 @@
         # "google_drive",
         # "google_account",
         # "payroll_amount_residual",
-        # "portal_project_issue",
-        # "portal_sale", in favor of website_sale
-        # "portal_stock",
         # Project Section.
         "project_issue_sheet",
         'project_timesheet_synchro',  # Enable the sync of timesheet.
