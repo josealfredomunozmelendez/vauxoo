@@ -17,7 +17,7 @@
         "runbot_send_email",
     ],
     "data": [
-        "runbot_vauxoo_com_data.xml",
+        "data/runbot_vauxoo_com_data.xml",
     ],
     "demo": [
     ],
