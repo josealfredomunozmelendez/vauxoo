@@ -5,7 +5,6 @@
             <field name="name">Vauxoo SMTP Server</field>
             <field name="smtp_host">smtp.mailgun.org</field>
             <field name="smtp_user">postmaster@runbot.vauxoo.com</field>
-            <field name="smtp_pass">dummydummy</field>
             <field name="smtp_encryption">starttls</field>
             <field eval="25" name="smtp_port"/>
             <field eval="10" name="sequence"/>
