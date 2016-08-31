@@ -35,6 +35,7 @@ tests_build:
     - docker run -d --name instance${IMAGE_NAME} -e "DB_USER=odoo" -e "DB_PASSWORD=odoo" -e "DB_HOST=postgres" -e "ODOO_CONFIG_FILE=/home/odoo/.openerp_serverrc" --link postgres${CI_BUILD_REF_NAME}:postgres instance${IMAGE_NAME}
     - sleep 10
     - docker exec instance${IMAGE_NAME} supervisorctl stop odoo
+    - docker exec instance${IMAGE_NAME} supervisorctl status odoo
     - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wdemo -i erp_vauxoo_com --stop-after-init"
     - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wodemo -i erp_vauxoo_com --stop-after-init --without-demo=all"
 
@@ -62,7 +63,7 @@ upload_image:
   script:
     - docker pull vauxoo/odoo-80-image
     - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i vauxoo/odoo-80-image
-    - docker tag instance80 quay.io/vauxoo/vauxoo90:autobuild
+    - docker tag instance90 quay.io/vauxoo/vauxoo90:autobuild
     - docker push quay.io/vauxoo/vauxoo90:autobuild
 
 preproduction:
@@ -71,7 +72,7 @@ preproduction:
   only:
     - 9.0@vauxoo-dev/instance
   tags:
-    - instance80
+    - instance90
   when: on_success
   script:
     - deployvcmd create -f ~/vauxoo/updates-vauxoo90.json -z ~/vauxoo/databases --without-db
