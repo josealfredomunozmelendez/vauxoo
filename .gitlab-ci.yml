@@ -61,7 +61,7 @@ upload_image:
     - build
   script:
     - docker pull vauxoo/odoo-80-image
-    - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i vauxoo/odoo-90-image
+    - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i vauxoo/odoo-80-image
     - docker tag instance80 quay.io/vauxoo/vauxoo90:autobuild
     - docker push quay.io/vauxoo/vauxoo90:autobuild
 
