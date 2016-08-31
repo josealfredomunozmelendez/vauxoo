@@ -63,6 +63,7 @@
         # 'send_author_mail',
         # 'mass_editing',
         # 'account_move_filters',
+        oml,
     ],
     "data": [
         "security/res_groups.xml",
