@@ -1,0 +1,79 @@
+image: vauxoo/odoo-80-image-shippable-auto
+stages:
+  - test_build
+  - build
+  - cleanup
+  - deploy
+
+before_script:
+  - mkdir -p ~/.ssh
+  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts; fi"
+  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then echo \"$PRIVATE_DEPLOY_KEY\" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa ;  fi"
+  - apt-get update && apt-get install python-m2crypto swig xmlstarlet openssl python-lxml
+
+tests_build:
+  stage: test_build
+  only:
+    - branches
+  except:
+    - "9.0"
+  tags:
+    - build
+  script:
+    - docker pull postgres:9.5
+    - docker pull vauxoo/odoo-80-image
+    - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '')")
+    - sh -c "if  docker ps | grep postgres${CI_BUILD_REF_NAME} >/dev/null ; then docker rm -f postgres${CI_BUILD_REF_NAME}; fi"
+    - sh -c "if  docker ps | grep ${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
+    - docker run --name postgres${CI_BUILD_REF_NAME} -p 127.0.0.1:5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres:9.5
+    - sleep 5
+    - docker ps -a
+    - deployvcmd build -b ${CI_BUILD_REF_NAME} -u ${CI_BUILD_REPO} -v 9.0 -i vauxoo/odoo-80-image
+    - docker exec postgres${CI_BUILD_REF_NAME} su postgres -c "psql -c \"create user odoo with password 'odoo' createdb\""
+    - docker exec postgres${CI_BUILD_REF_NAME} su postgres -c "createdb wdemo -T template1 -E utf8"
+    - docker exec postgres${CI_BUILD_REF_NAME} su postgres -c "createdb wodemo -T template1 -E utf8"
+    - docker run -d --name instance${IMAGE_NAME} -e "DB_USER=odoo" -e "DB_PASSWORD=odoo" -e "DB_HOST=postgres" -e "ODOO_CONFIG_FILE=/home/odoo/.openerp_serverrc" --link postgres${CI_BUILD_REF_NAME}:postgres instance${IMAGE_NAME}
+    - sleep 10
+    - docker exec instance${IMAGE_NAME} supervisorctl stop odoo
+    - docker exec instance${IMAGE_NAME} supervisorctl status odoo
+    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wdemo -i erp_vauxoo_com --stop-after-init"
+    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wodemo -i erp_vauxoo_com --stop-after-init --without-demo=all"
+
+clean_build:
+  stage: cleanup
+  only:
+    - branches
+  except:
+    - 9.0@vauxoo-dev/instance
+  tags:
+    - build
+  script:
+    - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '')")
+    - sh -c "if  docker ps | grep postgres${CI_BUILD_REF_NAME} >/dev/null ; then docker rm -f postgres${CI_BUILD_REF_NAME}; fi"
+    - sh -c "if  docker ps | grep instance${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
+  when: always
+
+upload_image:
+  stage: build
+  only:
+    - 9.0@vauxoo-dev/instance
+  when: on_success
+  tags:
+    - build
+  script:
+    - docker pull vauxoo/odoo-80-image
+    - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i vauxoo/odoo-80-image
+    - docker tag instance90 quay.io/vauxoo/vauxoo90:autobuild
+    - docker push quay.io/vauxoo/vauxoo90:autobuild
+
+preproduction:
+  stage: deploy
+  environment: preproduction
+  only:
+    - 9.0@vauxoo-dev/instance
+  tags:
+    - instance90
+  when: on_success
+  script:
+    - deployvcmd create -f ~/vauxoo/updates-vauxoo90.json -z ~/vauxoo/databases --without-db
+    - deployvcmd restore -f ~/vauxoo/updates-vauxoo90.json  -z ~/vauxoo/databases -d beta_instance90 -t updates -s ${ADMIN_PASS}
