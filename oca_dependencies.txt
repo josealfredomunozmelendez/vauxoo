@@ -3,6 +3,6 @@ server-tools git@github.com:oca/server-tools.git
 mexico git@github.com:vauxoo/mexico.git
 odoo-ifrs git@github.com:Vauxoo/odoo-ifrs.git
 odoo-afr git@github.com:Vauxoo/odoo-afr.git
-cms git@github.com:Vauxoo/cms.git
+page git@github.com:Vauxoo/page.git
 web git@github.com:Vauxoo/web.git
 enterprise git@github.com:Vauxoo/enterprise.git
