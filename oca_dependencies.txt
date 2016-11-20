@@ -1,5 +1,4 @@
 addons-vauxoo https://github.com/vauxoo/addons-vauxoo.git
-odoo-themes git@github.com:Vauxoo/odoo-themes.git
 server-tools git@github.com:oca/server-tools.git
 mexico git@github.com:vauxoo/mexico.git
 odoo-ifrs git@github.com:Vauxoo/odoo-ifrs.git
