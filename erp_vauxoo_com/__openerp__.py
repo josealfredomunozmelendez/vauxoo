@@ -52,18 +52,19 @@
         'project_timesheet_synchro',  # Enable the sync of timesheet.
         "project_issue_management",
         # "project_issue_conf",
-        # "user_story_scrum",
-        "warning",
+        # "user_story_scrum",
+        # "warning",  # Deprecated for 10.0
         # "sale_order_copy_line",  [MIG] vauxoo/addons-vauxoo#722
         # "web_export_view", Tool used but better for next iteration
         # Portal (not website) modules
         # "portal_user_story",
-        "crm_partner_assign",  # NECESARY BUT NOT SINC BEGINING.
+        # TODO: Search what is the correct name in 10.0
+        # "crm_partner_assign",  # NECESARY BUT NOT SINC BEGINING.
         # Technical tools.
         # 'send_author_mail',
         # 'mass_editing',
         # 'account_move_filters',
-        "oml",
+        "l10n_mx_base",
     ],
     "data": [
         "security/res_groups.xml",
