@@ -75,7 +75,8 @@
     ],
     "data": [
         "security/res_groups.xml",
-        # "data/set_configuration.yml",
+        "data/set_configuration.yml",
+        "data/res_users.xml",
     ],
     "demo": [],
     "test": [
