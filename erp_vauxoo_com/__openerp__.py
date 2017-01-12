@@ -6,7 +6,7 @@
     "website": "http://www.vauxoo.com",
     "license": "AGPL-3",
     "category": "Vauxoo",
-    "version": "2.0",
+    "version": "10.0.2.0.0",
     "depends": [
         # ERP modules (here nothing with website)
         # "project_followers_rule",
