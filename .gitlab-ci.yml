@@ -1,27 +1,100 @@
 image: vauxoo/odoo-80-image-shippable-auto
 stages:
+  - test
   - test_build
   - build
   - cleanup
-  - deploy
 
 before_script:
+  - sh -c "if which /sbin/apk >/dev/null; then apk add --update openssh python python-dev py-pip build-base git postgresql-contrib postgresql-client postgresql-dev libffi-dev; fi"
   - mkdir -p ~/.ssh
-  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts; fi"
-  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then echo \"$PRIVATE_DEPLOY_KEY\" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa ;  fi"
-  - apt-get update && apt-get install python-m2crypto swig xmlstarlet openssl python-lxml
+  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts; fi"  - apt-get update && apt-get install python-m2crypto swig xmlstarlet openssl python-lxml
+
+lint:
+  stage: test
+  tags:
+    - lint
+  variables:
+    LINT_CHECK: "1"
+    TESTS: "1"
+    VERSION: "10.0"
+    ODOO_REPO: "vauxoo/odoo"
+    TESTS: "0"
+    PSQL_VERSION: "9.5"
+  script:
+    - export TRAVIS_BUILD_DIR=$(pwd)
+    - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
+    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
+    - travis_install_nightly
+    - travis_run_tests
+
+test:
+  stage: test
+  tags:
+    - odoo
+    - test
+  variables:
+    LINT_CHECK: "0"
+    VERSION: "10.0"
+    ODOO_REPO: "vauxoo/odoo"
+    TESTS: "1"
+    PSQL_VERSION: "9.5"
+    INCLUDE: "instance"
+  script:
+    - export TRAVIS_BUILD_DIR=$(pwd)
+    - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
+    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
+    - apt-get update && apt-get install -y libffi-dev tree
+    - pip install -U deployv
+    - travis_install_nightly
+    - rm -rf /root/odoo-${VERSION} ; git clone -b saas-14 --single-branch --depth=1 https://github.com/Vauxoo/odoo.git /root/odoo-${VERSION}
+    - wget https://raw.githubusercontent.com/OCA/maintainer-quality-tools/master/cfg/.coveragerc
+    - cp -r ${CI_PROJECT_DIR}/addons/* ${CI_PROJECT_DIR}/
+    - ls -lah
+    - pwd
+    - tree -L 2
+    - travis_run_tests
+    - coverage report -m --show-missing --rcfile=${TRAVIS_BUILD_DIR}/.coveragerc
+    - cat ${HOME}/.openerp_serverrc
+
+test_install_wdemo:
+  stage: test
+  tags:
+    - odoo
+    - test
+  variables:
+    LINT_CHECK: "0"
+    VERSION: "10.0"
+    ODOO_REPO: "vauxoo/odoo"
+    TESTS: "0"
+    PSQL_VERSION: "9.5"
+    INSTALL: "erp_vauxoo_com"
+  script:
+    - /etc/init.d/postgresql start
+    - export TRAVIS_BUILD_DIR=$(pwd)
+    - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
+    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
+    - apt-get update && apt-get install -y libffi-dev
+    - pip install -U deployv
+    - travis_install_nightly
+    - rm -rf /root/odoo-${VERSION} && git clone -b saas-14 --single-branch --depth=1 https://github.com/Vauxoo/odoo.git /root/odoo-${VERSION}
+    - createdb odoo_install
+    - /root/odoo-${VERSION}/odoo-bin -d odoo_install --log-level=info --stop-after-init --init ${INSTALL} --addons-path=/root/odoo-${VERSION}/addons,${CI_PROJECT_DIR} --log-handler openerp.tools.yaml_import:DEBUG --log-handler openerp.models.schema:DEBUG
+
 
 tests_build:
   stage: test_build
   only:
     - branches
   except:
-    - "9.0"
+    - "10.0"
   tags:
     - build
+  variables:
+    INSTALL: "erp_vauxoo_com"
   script:
     - docker pull postgres:9.5
-    - docker pull vauxoo/odoo-80-image
+    - docker pull vauxoo/odoo-100-image
     - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '')")
     - sh -c "if  docker ps | grep postgres${CI_BUILD_REF_NAME} >/dev/null ; then docker rm -f postgres${CI_BUILD_REF_NAME}; fi"
     - sh -c "if  docker ps | grep ${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
@@ -36,44 +109,32 @@ tests_build:
     - sleep 10
     - docker exec instance${IMAGE_NAME} supervisorctl stop odoo
     - docker exec instance${IMAGE_NAME} supervisorctl status odoo
-    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wdemo -i erp_vauxoo_com --stop-after-init"
-    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wodemo -i erp_vauxoo_com --stop-after-init --without-demo=all"
+    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wdemo -i ${INSTALL} --stop-after-init"
+    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo.py -d wodemo -i ${INSTALL} --stop-after-init --without-demo=all"
 
 clean_build:
   stage: cleanup
   only:
     - branches
   except:
-    - 9.0@vauxoo/instance
+    - 10.0@vauxoo/instance
   tags:
     - build
   script:
     - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '')")
-    - sh -c "if  docker ps | grep postgres${CI_BUILD_REF_NAME} >/dev/null ; then docker rm -f postgres${CI_BUILD_REF_NAME}; fi"
+    - sh -c "if  docker ps | grep postgres${IMAGE_NAME} >/dev/null ; then docker rm -f postgres${IMAGE_NAME}; fi"
     - sh -c "if  docker ps | grep instance${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
   when: always
 
 upload_image:
   stage: build
   only:
-    - 9.0@vauxoo/instance
+    - 10.0@vauxoo/instance
   when: on_success
   tags:
     - build
   script:
-    - docker pull vauxoo/odoo-80-image
-    - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i vauxoo/odoo-80-image
-    - docker tag instance90 quay.io/vauxoo/vauxoo90:autobuild
-    - docker push quay.io/vauxoo/vauxoo90:autobuild
-
-preproduction:
-  stage: deploy
-  environment: preproduction
-  only:
-    - 9.0@vauxoo/instance
-  tags:
-    - instance90
-  when: on_success
-  script:
-    - deployvcmd create -f ~/vauxoo/updates-vauxoo90.json -z ~/vauxoo/databases --without-db
-    - deployvcmd restore -f ~/vauxoo/updates-vauxoo90.json  -z ~/vauxoo/databases -d beta_instance90 -t updates -s ${ADMIN_PASS}
+    - docker pull vauxoo/odoo-100-image
+    - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i vauxoo/odoo-100-image
+    - docker tag instance100 quay.io/vauxoo/vauxoo100:autobuild
+    - docker push quay.io/vauxoo/vauxoo100:autobuild
