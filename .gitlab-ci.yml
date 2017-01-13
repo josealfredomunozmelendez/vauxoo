@@ -9,6 +9,7 @@ before_script:
   - sh -c "if which /sbin/apk >/dev/null; then apk add --update openssh python python-dev py-pip build-base git postgresql-contrib postgresql-client postgresql-dev libffi-dev; fi"
   - mkdir -p ~/.ssh
   - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts; fi"
+  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then echo \"$PRIVATE_DEPLOY_KEY\" >> ~/.ssh/id_rsa; fi"
 
 lint:
   stage: test
