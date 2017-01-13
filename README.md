@@ -20,7 +20,7 @@ Reasons because a module can be here.
 CI Status.
 ---
 
-[![Build Status](https://git.vauxoo.com/vauxoo/orchest/instance/10.0/build.svg)](https://git.vauxoo.com/vauxoo/instance/pipelines)
+[![Build Status](https://git.vauxoo.com/vauxoo/instance/badges/10.0/build.svg)](https://git.vauxoo.com/vauxoo/instance/pipelines)
 [![Coverage Report](https://git.vauxoo.com/vauxoo/instance/badges/10.0/coverage.svg)](https://git.vauxoo.com/vauxoo/instance/commits/10.0)
 
 This tests is what I need "only" tested/mixed with dependency repositories, and tested 1 by 1 modules on this repository in order to be sure they are all installables.
