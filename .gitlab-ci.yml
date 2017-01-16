@@ -10,7 +10,7 @@ before_script:
   - mkdir -p ~/.ssh
   - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts; fi"
   - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan github.com >> ~/.ssh/known_hosts; fi"
-  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then echo \"$PRIVATE_DEPLOY_KEY\" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa && echo "Added the coward key" ; fi"
+  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then echo \"$PRIVATE_DEPLOY_KEY\" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa && echo \"Added the coward key\"; fi"
 
 lint:
   stage: test
