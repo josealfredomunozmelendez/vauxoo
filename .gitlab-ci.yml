@@ -41,7 +41,7 @@ test:
     ODOO_REPO: "vauxoo/odoo"
     TESTS: "1"
     PSQL_VERSION: "9.5"
-    INCLUDE: "instance"
+    INCLUDE: "erp_vauxoo_com"
   script:
     - export TRAVIS_BUILD_DIR=$(pwd)
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
