@@ -71,7 +71,7 @@ test_install_wdemo:
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
     - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
     - travis_install_nightly
-    - rm -rf /root/odoo-${VERSION} && git clone -b saas-14 --single-branch --depth=1 https://github.com/Vauxoo/odoo.git /root/odoo-${VERSION}
+    - rm -rf /root/odoo-${VERSION} && git clone -b saas-14 --single-branch --depth=1 -q https://github.com/Vauxoo/odoo.git /root/odoo-${VERSION}
     - createdb odoo_install
     - /root/odoo-${VERSION}/odoo-bin -d odoo_install --log-level=info --stop-after-init --init ${INSTALL} --addons-path=/root/odoo-${VERSION}/addons,${CI_PROJECT_DIR} --log-handler openerp.tools.yaml_import:DEBUG --log-handler openerp.models.schema:DEBUG
 
