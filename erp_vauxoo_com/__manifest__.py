@@ -78,7 +78,10 @@
         "data/set_configuration.yml",
         "data/res_users.xml",
     ],
-    "demo": [],
+    "demo": [
+        "demo/project.xml",
+        "demo/helpdesk.xml",
+    ],
     "test": [
     ],
     "auto_install": False,
