@@ -88,6 +88,10 @@
         'data/website.xml',
         'data/lang.xml',
         'data/project_tags.xml',
+        "data/ir_actions_server.xml",
+        "data/base_automation.xml",
+        "views/helpdesk.xml",
+        "views/project.xml",
     ],
     "demo": [
         "demo/project.xml",
