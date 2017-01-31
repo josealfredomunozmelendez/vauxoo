@@ -7,7 +7,65 @@
         'pad_key': 'dcd96ee12e954128e2160a0434b717e149162023d753a834e83082b60f37a02e',
         'default_user_rights': True,
         'auth_signup_uninvited': True,
+        'alias_domain': 'www.vauxoo.com',
     }
 -
   !python {model: base.config.settings}: |
     self.browse(ref('vx_general_config')).execute()
+-
+  Setting Website Information
+-
+  !record {model: website.config.settings, id: vx_website_config}:
+    {'website_name': 'www.vauxoo.com',
+     'social_twitter': 'https://twitter.com/vauxoo',
+     'social_facebook': 'https://facebook.com/vauxoo',
+     'social_github': 'https://github.com/vauxoo',
+     'social_linkedin': 'https://www.linkedin.com/company/vauxoo',
+     'social_googleplus': '' }
+-
+  !python {model: website.config.settings}: |
+    self.browse(ref('vx_website_config')).execute()
+-
+  Blessing public Menus
+  Remove from the list of ids one time you are sure
+  they will come back publically
+-
+  !python {model: website.menu}: |
+    records = self.browse([
+        ref('website_blog.menu_news'),
+        ref('website_event.menu_events'),
+        ref('website_forum.menu_questions'),
+        ref('website_forum_doc.menu_questions'),
+        ref('website_sale.menu_shop'),
+        ref('website_hr_recruitment.menu_jobs'),
+    ])
+    records.write({'parent_id': False})
+-
+  Setting the sequence to public menus
+-
+  !python {model: website.menu}: |
+    record = self.browse([ref('website.menu_homepage')])
+    record.write({'sequence': 5})
+
+    record = self.browse([ref('website.menu_contactus')])
+    record.write({'sequence': 100})
+-
+  Setting blog views the one actives.
+-
+  !python {model: ir.ui.view}: |
+    records = self.browse([
+        ref('website_blog.index_right'),
+        ref('website_blog.opt_blog_rc_history'),
+        ref('website_blog.opt_blog_rc_blogs')])
+    records.write({'active': True})
+-
+  Setting blog views.
+  The one that are managed manually simply will be intentionally
+  deactivated, only views setted manually here for POC
+-
+  !python {model: ir.ui.view}: |
+    records = self.browse([
+        ref('website_blog.opt_blog_rc_about_us'),
+        ref('website_blog.opt_blog_rc_follow_us'),
+        ref('website_blog.opt_blog_rc_tags')])
+    records.write({'active': False})
