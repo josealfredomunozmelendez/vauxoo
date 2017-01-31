@@ -16,10 +16,6 @@ variables:
 
 before_script:
   - sh -c "if which /sbin/apk >/dev/null; then apk add --update openssh python python-dev py-pip build-base git postgresql-contrib postgresql-client postgresql-dev libffi-dev; fi"
-  - mkdir -p ~/.ssh
-  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts; fi"
-  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then ssh-keyscan github.com >> ~/.ssh/known_hosts; fi"
-  - sh -c "if [ ${CI_BUILD_STAGE} != 'deploy' ]; then echo \"$PRIVATE_DEPLOY_KEY\" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa && echo \"Added the coward key\"; fi"
 
 lint:
   stage: test
@@ -29,6 +25,10 @@ lint:
     LINT_CHECK: "1"
     TESTS: "0"
   script:
+    - mkdir -p ~/.ssh && echo "${PRIVATE_DEPLOY_KEY}" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+    - sudo apt-get update && sudo apt-get install -y dos2unix
+    - dos2unix ~/.ssh/id_rsa
+    - ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts
     - export TRAVIS_BUILD_DIR=$(pwd)
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
     - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
@@ -44,39 +44,21 @@ test:
     LINT_CHECK: "0"
     TESTS: "1"
   script:
+    - mkdir -p ~/.ssh && echo "${PRIVATE_DEPLOY_KEY}" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+    - sudo apt-get update && sudo apt-get install -y dos2unix
+    - dos2unix ~/.ssh/id_rsa
+    - ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts
     - export TRAVIS_BUILD_DIR=$(pwd)
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
     - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
     - apt-get update && apt-get install -y tree
     - travis_install_nightly
     - rm -rf /root/odoo-${VERSION} ; git clone -b saas-14 --single-branch --depth=1 -q https://github.com/Vauxoo/odoo.git /root/odoo-${VERSION}
-    - wget https://raw.githubusercontent.com/OCA/maintainer-quality-tools/master/cfg/.coveragerc
     - ls -lah
     - pwd
     - tree -L 2
     - travis_run_tests
-    - coverage report -m --show-missing --rcfile=${TRAVIS_BUILD_DIR}/.coveragerc
-    - cat ${HOME}/.openerp_serverrc
-
-test_install_wdemo:
-  stage: test
-  tags:
-    - odoo
-    - test
-  variables:
-    LINT_CHECK: "0"
-    TESTS: "0"
-  script:
-    - /etc/init.d/postgresql start
-    - export TRAVIS_BUILD_DIR=$(pwd)
-    - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
-    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
-    - travis_install_nightly
-    - rm -rf /root/odoo-${VERSION} && git clone -b saas-14 --single-branch --depth=1 -q https://github.com/Vauxoo/odoo.git /root/odoo-${VERSION}
-    - createdb odoo_install
-    - /root/odoo-${VERSION}/odoo-bin -d odoo_install --log-level=info --stop-after-init --init ${INSTALL} --addons-path=/root/odoo-${VERSION}/addons,${CI_PROJECT_DIR} --log-handler openerp.tools.yaml_import:DEBUG --log-handler openerp.models.schema:DEBUG
-
-
+    - travis_after_tests_success || true
 
 tests_build:
   stage: test_build
@@ -98,7 +80,7 @@ tests_build:
     - deployvcmd build -b ${CI_BUILD_REF_NAME} -u ${CI_BUILD_REPO} -v ${VERSION} -i ${BASE_IMAGE} -O ${ODOO_BRANCH}
     - docker exec postgres${IMAGE_NAME} su postgres -c "psql -c \"create user odoo with password 'odoo' createdb\""
     - docker run -d --name instance${IMAGE_NAME} -e "DB_USER=odoo" -e "DB_PASSWORD=odoo" -e "DB_HOST=postgres" -e "ODOO_CONFIG_FILE=/home/odoo/.openerp_serverrc" --link postgres${IMAGE_NAME}:postgres instance${IMAGE_NAME}
-    - sleep 10
+    - sleep 30
     - docker exec instance${IMAGE_NAME} supervisorctl stop odoo
     - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo-bin -d wdemo -i ${INSTALL} --stop-after-init"
     - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo-bin -d wodemo -i ${INSTALL} --stop-after-init --without-demo=all"

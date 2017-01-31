@@ -95,6 +95,7 @@ def rst2html(rst, opts=None):
                         settings_overrides=rst_opts)['html_body']
     return out
 
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

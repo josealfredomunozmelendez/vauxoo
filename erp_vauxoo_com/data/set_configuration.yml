@@ -1,5 +1,13 @@
 -
-  Setting project options.
-  The order of this parameters is exactly the order shown in the view, what will not
-  be selected parameter 0 what will be selected, parameter 1
+  General Settings
 -
+  !record {model: base.config.settings, id: vx_general_config}:
+    {
+        'pad_server':  'https://pad.vauxoo.com',
+        'pad_key': 'dcd96ee12e954128e2160a0434b717e149162023d753a834e83082b60f37a02e',
+        'default_user_rights': True,
+        'auth_signup_uninvited': True,
+    }
+-
+  !python {model: base.config.settings}: |
+    self.browse(ref('vx_general_config')).execute()
