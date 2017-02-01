@@ -25,13 +25,12 @@ lint:
     LINT_CHECK: "1"
     TESTS: "0"
   script:
-    - mkdir -p ~/.ssh && echo "${PRIVATE_DEPLOY_KEY}" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
-    - sudo apt-get update && sudo apt-get install -y dos2unix
-    - dos2unix ~/.ssh/id_rsa
-    - ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts
     - export TRAVIS_BUILD_DIR=$(pwd)
+    - git clone -b master --single-branch --depth=1 https://git.vauxoo.com/vauxoo/gitlab_tools.git ${TRAVIS_BUILD_DIR}/gitlab_tools
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
-    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
+    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${TRAVIS_BUILD_DIR}/gitlab_tools:${PATH}
+    - sudo apt-get update && sudo apt-get install -y dos2unix
+    - check_keys
     - travis_install_nightly
     - travis_run_tests
 
@@ -44,14 +43,12 @@ test:
     LINT_CHECK: "0"
     TESTS: "1"
   script:
-    - mkdir -p ~/.ssh && echo "${PRIVATE_DEPLOY_KEY}" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
-    - sudo apt-get update && sudo apt-get install -y dos2unix
-    - dos2unix ~/.ssh/id_rsa
-    - ssh-keyscan git.vauxoo.com >> ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts
     - export TRAVIS_BUILD_DIR=$(pwd)
+    - git clone -b master --single-branch --depth=1 https://git.vauxoo.com/vauxoo/gitlab_tools.git ${TRAVIS_BUILD_DIR}/gitlab_tools
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${TRAVIS_BUILD_DIR}/maintainer-quality-tools
-    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${PATH}
-    - apt-get update && apt-get install -y tree
+    - export PATH=${TRAVIS_BUILD_DIR}/maintainer-quality-tools/travis:${TRAVIS_BUILD_DIR}/gitlab_tools:${PATH}
+    - apt-get update && apt-get install -y tree dos2unix
+    - check_keys
     - travis_install_nightly
     - rm -rf /root/odoo-${VERSION} ; git clone -b saas-14 --single-branch --depth=1 -q https://github.com/Vauxoo/odoo.git /root/odoo-${VERSION}
     - ls -lah
