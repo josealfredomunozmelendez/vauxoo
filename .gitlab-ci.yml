@@ -14,9 +14,6 @@ variables:
     INSTALL: "erp_vauxoo_com"
     BASE_IMAGE: "vauxoo/odoo-100-image"
 
-before_script:
-  - sh -c "if which /sbin/apk >/dev/null; then apk add --update openssh python python-dev py-pip build-base git postgresql-contrib postgresql-client postgresql-dev libffi-dev; fi"
-
 lint:
   stage: test
   tags:
