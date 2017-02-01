@@ -9,7 +9,7 @@ variables:
     PSQL_VERSION: "9.5"
     VERSION: "10.0"
     ODOO_REPO: "vauxoo/odoo"
-    ODOO_BRANCH: "vauxoo/odoo#saas-14"
+    ODOO_BRANCH: "saas-14"
     INCLUDE: "erp_vauxoo_com"
     INSTALL: "erp_vauxoo_com"
     BASE_IMAGE: "vauxoo/odoo-100-image"
@@ -58,6 +58,7 @@ test:
     - pwd
     - tree -L 2
     - travis_run_tests
+    - cat /root/.openerp_serverrc
     - travis_after_tests_success || true
 
 tests_build:
@@ -77,7 +78,7 @@ tests_build:
     - docker run --name postgres${IMAGE_NAME} -e POSTGRES_PASSWORD=postgres -d postgres:${PSQL_VERSION}
     - sleep 5
     - docker ps -a
-    - deployvcmd build -b ${CI_BUILD_REF_NAME} -u ${CI_BUILD_REPO} -v ${VERSION} -i ${BASE_IMAGE} -O ${ODOO_BRANCH}
+    - deployvcmd build -b ${CI_BUILD_REF_NAME} -u ${CI_BUILD_REPO} -v ${VERSION} -i ${BASE_IMAGE} -O ${ODOO_REPO}#${ODOO_BRANCH}
     - docker exec postgres${IMAGE_NAME} su postgres -c "psql -c \"create user odoo with password 'odoo' createdb\""
     - docker run -d --name instance${IMAGE_NAME} -e "DB_USER=odoo" -e "DB_PASSWORD=odoo" -e "DB_HOST=postgres" -e "ODOO_CONFIG_FILE=/home/odoo/.openerp_serverrc" --link postgres${IMAGE_NAME}:postgres instance${IMAGE_NAME}
     - sleep 30
@@ -108,6 +109,6 @@ upload_image:
     - build
   script:
     - docker pull ${BASE_IMAGE}
-    - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i ${BASE_IMAGE} -O ${ODOO_BRANCH}
+    - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i ${BASE_IMAGE} -O ${ODOO_REPO}#${ODOO_BRANCH}
     - docker tag instance100 quay.io/vauxoo/vauxoo100:autobuild
     - docker push quay.io/vauxoo/vauxoo100:autobuild
