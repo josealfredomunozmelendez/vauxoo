@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="implementantation_team" model="project.project">
+            <field name="name">Implementation</field>
+            <field name="sequence">1</field>
+            <field name="label_tasks">Projects</field>
+            <field name="privacy_visibility">employees</field>
+            <field name="rating_status">stage</field>
+            <field name="use_tasks" eval="True"/>
+            <field name="allow_timesheets" eval="True"/>
+            <field name="allow_forecast" eval="True"/>
+            <field name="alias_name" eval="False"/>
+        </record>
+        <record id="erp_vauxoo_com.implementantation_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.implementantation_team')"/>
+        </record>
+
+        <record id="training_team" model="project.project">
+            <field name="name">Training</field>
+            <field name="sequence">2</field>
+            <field name="label_tasks">Projects</field>
+            <field name="privacy_visibility">employees</field>
+            <field name="rating_status">no</field>
+            <field name="use_tasks" eval="True"/>
+            <field name="allow_timesheets" eval="True"/>
+            <field name="allow_forecast" eval="True"/>
+            <field name="alias_name" eval="False"/>
+        </record>
+        <record id="erp_vauxoo_com.training_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.training_team')"/>
+        </record>
+
+        <record id="internal_management_team" model="project.project">
+            <field name="name">Internal Management</field>
+            <field name="sequence">3</field>
+            <field name="label_tasks">Projects</field>
+            <field name="privacy_visibility">followers</field>
+            <field name="rating_status">no</field>
+            <field name="use_tasks" eval="True"/>
+            <field name="allow_timesheets" eval="True"/>
+            <field name="alias_name" eval="False"/>
+        </record>
+        <record id="erp_vauxoo_com.internal_management_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.internal_management_team')"/>
+        </record>
+
+        <record id="i_d_team" model="project.project">
+            <field name="name">I+D</field>
+            <field name="sequence">4</field>
+            <field name="label_tasks">Projects</field>
+            <field name="privacy_visibility">employees</field>
+            <field name="rating_status">no</field>
+            <field name="use_tasks" eval="True"/>
+            <field name="allow_timesheets" eval="True"/>
+        </record>
+        <record id="erp_vauxoo_com.i_d_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.i_d_team')"/>
+        </record>
+
+        <record id="consulting_team" model="project.project">
+            <field name="name">Consulting</field>
+            <field name="sequence">5</field>
+            <field name="label_tasks">Courses</field>
+            <field name="privacy_visibility">employees</field>
+            <field name="rating_status">stage</field>
+            <field name="use_tasks" eval="True"/>
+            <field name="allow_timesheets" eval="True"/>
+            <field name="alias_name" eval="False"/>
+        </record>
+        <record id="erp_vauxoo_com.consulting_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.consulting_team')"/>
+        </record>
+
+        <record id="support_team" model="project.project">
+            <field name="name">Support</field>
+            <field name="sequence">6</field>
+            <field name="label_tasks">Tickets</field>
+            <field name="privacy_visibility">employees</field>
+            <field name="rating_status">stage</field>
+            <field name="use_tasks" eval="True"/>
+            <field name="allow_timesheets" eval="True"/>
+            <field name="allow_forecast" eval="True"/>
+            <field name="alias_name" eval="False"/>
+        </record>
+        <record id="erp_vauxoo_com.support_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.support_team')"/>
+        </record>
+
+    </data>
+</openerp>
