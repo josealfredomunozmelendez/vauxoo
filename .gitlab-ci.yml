@@ -102,10 +102,8 @@ upload_image:
   tags:
     - build
   script:
-    - pwd
-    - tree -L 2
     - git clone -q git@git.vauxoo.com:vauxoo/instance.wiki.git
-    - cd instance.wiki && cp -R ../erp_vauxoo_com/doc/* . && git add . && git commit -m "[ADD] Updated by ${CI_BUILD_REF}" && git push
+    - cd instance.wiki && cp -R ../erp_vauxoo_com/doc/* . && git add . && git commit -m "[ADD] Updated by ${CI_BUILD_REF}" && git push origin master
     - docker pull ${BASE_IMAGE}
     - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i ${BASE_IMAGE} -O "${ODOO_REPO}#${ODOO_BRANCH}"
     - docker tag instance100 quay.io/vauxoo/vauxoo100:autobuild
