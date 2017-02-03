@@ -72,11 +72,21 @@
         # 'mass_editing',
         # 'account_move_filters',
         "l10n_mx_edi",
+
+        # Website modules
+        "website_blog",
+        "website_event",
+        "website_forum_doc",
+        "website_sale",
+        "website_hr_recruitment",
+        # "website_vauxoo",  # This will be integrate here by oscarolar
     ],
     "data": [
         "security/res_groups.xml",
         "data/set_configuration.yml",
         "data/res_users.xml",
+        'data/website.xml',
+        'data/lang.xml',
     ],
     "demo": [
         "demo/project.xml",
