@@ -87,6 +87,7 @@
         "data/res_users.xml",
         'data/website.xml',
         'data/lang.xml',
+        'data/project_tags.xml',
     ],
     "demo": [
         "demo/project.xml",
