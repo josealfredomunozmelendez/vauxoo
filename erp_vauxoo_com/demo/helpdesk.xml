@@ -2,7 +2,7 @@
 <openerp>
     <data>
 
-        <record id="support_team" model="helpdesk.team">
+        <record id="helpdesk.helpdesk_team1" model="helpdesk.team">
             <field name="name">Support</field>
             <field name="sequence">1</field>
             <field name="assign_method">manual</field>
