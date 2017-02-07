@@ -69,7 +69,7 @@
         # "crm_partner_assign",  # NECESARY BUT NOT SINC BEGINING.
         # Technical tools.
         # 'send_author_mail',
-        # 'mass_editing',
+        'mass_editing',
         # 'account_move_filters',
         "l10n_mx_edi",
 
