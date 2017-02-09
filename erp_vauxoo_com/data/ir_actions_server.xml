@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="create_task_from_ticket_action" model="ir.actions.server">
+            <field name="name">Create task from ticket</field>
+            <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+            <field name="state">code</field>
+            <field name="code"># Available variables:
+#  - time, datetime, dateutil, timezone: Python libraries
+#  - env: Odoo Environement
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record set of the current record on which the action is triggered; may be be void
+#  - records: record set of all records on which the action is triggered; may be void
+#  - log : log(message), function to log debug information in logging table
+#  - Warning: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+helpdesk_ticket_tag = env.ref('erp_vauxoo_com.tag_helpdesk_ticket').id
+
+for ticket in records:
+    if ticket.task_id:
+        continue
+    if not ticket.user_id:
+        continue
+    task = env["project.task"].sudo(ticket.user_id.id).create({
+        "name": ticket.display_name,
+        "partner_id": ticket.partner_id.id,
+        "project_id": ticket.team_id.project_id.id,
+        "ticket_id": ticket.id,
+        "tag_ids": [(4, helpdesk_ticket_tag)],
+    })
+    ticket.write({"task_id": task.id})</field>
+        </record>
+
+    </data>
+</openerp>
