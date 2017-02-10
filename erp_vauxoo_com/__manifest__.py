@@ -83,6 +83,7 @@
     ],
     "data": [
         "security/res_groups.xml",
+        "security/ir.model.access.csv",
         "data/set_configuration.yml",
         "data/res_users.xml",
         'data/website.xml',
@@ -92,6 +93,8 @@
         "data/base_automation.xml",
         "views/helpdesk.xml",
         "views/project.xml",
+        "data/hr_timesheet_invoice_data.xml",
+        "views/account_analytic_line_view.xml",
     ],
     "demo": [
         "demo/project.xml",
