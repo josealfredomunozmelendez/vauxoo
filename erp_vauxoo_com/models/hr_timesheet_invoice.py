@@ -33,6 +33,12 @@ class AccountAnalyticLine(models.Model):
         compute="_compute_invoiceables_hours",
         help='Total hours to charge')
 
+    invoice_id = fields.Many2one(
+        'account.invoice',
+        'Invoice',
+        ondelete="set null",
+        copy=False)
+
     @api.depends('to_invoice', 'unit_amount')
     def _compute_invoiceables_hours(self):
         for line in self:
