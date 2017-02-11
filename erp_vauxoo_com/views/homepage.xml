@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template name="Vauxoo - Who are we" t-name="website.homepage">
+    <t t-call="website.layout">
+      <div class="oe_structure" id="wrap">
+        <section autoplay="autoplay" class="s_media_block mb12" header_type="video" iframefit="fitCont" loop="loop" mp4="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" muted="muted" ogg="https://s3.amazonaws.com/s3.vauxoo.com/frontend.ogg" style="height: 100%" webm="https://s3.amazonaws.com/s3.vauxoo.com/frontend.webm">
+          <div class="text-center container" style="background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0%;">
+            <div class="col-md-6 col-md-offset-3 col-xs-12" style="max-height: 95%; padding-bottom: 15%">
+              <h1>Open Source Specialists</h1>
+              <p class="mb8 lead">
+                <strong>VAUXOO</strong> is a latinamerican company that provides training, coaching, development and implementation of enterprise management sytems and bases its entire operation strategy in the use of Open Source Software and its main product is
+                <span class="o_logo_inline">
+                  <span class="o_logo_main">Odoo</span></span> since 2007.</p>
+              <hr class="s_separator"/>
+              <a class="btn btn-warning btn-lg" href="/page/website.contactus">Can we help you?</a>
+            </div>
+          </div>
+        </section>
+        <section class="s_features">
+          <div class="container">
+            <div class="row mt16 mb16">
+              <div class="col-md-4 text-center">
+                <img class="fa-suitcase" src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_community_member_rgb.png" style="" width="50%"/>
+                <h3 class="mt8 mb0">Community</h3>
+                <div class="text-muted">With more than 600 modules contributed</div>
+                <div class="text-muted">the biggest quantity available for an individual company</div>
+              </div>
+              <div class="col-md-4 text-center">
+                <img src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_gold_partner_rgb.png" style="animation-play-state: paused; transition: none 0s ease 0s" width="50%"/>
+                <h3 class="mt8 mb0">Editor</h3>
+                <div class="text-muted">The editor have our highest level of trust</div>
+                <div class="text-muted">Highest level of partnership
+available, to help our customers have the best service possible</div>
+              </div>
+              <div class="col-md-4 text-center">
+                <img class="fa-heart" src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_training_partner_rgb.png" style="animation-play-state: paused; transition: none 0s ease 0s" width="50%"/>
+                <h3 class="mt8 mb0">Experience</h3>
+                <div class="text-muted">Sharing the experience is the best way</div>
+                <div class="text-muted">to ensure a strong
+relation with the Editor, we help him and our customers grow up</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="s_title">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h3 class="mb8">We're a nimble team</h3>
+                <h4 class="text-primary mb0 mt0 text-center">Doing mighty things</h4>
+                <p class="lead">Empowering companies to put agility first on their internal deployments of
+
+                  <span class="o_logo_inline">
+                    <span class="o_logo_main">Odoo</span></span>Designing solutions at the speed of a company evolving and changing its internal process to adapt new technologies
+
+                  <strong>Do you have a project or do you need a training?</strong>
+                  call us or write us an email at
+
+                  <span class="text-info">
+                    <a href="mailto:getstarted@vauxoo.com">getstarted@vauxoo.com</a></span>, learn more about our techniques and methodologies.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="s_four_columns_fw" style="height: 500px;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3  bg-gamma">
+                <h3>Methodology</h3>
+                <p class="text-muted">
+                  <i class="fa fa-clock-o fa-1x"/>Steps to success</p>
+                <p>Our methodology evolved as a product of the
+experience with different business models on all levels in the market, they
+were from little companies to big companies with failures and success helping
+us to build a system to ensure the success of an odoo implementation.</p>
+                <p>
+                  <a class="btn btn-info" href="/page/website.contactus" target="_blank">Discover more</a>
+                </p>
+              </div>
+              <div class="col-md-3 bg-beta">
+                <h3>Opensource</h3>
+                <p class="text-muted">
+                  <i class="fa fa-clock-o fa-1x"/>No lock-in</p>
+                <p>All the code produced under the control of our customers
+and giving the power to evolve and invest only in what you need when you need
+it, not-locked in is our statement to deploy your system.</p>
+                <p>
+                  <a class="btn btn-success" href="https://www.odoo.com/apps/modules?author=Vauxoo" target="_NEW">Full list</a>
+                </p>
+              </div>
+              <div class="col-md-3 bg-alpha">
+                <h3>Training</h3>
+                <p class="text-muted">
+                  <i class="fa fa-clock-o fa-1x"/>Knowledge</p>
+                <p>After develop and mantain 4 localizations and contribute
+in 4 others, we are the more than open to share our experience with
+you and become your team in experts.
+</p>
+                <p>
+                  <a class="btn btn-primary" href="http://www.eventbrite.com/o/vauxoo-1095165871" target="_NEW">Know More</a>
+                </p>
+              </div>
+              <div class="col-md-3 bg-img-12"/>
+            </div>
+          </div>
+        </section>
+        <section class="s_title text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="text-center">Since 2007</h1>
+                <h3 class="text-center text-muted">Our products &amp; services have helped hundreds of users and teams get stuff done with
+
+                  <span class="o_logo_inline">
+                    <span class="o_logo_main">Odoo</span>
+                    : </span>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="container hidden-lg hidden-md">
+            <div class="row">
+              <div class="col-xs-4">
+                <img alt="Customer 1" class="img                   img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_2.png"/>
+              </div>
+              <div class="col-xs-4">
+                <img alt="Customer 1" class="img           img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_3.png"/>
+              </div>
+              <div class="col-xs-4">
+                <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_4.png"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">
+                <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_15.png"/>
+              </div>
+              <div class="col-xs-4">
+                <img alt="Customer 1" class="img img-responsive   img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_6.png"/>
+              </div>
+              <div class="col-xs-4">
+                <img alt="Customer 1" class="img img-responsive   img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_7.jpg"/>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="s_references hidden-xs hidden-sm">
+          <div class="container">
+            <div class="col-lg-8 col-lg-offset-2 row">
+              <div class="row">
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_2.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_3.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_4.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_15.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_6.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_7.jpg"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_17.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_18.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_10.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_11.jpg"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_12.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_19.png"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_21.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_22.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_23.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_24.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_25.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_26.png"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_27.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_28.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_30.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_31.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_32.png"/>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_16.png"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </t>
+  </template>
+</odoo>

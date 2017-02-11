@@ -79,7 +79,20 @@
         "website_forum_doc",
         "website_sale",
         "website_hr_recruitment",
-        # "website_vauxoo",  # This will be integrate here by oscarolar
+        "website_sale_digital",  # Because in home we have link to shop
+        "website_quote",  # In order to allow customers see their quotes.
+        "website_event_track",  # Because in home we have link to /event
+        "website_forum_doc",  # Because in home we have link to our /doc
+        "website_blog",  # We need the blog :-)
+        "website_customer",  # To show our customer references.
+        "website_slides",  # To share documentation
+        "website_contract",  # To allow customers see them contracts.
+        "website_links",  # To start marketing campaigns
+        "website_hr",  # Employees in the team page, added here
+                       # because we are improving such view.
+        'website_crm',  # We need the contact form.
+        'auth_oauth',  # We need google authentication.
+
     ],
     "data": [
         "security/res_groups.xml",
@@ -92,6 +105,12 @@
         "data/base_automation.xml",
         "views/helpdesk.xml",
         "views/project.xml",
+        "views/assets.xml",
+        "views/homepage.xml",
+        "views/footer.xml",
+        "views/consulting.xml",
+        "views/methodology.xml",
+        "views/contactus.xml",
     ],
     "demo": [
         "demo/project.xml",
