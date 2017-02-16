@@ -58,6 +58,8 @@
         # Helpdesk
         "website_helpdesk_form",  # Enable sumbit ticket, auto install helpdesk
                                   # website_portal
+        # Expenses
+        "hr_expense",
 
         # "warning",  # Deprecated for 10.0
         # "sale_order_copy_line",  [MIG] vauxoo/addons-vauxoo#722
