@@ -36,9 +36,11 @@
             <link href="/theme_treehouse/static/src/less/snippets/s_separator_extended.less" rel="stylesheet" type="text/less"/>
             <link href="/theme_treehouse/static/src/less/snippets/s_share_extended.less" rel="stylesheet" type="text/less"/>
             <link href="/theme_treehouse/static/src/less/snippets/s_well_extended.less" rel="stylesheet" type="text/less"/>
+            <link href="/theme_treehouse/static/src/less/s_media_block.less" rel="stylesheet" type="text/less"/>
         </xpath>
         <xpath expr="//script[last()]" position="after">
             <script type="text/javascript" src="/theme_treehouse/static/src/js/theme_animation.js"></script>
+            <script type="text/javascript" src="/theme_treehouse/static/src/js/s_media_block_frontend.js"/>
         </xpath>
     </template>
 
@@ -51,6 +53,7 @@
             <script type="text/javascript" src="/theme_common/static/src/js/background_image.js"></script>
             <script type="text/javascript" src="/theme_common/static/src/js/s_collapse.js"></script>
             <script type="text/javascript" src="/theme_common/static/src/js/s_progress_bar.js"></script>
+            <script type="text/javascript" src="/theme_treehouse/static/src/js/s_media_block_editor.js"/>
         </xpath>
     </template>
 </odoo>

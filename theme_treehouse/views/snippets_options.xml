@@ -200,4 +200,17 @@
             </div>
         </xpath>
     </template>
+    <template id="media_block_top_content_options" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='background']" position="before">
+            <div data-js='graphene_top_banner_options' data-selector=".s_media_block, .s_parallax, .s_google_map">
+                <li class="dropdown-submenu move_to_top_options">
+                    <a tabindex="-1" href="#"><i class="fa fa-magic"/>Position</a>
+                    <ul class="dropdown-menu ">
+                        <li data-select_class=""><a>Normal</a></li>
+                        <li data-select_class="move_to_top"><a>Move to top</a></li>
+                    </ul>
+                </li>
+            </div>
+        </xpath>
+    </template>
 </odoo>

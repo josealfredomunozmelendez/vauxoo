@@ -3,7 +3,7 @@
   <template name="Vauxoo - Who are we" t-name="website.homepage">
     <t t-call="website.layout">
       <div class="oe_structure" id="wrap">
-        <section autoplay="autoplay" class="s_media_block mb12" header_type="video" iframefit="fitCont" loop="loop" mp4="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" muted="muted" ogg="https://s3.amazonaws.com/s3.vauxoo.com/frontend.ogg" style="height: 100%" webm="https://s3.amazonaws.com/s3.vauxoo.com/frontend.webm">
+<!--         <section autoplay="autoplay" class="s_media_block mb12" header_type="video" iframefit="fitCont" loop="loop" mp4="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" muted="muted" ogg="https://s3.amazonaws.com/s3.vauxoo.com/frontend.ogg" style="height: 100%" webm="https://s3.amazonaws.com/s3.vauxoo.com/frontend.webm">
           <div class="text-center container" style="background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0%;">
             <div class="col-md-6 col-md-offset-3 col-xs-12" style="max-height: 95%; padding-bottom: 15%">
               <h1>Open Source Specialists</h1>
@@ -15,7 +15,8 @@
               <a class="btn btn-warning btn-lg" href="/page/website.contactus">Can we help you?</a>
             </div>
           </div>
-        </section>
+        </section> -->
+        <section data-oe-call="theme_common.s_media_block"/>
         <section class="s_features">
           <div class="container">
             <div class="row mt16 mb16">

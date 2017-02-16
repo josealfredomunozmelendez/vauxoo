@@ -74,6 +74,7 @@
         "l10n_mx_edi",
 
         # Website modules
+        "theme_zap",
         "website_blog",
         "website_event",
         "website_forum_doc",

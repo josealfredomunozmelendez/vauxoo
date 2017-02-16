@@ -30,6 +30,7 @@
             <t t-snippet="theme_common.s_news_carousel" t-thumbnail="/theme_treehouse/static/src/img/snippets_thumbs/s_news_carousel.gif"/>
             <t t-snippet="theme_common.s_process_steps_2" t-thumbnail="/theme_treehouse/static/src/img/snippets_thumbs/s_process_steps_2.gif"/>
             <t t-snippet="theme_common.s_team_profiles_2" t-thumbnail="/theme_treehouse/static/src/img/snippets_thumbs/s_team_profiles_2.gif"/>
+            <t t-snippet="theme_common.s_media_block" t-thumbnail="/theme_treehouse/static/src/img/ui/s_media_block-thumb.jpg"/>
         </xpath>
     </template>
 
