@@ -4,7 +4,7 @@
 @color-delta: @color-01-delta;
 @color-epsilon: @color-01-epsilon;
 
-@gray-darker: #1d2127;
+@gray-darker: #333;
 @gray-dark: lighten(@gray-darker, 25%);
 @gray: lighten(@gray-darker, 50%);
 @gray-light: lighten(@gray-darker, 65%);
@@ -50,4 +50,12 @@
   @navbar-link-active-bg: @color-alpha;
   @navbar-link-active-color: #fff;
   @navbar-link-hover-color: @color-alpha;
+}
+.bg-gray-darker {
+  .btn-link {
+    color: @gray-lighter !important;
+  }
+}
+#copyright {
+  background-color: @gray-darker;
 }
