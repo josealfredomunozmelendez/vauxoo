@@ -54,7 +54,6 @@
         "project_forecast",      # Enable plan project/users with Gantt graph
         "rating_project",        # Enable rating. auto install rating
         "pad_project",           # Etherpad. auto install project and pad
-        # "hr_timesheet_reports",# This need to evolve in order to stay
 
         # Helpdesk
         "website_helpdesk_form",  # Enable sumbit ticket, auto install helpdesk
@@ -83,6 +82,7 @@
     ],
     "data": [
         "security/res_groups.xml",
+        "security/ir.model.access.csv",
         "data/set_configuration.yml",
         "data/res_users.xml",
         'data/website.xml',
@@ -92,6 +92,13 @@
         "data/base_automation.xml",
         "views/helpdesk.xml",
         "views/project.xml",
+        "data/hr_timesheet_invoice_data.xml",
+        "report/layout.xml",
+        "report/timesheet_template.xml",
+        "views/account_analytic_line_view.xml",
+        "views/hr_timesheet_reports_view.xml",
+        "views/hr_timesheet_reports_email.xml",
+        "wizard/set_invoice_view.xml",
     ],
     "demo": [
         "demo/project.xml",
