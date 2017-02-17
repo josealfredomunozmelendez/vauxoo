@@ -75,14 +75,10 @@
 
         # Website modules
         "theme_zap",
-        "website_blog",
         "website_event",
-        "website_forum_doc",
-        "website_sale",
         "website_hr_recruitment",
         "website_sale_digital",  # Because in home we have link to shop
         "website_quote",  # In order to allow customers see their quotes.
-        "website_event_track",  # Because in home we have link to /event
         "website_forum_doc",  # Because in home we have link to our /doc
         "website_blog",  # We need the blog :-)
         "website_customer",  # To show our customer references.
@@ -91,6 +87,10 @@
         "website_links",  # To start marketing campaigns
         "website_hr",  # Employees in the team page, added here
                        # because we are improving such view.
+        "website_sale_options",
+        "website_portal_sale",
+        "website_livechat",
+        "marketing_campaign",
         'website_crm',  # We need the contact form.
         'auth_oauth',  # We need google authentication.
 
