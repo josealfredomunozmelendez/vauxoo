@@ -6,3 +6,4 @@ instance.
 ### Welcome to the Vx Team!
 
 - [Project Management](/project)
+- [Expenses](/expenses)
