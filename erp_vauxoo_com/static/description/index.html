@@ -5,14 +5,95 @@
   </style>
  </head>
  <body>
-  <div class="document" id="install-all-apps-needed-to-comply-with-vauxoo-instance">
+  <section class="oe_container" id="description">
    <h2 class="oe_slogan">
     Install all apps needed to comply with Vauxoo instance
    </h2>
    <p class="oe_mt32">
-    TODO: Document all the references (read www_vauxoo_com module as an example)
+    This is the app module for instance vauxoo, it gathers all the dependencies
+required and all the configurations that are generate specially for our
+instance.
    </p>
-  </div>
+   <p class="oe_mt32">
+    Some modules that exist for version 8.0 were deprecated and part of its logic
+was extract and add it directly to this app: we set a little description for
+each one of this functionalities.
+   </p>
+   <div class="section oe_span12" id="invoiceable-hours-in-timesheet">
+    <h1>
+     Invoiceable hours in timesheet
+    </h1>
+    <p class="oe_mt32">
+     We have add the next fields to the timehseet line
+    </p>
+    <ul class="simple">
+     <li>
+      Invoiceable: Invoice rate that apply to the timesheet, could be No 0%, 33%,
+50%, 80%, 85%, 90% or 100%.
+     </li>
+     <li>
+      Invoiceable Hours: Is a compute field that let us now the quantity that will
+be invoiced taking into account the real duration and the invoice rate.
+     </li>
+     <li>
+      Invoice: The invoice related to the timesheet line.
+     </li>
+    </ul>
+    <p class="oe_mt32">
+     This fields are visibile for the user on the tree view of timehseet lines
+(account.analytic.line)
+    </p>
+    <p class="oe_mt32">
+     <strong>
+      NOTE:
+     </strong>
+     I take part of odoo/hr_timehseet_invoice and addons-vauxoo/user_story
+8.0 modules to be able to have this functionality.
+    </p>
+   </div>
+   <div class="section oe_span12" id="timesheet-reports">
+    <h1>
+     Timesheet Reports
+    </h1>
+    <p class="oe_mt32">
+     Timesheet reports used internally: A way to report timesheet's consumption of
+time. This ones were migrated only the basic, not completed migrate from api.
+With this functionality we can:
+    </p>
+    <blockquote>
+     <p class="oe_mt32">
+      1. Wizard to report timesheets to deliver to customers well presented and
+correctly ordered and audited.
+     </p>
+     <blockquote>
+      <ol class="loweralpha simple">
+       <li>
+        Filter between dates.
+       </li>
+       <li>
+        Group by month, by user or by analytic account.
+       </li>
+      </ol>
+     </blockquote>
+     <p class="oe_mt32">
+      2. Improve your communication to your customers delivering directly this
+report.
+     </p>
+     <ol class="arabic simple" start="3">
+      <li>
+       Save your reports to use them as auditory process.
+      </li>
+     </ol>
+    </blockquote>
+    <p class="oe_mt32">
+     <strong>
+      NOTE:
+     </strong>
+     Functionality partially migrated from hr_timesheet_report 8.0. All
+the references to user story model were deleted.
+    </p>
+   </div>
+  </section>
   <section class="oe_container">
    <div class="oe_row oe_spaced">
     <div class="oe_span6">
