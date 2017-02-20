@@ -1,7 +1,8 @@
 {
     'name': 'Theme Common',
     'summary': 'Snippets Library',
-    'description': 'Snippets library containing snippets to be styled in Less Themes.',
+    'description':
+        'Snippets library containing snippets to be styled in Less Themes.',
     'category': 'Hidden',
     'version': '1.1',
     'author': 'Odoo SA',
