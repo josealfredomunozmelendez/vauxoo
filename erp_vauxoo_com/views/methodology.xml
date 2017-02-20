@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="methodology" name="Vauxoo - Methodology" page="True">
+        <t t-call="website.layout">
+            <div class="oe_structure" id="wrap"/>
+        </t>
+    </template>
+</odoo>

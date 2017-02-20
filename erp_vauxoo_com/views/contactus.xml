@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="company_description" inherit_id="website.company_description" name="Company Description">
+    <xpath expr="//address" position="replace">
+      <t t-as="cont" t-foreach="res_company.website_address_ids">
+        <address itemscope="itemscope" itemtype="http://schema.org/Organization">
+          <h3>
+            <span t-raw="cont.country_id.name"/>
+          </h3>
+          <h5 class="text-muted">
+            <strong>Office: </strong>PUT THE CITY HERE: TODO</h5>
+          <span t-raw="cont.street"/>
+          <br/>
+          <span t-raw="cont.phone"/>
+          <br/>
+          <span t-raw="cont.mobile"/>
+          <br/>
+          <span t-raw="cont.fax"/>
+          <br/>
+          <span t-raw="cont.email"/>
+          <br/>
+        </address>
+        <a t-att-href="cont.google_map_link()" target="_BLANK">
+          <img class="thumbnail img-responsive" t-att-src="cont.google_map_img()"/>
+        </a>
+      </t>
+    </xpath>
+    <xpath expr="//a[@t-att-href='res_company.google_map_link()']" position="replace">
+      <div class="text-muted"/>
+    </xpath>
+  </template>
+</odoo>
