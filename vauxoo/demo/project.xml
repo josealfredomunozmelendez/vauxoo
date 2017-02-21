@@ -13,8 +13,8 @@
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="erp_vauxoo_com.implementantation_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.implementantation_team')"/>
+        <record id="vauxoo.implementantation_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('vauxoo.implementantation_team')"/>
         </record>
 
         <record id="training_team" model="project.project">
@@ -28,8 +28,8 @@
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="erp_vauxoo_com.training_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.training_team')"/>
+        <record id="vauxoo.training_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('vauxoo.training_team')"/>
         </record>
 
         <record id="internal_management_team" model="project.project">
@@ -42,8 +42,8 @@
             <field name="allow_timesheets" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="erp_vauxoo_com.internal_management_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.internal_management_team')"/>
+        <record id="vauxoo.internal_management_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('vauxoo.internal_management_team')"/>
         </record>
 
         <record id="i_d_team" model="project.project">
@@ -55,8 +55,8 @@
             <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
         </record>
-        <record id="erp_vauxoo_com.i_d_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.i_d_team')"/>
+        <record id="vauxoo.i_d_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('vauxoo.i_d_team')"/>
         </record>
 
         <record id="consulting_team" model="project.project">
@@ -69,8 +69,8 @@
             <field name="allow_timesheets" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="erp_vauxoo_com.consulting_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.consulting_team')"/>
+        <record id="vauxoo.consulting_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('vauxoo.consulting_team')"/>
         </record>
 
         <record id="support_team" model="project.project">
@@ -84,8 +84,8 @@
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="erp_vauxoo_com.support_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('erp_vauxoo_com.support_team')"/>
+        <record id="vauxoo.support_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('vauxoo.support_team')"/>
         </record>
 
     </data>

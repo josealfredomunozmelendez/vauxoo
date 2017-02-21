@@ -14,8 +14,8 @@
             string="Hr timesheet reports base"
             model="hr.timesheet.reports.base"
             report_type="qweb-pdf"
-            file="erp_vauxoo_com.timesheet_report_vauxoo"
-            name="erp_vauxoo_com.timesheet_report_vauxoo"
+            file="vauxoo.timesheet_report_vauxoo"
+            name="vauxoo.timesheet_report_vauxoo"
         />
 
 

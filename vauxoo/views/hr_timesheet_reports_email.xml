@@ -5,7 +5,7 @@
             <field name="name">Project Status Report</field>
             <field name="email_from">${(object.user_id.email or ''|safe)}</field>
             <field name="subject">${(object.title|safe)}</field>
-            <field name="model_id" ref="erp_vauxoo_com.model_hr_timesheet_reports_base"/>
+            <field name="model_id" ref="vauxoo.model_hr_timesheet_reports_base"/>
             <field name="auto_delete" eval="True"/>
             <field name="report_template" ref="hr_timesheet_reports_base"/>
             <field name="lang">${object.partner_id.lang}</field>
