@@ -94,7 +94,7 @@ clean_build:
     - sh -c "if  docker ps | grep instance${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
   when: always
 
-upload_image:
+compile_doc:
   stage: build
   only:
     - 10.0@vauxoo/instance
@@ -104,6 +104,15 @@ upload_image:
   script:
     - git clone -q git@git.vauxoo.com:vauxoo/instance.wiki.git
     - cd instance.wiki && cp -R ../vauxoo/doc/* . && git add . && git commit -m "[ADD] Updated by ${CI_BUILD_REF}" && git push origin master
+
+upload_image:
+  stage: build
+  only:
+    - 10.0@vauxoo/instance
+  when: on_success
+  tags:
+    - build
+  script:
     - docker pull ${BASE_IMAGE}
     - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i ${BASE_IMAGE} -O "${ODOO_REPO}#${ODOO_BRANCH}"
     - docker tag instance100 quay.io/vauxoo/vauxoo100:autobuild
