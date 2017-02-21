@@ -17,6 +17,6 @@
     </record>
     <record id="base.main_company" model="res.company">
         <field name="rml_header1">Opensource specialists.</field>
-        <field name="logo" type="base64" file="erp_vauxoo_com/static/src/img/banner.png"/>
+        <field name="logo" type="base64" file="vauxoo/static/src/img/banner.png"/>
     </record>
 </odoo>

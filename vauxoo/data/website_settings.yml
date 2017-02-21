@@ -1,0 +1,6 @@
+-
+    Vauxoo enable logo on the website
+-
+  !python {model: ir.ui.view}: |
+    ctx = dict(self.env.context, active_test=True)
+    self.with_context(ctx).browse(ref('website.layout_logo_show')).write({'active': True})

@@ -98,6 +98,7 @@
         "security/res_groups.xml",
         "security/ir.model.access.csv",
         "data/set_configuration.yml",
+        "data/website_settings.yml",
         "data/res_users.xml",
         'data/website.xml',
         'data/lang.xml',
