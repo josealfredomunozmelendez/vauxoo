@@ -8,6 +8,9 @@
         'default_user_rights': True,
         'auth_signup_uninvited': True,
         'alias_domain': 'www.vauxoo.com',
+        'group_multi_company': True,
+        'auth_signup_reset_password': True,
+        'auth_oauth_google_enabled': True,
     }
 -
   !python {model: base.config.settings}: |
