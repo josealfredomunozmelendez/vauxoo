@@ -97,9 +97,9 @@
 
     ],
     "data": [
-        "views/layout.xml",
         "security/res_groups.xml",
         "security/ir.model.access.csv",
+        "views/layout.xml",
         "data/set_configuration.yml",
         "data/website_settings.yml",
         "data/res_users.xml",
@@ -116,7 +116,6 @@
         "views/consulting.xml",
         "views/methodology.xml",
         "views/contactus.xml",
-
         "data/hr_timesheet_invoice_data.xml",
         "report/layout.xml",
         "report/timesheet_template.xml",

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template customize_show="True" id="layout_logo_show" inherit_id="website.layout" name="Show Logo">
+    <template customize_show="True" id="layout_logo_show" inherit_id="website.layout" name="Show Logo" active="False">
         <xpath expr="//header//a[@class='navbar-brand']" position="replace">
             <a class="navbar-brand logo" href="/">
                 <img src="/vauxoo/static/src/img/icon_big.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
