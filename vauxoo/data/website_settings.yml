@@ -6,6 +6,7 @@
     self.with_context(ctx).browse(ref('website.layout_logo_show')).write({'active': False})
     self.with_context(ctx).browse(ref('vauxoo.layout_logo_show')).write({'active': True})
     self.with_context(ctx).browse(ref('website_blog.opt_blog_post_author_avatar')).write({'active': True})
+    self.with_context(ctx).browse(ref('website_blog.opt_blog_rc_follow_us')).write({'active': True})
 -
   Setting Website Information
 -
@@ -37,7 +38,6 @@
         ref('website_forum.menu_questions'),
         ref('website_forum_doc.menu_questions'),
         ref('website_sale.menu_shop'),
-        ref('website_hr_recruitment.menu_jobs'),
     ])
     records.write({'parent_id': False})
 -
@@ -66,6 +66,5 @@
   !python {model: ir.ui.view}: |
     records = self.browse([
         ref('website_blog.opt_blog_rc_about_us'),
-        ref('website_blog.opt_blog_rc_follow_us'),
         ref('website_blog.opt_blog_rc_tags')])
     records.write({'active': False})

@@ -4,7 +4,7 @@
         <field name="name">About</field>
         <field name="url">/page/website.aboutus</field>
         <field name="parent_id" ref="website.main_menu"/>
-        <field name="sequence" type="int">10</field>
+        <field name="sequence" type="int">200</field>
     </record>
     <record id="website.default_website" model="website">
         <field name="name">www.vauxoo.com</field>
