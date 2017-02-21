@@ -114,13 +114,13 @@
             </div>
         </div>
         <div class="col-xs-12">
-            <t t-call="erp_vauxoo_com.ts_by_dates"/>
+            <t t-call="vauxoo.ts_by_dates"/>
         </div>
         <div class="col-xs-12">
-            <t t-call="erp_vauxoo_com.ts_by_analytic"/>
+            <t t-call="vauxoo.ts_by_analytic"/>
         </div>
         <div class="col-xs-12">
-            <t t-call="erp_vauxoo_com.ts_by_user"/>
+            <t t-call="vauxoo.ts_by_user"/>
         </div>
     </template>
     <template id="table_invoices" name="Invoices">
@@ -187,7 +187,7 @@
                 <div t-raw="o.ci2html"/>
             </div>
             <div class="col-xs-12">
-                 <t t-call="erp_vauxoo_com.table_invoices"/>
+                 <t t-call="vauxoo.table_invoices"/>
             </div>
         </div>
         <div class="col-xs-12">
@@ -390,14 +390,14 @@
         </t>
     </template>
     <template id="timesheet_vauxoo_report">
-        <t t-call="erp_vauxoo_com.external_layout">
+        <t t-call="vauxoo.external_layout">
             <div class="page">
                 <div class="container">
                     <t t-set="records" t-value="get_records(o)"/>
-                    <t t-call="erp_vauxoo_com.timesheets"/>
-                    <t t-call="erp_vauxoo_com.invoices"/>
-                    <t t-call="erp_vauxoo_com.issues"/>
-                    <t t-call="erp_vauxoo_com.details"/>
+                    <t t-call="vauxoo.timesheets"/>
+                    <t t-call="vauxoo.invoices"/>
+                    <t t-call="vauxoo.issues"/>
+                    <t t-call="vauxoo.details"/>
                 </div>
             </div>
         </t>
@@ -406,7 +406,7 @@
     <template id="timesheet_report_vauxoo">
         <t t-call="report.html_container">
             <t t-foreach="doc_ids" t-as="doc_id">
-                <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'erp_vauxoo_com.timesheet_vauxoo_report')"/>
+                <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'vauxoo.timesheet_vauxoo_report')"/>
             </t>
         </t>
     </template>

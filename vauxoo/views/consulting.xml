@@ -25,9 +25,9 @@
               </div>
             </div>
             <video autoplay="1" class="fillWidth" loop="1">
-              <source src="/erp_vauxoo_com/static/vid/file.mp4" type="video/mp4"/>
-              <source src="/erp_vauxoo_com/static/vid/file.ogv" type="video/ogg"/>
-              <source src="/erp_vauxoo_com/static/vid/studios.webm" type="video/webm"/>
+              <source src="/vauxoo/static/vid/file.mp4" type="video/mp4"/>
+              <source src="/vauxoo/static/vid/file.ogv" type="video/ogg"/>
+              <source src="/vauxoo/static/vid/studios.webm" type="video/webm"/>
             </video>
           </div>
           <!-- end video-container -->
@@ -52,7 +52,7 @@
           <div class="row zen_3col_padding ">
             <div class="col-md-4">
               <div style="text-align: center;">
-                <img src="/erp_vauxoo_com/static/icons/strategy.png" style=""/>
+                <img src="/vauxoo/static/icons/strategy.png" style=""/>
               </div>
               <h3 class="mt64">
                 <span style="color:#000000;">Strategy</span>
@@ -64,7 +64,7 @@
             </div>
             <div class="col-md-4">
               <div style="text-align: center;">
-                <img src="/erp_vauxoo_com/static/icons/communication.png" style=""/>
+                <img src="/vauxoo/static/icons/communication.png" style=""/>
               </div>
               <h3 class="mt64">
                 <font color="#000000">Interaction with you</font>
@@ -76,7 +76,7 @@
             </div>
             <div class="col-md-4">
               <div style="text-align: center;">
-                <img src="/erp_vauxoo_com/static/icons/solutions.png" style=""/>
+                <img src="/vauxoo/static/icons/solutions.png" style=""/>
               </div>
               <h3 class="mt64">
                 <font color="#000000">Solutions</font>
@@ -93,37 +93,37 @@
             <h2 class="light centered-text smaller hide-medium" style="text-align: center;">We have been there, we have done that, companies with 1000+ employees are our experience backup.</h2>
             <ul class="list-inline" style="text-align: center;">
               <li>
-                <img alt="Agrinos" class="clients" src="/erp_vauxoo_com/static/img/agrinos.png" style=""/>
+                <img alt="Agrinos" class="clients" src="/vauxoo/static/img/agrinos.png" style=""/>
               </li>
               <li>
-                <img alt="Alce" class="clients" src="/erp_vauxoo_com/static/img/alce.png"/>
+                <img alt="Alce" class="clients" src="/vauxoo/static/img/alce.png"/>
               </li>
               <li>
-                <img alt="amd" class="clients" src="/erp_vauxoo_com/static/img/amd.jpg"/>
+                <img alt="amd" class="clients" src="/vauxoo/static/img/amd.jpg"/>
               </li>
               <li>
-                <img alt="foam" class="clients" src="/erp_vauxoo_com/static/img/foam.jpg"/>
+                <img alt="foam" class="clients" src="/vauxoo/static/img/foam.jpg"/>
               </li>
               <li>
-                <img alt="gbw" class="clients" src="/erp_vauxoo_com/static/img/gbw.png"/>
+                <img alt="gbw" class="clients" src="/vauxoo/static/img/gbw.png"/>
               </li>
               <li class="show-for-large-up">
-                <img alt="industriasdiana" class="clients" src="/erp_vauxoo_com/static/img/industriasdiana.png"/>
+                <img alt="industriasdiana" class="clients" src="/vauxoo/static/img/industriasdiana.png"/>
               </li>
               <li class="show-for-large-up">
-                <img alt="ingelub" class="clients" src="/erp_vauxoo_com/static/img/ingelub.jpg"/>
+                <img alt="ingelub" class="clients" src="/vauxoo/static/img/ingelub.jpg"/>
               </li>
               <li class="show-for-large-up">
-                <img alt="saberysabor" class="clients" src="/erp_vauxoo_com/static/img/saberysabor.png"/>
+                <img alt="saberysabor" class="clients" src="/vauxoo/static/img/saberysabor.png"/>
               </li>
               <li class="show-for-large-up">
-                <img alt="tecvemar" class="clients" src="/erp_vauxoo_com/static/img/tecvemar.gif"/>
+                <img alt="tecvemar" class="clients" src="/vauxoo/static/img/tecvemar.gif"/>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="container vx_wrapper parallax" data-scroll-background-offset="0" data-scroll-background-ratio="0.3" style="background-image: url(/erp_vauxoo_com/static/img/odoo_photo.png); background-attachment: scroll; background-position: 0px 48.3px; height: 600px; width:100%;">
+      <div class="container vx_wrapper parallax" data-scroll-background-offset="0" data-scroll-background-ratio="0.3" style="background-image: url(/vauxoo/static/img/odoo_photo.png); background-attachment: scroll; background-position: 0px 48.3px; height: 600px; width:100%;">
         <div class="row">
           <div class="col-md-12 text-center mt32 mb32">
             <h2>
@@ -133,7 +133,7 @@
             </h2>
           </div>
           <div class="col-md-12 text-center">
-            <img class="img img-responsive" src="/erp_vauxoo_com/static/img/odoo.png" style="background-repeat: no-repeat; margin: 0 auto;"/>
+            <img class="img img-responsive" src="/vauxoo/static/img/odoo.png" style="background-repeat: no-repeat; margin: 0 auto;"/>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@
   <template customize_show="True" id="footer_consulting" inherit_id="website.footer_default" name="Automatic Footer">
     <xpath expr="//ul[@id='products']" positio="last()">
       <li>
-        <a href="/page/erp_vauxoo_com.vauxoo_consulting">Consulting</a>
+        <a href="/page/vauxoo.vauxoo_consulting">Consulting</a>
       </li>
     </xpath>
   </template>

@@ -353,7 +353,7 @@ class HrTimesheetReportsBase(models.Model):
 
     def do_report(self, cr, uid, ids, context=None):
         return self.pool['report'].\
-            get_action(cr, uid, ids, 'erp_vauxoo_com.timesheet_report_vauxoo',
+            get_action(cr, uid, ids, 'vauxoo.timesheet_report_vauxoo',
                        context=context)
 
     def go_to_timesheet(self, cr, uid, ids, context=None):
@@ -409,7 +409,7 @@ class HrTimesheetReportsBase(models.Model):
         self.ensure_one()
         try:
             template_id = self.env.ref(
-                'erp_vauxoo_com.email_reports_base')  # noqa
+                'vauxoo.email_reports_base')  # noqa
         except ValueError:
             template_id = False
         try:

@@ -53,10 +53,10 @@
                     </section>
                 </div>
             </footer>
-            <t t-call="erp_vauxoo_com.vauxoo_copyright" t-if="website"/>
+            <t t-call="vauxoo.vauxoo_copyright" t-if="website"/>
         </xpath>
     </template>
-    <template id="erp_vauxoo_com.submenu" name="Submenu">
+    <template id="vauxoo.submenu" name="Submenu">
         <t t-if="website and website.menu_id.child_id[0] != submenu">
             <a class="btn btn-link btn-xs" t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-att-target="'_blank' if submenu.new_window else None" t-if="not submenu.child_id" t-ignore="true">
                 <span t-field="submenu.name" t-if="website.menu_id.child_id[0] != submenu"/>
@@ -69,14 +69,14 @@
             </a>
         </t>
     </template>
-    <template id="erp_vauxoo_com.bottom_menu" name="Bottom Submenu">
+    <template id="vauxoo.bottom_menu" name="Bottom Submenu">
         <div aria-label="..." class="btn-group btn-group-xs" role="group">
             <t t-as="submenu" t-foreach="website and website.menu_id.child_id or []">
-                <t t-call="erp_vauxoo_com.submenu"/>
+                <t t-call="vauxoo.submenu"/>
             </t>
         </div>
     </template>
-    <template id="erp_vauxoo_com.social_buttons_copyright" name="Social Buttons">
+    <template id="vauxoo.social_buttons_copyright" name="Social Buttons">
         <div aria-label="..." class="btn-group btn-group-xs" role="group">
             <a class="btn btn-xs btn-link" t-att-href="website and website.social_facebook or '#'" t-if="website and website.social_facebook">
                 <i class="fa fa-3x fa-facebook-square fa-lg"/>
@@ -107,10 +107,10 @@
             <div class="container text-center">
                 <div class="col-xs-12">
                     <!-- TODO: Skype User ¿? channel User?¿ is it enought -->
-                    <t t-call="erp_vauxoo_com.social_buttons_copyright"/>
+                    <t t-call="vauxoo.social_buttons_copyright"/>
                 </div>
                 <div class="col-xs-12">
-                    <t t-call="erp_vauxoo_com.bottom_menu"/>
+                    <t t-call="vauxoo.bottom_menu"/>
                 </div>
                 <div class="col-xs-12">
                     <strong>
@@ -125,7 +125,7 @@
                 <div class="row">
                     <div class="col-md-5 col-lg-5" name="info">
                         <div class="row">
-                            <t t-call="erp_vauxoo_com.bottom_menu"/>
+                            <t t-call="vauxoo.bottom_menu"/>
                         </div>
                         <div class="row">
                             <strong>
@@ -141,7 +141,7 @@
                     </div>
                     <div class="text-right col-xs-12 col-md-5 col-lg-5" name="info">
                         <!-- TODO: Skype User ¿? channel User?¿ is it enought -->
-                        <t t-call="erp_vauxoo_com.social_buttons_copyright"/>
+                        <t t-call="vauxoo.social_buttons_copyright"/>
                     </div>
                 </div>
             </div>
