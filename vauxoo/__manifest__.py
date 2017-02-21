@@ -74,6 +74,7 @@
 
         # Website modules
         "theme_graphene",
+        'website_crm',  # We need the contact form.
         "website_event",
         "website_hr_recruitment",
         "website_sale_digital",  # Because in home we have link to shop
@@ -89,8 +90,9 @@
         "website_sale_options",
         "website_portal_sale",
         "website_livechat",
+        "website_twitter",
+        "payment_paypal",
         "marketing_campaign",
-        'website_crm',  # We need the contact form.
         'auth_oauth',  # We need google authentication.
 
     ],
