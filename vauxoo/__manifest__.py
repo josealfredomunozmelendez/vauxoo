@@ -73,7 +73,7 @@
         "l10n_mx_edi",
 
         # Website modules
-        "theme_zap",
+        "theme_graphene",
         "website_event",
         "website_hr_recruitment",
         "website_sale_digital",  # Because in home we have link to shop
