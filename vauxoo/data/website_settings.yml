@@ -22,7 +22,9 @@
      'group_product_variant': True,
      'group_website_multiimage': True,
      'default_invoice_policy': 'delivery',
-   }
+     'twitter_api_key': 3NXIaYeX9q8MAbHoGqwXceDuy,
+     'twitter_api_secret': QTF1I7jP2Fmd1GDlkA20cY2x1jeCeARU5Ibu7x7sKwfzOxz0Ob,
+     'twitter_screen_name': odoo,}
 -
   !python {model: website.config.settings}: |
     self.browse(ref('vx_website_config')).execute()
