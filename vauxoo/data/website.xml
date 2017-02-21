@@ -14,6 +14,7 @@
         <field name="social_googleplus">https://plus.google.com/+vauxoo</field>
         <field name="social_linkedin">http://www.linkedin.com/company/vauxoo</field>
         <field name="social_github">http://vauxoo.github.io</field>
+        <field name="favicon" type="base64" file="vauxoo/static/src/img/iconvauxoo.ico"/>
     </record>
     <record id="base.main_company" model="res.company">
         <field name="rml_header1">Opensource specialists.</field>

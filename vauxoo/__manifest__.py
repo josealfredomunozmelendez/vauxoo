@@ -95,6 +95,7 @@
 
     ],
     "data": [
+        "views/layout.xml",
         "security/res_groups.xml",
         "security/ir.model.access.csv",
         "data/set_configuration.yml",
