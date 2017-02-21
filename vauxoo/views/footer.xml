@@ -58,7 +58,7 @@
     </template>
     <template id="vauxoo.submenu" name="Submenu">
         <t t-if="website and website.menu_id.child_id[0] != submenu">
-            <a class="btn btn-link btn-xs" t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-att-target="'_blank' if submenu.new_window else None" t-if="not submenu.child_id" t-ignore="true">
+            <a class="btn btn-link btn-xs mt8" t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-att-target="'_blank' if submenu.new_window else None" t-if="not submenu.child_id" t-ignore="true">
                 <span t-field="submenu.name" t-if="website.menu_id.child_id[0] != submenu"/>
             </a>
         </t>
@@ -104,7 +104,7 @@
     <!-- Setting the copyright placeholder. -->
     <template id="vauxoo_copyright" name="Vauxoo Copyright">
         <section class="row hidden-lg hidden-md bg-gray-darker" id="copyright">
-            <div class="container text-center">
+            <div class="container text-center mt32">
                 <div class="col-xs-12">
                     <!-- TODO: Skype User ¿? channel User?¿ is it enought -->
                     <t t-call="vauxoo.social_buttons_copyright"/>
@@ -122,7 +122,7 @@
         </section>
         <section class="row hidden-xs hidden-sm bg-gray-darker" id="copyright">
             <div class="container" name="info">
-                <div class="row">
+                <div class="row mt24">
                     <div class="col-md-5 col-lg-5" name="info">
                         <div class="row">
                             <t t-call="vauxoo.bottom_menu"/>
