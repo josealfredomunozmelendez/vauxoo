@@ -125,6 +125,7 @@
         "views/hr_timesheet_reports_view.xml",
         "views/hr_timesheet_reports_email.xml",
         "wizard/set_invoice_view.xml",
+        "views/wizard_view.xml",
     ],
     "demo": [
         "demo/project.xml",
