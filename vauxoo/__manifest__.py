@@ -73,7 +73,8 @@
         "l10n_mx_edi",
 
         # Website modules
-        "theme_zap",
+        "theme_graphene",
+        'website_crm',  # We need the contact form.
         "website_event",
         "website_hr_recruitment",
         "website_sale_digital",  # Because in home we have link to shop
@@ -89,18 +90,21 @@
         "website_sale_options",
         "website_portal_sale",
         "website_livechat",
+        "website_twitter",
+        "payment_paypal",
         "marketing_campaign",
-        'website_crm',  # We need the contact form.
         'auth_oauth',  # We need google authentication.
 
     ],
     "data": [
         "security/res_groups.xml",
         "security/ir.model.access.csv",
+        "views/layout.xml",
         "data/set_configuration.yml",
-        "data/res_users.xml",
+        "data/website_settings.yml",
         'data/website.xml',
         'data/lang.xml',
+        "security/res_users.xml",
         'data/project_tags.xml',
         "data/ir_actions_server.xml",
         "data/base_automation.xml",
@@ -112,7 +116,6 @@
         "views/consulting.xml",
         "views/methodology.xml",
         "views/contactus.xml",
-
         "data/hr_timesheet_invoice_data.xml",
         "report/layout.xml",
         "report/timesheet_template.xml",

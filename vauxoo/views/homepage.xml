@@ -2,230 +2,225 @@
 <odoo>
   <template name="Vauxoo - Who are we" t-name="website.homepage">
     <t t-call="website.layout">
-      <div class="oe_structure" id="wrap">
-<!--         <section autoplay="autoplay" class="s_media_block mb12" header_type="video" iframefit="fitCont" loop="loop" mp4="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" muted="muted" ogg="https://s3.amazonaws.com/s3.vauxoo.com/frontend.ogg" style="height: 100%" webm="https://s3.amazonaws.com/s3.vauxoo.com/frontend.webm">
-          <div class="text-center container" style="background: rgba(0, 0, 0, 0.4) none repeat scroll 0% 0%;">
-            <div class="col-md-6 col-md-offset-3 col-xs-12" style="max-height: 95%; padding-bottom: 15%">
-              <h1>Open Source Specialists</h1>
-              <p class="mb8 lead">
-                <strong>VAUXOO</strong> is a latinamerican company that provides training, coaching, development and implementation of enterprise management sytems and bases its entire operation strategy in the use of Open Source Software and its main product is
-                <span class="o_logo_inline">
-                  <span class="o_logo_main">Odoo</span></span> since 2007.</p>
-              <hr class="s_separator"/>
-              <a class="btn btn-warning btn-lg" href="/page/website.contactus">Can we help you?</a>
-            </div>
-          </div>
-        </section> -->
-        <section data-oe-call="theme_common.s_media_block"/>
-        <section class="s_features">
-          <div class="container">
-            <div class="row mt16 mb16">
-              <div class="col-md-4 text-center">
-                <img class="fa-suitcase" src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_community_member_rgb.png" style="" width="50%"/>
-                <h3 class="mt8 mb0">Community</h3>
-                <div class="text-muted">With more than 600 modules contributed</div>
-                <div class="text-muted">the biggest quantity available for an individual company</div>
-              </div>
-              <div class="col-md-4 text-center">
-                <img src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_gold_partner_rgb.png" style="animation-play-state: paused; transition: none 0s ease 0s" width="50%"/>
-                <h3 class="mt8 mb0">Editor</h3>
-                <div class="text-muted">The Editor have our highest level of trust</div>
-                <div class="text-muted">The highest level of partnership
-available, to help our customers to get the best service possible</div>
-              </div>
-              <div class="col-md-4 text-center">
-                <img class="fa-heart" src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_training_partner_rgb.png" style="animation-play-state: paused; transition: none 0s ease 0s" width="50%"/>
-                <h3 class="mt8 mb0">Experience</h3>
-                <div class="text-muted">Sharing the experience is the best way</div>
-                <div class="text-muted">to ensure a strong
-relation with the Editor, we help him and our customers grow up</div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="s_title">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <h3 class="mb8">We're a nimble team</h3>
-                <h4 class="text-primary mb0 mt0 text-center">Doing mighty things</h4>
-                <p class="lead">Empowering companies to put agility first on their internal deployments of
-
+      <div class="oe_structure hidden-xs hidden-sm" id="wrap">
+        <section autoplay="autoplay" background="js-animated-bg" class="s_media_block move_to_top preserve3d" custom_content="&lt;iframe src='https://www.youtube.com/embed/LyEz6Ru2IwY'&gt;&lt;/iframe&gt;" iframefit="fitCont" loop="loop" muted="muted" opacity="1" src="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" style="height: 100vh;">
+          <div class="v-align text-center">
+            <div class=" hidden-sm text-center container">
+              <div class="col-md-6 col-md-offset-3 col-xs-12" style="max-height: 95%; padding-bottom: 15%">
+                <h1>Open Source Specialists</h1>
+                <p class="mb8 lead">We are a Latin American company that provides training, coaching, development and implementation of enterprise management, our entire operation strategy is based in the use of Open Source Software and our main product is
                   <span class="o_logo_inline">
-                    <span class="o_logo_main">Odoo, </span></span>Designing solutions at the speed of a company evolving and changing its internal process to adapt new technologies
-
-                  <strong>Do you have a project or do you need a training?</strong>
-                  call us or write us an email at
-
-                  <span class="text-info">
-                    <a href="mailto:getstarted@vauxoo.com">getstarted@vauxoo.com</a></span>, learn more about our techniques and methodologies.</p>
+                    <span class="o_logo_main">Odoo</span></span>since 2007.</p>
+                <hr class="s_separator"/>
+                <a class="btn btn-warning btn-lg" href="/page/website.contactus">Want to know more?</a>
               </div>
             </div>
           </div>
         </section>
-        <section class="s_four_columns_fw" style="height: 500px;">
+      </div>
+      <div class="oe_structure hidden-lg">
+        <section>
+          <div class="hidden-lg hidden-md text-center container">
+            <div class="col-md-6 col-md-offset-3 col-xs-12" style="min-height: 50vh; margin-top: 35%">
+              <h1 class="text-black mt32">Open Source Specialists</h1>
+              <p class="mb8 lead text-black">We are a Latin American company that provides training, coaching, development and implementation of enterprise management, our entire operation strategy is based in the use of Open Source Software and our main product is
+                <span class="o_logo_inline">
+                  <span class="o_logo_main">Odoo</span></span>since 2007.</p>
+              <hr class="s_separator"/>
+              <a class="btn btn-warning btn-lg" href="/page/website.contactus">Want to know more?</a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="oe_structure">
+        <section class="s_references o_animate mb0 o_visible o_animating hidden-xs hidden-sm" style="background-color: white;">
+          <div class="content">
+            <div class="row" style="opacity: .5;">
+              <div class="col-md-2 mt32">
+                <h4 class="text-center mt16">Our References</h4>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt32 mb48">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_18.png"/>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt16 mb16">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_11.jpg"/>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt48 mb16">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_27.png"/>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt32 mb16">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_10.png"/>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt48 mb16">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_23.png"/>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt16 mb16">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_31.png"/>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt32 mb16">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_17.png"/>
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-6 mt32 mb16">
+                <img alt="Demo Logo" class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_2.png"/>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="text-center bg-epsilon o_animate o_anim_pulse o_visible o_animated">
           <div class="container">
             <div class="row">
-              <div class="col-md-3  bg-gamma">
-                <h3>Methodology</h3>
-                <p class="text-muted">
-                  <i class="fa fa-clock-o fa-1x"/>Steps to success</p>
-                <p>Our methodology has evolved as result of the
-experience with different business models on all levels in the market, they
-were from little companies to big companies with failures and success, helping
-us to build a system to ensure the success of an Odoo implementation.</p>
-                <p>
-                  <a class="btn btn-info" href="/page/website.contactus" target="_blank">Discover more</a>
-                </p>
+              <div class="col-md-12 mt32">
+                <h1>We're a Nimble Team</h1>
+                <p class="lead">Empowering companies to put agility first on their internal deployments of Odoo, Designing solutions at the speed of your company evolution.</p>
               </div>
-              <div class="col-md-3 bg-beta">
-                <h3>Opensource</h3>
-                <p class="text-muted">
-                  <i class="fa fa-clock-o fa-1x"/>No lock-in</p>
-                <p>All the code produced under the control of our customers
-and giving the power to evolve and invest only in what you need when you need
-it, not-locked in is our statement to deploy your system.</p>
+            </div>
+          </div>
+        </section>
+        <section class="s_showcase bg-epsilon o_animate o_anim_pulse o_visible o_animated">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-5 col-sm-5 text-right feature">
+                <h4>Opensource
+                  <span class="fa fa-code fa-2x"/>
+                  <br/></h4>
+                <p>All the code produced under the control of our customers and giving the power to evolve and invest only in what you need when you need it, not-locked in is our statement to deploy your system.</p>
                 <p>
                   <a class="btn btn-success" href="https://www.odoo.com/apps/modules?author=Vauxoo" target="_NEW">Full list</a>
                 </p>
               </div>
-              <div class="col-md-3 bg-alpha">
-                <h3>Training</h3>
-                <p class="text-muted">
-                  <i class="fa fa-clock-o fa-1x"/>Knowledge</p>
-                <p>After developing and mantaining 4 localizations and contributed
-to 4 of them, we are more than open to share our experience with
-you and turn your team in experts.
-</p>
+              <div class="col-md-5 col-sm-5 col-sm-offset-2 text-left feature">
+                <h4>Methodology
+                  <span class="fa fa-crosshairs fa-2x"/>
+                  <br/></h4>
+                <p>Our methodology has evolved as result of the experience with different business models on all levels in the market, they were from little companies to big companies with failures and success, helping us to build a system to ensure the success of an Odoo implementation.</p>
+                <p>
+                  <a class="btn btn-info" href="/page/website.contactus" target="_blank">Discover more</a>
+                </p>
+              </div>
+            </div>
+            <div class="row mb32">
+              <div class="col-md-5 col-sm-5 text-right feature">
+                <h4>
+                  <span class="fa fa-user-plus fa-2x"/>Trainning</h4>
+                <p>After developing and mantaining 4 localizations and contributed to 4 of them, we are more than open to share our experience with you and turn your team in experts.</p>
                 <p>
                   <a class="btn btn-primary" href="http://www.eventbrite.com/o/vauxoo-1095165871" target="_NEW">Know More</a>
                 </p>
               </div>
-              <div class="col-md-3 bg-img-12"/>
-            </div>
-          </div>
-        </section>
-        <section class="s_title text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="text-center">Since 2007</h1>
-                <h3 class="text-center text-muted">Our products &amp; services have helped hundreds of users and teams get stuff done with
-
-                  <span class="o_logo_inline">
-                    <span class="o_logo_main">Odoo</span>
-                    : </span>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="container hidden-lg hidden-md">
-            <div class="row">
-              <div class="col-xs-4">
-                <img alt="Customer 1" class="img                   img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_2.png"/>
-              </div>
-              <div class="col-xs-4">
-                <img alt="Customer 1" class="img           img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_3.png"/>
-              </div>
-              <div class="col-xs-4">
-                <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_4.png"/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-4">
-                <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_15.png"/>
-              </div>
-              <div class="col-xs-4">
-                <img alt="Customer 1" class="img img-responsive   img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_6.png"/>
-              </div>
-              <div class="col-xs-4">
-                <img alt="Customer 1" class="img img-responsive   img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_7.jpg"/>
+              <div class="col-md-5 col-sm-5 col-sm-offset-2 feature text-left">
+                <h4>Support
+                  <span class="fa fa-2x fa-life-bouy"/></h4>
+                <p>You can always rely on us to get the best solution in less time, we are a team of experts where our roles are clear and we as a team, know every area of expertise on a deep level.</p>
+                <p>
+                  <a class="btn btn-warning" href="/helpdesk" target="_blank">Come and see</a>
+                </p>
               </div>
             </div>
           </div>
         </section>
-        <section class="s_references hidden-xs hidden-sm">
+        <div class="s_animated_boxes row">
+          <div class="col-sm-4 col-md-4 item oe_custom_bg oe_img_bg o_bg_img_opt_custom" data-name="Box item" style="height: 200px; background-image: url(&quot;https://s3.amazonaws.com/s3.vauxoo.com/odoo_community_member_rgb.png&quot;); background-size: 50%; background-position: 50% 50%;">
+            <div class="v-align preserve3d">
+              <div class="oe_structure"/>
+            </div>
+            <div class="slide bg-black-75" data-name="Inner Slide">
+              <div class="v-align">
+                <h3>Community</h3>
+                <p>With more than 600 modules contributed the biggest quantity available for an individual company</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 item oe_custom_bg oe_img_bg o_bg_img_opt_custom" data-name="Box item" style="height: 200px; background-image: url(&quot;https://s3.amazonaws.com/s3.vauxoo.com/odoo_gold_partner_rgb.png&quot;); background-size: 50%; background-position: 50% 50%;">
+            <div class="v-align preserve3d">
+              <div class="oe_structure"/>
+            </div>
+            <div class="slide bg-black-75" data-name="Inner Slide">
+              <div class="v-align">
+                <h3>Editor</h3>
+                <p>The highest level of partnership available, to help our customers to get the best service possible</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 item o_bg_img_opt_custom oe_custom_bg oe_img_bg" data-name="Box item" style="height: 200px; background-size: 50%; background-position: 50% 50%; background-image: url(&quot;https://s3.amazonaws.com/s3.vauxoo.com/odoo_training_partner_rgb.png&quot;);">
+            <div class="v-align preserve3d">
+              <div class="oe_structure"/>
+            </div>
+            <div class="slide bg-black-75" data-name="Inner Slide">
+              <div class="v-align">
+                <h3>Experience</h3>
+                <p>Sharing the experience is the best wayto ensure a strong relation with the Editor, we help him and our customers grow up</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="parallax s_parallax_slider oe_custom_bg oe_img_bg o_animate insetShadowBig o_visible o_animating" data-scroll-background-ratio="1.2" style=" min-height: 50vh;">
+          <span class="s_parallax_bg oe_custom_bg oe_img_bg" style="top: -110.64px; bottom: -110.64px; transform: translateY(45px); background-position: 0% 0%; background-image: url(&quot;http://localhost:8070/website/static/src/img/backgrounds/type.jpg&quot;);"/>
+          <div>
+            <div class="oe_structure">
+              <div class="carousel quotecarousel slide mb128 mt128" data-interval="10000" id="myCarousel1487688281148">
+                <ol class="carousel-indicators mb0">
+                  <li class="" data-slide-to="0" data-target="#myCarousel1487688281148"/>
+                  <li class="active" data-slide-to="1" data-target="#myCarousel1487688281148"/>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="item text_only">
+                    <div class="container">
+                      <div class="content">
+                        <div class="row">
+                          <blockquote class="col-md-8 mb0 mt64">
+                            <p>
+                              <font class="text-white" style="font-size: 24px;">Vauxoo Just nailed it, the team is super relaxed, we achieved the implementation of 4 companies with Odoo.</font>
+                            </p>
+                            <small>
+                              <font style="font-size: 18px;">Peter Parker</font>
+                            </small>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item text_only active">
+                    <div class="container">
+                      <div class="content">
+                        <div class="row">
+                          <blockquote class="mb16 col-md-8 mt64">
+                            <p>
+                              <font class="text-white" style="font-size: 24px;">They are by far the best option in Latin America, each member of the team know his thing.</font>
+                            </p>
+                            <small>Cicsa.
+                              <br/></small>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="twitter" data-screen-name="OpenERP" data-limit="15">
+          <div class="twitter_timeline">
+          </div>
+        </section>
+        <section class="jumbotron s_button bg-gray-lighter">
           <div class="container">
-            <div class="col-lg-8 col-lg-offset-2 row">
-              <div class="row">
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_2.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_3.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_4.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_15.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_6.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_7.jpg"/>
-                </div>
+            <div class="row">
+              <div class="col-md-9">
+                <p class="mb0">
+                  <strong>Do you have a project or need trainning?</strong>
+                </p>
+                <p class="mb0">Call us or drop us a line at:
+                  <a href="mailto:getstarted@vauxoo.com">getstarted@vauxoo.com</a>
+                  to learn more about our thechniques</p>
+                <p class="mb0">and metodologies.
+                  <br/></p>
               </div>
-              <div class="row">
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_17.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_18.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_10.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_11.jpg"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_12.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_19.png"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_21.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_22.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_23.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_24.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_25.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_26.png"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_27.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_28.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_30.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_31.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_32.png"/>
-                </div>
-                <div class="col-lg-2 col-md-2">
-                  <img alt="Customer 1" class="img img-responsive img-thumbnail" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo_partner_16.png"/>
-                </div>
+              <div class="col-md-3">
+                <a class="btn btn-primary btn-lg pull-right mt8" data-original-title="" href="/page/website.contactus" style="position: relative; overflow: hidden;" title="">
+                  <span class="o_default_snippet_text" data-original-title="" title="">Contact Us Now</span>
+                  <i class="fa fa-chevron-right"/>
+                </a>
               </div>
             </div>
           </div>

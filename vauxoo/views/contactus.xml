@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="company_description" inherit_id="website.company_description" name="Company Description">
+  <template id="company_description" inherit_id="website.company_description" name="Company Description" active="False" customize_show="True">
     <xpath expr="//address" position="replace">
       <t t-as="cont" t-foreach="res_company.website_address_ids">
         <address itemscope="itemscope" itemtype="http://schema.org/Organization">
