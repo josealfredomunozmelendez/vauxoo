@@ -154,7 +154,7 @@
           </div>
         </div>
         <section class="parallax s_parallax_slider oe_custom_bg oe_img_bg o_animate insetShadowBig o_visible o_animating" data-scroll-background-ratio="1.2" style=" min-height: 50vh;">
-          <span class="s_parallax_bg oe_custom_bg oe_img_bg" style="top: -110.64px; bottom: -110.64px; transform: translateY(45px); background-position: 0% 0%; background-image: url(&quot;http://localhost:8070/website/static/src/img/backgrounds/type.jpg&quot;);"/>
+          <span class="s_parallax_bg oe_custom_bg oe_img_bg" style="top: -110.64px; bottom: -110.64px; transform: translateY(45px); background-position: 0% 0%; background-image: url(https://s3.amazonaws.com/s3.vauxoo.com/type.jpg);"/>
           <div>
             <div class="oe_structure">
               <div class="carousel quotecarousel slide mb128 mt128" data-interval="10000" id="myCarousel1487688281148">
