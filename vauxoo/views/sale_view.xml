@@ -19,10 +19,10 @@
                 </xpath>
             </field>
         </record>
-        <record id="crm_case_section_view_form" model="ir.ui.view">
-            <field name="name">crm.case.section.form</field>
-            <field name="model">crm.case.section</field>
-            <field name="inherit_id" ref="sales_team.crm_case_section_view_form"/>
+        <record id="crm_team_view_form" model="ir.ui.view">
+            <field name="name">crm.team.form</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="address_id"/>

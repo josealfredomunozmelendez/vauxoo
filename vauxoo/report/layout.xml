@@ -26,7 +26,7 @@
                         <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/logo.png" style="max-width: 175px;"/>
                     </div>
                     <div class="col-xs-6">
-                        <h5 class="text-center" t-field="o.name"/>
+                        <h5 class="text-center" t-field="doc.name"/>
                     </div>
                  </div>
              </div>
@@ -39,7 +39,7 @@
                     <img class="img img-responsive" t-if="company.logo" src="https://s3.amazonaws.com/s3.vauxoo.com/odoo_gold_partner_rgb.png" style="max-width: 125px;"/>
                 </div>
                 <div class="col-xs-6 text-center">
-                    <t t-if="company.custom_footer">
+                    <t t-if="company.rml_footer">
                         <span t-raw="company.rml_footer"/>
                     </t>
                 </div>
@@ -59,7 +59,7 @@
         <template id="external_layout">
             <!-- Multicompany -->
             <t t-if="o and 'company_id' in o">
-                <t t-set="company" t-value="o.company_id"></t>
+                <t t-set="company" t-value="doc.company_id"></t>
             </t>
             <t t-if="not o or not 'company_id' in o">
                 <t t-set="company" t-value="res_company"></t>

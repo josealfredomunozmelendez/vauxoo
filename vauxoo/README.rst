@@ -49,10 +49,17 @@ With this functionality we can:
 the references to user story model were deleted.
 
 User from Employee
-==================
+------------------
 
 This adds a menu option, which allow to link an user based on an
 employee already created.
 
 A Wizard is launched, which show an option in order to choose a group, which
 will be used to link a user, using his data stored already.
+
+Vauxoo Report
+-------------
+
+Qweb Vauxoo's Quotation Report
+
+**NOTE:** Old vauxoo_sale_reports module
