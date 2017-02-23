@@ -25,7 +25,8 @@ class HrTimesheetReportsBase(models.Model):
     _name = "hr.timesheet.reports.base"
     _inherit = ['mail.thread']
 
-    def _prepare_data(self, cr, uid, ids, record, context=None):
+    @api.multi
+    def _prepare_data(self, record):
         return {'author': clean_name(record.user_id.name),
                 'description': record.name,
                 'duration': record.unit_amount,
@@ -40,72 +41,53 @@ class HrTimesheetReportsBase(models.Model):
                 'record': record,
                 'id': record.id}
 
-    def _get_print_data(self, cr, uid, ids, name, args, context=None):
-        res = {}
-        for wzd in self.browse(cr, uid, ids, context=context):
-            res[wzd.id] = self._get_result_ids(cr, uid, ids, context=context)
-        return res
+    @api.depends()
+    def _get_print_data(self, name, args):
+        for wzd in self:
+            wzd.records = self._get_result_ids()
 
     def _get_total_time(self, grouped, field):
         total_list = [g[field] for g in grouped]
         return sum(total_list)
 
-    def _get_report_inv(self, cr, uid, ids, context=None):
-        invoice_obj = self.pool.get('account.invoice')
-        wzr_brw = self.browse(cr, uid, ids, context=context)[0]
-        domain_inv = wzr_brw.filter_invoice_id.domain \
-            if wzr_brw.filter_invoice_id else []
+    @api.multi
+    def _get_report_inv(self):
+        self.ensure_one()
+        invoice_obj = self.env['account.invoice']
+        domain_inv = \
+            self.filter_invoice_id.domain if self.filter_invoice_id else []
         if not domain_inv:
             return ([], [], [], [], {})
         dom_inv = [len(d) > 1 and tuple(d) or d for d in safe_eval(domain_inv)]
         # Preparing grouped invoices due to it is 2 levels it need a
         # little extra Work.
-        elements = invoice_obj.read_group(cr, uid, dom_inv,
-                                          ['period_id',
-                                           'amount_total',
-                                           'amount_tax',
-                                           'amount_untaxed',
-                                           'residual',
-                                           'partner_id'
-                                           ],
-                                          ['period_id',
-                                           'amount_total',
-                                           'amount_tax',
-                                           'amount_untaxed',
-                                           'residual',
-                                           ],
-                                          context=context)
-        grouped_by_currency = invoice_obj.read_group(cr, uid, dom_inv,
-                                                     ['currency_id',
-                                                      'amount_total',
-                                                      'amount_tax',
-                                                      'amount_untaxed',
-                                                      'residual',
-                                                      'partner_id'
-                                                      ],
-                                                     ['currency_id',
-                                                      'amount_total',
-                                                      'amount_tax',
-                                                      'amount_untaxed',
-                                                      'residual',
-                                                      ],
-                                                     context=context)
-        inv_line_obj = self.pool.get('account.invoice.line')
-        curr_obj = self.pool.get('res.currency')
+        elements = invoice_obj.read_group(
+            dom_inv,
+            ['period_id', 'amount_total', 'amount_tax', 'amount_untaxed',
+             'residual', 'partner_id'],
+            ['period_id', 'amount_total', 'amount_tax', 'amount_untaxed',
+             'residual'])
+        grouped_by_currency = invoice_obj.read_group(
+            dom_inv,
+            ['currency_id', 'amount_total', 'amount_tax', 'amount_untaxed',
+             'residual', 'partner_id'],
+            ['currency_id', 'amount_total', 'amount_tax', 'amount_untaxed',
+             'residual'])
+        inv_line_obj = self.env['account.invoice.line']
+        curr_obj = self.env['res.currency']
         grouped_by_product = {}
-        ent_ids = [ent.id for ent in wzr_brw.prod_ent_ids]
-        train_ids = [ent.id for ent in wzr_brw.prod_train_ids]
-        cons_ids = [ent.id for ent in wzr_brw.prod_cons_ids]
+        ent_ids = [ent.id for ent in self.prod_ent_ids]
+        train_ids = [ent.id for ent in self.prod_train_ids]
+        cons_ids = [ent.id for ent in self.prod_cons_ids]
         all_ids = ent_ids + cons_ids + train_ids
         for gbc in grouped_by_currency:
             currency = gbc['currency_id']
             inv_line_ids = invoice_obj.search(
-                cr, uid, dom_inv + [('currency_id', 'in', [currency[0]])],
-                context=context)
+                dom_inv + [('currency_id', 'in', [currency[0]])])
             group_prod = inv_line_obj.read_group(
-                cr, uid, [('invoice_id', 'in', inv_line_ids)],
+                [('invoice_id', 'in', inv_line_ids)],
                 ['product_id', 'price_subtotal', ],
-                ['product_id', 'price_subtotal', ], context=context)
+                ['product_id', 'price_subtotal', ])
             total_ent = sum([gr['price_subtotal'] for gr in group_prod
                              if gr['product_id'][0] in ent_ids])
             total_cons = sum([gr['price_subtotal'] for gr in group_prod
@@ -115,15 +97,9 @@ class HrTimesheetReportsBase(models.Model):
             total_others = sum([gr['price_subtotal'] for gr in group_prod
                                 if gr['product_id'][0] not in all_ids])
             total = total_ent + total_ent + total_train + total_others
-            curr_from = wzr_brw.currency_id.id
-            curr_to = currency[0]
-            curr_from_brw = curr_obj.browse(cr, uid, curr_from,
-                                            context=context)
-            curr_to_brw = curr_obj.browse(cr, uid, curr_to, context=context)
-            rate = curr_obj._get_conversion_rate(cr, uid,
-                                                 curr_from_brw,
-                                                 curr_to_brw,
-                                                 context=context)
+            curr_from = self.currency_id
+            curr_to = curr_obj.browse(currency[0])
+            rate = curr_obj._get_conversion_rate(curr_from, curr_to)
             grouped_by_product[gbc['currency_id'][1]] = {
                 'enterprises': total_ent,
                 'consultancy': total_cons,
@@ -138,94 +114,76 @@ class HrTimesheetReportsBase(models.Model):
                 'total_others': round(total_others / rate, 2),
                 'total_lic': round(total_ent / rate, 2),
                 'conversion_rate': curr_obj._get_conversion_rate(
-                    cr, uid, curr_obj.browse(cr, uid, curr_from,
-                                             context=context),
-                    curr_obj.browse(cr, uid, curr_to, context=context)),
+                    curr_from, curr_to),
             }
+
         #  TODO: This must be a better way to achieve this list directly from
         #  search group on v8.0 for now the simplest way make a list with
         #  everything an group in the report itself
-        invoice_ids = invoice_obj.search(cr, uid, dom_inv, context=context)
-        invoices_brw = invoice_obj.browse(cr, uid, invoice_ids,
-                                          context=context)
+        invoices = invoice_obj.search(dom_inv)
+
         # Getting resumed numbers
         resumed_numbers = {
             'total_invoiced': sum([grouped_by_product[i]['total_in_control']
                                    for i in grouped_by_product])
         }
-        return (elements, grouped_by_currency,
-                invoices_brw, grouped_by_product,
+        return (elements, grouped_by_currency, invoices, grouped_by_product,
                 resumed_numbers)
 
-    def _get_report_issue(self, cr, uid, ids, context=None):
-        issue_obj = self.pool.get('project.issue')
-        wzr_brw = self.browse(cr, uid, ids, context=context)[0]
-        domain_issues = wzr_brw.filter_issue_id.domain \
-            if wzr_brw.filter_issue_id else []
+    @api.multi
+    def _get_report_issue(self):
+        issue_obj = self.env['project.issue']
+        domain_issues = \
+            self.filter_issue_id.domain if self.filter_issue_id else []
         if not domain_issues:
             return []
         dom_issues = [len(d) > 1 and tuple(d) or d
                       for d in safe_eval(domain_issues)]
         # Setting issues elements.
-        issues_grouped = issue_obj.read_group(cr, uid, dom_issues,
-                                              ['analytic_account_id'],
-                                              ['analytic_account_id'],
-                                              context=context)
+        issues_grouped = issue_obj.read_group(
+            dom_issues, ['analytic_account_id'], ['analytic_account_id'])
 
         issues_all = []
         for issue in issues_grouped:
             analytic_id = issue.get('analytic_account_id')
             new_issue_dom = dom_issues + [('analytic_account_id', '=', analytic_id and analytic_id[0] or analytic_id)]  # noqa
-            issue['children_by_stage'] = issue_obj.read_group(cr, uid, new_issue_dom,  # noqa
-                                                              ['stage_id'],
-                                                              ['stage_id'],
-                                                              orderby='stage_id asc',  # noqa
-                                                              context=context)
+            issue['children_by_stage'] = issue_obj.read_group(
+                new_issue_dom, ['stage_id'], ['stage_id'],  # noqa
+                orderby='stage_id asc') # noqa
             issues_all.append(issue)
         return issues_all
 
-    def _get_report_ts(self, cr, uid, ids, context=None):
-        timesheet_obj = self.pool.get('account.analytic.line')
-        wzr_brw = self.browse(cr, uid, ids, context=context)[0]
-        domain = wzr_brw.filter_id.domain
+    @api.multi
+    def _get_report_ts(self):
+        self.ensure_one()
+        timesheet_obj = self.env['account.analytic.line']
+        domain = self.filter_id.domain
         dom = [len(d) > 1 and tuple(d) or d for d in safe_eval(domain)]
-        timesheet_ids = timesheet_obj.search(cr, uid, dom,
-                                             order='account_id asc, user_id asc, date asc',  # noqa
-                                             context=context)
+        timesheets = timesheet_obj.search(
+            dom, order='account_id asc, user_id asc, date asc')  # noqa
         # Group elements
         res = []
-        timesheet_brws = timesheet_obj.browse(cr, uid, timesheet_ids,
-                                              context=context)
-        res_result = [self._prepare_data(cr, uid, ids, tb, context=context) for tb in timesheet_brws]  # noqa
+        res_result = [self._prepare_data(tb) for tb in timesheets]  # noqa
         res = sorted(res_result, key=lambda k: k['issue'], reverse=True)
-        grouped = timesheet_obj.read_group(cr, uid, dom,
-                                           ['account_id',
-                                            'unit_amount',
-                                            'invoiceables_hours'],
-                                           ['account_id'],
-                                           context=context)
-        grouped_month = timesheet_obj.read_group(cr, uid, dom,
-                                                 ['date',
-                                                  'account_id',
-                                                  'unit_amount',
-                                                  'invoiceables_hours'],
-                                                 ['date'],
-                                                 context=context)
-        grouped_by_user = timesheet_obj.read_group(cr, uid, dom,
-                                                   ['user_id',
-                                                    'unit_amount',
-                                                    'invoiceables_hours'],
-                                                   ['user_id'],
-                                                   context=context)
+        grouped = timesheet_obj.read_group(
+            dom, ['account_id', 'unit_amount', 'invoiceables_hours'],
+            ['account_id'])
+        grouped_month = timesheet_obj.read_group(
+            dom, ['date', 'account_id', 'unit_amount', 'invoiceables_hours'],
+            ['date'])
+        grouped_by_user = timesheet_obj.read_group(
+            dom, ['user_id', 'unit_amount', 'invoiceables_hours'],
+            ['user_id'])
         # Separate per project (analytic)
         projects = set([l['analytic'] for l in res])
         return (grouped, grouped_month, projects, res, grouped_by_user)
 
-    def _get_total_inv_amount(self, cr, uid, ids, grouped, context=None):
+    @api.multi
+    def _get_total_inv_amount(self, grouped):
+        self.ensure_one()
         pending = sum([gro['invoiceables_hours'] for gro in grouped])
         pending_inv = round(
-            pending * self.browse(
-                cr, uid, ids, context=context)[0].product_id.list_price, 2)
+            pending * self.product_id.list_price, 2)
         return pending_inv
 
     @api.multi
@@ -351,24 +309,21 @@ class HrTimesheetReportsBase(models.Model):
         'company_id': lambda s, cr, uid, c: s.pool.get('res.company')._company_default_get(cr, uid, 'sale.shop', context=c),  # noqa
     }
 
-    def do_report(self, cr, uid, ids, context=None):
-        return self.pool['report'].\
-            get_action(cr, uid, ids, 'vauxoo.timesheet_report_vauxoo',
-                       context=context)
+    @api.multi
+    def do_report(self):
+        return self.env['report'].get_action('vauxoo.timesheet_report_vauxoo')
 
-    def go_to_timesheet(self, cr, uid, ids, context=None):
-        if context is None:
-            context = {}
-        report = self.browse(cr, uid, ids, context=context)[0]
-        context.update({
-            'ts_report_id': ids[0],
-        })
+    @api.multi
+    def go_to_timesheet(self):
+        self.ensure_one()
+        context = dict(self._context)
+        context.update({'ts_report_id': self.id})
         return {'type': 'ir.actions.act_window',
                 'res_model': 'account.analytic.line',
                 'name': 'Timesheet Activities Reported',
                 'view_type': 'form',
                 'view_mode': 'tree,form',
-                'domain': report.filter_id.domain,
+                'domain': self.filter_id.domain,
                 'context': context,
                 }
 
@@ -388,19 +343,17 @@ class HrTimesheetReportsBase(models.Model):
                 'context': context,
                 }
 
-    def go_to_issues(self, cr, uid, ids, context=None):
-        if context is None:
-            context = {}
-        report = self.browse(cr, uid, ids, context=context)[0]
-        context.update({
-            'ts_report_id': ids[0],
-        })
+    @api.multi
+    def go_to_issues(self):
+        self.ensure_one()
+        context = self.env._context
+        context.update({'ts_report_id': self.id})
         return {'type': 'ir.actions.act_window',
                 'res_model': 'project.issue',
                 'name': 'Issues Reported',
                 'view_type': 'form',
                 'view_mode': 'tree,form',
-                'domain': report.filter_issue_id.domain,
+                'domain': self.filter_issue_id.domain,
                 'context': context,
                 }
 
@@ -438,25 +391,23 @@ class HrTimesheetReportsBase(models.Model):
             'context': ctx,
         }
 
-    def mark_timesheet(self, cr, uid, ids, context=None):
+    @api.multi
+    def mark_timesheet(self):
         return True
 
-    def clean_timesheet(self, cr, uid, ids, context=None):
+    @api.multi
+    def clean_timesheet(self):
         """To be sure all timesheet lines are at least setted as billable
         100% in order to show correct first approach of numbers.
         """
-        timesheet_obj = self.pool.get('account.analytic.line')
-        report = self.browse(cr, uid, ids, context=context)[0]
-        domain = report.filter_id.domain
+        self.ensure_one()
+        timesheet_obj = self.env['account.analytic.line']
+        domain = self.filter_id.domain
         dom = [len(d) > 1 and tuple(d) or d for d in safe_eval(domain)]
-        timesheet_ids = timesheet_obj.search(cr, uid,
-                                              dom + [('to_invoice', '=', False)],  # noqa
-                                              context=context)  # noqa
+        timesheets = timesheet_obj.search(
+            dom + [('to_invoice', '=', False)])  # noqa
         # By default 100% wired to the one by default in db.
         # If you want another one overwrite this method or change the
         # rate on such record.
-        timesheet_obj.write(cr, uid,
-                            timesheet_ids,
-                            {'to_invoice': 1},
-                            context=context)
+        timesheets.write({'to_invoice': 1})
         return True
