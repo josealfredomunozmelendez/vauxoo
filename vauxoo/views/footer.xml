@@ -145,6 +145,24 @@
                     </div>
                 </div>
             </div>
+            <ul class="list-inline js_language_selector mt16" style="display: none;">
+                <li>
+                  <a class="js_change_lang" href="/page/homepage" data-default-lang="true" data-lang="en_US">
+                    English
+                  </a>
+                </li><li>
+                  <a class="js_change_lang" href="/es_MX/page/homepage" data-lang="es_MX">
+                     Español (MX)
+                  </a>
+                </li>
+                <li>
+
+                    <a data-oe-id="442" data-oe-model="ir.ui.view" data-oe-field="arch" data-oe-xpath="/t[1]/ul[1]/li[2]/a[1]" href="/web#action=base.action_view_base_language_install&amp;website_id=1&amp;url_return=/[lang]/page/homepage?">
+                        <i class="fa fa-plus-circle"></i>
+                        Add a language...
+                    </a>
+                </li>
+            </ul>
         </section>
     </template>
 </odoo>
