@@ -26,7 +26,11 @@ virtualenv:
 
 env:
   global:
-  - PHANTOMJS_TESTS="0" TEST_OTHER_PROJECTS=${HOME}/addons-vauxoo LINT_CHECK=0 TESTS="0" VERSION="10.0" ODOO_REPO="vauxoo/odoo" INCLUDE="erp_vauxoo_com,www_vauxoo_com"
+  - PHANTOMJS_TESTS="0"
+  - TEST_OTHER_PROJECTS="${HOME}/addons-vauxoo"
+  - LINT_CHECK=0 TESTS="0"
+  - VERSION="10.0" ODOO_REPO="vauxoo/odoo" ODOO_BRANCH="saas-14"
+  - INCLUDE="vauxoo"
 
   matrix:
   - LINT_CHECK=1
@@ -38,7 +42,7 @@ install:
   - travis_install_nightly
 
 script:
-  - travis_wait travis_run_tests
+  - travis_run_tests
 
 after_success:
   - travis_after_tests_success
