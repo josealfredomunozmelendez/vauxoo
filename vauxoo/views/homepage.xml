@@ -3,14 +3,14 @@
   <template name="Vauxoo - Who are we" t-name="website.homepage">
     <t t-call="website.layout">
       <div class="oe_structure hidden-xs hidden-sm" id="wrap">
-        <section autoplay="autoplay" background="js-animated-bg" class="s_media_block move_to_top preserve3d" custom_content="&lt;iframe src='https://www.youtube.com/embed/LyEz6Ru2IwY'&gt;&lt;/iframe&gt;" iframefit="fitCont" loop="loop" muted="muted" opacity="1" src="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" style="height: 100vh;">
+        <section autoplay="autoplay" background="js-animated-bg" class="s_media_block move_to_top preserve3d" iframefit="fitCont" loop="loop" muted="muted" opacity="1" src="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" style="height: 100vh;" id="vx-video">
           <div class="v-align text-center">
             <div class=" hidden-sm text-center container">
               <div class="col-md-6 col-md-offset-3 col-xs-12" style="max-height: 95%; padding-bottom: 15%">
                 <h1>Open Source Specialists</h1>
                 <p class="mb8 lead">We are a Latin American company that provides training, coaching, development and implementation of enterprise management, our entire operation strategy is based in the use of Open Source Software and our main product is
                   <span class="o_logo_inline">
-                    <span class="o_logo_main">Odoo</span></span>since 2007.</p>
+                    <span class="o_logo_main">Odoo</span></span> since 2007.</p>
                 <hr class="s_separator"/>
                 <a class="btn btn-warning btn-lg" href="/page/website.contactus">Want to know more?</a>
               </div>
@@ -118,7 +118,7 @@
             </div>
           </div>
         </section>
-        <div class="s_animated_boxes row">
+        <div class="s_animated_boxes row bg-white">
           <div class="col-sm-4 col-md-4 item oe_custom_bg oe_img_bg o_bg_img_opt_custom" data-name="Box item" style="height: 200px; background-image: url(&quot;https://s3.amazonaws.com/s3.vauxoo.com/odoo_community_member_rgb.png&quot;); background-size: 50%; background-position: 50% 50%;">
             <div class="v-align preserve3d">
               <div class="oe_structure"/>
@@ -199,7 +199,7 @@
             </div>
           </div>
         </section>
-        <section class="twitter" data-screen-name="OpenERP" data-limit="15">
+        <section class="twitter bg-white" data-screen-name="OpenERP" data-limit="15">
           <div class="twitter_timeline">
           </div>
         </section>

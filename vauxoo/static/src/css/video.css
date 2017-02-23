@@ -1,0 +1,8 @@
+  #wrapwrap .o_player_wrapper .o_player {
+    position: fixed !important;
+    margin: 0!important;
+    min-height: unset;
+  }
+.bg-white {
+    background-color: white;
+}
