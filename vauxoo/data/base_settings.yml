@@ -12,15 +12,14 @@
         'auth_oauth_google_enabled': True,
         'default_user_rights': True,
     }
+-
   !python {model: base.config.settings}: |
     self.browse(ref('general_config')).execute()
 -
-  Setting General allow group sale_tem necessary
-  to print the company info in this report.
+  Sale Settings
 -
   !record {model: sale.config.settings, id: sale_config_settings}:
     {
-     'group_multi_salesteams': True,
      'group_use_lead': True,
      'multi_sales_price_method': 'percentage',
     }
