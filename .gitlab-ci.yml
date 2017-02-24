@@ -68,7 +68,7 @@ tests_build:
     - ./gitlab_tools/test_images
 
 compile_doc:
-  stage: build
+  stage: test
   only:
     - 10.0@vauxoo/instance
   when: on_success
