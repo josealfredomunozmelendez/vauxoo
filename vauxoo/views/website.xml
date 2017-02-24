@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Website Menus"
+                  id="menu_website_menu"
+                  parent="website.menu_website_configuration"
+                  action="website.action_website_menu"
+                  groups="website.group_website_designer"
+                  sequence='100'/>
+    </data>
+</odoo>
