@@ -90,7 +90,7 @@
         "views/project.xml",
         "views/account_analytic_line_view.xml",
         "views/hr_timesheet_reports_view.xml",
-        "views/hr_timesheet_reports_email.xml",
+        "views/hr_timesheet_view.xml",
         "views/menu.xml",
 
         # Website stuff (A file per page)
@@ -109,6 +109,9 @@
         # Wizards (One Per Wizard)
         "wizard/set_invoice_view.xml",
         "views/wizard_view.xml",
+
+        # Email templates
+        "views/hr_timesheet_reports_email.xml",
     ],
     "demo": [
         "demo/project.xml",
