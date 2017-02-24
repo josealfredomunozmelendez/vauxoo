@@ -1,2 +1,4 @@
 suds
 xlrd
+ofxparse
+num2words

@@ -87,7 +87,7 @@
         <link href="/theme_common/static/src/less/s_showcase_slider.less" rel="stylesheet" type="text/less"/>
     </template>
 
-    <template id="website.snippet_selector" page="True">
+    <template id="theme_common.snippet_selector" page="True" name="Snippet Selector">
       <t t-call="theme_common.demo_layout">
         <div id="wrap" class="oe_structure oe_empty">
 

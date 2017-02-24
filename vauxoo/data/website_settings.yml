@@ -4,13 +4,12 @@
   !python {model: ir.ui.view}: |
     ctx = dict(self.env.context, active_test=True)
     self.with_context(ctx).browse(ref('website.layout_logo_show')).write({'active': False})
-    self.with_context(ctx).browse(ref('vauxoo.layout_logo_show')).write({'active': True})
     self.with_context(ctx).browse(ref('website_blog.opt_blog_post_author_avatar')).write({'active': True})
     self.with_context(ctx).browse(ref('website_blog.opt_blog_rc_follow_us')).write({'active': True})
 -
   Setting Website Information
 -
-  !record {model: website.config.settings, id: vx_website_config}:
+  !record {model: website.config.settings, id: website_config}:
     {'website_name': 'www.vauxoo.com',
      'social_twitter': 'https://twitter.com/vauxoo',
      'social_facebook': 'https://facebook.com/vauxoo',
@@ -27,7 +26,7 @@
      'twitter_screen_name': odoo,}
 -
   !python {model: website.config.settings}: |
-    website_conf = self.browse(ref('vx_website_config'))
+    website_conf = self.browse(ref('website_config'))
     lang_es_id = ref('base.lang_es')
     website_conf.write({'default_lang_id': lang_es_id, 'language_ids': [(4, lang_es_id)]})
     websites = self.env["website"].search([])
