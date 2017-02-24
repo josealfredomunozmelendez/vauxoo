@@ -66,7 +66,7 @@ tests_build:
   script:
     - docker pull postgres:${PSQL_VERSION}
     - docker pull ${BASE_IMAGE}
-    - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '')")
+    - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '').lower()")
     - sh -c "if  docker ps | grep postgres${IMAGE_NAME} >/dev/null ; then docker rm -f postgres${IMAGE_NAME}; fi"
     - sh -c "if  docker ps | grep ${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
     - docker run --name postgres${IMAGE_NAME} -e POSTGRES_PASSWORD=postgres -d postgres:${PSQL_VERSION}
