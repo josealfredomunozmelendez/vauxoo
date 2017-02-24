@@ -87,7 +87,10 @@ upload_image:
   tags:
     - build
   script:
+    - export IMAGE_TAG=$(python -c "print '${CI_BUILD_REF}'[7].lower()")
     - docker pull ${BASE_IMAGE}
     - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i ${BASE_IMAGE} -O "${ODOO_REPO}#${ODOO_BRANCH}"
-    - docker tag instance100 quay.io/vauxoo/vauxoo100:autobuild
-    - docker push quay.io/vauxoo/vauxoo100:autobuild
+    - docker tag instance100 quay.io/vauxoo/vauxoo100:latest
+    - docker push quay.io/vauxoo/vauxoo100:latest
+    - docker tag instance100 quay.io/vauxoo/vauxoo100:${IMAGE_TAG}
+    - docker push quay.io/vauxoo/vauxoo100:${IMAGE_TAG}
