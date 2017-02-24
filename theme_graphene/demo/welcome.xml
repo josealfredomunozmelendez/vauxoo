@@ -6,7 +6,7 @@
       <field name="active" eval="False"/>
     </record>
 
-    <template id="website.welcome" name="Welcome" page="True">
+    <template id="theme_graphene.welcome" name="Welcome" page="True">
       <t t-call="website.layout">
         <div id="wrap"  class="oe_structure demo_welcome">
 

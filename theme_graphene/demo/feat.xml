@@ -6,7 +6,7 @@
       <field name="active" eval="False"/>
     </record>
 
-    <template id="website.feat" name="Features" page="True">
+    <template id="theme_graphene.feat" name="Features" page="True">
       <t t-call="website.layout">
         <div id="wrap" class="oe_structure demo_feat text-center">
 

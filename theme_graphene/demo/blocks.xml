@@ -6,7 +6,7 @@
       <field name="active" eval="False"/>
     </record>
 
-    <template id="website.blocks" name="Building Blocks" page="True">
+    <template id="theme_graphene.blocks" name="Building Blocks" page="True">
       <t t-call="website.layout">
         <div id="wrap" class="oe_structure demo_blocks text-center">
 
