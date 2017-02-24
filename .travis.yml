@@ -15,8 +15,12 @@ addons:
       - python-yaml
       - swig  # Required for m2crypto
       - python-m2crypto
-      - xsltproc  # Required to install module l10n_mx_facturae_lib
-      - xmlstarlet  # Required to install module l10n_mx_facturae_lib
+      - xmlstarlet
+      - xsltproc
+      - xmlstarlet
+      - openssl
+      - poppler-utils
+      - antiword
 
 python:
   - "2.7"
@@ -39,6 +43,7 @@ env:
 install:
   - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+  - pip install -r requirements.txt  # temporal until fix mqt
   - travis_install_nightly
 
 script:
