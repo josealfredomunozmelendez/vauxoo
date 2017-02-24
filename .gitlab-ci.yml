@@ -64,35 +64,8 @@ tests_build:
   tags:
     - build
   script:
-    - docker pull postgres:${PSQL_VERSION}
-    - docker pull ${BASE_IMAGE}
-    - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '').lower()")
-    - sh -c "if  docker ps | grep postgres${IMAGE_NAME} >/dev/null ; then docker rm -f postgres${IMAGE_NAME}; fi"
-    - sh -c "if  docker ps | grep ${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
-    - docker run --name postgres${IMAGE_NAME} -e POSTGRES_PASSWORD=postgres -d postgres:${PSQL_VERSION}
-    - sleep 5
-    - docker ps -a
-    - deployvcmd build -b ${CI_BUILD_REF_NAME} -u ${CI_BUILD_REPO} -v ${VERSION} -i ${BASE_IMAGE} -O ${ODOO_REPO}#${ODOO_BRANCH}
-    - docker exec postgres${IMAGE_NAME} su postgres -c "psql -c \"create user odoo with password 'odoo' createdb\""
-    - docker run -d --name instance${IMAGE_NAME} -e "DB_USER=odoo" -e "DB_PASSWORD=odoo" -e "DB_HOST=postgres" -e "ODOO_CONFIG_FILE=/home/odoo/.openerp_serverrc" --link postgres${IMAGE_NAME}:postgres instance${IMAGE_NAME}
-    - sleep 30
-    - docker exec instance${IMAGE_NAME} supervisorctl stop odoo
-    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo-bin -d wdemo -i ${INSTALL} --stop-after-init"
-    - docker exec instance${IMAGE_NAME} su odoo -c "/home/odoo/instance/odoo/odoo-bin -d wodemo -i ${INSTALL} --stop-after-init --without-demo=all"
-
-clean_build:
-  stage: cleanup
-  only:
-    - branches
-  except:
-    - 10.0@vauxoo/instance
-  tags:
-    - build
-  script:
-    - export IMAGE_NAME=$(python -c "print '${CI_BUILD_REF_NAME}'.replace('.', '').replace('#', '')")
-    - sh -c "if  docker ps | grep postgres${IMAGE_NAME} >/dev/null ; then docker rm -f postgres${IMAGE_NAME}; fi"
-    - sh -c "if  docker ps | grep instance${IMAGE_NAME} >/dev/null ; then docker rm -f instance${IMAGE_NAME}; fi"
-  when: always
+    - git clone -q --single-branch -b master --depth=1 https://git.vauxoo.com/vauxoo/gitlab_tools.git
+    - ./gitlab_tools/test_images
 
 compile_doc:
   stage: build
