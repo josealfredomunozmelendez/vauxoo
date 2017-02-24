@@ -3,7 +3,7 @@ stages:
   - test
   - test_build
   - build
-  - cleanup
+  - upload_image
 
 variables:
     PSQL_VERSION: "9.5"
@@ -55,7 +55,7 @@ test:
     - cat /root/.openerp_serverrc
     - travis_after_tests_success || true
 
-tests_build:
+test_install:
   stage: test_build
   only:
     - branches
@@ -80,7 +80,7 @@ compile_doc:
     - sh -c "if ! git diff-files --quiet --ignore-submodules; then git commit -m \"[ADD] Updated by ${CI_BUILD_REF}\" && git push origin master; fi"
 
 upload_image:
-  stage: build
+  stage: upload_image
   only:
     - 10.0@vauxoo/instance
   when: on_success
