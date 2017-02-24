@@ -31,6 +31,7 @@
         "hr_expense",
         "hr_appraisal",
         "hr_payroll",
+        "hr_attendance",
 
         # Localizations
 
@@ -53,11 +54,15 @@
         "website_hr",
         "website_helpdesk_form",
         "website_sale_options",
+        "website_sale_coupon",
         "website_portal_sale",
         "website_livechat",
         "website_twitter",
         "payment_paypal",
         "marketing_campaign",
+
+        # Sales
+        "sale_margin",
 
         # Tools
         "document",
@@ -65,6 +70,8 @@
         "inter_company_rules",
         'auth_oauth',
         "mass_editing",
+        "board",
+        "contacts",
     ],
     "data": [
         # Main Configuration

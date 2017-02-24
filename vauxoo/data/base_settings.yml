@@ -14,3 +14,16 @@
     }
   !python {model: base.config.settings}: |
     self.browse(ref('general_config')).execute()
+-
+  Setting General allow group sale_tem necessary
+  to print the company info in this report.
+-
+  !record {model: sale.config.settings, id: sale_config_settings}:
+    {
+     'group_multi_salesteams': True,
+     'group_use_lead': True,
+     'multi_sales_price_method': 'percentage',
+    }
+-
+  !python {model: sale.config.settings}: |
+    self.browse(ref('sale_config_settings')).execute()
