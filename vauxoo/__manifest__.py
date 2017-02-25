@@ -1,6 +1,6 @@
 # coding: utf-8
 {
-    "name": "Odoo Vauxoo ERP Instance",
+    "name": "ERP Instance",
     "author": "Vauxoo",
     "summary": """
     All the necessary modules to auto install our service instance
