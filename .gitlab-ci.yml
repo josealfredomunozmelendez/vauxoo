@@ -55,12 +55,8 @@ test:
     - cat /root/.openerp_serverrc
     - travis_after_tests_success || true
 
-test_install:
-  stage: test_build
-  only:
-    - branches
-  except:
-    - "10.0"
+build:
+  stage: build
   tags:
     - build
   script:
