@@ -3,7 +3,7 @@ stages:
   - test
   - test_build
   - build
-  - cleanup
+  - upload_image
 
 variables:
     PSQL_VERSION: "9.5"
@@ -55,12 +55,8 @@ test:
     - cat /root/.openerp_serverrc
     - travis_after_tests_success || true
 
-tests_build:
-  stage: test_build
-  only:
-    - branches
-  except:
-    - "10.0"
+build:
+  stage: build
   tags:
     - build
   script:
@@ -68,7 +64,7 @@ tests_build:
     - ./gitlab_tools/test_images
 
 compile_doc:
-  stage: build
+  stage: test
   only:
     - 10.0@vauxoo/instance
   when: on_success
@@ -80,14 +76,17 @@ compile_doc:
     - sh -c "if ! git diff-files --quiet --ignore-submodules; then git commit -m \"[ADD] Updated by ${CI_BUILD_REF}\" && git push origin master; fi"
 
 upload_image:
-  stage: build
+  stage: upload_image
   only:
     - 10.0@vauxoo/instance
   when: on_success
   tags:
     - build
   script:
+    - export IMAGE_TAG=$(python -c "print '${CI_BUILD_REF}'[7].lower()")
     - docker pull ${BASE_IMAGE}
     - deployvcmd build -u ${CI_BUILD_REPO} -v ${CI_BUILD_REF_NAME} -i ${BASE_IMAGE} -O "${ODOO_REPO}#${ODOO_BRANCH}"
-    - docker tag instance100 quay.io/vauxoo/vauxoo100:autobuild
-    - docker push quay.io/vauxoo/vauxoo100:autobuild
+    - docker tag instance100 quay.io/vauxoo/vauxoo100:latest
+    - docker push quay.io/vauxoo/vauxoo100:latest
+    - docker tag instance100 quay.io/vauxoo/vauxoo100:${IMAGE_TAG}
+    - docker push quay.io/vauxoo/vauxoo100:${IMAGE_TAG}
