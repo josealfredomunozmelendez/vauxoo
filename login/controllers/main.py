@@ -19,31 +19,54 @@ from pytz import timezone
 
 class LoginHome(Home):
 
-    @http.route('/web/login', type='http', auth="none")
-    def web_login(self, redirect=None, **kw):
+    @staticmethod
+    def get_param(parameter):
+        # Just to ensure any extra parameter is read here.
+        parameters = [
+            'login_form_disable_footer',
+            'login_form_disable_database_manager',
+            'login_form_change_background_by_hour',
+            'login_form_change_background_timezone',
+            'login_form_background_default',
+            'login_form_background_dawn',
+            'login_form_background_night',
+            'login_form_background_dusk',
+            'login_form_background_day',
+        ]
+        if parameter not in parameters:
+            return False
         param = request.env['ir.config_parameter'].sudo()
         get_param = param.get_param
-        lfdf = literal_eval(get_param('login_form_disable_footer'))
-        print '-'*50
+        if 'login_form_background' in parameter or \
+                parameter == 'login_form_change_background_timezone':
+            return get_param(parameter) or ''
+        return literal_eval(get_param(parameter) or '')
+
+    @http.route('/web/login', type='http', auth="none")
+    def web_login(self, redirect=None, **kw):
+        lfdf = self.get_param('login_form_disable_footer')
+        lfddm = self.get_param('login_form_disable_database_manager')
+        change = self.get_param('login_form_change_background_by_hour')
         request.params['disable_footer'] = lfdf or False
-        lfddm = literal_eval(get_param('login_form_disable_database_manager'))
         request.params['disable_database_manager'] = lfddm or False
-        background = get_param('login_form_background_default') or ''
+        background = self.get_param('login_form_background_default')
         request.params['background_src'] = background
-        change = literal_eval(
-            get_param('login_form_change_background_by_hour') or '')
         if not change:
             return super(LoginHome, self).web_login(redirect, **kw)
-        clt = get_param('login_form_change_background_timezone')
+        clt = self.get_param('login_form_change_background_timezone')
+        dawn = self.get_param('login_form_background_dawn')
+        night = self.get_param('login_form_background_night')
+        day = self.get_param('login_form_background_day')
+        dusk = self.get_param('login_form_background_dusk')
         tz = timezone(clt) if clt else pytz.utc
         current_hour = datetime.datetime.now(tz=tz).hour
         if 3 > current_hour >= 0 or 24 > current_hour >= 18:
-            background = get_param('login_form_background_night') or ''
+            background = night
         elif 7 > current_hour >= 3:
-            background = get_param('login_form_background_dawn') or ''
+            background = dawn
         elif 16 > current_hour >= 7:
-            background = get_param('login_form_background_day') or ''
+            background = day
         else:
-            background = get_param('login_form_background_dusk') or ''
+            background = dusk
         request.params['background_src'] = background
         return super(LoginHome, self).web_login(redirect, **kw)
