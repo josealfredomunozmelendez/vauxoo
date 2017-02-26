@@ -33,6 +33,8 @@ The new configurable Odoo Web Login Screen
     'website': 'http://www.xubi.me',
     'license': 'AGPL-3',
     'depends': [
+        'web',
+        'website',
     ],
     'data': [
         'data/ir_config_parameter.xml',
