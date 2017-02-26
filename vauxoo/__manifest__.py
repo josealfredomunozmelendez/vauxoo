@@ -60,6 +60,7 @@
         "website_twitter",
         "payment_paypal",
         "marketing_campaign",
+        "login",
 
         # Sales
         "sale_margin",
