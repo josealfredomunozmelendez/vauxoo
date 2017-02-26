@@ -3,23 +3,9 @@
 #
 #    Samples module for Odoo Web Login Screen
 #    Copyright (C) 2016- XUBI.ME (http://www.xubi.me)
-#    @author binhnguyenxuan (https://www.linkedin.com/in/binh-nguyen-xuan-46556279)
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#    
-#
-##############################################################################
+#    @author binhnguyenxuan
+#    (https://www.linkedin.com/in/binh-nguyen-xuan-46556279)
+
 import ast
 
 from odoo import http
@@ -30,7 +16,7 @@ import datetime
 import pytz
 
 
-class Home(Home):
+class LoginHome(Home):
 
     @http.route('/web/login', type='http', auth="none")
     def web_login(self, redirect=None, **kw):
@@ -44,7 +30,7 @@ class Home(Home):
         if not change_background:
             return super(Home, self).web_login(redirect, **kw)
         config_login_timezone = param_obj.get_param('login_form_change_background_timezone')
-        tz = config_login_timezone and pytz.timezone(config_login_timezone) or pytz.utc
+        tz = pytz.timezone(config_login_timezone) if config_login_timezone else pytz.utc
         current_hour = datetime.datetime.now(tz=tz).hour
         if 3 > current_hour >= 0 or 24 > current_hour >= 18:
             background_src = param_obj.get_param('login_form_background_night') or ''
