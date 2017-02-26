@@ -18,7 +18,7 @@
         
         <record id="login_form_change_background_timezone" model="ir.config_parameter">
             <field name="key">login_form_change_background_timezone</field>
-            <field name="value">Etc/GMT-7</field>
+            <field name="value">Mexico/General</field>
         </record>
         
         <record id="login_form_background_default" model="ir.config_parameter">
