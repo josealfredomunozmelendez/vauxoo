@@ -123,7 +123,7 @@
           </div>
         </div>
       </div>
-      <div class="container vx_wrapper parallax" data-scroll-background-offset="0" data-scroll-background-ratio="0.3" style="background-image: url(/vauxoo/static/img/odoo_photo.png); background-attachment: scroll; background-position: 0px 48.3px; height: 600px; width:100%;">
+      <div class="container parallax" data-scroll-background-offset="0" data-scroll-background-ratio="0.3" style="background-image: url(/vauxoo/static/img/odoo_photo.png); background-attachment: scroll; background-position: 0px 48.3px; height: 600px; width:100%;">
         <div class="row">
           <div class="col-md-12 text-center mt32 mb32">
             <h2>
