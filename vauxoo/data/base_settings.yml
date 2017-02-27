@@ -21,6 +21,7 @@
   !record {model: sale.config.settings, id: sale_config_settings}:
     {
      'group_use_lead': True,
+     'group_uom': True,
      'multi_sales_price_method': 'percentage',
     }
 -
