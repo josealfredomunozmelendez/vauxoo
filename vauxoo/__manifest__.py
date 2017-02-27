@@ -100,6 +100,7 @@
         "views/hr_timesheet_reports_view.xml",
         "views/hr_timesheet_view.xml",
         "views/menu.xml",
+        'views/sale_view.xml',
 
         # Website stuff (A file per page)
         "views/pages/layout.xml",
@@ -113,9 +114,7 @@
         # Reports
         "report/layout.xml",
         "report/timesheet_template.xml",
-        'views/sale_report.xml',
-        'views/sale_report_layout.xml',
-        'views/sale_view.xml',
+        'report/sale_report_templates.xml',
 
         # Wizards (One Per Wizard)
         "wizard/set_invoice_view.xml",
