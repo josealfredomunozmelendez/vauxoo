@@ -7,7 +7,7 @@ Modules for vauxoo.com
 Repositories which we depend from.
 ---
 
-Read the oca_dependencies.txt file
+Read the oca_dependencies.txt file.
 
 Deploy locally to hack it
 ---
