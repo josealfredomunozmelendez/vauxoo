@@ -85,7 +85,7 @@
         "security/ir.model.access.csv",
 
         # Data
-        'data/lang.xml',
+        # 'data/lang.xml',
         'data/website.xml',
         'data/project_tags.xml',
         "data/ir_actions_server.xml",
