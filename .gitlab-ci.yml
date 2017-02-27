@@ -73,7 +73,7 @@ compile_doc:
   script:
     - git clone -q git@git.vauxoo.com:vauxoo/instance.wiki.git
     - cd instance.wiki && cp -R ../vauxoo/doc/* . && cp ../README.md home.md && git add .
-    - sh -c "if ! git diff-files --quiet --ignore-submodules; then git commit -m \"[ADD] Updated by ${CI_BUILD_REF}\" && git push origin master; fi"
+    - sh -c "if git diff-files --quiet --ignore-submodules; then git commit -m \"[ADD] Updated by ${CI_BUILD_REF}\" && git push origin master; fi"
 
 upload_image:
   stage: upload_image
