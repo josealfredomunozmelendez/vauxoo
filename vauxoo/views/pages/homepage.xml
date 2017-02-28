@@ -188,7 +188,7 @@
         </section>
       </div>
       <div class="oe_structure">
-        <section class="text-center bg-epsilon o_animate o_anim_pulse o_visible o_animated">
+        <section class="text-center bg-white o_animate o_anim_pulse o_visible o_animated">
           <div class="container">
             <div class="row">
               <div class="col-md-12 mt32">
@@ -199,7 +199,7 @@
             </div>
           </div>
         </section>
-        <section class="s_showcase bg-epsilon o_animate o_anim_pulse o_visible o_animated">
+        <section class="s_showcase bg-gray-lighter o_animate o_anim_pulse o_visible o_animated">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-5 col-sm-5 text-right feature">
