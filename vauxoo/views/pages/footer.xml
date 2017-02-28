@@ -7,12 +7,13 @@
                     <section class="row">
                         <div class="col-md-3 col-lg-3 col-xs-12 sub text-center">
                             <h3>About</h3>
-                            <b>We provide training, coaching, development and implementation of enterprise management systems, our operation strategy relies in Open Source technology and our main product is Odoo since 2007.
+                            <b>We are a Latin American company that provides training, coaching,
+                  development and implementation of enterprise management, our entire operation strategy is based in
+                  the use of Open Source Software and our main product is <span class="o_logo_inline"><span class="o_logo_main">Odoo</span></span> since 2007.
                         </b>
                         </div>
                         <div class="col-md-3 col-lg-3 col-xs-12 sub text-center">
-                            <i class="fa fa-road fa-3x"/>
-                            <h3>Want more?</h3>
+                            <i class="fa fa-road fa-3x mb16"/>
                             <ul class="list-unstyled" id="footer-about">
                                 <li>
                                     <a href="/page/website.aboutus">Our Statements</a>
@@ -26,8 +27,7 @@
                             </ul>
                         </div>
                         <div class="col-md-3 col-lg-3 col-xs-12 sub text-center">
-                            <i class="fa fa-comment fa-3x"/>
-                            <h3>Talk to us</h3>
+                            <i class="fa fa-comment fa-3x mb16"/>
                             <t t-set="website" t-value="env['website'].search([])[0]"/>
                             <p>Call us at
                                 <strong>
@@ -43,8 +43,7 @@
                             </p>
                         </div>
                         <div class="col-md-3 col-lg-3 col-xs-12 sub text-center">
-                            <i class="fa fa-paper-plane fa-3x"/>
-                            <h3>Stay in touch</h3>
+                            <i class="fa fa-paper-plane fa-3x mb16"/>
                             <p>Get updates from Vauxoo in your inbox. Read our
                                 <strong>
                                     <a class="no-underline" href="/blog">Latest News and Buzz</a></strong>
