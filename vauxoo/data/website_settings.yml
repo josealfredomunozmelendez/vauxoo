@@ -3,7 +3,7 @@
 -
   !python {model: ir.ui.view}: |
     ctx = dict(self.env.context, active_test=True)
-    self.with_context(ctx).browse(ref('website.layout_logo_show')).write({'active': False})
+    self.with_context(ctx).browse(ref('website.layout_logo_show')).write({'active': True})
     self.with_context(ctx).browse(ref('website_blog.opt_blog_post_author_avatar')).write({'active': True})
     self.with_context(ctx).browse(ref('website_blog.opt_blog_rc_follow_us')).write({'active': True})
 -
