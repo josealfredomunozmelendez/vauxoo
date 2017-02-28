@@ -91,6 +91,18 @@
                 <xpath expr="//field[@name='name']" position="before">
                     <field name="id"/>
                 </xpath>
+
+                <xpath expr="//div[@class='oe_clear']" position="after">
+                    <t t-if="record.subtask_count.raw_value">
+                        <a name="open_subtasks" type="object" class="pull-right">
+                            <field name="subtask_count"/>
+                            <t t-if="record.subtask_count.raw_value == 1">Sub-task</t>
+                            <t t-else="">Sub-tasks</t>
+                        </a>
+                        <div class="oe_clear"/>
+                    </t>
+                </xpath>
+
             </field>
         </record>
 
