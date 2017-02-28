@@ -1,6 +1,7 @@
 # coding: utf-8
-import re
 from __future__ import division
+
+import re
 
 from odoo import models, fields, api, _
 from openerp.tools.safe_eval import safe_eval
