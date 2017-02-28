@@ -81,6 +81,84 @@
       </div>
     </div>
   </template>
+  <template id="parallax_showcase" name="Parallax Showcase">
+    <section class="parallax s_parallax_slider oe_custom_bg oe_img_bg o_animate insetShadowBig o_visible o_animating" data-scroll-background-ratio="1.2" style=" min-height: 50vh;">
+      <span class="s_parallax_bg oe_custom_bg oe_img_bg" style="top: -110.64px; bottom: -110.64px; transform: translateY(45px); background-position: 0% 0%; background-image: url(https://s3.amazonaws.com/s3.vauxoo.com/type.jpg);"/>
+      <div>
+        <div class="oe_structure">
+          <div class="carousel quotecarousel slide mb128 mt128" data-interval="10000" id="myCarousel1487688281148">
+            <ol class="carousel-indicators mb0">
+              <li class="" data-slide-to="0" data-target="#myCarousel1487688281148"/>
+              <li class="active" data-slide-to="1" data-target="#myCarousel1487688281148"/>
+            </ol>
+            <div class="carousel-inner">
+              <div class="item text_only">
+                <div class="container">
+                  <div class="content">
+                    <div class="row">
+                      <blockquote class="col-md-8 mb0 mt64">
+                        <p>
+                          <font class="text-white" style="font-size: 24px;">Vauxoo Just nailed it, the team is super relaxed, we achieved the implementation of 4 companies with Odoo.</font>
+                        </p>
+                        <small>
+                          <font style="font-size: 18px;">Peter Parker</font>
+                        </small>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item text_only active">
+                <div class="container">
+                  <div class="content">
+                    <div class="row">
+                      <blockquote class="mb16 col-md-8 mt64">
+                        <p>
+                          <font class="text-white" style="font-size: 24px;">They are by far the best option in Latin America, each member of the team know his thing.</font>
+                        </p>
+                        <small>Cicsa.
+                          <br/></small>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="twitter_timeline" name="twitter_timeline">
+    <section class="twitter bg-white" data-screen-name="OpenERP" data-limit="15">
+      <div class="twitter_timeline">
+      </div>
+    </section>
+  </template>
+  <template id="contact_us_section" name="Contact Us Section">
+        <section class="jumbotron s_button bg-gray-lighter">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9">
+                <p class="mb0">
+                  <strong>Do you have a project or need trainning?</strong>
+                </p>
+                <p class="mb0">Call us or drop us a line at:
+                  <a href="mailto:getstarted@vauxoo.com">getstarted@vauxoo.com</a>
+                  to learn more about our thechniques</p>
+                <p class="mb0">and metodologies.
+                  <br/></p>
+              </div>
+              <div class="col-md-3">
+                <a class="btn btn-primary btn-lg pull-right mt8" data-original-title="" href="/page/website.contactus" style="position: relative; overflow: hidden;" title="">
+                  <span class="o_default_snippet_text" data-original-title="" title="">Contact Us Now</span>
+                  <i class="fa fa-chevron-right"/>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+  </template>
   <template name="Welcome to Vauxoo Website" t-name="website.homepage">
     <t t-call="website.layout">
       <div class="oe_structure hidden-xs hidden-sm" id="wrap">
@@ -158,78 +236,9 @@
         </section>
         <t t-call="vauxoo.odoo_info"/>
         <t t-call="vauxoo.customers"/>
-        <section class="parallax s_parallax_slider oe_custom_bg oe_img_bg o_animate insetShadowBig o_visible o_animating" data-scroll-background-ratio="1.2" style=" min-height: 50vh;">
-          <span class="s_parallax_bg oe_custom_bg oe_img_bg" style="top: -110.64px; bottom: -110.64px; transform: translateY(45px); background-position: 0% 0%; background-image: url(https://s3.amazonaws.com/s3.vauxoo.com/type.jpg);"/>
-          <div>
-            <div class="oe_structure">
-              <div class="carousel quotecarousel slide mb128 mt128" data-interval="10000" id="myCarousel1487688281148">
-                <ol class="carousel-indicators mb0">
-                  <li class="" data-slide-to="0" data-target="#myCarousel1487688281148"/>
-                  <li class="active" data-slide-to="1" data-target="#myCarousel1487688281148"/>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="item text_only">
-                    <div class="container">
-                      <div class="content">
-                        <div class="row">
-                          <blockquote class="col-md-8 mb0 mt64">
-                            <p>
-                              <font class="text-white" style="font-size: 24px;">Vauxoo Just nailed it, the team is super relaxed, we achieved the implementation of 4 companies with Odoo.</font>
-                            </p>
-                            <small>
-                              <font style="font-size: 18px;">Peter Parker</font>
-                            </small>
-                          </blockquote>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item text_only active">
-                    <div class="container">
-                      <div class="content">
-                        <div class="row">
-                          <blockquote class="mb16 col-md-8 mt64">
-                            <p>
-                              <font class="text-white" style="font-size: 24px;">They are by far the best option in Latin America, each member of the team know his thing.</font>
-                            </p>
-                            <small>Cicsa.
-                              <br/></small>
-                          </blockquote>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="twitter bg-white" data-screen-name="OpenERP" data-limit="15">
-          <div class="twitter_timeline">
-          </div>
-        </section>
-        <section class="jumbotron s_button bg-gray-lighter">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-9">
-                <p class="mb0">
-                  <strong>Do you have a project or need trainning?</strong>
-                </p>
-                <p class="mb0">Call us or drop us a line at:
-                  <a href="mailto:getstarted@vauxoo.com">getstarted@vauxoo.com</a>
-                  to learn more about our thechniques</p>
-                <p class="mb0">and metodologies.
-                  <br/></p>
-              </div>
-              <div class="col-md-3">
-                <a class="btn btn-primary btn-lg pull-right mt8" data-original-title="" href="/page/website.contactus" style="position: relative; overflow: hidden;" title="">
-                  <span class="o_default_snippet_text" data-original-title="" title="">Contact Us Now</span>
-                  <i class="fa fa-chevron-right"/>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <t t-call="vauxoo.parallax_showcase"/>
+        <t t-call="vauxoo.twitter_timeline"/>
+        <t t-call="vauxoo.contact_us_section"/>
       </div>
     </t>
   </template>
