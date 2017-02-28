@@ -1,7 +1,8 @@
 # coding: utf-8
 import re
+from __future__ import division
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from openerp.tools.safe_eval import safe_eval
 
 from . import rst2html
@@ -100,6 +101,8 @@ class HrTimesheetReportsBase(models.Model):
             curr_from = self.currency_id
             curr_to = curr_obj.browse(currency[0])
             rate = curr_obj._get_conversion_rate(curr_from, curr_to)
+            if not rate:
+                UserWarning(_("Rate between currencies can not be 0"))
             grouped_by_product[gbc['currency_id'][1]] = {
                 'enterprises': total_ent,
                 'consultancy': total_cons,
