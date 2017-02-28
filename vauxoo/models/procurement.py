@@ -11,7 +11,12 @@ class ProcurementOrder(models.Model):
         the sale order has been paid.
         """
         task = super(ProcurementOrder, self)._create_service_task()
-        task.kanban_state = "blocked"
+        task.write(dict(
+            kanban_state="blocked",
+            user_id=task.project_id.user_id.id,
+            color=6))
+        # TODO maybe this default color for the user stories can be configured
+        # somewhere as a system parameter
         task.message_post(body=_(
             "This task will be blocked until the sale order has been paid"))
         return task
