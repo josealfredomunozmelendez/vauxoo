@@ -33,6 +33,9 @@
                 <xpath expr="//button[@name='toggle_active']" position="before">
                     <button class="oe_stat_button" name="%(act_vauxoo_timesheet_line_by_task)d" type="action" icon="fa-calendar" string="Timesheets" />
                 </xpath>
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="id"/>
+                </xpath>
             </field>
         </record>
 
@@ -41,6 +44,9 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_search_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="id"/>
+                </xpath>
                 <xpath expr="//group" position="inside">
                     <separator/>
                     <filter name="color" string="Color" context="{'group_by': 'color'}"/>
@@ -51,6 +57,50 @@
                     <filter name="user_story" string="User Stories" domain="['|', '|', ('name','=ilike','[US%]%'), ('name','=ilike','[HU%]%'), ('color', '=', 6)]"/>
                     <filter name="acceptability_criteria" string="Acceptability Criteria" domain="['|', '|', ('name', '=ilike', '[CA%]%'), ('name','=ilike','[AC%]%'), ('color', '=', 9)]"/>
                     <filter name="not_categorized_yet" string="Not categorized yet" domain="['|', ('color', '=', 0), ('color', '=', False), ('name', 'not ilike', '[%]%')]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_tree_view" model="ir.ui.view">
+            <field name="name">Project Task Tree View</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_tree_activity_view" model="ir.ui.view">
+            <field name="name">Project Task Tree Activity View</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.project_task_view_tree_activity"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_kanban_view" model="ir.ui.view">
+            <field name="name">Project Task Kanban View</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_calendar_view" model="ir.ui.view">
+            <field name="name">Project Task Calendar View</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_calendar"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="id"/>
                 </xpath>
             </field>
         </record>
