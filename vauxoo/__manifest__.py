@@ -73,6 +73,9 @@
         "mass_editing",
         "board",
         "contacts",
+
+        # Product
+        "product_cost_usd",
     ],
     "data": [
         # Main Configuration
