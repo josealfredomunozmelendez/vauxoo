@@ -11,7 +11,11 @@ class ProcurementOrder(models.Model):
         the sale order has been paid.
         """
         task = super(ProcurementOrder, self)._create_service_task()
-        task.kanban_state = "blocked"
+        new_name = task.sale_line_id.name.split('\n')[0]
+        task.write(dict(
+            name=new_name,
+            kanban_state="blocked",
+        ))
         task.message_post(body=_(
             "This task will be blocked until the sale order has been paid"))
         return task
