@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="company_description" inherit_id="website.company_description" name="Company Description" active="False" customize_show="True">
+  <template active="False" customize_show="True" id="company_description" inherit_id="website.company_description" name="Company Description">
     <xpath expr="//address" position="replace">
       <t t-as="cont" t-foreach="res_company.website_address_ids">
         <address itemscope="itemscope" itemtype="http://schema.org/Organization">
@@ -27,6 +27,45 @@
     </xpath>
     <xpath expr="//a[@t-att-href='res_company.google_map_link()']" position="replace">
       <div class="text-muted"/>
+    </xpath>
+  </template>
+  <template id="branches" inherit_id="website_crm.contactus_form" name="Office Branches">
+    <xpath expr="//div" position="after">
+      <t t-set="branches" t-value="res_company.partner_id.child_ids.filtered('website_published')"/>
+      <section class="container">
+        <div class="col-md-12 branches-tabs">
+          <div class="panel panel-heading mt0">
+            <h3 class="mt10">Sucursales</h3>
+          </div>
+          <div class="col-md-8 nopadding">
+            <div class="tab-content">
+              <t t-foreach="branches" t-as="branch">
+                <div t-att-class="'tab-pane active' if branches[0] == branch else 'tab-pane'" t-att-id="'branch-%s' % (branch.id)">
+                  <a t-att-href="branch.google_map_link()" target="_BLANK">
+                    <img class="thumbnail img-responsive" t-att-src="branch.google_map_img()"/>
+                  </a>
+                </div>
+              </t>
+            </div>
+          </div>
+          <div class="col-md-4 nopadding">
+            <ul class="nav nav-tabs tabs-right branch-tab">
+              <t t-foreach="branches" t-as="branch">
+              <li t-att-class="active if branches[0] == branch else ''">
+                <a data-toggle="tab" t-att-href="'#branch-%s' % (branch.id)">
+                  <h3  class="mt8" t-field="branch.name"></h3>
+                  <p t-esc="'%s # %s' % (branch.street_name, branch.street_number)"></p>
+                  <t t-esc="branch.phone"/><span t-if="branch.mobile"> | </span>
+                  <t t-esc="branch.mobile"/><span t-if="branch.fax"> | </span>
+                  <t t-esc="branch.fax"/><span t-if="branch.email"> | </span>
+                  <t t-esc="branch.email"/>
+                </a>
+              </li>
+              </t>
+            </ul>
+          </div>
+        </div>
+      </section>
     </xpath>
   </template>
 </odoo>
