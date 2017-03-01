@@ -10,6 +10,10 @@ class Project(models.Model):
         copy="False", default="HU", size=4,
         help="Acronymous to show as prefix in the display name for the tasks"
              " without parent Tasks")
+    label_subtasks = fields.Char(
+        copy="False",
+        help="Acronymous to show as prefix in the display name for the tasks"
+             " with parent Tasks")
     label_acronymous_subtasks = fields.Char(
         copy="False", default="CA", size=4,
         help="Acronymous to show as prefix in the display name for the tasks"
@@ -26,6 +30,8 @@ class ProjectTask(models.Model):
         "Name", compute="_compute_display_name", store=True, index=True)
     product_id = fields.Many2one(
         related="sale_line_id.product_id", readonly=True)
+    label_subtasks = fields.Char(
+        related="project_id.label_subtasks", readonly=True)
 
     @api.model
     def default_get(self, field_list):
