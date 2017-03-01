@@ -11,6 +11,9 @@ class ProjectTask(models.Model):
         string="Helpdesk Ticket",
         copy="False")
 
+    product_id = fields.Many2one(
+        related="sale_line_id.product_id", readonly=True)
+
     @api.multi
     def open_subtasks(self):
         self.ensure_one()

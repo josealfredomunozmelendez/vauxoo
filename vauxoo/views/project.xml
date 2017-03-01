@@ -39,6 +39,17 @@
             </field>
         </record>
 
+        <record id="project_task_product_id_form" model="ir.ui.view">
+            <field name="name">project.task.product.id.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="product_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
         <record id="project_task_extended_search_view" model="ir.ui.view">
             <field name="name">Project Task Extended Search View</field>
             <field name="model">project.task</field>
@@ -53,9 +64,8 @@
                 </xpath>
                 <xpath expr="//group" position="before">
                     <separator/>
-                    <filter name="projects" string="Projects" domain="['|', ('name','=ilike','[P%]%'), ('color','=',4)]"/>
-                    <filter name="user_story" string="User Stories" domain="['|', '|', ('name','=ilike','[US%]%'), ('name','=ilike','[HU%]%'), ('color', '=', 6)]"/>
-                    <filter name="acceptability_criteria" string="Acceptability Criteria" domain="['|', '|', ('name', '=ilike', '[CA%]%'), ('name','=ilike','[AC%]%'), ('color', '=', 9)]"/>
+                    <filter name="user_story" string="User Stories" domain="[('parent_id','=', False)]"/>
+                    <filter name="acceptability_criteria" string="Acceptability Criteria" domain="[('parent_id','!=', False)]"/>
                     <filter name="not_categorized_yet" string="Not categorized yet" domain="['|', ('color', '=', 0), ('color', '=', False), ('name', 'not ilike', '[%]%')]"/>
                 </xpath>
             </field>
@@ -68,6 +78,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="before">
                     <field name="id"/>
+                    <field name="product_id" invisible="1"/>
                 </xpath>
             </field>
         </record>
