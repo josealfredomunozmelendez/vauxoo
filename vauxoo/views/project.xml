@@ -128,27 +128,5 @@
             </field>
         </record>
 
-        <record id="project_project_subtasks_form" model="ir.ui.view">
-            <field name="name">project.project.subtasks.form</field>
-            <field name="model">project.project</field>
-            <field name="inherit_id" ref="hr_timesheet.project_invoice_form"/>
-            <field name="arch" type="xml">
-
-                <div name="options_active" position="inside">
-                    <div>
-                        <field name="use_subtasks" class="oe_inline"/>
-                        <label for="use_subtasks"/>
-                        <span attrs="{'invisible':[('use_subtasks', '=', False)]}">
-                            as
-                        </span>
-                        <field name="label_subtasks" class="oe_inline oe_input_align" attrs="{'invisible': [('use_subtasks', '=', False)]}"/>
-                    </div>
-                </div>
-                <field name="subtask_project_id" position="attributes">
-                    <attribute name="attrs">{'invisible': [('use_subtasks', '=', False)]}</attribute>
-                </field>
-            </field>
-        </record>
-
     </data>
 </openerp>

@@ -15,9 +15,9 @@
             ]"/>
         </record>
 
-        <!-- <record id="auth_signup.default_template_user" model="res.users"> -->
-        <!--     <field name="lang">es_ES</field> -->
-        <!-- </record> -->
+        <record id="auth_signup.default_template_user" model="res.users">
+            <field name="lang">es_ES</field>
+        </record>
 
     </data>
 </openerp>
