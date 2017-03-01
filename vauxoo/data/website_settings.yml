@@ -27,14 +27,14 @@
 -
   !python {model: website.config.settings}: |
     website_conf = self.browse(ref('website_config'))
-    lang_es_id = ref('base.lang_es')
-    website_conf.write({'default_lang_id': lang_es_id, 'language_ids': [(4, lang_es_id)]})
-    websites = self.env["website"].search([])
-    install_wizard = self.env['base.language.install'].create({
-        "lang": "es_ES",
-        "website_ids": [(6, 0, [item.id for item in websites])],
-    })
-    install_wizard.lang_install()
+    # lang_es_id = ref('base.lang_es')
+    # website_conf.write({'default_lang_id': lang_es_id, 'language_ids': [(4, lang_es_id)]})
+    # websites = self.env["website"].search([])
+    # install_wizard = self.env['base.language.install'].create({
+    #     "lang": "es_ES",
+    #     "website_ids": [(6, 0, [item.id for item in websites])],
+    # })
+    # install_wizard.lang_install()
     website_conf.execute()
 -
   Blessing public Menus
