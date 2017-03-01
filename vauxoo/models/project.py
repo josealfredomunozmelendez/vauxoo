@@ -24,6 +24,8 @@ class ProjectTask(models.Model):
         "helpdesk.ticket", copy="False")
     display_name = fields.Char(
         "Name", compute="_compute_display_name", store=True, index=True)
+    product_id = fields.Many2one(
+        related="sale_line_id.product_id", readonly=True)
 
     @api.model
     def default_get(self, field_list):
@@ -58,3 +60,16 @@ class ProjectTask(models.Model):
             elements = [order, story, criteria, name]
             elements = [e for e in elements if e]
             task.display_name = ":".join(elements)
+
+    @api.multi
+    def open_subtasks(self):
+        self.ensure_one()
+        action = self.env.ref('project.project_task_action_from_partner')
+        [action_dict] = action.read([])
+        ctx = dict(self._context)
+        ctx.update({
+            'search_default_parent_id': self.id,
+            'default_parent_id': self.id})
+        action_dict['context'] = ctx
+        action_dict['domain'] = [("parent_id", "=", self.id)]
+        return action_dict

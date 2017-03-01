@@ -22,20 +22,35 @@ vendedores o personal administrativo.
 
 ## Proyectos
 
-Para nosotros son las tareas dentro de los equipos de trabajo.
-Dichos proyectos serán creados por los líderes de proyecto según la necesidad.
-Los proyectos están representados con el color amarillo en la vista kanban.
+Los proyectos en versión 8.0 eran representados por el objeto project.project
+pero para la versión 10.0 son representados por los pedidos de ventas.
 
-Los proyectos tendrán un prefijo antes del nombre para denotar que es un
-proyecto. `[P##] Nombre Proyecto`  donde ## es un nombre que le asignaremos a
-demanda. Es importante que cada proyecto tenga definido el cliente al cual
-aplica en Project > Extra Info > Customer. Por ejemplos estos proyectos de la
+```
+Proyecto = Pedido de Venta
+```
+
+Estos pedidos de ventas ahora son el contrato que existe con el cliente y
+a través del cual se venderán paquetes de horas los cuales se verán traducidos
+en nuevas tareas las cuales son creadas al confirmar el pedido de venta.
+
+Las tareas generadas a partir del pedido de venta serán las historias de
+usuario relacionadas al proyecto.
+
+Podemos identificar las historias de usuario o criterios de aceptación de un
+proyecto ya que estos poseen el identificador del proyecto en la tarea:
+dicho identificador es el numero del pedido de venta el cual tiene
+como nombre "SO<number>" como por ejemplo "SO0005".
+
+Las tareas generadas via pedido de venta tienen configurado el cliente del
+pedido de venta que las genero.
+
+Por ejemplos estos proyectos de la
 versión 8.0 serían:
 
 Nombre Proyecto en versión 8.0 | Nombre del Proyecto en versión 10.0
 --- | ---
-[P70-13] Yoytec Ventas | [P70-13] Ventas
-[P70-6] Yoytec RMA | [P70-6] RMA
+[P70-13] Yoytec Ventas | SO0006: Ventas
+[P70-6] Yoytec RMA | SO00070: RMA
 
 ## Historias de Usuario
 

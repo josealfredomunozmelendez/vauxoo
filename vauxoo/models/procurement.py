@@ -15,7 +15,10 @@ class ProcurementOrder(models.Model):
         task.write(dict(
             name=new_name,
             kanban_state="blocked",
-        ))
+            user_id=task.project_id.user_id.id,
+            color=6))
+        # TODO maybe this default color for the user stories can be configured
+        # somewhere as a system parameter
         task.message_post(body=_(
             "This task will be blocked until the sale order has been paid"))
         return task
