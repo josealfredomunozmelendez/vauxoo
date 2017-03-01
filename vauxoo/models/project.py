@@ -11,7 +11,7 @@ class Project(models.Model):
         help="Acronymous to show as prefix in the display name for the tasks"
              " without parent Tasks")
     label_subtasks = fields.Char(
-        copy="False",
+        copy="False", default="Sub Tasks",
         help="Acronymous to show as prefix in the display name for the tasks"
              " with parent Tasks")
     label_acronymous_subtasks = fields.Char(
