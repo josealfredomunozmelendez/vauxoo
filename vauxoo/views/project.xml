@@ -2,6 +2,19 @@
 <openerp>
     <data>
 
+        <record id="project_project_form_labels" model="ir.ui.view">
+            <field name="name">project.project.form.labels</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='label_tasks']" position="after">
+                    <span attrs="{'invisible': [('use_tasks', '=', False)]}">, the Acronymous is: </span>
+                    <field name="label_acronymous" class="oe_inline oe_input_align" attrs="{'invisible': [('use_tasks', '=', False)]}"/>
+                    <span attrs="{'invisible': [('use_tasks', '=', False)]}"> and for subtasks is: </span>
+                    <field name="label_acronymous_subtasks" class="oe_inline oe_input_align" attrs="{'invisible': [('use_tasks', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
         <record id="act_vauxoo_timesheet_line_by_task" model="ir.actions.act_window">
             <field name="name">Activities</field>
             <field name="res_model">account.analytic.line</field>
@@ -28,13 +41,16 @@
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='tag_ids']" position="after">
-                    <field name="ticket_id" attrs="{'invisible': [('ticket_id', '=', False)]}"/>
+                    <field name="ticket_id"/>
                 </xpath>
                 <xpath expr="//button[@name='toggle_active']" position="before">
                     <button class="oe_stat_button" name="%(act_vauxoo_timesheet_line_by_task)d" type="action" icon="fa-calendar" string="Timesheets" />
                 </xpath>
-                <xpath expr="//field[@name='name']" position="before">
-                    <field name="id"/>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="class">oe_edit_only</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="display_name" class="oe_read_only"/>
                 </xpath>
             </field>
         </record>
@@ -72,24 +88,13 @@
             </field>
         </record>
 
-        <record id="project_task_tree_activity_view" model="ir.ui.view">
-            <field name="name">Project Task Tree Activity View</field>
-            <field name="model">project.task</field>
-            <field name="inherit_id" ref="project.project_task_view_tree_activity"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='name']" position="before">
-                    <field name="id"/>
-                </xpath>
-            </field>
-        </record>
-
         <record id="project_task_kanban_view" model="ir.ui.view">
             <field name="name">Project Task Kanban View</field>
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_kanban"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='name']" position="before">
-                    <field name="id"/>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="display_name"/>
                 </xpath>
             </field>
         </record>
@@ -99,8 +104,9 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_calendar"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='name']" position="before">
-                    <field name="id"/>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="display_name"/>
+                    <field name="name" invisible="1"/>
                 </xpath>
             </field>
         </record>
