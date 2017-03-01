@@ -15,7 +15,6 @@
         "account_budget",
         "account_reports_followup",
         "account_online_sync",
-        "account_budget",
         "account_cancel",
         "account_test",
         "account_voucher",
