@@ -15,7 +15,7 @@
   <template id="branches" inherit_id="website_crm.contactus_form" name="Office Branches">
     <xpath expr="//div" position="after">
       <t t-set="branches" t-value="res_company.partner_id.child_ids.filtered('website_published')"/>
-      <section class="container">
+      <section class="container" t-if="len(branches)">
         <div class="col-md-12 branches-tabs">
           <div class="panel panel-heading mt0">
             <h3 class="mt10">Sucursales</h3>
