@@ -31,6 +31,7 @@
         <field name="state_id" ref="base.state_mx_col"/>
         <field name="parent_id" ref="base.main_partner"/>
         <field name="website_published" eval="1"/>
+        <field name="country_id" ref="base.mx"/>
         <field name="type">other</field>
     </record>
     <record id="partner_leon" model="res.partner">
@@ -46,6 +47,7 @@
         <field name="state_id" ref="base.state_mx_gto"/>
         <field name="parent_id" ref="base.main_partner"/>
         <field name="website_published" eval="1"/>
+        <field name="country_id" ref="base.mx"/>
         <field name="type">other</field>
     </record>
     <record id="partner_lima" model="res.partner">

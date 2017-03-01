@@ -37,7 +37,7 @@
           <div class="panel panel-heading mt0">
             <h3 class="mt10">Sucursales</h3>
           </div>
-          <div class="col-md-8 nopadding">
+          <div class="col-md-8 nopadding hidden-sm hidden-xs">
             <div class="tab-content">
               <t t-foreach="branches" t-as="branch">
                 <div t-att-class="'tab-pane active' if branches[0] == branch else 'tab-pane'" t-att-id="'branch-%s' % (branch.id)">
@@ -48,7 +48,7 @@
               </t>
             </div>
           </div>
-          <div class="col-md-4 nopadding">
+          <div class="col-md-4 nopadding hidden-sm hidden-xs">
             <ul class="nav nav-tabs tabs-right branch-tab">
               <t t-foreach="branches" t-as="branch">
               <li t-att-class="active if branches[0] == branch else ''">
@@ -63,6 +63,24 @@
               </li>
               </t>
             </ul>
+          </div>
+          <div class="col-md-8 nopadding hidden-md hidden-lg">
+            <div class="row">
+              <t t-foreach="branches" t-as="branch">
+                <a t-att-href="branch.google_map_link()" target="_BLANK">
+                  <div class="col-sm-6 col-xs-12">
+                  <div class="panel branches-shadowed col-xs-12 col-sm-12">
+                      <h4  class="mt8"><t t-esc="branch.name"/><small><t t-esc="' %s ' % (branch.country_id.name)"/></small></h4>
+                      <p t-esc="'%s # %s' % (branch.street_name, branch.street_number)"></p>
+                      <t t-esc="branch.phone"/><span t-if="branch.mobile"> | </span>
+                      <t t-esc="branch.mobile"/><span t-if="branch.fax"> | </span>
+                      <t t-esc="branch.fax"/><span t-if="branch.email"> | </span>
+                      <t t-esc="branch.email"/>
+                  </div>
+                  </div>
+                </a>
+              </t>
+            </div>
           </div>
         </div>
       </section>
