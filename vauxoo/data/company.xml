@@ -19,7 +19,7 @@
         <field name="state_id" ref="base.state_mx_son"/>
     </record>
     <record id="partner_colima" model="res.partner">
-        <field name="name">Colima HQ</field>
+        <field name="name">Colima</field>
         <field name="street_name">Av. Venustiano Carranza</field>
         <field name="phone">+52 312 3236597</field>
         <field name="email">getstarted@vauxoo.com</field>
@@ -33,6 +33,7 @@
         <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.mx"/>
         <field name="type">other</field>
+        <field name="comment">Headquarters</field>
     </record>
     <record id="partner_leon" model="res.partner">
         <field name="name">León</field>
@@ -49,6 +50,7 @@
         <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.mx"/>
         <field name="type">other</field>
+        <field name="comment">Head Offices</field>
     </record>
     <record id="partner_lima" model="res.partner">
         <field name="name">Lima</field>
@@ -61,17 +63,19 @@
         <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.pe"/>
         <field name="type">other</field>
+        <field name="comment">Sales and Projects</field>
     </record>
     <record id="partner_valencia" model="res.partner">
         <field name="name">Valencia</field>
         <field name="phone">+58 424 4348908</field>
         <field name="email">info@vauxoo.com</field>
-        <field name="street_name">Avenida Bolívar</field>
-        <field name="street_number">390</field>
-        <field name="street2">Miraflores</field>
+        <field name="street_name">Avenida Bolívar, Torre Camoruco</field>
+        <field name="street2"></field>
+        <field name="city">Valencia</field>
         <field name="parent_id" ref="base.main_partner"/>
         <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.ve"/>
         <field name="type">other</field>
+        <field name="comment">Research and Development</field>
     </record>
 </odoo>
