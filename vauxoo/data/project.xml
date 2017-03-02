@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="implementation_team" model="project.project">
+            <field name="name">Implementation</field>
+            <field name="sequence">1</field>
+            <field name="label_tasks">Projects</field>
+            <field name="privacy_visibility">employees</field>
+            <field name="rating_status">stage</field>
+            <field name="use_tasks" eval="True"/>
+            <field name="allow_timesheets" eval="True"/>
+            <field name="allow_forecast" eval="True"/>
+            <field name="alias_name" eval="False"/>
+        </record>
+        <record id="implementation_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('vauxoo.implementation_team')"/>
+        </record>
+
+        <record id="project.project_stage_data_0" model="project.task.type">
+            <field name="project_ids" eval="[(4, ref('vauxoo.implementation_team'))]"/>
+        </record>
+
+   </data>
+</openerp>
