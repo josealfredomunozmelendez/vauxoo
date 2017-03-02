@@ -163,11 +163,15 @@
     <t t-call="website.layout">
       <div class="oe_structure hidden-xs hidden-sm" id="wrap">
         <section autoplay="autoplay" background="js-animated-bg" class="s_media_block move_to_top preserve3d" iframefit="fitCont" loop="loop" muted="muted" opacity="1" src="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" style="height: 100vh;" id="vx-video">
-            <div class="hidden-sm container-fluid">
-              <div class="col-lg-9 col-md-10 col-xs-12" style="max-height: 95%; padding-bottom: 15%;">
-                <t t-call="vauxoo.main_message"/>
+          <div class="v-align text-center">
+            <div class=" hidden-sm container">
+              <div class="col-md-12 col-xs-12 jumbotron" style="max-height: 95%; margin-bottom: 15%; background-color: rgba(0, 0, 0, 0.35);">
+                <h1>Lead by Quality</h1>
+                <p class="mb8 lead">Deploy, manage, implement and customize Odoo with love and the highest standards</p>
+                <a class="mt8 btn btn-success btn-lg" href="/page/website.contactus">Request a Demo</a>
               </div>
             </div>
+          </div>
         </section>
       </div>
       <div class="oe_structure hidden-lg">
