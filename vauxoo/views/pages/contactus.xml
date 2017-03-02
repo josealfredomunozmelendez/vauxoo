@@ -1,32 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="company_description" inherit_id="website.company_description" name="Company Description" active="False" customize_show="True">
+  <template id="company_description" inherit_id="website.company_description" name="Company Description">
     <xpath expr="//address" position="replace">
-      <t t-as="cont" t-foreach="res_company.website_address_ids">
-        <address itemscope="itemscope" itemtype="http://schema.org/Organization">
-          <h3>
-            <span t-raw="cont.country_id.name"/>
-          </h3>
-          <h5 class="text-muted">
-            <strong>Office: </strong>PUT THE CITY HERE: TODO</h5>
-          <span t-raw="cont.street"/>
-          <br/>
-          <span t-raw="cont.phone"/>
-          <br/>
-          <span t-raw="cont.mobile"/>
-          <br/>
-          <span t-raw="cont.fax"/>
-          <br/>
-          <span t-raw="cont.email"/>
-          <br/>
-        </address>
-        <a t-att-href="cont.google_map_link()" target="_BLANK">
-          <img class="thumbnail img-responsive" t-att-src="cont.google_map_img()"/>
-        </a>
-      </t>
     </xpath>
     <xpath expr="//a[@t-att-href='res_company.google_map_link()']" position="replace">
       <div class="text-muted"/>
+    </xpath>
+  </template>
+  <template id="contact_us_form" inherit_id="website.contactus" name="Contactus Fullwidth">
+    <xpath expr="//div[@class='col-md-8']" position="attributes">
+      <attribute name="class">col-md-12</attribute>
+    </xpath>
+  </template>
+  <template id="branches" inherit_id="website_crm.contactus_form" name="Office Branches">
+    <xpath expr="//div" position="after">
+      <t t-set="branches" t-value="res_company.partner_id.child_ids.filtered('website_published')"/>
+      <section class="container" t-if="len(branches)">
+        <div class="col-md-12 branches-tabs">
+          <div class="panel panel-heading mt0">
+            <h3 class="mt10">Sucursales</h3>
+          </div>
+          <div class="col-md-12 nopadding">
+            <div class="row">
+              <t t-foreach="branches" t-as="branch">
+                <a t-att-href="branch.google_map_link()" target="_BLANK">
+                  <div class="col-sm-6 col-xs-12">
+                    <div class="panel branches-shadowed col-xs-12 col-sm-12">
+                        <h4  class="mt8"><t t-esc="branch.name"/><small><t t-esc="' %s ' % (branch.country_id.name)"/></small><br/><small t-esc="branch.comment"></small></h4>
+                        <p t-esc="'%s # %s' % (branch.street_name, branch.street_number)"></p>
+                        <t t-esc="branch.phone"/><span t-if="branch.mobile"> | </span>
+                        <t t-esc="branch.mobile"/><span t-if="branch.fax"> | </span>
+                        <t t-esc="branch.fax"/><span t-if="branch.email"> | </span>
+                        <t t-esc="branch.email"/>
+                    </div>
+                  </div>
+                </a>
+              </t>
+            </div>
+          </div>
+        </div>
+      </section>
     </xpath>
   </template>
 </odoo>

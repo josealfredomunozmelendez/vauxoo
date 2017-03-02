@@ -3,7 +3,7 @@
     <template id="vauxoo_assets_frontend" inherit_id="website.assets_frontend">
         <xpath expr="//link[last()]" position="after">
             <link href="/vauxoo/static/src/less/footer.less" rel="stylesheet" type="text/less"/>
-            <link href="/vauxoo/static/src/css/vx-custom.css" rel="stylesheet" type="text/css"/>
+            <link href="/vauxoo/static/src/less/branches_tabs.less" rel="stylesheet" type="text/less"/>
             <link href="/vauxoo/static/src/css/video.css" rel="stylesheet" type="text/css"/>
         </xpath>
     </template>

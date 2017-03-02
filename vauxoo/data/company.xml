@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="base.main_company" model="res.company">
+        <field name="name">Vauxoo</field>
+        <field name="website">https://vauxoo.com</field>
+        <field name="phone">+52 (477) 773.33.46</field>
+        <field name="fax">+58 (424) 434.89.08</field>
+        <field name="email">info@vauxoo.com</field>
+    </record>
+    <record id="base.main_partner" model="res.partner">
+        <field name="vat">VAU111017GC9</field>
+        <field name="property_account_position_id" search="[('name', '=', 'Personas morales del régimen general')]"/>
+        <field name="street_name">Campobasso Norte</field>
+        <field name="street2">Fraccionamiento Montecarlo</field>
+        <field name="street_number">3206</field>
+        <field name="street_number2">9000</field>
+        <field name="zip">85134</field>
+        <field name="city">Ciudad Obregón</field>
+        <field name="state_id" ref="base.state_mx_son"/>
+    </record>
+    <record id="partner_colima" model="res.partner">
+        <field name="name">Colima</field>
+        <field name="street_name">Av. Venustiano Carranza</field>
+        <field name="phone">+52 312 3236597</field>
+        <field name="email">getstarted@vauxoo.com</field>
+        <field name="street_number">1726</field>
+        <field name="street_number2">7</field>
+        <field name="street2">Residencial Esmeralda Norte</field>
+        <field name="zip">28017</field>
+        <field name="city">Colima</field>
+        <field name="state_id" ref="base.state_mx_col"/>
+        <field name="parent_id" ref="base.main_partner"/>
+        <field name="website_published" eval="0"/>
+        <field name="country_id" ref="base.mx"/>
+        <field name="type">other</field>
+        <field name="comment">Headquarters</field>
+    </record>
+    <record id="partner_leon" model="res.partner">
+        <field name="name">León</field>
+        <field name="phone">+52 477 7733346</field>
+        <field name="email">ventas@vauxoo.com</field>
+        <field name="street_name">Lunik</field>
+        <field name="street_number">119</field>
+        <field name="street_number2">7</field>
+        <field name="street2">Futurama Monterrey</field>
+        <field name="zip">37180</field>
+        <field name="city">León</field>
+        <field name="state_id" ref="base.state_mx_gto"/>
+        <field name="parent_id" ref="base.main_partner"/>
+        <field name="website_published" eval="0"/>
+        <field name="country_id" ref="base.mx"/>
+        <field name="type">other</field>
+        <field name="comment">Head Offices</field>
+    </record>
+    <record id="partner_lima" model="res.partner">
+        <field name="name">Lima</field>
+        <field name="phone">99792-0109</field>
+        <field name="email">ventas@vauxoo.com</field>
+        <field name="street_name">Av. La Mar</field>
+        <field name="street_number">390</field>
+        <field name="street2">Miraflores</field>
+        <field name="parent_id" ref="base.main_partner"/>
+        <field name="website_published" eval="0"/>
+        <field name="country_id" ref="base.pe"/>
+        <field name="type">other</field>
+        <field name="comment">Sales and Projects</field>
+    </record>
+    <record id="partner_valencia" model="res.partner">
+        <field name="name">Valencia</field>
+        <field name="phone">+58 424 4348908</field>
+        <field name="email">info@vauxoo.com</field>
+        <field name="street_name">Avenida Bolívar, Torre Camoruco</field>
+        <field name="street2"></field>
+        <field name="city">Valencia</field>
+        <field name="parent_id" ref="base.main_partner"/>
+        <field name="website_published" eval="0"/>
+        <field name="country_id" ref="base.ve"/>
+        <field name="type">other</field>
+        <field name="comment">Research and Development</field>
+    </record>
+</odoo>
