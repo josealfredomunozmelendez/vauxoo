@@ -164,7 +164,7 @@
       <div class="oe_structure hidden-xs hidden-sm" id="wrap">
         <section autoplay="autoplay" background="js-animated-bg" class="s_media_block move_to_top preserve3d" iframefit="fitCont" loop="loop" muted="muted" opacity="1" src="https://s3.amazonaws.com/s3.vauxoo.com/frontend.mp4" style="height: 100vh;" id="vx-video">
           <div class="v-align text-center">
-            <div class=" hidden-sm container">
+            <div class=" hidden-sm hidden-xs container">
               <div class="col-md-12 col-xs-12 jumbotron" style="max-height: 95%; margin-bottom: 15%; background-color: rgba(0, 0, 0, 0.35);">
                 <h1>Lead by Quality</h1>
                 <p class="mb8 lead">Deploy, manage, implement and customize Odoo with love and the highest standards</p>
@@ -176,10 +176,13 @@
       </div>
       <div class="oe_structure hidden-lg">
         <section>
-          <div class="hidden-lg hidden-md text-center container">
-            <div class="col-md-6 col-md-offset-3 col-xs-12" style="min-height: 50vh; margin-top: 35%">
-              <hr class="s_separator"/>
-              <a class="btn btn-warning btn-lg" href="/page/website.contactus">Want to know more?</a>
+          <div class="v-align text-center">
+            <div class="hidden-lg hidden-md container" style="margin-top: 40%; margin-bottom: 40%;">
+              <div class="col-md-12 col-xs-12 jumbotron" style="max-height: 95%; margin-bottom: -15%; background-color: rgba(0, 0, 0, 0);">
+                <h1>Lead by Quality</h1>
+                <p class="mb8 lead">Deploy, manage, implement and customize Odoo with love and the highest standards</p>
+                <a class="mt8 btn btn-success btn-lg" href="/page/website.contactus">Request a Demo</a>
+              </div>
             </div>
           </div>
         </section>
