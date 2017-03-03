@@ -94,6 +94,8 @@
         "data/ir_actions_server.xml",
         "data/base_automation.xml",
         "data/hr_timesheet_invoice_data.xml",
+        "data/product.xml",
+        "data/project.xml",
 
         # Views
         # Backend stuff (A file per app)
@@ -127,6 +129,7 @@
         "views/hr_timesheet_reports_email.xml",
     ],
     "demo": [
+        "demo/product.xml",
         "demo/project.xml",
         "demo/helpdesk.xml",
     ],
