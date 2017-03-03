@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data noupdate="1">
     <record id="base.main_company" model="res.company">
         <field name="name">Vauxoo</field>
         <field name="website">https://vauxoo.com</field>
@@ -30,7 +31,7 @@
         <field name="city">Colima</field>
         <field name="state_id" ref="base.state_mx_col"/>
         <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="0"/>
+        <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.mx"/>
         <field name="type">other</field>
         <field name="comment">Headquarters</field>
@@ -47,7 +48,7 @@
         <field name="city">León</field>
         <field name="state_id" ref="base.state_mx_gto"/>
         <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="0"/>
+        <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.mx"/>
         <field name="type">other</field>
         <field name="comment">Head Offices</field>
@@ -60,7 +61,7 @@
         <field name="street_number">390</field>
         <field name="street2">Miraflores</field>
         <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="0"/>
+        <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.pe"/>
         <field name="type">other</field>
         <field name="comment">Sales and Projects</field>
@@ -73,9 +74,10 @@
         <field name="street2"></field>
         <field name="city">Valencia</field>
         <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="0"/>
+        <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.ve"/>
         <field name="type">other</field>
         <field name="comment">Research and Development</field>
     </record>
+    </data>
 </odoo>
