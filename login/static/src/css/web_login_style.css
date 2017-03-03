@@ -118,3 +118,16 @@ a.btn-select:hover {
 	margin-top: 30px;
 	margin-bottom: 10px;
 }
+.oe_login_form {
+    margin-bottom: 25px;
+}
+.oauth_btn {
+    min-width: 100%;
+}
+.div_providers {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.links-paragraph {
+    white-space: normal;
+}
