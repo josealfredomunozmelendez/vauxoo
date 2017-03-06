@@ -80,6 +80,7 @@
         # Main Configuration
         "data/base_settings.yml",
         "data/website_settings.yml",
+        'data/lang.xml',
 
         # Security
         "security/res_groups.xml",
@@ -88,7 +89,6 @@
 
         # Data
         'data/company.xml',
-        'data/lang.xml',
         'data/website.xml',
         'data/project_tags.xml',
         "data/ir_actions_server.xml",
