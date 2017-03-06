@@ -98,6 +98,9 @@
             <a Title="Contact us" class="btn btn-xs btn-link" data-placement="left" data-toggle="tooltip" href="/page/website.contactus">
                 <i class="fa fa-3x fa-envelope-square fa-lg"/>
             </a>
+            <a Title="Subscribe" class="btn btn-xs btn-link" data-placement="left" data-toggle="tooltip" href="/blog/1/feed">
+                <i class="fa fa-3x fa-rss-square fa-lg"/>
+            </a>
         </div>
     </template>
     <!-- Setting the copyright placeholder. -->
