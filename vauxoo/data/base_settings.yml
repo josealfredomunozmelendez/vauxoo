@@ -18,12 +18,43 @@
 -
   Sale Settings
 -
-  !record {model: sale.config.settings, id: sale_config_settings}:
+  !record {model: sale.config.settings, id: sale_config}:
     {
      'group_use_lead': True,
      'group_uom': True,
      'multi_sales_price_method': 'percentage',
+     'group_warning_sale': True,
     }
 -
   !python {model: sale.config.settings}: |
-    self.browse(ref('sale_config_settings')).execute()
+    self.browse(ref('sale_config')).execute()
+-
+  Accounting Settings
+-
+  !record {model: account.config.settings, id: account_config}:
+    {
+     'group_warning_account': True,
+    }
+-
+  !python {model: account.config.settings}: |
+    self.browse(ref('account_config')).execute()
+-
+  Purchase Settings
+-
+  !record {model: purchase.config.settings, id: purchase_config}:
+    {
+     'group_warning_purchase': True,
+    }
+-
+  !python {model: purchase.config.settings}: |
+    self.browse(ref('purchase_config')).execute()
+-
+  Stock Settings
+-
+  !record {model: stock.config.settings, id: stock_config}:
+    {
+     'group_warning_stock': 1,
+    }
+-
+  !python {model: stock.config.settings}: |
+    self.browse(ref('stock_config')).execute()
