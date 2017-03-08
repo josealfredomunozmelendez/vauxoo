@@ -11,6 +11,7 @@ from ast import literal_eval
 from odoo import http
 from odoo.http import request
 from odoo.addons.web.controllers.main import Home
+from odoo.addons.auth_signup.controllers.main import AuthSignupHome
 
 import datetime
 import pytz
@@ -70,3 +71,22 @@ class LoginHome(Home):
             background = dusk
         request.params['background_src'] = background
         return super(LoginHome, self).web_login(redirect, **kw)
+
+
+class LoginAuthSignupHome(AuthSignupHome):
+
+    @http.route('/web/signup', type='http', auth='public', website=True)
+    def web_auth_signup(self, *args, **kw):
+        param_obj = request.env['ir.config_parameter'].sudo()
+        df = param_obj.get_param('login_form_disable_footer')
+        request.params['disable_footer'] = df
+        return super(LoginAuthSignupHome, self).web_auth_signup(*args, **kw)
+
+    @http.route('/web/reset_password', type='http', auth='public',
+                website=True)
+    def web_auth_reset_password(self, *args, **kw):
+        param_obj = request.env['ir.config_parameter'].sudo()
+        df = param_obj.get_param('login_form_disable_footer')
+        request.params['disable_footer'] = df
+        return super(LoginAuthSignupHome, self).web_auth_reset_password(
+            *args, **kw)

@@ -18,6 +18,7 @@
     'depends': [
         'web',
         'website',
+        'auth_signup',
     ],
     'data': [
         'data/ir_config_parameter.xml',
