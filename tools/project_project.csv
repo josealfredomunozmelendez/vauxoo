@@ -1,0 +1,7 @@
+id,sequence,name,label_tasks,label_acronymous,label_subtasks,label_acronymous_subtasks,rating_status,alias_name
+vauxoo.implementation_team,1,Implementation,User Stories,US,Acceptability Criteria,AC,stage,,
+vauxoo_migration_training_team,2,Training,Projects,P,Tasks,T,no,,
+vauxoo_migration_internal_management_team,3,Internal Management,Tasks,T,,,no,,
+vauxoo_migration_research_development_team,4,Research + Development,Tasks,T,,,no,,
+vauxoo_migration_consulting_team,5,Consulting,Projects,P,,,stage,,
+vauxoo_migration_support_team,6,Support,Issue,I,,,stage,,
