@@ -8,4 +8,6 @@ from . import res_company
 from . import res_partner
 from . import hr_timesheet_invoice
 from . import hr_timesheet_reports
+from . import hr_employee
 from . import procurement
+from . import account_budget

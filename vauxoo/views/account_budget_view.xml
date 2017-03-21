@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_crossovered_budget_line_tree" model="ir.ui.view">
+            <field name="name">crossovered.budget.line.tree</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='general_budget_id']" position="before">
+                    <field name="description"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="crossovered_budget_view_form" model="ir.ui.view">
+            <field name="name">crossovered.budget.form</field>
+            <field name="model">crossovered.budget</field>
+            <field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='creating_user_id']" position="before">
+                    <field name="use_cost"/>
+                    <field name="rate_usd"/>
+                </xpath>
+                <xpath expr="//field[@name='crossovered_budget_line']/tree/field[@name='general_budget_id']" position="before">
+                    <field name="description"/>
+                    <field name="amount_usd"/>
+                </xpath>
+                <xpath expr="//field[@name='crossovered_budget_line']/form//field[@name='general_budget_id']" position="before">
+                    <field name="description"/>
+                    <field name="amount_usd"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- Case Teams Salesteams dashboard view -->
+        <record id="crossovered_budget_view_kanban" model="ir.ui.view" >
+            <field name="name">crossovered.budget.kanban</field>
+            <field name="model">crossovered.budget</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_salesteam_kanban">
+                    <field name="name"/>
+                    <field name="color"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="company_id"/>
+                    <field name="use_cost"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                                        <span class="fa fa-bars fa-lg"/>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <t t-if="widget.deletable">
+                                            <li><a type="delete">Delete</a></li>
+                                        </t>
+                                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                    </ul>
+                                </div>
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_primary"><field name="name"/> |
+                                        <t t-esc="moment(record.date_from.raw_value).format('ll')"/>
+                                        <t t-esc="moment(record.date_to.raw_value).format('ll')"/></div><br/>
+                                        <i class="fa fa-building-o"/> <b>To</b> <t t-esc="record.company_id.raw_value[1]"/>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_content o_visible">
+                                 <div class="row">
+                                     <div style="color: brown" class="col-xs-12">
+                                         <h3><u>Timesheets</u></h3>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                    <div style="color: brown" class="col-xs-4">
+                                      <span>Theoretical</span>
+                                    </div>
+                                    <div style="color: brown" class="col-xs-4">
+                                      <span>Invoiceable</span>
+                                    </div>
+                                    <div style="color: brown" class="col-xs-4">
+                                      <span>Informaed</span>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                  <div class="col-xs-6">
+                                      <t t-if="record.use_cost">
+                                       <span title='Percentage that this budget represent of the total Employee costs'>
+                                           33.33%</span><br/>
+                                       <span title='Cost per hour'>
+                                           32.26 USD</span><br/>
+                                       <span title='Expenses'>
+                                           -35.258,26 USD</span><br/>
+                                       <span title='Income'>
+                                           3.258,26 USD</span><br/>
+                                       <span title='Executed expenses'>
+                                           -5.258,26 USD</span><br/>
+                                       <span title='Executed incomes'>
+                                           7.258,26 USD</span><br/>
+                                      </t>
+                                  </div>
+                                  <div class="col-xs-6 text-center">
+                                    <div style="color: green" class="row">
+                                      <div class="col-xs-4">Planned</div>
+                                      <div class="col-xs-4">Real</div>
+                                      <div class="col-xs-4">Practical</div>
+                                      <div class="col-xs-4">35.000.00</div>
+                                      <div class="col-xs-4">1.002</div>
+                                      <div class="col-xs-4">22.000</div>
+                                    </div>
+                                    <div style="color: red" class="row">
+                                      <div class="col-xs-4">Planned</div>
+                                      <div class="col-xs-4">Real</div>
+                                      <div class="col-xs-4">Practical</div>
+                                      <div class="col-xs-4">25.000.00</div>
+                                      <div class="col-xs-4">3.002</div>
+                                      <div class="col-xs-4">19.000</div>
+                                    </div>
+                                    <div class="row">
+                                       <div style="border-right: solid;" class="col-xs-6">
+                                         <span style="font-size: 3em; text-align: left">46.20</span>
+                                       </div>
+                                       <div class="col-xs-6">
+                                         <span style="font-size: 3em; text-align: right">16.35</span>
+                                       </div>
+                                    </div>
+                                  </div>
+                                 </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+    </data>
+</odoo>
