@@ -24,6 +24,10 @@
      'group_uom': True,
      'multi_sales_price_method': 'percentage',
      'group_warning_sale': True,
+     'group_sale_delivery_address': True,
+     'default_use_sale_note': True,
+     'default_invoice_policy': 'delivery',
+     'group_sale_layout': True,
     }
 -
   !python {model: sale.config.settings}: |
