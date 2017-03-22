@@ -18,7 +18,7 @@
     </record>
     <record id="base.main_company" model="res.company">
         <field name="rml_header1">Opensource specialists.</field>
-        <field name="logo" type="base64" file="vauxoo/static/src/img/banner.png"/>
+        <field name="logo" type="base64" file="theme_vauxoo/static/img/vauxoo.png"/>
     </record>
     <record id="auth_oauth.provider_openerp" model="auth.oauth.provider">
             <field name="enabled" eval="False"/>
