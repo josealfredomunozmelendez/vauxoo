@@ -31,6 +31,7 @@
         "hr_appraisal",
         "hr_payroll",
         "hr_attendance",
+        "hr_timesheet_sheet",
 
         # Localizations
 
