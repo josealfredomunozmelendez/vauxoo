@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="base.VEF" model="res.currency">
+            <field name="active" eval="True"/>
+        </record>
+        <record id="base.PEN" model="res.currency">
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>
