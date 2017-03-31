@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="1">
     <record id="base.main_company" model="res.company">
-        <field name="name">Vauxoo</field>
+        <field name="name">Vauxoo de SA de CV</field>
         <field name="website">https://vauxoo.com</field>
         <field name="phone">+52 (477) 773.33.46</field>
         <field name="fax">+58 (424) 434.89.08</field>
@@ -79,5 +79,26 @@
         <field name="type">other</field>
         <field name="comment">Research and Development</field>
     </record>
+
+    <record id="partner_company_ve" model="res.partner">
+        <field name="name">Vauxoo CA</field>
+        <field name="country_id" ref="base.ve"/>
+    </record>
+    <record id="company_ve" model="res.company">
+        <field name="name">Vauxoo CA</field>
+        <field name="currency_id" ref="base.VEF"/>
+        <field name="partner_id" ref="partner_company_ve"/>
+    </record>
+
+    <record id="partner_company_pe" model="res.partner">
+        <field name="name">Vauxoo SA</field>
+        <field name="country_id" ref="base.pe"/>
+    </record>
+    <record id="company_pe" model="res.company">
+        <field name="name">Vauxoo SA</field>
+        <field name="currency_id" ref="base.PEN"/>
+        <field name="partner_id" ref="partner_company_pe"/>
+    </record>
+
     </data>
 </odoo>
