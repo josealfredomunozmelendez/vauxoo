@@ -89,6 +89,7 @@
         "security/ir.model.access.csv",
 
         # Data
+        'data/res_currency.xml',
         'data/company.xml',
         'data/website.xml',
         'data/project_tags.xml',

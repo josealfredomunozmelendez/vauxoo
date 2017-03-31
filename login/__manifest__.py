@@ -16,9 +16,8 @@
     'website': 'http://www.xubi.me',
     'license': 'AGPL-3',
     'depends': [
-        'web',
         'website',
-        'auth_signup',
+        'auth_oauth',
     ],
     'data': [
         'data/ir_config_parameter.xml',
