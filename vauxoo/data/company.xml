@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <record id="base.MXN" model="res.currency">
-            <field name="active" eval="True"/>
-        </record>
-        <record id="base.PEN" model="res.currency">
-            <field name="active" eval="True"/>
-        </record>
-        <record id="base.VEF" model="res.currency">
-            <field name="active" eval="True"/>
-        </record>
         <record id="base.main_company" model="res.company">
             <field name="name">Vauxoo de SA de CV</field>
             <field name="vat">VAU111017GC9</field>
@@ -19,8 +10,6 @@
             <field name="fax">+58 (424) 434.89.08</field>
             <field name="email">info@vauxoo.com</field>
             <field name="street">Campobasso Norte</field>
-            <field name="street_number">3206</field>
-            <field name="street_number2">9000</field>
             <field name="l10n_mx_edi_locality">Ciudad Obregón</field>
             <field name="l10n_mx_edi_colony">Fraccionamiento Montecarlo</field>
             <field name="zip">85134</field>
@@ -31,14 +20,13 @@
             <field name="name">Colima HQ</field>
             <field name="street">Av. Venustiano Carranza</field>
             <field name="phone">+52 312 3236597</field>
-            <field name="street_number">1726</field>
-            <field name="street_number2">7</field>
             <field name="l10n_mx_edi_locality">Cajeme</field>
             <field name="l10n_mx_edi_colony">Residencial Esmeralda Norte</field>
             <field name="zip">28017</field>
             <field name="city">Colima</field>
             <field name="state_id" ref="base.state_mx_col"/>
             <field name="country_id" ref="base.mx"/>
+            <field name="website_published" eval="1"/>
             <field name="type">invoice</field>
         </record>
         <record id="leon" model="res.partner">
@@ -46,16 +34,15 @@
             <field name="name">León Offices</field>
             <field name="phone">+52 477 7733346</field>
             <field name="street">Lunik</field>
-            <field name="street_number">119</field>
-            <field name="street_number2">7</field>
             <field name="l10n_mx_edi_colony">Futurama Monterrey</field>
             <field name="zip">37180</field>
             <field name="city">León</field>
             <field name="state_id" ref="base.state_mx_gto"/>
             <field name="country_id" ref="base.mx"/>
+            <field name="website_published" eval="1"/>
             <field name="type">invoice</field>
         </record>
-        <record id="company_ve" model="res.company">
+        <record id="valencia" model="res.company">
             <field name="name">Vauxoo CA</field>
             <field name="country_id" ref="base.ve"/>
             <field name="phone">+58 424 4348908</field>
