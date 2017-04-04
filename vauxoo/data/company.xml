@@ -46,7 +46,7 @@
             <field name="name">Vauxoo CA</field>
             <field name="country_id" ref="base.ve"/>
             <field name="phone">+58 424 4348908</field>
-            <field name="street_name">Avenida Bolívar, Torre Camoruco</field>
+            <field name="street">Avenida Bolívar, Torre Camoruco</field>
             <field name="street2"></field>
             <field name="city">Valencia</field>
             <field name="type">other</field>
