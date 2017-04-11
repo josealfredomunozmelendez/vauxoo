@@ -39,7 +39,7 @@
         "l10n_mx_reports",
 
         # Website modules
-        "theme_graphene",
+        "theme_vauxoo",
         'website_crm',
         "website_event",
         "website_hr_recruitment",
@@ -78,6 +78,16 @@
         "product_cost_usd",
     ],
     "data": [
+        # Website stuff (A file per page)
+        "views/pages/blog.xml",
+        "views/pages/homepage.xml",
+        "views/pages/about.xml",
+        "views/pages/careers.xml",
+        "views/pages/erp.xml",
+        "views/pages/shop.xml",
+        "views/pages/contactus.xml",
+        "views/pages/job_detail_template.xml",
+
         # Main Configuration
         "data/base_settings.yml",
         "data/website_settings.yml",
@@ -98,6 +108,7 @@
         "data/hr_timesheet_invoice_data.xml",
         "data/product.xml",
         "data/project.xml",
+        "data/jobs.xml",
 
         # Views
         # Backend stuff (A file per app)
@@ -108,15 +119,6 @@
         "views/hr_timesheet_view.xml",
         "views/menu.xml",
         'views/sale_view.xml',
-
-        # Website stuff (A file per page)
-        "views/pages/layout.xml",
-        "views/pages/assets.xml",
-        "views/pages/homepage.xml",
-        "views/pages/footer.xml",
-        "views/pages/consulting.xml",
-        "views/pages/methodology.xml",
-        "views/pages/contactus.xml",
 
         # Reports
         "report/layout.xml",

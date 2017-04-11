@@ -64,7 +64,7 @@
         <t t-if="website and website.menu_id.child_id[0] == submenu">
             <!-- TODO: Dear future me sorry for this wired image -->
             <a class="btn btn-link btn-xs" t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-att-target="'_blank' if submenu.new_window else None" t-if="not submenu.child_id" t-ignore="true">
-                <img class="img img-responsive" src="https://s3.amazonaws.com/s3.vauxoo.com/partners/logo-gs-100.png" t-if="website.menu_id.child_id[0] == submenu"/>
+                <img class="img img-responsive" src="http://s3.vauxoo.com/partners/logo-gs-100.png" t-if="website.menu_id.child_id[0] == submenu"/>
             </a>
         </t>
     </template>

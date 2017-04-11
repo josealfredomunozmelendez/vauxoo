@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="dep_engineering" model="hr.department">
+            <field name="name">Engineering</field>
+        </record>
+        <record id="dep_bm" model="hr.department">
+            <field name="name">Bussiness/Management</field>
+        </record>
+        <record id="dep_uxui" model="hr.department">
+            <field name="name">Design</field>
+        </record>
+        <record id="job_odoo_dev" model="hr.job">
+            <field name="name">Odoo developer</field>
+            <field name="department_id" ref="dep_engineering"/>
+            <field eval="True" name="website_published"/>
+        </record>
+        <record id="job_python_dev" model="hr.job">
+            <field name="name">Python developer</field>
+            <field name="department_id" ref="dep_engineering"/>
+            <field eval="True" name="website_published"/>
+            <field name="website_description" type="html">
+                <section class="mt16 mb16">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 mb16 mt16 text-left">
+                                <h2 class="underlined-left hidden-xs">About the job</h2>
+                                <h3 class="underlined-left hidden-sm hidden-md hidden-lg">About the job</h3>
+                            </div>
+                            <div class="col-md-12">
+                                <p class="line-extra-height">We are looking a developer who has a natural inkling to build business applications and  interesting apps in order to improve our development model. You want to excel at software development and building amazing services for people. You enjoy coding by hand as well as using frameworks. You’ve worked with cross-disciplinary teams and enjoyed it. And you’re full of ideas. </p>
+                            </div>
+                        </div>
+                        <hr/>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="col-md-12 mb16 mt16 text-left">
+                            <h2 class="underlined-left hidden-xs">Responsibilities</h2>
+                            <h3 class="underlined-left hidden-sm hidden-md hidden-lg">Responsibilities</h3>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="line-extra-height"> •   You develop apps/scripts/features that your team need and users enjoy.<br/>
+    •   You work on a certain framework or existing apps.<br/>
+    •   You bring quality and real value to the projects you are involved in.<br/> </p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="col-md-12 mb16 mt16 text-left">
+                            <h2 class="underlined-left hidden-xs">Your skills</h2>
+                            <h3 class="underlined-left hidden-sm hidden-md hidden-lg">Your skills</h3>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="line-extra-height"> •   You have previous programming experience in Python.<br/>
+    •   Relational databases management are your thing.<br/>
+    •   Proficient English (written and read).<br/>
+</p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="col-md-12 mb16 mt16 text-left">
+                            <h2 class="underlined-left hidden-xs">Nice to have</h2>
+                            <h3 class="underlined-left hidden-sm hidden-md hidden-lg">Nice to have</h3>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="line-extra-height"> •   Contributions to Open Source projects.<br/>
+    •   GitHub user, with projects (Or any public VCS).<br/>
+    •   Unix/Linux platform knowledge.<br/>
+    •   Basic Odoo knowledge.<br/></p>
+                        <hr/>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="col-md-12 mb16 mt16 text-left">
+                            <h2 class="underlined-left hidden-xs">What do we offer</h2>
+                            <h3 class="underlined-left hidden-sm hidden-md hidden-lg">What do we offer</h3>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="line-extra-height">     •   A functional and technical Odoo training.<br/>
+    •   Huge hours of python development.<br/>
+    •   A nice working atmosphere in a young and passionate team.<br/>
+    •   A great experience in state-of-the-art web technologies and agile development.<br/>
+    •   The opportunity to join the most important public Odoo contributor (Vauxoo).<br/>
+    •   No solution architect, no business analyst, no Gantt chart, etc.<br/>
+    •   A full-time job with an attractive economic welfare package, where the limits are only yours.<br/></p>
+                        <hr/>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="col-md-12 mb16 mt16 text-left">
+                            <h2 class="underlined-left hidden-xs">One day at Vauxoo</h2>
+                            <h3 class="underlined-left hidden-sm hidden-md hidden-lg">One day at Vauxoo</h3>
+                        </div>
+                        <div class="col-md-12">
+                        <p class="line-extra-height"> We will make your Mondays less painful and your Fridays more rewarding. A typical day may consist of working for a client or internal project while creating high quality code, testing it and integrating with other Vauxoo’s apps . You will work closely with a team leader and occasionally with the customer. Some days you can wake up and start to work from your bedroom (after a good protein breakfast of course), other days you can come to the office,  programming and have a lunch with your partners. You will learn a lot and grow fast, which is just one of the many perks of being a python developer at Vauxoo.</p>
+                    </div>
+                    </div>
+                </section>
+            </field>
+        </record>
+        <record id="job_intern_dev" model="hr.job">
+            <field name="name">Intern</field>
+            <field name="department_id" ref="dep_engineering"/>
+            <field eval="True" name="website_published"/>
+        </record>
+        <record id="job_busines_analyist" model="hr.job">
+            <field name="name">Business analyst</field>
+            <field name="department_id" ref="dep_bm"/>
+            <field eval="True" name="website_published"/>
+        </record>
+        <record id="job_sales_rep" model="hr.job">
+            <field name="name">Sales rep</field>
+            <field name="department_id" ref="dep_bm"/>
+            <field eval="True" name="website_published"/>
+        </record>
+        <record id="job_designer" model="hr.job">
+            <field name="name">UI designer</field>
+            <field name="department_id" ref="dep_uxui"/>
+            <field eval="True" name="website_published"/>
+        </record>
+    </data>
+</openerp>

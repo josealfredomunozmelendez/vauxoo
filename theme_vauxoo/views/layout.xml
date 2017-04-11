@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Customize header  -->
+    <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+        <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+            <attribute name="class">black_header</attribute>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/header/div" position="attributes">
+            <attribute name="class">navbar navbar-default navbar-static-top mt32 mb32</attribute>
+        </xpath>
+        <xpath expr="//div[@class='navbar-header']" position="attributes">
+            <attribute name="class">navbar-header animated-menu</attribute>
+        </xpath>
+        <xpath expr="//button" position="replace">
+            <div id="nav-icon1" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='collapse navbar-collapse navbar-top-collapse']" position="replace">
+            <div class="collapse navbar-collapse navbar-top-collapse">
+                <ul class="nav navbar-nav text-center hidden-lg hidden-md hidden-sm custom-mobile-menu" id="top_menu">
+                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                        <t t-call="website.submenu"/>
+                    </t>
+                    <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
+                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <b>
+                                <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>
+                                <span class="caret"></span>
+                            </b>
+                        </a>
+                        <ul class="dropdown-menu js_usermenu" role="menu">
+                            <li id="o_logout"><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-center hidden-xs" id="top_menu">
+                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                        <t t-call="website.submenu"/>
+                    </t>
+                </ul>
+                <ul class="nav navbar-nav navbar-right hidden-xs">
+                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <b>
+                                <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>
+                                <span class="caret"></span>
+                            </b>
+                        </a>
+                        <ul class="dropdown-menu js_usermenu" role="menu">
+                            <li id="o_logout"><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li groups="base.group_public">
+                        <a t-attf-href="/web/login">
+                            <b>Sign in</b>
+                        </a>
+                    </li>
+                    <a class="btn btn-primary" t-attf-href="/page/contactus">contact</a>
+                </ul>
+            </div>
+        </xpath>
+    </template>
+    <!-- Customize Layout -->
+    <template id="custom_layout" inherit_id="website.layout" name="Custom Theme Layout">
+        <xpath expr="//li[@class='divider']" position="replace"/>
+    </template>
+    <template id="footer_default" inherit_id="website.footer_default" name="Vauxoo Footer">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div class="container hidden-print vauxoo-footer">
+                <div class="row">
+                    <div class="col-md-4 col-sm-5 col-lg-4 col-xs-12 mt48">
+                        <img class="hidden-xs" src="/web/image/theme_vauxoo.vauxoo-03"/>
+                        <div class="hidden-sm hidden-lg hidden-md col-xs-12 text-center">
+                            <img src="/web/image/theme_vauxoo.vauxoo-03"/>
+                        </div>
+                        <p class="mt8 hidden-xs">
+                            Our promise is to deliver the best business management software solutions to  companies through the potential of Odoo.
+                        </p>
+                    </div>
+                    <div class="col-md-1 col-sm-2 hidden-xs mt96">
+                        <ul class="list-unstyled">
+                            <li><a href="/">home</a></li>
+                            <li><a href="/page/aboutus">about</a></li>
+                            <li><a href="/slides">academy</a></li>
+                            <li><a href="/jobs">careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-1 col-sm-2 hidden-xs mt96">
+                        <ul class="list-unstyled">
+                            <li><a href="/web/login">login</a></li>
+                            <li><a href="/page/contactus">contact</a></li>
+                            <li><a href="/blog">blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-offset-1 col-md-2 col-sm-3 hidden-xs mt64">
+                        <h4 class="mb0">Ready to talk?</h4>
+                        <p class="mb24">
+                        +52 (477) 773.33.46 or
+                        +58 (424) 434.89.08
+                        </p>
+                        <h4 class="mb0">Not a big talker?</h4>
+                        <p><a href="mailto:getstarted@vauxoo.com">getstarted@vauxoo.com</a>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 text-center hidden-sm hidden-md hidden-lg mt32">
+                        <h4 class="mb0">Ready to talk?</h4>
+                        <p class="mb24">
+                        +52 (477) 773.33.46 or<br/>
+                        +58 (424) 434.89.08
+                        </p>
+                        <h4 class="mb0">Not a big talker?</h4>
+                        <p><a href="mailto:getstarted@vauxoo.com">getstarted@vauxoo.com</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-sm-12 mt48 text-center pd40">
+                        <h4 class="mb24 hidden-xs  hidden-sm">Follow us</h4>
+
+                        <div class="col-md-4 hidden-xs hidden-sm text-center"><a target="_BLANK" href="https://twitter.com/vauxoo"><img src="/web/image/theme_vauxoo.group-4"/></a></div>
+                        <div class="col-md-4 hidden-xs hidden-sm text-center"><a target="_BLANK" href="https://facebook.com/vauxoo"><img src="/web/image/theme_vauxoo.group-5"/></a></div>
+                        <div class="col-md-4 hidden-xs hidden-sm text-center"><a target="_BLANK" href="https://github.com/vauxoo"><img src="/web/image/theme_vauxoo.group-6"/></a></div>
+                        <div class="col-md-4 col-md-offset-2 hidden-xs hidden-sm text-center mt16"><a target="_BLANK" href="https://www.linkedin.com/company-beta/2774714/"><img src="/web/image/theme_vauxoo.linkedin"/></a></div>
+                        <div class="col-md-4 hidden-xs hidden-sm text-center mt16"><a target="_BLANK" href="https://youtube.com/vauxoo"><img src="/web/image/theme_vauxoo.group-8"/></a></div>
+                        <div class="text-center hidden-md hidden-lg aligned">
+                            <div class="text-center"><a target="_BLANK" href="https://twitter.com/vauxoo"><img src="/web/image/theme_vauxoo.group-4"/></a></div>
+                            <div class="text-center"><a target="_BLANK" href="https://facebook.com/vauxoo"><img src="/web/image/theme_vauxoo.group-5"/></a></div>
+                            <div class="text-center"><a target="_BLANK" href="https://github.com/vauxoo"><img src="/web/image/theme_vauxoo.group-6"/></a></div>
+                            <div class="text-center"><a target="_BLANK" href="https://www.linkedin.com/company-beta/2774714/"><img src="/web/image/theme_vauxoo.linkedin"/></a></div>
+                            <div class="text-center"><a target="_BLANK" href="https://youtube.com/vauxoo"><img src="/web/image/theme_vauxoo.group-8"/></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template id="footer_copyright" inherit_id="website.layout_footer_copyright" name="Vauxoo Copyright">
+        <xpath expr="//div[@class='container mt16 mb8']" position="replace">
+            <div class="container mt16 mb8 div-copyright">
+                <div class="text-center text-copyright mt16 mb16">&amp;copy; VAUXOO, 2017</div>
+            </div>
+        </xpath>
+    </template>
+    <template id="layout_logo_show" inherit_id="website.layout_logo_show">
+        <xpath expr="//a" position="replace">
+            <a class="navbar-brand logo" href="/">
+                <img src="/web/image/theme_vauxoo.vauxoo" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" style="max-height: 50px; margin-top:unset;"/>
+            </a>
+        </xpath>
+    </template>
+</odoo>
