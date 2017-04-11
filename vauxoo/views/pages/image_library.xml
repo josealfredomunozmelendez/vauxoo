@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vauxoo.clip" model="ir.attachment">
+        <field name="name">clip</field>
+        <field name="type">url</field>
+        <field name="url">/vauxoo/static/src/img/clip.png</field>
+        <field name="public" eval="True"/>
+    </record>
+</odoo>

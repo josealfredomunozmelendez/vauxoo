@@ -39,7 +39,7 @@
     <record id="theme_vauxoo.gold-partner-odoo-mac" model="ir.attachment">
         <field name="name">mac</field>
         <field name="type">url</field>
-        <field name="url">/theme_vauxoo/static/img/gold-partner-odoo-mac.png</field>
+        <field name="url">/theme_vauxoo/static/img/gold-partner-odoo-mac.gif</field>
         <field name="public" eval="True"/>
     </record>
     <record id="theme_vauxoo.group-2" model="ir.attachment">
@@ -52,6 +52,12 @@
         <field name="name">group-3</field>
         <field name="type">url</field>
         <field name="url">/theme_vauxoo/static/img/group-3.png</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.group-3-copy" model="ir.attachment">
+        <field name="name">group-3-copy</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/group-3-copy.png</field>
         <field name="public" eval="True"/>
     </record>
     <record id="theme_vauxoo.group-4" model="ir.attachment">
@@ -208,6 +214,54 @@
         <field name="name">Apps</field>
         <field name="type">url</field>
         <field name="url">/theme_vauxoo/static/img/apps.png</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.our_culture_01" model="ir.attachment">
+        <field name="name">Our Culture 01</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/our_culture_01.jpg</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.our_culture_02" model="ir.attachment">
+        <field name="name">Our Culture 02</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/our_culture_02.jpg</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.our_culture_03" model="ir.attachment">
+        <field name="name">Our Culture 03</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/our_culture_03.png</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.our_culture_01_rectangular" model="ir.attachment">
+        <field name="name">Our Culture 01 rec</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/our_culture_01_rectangular.jpg</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.our_culture_02_rectangular" model="ir.attachment">
+        <field name="name">Our Culture 02 rec</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/our_culture_02_rectangular.jpg</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.our_culture_03_rectangular" model="ir.attachment">
+        <field name="name">Our Culture 03 rec</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/our_culture_03_rectangular.png</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.doordonot" model="ir.attachment">
+        <field name="name">Do or do not</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/doordonot.png</field>
+        <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.quick_start" model="ir.attachment">
+        <field name="name">Quick Start</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/quick_start.png</field>
         <field name="public" eval="True"/>
     </record>
 </odoo>

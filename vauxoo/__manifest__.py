@@ -79,6 +79,8 @@
     ],
     "data": [
         # Website stuff (A file per page)
+        "views/pages/assets.xml",
+        "views/pages/image_library.xml",
         "views/pages/blog.xml",
         "views/pages/homepage.xml",
         "views/pages/about.xml",
@@ -87,6 +89,7 @@
         "views/pages/shop.xml",
         "views/pages/contactus.xml",
         "views/pages/job_detail_template.xml",
+        "views/pages/apps.xml",
 
         # Main Configuration
         "data/base_settings.yml",

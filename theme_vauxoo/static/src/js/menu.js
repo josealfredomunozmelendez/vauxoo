@@ -9,10 +9,12 @@ odoo.define('theme_vauxoo.menu', function (require) {
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
         $(this).toggleClass('open');
     });
-    $('a').click(function(){
+    $('a.smoothly').click(function(){
         $('html, body').animate({
             scrollTop: $( $(this).attr('href') ).offset().top
         }, 500);
         return false;
     });
+    // enable popovers
+    $('[data-toggle="popover"]').popover();
 });
