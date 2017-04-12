@@ -23,11 +23,11 @@ lint:
     TESTS: "0"
   script:
     - export TRAVIS_BUILD_DIR=$(pwd)
-    - for i in {1..3}; do git clone -b master --single-branch --depth=1 https://git.vauxoo.com/vauxoo/gitlab_tools.git ${HOME}/gitlab_tools && break || sleep 10; done
+    - sudo apt-get update && sudo apt-get install -y dos2unix
+    - pip install deployv-addon-gitlab-tools
+    - deployvcmd gitlab_tools check_keys
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
     - export PATH=${HOME}/maintainer-quality-tools/travis:${HOME}/gitlab_tools:${PATH}
-    - sudo apt-get update && sudo apt-get install -y dos2unix
-    - check_keys
     - travis_install_nightly
     - travis_run_tests
 
@@ -40,12 +40,12 @@ test:
     LINT_CHECK: "0"
     TESTS: "1"
   script:
+    - export TRAVIS_BUILD_DIR=$(pwd)
+    - apt-get update && apt-get install -y tree dos2unix
     - pip install deployv-addon-gitlab-tools
     - deployvcmd gitlab_tools check_keys
-    - export TRAVIS_BUILD_DIR=$(pwd)
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
     - export PATH=${HOME}/maintainer-quality-tools/travis:${HOME}/gitlab_tools:${PATH}
-    - apt-get update && apt-get install -y tree dos2unix
     - travis_install_nightly
     - travis_run_tests
     - travis_after_tests_success || true
