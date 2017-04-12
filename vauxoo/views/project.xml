@@ -84,9 +84,9 @@
                 </xpath>
                 <xpath expr="//group" position="before">
                     <separator/>
-                    <filter name="user_story" string="User Stories" domain="[('parent_id','=', False)]"/>
-                    <filter name="acceptability_criteria" string="Acceptability Criteria" domain="[('parent_id','!=', False)]"/>
-                    <filter name="not_categorized_yet" string="Not categorized yet" domain="['|', ('color', '=', 0), ('color', '=', False), ('name', 'not ilike', '[%]%')]"/>
+                    <filter name="user_story" string="User Stories" domain="[('sale_line_id', '!=', False), ('parent_id','=', False)]"/>
+                    <filter name="acceptability_criteria" string="Acceptability Criteria" domain="[('sale_line_id', '!=', False),('parent_id','!=', False)]"/>
+                    <filter name="orphan_task" string="Orphan Task" domain="[('tag_ids', 'ilike', 'Orphan')]"/>
                 </xpath>
             </field>
         </record>
