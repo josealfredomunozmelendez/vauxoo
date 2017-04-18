@@ -13,6 +13,9 @@ variables:
     INCLUDE: "vauxoo"
     INSTALL: "vauxoo"
     BASE_IMAGE: "vauxoo/odoo-100-image"
+    http_proxy: http://172.17.0.1:3128
+    https_proxy: http://172.17.0.1:3128
+    ftp_proxy: http://172.17.0.1:3128
 
 lint:
   stage: test
@@ -54,6 +57,10 @@ build:
   stage: build
   tags:
     - build
+  variables:
+    http_proxy: http://127.0.0.1:3128
+    https_proxy: http://127.0.0.1:3128
+    ftp_proxy: http://127.0.0.1:3128
   script:
     - pip install deployv-addon-gitlab-tools
     - deployvcmd gitlab_tools test_images
@@ -65,6 +72,10 @@ compile_doc:
   when: on_success
   tags:
     - build
+  variables:
+    http_proxy: http://127.0.0.1:3128
+    https_proxy: http://127.0.0.1:3128
+    ftp_proxy: http://127.0.0.1:3128
   script:
     - git clone -q git@git.vauxoo.com:vauxoo/instance.wiki.git
     - cd instance.wiki && cp -R ../vauxoo/doc/* . && cat ../vauxoo/doc/home.md ../README.md > home.md && git add .
@@ -77,6 +88,10 @@ upload_image:
   when: on_success
   tags:
     - build
+  variables:
+    http_proxy: http://127.0.0.1:3128
+    https_proxy: http://127.0.0.1:3128
+    ftp_proxy: http://127.0.0.1:3128
   script:
     - pip install deployv-addon-gitlab-tools
     - deployvcmd gitlab_tools upload_image
