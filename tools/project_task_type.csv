@@ -1,0 +1,6 @@
+id,sequence,name,project_ids,description,fold
+project.project_stage_data_0,1,New,,La tarea ha sido creada pero aún no ha sido preparada para comenzar a trabajar,FALSE
+project.project_stage_data_1,2,Backlog,,Todas las tareas que estan listas para comenzar a trabajar,FALSE
+project.project_stage_data_2,3,WIP,,Indica que estamos en proceso de desarrollo de la tarea,FALSE
+vauxoo_migration_project_stage_done,4,Done,,La tarea ha culminado,TRUE
+vauxoo_migration_project_stage_cancelled,5,Cancelled,,"La tarea fue cancelada, por favor colocar un mensaje en el log indicando la razón",TRUE
