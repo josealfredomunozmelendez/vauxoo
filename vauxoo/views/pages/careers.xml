@@ -77,7 +77,7 @@
                 </div>
               </div>
               <div class="row text-center arrow-scroll-down">
-                <a href="#vauxoo_under_cover">
+                <a href="#vauxoo_under_cover" class="smoothly">
                   <img src="/web/image/theme_vauxoo.scroll-down"/>
                 </a>
               </div>
@@ -113,27 +113,27 @@
                   <h2 class="underlined">Our culture</h2>
                 </div>
                 <div class="row hidden-sm">
-                  <div class="col-lg-7 col-md-7 nopadding">
-                    <img class="img img-responsive" src="/web/image/theme_vauxoo.Hero_Careers"/>
+                  <div class="col-lg-offset-1 col-md-offset-1 col-lg-6 col-md-6 nopadding">
+                    <img class="img img-responsive" src="/web/image/theme_vauxoo.our_culture_01"/>
                   </div>
-                  <div class="col-lg-5 col-md-5">
-                    <div class="col-md-12 col-sm-12 mb32">
-                      <img class="img img-responsive" src="/web/image/theme_vauxoo.Hero_Careers"/>
+                  <div class="col-lg-5 col-md-5 nopadding">
+                    <div class="col-md-12 col-sm-12 mb32 nopadding">
+                      <img class="img img-responsive" src="/web/image/theme_vauxoo.our_culture_02"/>
                     </div>
-                    <div class="col-md-12 col-sm-12">
-                      <img class="img img-responsive" src="/web/image/theme_vauxoo.Hero_Careers"/>
+                    <div class="col-md-12 col-sm-12 nopadding">
+                      <img class="img img-responsive" src="/web/image/theme_vauxoo.our_culture_03"/>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-12 hidden-lg hidden-md">
                   <div class="col-sm-4">
-                    <img class="img img-responsive" src="/web/image/theme_vauxoo.Hero_Careers"/>
+                    <img class="img img-responsive" src="/web/image/theme_vauxoo.our_culture_01_rectangular"/>
                   </div>
                   <div class="col-sm-4">
-                    <img class="img img-responsive" src="/web/image/theme_vauxoo.Hero_Careers"/>
+                    <img class="img img-responsive" src="/web/image/theme_vauxoo.our_culture_02_rectangular"/>
                   </div>
                   <div class="col-sm-4">
-                    <img class="img img-responsive" src="/web/image/theme_vauxoo.Hero_Careers"/>
+                    <img class="img img-responsive" src="/web/image/theme_vauxoo.our_culture_03_rectangular"/>
                   </div>
                 </div>
               </div>

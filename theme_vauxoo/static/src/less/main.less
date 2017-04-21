@@ -13,6 +13,7 @@
 @vauxoo-white: #FFFFFF;
 @odoo-purple: #a24689;
 @gray-300: #f1f1f1;
+@gray-500: #dfdede;
 @link-gray: #4a4a4a;
 @vauxoo-ruby: #9c1229;
 @black-menu: #393939;
@@ -29,7 +30,10 @@
 .bg-black {
     background-color: @black-menu;
 }
-
+.bg-gray {
+    color: @link-gray;
+    background-color: @gray-300;
+}
 /* main menu */
 
 @transparent-bg: rgba(255,255,255,0.0);
@@ -130,6 +134,10 @@ p {
     font-size: 16px;
     line-height: 1.67;
 }
+.link-primary {
+    color: @brand-primary;
+    text-decoration: none;
+}
 
 /*snippets*/
 
@@ -144,6 +152,37 @@ p {
     width: 100%;
     top: 0px;
     left: 0px;
+}
+/* MODAL VIDEO */
+#video-modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    .modal-content {
+      height: auto;
+      min-height: 100%;
+      border-radius: 0;
+    }
+    .close-button {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 10;
+        &:hover {
+            color: @vauxoo-white;
+        }
+    }
+}
+.fade-scale {
+  opacity: 0;
+  -webkit-transition: all .9s linear;
+  -o-transition: all .9s linear;
+  transition: all .9s linear;
+}
+
+.fade-scale.in {
+  opacity: 1;
 }
 
 /* blog related LESS*/
@@ -197,7 +236,23 @@ p {
         min-height:46px;
     }
 }
-/*General LESS rules*/
+/* Error pages */
+.bg-error {
+    background-image: url(/web/image/theme_vauxoo.doordonot);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: @vauxoo-white;
+    background-position: 50% 1%;
+    padding-top: 15vh;
+    h1 {
+        font-size: 65px;
+    }
+    h2 {
+        font-size: 55px;
+    }
+}
+
+/* General LESS rules */
 
 h1 {
     font-weight: 700;
@@ -245,6 +300,9 @@ h3.underlined {
         bottom: 0;
         border-bottom: 3px solid @red-300;
     }
+}
+.hx-thin {
+    font-weight: 300;
 }
 p {
     line-height: 1.67;
@@ -438,10 +496,10 @@ hr.title {
 .header-pentagon {
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 75vh;
     color: @vauxoo-white;
-    padding-top: 25vh;
-    padding-bottom: 25vh;
+    padding-top: 20vh;
+    padding-bottom: 10vh;
 }
 .cover-overlap {
     top: -200px;
@@ -574,7 +632,7 @@ h1.giant-number {
 }
 .arrow-pentagon-shop {
     position: relative;
-    bottom: -200px;
+    bottom: -25px;
 }
 .vertical-chevron {
     position: relative;

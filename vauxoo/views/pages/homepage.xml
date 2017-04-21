@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="row text-center arrow-scroll-down">
-          <a href="#vauxoo_under_cover">
+          <a href="#vauxoo_under_cover" class="smoothly">
             <img src="/web/image/theme_vauxoo.scroll-down"/>
           </a>
         </div>
@@ -48,9 +48,9 @@
     With our success pack you can build <br/>your idea from zero to hero.</p>
                     <p class="hidden-lg hidden-md hidden-xs text-left o_default_snippet_text">Starting a new business project?
     With our success pack you can build your idea from zero to hero.</p>
-                    <a class="btn btn-default hidden-sm mt64 o_default_snippet_text" href="/page/contactus">Explore</a>
+                    <a class="btn btn-default hidden-sm mt64 o_default_snippet_text" href="/page/vauxoo.apps">Explore</a>
                   </div>
-                  <a class="btn btn-default hidden-xs hidden-lg hidden-md mt4 o_default_snippet_text" href="/page/contactus">Explore</a>
+                  <a class="btn btn-default hidden-xs hidden-lg hidden-md mt4 o_default_snippet_text" href="/page/vauxoo.apps">Explore</a>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
@@ -115,36 +115,47 @@
               <h2 class="mt32 o_default_snippet_text">Collaborations</h2>
               <div class="row">
                 <div class="col-md-2 col-sm-3 col-xs-6 mt32 mb48">
-                  <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_18.png"/>
+                  <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="“Vauxoo helped my business to get traction in a couple of weeks.“">
+                    <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_18.png"/>
+                  </a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-6 mt32 mb16">
-                  <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_10.png"/>
+                  <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="“The guys of the team were always for me“">
+                    <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_10.png"/>
+                  </a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-6 mt48 mb16">
-                  <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_23.png"/>
+                  <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="“The Vauxoo's methodology made all processes on my bussiness flow“">
+                    <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_23.png"/>
+                  </a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-6 mt16 mb16">
-                  <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_31.png"/>
+                  <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="“Vauxoo doesn't just do what you ask, they proppose better ways to do.“">
+                    <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_31.png"/>
+                  </a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-6 mt32 mb16">
-                  <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_17.png"/>
+                  <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="“I don't know what I was doing before, I can properly say that Vauxoo knows Odoo on its core.“">
+                    <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_17.png"/>
+                  </a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-6 mt32 mb16">
-                  <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_2.png"/>
+                  <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="“Best partner in Latin America.“">
+                    <img alt="Demo Logo" class="img img-responsive" src="http://s3.vauxoo.com/partners/logo_partner_2.png"/>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+      <div class="modal fade-scale nopadding" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="video-modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close o_default_snippet_text" data-dismiss="modal" aria-hidden="true">×</button>
-              <h4 class="modal-title o_default_snippet_text">Vauxoo Video</h4>
-            </div>
-            <div class="modal-body">
+            <div class="modal-body nopadding">
+              <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close">
+                <span class="fa fa-times fa-4x"/>
+              </button>
               <video class="videoBox hidden-xs o_player" preload="metadata" muted="1" loop="loop" autoplay="autoplay" src="http://s3.vauxoo.com/frontend.mp4" style="opacity: 1; width: 100%; height: auto;"/>
             </div>
           </div>

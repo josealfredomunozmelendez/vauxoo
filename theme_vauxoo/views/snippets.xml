@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="row text-center arrow-scroll-down">
-                <a href="#vauxoo_under_cover">
+                <a href="#vauxoo_under_cover" class="smoothly">
                     <img src="/web/image/theme_vauxoo.scroll-down"></img>
                 </a>
             </div>

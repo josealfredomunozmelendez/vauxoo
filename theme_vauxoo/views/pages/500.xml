@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="500" inherit_id="website.500">
+        <xpath expr="//div[@class='container']" position="before">
+            <data data-transparent="transparent" id="transparency"/>
+        </xpath>
+        <xpath expr="//div[@class='oe_structure']" position="attributes">
+            <attribute add="bg-error" name="class" separator=" "/>
+            <attribute name="id">vauxoo_header</attribute>
+            <attribute name="style">background-image: url(/web/image/theme_vauxoo.doordonot);</attribute>
+        </xpath>
+    </template>
+</odoo>

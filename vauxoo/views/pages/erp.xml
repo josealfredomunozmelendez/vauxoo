@@ -21,7 +21,7 @@
               <a class="btn btn-lg btn-secondary" href="/page/contactus">Request demo</a>
             </div>
             <div class="row text-center arrow-pentagon-shop">
-              <a href="#tiles">
+              <a href="#tiles" class="smoothly">
                 <img src="/web/image/theme_vauxoo.scroll-down"/>
               </a>
             </div>
@@ -30,7 +30,7 @@
         <section class="s_body_content bg-white vertical-chevron" id="tiles">
           <div class="container">
             <div class="row">
-              <a href="#analysis">
+              <a href="#analysis" class="smoothly">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center">
                   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 bordered-div">
                     <div class="mt64">
@@ -55,7 +55,7 @@
                   </div>
                 </div>
               </a>
-              <a href="#development">
+              <a href="#development" class="smoothly">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center">
                   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 bordered-div">
                     <div class="mt64">
@@ -76,7 +76,7 @@
                   </div>
                 </div>
               </a>
-              <a href="#delivery">
+              <a href="#delivery" class="smoothly">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center">
                   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 bordered-div">
                     <div class="mt64">
@@ -101,7 +101,7 @@
                   </div>
                 </div>
               </a>
-              <a href="#support">
+              <a href="#support" class="smoothly">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center">
                   <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 bordered-div">
                     <div class="mt64">
@@ -235,9 +235,9 @@
                       your idea from zero to hero.</p>
                     <p class="hidden-lg hidden-md hidden-xs text-left o_default_snippet_text">Starting a new business project?
     With our success pack you can build your idea from zero to hero.</p>
-                    <a class="btn btn-default hidden-sm mt64 o_default_snippet_text" href="/page/contactus">Explore</a>
+                    <a class="btn btn-default hidden-sm mt64 o_default_snippet_text" href="/page/vauxoo.apps">Explore</a>
                   </div>
-                  <a class="btn btn-default hidden-xs hidden-lg hidden-md mt4 o_default_snippet_text" href="/page/contactus">Explore</a>
+                  <a class="btn btn-default hidden-xs hidden-lg hidden-md mt4 o_default_snippet_text" href="/page/vauxoo.apps">Explore</a>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
