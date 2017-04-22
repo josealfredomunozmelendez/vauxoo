@@ -1,0 +1,9 @@
+#apps-faq .container .panel-group .panel .panel-heading .panel-title a:before {
+  font-family: FontAwesome;
+  content: '\f078';
+  color: #f6a623;
+  font-weight: 300;
+}
+#apps-faq .container .panel-group .panel .panel-heading .panel-title a.collapsed:before {
+  content: '\f054';
+}
