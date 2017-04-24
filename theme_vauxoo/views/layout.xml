@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <template id="menu_elements" name="Desktop Menu Elements">
+        <ul class="nav navbar-nav navbar-center hidden-xs" id="top_menu">
+            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                <t t-call="website.submenu"/>
+            </t>
+        </ul>
+        <ul class="nav navbar-nav navbar-right hidden-xs">
+            <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <b>
+                        <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>
+                        <span class="caret"></span>
+                    </b>
+                </a>
+                <ul class="dropdown-menu js_usermenu" role="menu">
+                    <li id="o_logout"><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                </ul>
+            </li>
+            <li groups="base.group_public">
+                <a t-attf-href="/web/login">
+                    <b>Sign in</b>
+                </a>
+            </li>
+            <a class="btn btn-primary" t-attf-href="/page/contactus">contact</a>
+        </ul>
+    </template>
     <!-- Customize header  -->
-    <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+    <template id="layout" inherit_id="website.layout">
         <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
             <attribute name="class">black_header</attribute>
         </xpath>
         <xpath expr="//div[@id='wrapwrap']/header/div" position="attributes">
-            <attribute name="class">navbar navbar-default navbar-static-top mt32 mb32</attribute>
+            <attribute name="class" add="mt32 mb32" separator=" "/>
         </xpath>
         <xpath expr="//div[@class='navbar-header']" position="attributes">
-            <attribute name="class">navbar-header animated-menu</attribute>
+            <attribute name="class" add="animated-menu" separator=" "/>
         </xpath>
         <xpath expr="//button" position="replace">
             <div id="nav-icon1" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
@@ -18,50 +44,32 @@
                 <span></span>
             </div>
         </xpath>
-        <xpath expr="//div[@class='collapse navbar-collapse navbar-top-collapse']" position="replace">
-            <div class="collapse navbar-collapse navbar-top-collapse">
-                <ul class="nav navbar-nav text-center hidden-lg hidden-md hidden-sm custom-mobile-menu" id="top_menu">
-                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                        <t t-call="website.submenu"/>
-                    </t>
-                    <li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
-                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <b>
-                                <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>
-                                <span class="caret"></span>
-                            </b>
-                        </a>
-                        <ul class="dropdown-menu js_usermenu" role="menu">
-                            <li id="o_logout"><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-center hidden-xs" id="top_menu">
-                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                        <t t-call="website.submenu"/>
-                    </t>
-                </ul>
-                <ul class="nav navbar-nav navbar-right hidden-xs">
-                    <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <b>
-                                <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>
-                                <span class="caret"></span>
-                            </b>
-                        </a>
-                        <ul class="dropdown-menu js_usermenu" role="menu">
-                            <li id="o_logout"><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
-                        </ul>
-                    </li>
-                    <li groups="base.group_public">
-                        <a t-attf-href="/web/login">
-                            <b>Sign in</b>
-                        </a>
-                    </li>
-                    <a class="btn btn-primary" t-attf-href="/page/contactus">contact</a>
-                </ul>
-            </div>
+        <xpath expr="//div[@class='collapse navbar-collapse navbar-top-collapse']/ul" position="attributes">
+            <attribute name="class">nav text-center hidden-lg hidden-md hidden-sm custom-mobile-menu</attribute>
+        </xpath>
+        <xpath expr="//div[@class='collapse navbar-collapse navbar-top-collapse']/ul" position="after">
+            <t t-call="theme_vauxoo.menu_elements"/>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']/header" position="after">
+            <header class="sticky-header hidden-header hidden-xs">
+                <div class="navbar navbar-default navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand logo" href="/">
+                                <img src="/web/image/theme_vauxoo.vauxoo" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" style="max-height: 50px; margin-top:unset;"/>
+                            </a>                        </div>
+                        <div class="collapse navbar-collapse navbar-top-collapse">
+                            <t t-call="theme_vauxoo.menu_elements"/>
+                        </div>
+                    </div>
+                </div>
+            </header>
         </xpath>
     </template>
     <!-- Customize Layout -->
