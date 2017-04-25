@@ -101,6 +101,7 @@
         "security/res_groups.xml",
         "security/res_users.xml",
         "security/ir.model.access.csv",
+        "security/ir_rule.xml",
 
         # Data
         'data/res_currency.xml',
