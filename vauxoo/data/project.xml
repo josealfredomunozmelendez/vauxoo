@@ -6,7 +6,7 @@
             <field name="name">Implementation</field>
             <field name="sequence">1</field>
             <field name="label_tasks">User Stories</field>
-            <field name="privacy_visibility">employees</field>
+            <field name="privacy_visibility">portal</field>
             <field name="rating_status">stage</field>
             <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
