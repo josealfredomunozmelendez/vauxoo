@@ -19,6 +19,18 @@ class Project(models.Model):
         help="Acronymous to show as prefix in the display name for the tasks"
              " with parent Tasks")
 
+    def _compute_task_count(self):
+        """
+        Modify the task count to only take into account the parent tasks that
+        are not orphan tasks.
+        """
+        for project in self:
+            project.task_count = len(self.env['project.task'].search([
+                ('id', 'in', project.task_ids.mapped('id')),
+                ('parent_id', '=', False),
+                ('tag_ids', 'not ilike', 'Orphan'),
+            ]))
+
 
 class ProjectTask(models.Model):
 
