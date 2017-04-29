@@ -97,6 +97,7 @@
         'data/lang.xml',
 
         # Security
+        "security/ir_rule.xml",
         "security/res_groups.xml",
         "security/res_users.xml",
         "security/ir.model.access.csv",
