@@ -3,35 +3,39 @@
     <template id="404" inherit_id="website.404" name="Error: Page not found!">
         <xpath expr="//div[@class='container']" position="replace">
             <data data-transparent="transparent" id="transparency"/>
-            <div class="container hidden-sm hidden-xs">
-                <h1>404</h1>
-                <h2>Something went wrong.</h2>
-                <div class="text-center col-lg-6 col-md-6">
-                    <p>The requested page of file was not found. Perhaps you would like to go to our home page or contact us so we can know what are you looking for?</p>
-                </div>
-                <div class="col-md-12 col-lg-12">
-                    <a class="btn btn-lg btn-secondary" href="/">
-                        <span class="fa fa-arrow-left"/> Go Home</a>
-                    <a class="btn btn-lg btn-primary" href="/page/contactus">Contact us</a>
-                </div>
-            </div>
-            <div class="container hidden-md hidden-lg text-center">
-                <h1>404</h1>
-                <h2>Something went wrong.</h2>
-                <div class="text-center col-sm-10 col-xs-12 col-sm-offset-1 col-xs-offset-0">
-                    <p>The requested page of file was not found. Perhaps you would like to go to our home page or contact us so we can know what are you looking for?</p>
-                </div>
-                <div class="col-xs-1col-sm-12">
-                    <a class="btn btn-secondary" href="/">
-                        <span class="fa fa-arrow-left"/> Go Home</a>
-                    <a class="btn btn-primary" href="/page/contactus">Contact us</a>
-                </div>
-            </div>
         </xpath>
         <xpath expr="//div[@class='oe_structure oe_empty']" position="attributes">
             <attribute add="bg-error" name="class" separator=" "/>
             <attribute name="id">vauxoo_header</attribute>
             <attribute name="style">background-image: url(/web/image/theme_vauxoo.doordonot);</attribute>
+        </xpath>
+        <xpath expr="//div[@class='oe_structure oe_empty bg-error']" position="after">
+            <div class="container" id="cover_container" style="min-height: unset;">
+                <div class="hidden-sm hidden-xs">
+                    <h1>404</h1>
+                    <h2>Something went wrong.</h2>
+                    <div class="text-center col-lg-6 col-md-6">
+                        <p>The requested page of file was not found. Perhaps you would like to go to our home page or contact us so we can know what are you looking for?</p>
+                    </div>
+                    <div class="col-md-12 col-lg-12">
+                        <a class="btn btn-lg btn-secondary" href="/">
+                            <span class="fa fa-arrow-left"/> Go Home</a>
+                        <a class="btn btn-lg btn-primary" href="/page/contactus"> Contact us</a>
+                    </div>
+                </div>
+                <div class="hidden-md hidden-lg text-center">
+                    <h1>404</h1>
+                    <h2>Something went wrong.</h2>
+                    <div class="text-center col-sm-10 col-xs-12 col-sm-offset-1 col-xs-offset-0">
+                        <p>The requested page of file was not found. Perhaps you would like to go to our home page or contact us so we can know what are you looking for?</p>
+                    </div>
+                    <div class="col-xs-1col-sm-12">
+                        <a class="btn btn-secondary" href="/">
+                            <span class="fa fa-arrow-left"/> Go Home</a>
+                        <a class="btn btn-primary" href="/page/contactus"> Contact us</a>
+                    </div>
+                </div>
+            </div>
         </xpath>
     </template>
 </odoo>
