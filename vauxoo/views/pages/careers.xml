@@ -8,7 +8,7 @@
             <img src="/web/image/theme_vauxoo.stroke-gap-icons"/>
           </div>
           <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 nopadding">
-            <t t-set="engineering" t-value="env.ref('vauxoo.dep_engineering')"/>
+            <t t-set="engineering" t-value="env.ref('vauxoo.dep_engineering').sudo()"/>
             <h2 class="mb24" t-esc="engineering.name"/>
             <t t-as="job" t-foreach="engineering.jobs_ids">
               <a t-att-href="'/jobs/detail/%s' %(job.id)">
@@ -24,7 +24,7 @@
             <img src="/web/image/theme_vauxoo.stroke-gap-icons-11"/>
           </div>
           <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 nopadding">
-            <t t-set="business" t-value="env.ref('vauxoo.dep_bm')"/>
+            <t t-set="business" t-value="env.ref('vauxoo.dep_bm').sudo()"/>
             <h2 class="mb24" t-esc="business.name"/>
             <t t-as="job" t-foreach="business.jobs_ids">
               <a t-att-href="'/jobs/detail/%s' %(job.id)">
@@ -40,7 +40,7 @@
             <img src="/web/image/theme_vauxoo.stroke-gap-icons-10"/>
           </div>
           <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 nopadding">
-            <t t-set="design" t-value="env.ref('vauxoo.dep_uxui')"/>
+            <t t-set="design" t-value="env.ref('vauxoo.dep_uxui').sudo()"/>
             <h2 class="mb24" t-esc="design.name"/>
             <t t-as="job" t-foreach="design.jobs_ids">
               <a t-att-href="'/jobs/detail/%s' %(job.id)">
