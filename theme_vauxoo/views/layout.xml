@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <template id="lang_switcher" name="Lang Switcher">
+        <span id="lang_switcher">
+            <t t-foreach="languages" t-as="lg">
+                <a
+                    t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+                    t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
+                    t-att-data-lang="lg[0]"
+                    t-attf-class="js_change_lang #{'active' if website._context.get('lang') == lg[0] else None} ">
+                    <t t-esc="lg[0].split('_')[0].upper()"/>
+                </a>
+                <span class="hx-thin" t-if=" not languages[len(languages) - 1] == lg">/</span>
+            </t>
+        </span>
+    </template>
     <template id="menu_elements" name="Desktop Menu Elements">
         <ul class="nav navbar-nav navbar-center hidden-xs" id="top_menu">
             <t t-foreach="website.menu_id.child_id" t-as="submenu">
@@ -7,6 +21,7 @@
             </t>
         </ul>
         <ul class="nav navbar-nav navbar-right hidden-xs">
+            <t t-call="theme_vauxoo.lang_switcher"/>
             <li class="dropdown" t-ignore="true" t-if="website.user_id != user_id">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <b>
