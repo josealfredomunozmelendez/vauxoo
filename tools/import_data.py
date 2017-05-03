@@ -13,13 +13,20 @@ from collections import defaultdict
 from itertools import izip
 
 __version__ = '1.0.1'
+
+logging.addLevelName( logging.ERROR, "\033[1;31m%s\033[1;0m" % logging.getLevelName(logging.ERROR))
+logging.addLevelName( logging.INFO, "\033[1;32m%s\033[1;0m" % logging.getLevelName(logging.INFO))
+logging.addLevelName( logging.WARNING, "\033[1;33m%s\033[1;0m" % logging.getLevelName(logging.WARNING))
+logging.addLevelName( logging.DEBUG, "\033[1;34m%s\033[1;0m" % logging.getLevelName(logging.DEBUG))
+logging.addLevelName( logging.CRITICAL, "\033[1;41m%s\033[1;0m" % logging.getLevelName(logging.CRITICAL))
+
 _logger = logging.getLogger('vxmigration')
-# _logger.setLevel(logging.INFO)
-# ch = logging.StreamHandler()
-# ch.setLevel(logging.DEBUG)
-# formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-# ch.setFormatter(formatter)
-# _logger.addHandler(ch)
+_logger.setLevel(logging.DEBUG)
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+ch.setFormatter(formatter)
+_logger.addHandler(ch)
 
 
 class Migration(object):
@@ -351,7 +358,7 @@ class Migration(object):
                 export_data[index].get('name'),
                 fail.get('message')
             ])
-            _logger.info(pprint.pformat(load_res.get('messages')))
+            _logger.error(pprint.pformat(load_res.get('messages')))
             # self.print_debug(load_fields, data)
 
         errors.append([
@@ -427,7 +434,7 @@ class Migration(object):
             position_data = self.legacy.execute(
                 read_model, 'export_data', position_sub_group,
                 export_fields).get('datas', [])
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             loaded_data = self.new_instance.execute(
                 write_model, 'load', load_fields, position_data)
 
@@ -611,7 +618,7 @@ class Migration(object):
                 export_fields).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for (item, partner) in enumerate(partner_data, 1):
 
@@ -634,11 +641,12 @@ class Migration(object):
                 vat = partner[load_fields.index('vat')]
 
                 generic_vat_to_avoid = [
-                    'MXXEXX010101000', 'MXEXX010101000', 'MXXAXX010101000']
+                    'MXXEXX010101000', 'MXEXX010101000', 'MXXAXX010101000',
+                ]
                 if vat and vat in generic_vat_to_avoid:
                     partner[load_fields.index('vat')] = ''
                 elif vat and vat[:2] in ['EC', 'ES', 'MX', 'PE', 'VE']:
-                    partner[load_fields.index('vat')] = vat[2:]
+                    partner[load_fields.index('vat')] = vat[2:].strip()
                 # payment_term = self.get_value('property_payment_term_id')
                 # if payment_term == 'Contado USD BBVA Bancomer':
                 #     self.change_value('property_payment_term_id', False)
@@ -922,7 +930,7 @@ class Migration(object):
                 user_sub_group, export_fields).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for user in user_data:
 
@@ -979,7 +987,7 @@ class Migration(object):
             employee_data = self.legacy.execute(
                 read_model, 'export_data',
                 employee_sub_group, export_fields).get('datas', [])
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             loaded_data = self.new_instance.execute(
                 write_model, 'load', load_fields, employee_data)
             if not loaded_data.get('ids', False):
@@ -1151,7 +1159,7 @@ class Migration(object):
                 read_model, 'export_data', tag_sub_group,
                 export_fields).get('datas', [])
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             # preprocess
             load_data_group = []
@@ -1184,6 +1192,28 @@ class Migration(object):
             self.print_errors(model, dummys, to_mapping)
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
+    def compute_tasks_display_name(self):
+        """ This will be compute using a server action loaded and run
+        """
+        write_model = 'ir.actions.server'
+        data = []
+        with open("server_action_display_name.csv", "r") as csvfile:
+            reader = csv.reader(csvfile)
+            header = False
+            for row in reader:
+                if not header:
+                    header = row
+                else:
+                    data.append(row)
+
+        loaded_data = self.new_instance.execute(
+            write_model, 'load', header, data)
+        if not loaded_data.get('ids', False):
+            self.print_errors(write_model, loaded_data, data)
+
+        action = self.new_instance.execute(
+            write_model, 'run', loaded_data.get('ids', False))
+
     def migrate_project_task(self, domain=None, limit=None, defaults=None):
         _logger.info('Migrate Project Tasks')
         read_model = write_model = 'project.task'
@@ -1205,7 +1235,7 @@ class Migration(object):
                   'total_hours',
                   'create_date', 'create_uid/id',
                   'write_date', 'write_uid/id',
-				  'date_last_stage_update',
+                  'date_last_stage_update',
                   'categ_ids/id',
                   '.id']
 
@@ -1227,7 +1257,7 @@ class Migration(object):
                 export).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for (item, task) in enumerate(task_data):
 
@@ -1386,7 +1416,7 @@ class Migration(object):
             export_data = self.legacy.execute(
                 read_model, 'export_data', issue_sub_group,
                 export_fields).get('datas', [])
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             load_data_group = []
             for issue in export_data:
@@ -1520,7 +1550,7 @@ class Migration(object):
             task_load_data_group = []
             sale_line_load_data_group = []
             procurement_load_data_group = []
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             # preprocessing data
             for user_story in user_story_data:
@@ -1695,7 +1725,7 @@ class Migration(object):
             story_data = [self.list2dict(export_fields, item)
                           for item in export_data]
             task_load_data_group = []
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             # preprocessing data
             for user_story in story_data:
@@ -1770,7 +1800,7 @@ class Migration(object):
                 export_fields).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for sprint in sprint_data:
                 if 'sprint' not in sprint[load_fields.index('name')].lower():
@@ -1810,7 +1840,7 @@ class Migration(object):
             story_data = self.legacy.execute(
                 read_model, 'export_data', story_sub_group,
                 export_fields).get('datas', [])
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             story_ids = self.new_instance.execute(
                 write_model, 'load', load_fields, story_data)
             if not story_ids.get('ids', False):
@@ -1879,7 +1909,7 @@ class Migration(object):
             criteria_data = [self.list2dict(export_fields, item)
                              for item in export_data]
             load_data_group = []
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             # preprocessing data
             for criteria in criteria_data:
@@ -1996,7 +2026,7 @@ class Migration(object):
         ids, group_number = self.chunks(sale_ids)
 
         for (group, sub_group) in enumerate(ids, 1):
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             export_data = self.legacy.execute(
                 read_model, 'export_data', sub_group,
                 export_fields).get('datas', [])
@@ -2050,7 +2080,7 @@ class Migration(object):
         ids, group_number = self.chunks(sale_ids)
 
         for (group, sub_group) in enumerate(ids, 1):
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             export_data = self.legacy.execute(
                 read_model, 'export_data', sub_group,
                 export_fields).get('datas', [])
@@ -2099,7 +2129,7 @@ class Migration(object):
         sources, group_number = self.chunks(source_ids)
 
         for (group, sub_group) in enumerate(sources, 1):
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             export_data = self.legacy.execute(
                 read_model, 'export_data', sub_group,
                 export_fields).get('datas', [])
@@ -2154,7 +2184,7 @@ class Migration(object):
         stages, group_number = self.chunks(stage_ids)
 
         for (group, sub_group) in enumerate(stages, 1):
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             export_data = self.legacy.execute(
                 read_model, 'export_data', sub_group,
                 export_fields).get('datas', [])
@@ -2366,7 +2396,7 @@ class Migration(object):
         ids, group_number = self.chunks(ids)
 
         for (group, sub_group) in enumerate(ids, 1):
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             export_data = self.legacy.execute(
                 read_model, 'export_data', sub_group,
                 export_fields).get('datas', [])
@@ -2445,7 +2475,7 @@ class Migration(object):
                 export_fields).get('datas', [])
             projects = [self.list2dict(export_fields, item)
                         for item in export_data]
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             sales_data = []
             procurement_group_data = []
 
@@ -2511,7 +2541,7 @@ class Migration(object):
             export_data = self.legacy.execute(
                 read_model, 'export_data', sub_group,
                 export_fields).get('datas', [])
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             tag_data = []
 
             # preprocessing data
@@ -2708,7 +2738,7 @@ class Migration(object):
             route_data = self.legacy.execute(
                 read_model, 'export_data', route_sub_group, export_fields
             ).get('datas', [])
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             loaded_data = self.new_instance.execute(
                 write_model, 'load', load_fields, route_data)
@@ -2742,7 +2772,7 @@ class Migration(object):
             ).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for (item, pub_categ) in enumerate(pub_categ_data, 1):
                 load_data_group.append(pub_categ)
@@ -2779,7 +2809,7 @@ class Migration(object):
                 read_model, 'export_data', attribute_sub_group, export_fields
             ).get('datas', [])
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             loaded_data = self.new_instance.execute(
                 write_model, 'load', load_fields, attribute_data)
             if not loaded_data.get('ids', False):
@@ -2810,7 +2840,7 @@ class Migration(object):
             value_data = self.legacy.execute(
                 read_model, 'export_data', value_sub_group, export_fields
             ).get('datas', [])
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
             loaded_data = self.new_instance.execute(
                 write_model, 'load', load_fields, value_data)
             if not loaded_data.get('ids', False):
@@ -2843,7 +2873,7 @@ class Migration(object):
             ).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for (item, prod_cat) in enumerate(prod_cat_data, 1):
                 load_data_group.append(prod_cat)
@@ -2881,7 +2911,7 @@ class Migration(object):
             ).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for (item, categ) in enumerate(categ_data, 1):
                 load_data_group.append(categ)
@@ -2920,7 +2950,7 @@ class Migration(object):
             ).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for (item, uom) in enumerate(uom_data, 1):
                 load_data_group.append(uom)
@@ -3017,7 +3047,7 @@ class Migration(object):
             ).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for product in product_data:
                 # defaults
@@ -3071,7 +3101,7 @@ class Migration(object):
             ).get('datas', [])
             load_data_group = []
 
-            _logger.info("- Group %s-%s" % (group, group_number))
+            _logger.debug("Group %s-%s" % (group, group_number))
 
             for prod in prod_prod_data:
                 # defaults
@@ -3171,7 +3201,7 @@ def conect_and_login(host, port, db, user, pwd, odoo=True):
     if odoo:
         instance = odoorpc.ODOO(host, port=port, timeout=9999999)
         instance.login(db, user, pwd)
-        click.echo(
+        _logger.info(
             "Connected to database %s (%s) in host %s:%s as %s" % (
                 db, instance.version, host, port, user))
     else:
@@ -3185,7 +3215,6 @@ pass_config = click.make_pass_decorator(Config, ensure=True)
 
 @click.command()
 @click_log.simple_verbosity_option()
-@click_log.init()
 @click.option('--legacy-host', default='127.0.0.1',
               help='Od oo server host. default 127.0.0.1')
 @click.option('--legacy-port', type=int, default=8069,
@@ -3285,8 +3314,13 @@ def main(config, save_config, show_config, use_config,
     _logger.info('Migrate partners without parent_id')
     vauxoo.migrate_res_partner(
         [('parent_id', '=', False),
-        # TODO Avoid partners that give troubles until talk with @nhomar
-         ('id', '!=', 4342)])
+         ('id', 'not in', [
+            # partners realted to the administrator user and the companies
+            1,  # Vauxoo Odoo Partner Company Partner
+            3,  # Vauxoo Admin admin Partner
+            39, # Vauxoo CA Company Partner
+            4342, # Vat error talk with @nhomar
+         ])])
     _logger.info('Migrate partners with parent_id')
     vauxoo.migrate_res_partner([('parent_id', '!=', False)])
 
@@ -3437,9 +3471,13 @@ def main(config, save_config, show_config, use_config,
         defaults={'project_id/.id': support_team_id.id,
                   'account_id/.id': support_analytic_id.id})
 
+    _logger.info('Compute tasks display name')
+    vauxoo.compute_tasks_display_name()
+
     # vauxoo.mapping_cleanup()
     cursor.commit()
 
+    _logger.info('Migration script finish')
 
 if __name__ == '__main__':
     main()
