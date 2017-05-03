@@ -33,7 +33,7 @@ env:
   - PHANTOMJS_TESTS="0"
   - TEST_OTHER_PROJECTS="${HOME}/addons-vauxoo"
   - LINT_CHECK=0 TESTS="0"
-  - VERSION="10.0" ODOO_REPO="vauxoo/odoo" ODOO_BRANCH="saas-14"
+  - VERSION="10.0" ODOO_REPO="vauxoo/odoo" ODOO_BRANCH="saas-15"
   - INCLUDE="vauxoo"
 
   matrix:

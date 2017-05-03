@@ -133,7 +133,7 @@ Deploy locally to hack it
    using the next command:
 
     ```bash
-    /root/odoo-saas-14/odoo-bin -d openerp_test --db-filter=openerp_test
+    /root/odoo-saas-15/odoo-bin -d openerp_test --db-filter=openerp_test
     ```
 
 8. Last but not least, you will need to have more than one console view to your

@@ -9,7 +9,7 @@ variables:
     PSQL_VERSION: "9.5"
     VERSION: "10.0"
     ODOO_REPO: "vauxoo/odoo"
-    ODOO_BRANCH: "saas-14"
+    ODOO_BRANCH: "saas-15"
     INCLUDE: "vauxoo"
     INSTALL: "vauxoo"
     CUSTOMER: "vauxoo"
