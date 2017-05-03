@@ -37,10 +37,5 @@
                     ('partner_id', '=', user.partner_id.commercial_partner_id.id)]'''}"
         />
 
-        <record id="website_hr.hr_employee_public" model="ir.rule">
-            <field name="model_id" ref="hr.model_hr_employee"/>
-            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
-        </record>
-
   </data>
 </openerp>
