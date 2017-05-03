@@ -12,6 +12,7 @@ variables:
     ODOO_BRANCH: "saas-14"
     INCLUDE: "vauxoo"
     INSTALL: "vauxoo"
+    CUSTOMER: "vauxoo"
     BASE_IMAGE: "vauxoo/odoo-100-image"
     http_proxy: http://172.17.0.1:3128
     https_proxy: http://172.17.0.1:3128
