@@ -37,7 +37,28 @@
 /* main menu */
 
 @transparent-bg: rgba(255,255,255,0.0);
-
+#lang_switcher {
+    top: -22px;
+    position: absolute;
+    padding-left: 20px;
+    a {
+        color: @vauxoo-white;
+        &.active {
+            font-weight: 600;
+            &:before {
+            content: "";
+            position: absolute;
+            width: 19px;
+            height: 1px;
+            bottom: 0;
+            border-bottom: 2px solid @red-300;
+            }
+        }
+    }
+    span {
+        color: @vauxoo-white;
+    }
+}
 .transparent_header {
     div {
         background-color: @transparent-bg;
