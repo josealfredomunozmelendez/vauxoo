@@ -7,6 +7,6 @@
     </record>
     <record id="directive" model="res.groups">
         <field name="name">Directive</field>
-    <field name="category_id" ref="category_group"/>
+        <field name="category_id" ref="category_group"/>
     </record>
 </odoo>

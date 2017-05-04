@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
         <record id="view_crossovered_budget_line_tree" model="ir.ui.view">
             <field name="name">crossovered.budget.line.tree</field>
             <field name="model">crossovered.budget.lines</field>
@@ -136,5 +135,4 @@
         <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
             <field name="view_mode">kanban,tree,form</field>
         </record>
-    </data>
 </odoo>

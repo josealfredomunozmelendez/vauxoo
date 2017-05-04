@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-
         <report auto="False"
                 id="hr_timesheet_reports_base"
                 model="hr.timesheet.reports.base"
@@ -151,5 +150,4 @@
                   parent="hr_timesheet.menu_timesheets_reports"
                   action="action_hr_report_base_tree"
                   sequence='100'/>
-
 </odoo>

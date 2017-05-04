@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
         <record id="implementation_team" model="project.project">
             <field name="name">Implementation</field>
             <field name="sequence">1</field>
@@ -22,5 +21,4 @@
         <record id="project.project_stage_data_0" model="project.task.type">
             <field name="project_ids" eval="[(4, ref('vauxoo.implementation_team'))]"/>
         </record>
-
 </odoo>
