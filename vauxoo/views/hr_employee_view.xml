@@ -85,6 +85,25 @@
                 </tree>
             </field>
         </record>
+        <record model="ir.ui.view" id="hr_kanban_view_employees">
+            <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+            <field name="name">hr.employee.kanban.analysis</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">100</field>
+            <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//ul/li[last()]" position="after">
+                    <li>Total Salary: <field name="total_salary"/></li>
+                    <li>Salary on Job: <field name="salary_on_job"/></li>
+                    <li>Perceived Salary: <field name="perceived_salary"/></li>
+                    <li>Theoretical Cost: <field name="theoretical_cost"/></li>
+                    <li>Current Cost: <field name="current_cost"/></li>
+                    <li>Theoretical Sheet: <field name="theoretical_timesheet"/></li>
+                    <li>Invoiced Hours: <field name="hours_invoice"/></li>
+                    <li>Informed Hours: <field name="hours_informed"/></li>
+                </xpath>
+            </field>
+        </record>
         <record model="ir.ui.view" id="view_employee_graph">
             <field name="name">hr.employee.graph</field>
             <field name="model">hr.employee</field>
