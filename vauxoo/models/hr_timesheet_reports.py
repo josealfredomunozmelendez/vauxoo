@@ -284,7 +284,7 @@ class HrTimesheetReportsBase(models.Model):
     prod_ent_ids = fields.Many2many(
         'product.product', 'prod_report_timesheet_rel1', 'report_id',
         'prod_ent_id', 'Products for Enterprises',
-        help="All lines on invoices the have this product will be ignored as"
+        help="All lines on invoices that have this product will be ignored as"
         " Effectivally Invoiced time already invoiced")
     prod_train_ids = fields.Many2many('product.product',
                                       'prod_report_timesheet_rel2',

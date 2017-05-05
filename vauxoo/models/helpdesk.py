@@ -9,7 +9,7 @@ class HeldeskTeam(models.Model):
     project_id = fields.Many2one(
         "project.project",
         string="Support Project",
-        help="The project where the task related to the tickers will be"
+        help="The project where the task related to the tickets will be"
              " created")
 
 
