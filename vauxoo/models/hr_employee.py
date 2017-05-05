@@ -90,6 +90,7 @@ class HrEmployee(models.Model):
             })
             emp.write({
                 'salary_on_job': emp.salary_on_job,
+                'total_salary': emp.total_salary,
             })
 
     @api.depends('is_cost', 'contract_id', 'job_id.wage')
