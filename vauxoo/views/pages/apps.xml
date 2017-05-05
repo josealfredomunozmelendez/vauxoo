@@ -1,378 +1,389 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="apps" name="Quick Start" page="True">
+    <template id="apps_pricing" name="Pricing">
         <t t-call="website.layout">
             <div class="bg-white bg-cream" id="wrap">
                 <div class="oe_structure bg-white bg-cream"/>
-                <section class="s_body_content text-center header-pentagon" style="background-image: url(/web/image/theme_vauxoo.quick_start)">
-                    <div class="container">
-                        <div class="row">
-                            <h1>Your business.
-
-                                <br class="hidden-xs hidden-sm"/>
-                                from zero to hero.</h1>
-                            <p>Choose your tools to start your business straighatway with our Online management
-
-                                <br class="hidden-xs hidden-sm"/>
-                                platform.</p>
-                            <a class="btn btn-lg btn-primary" href="/page/contactus">Free trial</a>
-                        </div>
-                        <div class="row text-center arrow-pentagon-shop">
-                            <a class="smoothly" href="#on_premise_apps">
-                                <img src="/web/image/theme_vauxoo.scroll-down"/>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-                <section class="s_body_content bg-white vertical-chevron vertical-chevron-shop"/>
-                <section id="on_premise_apps">
-                    <div class="container mb64">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-8 col-md-8 hidden-xs hidden-sm">
-                                    <h2>Pick the apps you need</h2>
-                                </div>
-                                <div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
-                                    <h2>Pick the apps you need</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center app-boxes nopadding">
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="invoicing" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/account/static/description/icon.png"/>
-                                            <h3>Invoicing</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="invoicing" name="invoicing" type="checkbox"/>
-                                            <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="&lt;small&gt;&lt;h5 class='mt0 mb4'&gt;Requires: &lt;/h5&gt;&lt;ul class='mb0' style='padding-left: 15px; font-size: 12px;'&gt;&lt;li&gt;Sales&lt;/li&gt;&lt;li&gt;Invoicing&lt;/li&gt;&lt;li&gt;Website&lt;/li&gt;&lt;/ul&gt;&lt;/small&gt;"><img class="app-clip" src="/web/image/vauxoo.clip/17x17"></img></a>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="crm" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/crm/static/description/icon.png"/>
-                                            <h3>CRM</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="crm" name="crm" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="ecommerce" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/website_sale/static/description/icon.png"/>
-                                            <h3>eCommerce</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="ecommerce" name="ecommerce" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="mrp" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
-                                            <h3>Manufacturing</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="sale" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/sale/static/description/icon.png"/>
-                                            <h3>Sales</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="sale" name="sale" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="project" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
-                                            <h3>Project</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="project" name="project" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="qc" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/quality/static/description/icon.png"/>
-                                            <h3>Quality Control</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="qc" name="qc"  type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="mrp" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
-                                            <h3>Manufacturing</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="sign" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/note/static/description/icon.png"/>
-                                            <h3>Sign</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="sign" name="sign"  type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="project" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
-                                            <h3>Project</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="project" name="project" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="ecommerce" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/website_sale/static/description/icon.png"/>
-                                            <h3>eCommerce</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="ecommerce" name="ecommerce" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="mrp" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
-                                            <h3>Manufacturing</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="sale" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/sale/static/description/icon.png"/>
-                                            <h3>Sales</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="sale" name="sale" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="project" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
-                                            <h3>Project</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="project" name="project" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="qc" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/quality/static/description/icon.png"/>
-                                            <h3>Quality Control</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="qc" name="qc"  type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="mrp" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
-                                            <h3>Manufacturing</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="sign" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/note/static/description/icon.png"/>
-                                            <h3>Sign</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="sign" name="sign"  type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
-                                    <label for="project" class="tile">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
-                                            <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
-                                            <h3>Project</h3>
-                                            <h4 class="hx-thin">$12 US / month</h4>
-                                            <input class="app-check" id="project" name="project" type="checkbox"/>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb32 text-center apps-tray">
-                                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12  col-lg-offset-6 col-md-offset-6 col-sm-offset-0 col-xs-offset-0 nopadding currency-buttons">
-                                    <div class="mb0 btn-group col-md-12 col-lg-12 col-sm-12 col-xs-12 nopadding" data-toggle="buttons">
-                                        <label class="btn btn-primary btn-sm btn-currency active col-md-4 col-lg-4 col-sm-4 col-xs-4">
-                                            <input autocomplete="off" checked="true" name="currency" type="radio"/>MXN</label>
-                                        <label class="btn btn-primary btn-sm btn-currency col-md-4 col-lg-4 col-sm-4 col-xs-4">
-                                            <input autocomplete="off" name="currency" type="radio"/>USD</label>
-                                        <label class="btn btn-primary btn-sm btn-currency col-md-4 col-lg-4 col-sm-4 col-xs-4">
-                                            <input autocomplete="off" name="currency" type="radio"/>EUR</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 bordered-div nopadding mb0 mt0">
-                                    <h3 class="col-md-5 col-lg-5 col-sm-5 col-xs-5 mt32 mb32 nopadding">Quick Start</h3>
-                                    <label class="o_switch col-lg-2 col-md-2 col-sm-2 col-xs-2 mt32 mb32 text-right" for="quick-or-premise">
-                                        <input id="quick-or-premise" type="checkbox"/>
-                                        <span/>
-                                    </label>
-                                    <h3 class="col-md-5 col-lg-5 col-sm-5 col-xs-5 nopadding mt32 mb32">On Premise</h3>
-                                    <hr class="mb0"/>
-                                    <h3 class="mt0 text-center mb0">Subscription</h3>
-                                    <h4 class="hx-thin text-center mb16 mt0">(Paid monthly)</h4>
-                                    <hr class="mb16 mt0 nopadding"/>
-                                    <div class="mb16 btn-group col-md-12 col-lg-12 col-sm-12 col-xs-12" data-toggle="buttons">
-                                        <label class="btn btn-primary btn-billing active col-md-6 col-lg-6 col-sm-6 col-xs-6">
-                                            <input autocomplete="off" checked="true" name="billing-plan" type="radio"/>Monthly Billing</label>
-                                        <label class="btn btn-primary btn-billing col-md-6 col-lg-6 col-sm-6 col-xs-6">
-                                            <input autocomplete="off" name="billing-plan" type="radio"/>Yearly Billing</label>
-                                    </div>
-                                    <div class="btn-group col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                        <h4 class="col-md-4 col-lg-4 col-sm-4 col-xs-4 hx-thin nopadding text-left">Number of users</h4>
-                                        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 mt8 nopadding">
-                                            <div class="css_quantity input-group oe_website_spinner" contenteditable="false">
-                                                <a class="mb8 input-group-addon js_add_cart_json" href="#">
-                                                    <i class="fa fa-minus"/>
-                                                </a>
-                                                <input class="form-control" data-min="1" name="add_qty" type="text" value="1"/>
-                                                <a class="mb8 input-group-addon float_left js_add_cart_json" href="#">
-                                                    <i class="fa fa-plus"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <h4 class="col-md-4 col-lg-4 col-sm-4 col-xs-4 mt16">$8 USD</h4>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <h4 class="text-left">Apps</h4>
-                                        <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/account/static/description/icon.png"/>
-                                        <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
-                                            <span class="app-name pull-left hx-thin">Invoicing</span>
-                                            <span class="app-price pull-right">$4 USD</span>
-                                        </h4>
-                                        <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/quality/static/description/icon.png"/>
-                                        <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
-                                            <span class="app-name pull-left hx-thin">Quality Control</span>
-                                            <span class="app-price pull-right">$4 USD</span>
-                                        </h4>
-                                        <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/mrp/static/description/icon.png"/>
-                                        <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
-                                            <span class="app-name pull-left hx-thin">Manufacturing</span>
-                                            <span class="app-price pull-right">$4 USD</span>
-                                        </h4>
-                                        <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/project/static/description/icon.png"/>
-                                        <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
-                                            <span class="app-name pull-left hx-thin">Project</span>
-                                            <span class="app-price pull-right">$4 USD</span>
-                                        </h4>
-                                        <div class="row">
-                                            <h4 class="hx-thin">View 4 more
-                                                <span class="fa fa-chevron-down"/></h4>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding bg-gray">
-                                        <h4 class="col-lg-3 col-md-3 bg-gray nopadding mt16 mb16">Sub-Total</h4>
-                                        <h4 class="col-lg-5 col-md-5 hx-thin bg-gray nopadding text-left mt16 mb16">(monthly)</h4>
-                                        <h4 class="col-lg-4 col-md-4 bg-gray nopadding mb16 mt16">
-                                            <strong>$20 USD</strong>
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt8 mb8">
-                                        <h3>Implementation</h3>
-                                        <h4 class="hx-thin mt0">(Paid only once)</h4>
-                                    </div>
-                                    <hr class="mb0"/>
-                                    <div class="nopadding grand-total">
-                                        <h4 class="col-lg-6 col-md-6 hx-thin" style="padding-right: 0px;">Success Pack (25h)</h4>
-                                        <input class="col-lg-1 col-sm-1 col-xs-1 col-md-1" name="success-pack" style="margin-top: 13px;" type="checkbox"/>
-                                        <h4 class="col-lg-5 col-md-5 col-sm-5 col-xs-5">$2,380 USD</h4>
-                                    </div>
-                                    <div class="bg-gray col-m-12 col-lg-12 col-sm-12 col-xs-12 nopadding">
-                                        <h3 class="col-lg-3 col-md-3 text-right mt8 mb8" style="padding-right: 0px;">Total</h3>
-                                        <h4 class="col-lg-4 col-md-4 hx-thin text-left mb8" style="padding-left: 4px; margin-top: 14px;">(Paid once)</h4>
-                                        <h4 class="col-lg-5 col-md-5 mb8" style="margin-top: 14px;">
-                                            <strong>$4,368 USD</strong>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <a class="btn btn-lg btn-primary col-lg-12 ml0" href="/">Start Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="apps-faq">
-                    <div class="container">
-                        <h2>Some frequently asked questions</h2>
-                        <div aria-multiselectable="true" class="panel-group col-lg-8 col-md-8 col-sm-12 col-xs-12 nopadding" id="accordion" role="tablist">
-                            <div class="panel panel-default">
-                                <div class="panel-heading mt8 mb8" id="headingOne" role="tab">
-                                    <h4 class="panel-title">
-                                        <a aria-controls="collapseOne" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" role="button">
-                                            <strong> What is the difference between Quick-Start and On-premise?</strong>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div aria-labelledby="headingOne" class="panel-collapse collapse in" id="collapseOne" role="tabpanel">
-                                    <div class="panel-body">The Quick-Start model is aimed for businesses seeking to launch their products/services using Vauxoo servers. The subscription is billed monthly, which means you can unsubscribe any time you want. On the other hand, On-premise is a more customized option and is billed yearly, including monthly maintenance and the deployment of your product.
-                                </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default mt0">
-                                <div class="panel-heading mt8 mb8" id="headingTwo" role="tab">
-                                    <h4 class="panel-title">
-                                        <a aria-controls="collapseTwo" aria-expanded="false" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" role="button">
-                                            <strong> Why some applications are related to others?</strong>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div aria-labelledby="headingTwo" class="panel-collapse collapse" id="collapseTwo" role="tabpanel">
-                                    <div class="panel-body">Due to features of certain apps are dependent of the functionality of other apps, it is necessary that such apps be installed together, in order to ensure the optimal performance of them..
-                                </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default mt0">
-                                <div class="panel-heading mt8 mb8" id="headingThree" role="tab">
-                                    <h4 class="panel-title">
-                                        <a aria-controls="collapseThree" aria-expanded="false" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree" role="button">
-                                            <strong> What is a success pack?</strong>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div aria-labelledby="headingThree" class="panel-collapse collapse" id="collapseThree" role="tabpanel">
-                                    <div class="panel-body">Success packs are implementation services with a certain number of hours (depending on the apps to be installed) that include Odoo training, technical support and personalized assistance to customize the installed apps to the workflow of every company before implementation. This pack never expires, meaning the hours can be used whenever support is needed.
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <p>For further questions, please contact our support team at
-                                <a href="mailto:ventas@vauxoo.com">
-                                    <strong class="link-primary">ventas@vauxoo.com</strong></a>
-                            </p>
-                        </div>
-                    </div>
-                </section>
+                <t t-call="vauxoo.header_apps"/>
+                <t t-call="vauxoo.on_premise_apps"/>
+                <t t-call="vauxoo.apps_faq"/>
                 <div class="oe_structure"/>
             </div>
         </t>
+    </template>
+    <template id="header_apps" name="Header Apps">
+        <section class="s_body_content text-center header-pentagon" style="background-image: url(/web/image/theme_vauxoo.quick_start)">
+            <div class="container">
+                <div class="row">
+                    <h1>Your business.
+                        <br class="hidden-xs hidden-sm"/>
+                        from zero to hero.</h1>
+                    <p>Choose your tools to start your business straighatway with our Online management
+
+                        <br class="hidden-xs hidden-sm"/>
+                        platform.</p>
+                    <a class="btn btn-lg btn-primary" href="/page/contactus">Free trial</a>
+                </div>
+                <div class="row text-center arrow-pentagon-shop">
+                    <a class="smoothly" href="#on_premise_apps">
+                        <img src="/web/image/theme_vauxoo.scroll-down"/>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="s_body_content bg-white vertical-chevron vertical-chevron-shop"/>
+    </template>
+    <template id="on_premise_apps" name="On Premise Apps">
+        <section id="on_premise_apps">
+            <div class="container mb64">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-8 col-md-8 hidden-xs hidden-sm">
+                            <h2>Pick the apps you need</h2>
+                        </div>
+                        <div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
+                            <h2>Pick the apps you need</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center app-boxes nopadding">
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="invoicing" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/account/static/description/icon.png"/>
+                                    <h3>Invoicing</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="invoicing" name="invoicing" type="checkbox"/>
+                                    <a href="#" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="&lt;small&gt;&lt;h5 class='mt0 mb4'&gt;Requires: &lt;/h5&gt;&lt;ul class='mb0' style='padding-left: 15px; font-size: 12px;'&gt;&lt;li&gt;Sales&lt;/li&gt;&lt;li&gt;Invoicing&lt;/li&gt;&lt;li&gt;Website&lt;/li&gt;&lt;/ul&gt;&lt;/small&gt;"><img class="app-clip" src="/web/image/vauxoo.clip/17x17"></img></a>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="crm" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/crm/static/description/icon.png"/>
+                                    <h3>CRM</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="crm" name="crm" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="ecommerce" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/website_sale/static/description/icon.png"/>
+                                    <h3>eCommerce</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="ecommerce" name="ecommerce" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="mrp" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
+                                    <h3>Manufacturing</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="sale" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/sale/static/description/icon.png"/>
+                                    <h3>Sales</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="sale" name="sale" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="project" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
+                                    <h3>Project</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="project" name="project" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="qc" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/quality/static/description/icon.png"/>
+                                    <h3>Quality Control</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="qc" name="qc"  type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="mrp" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
+                                    <h3>Manufacturing</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="sign" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/note/static/description/icon.png"/>
+                                    <h3>Sign</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="sign" name="sign"  type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="project" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
+                                    <h3>Project</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="project" name="project" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="ecommerce" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/website_sale/static/description/icon.png"/>
+                                    <h3>eCommerce</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="ecommerce" name="ecommerce" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="mrp" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
+                                    <h3>Manufacturing</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="sale" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/sale/static/description/icon.png"/>
+                                    <h3>Sales</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="sale" name="sale" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="project" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
+                                    <h3>Project</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="project" name="project" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="qc" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/quality/static/description/icon.png"/>
+                                    <h3>Quality Control</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="qc" name="qc"  type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="mrp" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/mrp/static/description/icon.png"/>
+                                    <h3>Manufacturing</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="mrp" name="mrp" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="sign" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/note/static/description/icon.png"/>
+                                    <h3>Sign</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="sign" name="sign"  type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12 mb16">
+                            <label for="project" class="tile">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt16 bordered-div">
+                                    <img alt="" class="img img-app mt16" src="/project/static/description/icon.png"/>
+                                    <h3>Project</h3>
+                                    <h4 class="hx-thin">$12 US / month</h4>
+                                    <input class="app-check" id="project" name="project" type="checkbox"/>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <t t-call="vauxoo.apps_tray"/>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="apps_tray" name="Apps Tray">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb32 text-center apps-tray">
+            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12  col-lg-offset-6 col-md-offset-6 col-sm-offset-0 col-xs-offset-0 nopadding currency-buttons">
+                <div class="mb0 btn-group col-md-12 col-lg-12 col-sm-12 col-xs-12 nopadding" data-toggle="buttons">
+                    <label class="btn btn-primary btn-sm btn-currency active col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                        <input autocomplete="off" checked="true" name="currency" type="radio"/>MXN</label>
+                    <label class="btn btn-primary btn-sm btn-currency col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                        <input autocomplete="off" name="currency" type="radio"/>USD</label>
+                    <label class="btn btn-primary btn-sm btn-currency col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                        <input autocomplete="off" name="currency" type="radio"/>EUR</label>
+                </div>
+            </div>
+            <div class="col-lg-12 bordered-div nopadding mb0 mt0">
+                <h3 class="col-md-5 col-lg-5 col-sm-5 col-xs-5 mt32 mb32 nopadding">Quick Start</h3>
+                <label class="o_switch col-lg-2 col-md-2 col-sm-2 col-xs-2 mt32 mb32 text-right" for="quick-or-premise">
+                    <input id="quick-or-premise" type="checkbox"/>
+                    <span/>
+                </label>
+                <h3 class="col-md-5 col-lg-5 col-sm-5 col-xs-5 nopadding mt32 mb32">On Premise</h3>
+                <hr class="mb0"/>
+                <h3 class="mt0 text-center mb0">Subscription</h3>
+                <h4 class="hx-thin text-center mb16 mt0">(Paid monthly)</h4>
+                <hr class="mb16 mt0 nopadding"/>
+                <div class="mb16 btn-group col-md-12 col-lg-12 col-sm-12 col-xs-12" data-toggle="buttons">
+                    <label class="btn btn-primary btn-billing active col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                        <input autocomplete="off" checked="true" name="billing-plan" type="radio"/>Monthly Billing</label>
+                    <label class="btn btn-primary btn-billing col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                        <input autocomplete="off" name="billing-plan" type="radio"/>Yearly Billing</label>
+                </div>
+                <div class="btn-group col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <h4 class="col-md-4 col-lg-4 col-sm-4 col-xs-4 hx-thin nopadding text-left">Number of users</h4>
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 mt8 nopadding">
+                        <div class="css_quantity input-group oe_website_spinner" contenteditable="false">
+                            <a class="mb8 input-group-addon js_add_cart_json" href="#">
+                                <i class="fa fa-minus"/>
+                            </a>
+                            <input class="form-control" data-min="1" name="add_qty" type="text" value="1"/>
+                            <a class="mb8 input-group-addon float_left js_add_cart_json" href="#">
+                                <i class="fa fa-plus"/>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="col-md-4 col-lg-4 col-sm-4 col-xs-4 mt16">$8 USD</h4>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h4 class="text-left">Apps</h4>
+                    <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/account/static/description/icon.png"/>
+                    <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
+                        <span class="app-name pull-left hx-thin">Invoicing</span>
+                        <span class="app-price pull-right">$4 USD</span>
+                    </h4>
+                    <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/quality/static/description/icon.png"/>
+                    <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
+                        <span class="app-name pull-left hx-thin">Quality Control</span>
+                        <span class="app-price pull-right">$4 USD</span>
+                    </h4>
+                    <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/mrp/static/description/icon.png"/>
+                    <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
+                        <span class="app-name pull-left hx-thin">Manufacturing</span>
+                        <span class="app-price pull-right">$4 USD</span>
+                    </h4>
+                    <img class="img img-tray col-lg-2 col-md-2 col-sm-2 col-xs-2" src="/project/static/description/icon.png"/>
+                    <h4 class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dotted mt4">
+                        <span class="app-name pull-left hx-thin">Project</span>
+                        <span class="app-price pull-right">$4 USD</span>
+                    </h4>
+                    <div class="row">
+                        <h4 class="hx-thin">View 4 more
+                            <span class="fa fa-chevron-down"/></h4>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding bg-gray">
+                    <h4 class="col-lg-3 col-md-3 bg-gray nopadding mt16 mb16">Sub-Total</h4>
+                    <h4 class="col-lg-5 col-md-5 hx-thin bg-gray nopadding text-left mt16 mb16">(monthly)</h4>
+                    <h4 class="col-lg-4 col-md-4 bg-gray nopadding mb16 mt16">
+                        <strong>$20 USD</strong>
+                    </h4>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt8 mb8">
+                    <h3>Implementation</h3>
+                    <h4 class="hx-thin mt0">(Paid only once)</h4>
+                </div>
+                <hr class="mb0"/>
+                <div class="nopadding grand-total">
+                    <h4 class="col-lg-6 col-md-6 hx-thin" style="padding-right: 0px;">Success Pack (25h)</h4>
+                    <input class="col-lg-1 col-sm-1 col-xs-1 col-md-1" name="success-pack" style="margin-top: 13px;" type="checkbox"/>
+                    <h4 class="col-lg-5 col-md-5 col-sm-5 col-xs-5">$2,380 USD</h4>
+                </div>
+                <div class="bg-gray col-m-12 col-lg-12 col-sm-12 col-xs-12 nopadding">
+                    <h3 class="col-lg-3 col-md-3 text-right mt8 mb8" style="padding-right: 0px;">Total</h3>
+                    <h4 class="col-lg-4 col-md-4 hx-thin text-left mb8" style="padding-left: 4px; margin-top: 14px;">(Paid once)</h4>
+                    <h4 class="col-lg-5 col-md-5 mb8" style="margin-top: 14px;">
+                        <strong>$4,368 USD</strong>
+                    </h4>
+                </div>
+            </div>
+            <a class="btn btn-lg btn-primary col-lg-12 ml0" href="/">Start Now</a>
+        </div>
+    </template>
+    <template id="apps_faq" name="Apps Faq">
+        <section id="apps-faq">
+            <div class="container">
+                <h2>Some frequently asked questions</h2>
+                <div aria-multiselectable="true" class="panel-group col-lg-8 col-md-8 col-sm-12 col-xs-12 nopadding" id="accordion" role="tablist">
+                    <div class="panel panel-default">
+                        <div class="panel-heading mt8 mb8" id="headingOne" role="tab">
+                            <h4 class="panel-title">
+                                <a aria-controls="collapseOne" aria-expanded="true" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" role="button">
+                                    <strong> What is the difference between Quick-Start and On-premise?</strong>
+                                </a>
+                            </h4>
+                        </div>
+                        <div aria-labelledby="headingOne" class="panel-collapse collapse in" id="collapseOne" role="tabpanel">
+                            <div class="panel-body">The Quick-Start model is aimed for businesses seeking to launch their products/services using Vauxoo servers. The subscription is billed monthly, which means you can unsubscribe any time you want. On the other hand, On-premise is a more customized option and is billed yearly, including monthly maintenance and the deployment of your product.
+                        </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default mt0">
+                        <div class="panel-heading mt8 mb8" id="headingTwo" role="tab">
+                            <h4 class="panel-title">
+                                <a aria-controls="collapseTwo" aria-expanded="false" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" role="button">
+                                    <strong> Why some applications are related to others?</strong>
+                                </a>
+                            </h4>
+                        </div>
+                        <div aria-labelledby="headingTwo" class="panel-collapse collapse" id="collapseTwo" role="tabpanel">
+                            <div class="panel-body">Due to features of certain apps are dependent of the functionality of other apps, it is necessary that such apps be installed together, in order to ensure the optimal performance of them..
+                        </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default mt0">
+                        <div class="panel-heading mt8 mb8" id="headingThree" role="tab">
+                            <h4 class="panel-title">
+                                <a aria-controls="collapseThree" aria-expanded="false" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree" role="button">
+                                    <strong> What is a success pack?</strong>
+                                </a>
+                            </h4>
+                        </div>
+                        <div aria-labelledby="headingThree" class="panel-collapse collapse" id="collapseThree" role="tabpanel">
+                            <div class="panel-body">Success packs are implementation services with a certain number of hours (depending on the apps to be installed) that include Odoo training, technical support and personalized assistance to customize the installed apps to the workflow of every company before implementation. This pack never expires, meaning the hours can be used whenever support is needed.
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <p>For further questions, please contact our support team at
+                        <a href="mailto:ventas@vauxoo.com">
+                            <strong class="link-primary">ventas@vauxoo.com</strong></a>
+                    </p>
+                </div>
+            </div>
+        </section>
     </template>
 </odoo>
