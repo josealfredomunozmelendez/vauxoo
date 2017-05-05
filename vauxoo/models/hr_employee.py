@@ -105,8 +105,8 @@ class HrEmployee(models.Model):
         employees_generate = self.search([('generate_income', '=', True)])
         budgets = self.env['crossovered.budget'].search(
             [('use_cost', '=', True), ('state', 'in', ['confirm'])])
-        theoretical = sum(employees_cost.mapped('total_salary'))
-        salaries = sum(employees_cost.mapped('salary_on_job'))
+        theoretical = sum(employees_cost.mapped('salary_on_job'))
+        salaries = sum(employees_cost.mapped('total_salary'))
         hours = sum(employees_generate.mapped('theoretical_timesheet'))
         hours_real = sum(employees_generate.mapped('hours_invoice'))
         hours_billable = sum(employees_generate.mapped('hours_invoice'))
