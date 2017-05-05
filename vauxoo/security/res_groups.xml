@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-  <data noupdate="0">
+  <data>
+    <record id="directive" model="res.groups">
+        <field name="name">Directive</field>
+    </record>
   </data>
 </openerp>
