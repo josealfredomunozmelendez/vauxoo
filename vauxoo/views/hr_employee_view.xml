@@ -75,9 +75,9 @@
                     <field name="total_salary" sum="Total Salaries" widget="monetary"/>
                     <field name="salary_on_job" sum="Total Salaries by Job" widget="monetary"/>
                     <field name="perceived_salary" sum="Total Perceived Salaries" widget="monetary"/>
-                    <field name="theoretical_cost" widget="monetary"/>
-                    <field name="current_cost" widget="monetary"/>
-                    <field name="theoretical_timesheet" widget="monetary"/>
+                    <field name="theoretical_cost" sum="Total Theoretical Cost" widget="monetary"/>
+                    <field name="current_cost" sum="Total Current Cost" widget="monetary"/>
+                    <field name="theoretical_timesheet" sum="Total Theoretical Timesheet" widget="monetary"/>
                     <field name="hours_invoice" sum="Total Hours"/>
                     <field name="hours_informed" sum="Total Hours"/>
                     <field name="generate_income"/>
