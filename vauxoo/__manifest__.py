@@ -97,6 +97,7 @@
         "data/base_settings.yml",
         "data/website_settings.yml",
         'data/lang.xml',
+        'data/apps.xml',
 
         # Security
         "security/ir_rule.xml",
