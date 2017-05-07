@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
     <odoo noupdate="0">
+        <!-- OVERWRITTEN NAME BECAUSE IT SAYS 'Month(s)' -->
+        <record id="website_contract.contract_uom_month" model="product.uom">
+            <field name="name">Month</field>
+        </record>
         <!-- PRODUCT ATTRIBUTES -->
         <record id="product_attribute_app" model="product.attribute">
             <field name="name">App</field>
