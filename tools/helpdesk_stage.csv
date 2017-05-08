@@ -1,0 +1,7 @@
+id,sequence,name,is_close,fold
+vauxoo_migration_helpdesk_stage_new,1,New,FALSE,FALSE
+helpdesk.stage_in_progress,2,In Progress,FALSE,FALSE
+vauxoo_migration_helpdesk_stage_waiting_cust,3,Waiting Cust Feedback,FALSE,FALSE
+vauxoo_migration_helpdesk_stage_waiting_expert,4,Waiting Expert Feedback,FALSE,FALSE
+helpdesk.stage_solved,5,Done,TRUE,TRUE
+helpdesk.stage_cancelled,6,Cancelled,TRUE,TRUE

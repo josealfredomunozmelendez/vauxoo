@@ -1033,7 +1033,43 @@ class Migration(object):
 
         _logger.info(pprint.pformat(stages_data))
 
-        new, backlog, wip, done, cancelled = stages_data.get('ids')
+    def mapping_project_stages(self):
+        """ After we update the database the references to old stages in
+        project and project_conf module will be automatic deleted and the
+        tasks will be leave as undefined. In order to avoid this we need to
+        Change all the created tasks to the proper new stage so this stages
+        dont set to Undefined.
+        """
+        new = 'project.project_stage_data_0'
+        backlog = 'project.project_stage_data_1'
+        wip = 'project.project_stage_data_2'
+        done = 'vauxoo_migration_project_stage_done'
+        waiting_customer = 'vauxoo_migration_project_stage_waiting_cust'
+        waiting_expert = 'vauxoo_migration_project_stage_waiting_expert'
+        cancelled = 'vauxoo_migration_project_stage_cancelled'
+
+        self.mapping_project_stage = dict([
+            ('__export__.project_task_type_12', new),
+            ('__export__.project_task_type_18', new),
+            ('project_conf.project_tt_backlog', backlog),
+            ('__export__.project_task_type_19', wip),
+            ('project.project_tt_analysis', wip),
+            ('project.project_tt_design', wip),
+            ('project.project_tt_development', wip),
+            ('__export__.project_task_type_21', wip),
+            ('__export__.project_task_type_22', wip),
+            ('__export__.project_task_type_25', wip),
+            ('project.project_tt_merge', wip),
+            ('project.project_tt_specification', wip),
+            ('project.project_tt_testing', wip),
+            ('project_conf.project_tt_leader', wip),
+            ('__export__.project_task_type_15', waiting_customer),
+            ('__export__.project_task_type_16', waiting_expert),
+            ('__export__.project_task_type_17', wip),
+            ('project.project_tt_deployment', done),
+            ('__export__.project_task_type_26', done),
+            ('project.project_tt_cancel', cancelled),
+        ])
 
         # Mapping old user story states
         self.story_state = {
@@ -1043,46 +1079,6 @@ class Migration(object):
             'Done': ('vauxoo_migration_project_stage_done', 'Grey'),
             'Cancelled': ('vauxoo_migration_project_stage_cancelled', 'Grey'),
         }
-
-        # Dummy external ids for avoid project stages mapping.
-        model = 'project.task.type'
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'search',
-            [('model', '=', model), ('module', '=', '__export__')])
-        if dummys:
-            return
-
-        fields = ['model', 'res_id', 'module', 'name']
-        values = [
-            [model, new, '__export__', 'project_task_type_12'],
-            [model, new, '__export__', 'project_task_type_18'],
-            [model, backlog, 'project_conf', 'project_tt_backlog'],
-            [model, wip, '__export__', 'project_task_type_19'],
-            [model, wip, 'project', 'project_tt_analysis'],
-            [model, wip, 'project', 'project_tt_design'],
-            [model, wip, 'project', 'project_tt_development'],
-            [model, wip, '__export__', 'project_task_type_21'],
-            [model, wip, '__export__', 'project_task_type_22'],
-            [model, wip, '__export__', 'project_task_type_25'],
-            [model, wip, 'project', 'project_tt_merge'],
-            [model, wip, 'project', 'project_tt_specification'],
-            [model, wip, 'project', 'project_tt_testing'],
-            [model, wip, 'project_conf', 'project_tt_leader'],
-            [model, wip, '__export__', 'project_task_type_15'],
-            [model, wip, '__export__', 'project_task_type_16'],
-            [model, wip, '__export__', 'project_task_type_17'],
-            [model, done, 'project', 'project_tt_deployment'],
-            [model, done, '__export__', 'project_task_type_26'],
-            [model, cancelled, 'project', 'project_tt_cancel'],
-        ]
-
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, values)
-        if not dummys.get('ids', False):
-            self.print_errors(model, dummys, values)
-            return
-
-        self.dummy_ir_models.extend(dummys.get('ids', []))
 
     def mapping_project_tags(self):
         """ Create Orphan Tasks tag add dummy mapping"""
@@ -1278,7 +1274,9 @@ class Migration(object):
                     (u'High', 'Starred')])
                 task[export.index('priority')] = \
                     priority_mapping.get(task[export.index('priority')])
-
+                task[export.index('stage_id/id')] = \
+                    self.mapping_project_stage.get(
+                        task[export.index('stage_id/id')])
                 task.append(task[export.index('date_start')])  # date_assign
 
                 sprint = task[export.index('sprint_id/id')] or ''
@@ -1340,7 +1338,35 @@ class Migration(object):
         if not loaded_data.get('ids', False):
             self.print_errors(write_model, loaded_data, load_data_group)
 
-    def mapping_helpdesk_stage(self):
+    def migrate_helpdesk_stages(self):
+        """ Create new helpdesk stages
+
+        # New       vauxoo_migration_helpdesk_stage_new
+        # WIP       helpdesk.stage_in_progress
+        # Waiting Customer Feed.. vauxoo_migration_helpdesk_stage_waiting_cust
+        # Waiting Expert Feed.. vauxoo_migration_helpdesk_stage_waiting_expert
+        # Done      helpdesk.stage_solved
+        # Cancelled helpdesk.stage_cancelled
+        """
+        _logger.info('Migrate Helpdesk Stage')
+        # Read csv with new stages
+        stages = []
+        with open("helpdesk_stage.csv", "r") as csvfile:
+            reader = csv.reader(csvfile)
+            header = False
+            for row in reader:
+                if not header:
+                    header = row
+                else:
+                    stages.append(row)
+
+        # Load helpdesk stage
+        stages_data = self.new_instance.execute(
+            'helpdesk.stage', 'load', header, stages)
+
+        _logger.info(pprint.pformat(stages_data))
+
+    def mapping_helpdesk_stages(self):
         """ Create and mapping helpdesk stages.
         #   New                     project.project_stage_data_0
         # 2 In Progress             project.project_stage_data_1
@@ -1356,25 +1382,27 @@ class Migration(object):
         _logger.info("Mapping Project Stages of support (%s as %s)" % (
             read_model, write_model))
 
-        self.mapping_helpdesk_stages = dict()
-        self.mapping_helpdesk_stages.update(
-            {}.fromkeys([
-                'project.project_tt_deployment',  # Done
-                '__export__.project_task_type_26',  # Finished
-            ], 'helpdesk.stage_solved'))
-        self.mapping_helpdesk_stages.update(
-            {}.fromkeys([
-                'project.project_tt_cancel',  # Cancelled
-            ], 'helpdesk.stage_cancelled'))
-        self.mapping_helpdesk_stages.update(
-            {}.fromkeys([
-                '__export__.project_task_type_19',  # In Progress
-                'project.project_tt_merge',  # Merge
-                'project_conf.project_tt_leader',  # Testing Leader
-                '__export__.project_task_type_17',  # Waiting Odoo Feedback
-                '__export__.project_task_type_15',  # Waiting Cust Feedback
-                '__export__.project_task_type_16',  # Waiting Expert Feedback
-            ], 'helpdesk.stage_in_progress'))
+        new = 'vauxoo_migration_helpdesk_stage_new'
+        waiting_customer = 'vauxoo_migration_helpdesk_stage_waiting_cust'
+        waiting_expert = 'vauxoo_migration_helpdesk_stage_waiting_expert'
+        done = 'helpdesk.stage_solved'
+        cancelled = 'helpdesk.stage_cancelled'
+        wip = 'helpdesk.stage_in_progress'
+
+        self.mapping_helpdesk_stage = dict([
+            ('__export__.project_task_type_18', new),   # New
+            ('project.project_tt_deployment', done),    # Done
+            ('__export__.project_task_type_26', done),  # Finished
+            ('project.project_tt_cancel', cancelled),   # Cancelled
+            ('__export__.project_task_type_19', wip),   # In Progress
+            ('project.project_tt_merge', wip),          # Merge
+            ('project_conf.project_tt_leader', wip),    # Testing Leader
+            ('__export__.project_task_type_17', wip),   # Waiting Odoo Feedback
+            ('__export__.project_task_type_15', waiting_customer),
+            # Waiting Cust Feedback
+            ('__export__.project_task_type_16', waiting_expert),
+            # Waiting Expert Feed..
+        ])
 
     def migrate_project_issue(self, domain=None, limit=None, defaults=None):
         read_model = 'project.issue'
@@ -1436,7 +1464,7 @@ class Migration(object):
                 issue[load_fields.index('priority')] = priority_mapping.get(
                     issue[load_fields.index('priority')])
                 issue[load_fields.index('stage_id/id')] = \
-                    self.mapping_helpdesk_stages.get(
+                    self.mapping_helpdesk_stage.get(
                         issue[load_fields.index('stage_id/id')])
                 tags = issue[load_fields.index('tag_ids/id')] or str()
                 issue[load_fields.index('tag_ids/id')] = ','.join(
@@ -3370,6 +3398,7 @@ def main(config, save_config, show_config, use_config,
     # Projects Basic
     vauxoo.migrate_project_teams()
     vauxoo.migrate_project_stages()
+    vauxoo.mapping_project_stages()
     vauxoo.mapping_invoice_rate()  # required for timesheets
     vauxoo.mapping_res_currency()
 
@@ -3463,7 +3492,8 @@ def main(config, save_config, show_config, use_config,
         defaults={'project_id/id': support_team, 'parent_id/id': '',
                   'internal': True})
     vauxoo.migrate_helpdesk_team()
-    vauxoo.mapping_helpdesk_stage()  # TODO review if we needed first/after
+    vauxoo.migrate_helpdesk_stages()
+    vauxoo.mapping_helpdesk_stages()
     vauxoo.migrate_project_issue(
         defaults={'team_id/id': helpdesk_team})
     vauxoo.migrate_timesheets(
