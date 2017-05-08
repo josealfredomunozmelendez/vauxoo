@@ -223,4 +223,122 @@
             <field name="view_id" ref="hr.hr_kanban_view_employees"/>
             <field name="act_window_id" ref="hr.open_view_employee_list"/>
         </record>
+
+        <record model="ir.ui.view" id="hr_kanban_view_job">
+            <field name="name">hr.job.kanban.analysis</field>
+            <field name="model">hr.job</field>
+            <field name="priority">100</field>
+            <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard o_salesteam_kanban">
+                    <field name="message_is_follower"/>
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                    <field name="message_needaction_counter"/>
+                    <field name="theoretical_timesheet"/>
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_kanban_image">
+
+                                        </div>
+                                        <div class="oe_kanban_details">
+                                            <div class="col-xs-6" style="text-align: left">
+                                                <strong>
+                                                    <field name="name"/>
+                                                </strong>
+                                                <ul>
+
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Generate Income: </li>
+                                                    <li>It's Cost: </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="col-xs-8">
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </div>
+                                            <div class="col-xs-4 text-right">
+                                                <a type="edit">Settings</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container o_kanban_card_content col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Salary</span>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Total:</li>
+                                                    <li>On Job:</li>
+                                                    <li>Perceived:</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: left">
+                                                <ul>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Cost</span>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Theoretical:</li>
+                                                    <li>Current:</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: left">
+                                                <ul>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 o_kanban_card_manage_settings">
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_job_analysis" model="ir.actions.act_window">
+            <field name="name">Job Cost Analysis</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban</field>
+        </record>
+        <record id="job_analysis_kanban_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="hr_kanban_view_job"/>
+            <field name="act_window_id" ref="action_job_analysis"/>
+        </record>
+        <menuitem
+            action="action_job_analysis"
+            id="menu_action_job_analysis"
+            parent="hr.menu_hr_root"
+            sequence="60"/>
 </odoo>
