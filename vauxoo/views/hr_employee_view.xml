@@ -98,88 +98,89 @@
                     <field name="message_ids"/>
                     <field name="message_needaction_counter"/>
                     <field name="theoretical_timesheet"/>
+                    <field name="color"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div class="container o_visible">
-                                <div class="o_kanban_card_header_title">
-                                    <div class="o_kanban_image">
-                                        <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id.value)"/>
-                                    </div>
-                                    <div class="oe_kanban_details">
-                                        <div class="col-xs-6" style="text-align: left">
-                                            <strong>
-                                                <field name="name"/>
-                                            </strong>
-                                            <ul>
-                                                <li t-if="record.job_id.raw_value"><i><field name="job_id"/></i></li>
-                                            </ul>
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_kanban_image">
+                                            <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id.value)"/>
                                         </div>
-                                        <div class="col-xs-6" style="text-align: right">
-                                            <ul>
-                                                <li>Generate Income: <field name="generate_income"/></li>
-                                                <li>It's Cost: <field name="is_cost"/></li>
-                                            </ul>
+                                        <div class="oe_kanban_details">
+                                            <div class="col-xs-6" style="text-align: left">
+                                                <strong>
+                                                    <field name="name"/>
+                                                </strong>
+                                                <ul>
+                                                    <li t-if="record.job_id.raw_value"><i><field name="job_id"/></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Generate Income: <field name="generate_income"/></li>
+                                                    <li>It's Cost: <field name="is_cost"/></li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="col-xs-8">
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </div>
+                                            <div class="col-xs-4 text-right">
+                                                <a type="edit">Settings</a>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
 
-                                 <div class="col-xs-12" style="text-align: center">
-                                    <div class="col-xs-6" style="text-align: center">
-                                        <strong>
-                                            <span>Salary</span>
-                                        </strong>
-                                   </div>
-                                    <div class="col-xs-6" style="text-align: center">
-                                        <strong>
-                                            <span>Cost</span>
-                                        </strong>
-                                   </div>
+                                <div class="container o_kanban_card_content col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Salary</span>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Total:</li>
+                                                    <li>On Job:</li>
+                                                    <li>Perceived:</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: left">
+                                                <ul>
+                                                    <li><field name="total_salary"/></li>
+                                                    <li><field name="salary_on_job"/></li>
+                                                    <li><field name="perceived_salary"/></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Cost</span>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Theoretical:</li>
+                                                    <li>Current:</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: left">
+                                                <ul>
+                                                    <li><field name="theoretical_cost"/></li>
+                                                    <li><field name="current_cost"/></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="col-xs-6" style="text-align: right">
-                                   <div class="col-xs-6" style="text-align: right">
-                                     <ul>
-                                         <li>Total:</li>
-                                         <li>On Job:</li>
-                                         <li>Perceived:</li>
-                                     </ul>
-                                   </div>
-                                   <div class="col-xs-6" style="text-align: left">
-                                     <ul>
-                                         <li><field name="total_salary"/></li>
-                                         <li><field name="salary_on_job"/></li>
-                                         <li><field name="perceived_salary"/></li>
-                                     </ul>
-                                   </div>
-                                 </div>
-                                 <div class="col-xs-6" style="text-align: right">
-                                    <div class="col-xs-6" style="text-align: right">
-                                      <ul>
-                                          <li>Theoretical:</li>
-                                          <li>Current:</li>
-                                      </ul>
-                                    </div>
-                                    <div class="col-xs-6" style="text-align: left">
-                                      <ul>
-                                          <li><field name="theoretical_cost"/></li>
-                                          <li><field name="current_cost"/></li>
-                                      </ul>
-                                    </div>
-                                 </div>
-                                 <div class="col-xs-12" style="text-align: center">
-                                     <div class="col-xs-12" style="text-align: center">
-                                        <strong>
-                                            <span>Timesheet</span>
-                                        </strong>
-                                     </div>
-                                     <div class="col-xs-12 o_kanban_primary_bottom bottom_block">
-                                         <t class="o_kanban_primary_bottom">
-                                             <field name="hours_invoice" widget="progress" title="Invoiced Hours" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/>
-                                             <field name="hours_informed" widget="progress" title="Informed Hours" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/>
-                                         </t>
-                                     </div>
+                                <div class="col-xs-12 o_kanban_card_manage_settings">
+                                    <field name="hours_informed" widget="progress" title="Informed Hours" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/>
+                                    <field name="hours_invoice" widget="progress" title="Invoiced Hours" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/>
                                 </div>
-                             </div>
+                            </div>
                         </t>
                     </templates>
                 </kanban>
