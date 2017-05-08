@@ -3437,11 +3437,11 @@ def main(config, save_config, show_config, use_config,
         [('project_id', 'in', customer_projects)],
         defaults={'project_id/id': customer_team})
     vauxoo.migrate_project_task(
-        [('project_id', 'in', customer_projects),
+        [('id', 'in', customer_tasks),
          ('userstory_id', '!=', False)],
         defaults={'project_id/id': customer_team})
     orphan_tasks = [
-        ('project_id', 'in', customer_projects),
+        ('id', 'in', customer_tasks),
         ('userstory_id', '=', False)]
     vauxoo.migrate_project_task(orphan_tasks, defaults={
         'project_id/id': customer_team, 'parent_id/id': '',
@@ -3466,11 +3466,11 @@ def main(config, save_config, show_config, use_config,
         [('project_id', 'in', internal_projects)],
         defaults={'project_id/id': internal_team, 'internal': True})
     vauxoo.migrate_project_task(
-        [('project_id', 'in', internal_projects),
+        [('id', 'in', internal_tasks),
          ('userstory_id', '!=', False)],
         defaults={'project_id/id': internal_team, 'internal': True})
     orphan_tasks = [
-        ('project_id', 'in', internal_projects),
+        ('id', 'in', internal_tasks),
         ('userstory_id', '=', False)]
     vauxoo.migrate_project_task(orphan_tasks, defaults={
         'project_id/id': internal_team, 'parent_id/id': '',
