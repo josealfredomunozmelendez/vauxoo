@@ -1,23 +1,25 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* vauxoo
+# 	* vauxoo
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.saas~14+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 14:19+0000\n"
-"PO-Revision-Date: 2017-05-08 14:19+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2017-05-11 02:51+0000\n"
+"PO-Revision-Date: 2017-05-10 21:55-0500\n"
+"Last-Translator: OscarAlca <oszckar@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #. module: vauxoo
 #: model:product.template,description_sale:vauxoo.product_sprint
-msgid "\n"
+msgid ""
+"\n"
 "        Servicio de 1 semanas contínua de trabajo de la cantidad de desarrolladores necesaria para cubrir el esfuerzo requerido de 120 Horas (Incluyendo la gestión del proyecto), enmarcado en un proceso iterativo e incremental de desarrollo de software, enfocado en la adaptabilidad y entrega rápida de software funcionando, que incluye:\n"
 "\n"
 "        - Transformar requerimientos funcionales previamente levantados (historias de usuario) en desarrollos funcionales en Odoo.\n"
@@ -30,15 +32,16 @@ msgid "\n"
 "        Nota:\n"
 "        Este servicios se ofrece en modalidad a distancia, en caso de requerir la presencia física de nuestros consultores, los gastos de transporte, alimentación y hospedaje serán cubiertos por el cliente.\n"
 "            "
-msgstr "\n"
-"        Servicio de 1 semanas continúa de trabajo de la cantidad de desarrolladores necesaria para cubrir el esfuerzo requerido de 120 Horas (Incluyendo la gestión del proyecto), enmarcado en un proceso iterativo e incremental de desarrollo de software, enfocado en la adaptabilidad y entrega rápida de software funcionando, que incluye:\n"
+msgstr ""
+"\n"
+"        Servicio de 1 semanas contínua de trabajo de la cantidad de desarrolladores necesaria para cubrir el esfuerzo requerido de 120 Horas (Incluyendo la gestión del proyecto), enmarcado en un proceso iterativo e incremental de desarrollo de software, enfocado en la adaptabilidad y entrega rápida de software funcionando, que incluye:\n"
 "\n"
 "        - Transformar requerimientos funcionales previamente levantados (historias de usuario) en desarrollos funcionales en Odoo.\n"
 "        - Aseguramiento del ciclo de vida de desarrollo e implementación del software (`SDLC <https://es.wikipedia.org/wiki/Systems_Development_Life_Cycle>`_).\n"
 "        - Despliegues de funcionalidades en ambiente de pruebas.\n"
 "        - Levantamiento y especificación de nuevos requerimientos funcionales.\n"
 "        - Reporte de trabajo realizado, registro y manejo de eventualidades.\n"
-"        - El despliegue en producción se llevara a cabo en el marco de la implementación y los servicios de gestión y mantenimiento de servidores el cual es variable y a costo fijo para el mantenimiento de los servicios productivos.\n"
+"        - El despliegue en producción se llevara a cabo en el marco de la implementación y los servicios de gestión y mantenimiento de servdores el cual es variable y a costo fijo para el mantenimiento de los servicios productivos.\n"
 "\n"
 "        Nota:\n"
 "        Este servicios se ofrece en modalidad a distancia, en caso de requerir la presencia física de nuestros consultores, los gastos de transporte, alimentación y hospedaje serán cubiertos por el cliente.\n"
@@ -46,7 +49,8 @@ msgstr "\n"
 
 #. module: vauxoo
 #: model:mail.template,body_html:vauxoo.email_reports_base
-msgid "\n"
+msgid ""
+"\n"
 "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "\n"
 "    <p>Hello ${object.partner_id.name},</p>\n"
@@ -60,7 +64,8 @@ msgid "\n"
 "    <p>Thank you for choosing ${object.company_id.name or 'us'} as your IT suplier!</p>\n"
 "</div>\n"
 "            "
-msgstr "\n"
+msgstr ""
+"\n"
 "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "\n"
 "    <p>Hola ${object.partner_id.name},</p>\n"
@@ -76,9 +81,19 @@ msgstr "\n"
 "            "
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "$12 US / month"
-msgstr "$12 US / mes"
+#: model:product.template,description_sale:vauxoo.product_template_implementation_services
+msgid ""
+"\n"
+"The recommended Success Pack for your setup is the 25 hours Basic Success Pack at 2,380 USD\n"
+"\n"
+"With a Success Pack, you are assigned an expert to provide unique personalized assistance to help you customize your solution and optimize your workflows as part of your initial implementation. These hours never expire allowing you to utilize them whenever you need support.\n"
+"            "
+msgstr ""
+"\n"
+"El Success Pack recomendado para ti es el de Basic Success Pack por 2,380 USD\n"
+"\n"
+"Con el Success Pack, se te asignará un experto que te proveerán de asistencia personalizada para ayudarte a personalizar tu solución y optimizar tus flujos de trabajo como parte de tu implementación inicial. Estas horas nunca expiran permitiéndote usarlas cuando las necesites.\n"
+"            "
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -90,12 +105,12 @@ msgid "$15k"
 msgstr "$15k"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "$2,380 USD"
 msgstr "$2,380 USD"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "$8 USD"
 msgstr "$8 USD"
 
@@ -105,22 +120,22 @@ msgid "${(object.title|safe)}"
 msgstr "${(object.title|safe)}"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "(Paid monthly)"
 msgstr "(Pago mensual)"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "(Paid once)"
 msgstr "(Pago único)"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "(Paid only once)"
 msgstr "(Pago único)"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "(monthly)"
 msgstr "(mensual)"
 
@@ -185,7 +200,7 @@ msgstr "<br/>También podemos darte entrenamiento básico y evaluación de tu pr
 #: model:ir.ui.view,arch_db:vauxoo.contactus_thanks
 #: model:ir.ui.view,arch_db:vauxoo.thankyou
 msgid "<i class=\"fa fa-long-arrow-left\" aria-hidden=\"true\"/> Back to home"
-msgstr "<i class=\"fa fa-long-arrow-left\" aria-hidden=\"true\"/> Regresar al inicio"
+msgstr "<i class=\"fa fa-long-arrow-left\" aria-hidden=\"true\"/> Volver al inicio"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.about
@@ -208,74 +223,86 @@ msgid "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\">, the Acronymo
 msgstr "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\">, el acrónimo es: </span>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "<span class=\"app-name pull-left hx-thin\">Invoicing</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
-msgstr "<span class=\"app-name pull-left hx-thin\">Facturación</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+msgid ""
+"<span class=\"app-name pull-left hx-thin\">Invoicing</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
+msgstr ""
+"<span class=\"app-name pull-left hx-thin\">Facturación</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "<span class=\"app-name pull-left hx-thin\">Manufacturing</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
-msgstr "<span class=\"app-name pull-left hx-thin\">Manufactura</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+msgid ""
+"<span class=\"app-name pull-left hx-thin\">Manufacturing</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
+msgstr ""
+"<span class=\"app-name pull-left hx-thin\">Fabricación</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "<span class=\"app-name pull-left hx-thin\">Project</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
-msgstr "<span class=\"app-name pull-left hx-thin\">Proyectos</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+msgid ""
+"<span class=\"app-name pull-left hx-thin\">Project</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
+msgstr ""
+"<span class=\"app-name pull-left hx-thin\">Projectos</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "<span class=\"app-name pull-left hx-thin\">Quality Control</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
-msgstr "<span class=\"app-name pull-left hx-thin\">Control de calidad</span>\n"
-"                                            <span class=\"app-price pull-right\">$4 USD</span>"
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+msgid ""
+"<span class=\"app-name pull-left hx-thin\">Quality Control</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
+msgstr ""
+"<span class=\"app-name pull-left hx-thin\">Control de calidad</span>\n"
+"                        <span class=\"app-price pull-right\">$4 USD</span>"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apply
-msgid "<span class=\"btn btn-primary btn-lg o_website_form_send nomargin\">Submit</span>\n"
+msgid ""
+"<span class=\"btn btn-primary btn-lg o_website_form_send nomargin\">Submit</span>\n"
 "                                <span id=\"o_website_form_result\"/>"
-msgstr "<span class=\"btn btn-primary btn-lg o_website_form_send nomargin\">Enviar</span>\n"
+msgstr ""
+"<span class=\"btn btn-primary btn-lg o_website_form_send nomargin\">Enviar</span>\n"
 "                                <span id=\"o_website_form_result\"/>"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.contact_us_form
-msgid "<span class=\"btn btn-primary btn-lg o_website_form_send\">Send</span>\n"
+msgid ""
+"<span class=\"btn btn-primary btn-lg o_website_form_send\">Send</span>\n"
 "                <span id=\"o_website_form_result\"/>"
-msgstr "<span class=\"btn btn-primary btn-lg o_website_form_send\">Enviar</span>\n"
+msgstr ""
+"<span class=\"btn btn-primary btn-lg o_website_form_send\">Enviar</span>\n"
 "                <span id=\"o_website_form_result\"/>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "<strong class=\"link-primary\">ventas@vauxoo.com</strong>"
 msgstr "<strong class=\"link-primary\">ventas@vauxoo.com</strong>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "<strong> What is a success pack?</strong>"
 msgstr "<strong> ¿Qué es un Success Pack?</strong>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "<strong> What is the difference between Quick-Start and On-premise?</strong>"
 msgstr "<strong> ¿Cual es la diferencia entre Quick-Start y On-premise?</strong>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "<strong> Why some applications are related to others?</strong>"
 msgstr "<strong> ¿Por qué algunas aplicaciones están relacionadas a otras?</strong>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "<strong>$20 USD</strong>"
 msgstr "<strong>$20 USD</strong>"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "<strong>$4,368 USD</strong>"
 msgstr "<strong>$4,368 USD</strong>"
 
@@ -304,7 +331,7 @@ msgstr "<strong>Requerido</strong>"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "<strong>Responsibilities</strong>"
-msgstr "<strong>Responsabilidades</strong>"
+msgstr "<strong>Responsibilidades</strong>"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -343,6 +370,11 @@ msgid "Acceptability Criteria"
 msgstr "Criterio de aceptación"
 
 #. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_accounting
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
 #: model:hr.job,website_description:vauxoo.job_designer
 #: model:hr.job,website_description:vauxoo.job_intern_dev
@@ -356,12 +388,12 @@ msgstr "Lograr objetivos mensuales"
 #: model:ir.model.fields,help:vauxoo.field_project_project_label_subtasks
 #: model:ir.model.fields,help:vauxoo.field_project_task_label_subtasks
 msgid "Acronymous to show as prefix in the display name for the tasks with parent Tasks"
-msgstr "Acrónimo a mostrar como prefijo en el nombre desplegado para las tareas con tareas padre."
+msgstr "Acronimo a mostrar como prefijo en el nombre desplegado para las tareas con tareas padre."
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_project_project_label_acronymous
 msgid "Acronymous to show as prefix in the display name for the tasks without parent Tasks"
-msgstr "Acrónimo a mostrar como prefijo en el nombre desplegado para las tareas sin tareas padre."
+msgstr "Acronimo a mostrar como prefijo en el nombre desplegado para las tareas sin tareas padre."
 
 #. module: vauxoo
 #: model:ir.actions.act_window,name:vauxoo.act_vauxoo_timesheet_line_by_task
@@ -371,7 +403,7 @@ msgstr "Actividades"
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_crm_team_address_id
 msgid "Address to show in the Header of the sale Order"
-msgstr "Dirección a mostrar en el encabezado de la orden de venta"
+msgstr "Direccion a mostar en el encabezado de la orden de venta"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_res_company_website_address_ids
@@ -381,22 +413,22 @@ msgstr "Todos los los contactos públicos a mostrar en el formulario de contacto
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_prod_ent_ids
 msgid "All lines on invoices that have this product will be ignored as Effectivally Invoiced time already invoiced"
-msgstr "Todas las lineas en facturas que tengan este producto serán ignoradas como tiempo de factura efectiva que ya ha sido facturado"
+msgstr "All lines on invoices that have this product will be ignored as Effectivally Invoiced time already invoiced"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_prod_train_ids
 msgid "All lines that have this products will Be ignored due to this is just for products"
-msgstr "Todas las líneas que tenga este producto serán ignoradas gracias a que esto es solo para productos"
+msgstr "All lines that have this products will Be ignored due to this is just for products"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_prod_cons_ids
 msgid "All products here will be considered as consultancythen it will be compared by currency and by considering the product in this reports to use the unit_price and the currency"
-msgstr "Todos los productos acá serán considerados como consultoría y luego serán comprados por moneda y considerando el producto en estos reports para usar el precio unitario y la moneda"
+msgstr "All products here will be considered as consultancythen it will be compared by currency and by considering the product in this reports to use the unit_price and the currency"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "All timesheet must have a value for billable time, this button trigger a write on them to ensure that."
-msgstr "Todas las hojas de horas deben tener un valor para el tiempo a ser facturado, este botón acciona una escritura en ellas para asegurar eso."
+msgstr "All timesheet must have a value for billable time, this button trigger a write on them to ensure that."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -409,13 +441,76 @@ msgid "Analytic Line"
 msgstr "Línea Analítica"
 
 #. module: vauxoo
+#: model:product.attribute,name:vauxoo.product_attribute_app
+#: model:product.product,name:vauxoo.product_product_accounting
+#: model:product.product,name:vauxoo.product_product_appraisal
+#: model:product.product,name:vauxoo.product_product_crm
+#: model:product.product,name:vauxoo.product_product_ecommerce
+#: model:product.product,name:vauxoo.product_product_event
+#: model:product.product,name:vauxoo.product_product_expenses
+#: model:product.product,name:vauxoo.product_product_helpdesk
+#: model:product.product,name:vauxoo.product_product_inventory
+#: model:product.product,name:vauxoo.product_product_invoicing
+#: model:product.product,name:vauxoo.product_product_leaves
+#: model:product.product,name:vauxoo.product_product_maintenance
+#: model:product.product,name:vauxoo.product_product_manufacturing
+#: model:product.product,name:vauxoo.product_product_marketing
+#: model:product.product,name:vauxoo.product_product_mrp_maintenance
+#: model:product.product,name:vauxoo.product_product_plm
+#: model:product.product,name:vauxoo.product_product_pos
+#: model:product.product,name:vauxoo.product_product_project
+#: model:product.product,name:vauxoo.product_product_purchase
+#: model:product.product,name:vauxoo.product_product_quality
+#: model:product.product,name:vauxoo.product_product_recruitment
+#: model:product.product,name:vauxoo.product_product_sale
+#: model:product.product,name:vauxoo.product_product_sign
+#: model:product.product,name:vauxoo.product_product_studio
+#: model:product.product,name:vauxoo.product_product_subscription
+#: model:product.product,name:vauxoo.product_product_timesheet
+#: model:product.product,name:vauxoo.product_product_website
+#: model:product.template,name:vauxoo.product_product_accounting_product_template
+#: model:product.template,name:vauxoo.product_product_appraisal_product_template
+#: model:product.template,name:vauxoo.product_product_crm_product_template
+#: model:product.template,name:vauxoo.product_product_ecommerce_product_template
+#: model:product.template,name:vauxoo.product_product_event_product_template
+#: model:product.template,name:vauxoo.product_product_expenses_product_template
+#: model:product.template,name:vauxoo.product_product_helpdesk_product_template
+#: model:product.template,name:vauxoo.product_product_inventory_product_template
+#: model:product.template,name:vauxoo.product_product_invoicing_product_template
+#: model:product.template,name:vauxoo.product_product_leaves_product_template
+#: model:product.template,name:vauxoo.product_product_maintenance_product_template
+#: model:product.template,name:vauxoo.product_product_manufacturing_product_template
+#: model:product.template,name:vauxoo.product_product_marketing_product_template
+#: model:product.template,name:vauxoo.product_product_mrp_maintenance_product_template
+#: model:product.template,name:vauxoo.product_product_plm_product_template
+#: model:product.template,name:vauxoo.product_product_pos_product_template
+#: model:product.template,name:vauxoo.product_product_project_product_template
+#: model:product.template,name:vauxoo.product_product_purchase_product_template
+#: model:product.template,name:vauxoo.product_product_quality_product_template
+#: model:product.template,name:vauxoo.product_product_recruitment_product_template
+#: model:product.template,name:vauxoo.product_product_sale_product_template
+#: model:product.template,name:vauxoo.product_product_sign_product_template
+#: model:product.template,name:vauxoo.product_product_studio_product_template
+#: model:product.template,name:vauxoo.product_product_subscription_product_template
+#: model:product.template,name:vauxoo.product_product_timesheet_product_template
+#: model:product.template,name:vauxoo.product_product_website_product_template
+#: model:product.template,name:vauxoo.product_template_app
+msgid "App"
+msgstr "App"
+
+#. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.detail
 #: model:ir.ui.view,arch_db:vauxoo.view_set_invoice_form
 msgid "Apply"
 msgstr "Aplicar"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_appraisal
+msgid "Appraisal"
+msgstr "Evaluación"
+
+#. module: vauxoo
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "Apps"
 msgstr "Aplicaciones"
@@ -437,7 +532,7 @@ msgstr "Un equipo ganador"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Basic Information"
-msgstr "Información Básica"
+msgstr "Informacion Básica"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -455,7 +550,7 @@ msgstr "Beneficios"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Brand-name product and services in categories like travel, electronics, health, fitness, cellular, and more"
-msgstr "Producto de marca y servicios en categorías como viajes, electrónicos, salud, bienestar, celulares, y más"
+msgstr "Brand-name product and services in categories like travel, electronics, health, fitness, cellular, and more"
 
 #. module: vauxoo
 #: model:hr.job,name:vauxoo.job_busines_analyist
@@ -463,7 +558,7 @@ msgid "Business analyst"
 msgstr "Analista de negocios"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_crm
 msgid "CRM"
 msgstr "CRM"
 
@@ -474,20 +569,22 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "Choose your tools to start your business straighatway with our Online management\n"
+#: model:ir.ui.view,arch_db:vauxoo.header_apps
+msgid ""
+"Choose your tools to start your business straighatway with our Online management\n"
 "\n"
-"                                <br class=\"hidden-xs hidden-sm\"/>\n"
-"                                platform."
-msgstr "Elige tus herramientas para iniciar inmediatamente con nuestra solución de plataforma\n"
+"                        <br class=\"hidden-xs hidden-sm\"/>\n"
+"                        platform."
+msgstr ""
+"Escoge tus herramientas para iniciar con tu negocio rápidamente con nuestra plataforma\n"
 "\n"
-"                                <br class=\"hidden-xs hidden-sm\"/>\n"
-"                                en linea."
+"                        <br class=\"hidden-xs hidden-sm\"/>\n"
+"                        en linea."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Clean Timesheets"
-msgstr "Limpiar Hojas de horas"
+msgstr "Clean Timesheets"
 
 #. module: vauxoo
 #: model:ir.actions.act_window,help:vauxoo.act_vauxoo_timesheet_line_by_task
@@ -502,18 +599,18 @@ msgstr "Color"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Comment Issues"
-msgstr "Comentarios acerca de los Issues"
+msgstr "Comment Issues"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_comment_invoices
 msgid "Comment about Invoices"
-msgstr "Comentarios acerca de las Facturas"
+msgstr "Comment about Invoices"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_comment_issues
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_comment_timesheet
 msgid "Comment about Timesheets"
-msgstr "Comentarios acerca de las Hojas de horas"
+msgstr "Comment about Timesheets"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_ci2html
@@ -547,7 +644,7 @@ msgstr "Compañía"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Company Growth:"
-msgstr "Crecimiento de la compañía:"
+msgstr "Company Growth:"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -556,19 +653,19 @@ msgstr "Crecimiento de la compañía:"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Company Maturity:"
-msgstr "Madurez de la compañía:"
+msgstr "Company Maturity:"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_company_id
 msgid "Company which this report belongs to"
-msgstr "Compañía a la cual este reporte pertenece"
+msgstr "Company which this report belongs to"
 
 #. module: vauxoo
 #. openerp-web
 #: code:addons/vauxoo/static/src/xml/base.xml:58
 #, python-format
 msgid "Compose new Message"
-msgstr "Componer nuevo Mensaje"
+msgstr "Compose new Message"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -635,7 +732,12 @@ msgstr "Moneda"
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_set_invoice_currency_id
 msgid "Currency on report"
-msgstr "Moneda en el reporte"
+msgstr "Currency on report"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_DHL
+msgid "DHL"
+msgstr "DHL"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
@@ -646,7 +748,8 @@ msgstr "Día"
 #. module: vauxoo
 #: model:res.company,overdue_msg:vauxoo.company_pe
 #: model:res.company,overdue_msg:vauxoo.company_ve
-msgid "Dear Sir/Madam,\n"
+msgid ""
+"Dear Sir/Madam,\n"
 "\n"
 "Our records indicate that some payments on your account are still due. Please find details below.\n"
 "If the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\n"
@@ -654,14 +757,15 @@ msgid "Dear Sir/Madam,\n"
 "\n"
 "Thank you in advance for your cooperation.\n"
 "Best Regards,"
-msgstr "Querido Señor/Senora,\n"
+msgstr ""
+"Dear Sir/Madam,\n"
 "\n"
-"Nuestros registros indican que algunos pagos en su cuenta están aun pendientes. Por favor encuentre los detalles abajo.\n"
-"Si la cantidad ya ha sido pagada, por favor ignore esta notificación. De lo contrario, por favor envié a nosotros la cantidad total escriba abajo.\n"
-"Si tiene alguna pregunta acerca de su cuenta, Por favor contáctenos.\n"
+"Our records indicate that some payments on your account are still due. Please find details below.\n"
+"If the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\n"
+"If you have any queries regarding your account, Please contact us.\n"
 "\n"
-"Gracias por adelantado por su colaboración.\n"
-"Saludos,"
+"Thank you in advance for your cooperation.\n"
+"Best Regards,"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -671,7 +775,7 @@ msgstr "Entrega"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "Development"
-msgstr "Desarrollo"
+msgstr "Desarollo"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -685,7 +789,7 @@ msgstr "Coordinación directa con nuestros consultores funcionales para califica
 #. module: vauxoo
 #: model:res.groups,name:vauxoo.directive
 msgid "Directive"
-msgstr "Directiva"
+msgstr "Directive"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_factor
@@ -708,14 +812,16 @@ msgstr "Descuento en porcentaje"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "Discover more than 1,000 apps that\n"
+msgid ""
+"Discover more than 1,000 apps that\n"
 "\n"
 "                      <br/>\n"
 "                      can help you to get the most out of\n"
 "\n"
 "                      <br/>\n"
 "                      your business."
-msgstr "Descubre mas de 1,000 apps que\n"
+msgstr ""
+"Descubre mas de 1,000 apps que\n"
 "\n"
 "                      <br/>\n"
 "                      pueden ayudarte a obtener lo máximo\n"
@@ -743,12 +849,12 @@ msgid "Draft"
 msgstr "Borrador"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "Due to features of certain apps are dependent of the functionality of other apps, it is necessary that such apps be installed together, in order to ensure the optimal performance of them.."
-msgstr "Debido a que algunas características de algunas Apps dependen de la funcionalidad de otras Apps, es necesario instalarlas juntas, esto, para asegurar el correcto funcionamiento de cada una…"
+msgstr "Debido a que algunas características de algunas Apps dependen de la funcionalidad de otras Apps, es necesario instalarlas juntas, esto, para asegurar el correcto funcionamiento de cada una.."
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "EUR"
 msgstr "EUR"
 
@@ -760,6 +866,11 @@ msgstr "EUR"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Eat &amp; Drink"
 msgstr "Comida &amp; Bebidas"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_Ebay
+msgid "Ebay"
+msgstr "Ebay"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
@@ -777,9 +888,29 @@ msgid "Email"
 msgstr "Correo electrónico"
 
 #. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_email_marketing
+msgid "Email Marketing"
+msgstr "Marketing"
+
+#. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.helpdesk_team_form_project
 msgid "Enter the project name where the issues timesheet will be loaded"
-msgstr "Ingrese el nombre del proyecto donde las hojas de horas serán cargados"
+msgstr "Enter the project name where the issues timesheet will be loaded"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_equipment
+msgid "Equipment"
+msgstr "Equipo"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_events
+msgid "Events"
+msgstr "Eventos"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_expenses
+msgid "Expenses"
+msgstr "Gastos"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -788,27 +919,54 @@ msgstr "Explorar"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.shop
-msgid "Explore our library of apps that can be integrated into your workflow to enhance the\n"
+msgid ""
+"Explore our library of apps that can be integrated into your workflow to enhance the\n"
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
 "                            productivity and sales of your business."
-msgstr "Explora nuestro set de Apps que pueden ser integradas en tu flujo de trabajo para\n"
+msgstr ""
+"Explora nuestro set de Apps que pueden ser integradas en tu flujo de trabajo para\n"
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
 "                            mejorar la productividad de tu negocio."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "Explore our step-by-step methodology that we use to create the most seamless\n"
+msgid ""
+"Explore our step-by-step methodology that we use to create the most seamless\n"
 "\n"
 "\n"
 "\n"
 "                <br class=\"hidden-xs hidden-sm\"/>\n"
 "                experiences in business management with Odoo."
-msgstr "Explora nuestra metodología paso-a-paso creada para generar experiencias\n"
+msgstr ""
+"Explora nuestra metodología paso-a-paso creada para generar experiencias\n"
 "\n"
 "\n"
 "\n"
 "                <br class=\"hidden-xs hidden-sm\"/>\n"
 "                transparentes en el manejo de tu empresa con Odoo."
+
+#. module: vauxoo
+#: model:ir.ui.view,arch_db:vauxoo.extra_integrations
+#: model:product.product,name:vauxoo.product_product_DHL
+#: model:product.product,name:vauxoo.product_product_Ebay
+#: model:product.product,name:vauxoo.product_product_FedEx
+#: model:product.product,name:vauxoo.product_product_UPS
+#: model:product.product,name:vauxoo.product_product_USPS
+#: model:product.product,name:vauxoo.product_product_voip
+#: model:product.template,name:vauxoo.product_product_DHL_product_template
+#: model:product.template,name:vauxoo.product_product_Ebay_product_template
+#: model:product.template,name:vauxoo.product_product_FedEx_product_template
+#: model:product.template,name:vauxoo.product_product_UPS_product_template
+#: model:product.template,name:vauxoo.product_product_USPS_product_template
+#: model:product.template,name:vauxoo.product_product_voip_product_template
+#: model:product.template,name:vauxoo.product_template_extra_integrations
+msgid "Extra Integrations"
+msgstr "Integraciones extra"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_FedEx
+msgid "FedEx"
+msgstr "FedEx"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_filter_id
@@ -818,7 +976,7 @@ msgstr "Filtro"
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_filter_invoice_id
 msgid "Filter of Invoices to be shown TIP = Go to Accounting/Customer Invoices in order to create the filter you want to show on thisreport."
-msgstr "Filtro de Facturas a mostrar TIP = Ve al menu Contabilidad/Facturas de Clientes para poder crear el filtro que necesites para ser mostrado en este reporte."
+msgstr "Filter of Invoices to be shown TIP = Go to Accounting/Customer Invoices in order to create the filter you want to show on thisreport."
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_filter_id
@@ -827,20 +985,22 @@ msgstr "Filter should be by date, group_by is ignored, the model which the filte
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.shop
-msgid "For every need\n"
+msgid ""
+"For every need\n"
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
 "                            there is an app."
-msgstr "Para cada necesidad\n"
+msgstr ""
+"Para cada necesidad\n"
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
 "                            hay una App."
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "For further questions, please contact our support team at"
-msgstr "Para preguntas, contacta a nuestro equipo de soporte en"
+msgstr "Para otras preguntas, contacta a nuestro equipo de soporte en"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.header_apps
 msgid "Free trial"
 msgstr "Prueba gratis"
 
@@ -882,7 +1042,7 @@ msgstr "Agrupar por"
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_group_id
 msgid "Group to assign"
-msgstr "Agrupar por asignado"
+msgstr "Group to assign"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -891,7 +1051,7 @@ msgstr "Agrupar por asignado"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Healthcare, dental, vision, life insurance, Flexible Spending Account (FSA), Health Savings Account (HSA)"
-msgstr "Cuidado de la salud, dental, visión, seguro de vida, Cuentas de Gastos Flexible (FSA), Cuenta de Ahorres de Salud (HSA)"
+msgstr "Healthcare, dental, vision, life insurance, Flexible Spending Account (FSA), Health Savings Account (HSA)"
 
 #. module: vauxoo
 #. openerp-web
@@ -901,9 +1061,14 @@ msgid "Help"
 msgstr "Ayuda"
 
 #. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_helpdesk
+msgid "Helpdesk"
+msgstr "Soporte"
+
+#. module: vauxoo
 #: model:ir.model,name:vauxoo.model_helpdesk_team
 msgid "Helpdesk Team"
-msgstr "Equipo de soporte"
+msgstr "ayuda de servicio de asistencia"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -912,12 +1077,12 @@ msgstr "Equipo de soporte"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "High commissions for good performers"
-msgstr "Comisiones altas para"
+msgstr "Comiciones altas para"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_set_invoice_form
 msgid "Hours for"
-msgstr "Horas para"
+msgstr "Hours for"
 
 #. module: vauxoo
 #: model:ir.actions.report.xml,name:vauxoo.hr_timesheet_reports_base
@@ -936,7 +1101,8 @@ msgstr "ID"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
-msgid "If you like solving problems, propose solutions and disruptive thinking so, this is your place. We are looking for individuals who want to\n"
+msgid ""
+"If you like solving problems, propose solutions and disruptive thinking so, this is your place. We are looking for individuals who want to\n"
 "\n"
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
 "                    excel and inspire others to do so. In our team there are no hierarchies or superheroes, we all have the same potential for doing things\n"
@@ -946,21 +1112,27 @@ msgid "If you like solving problems, propose solutions and disruptive thinking s
 "\n"
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
 " “Make extraordinary things”."
-msgstr "Si te gusta resolver problemas, proponer soluciones y también el pensamiento disruptivo, este es tu lugar. Estamos buscando por personas que quieran\n"
+msgstr ""
+"If you like solving problems, propose solutions and disruptive thinking so, this is your place. We are looking for individuals who want to\n"
 "\n"
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
-"                    Sobresalir e inspirar a otros para hacerlo. En nuestros equipos no hay jerarquías o superhéroes, todos tenemos el mismo potencial para lograr cosas\n"
+"                    excel and inspire others to do so. In our team there are no hierarchies or superheroes, we all have the same potential for doing things\n"
 "\n"
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
-"                    en una manera extraordinaria, y ese es nuestra meta en nuestro día a día de trabajo\n"
+"                    in an extraordinary way, and that is our goal in our day by day labor\n"
 "\n"
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
-" “Hacer cosas extraordinarias”."
+" “Make extraordinary things”."
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "Implementation"
 msgstr "Implementación"
+
+#. module: vauxoo
+#: model:product.template,name:vauxoo.product_template_implementation_services
+msgid "Implementation Services"
+msgstr "Servicios de implementación"
 
 #. module: vauxoo
 #: model:helpdesk.team,name:vauxoo.infraestructure_support_team
@@ -970,12 +1142,17 @@ msgstr "Infraestructura"
 #. module: vauxoo
 #: model:hr.job,name:vauxoo.job_intern_dev
 msgid "Intern"
-msgstr "Pasantía"
+msgstr "Intern"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_name
 msgid "Internal Name"
 msgstr "Nombre interno"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_inventory
+msgid "Inventory"
+msgstr "Inventario"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_account_analytic_line_invoice_id
@@ -985,7 +1162,7 @@ msgstr "Factura"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Invoice Information"
-msgstr "Información de facturación"
+msgstr "Informacion de factura"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
@@ -997,24 +1174,24 @@ msgstr "Linea de Factura"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Invoice Lines with this products"
-msgstr "Lineas de factura con estos productos"
+msgstr "Invoice Lines with this products"
 
 #. module: vauxoo
 #: model:ir.actions.act_window,name:vauxoo.action_invoice_rates
 #: model:ir.model,name:vauxoo.model_hr_timesheet_invoice_factor
 #: model:ir.ui.menu,name:vauxoo.menu_invoice_rate
 msgid "Invoice Rate"
-msgstr "Tasa de Facturación"
+msgstr "Invoice Rate"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_account_analytic_line_to_invoice
 msgid "Invoiceable"
-msgstr "A Facturar"
+msgstr "Facturable"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_account_analytic_line_invoiceables_hours
 msgid "Invoiceable Hours"
-msgstr "Horas a Facturar"
+msgstr "Invoiceable Hours"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_filter_invoice_id
@@ -1024,47 +1201,47 @@ msgstr "Facturas"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Invoices Section"
-msgstr "Sección de Facturas"
+msgstr "Invoices Section"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Invoices on this filter"
-msgstr "Facturas en este filtro"
+msgstr "Invoices on this filter"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_invoicing
 msgid "Invoicing"
 msgstr "Facturación"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_filter_issue_id
 msgid "Issues"
-msgstr "Tickets"
+msgstr "Issues"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Issues Section"
-msgstr "Sección de Tickets"
+msgstr "Issues Section"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Issues on this filter"
-msgstr "Tickets en este filtro"
+msgstr "Issues on this filter"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_account_analytic_line_to_invoice
 msgid "It allows to set the discount while making invoice, keep empty if the activities should not be invoiced."
-msgstr "Permite asignar el descuento cuando se hace la factura, mantener vacío si las actividades no requieren ser facturadas."
+msgstr "It allows to set the discount while making invoice, keep empty if the activities should not be invoiced."
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_comment_invoices
 msgid "It will appear just above list of invoices."
-msgstr "Aparecerá justo encima de la lista de facturas."
+msgstr "It will appear just above list of invoices."
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_comment_issues
 msgid "It will appear just above the resumed issues."
-msgstr "Aparecerá justo encima del resumen de los tickets."
+msgstr "It will appear just above the resumed issues."
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_ci2html
@@ -1072,7 +1249,7 @@ msgstr "Aparecerá justo encima del resumen de los tickets."
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_comment_timesheet
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_cts2html
 msgid "It will appear just above the resumed timesheets."
-msgstr "Aparecerá justo encima del resumen de las hojas de horas."
+msgstr "It will appear just above the resumed timesheets."
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1081,7 +1258,7 @@ msgstr "Aparecerá justo encima del resumen de las hojas de horas."
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Job Complexity:"
-msgstr "Complejidad del Trabajo:"
+msgstr "Job Complexity:"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1090,12 +1267,12 @@ msgstr "Complejidad del Trabajo:"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Job Security:"
-msgstr "Seguridad del Trabajo:"
+msgstr "Job Security:"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apply
 msgid "Job application form"
-msgstr "Formulario de solicitud de empleo"
+msgstr "Formulario de solicitud de trabajo"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.about
@@ -1109,44 +1286,47 @@ msgstr "Empleos"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
-msgid "Join our team.\n"
+msgid ""
+"Join our team.\n"
 "\n"
 "                    <br/>\n"
 "                    We have great coffee."
-msgstr "ÚNETE AL EQUIPO\n"
+msgstr ""
+"Unete al equipo\n"
+"\n"
 "                    <br/>\n"
 "                    tenemos buen Café."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Just Print report"
-msgstr "Solo Imprimir el reporte"
+msgstr "Just Print report"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Just print report and send a message with the report to followers."
-msgstr "Solo imprimir el reporte y enviar un mensaje con el reporte a los seguidores."
+msgstr "Just print report and send a message with the report to followers."
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_project_project_label_acronymous
 msgid "Label Acronymous"
-msgstr "Etiqueta Acrónimo"
+msgstr "Label Acronymous"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_project_project_label_acronymous_subtasks
 msgid "Label Acronymous Subtasks"
-msgstr "Etiquetas para Acrónicos de Subtareas"
+msgstr "Label Acronymous Subtasks"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_project_project_label_subtasks
 #: model:ir.model.fields,field_description:vauxoo.field_project_task_label_subtasks
 msgid "Label Subtasks"
-msgstr "Etiqueta para Subtareas"
+msgstr "Label Subtasks"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_invoice_factor_customer_name
 msgid "Label for the customer"
-msgstr "Etiqueta para los clientes"
+msgstr "Label for the customer"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1191,6 +1371,11 @@ msgid "Last Week"
 msgstr "Última Semana"
 
 #. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_leaves
+msgid "Leaves"
+msgstr "Ausencias"
+
+#. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "Let's build something great"
 msgstr "Construyamos algo genial"
@@ -1198,17 +1383,17 @@ msgstr "Construyamos algo genial"
 #. module: vauxoo
 #: model:ir.actions.act_window,name:vauxoo.create_employee_user_wizard
 msgid "Link User from Employee"
-msgstr "Vincular Usuario del Empleado"
+msgstr "Link User from Employee"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.employee_link_user_form
 msgid "Link User/Assign Group"
-msgstr "Vincular Usuario/Asignar Grupo"
+msgstr "Link User/Assign Group"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.employee_link_user_form
 msgid "Link user/Assign group"
-msgstr "Vincular usuario/Asignar grupo"
+msgstr "Link user/Assign group"
 
 #. module: vauxoo
 #. openerp-web
@@ -1218,33 +1403,39 @@ msgid "Log out"
 msgstr "Cerrar sesión"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "MXN"
 msgstr "MXN"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_maintenance
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_manufacturing
 msgid "Manufacturing"
-msgstr "Manufactura"
+msgstr "Fabricación"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Mark Timesheet as Invoiced"
-msgstr "Marcar Hoja de horas como Facturada"
+msgstr "Mark Timesheet as Invoiced"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Mark timesheet elements as reported"
-msgstr "Marcar elementos de la hoja de horas como reportados"
+msgstr "Mark timesheet elements as reported"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_state
 msgid "Message sent already to customer (it will block edition)"
-msgstr "Mensaje ya fue enviado al cliente (bloqueará la edición) "
+msgstr "Message sent already to customer (it will block edition)"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
 #: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
+#: model:product.uom,name:vauxoo.contract_uom_month
 msgid "Month"
 msgstr "Mes"
 
@@ -1255,9 +1446,9 @@ msgid "Month and day"
 msgstr "Mes y día"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "Monthly Billing"
-msgstr "Facturación Mensual"
+msgstr "Cargo mensual "
 
 #. module: vauxoo
 #. openerp-web
@@ -1283,7 +1474,7 @@ msgstr "¿Necesitas más información?"
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
 msgid "Nice to have"
-msgstr "Es bueno tener"
+msgstr "Nice to have"
 
 #. module: vauxoo
 #: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor7
@@ -1305,17 +1496,18 @@ msgid "Now it is time to launch your product internally. We help you through the
 msgstr "Ahora es tiempo de lanzar tu producto internamente. Te asesoramos en el proceso de transición de la vieja a la nueva escuela con la ayuda de nuestro equipo."
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#: model:product.template,name:vauxoo.users
 msgid "Number of users"
-msgstr "Cantidad de usuarios"
+msgstr "Número de usuarios"
 
 #. module: vauxoo
 #: model:hr.job,name:vauxoo.job_odoo_dev
 msgid "Odoo developer"
-msgstr "Desarrollador Odoo"
+msgstr "Odoo developer"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "On Premise"
 msgstr "On Premise"
 
@@ -1336,7 +1528,7 @@ msgstr "Only a couple blocs from BART, Caltrain, Highway 101, carpool pickup, an
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
 msgid "Orphan Task"
-msgstr "Tareas Huérfanas"
+msgstr "Tarea huerfana"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
@@ -1370,12 +1562,17 @@ msgstr "Nuestra historia"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Overachieving Possibilities:"
-msgstr "Posibilidades de Superación:"
+msgstr "Overachieving Possibilities:"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_user_id
 msgid "Owner of the report, generally the person that create it."
-msgstr "El dueño del reporte, generalmente la personas que lo crea."
+msgstr "Owner of the report, generally the person that create it."
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_plm
+msgid "PLM"
+msgstr "PLM"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1398,7 +1595,7 @@ msgstr "Empresa"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Peet's and Philz coffee provided all day to order and pantry snacks"
-msgstr "Disponible todo el día café de Peet's y Philz y despensa de golosinas"
+msgstr "Peet's and Philz coffee provided all day to order and pantry snacks"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1407,7 +1604,7 @@ msgstr "Disponible todo el día café de Peet's y Philz y despensa de golosinas"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Personal Evolution:"
-msgstr "Evolución Personal:"
+msgstr "Personal Evolution:"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.contact_us_form
@@ -1415,9 +1612,9 @@ msgid "Phone Number"
 msgstr "Nº teléfono"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.on_premise_apps
 msgid "Pick the apps you need"
-msgstr "Elige las Apps que necesitas"
+msgstr "Selecciona las Apps que necesitas"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1426,7 +1623,12 @@ msgstr "Elige las Apps que necesitas"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Play any sport with colleagues and the bill is covered"
-msgstr "Juega y practica deporte con tus colegas y la cuenta esta cubierta"
+msgstr "Play any sport with colleagues and the bill is covered"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_pos
+msgid "Point of Sale"
+msgstr "Punto de venta"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1451,12 +1653,12 @@ msgstr "Preferencias"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Prime location"
-msgstr "Excelente ubicación"
+msgstr "Prime location"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_tree
 msgid "Print and Send"
-msgstr "Imprimir y Enviar"
+msgstr "Imprimir y enviar"
 
 #. module: vauxoo
 #: model:ir.model,name:vauxoo.model_procurement_order
@@ -1476,22 +1678,22 @@ msgstr "Información de producto"
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_product_id
 msgid "Product to Compute Totals"
-msgstr "Productos para calcular Totales"
+msgstr "Productos para calcular totales"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_prod_cons_ids
 msgid "Products for Consultancy"
-msgstr "Productos para Consultoría"
+msgstr "Productos para consultoría"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_prod_ent_ids
 msgid "Products for Enterprises"
-msgstr "Productos para Enterprise"
+msgstr "Productos para empresas"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_prod_train_ids
 msgid "Products for Training"
-msgstr "Productos para Entrenamiento"
+msgstr "Productos para entrenamiento"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1500,26 +1702,31 @@ msgstr "Productos para Entrenamiento"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Profitable"
-msgstr "Rentable"
+msgstr "Profitable"
 
 #. module: vauxoo
 #: model:ir.model,name:vauxoo.model_project_project
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_project
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: vauxoo
-#: model:hr.job,name:vauxoo.job_python_dev
-msgid "Python developer"
-msgstr "Desarrollador Python"
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_purchase
+msgid "Purchase"
+msgstr "Compras"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:hr.job,name:vauxoo.job_python_dev
+msgid "Python developer"
+msgstr "Python developer"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_quality_control
 msgid "Quality Control"
 msgstr "Control de calidad"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "Quick Start"
 msgstr "Quick Start"
@@ -1528,12 +1735,12 @@ msgstr "Quick Start"
 #: code:addons/vauxoo/models/hr_timesheet_reports.py:105
 #, python-format
 msgid "Rate between currencies can not be 0"
-msgstr "Tasa entre las monedas no puede ser 0"
+msgstr "Rate between currencies can not be 0"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
 msgid "Read"
-msgstr "Leer"
+msgstr "Read"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.detail
@@ -1543,22 +1750,27 @@ msgstr "¿Listo para unirte?"
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_records
 msgid "Records"
-msgstr "Registros"
+msgstr "Records"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_recruitment
+msgid "Recruitment"
+msgstr "Recruitment"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_helpdesk_ticket_task_id
 msgid "Related task where the timesheet of this ticket will be loaded"
-msgstr "Tarea relacionada donde las hojas de horas de este ticket serán cargadas"
+msgstr "Related task where the timesheet of this ticket will be loaded"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_name
 msgid "Report Title"
-msgstr "Título del Reporte"
+msgstr "Report Title"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "Request analysis"
-msgstr "Solicitar análisis"
+msgstr "Solicita análisis"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -1568,7 +1780,7 @@ msgstr "Solicitar demo"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "Request development"
-msgstr "Solicitar desarrollo"
+msgstr "Solicita desarrollo"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -1596,8 +1808,8 @@ msgid "Resume"
 msgstr "Reanudar"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "Sales"
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_sale
+msgid "Sale"
 msgstr "Ventas"
 
 #. module: vauxoo
@@ -1612,7 +1824,7 @@ msgstr "Canal de Ventas"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Sales Cycle:"
-msgstr "Ciclos de Ventas:"
+msgstr "Sales Cycle:"
 
 #. module: vauxoo
 #: model:ir.model,name:vauxoo.model_sale_order
@@ -1644,17 +1856,17 @@ msgstr "Save on commute"
 #: code:addons/vauxoo/static/src/xml/base.xml:47
 #, python-format
 msgid "See Embeded doc for the actual Elements"
-msgstr "Ver los documentos embebidos en el elemento actual"
+msgstr "See Embeded doc for the actual Elements"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Send Report by Email"
-msgstr "Enviar Reporte por Email"
+msgstr "Send Report by Email"
 
 #. module: vauxoo
 #: selection:hr.timesheet.reports.base,state:0
 msgid "Sent"
-msgstr "Enviado"
+msgstr "Sent"
 
 #. module: vauxoo
 #: model:ir.actions.act_window,name:vauxoo.action_set_invoice
@@ -1664,7 +1876,7 @@ msgstr "Set Invoice"
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_filter_issue_id
 msgid "Set the filter for issues TIP = go to issues and look for  the filter that adjust to your needs of issues to be shown."
-msgstr "Asigna el filtro para los tickets. TIP = Ve a los tickets y ve por un filtro que se ajuste a tus necesidades de los tickets que necesitan ser mostrados."
+msgstr "Set the filter for issues TIP = go to issues and look for  the filter that adjust to your needs of issues to be shown."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apply
@@ -1677,29 +1889,31 @@ msgstr "Breve introducción"
 #: model:hr.job,website_description:vauxoo.job_intern_dev
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
-msgid "Short summary of the job: A sales job for smart people and can\n"
+msgid ""
+"Short summary of the job: A sales job for smart people and can\n"
 "                learn quickly new industries management practices. You will be\n"
 "                in charge of the full sales cycle from the opportunity\n"
 "                qualification to the negotiation, going through astonishing\n"
 "                product demos."
-msgstr "Pequeña descripción del trabajo: Un trabajo de ventas para personas inteligentes y que puedan\n"
-"                aprender rápidamente nuevas prácticas de gestión en la industria. Estarás\n"
-"                a cargo de todo el ciclo de ventas para las oportunidades,\n"
-"                calificaciones para la negociación, yendo a través de impactantes\n"
-"                demos de productos."
+msgstr ""
+"Short summary of the job: A sales job for smart people and can\n"
+"                learn quickly new industries management practices. You will be\n"
+"                in charge of the full sales cycle from the opportunity\n"
+"                qualification to the negotiation, going through astonishing\n"
+"                product demos."
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_show_details
 msgid "Show Detailed Timesheets"
-msgstr "Mostrar Hojas de horas Detalladas"
+msgstr "Show Detailed Timesheets"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_sign
 msgid "Sign"
-msgstr "Sign"
+msgstr "Firmar"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "Some frequently asked questions"
 msgstr "Algunas preguntas frecuentes"
 
@@ -1710,7 +1924,7 @@ msgstr "Algunas preguntas frecuentes"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Sponsored Events"
-msgstr "Eventos Patrocinados"
+msgstr "Sponsored Events"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1719,7 +1933,7 @@ msgstr "Eventos Patrocinados"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Sport Activity"
-msgstr "Actividad Deportiva"
+msgstr "Sport Activity"
 
 #. module: vauxoo
 #: model:product.template,name:vauxoo.product_sprint
@@ -1727,9 +1941,9 @@ msgid "Sprint"
 msgstr "Sprint"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "Start Now"
-msgstr "Iniciar ahora"
+msgstr "Iniciar Ahora"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -1745,10 +1959,10 @@ msgstr ""
 "¿Inicias un nuevo proyecto de negocio?\n"
 "\n"
 "                      <br/>\n"
-"\t\t\tCon nuestro Success Pack podemos\n"
+"tttCon nuestro Success Pack podemos\n"
 "\n"
 "                      <br/>\n"
-"\t\t\tconstruir tu idea de 0 a 100."
+"tttconstruir tu idea de 0 a 100."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -1756,8 +1970,8 @@ msgid ""
 "Starting a new business project?\n"
 "    With our success pack you can build your idea from zero to hero."
 msgstr ""
-"¿Inicias un nuevo proyecto de negocio?\n"
-"    Con nuestro paquete de éxito puedes construir tu idea de 0 a 100."
+"¿Iniciando un nuevo proyecto de negocio?\n"
+"    Con nuestro paquete de éxito puedes construir tu idea de nada a todo."
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_state
@@ -1765,7 +1979,12 @@ msgid "Status"
 msgstr "Estado"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_studio
+msgid "Studio"
+msgstr "Estúdio"
+
+#. module: vauxoo
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "Sub-Total"
 msgstr "Sub-Total"
 
@@ -1780,22 +1999,18 @@ msgid "Subscribe"
 msgstr "Suscribir"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_subscription
 msgid "Subscription"
 msgstr "Suscripción"
 
 #. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_project_project_subscription_ids
-msgid "Subscriptions"
-msgstr "Suscripciones"
-
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "Success Pack (25h)"
 msgstr "Success Pack (25h)"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "Success packs are implementation services with a certain number of hours (depending on the apps to be installed) that include Odoo training, technical support and personalized assistance to customize the installed apps to the workflow of every company before implementation. This pack never expires, meaning the hours can be used whenever support is needed."
 msgstr "Success Pack son servicios de implementación con un cierto numero de horas definido (dependiendo de las Apps instaladas) con entrenamiento en Odoo, soporte técnico y asistencia personalizada para personalizar las Apps instaladas al flujo de trabajo de cada compañía antes de implementar. Este paquete nunca expira, esto quiere decir que las horas pueden ser usadas  cuando se requiera."
 
@@ -1811,13 +2026,15 @@ msgstr "Proyecto de soporte"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "Tailor-made.\n"
+msgid ""
+"Tailor-made.\n"
 "\n"
 "\n"
 "\n"
 "                <br class=\"hidden-xs hidden-sm\"/>\n"
 "                ERP on-premise."
-msgstr "A la medida.\n"
+msgstr ""
+"A la medida.\n"
 "\n"
 "\n"
 "\n"
@@ -1842,7 +2059,7 @@ msgstr "Equipo"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Team / Company Size:"
-msgstr "Tamaño del Equipo / Compañía:"
+msgstr "Team / Company Size:"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
@@ -1872,7 +2089,7 @@ msgid "Thanks to the constant effort of our team and the highest standards of qu
 msgstr "Gracias al constante esfuerzo de nuestro equipo y los estándares más altos de calidad integrados en nuestro proceso de desarrollo, hemos sido premiados por Odoo on las más altas distinciones desde 2012."
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "The Quick-Start model is aimed for businesses seeking to launch their products/services using Vauxoo servers. The subscription is billed monthly, which means you can unsubscribe any time you want. On the other hand, On-premise is a more customized option and is billed yearly, including monthly maintenance and the deployment of your product."
 msgstr "El modelo Quick-Start está dirigido para empresas que buscan lanzar sus productos utilizando los servidores de Vauxoo. La suscripción es cargada mensual, lo que significa que puedes cancelar la suscripción en cualquier momento. Por otro lado, On-premise es más una opción más personalizada y es cargada anualmente, incluyendo  mantenimiento mensual y el despliegue de tu producto."
 
@@ -1897,7 +2114,7 @@ msgstr "La historia del fundador"
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_helpdesk_team_project_id
 msgid "The project where the task related to the tickets will be created"
-msgstr "El proyecto donde la tarea relacionado a los tickets será creado"
+msgstr "The project where the task related to the tickets will be created"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
@@ -1909,44 +2126,54 @@ msgstr "Esta semana"
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_currency_id
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_product_id
 msgid "This product will be used to compute totals"
-msgstr "Este producto será usada para calcular los totales"
+msgstr "This product will be used to compute totals"
 
 #. module: vauxoo
 #: code:addons/vauxoo/models/procurement.py:22
 #, python-format
 msgid "This task will be blocked until the sale order has been paid"
-msgstr "Esta tarea estará bloqueada hasta que el pedido de venta haya sido pagado"
+msgstr "This task will be blocked until the sale order has been paid"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_set_invoice_total_timesheet
 msgid "This will be the quantity to be setted to this invoice be sure quantities are consistent"
-msgstr "Esta será la cantidad a ser asignada a la factura asegúrate que las cantidades son consistentes"
+msgstr "This will be the quantity to be setted to this invoice be sure quantities are consistent"
 
 #. module: vauxoo
 #: model:ir.model,name:vauxoo.model_helpdesk_ticket
 #: model:ir.model.fields,field_description:vauxoo.field_project_task_ticket_id
 msgid "Ticket"
-msgstr "Ticket"
+msgstr "Tiquet"
+
+#. module: vauxoo
+#: model:product.uom.categ,name:vauxoo.uom_categ_time
+msgid "Time"
+msgstr "Time"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_timesheet
+msgid "Timesheet"
+msgstr "Timesheet"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Timesheet Comments"
-msgstr "Comentarios de las hojas de horas"
+msgstr "Timesheet Comments"
 
 #. module: vauxoo
 #: model:ir.actions.act_window,name:vauxoo.action_hr_report_base_tree
 msgid "Timesheet Report"
-msgstr "Reporte de Hojas de horas"
+msgstr "Timesheet Report"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Timesheet Section"
-msgstr "Sección de Hojas de horas"
+msgstr "Timesheet Section"
 
 #. module: vauxoo
 #: model:ir.ui.menu,name:vauxoo.menu_hr_report_base
 msgid "Timesheet report"
-msgstr "Reporte de Hojas de horas"
+msgstr "Timesheet report"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.project_task_form_ticket
@@ -1956,7 +2183,7 @@ msgstr "Partes de horas"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Timesheets with this filter"
-msgstr "Hojas de horas con este filtro"
+msgstr "Timesheets with this filter"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
@@ -1969,38 +2196,38 @@ msgstr "Hoy"
 #: code:addons/vauxoo/static/src/xml/base.xml:12
 #, python-format
 msgid "Toggle navigation"
-msgstr "Alternar navegación"
+msgstr "Toggle navigation"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "Total"
 msgstr "Total"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_set_invoice_total_money
 msgid "Total Timesheet in Money"
-msgstr "Total de hojas de horas en dinero"
+msgstr "Total Timesheet in Money"
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_set_invoice_total_timesheet
 msgid "Total Timesheet to set"
-msgstr "Total de hojas de horas por asginar"
+msgstr "Total Timesheet to set"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_account_analytic_line_invoiceables_hours
 msgid "Total hours to charge"
-msgstr "Total de horas a cargar"
+msgstr "Total hours to charge"
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_set_invoice_total_money
 msgid "Total in money with the currency and product of the report which you comes from"
-msgstr "Total en dinero con la moneda y el producto del reporte de donde viene"
+msgstr "Total in money with the currency and product of the report which you comes from"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.account_analytic_line_invoiceable_lines
 #: model:ir.ui.view,arch_db:vauxoo.account_analytic_line_invoiceable_lines2
 msgid "Total invoiceable time"
-msgstr "Tiempo total facturable"
+msgstr "Total invoiceable time"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -2009,12 +2236,17 @@ msgstr "Tiempo total facturable"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Tuesday Dinners, Monthly Lunch Mixers, Monthly Happy Hour, Annual day event"
-msgstr "Cenas los Martes, Almuerzos mensuales para compartir, Happy hour mensual y día de evento al año"
+msgstr "Tuesday Dinners, Monthly Lunch Mixers, Monthly Happy Hour, Annual day event"
 
 #. module: vauxoo
 #: model:hr.job,name:vauxoo.job_designer
 msgid "UI designer"
-msgstr "Diseñador de Interfaz de Usuario UI"
+msgstr "UI designer"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_UPS
+msgid "UPS"
+msgstr "UPS"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -2026,9 +2258,14 @@ msgid "US + Canada Territory"
 msgstr "US + Canada Territory"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "USD"
 msgstr "USD"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_USPS
+msgid "USPS"
+msgstr "USPS"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
@@ -2043,13 +2280,13 @@ msgstr "Post sin título"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
 msgid "User Stories"
-msgstr "Historias de Usuario"
+msgstr "User Stories"
 
 #. module: vauxoo
 #: code:addons/vauxoo/wizard/employee_user_wizard.py:41
 #, python-format
 msgid "User not created. Doesn't exists an user with same email address."
-msgstr "Usuario no creado. No existe un usuario con la misma dirección de correo electrónico."
+msgstr "User not created. Doesn't exists an user with same email address."
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -2058,7 +2295,7 @@ msgstr "Usuario no creado. No existe un usuario con la misma dirección de corre
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Vacation, Sick, and Holiday paid leaves"
-msgstr "Salidas pagadas de Vacaciones, Enfermedad y Feriados"
+msgstr "Vacation, Sick, and Holiday paid leaves"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -2072,30 +2309,39 @@ msgstr "Variability of the Job:"
 #. module: vauxoo
 #: model:ir.module.category,name:vauxoo.category_group
 msgid "Vauxoo Privilege Groups"
-msgstr "Grupos de Privilegios Vauxoo"
+msgstr "Vauxoo Privilege Groups"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
-msgid "Vauxoo is about people. We are here because of our customers and our team. We’re human-first and we want the best for our team,\n"
+msgid ""
+"Vauxoo is about people. We are here because of our customers and our team. We’re human-first and we want the best for our team,\n"
 "\n"
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
 "                    our customers, our friends and the environment."
-msgstr "Vauxoo se trata de la gente. Existimos por nuestros clientes y nuestro equipo. Somos Personas-primero y queremos lo mejor para nuestro equipo,\n"
+msgstr ""
+"Vauxoo se trata de la gente. Existimos por nuestros clientes y nuestro equipo. Somos Personas-primero y queremos lo mejor para nuestro equipo,\n"
 "\n"
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
 "                    nuestros clientes, amigos y el entorno."
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
-msgid "View 4 more\n"
-"                                                <span class=\"fa fa-chevron-down\"/>"
-msgstr "Ver 4 más\n"
-"                                                <span class=\"fa fa-chevron-down\"/>"
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+msgid ""
+"View 4 more\n"
+"                            <span class=\"fa fa-chevron-down\"/>"
+msgstr ""
+"Ver 4 mas\n"
+"                            <span class=\"fa fa-chevron-down\"/>"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
 msgid "View openings"
 msgstr "Ver vacantes"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_voip
+msgid "VoIP (Asterisk)"
+msgstr "VoIP (Asterisk)"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.about
@@ -2104,23 +2350,27 @@ msgstr "¿Quieres subirte al barco?<br/>"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
-msgid "Want to learn more about our culture?\n"
+msgid ""
+"Want to learn more about our culture?\n"
 "\n"
 "                      <br/>"
-msgstr "¿Quieres aprender más de nuestra cultura?\n"
+msgstr ""
+"¿Quieres aprender más de nuestra cultura?\n"
 "\n"
 "                      <br/>"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "Want us to take a look at your idea?\n"
+msgid ""
+"Want us to take a look at your idea?\n"
 "\n"
 "                      <br/>\n"
 "                      We offer the best consulting and best practices for your business.\n"
 "\n"
 "                      <br/>\n"
 "                      depending on your business needs."
-msgstr "¿Quieres que le echemos un ojo a tu idea?\n"
+msgstr ""
+"¿Quieres que le echemos un ojo a tu idea?\n"
 "\n"
 "                      <br/>\n"
 "tttOfrecemos los mejores servicios en consultoría para tu negocio.\n"
@@ -2130,9 +2380,11 @@ msgstr "¿Quieres que le echemos un ojo a tu idea?\n"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "Want us to take a look at your idea?\n"
+msgid ""
+"Want us to take a look at your idea?\n"
 "We offer the best consulting and best practices for your business."
-msgstr "¿Quieres que le echemos un ojo a tu idea?\n"
+msgstr ""
+"¿Quieres que le echemos un ojo a tu idea?\n"
 "Ofrecemos los mejores servicios en consultoría para tu negocio dependiendo de sus necesidades."
 
 #. module: vauxoo
@@ -2153,11 +2405,12 @@ msgstr "Somos un equipo de gente apasionada la cual tiene como objetivo mejorar 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
 msgid "We are looking a developer who has a natural inkling to build business applications and  interesting apps in order to improve our development model. You want to excel at software development and building amazing services for people. You enjoy coding by hand as well as using frameworks. You’ve worked with cross-disciplinary teams and enjoyed it. And you’re full of ideas."
-msgstr "Estamos buscando a un desarrollador que tenga una habilidad natural para construir aplicaciones de negocio y aplicaciones interesantes para así mejorar el modelo de desarrollo. Tu quieres sobresalir en el desarrollo de software y la construcción de asombrosos servicios para las personas. Te gusta escribir código a mano así como también usar frameworks. Has trabajado con equipos multi disciplinario y lo disfrutaste. Y estás lleno de ideas."
+msgstr "We are looking a developer who has a natural inkling to build business applications and  interesting apps in order to improve our development model. You want to excel at software development and building amazing services for people. You enjoy coding by hand as well as using frameworks. You’ve worked with cross-disciplinary teams and enjoyed it. And you’re full of ideas."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "We assess the\n"
+msgid ""
+"We assess the\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2170,7 +2423,8 @@ msgid "We assess the\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        of tools."
-msgstr "Evaluamos los\n"
+msgstr ""
+"Evaluamos los\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2186,7 +2440,8 @@ msgstr "Evaluamos los\n"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "We build every single\n"
+msgid ""
+"We build every single\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2195,7 +2450,8 @@ msgid "We build every single\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        make sure you will manage your business smoothly."
-msgstr "Construimos cada\n"
+msgstr ""
+"Construimos cada\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2207,7 +2463,8 @@ msgstr "Construimos cada\n"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "We implement the\n"
+msgid ""
+"We implement the\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2220,7 +2477,8 @@ msgid "We implement the\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        perfectly."
-msgstr "Implementamos el\n"
+msgstr ""
+"Implementamos el\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2237,11 +2495,12 @@ msgstr "Implementamos el\n"
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "We offer you the support of our expert team whenever you need assistance during your management, as well as coaching If you happen to configure or adapt new features to your product."
-msgstr "Te ofrecemos soporte por parte de nuestro equipo de expertos cuando la necesites, así como entrenamiento si llegaras a configurar o adaptar nuevas características a tu producto."
+msgstr "Te ofrecemos soporte por parte de nuestro equipo de expertos cuando la necesites, asi como entrenamiento si llegaras a configurar o adaptar nuevas características a tu producto."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
-msgid "We provide supervision\n"
+msgid ""
+"We provide supervision\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2254,7 +2513,8 @@ msgid "We provide supervision\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        date."
-msgstr "Proveemos supervision\n"
+msgstr ""
+"Proveemos supervision\n"
 "\n"
 "\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -2276,17 +2536,22 @@ msgstr "Confiamos en nuestro equipo de expertos para comprender la naturaleza de
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
 msgid "We will make your Mondays less painful and your Fridays more rewarding. A typical day may consist of working for a client or internal project while creating high quality code, testing it and integrating with other Vauxoo’s apps . You will work closely with a team leader and occasionally with the customer. Some days you can wake up and start to work from your bedroom (after a good protein breakfast of course), other days you can come to the office,  programming and have a lunch with your partners. You will learn a lot and grow fast, which is just one of the many perks of being a python developer at Vauxoo."
-msgstr "Haremos que tus Lunes sean menos dolores y que tus Viernes sean más gratificante. Un día típico debe cconsistir en trabajar para un cliente o para un proyecto interno mientras creas código de alta calidad, probándolo e integrando con otras aplicaciones de Vauxoo. Trabajarás de cerca con un líder de equipo y ocasionalmente con el cliente. Algunos días puedes despertar y trabajar desde tu habitación (luego de un desayuno con proteínas claro esta), otros días tu puedes venir a la oficina, programar y almorzar con tus colegas. Aprenderás mucho y crecerás rápido, lo que es uno de los beneficios se ser un desarrollador python en Vauxoo."
+msgstr "We will make your Mondays less painful and your Fridays more rewarding. A typical day may consist of working for a client or internal project while creating high quality code, testing it and integrating with other Vauxoo’s apps . You will work closely with a team leader and occasionally with the customer. Some days you can wake up and start to work from your bedroom (after a good protein breakfast of course), other days you can come to the office,  programming and have a lunch with your partners. You will learn a lot and grow fast, which is just one of the many perks of being a python developer at Vauxoo."
 
 #. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_res_company_website_address_ids
 msgid "Web Contacts"
-msgstr "Contactos Web"
+msgstr "Contactos web"
+
+#. module: vauxoo
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_website
+msgid "Website"
+msgstr "Sitio Web"
 
 #. module: vauxoo
 #: model:ir.ui.menu,name:vauxoo.menu_website_menu
 msgid "Website Menus"
-msgstr "Menos del sitio web"
+msgstr "Menus del sitio web"
 
 #. module: vauxoo
 #: model:product.uom,name:vauxoo.product_uom_week
@@ -2301,7 +2566,7 @@ msgstr "¿Cuales son tus habilidades?"
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
 msgid "What do we offer"
-msgstr "Que ofrecemos"
+msgstr "What do we offer"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -2323,9 +2588,9 @@ msgid "Winning"
 msgstr "Advertencia"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "Yearly Billing"
-msgstr "Facturación Anual"
+msgstr "Cargo anual"
 
 #. module: vauxoo
 #: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor1
@@ -2334,17 +2599,19 @@ msgstr "Si (100%)"
 
 #. module: vauxoo
 #: model:ir.actions.act_window,help:vauxoo.act_vauxoo_timesheet_line_by_task
-msgid "You can register and track your workings hours by project every\n"
+msgid ""
+"You can register and track your workings hours by project every\n"
 "                    day. Every time spent on a project will become a cost and can be re-invoiced to\n"
 "                    customers if required."
-msgstr "Tú puedes registrar y llevar tus horas de trabajo por proyecto cada\n"
-"                    día. El tiempo invertido en un proyecto se convertirá en un costa y puede ser re-facturado a\n"
-"                    clientes si es requerido."
+msgstr ""
+"You can register and track your workings hours by project every\n"
+"                    day. Every time spent on a project will become a cost and can be re-invoiced to\n"
+"                    customers if required."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.thankyou
 msgid "You have succesfully submitted your application.<br class=\"hidden-sm hidden-xs\"/> We will contact you to provide further information.<br class=\"hidden-sm hidden-xs\"/> Stay tuned to your mail!"
-msgstr "Has enviado correctamente tu solicitud.<br class=\"hidden-sm hidden-xs\"/> Te contactaremos para darte más información.<br class=\"hidden-sm hidden-xs\"/> ¡Échale un ojo a tu correo!"
+msgstr "Has enviado correctamente tu solicitud.<br class=\"hidden-sm hidden-xs\"/> Te contactaremos para darte más información.<br class=\"hidden-sm hidden-xs\"/> ¡Echale un ojo a tu correo!"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -2353,7 +2620,7 @@ msgstr "Has enviado correctamente tu solicitud.<br class=\"hidden-sm hidden-xs\"
 #: model:hr.job,website_description:vauxoo.job_odoo_dev
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "You sell management software to directors of SMEs: interesting projects and people"
-msgstr "Tu vendes software sell management software to directors of SMEs: interesting projects and people"
+msgstr "You sell management software to directors of SMEs: interesting projects and people"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.contact_us_form
@@ -2382,17 +2649,15 @@ msgid "Your Question"
 msgstr "Su pregunta"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:ir.ui.view,arch_db:vauxoo.header_apps
 msgid ""
 "Your business.\n"
-"\n"
-"                                <br class=\"hidden-xs hidden-sm\"/>\n"
-"                                from zero to hero."
+"                        <br class=\"hidden-xs hidden-sm\"/>\n"
+"                        from zero to hero."
 msgstr ""
-"Tu negocio.\n"
-"\n"
-"                                <br class=\"hidden-xs hidden-sm\"/>\n"
-"\t\t\t\tde 0 a 100."
+"Tu negocio\n"
+"                        <br class=\"hidden-xs hidden-sm\"/>\n"
+"                        de 0 a 100."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
@@ -2407,7 +2672,7 @@ msgstr "Tu mensaje ha sido enviado correctamente. Mantente atento a<br class=\"h
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
 msgid "Your skills"
-msgstr "Tus Habilidades"
+msgstr "Your skills"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apply
@@ -2415,7 +2680,7 @@ msgid "careers@vauxoo.com"
 msgstr "careers@vauxoo.com"
 
 #. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps
+#: model:product.attribute.value,name:vauxoo.product_attribute_value_ecommerce
 msgid "eCommerce"
 msgstr "eCommerce"
 
@@ -2452,47 +2717,54 @@ msgstr "set.invoice"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
-msgid "•   A functional and technical Odoo training.<br>\n"
+msgid ""
+"•   A functional and technical Odoo training.<br>\n"
 "    •   Huge hours of python development.<br>\n"
 "    •   A nice working atmosphere in a young and passionate team.<br>\n"
 "    •   A great experience in state-of-the-art web technologies and agile development.<br>\n"
 "    •   The opportunity to join the most important public Odoo contributor (Vauxoo).<br>\n"
 "    •   No solution architect, no business analyst, no Gantt chart, etc.<br>\n"
 "    •   A full-time job with an attractive economic welfare package, where the limits are only yours.<br>"
-msgstr "•   Un entrenamiento funcional y técnico de Odoo.<br>\n"
-"    •   Bastantes horas en desarrollo de python.<br>\n"
-"    •   Una atmósfera de trabajo buena en un equipo joven y apasionado.<br>\n"
-"    •   Una gran experiencia en el estado del arte de tecnologías web y desarrollo ágil.<br>\n"
-"    •   La oportunidad de unirte a el contribuidor publico de Odoo más importante (Vauxoo).<br>\n"
-"    •   No necesita conocer sobre arquitectura, análisis de negocio, diagrama de chart, etc.<br>\n"
-"    •   Un trabajo tiempo completo con un atractivo paquete económico, donde los limites son solo tuyos.<br>"
+msgstr ""
+"•   A functional and technical Odoo training.<br>\n"
+"    •   Huge hours of python development.<br>\n"
+"    •   A nice working atmosphere in a young and passionate team.<br>\n"
+"    •   A great experience in state-of-the-art web technologies and agile development.<br>\n"
+"    •   The opportunity to join the most important public Odoo contributor (Vauxoo).<br>\n"
+"    •   No solution architect, no business analyst, no Gantt chart, etc.<br>\n"
+"    •   A full-time job with an attractive economic welfare package, where the limits are only yours.<br>"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
-msgid "•   Contributions to Open Source projects.<br>\n"
+msgid ""
+"•   Contributions to Open Source projects.<br>\n"
 "    •   GitHub user, with projects (Or any public VCS).<br>\n"
 "    •   Unix/Linux platform knowledge.<br>\n"
 "    •   Basic Odoo knowledge.<br>"
-msgstr "•   Contribuciones a proyectos Open Source.<br>\n"
-"    •   Usuario de GitHub, con proyectos (O algún VCS público).<br>\n"
-"    •   Conocimiento en la plataforma Unix/Linux.<br>\n"
-"    •   Conocimiento Básico de Odoo.<br>"
+msgstr ""
+"•   Contributions to Open Source projects.<br>\n"
+"    •   GitHub user, with projects (Or any public VCS).<br>\n"
+"    •   Unix/Linux platform knowledge.<br>\n"
+"    •   Basic Odoo knowledge.<br>"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
-msgid "•   You develop apps/scripts/features that your team need and users enjoy.<br>\n"
+msgid ""
+"•   You develop apps/scripts/features that your team need and users enjoy.<br>\n"
 "    •   You work on a certain framework or existing apps.<br>\n"
 "    •   You bring quality and real value to the projects you are involved in.<br>"
-msgstr "•   Desarrollas apps/scripts/funcionalidades que tu equipo necesita y tus usuarios disfrutan.<br>\n"
-"    •   Trabajas en algún framework o en apps existentes.<br>\n"
-"    •   Tu traes calidad y valor real a los proyectos donde estas involucrados.<br>"
+msgstr ""
+"•   You develop apps/scripts/features that your team need and users enjoy.<br>\n"
+"    •   You work on a certain framework or existing apps.<br>\n"
+"    •   You bring quality and real value to the projects you are involved in.<br>"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
-msgid "•   You have previous programming experience in Python.<br>\n"
+msgid ""
+"•   You have previous programming experience in Python.<br>\n"
 "    •   Relational databases management are your thing.<br>\n"
 "    •   Proficient English (written and read).<br>"
-msgstr "•   Tu tienes experiencia previa en Python.<br>\n"
-"    •   Manejo de base de datos relacionales son lo tuyo.<br>\n"
-"    •   Competente Inglés (escrito y leído).<br>"
-
+msgstr ""
+"•   You have previous programming experience in Python.<br>\n"
+"    •   Relational databases management are your thing.<br>\n"
+"    •   Proficient English (written and read).<br>"

@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
     <odoo noupdate="0">
-        <!-- OVERWRITTEN NAME BECAUSE IT SAYS 'Month(s)' -->
-        <record id="website_contract.contract_uom_month" model="product.uom">
+        <record id="uom_categ_time" model="product.uom.categ">
+                <field name="name">Time</field>
+        </record>
+        <record id="contract_uom_month" model="product.uom">
             <field name="name">Month</field>
+            <field ref="uom_categ_time" name="category_id"/>
+            <field name="factor" eval="1.0"/>
         </record>
         <!-- PRODUCT ATTRIBUTES -->
         <record id="product_attribute_app" model="product.attribute">
             <field name="name">App</field>
         </record>
         <!-- PRODUCT ATTRIBUTE VALUES -->
+        <record id="product_attribute_value_DHL" model="product.attribute.value">
+            <field name="name">DHL</field>
+            <field name="attribute_id" ref="product_attribute_app"/>
+        </record>
+        <record id="product_attribute_value_UPS" model="product.attribute.value">
+            <field name="name">UPS</field>
+            <field name="attribute_id" ref="product_attribute_app"/>
+        </record>
+        <record id="product_attribute_value_USPS" model="product.attribute.value">
+            <field name="name">USPS</field>
+            <field name="attribute_id" ref="product_attribute_app"/>
+        </record>
+        <record id="product_attribute_value_FedEx" model="product.attribute.value">
+            <field name="name">FedEx</field>
+            <field name="attribute_id" ref="product_attribute_app"/>
+        </record>
+        <record id="product_attribute_value_Ebay" model="product.attribute.value">
+            <field name="name">Ebay</field>
+            <field name="attribute_id" ref="product_attribute_app"/>
+        </record>
+        <record id="product_attribute_value_voip" model="product.attribute.value">
+            <field name="name">VoIP (Asterisk)</field>
+            <field name="attribute_id" ref="product_attribute_app"/>
+        </record>
+
         <record id="product_attribute_value_invoicing" model="product.attribute.value">
             <field name="name">Invoicing</field>
             <field name="attribute_id" ref="product_attribute_app"/>
@@ -126,8 +155,34 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="website_published" eval="True"/>
+        </record>
+        <record id="product_template_extra_integrations" model="product.template">
+            <field name="name">Extra Integrations</field>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">10.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="website_published" eval="True"/>
+        </record>
+        <record id="product_template_implementation_services" model="product.template">
+            <field name="name">Implementation Services</field>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">2380.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="website_published" eval="True"/>
+            <field name="description_sale">
+The recommended Success Pack for your setup is the 25 hours Basic Success Pack at 2,380 USD
+
+With a Success Pack, you are assigned an expert to provide unique personalized assistance to help you customize your solution and optimize your workflows as part of your initial implementation. These hours never expire allowing you to utilize them whenever you need support.
+            </field>
         </record>
         <!-- PRODUCT ATTRIBUTE LINES -->
         <record id="product_attribute_line_1" model="product.attribute.line">
@@ -141,8 +196,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_invoicing')])]"/>
 
@@ -153,8 +208,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_sale')])]"/>
         </record>
@@ -164,8 +219,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_crm')])]"/>
         </record>
@@ -175,8 +230,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_website')])]"/>
         </record>
@@ -186,8 +241,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_ecommerce')])]"/>
         </record>
@@ -197,8 +252,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_pos')])]"/>
         </record>
@@ -208,8 +263,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_accounting')])]"/>
         </record>
@@ -219,8 +274,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_project')])]"/>
         </record>
@@ -230,8 +285,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_inventory')])]"/>
         </record>
@@ -241,8 +296,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_manufacturing')])]"/>
         </record>
@@ -252,8 +307,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_purchase')])]"/>
         </record>
@@ -263,8 +318,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_timesheet')])]"/>
         </record>
@@ -274,8 +329,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_email_marketing')])]"/>
         </record>
@@ -285,8 +340,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_expenses')])]"/>
         </record>
@@ -296,8 +351,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_leaves')])]"/>
         </record>
@@ -307,8 +362,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_events')])]"/>
         </record>
@@ -318,8 +373,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_recruitment')])]"/>
         </record>
@@ -329,8 +384,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_appraisal')])]"/>
         </record>
@@ -340,8 +395,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_subscription')])]"/>
         </record>
@@ -351,8 +406,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_sign')])]"/>
         </record>
@@ -362,8 +417,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_maintenance')])]"/>
         </record>
@@ -373,8 +428,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_quality_control')])]"/>
         </record>
@@ -384,8 +439,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_studio')])]"/>
         </record>
@@ -395,8 +450,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_helpdesk')])]"/>
         </record>
@@ -406,8 +461,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_maintenance')])]"/>
         </record>
@@ -417,9 +472,76 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="website_contract.contract_uom_month"/>
-            <field name="uom_po_id" ref="website_contract.contract_uom_month"/>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
             <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_plm')])]"/>
+        </record>
+
+        <record id="product_product_DHL" model="product.product">
+            <field name="image" type="base64" file="delivery_dhl/static/description/icon.png"/>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">10.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_DHL')])]"/>
+        </record>
+        <record id="product_product_UPS" model="product.product">
+            <field name="image" type="base64" file="delivery_ups/static/description/icon.png"/>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">10.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_UPS')])]"/>
+        </record>
+        <record id="product_product_USPS" model="product.product">
+            <field name="image" type="base64" file="delivery_usps/static/description/icon.png"/>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">10.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_USPS')])]"/>
+        </record>
+        <record id="product_product_FedEx" model="product.product">
+            <field name="image" type="base64" file="delivery_fedex/static/description/icon.png"/>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">10.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_FedEx')])]"/>
+        </record>
+        <record id="product_product_Ebay" model="product.product">
+            <field name="image" type="base64" file="vauxoo/static/src/img/sale_ebay.png"/>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">10.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_Ebay')])]"/>
+        </record>
+        <record id="product_product_voip" model="product.product">
+            <field name="image" type="base64" file="crm_voip/static/description/icon.png"/>
+            <field name="type">service</field>
+            <field name="recurring_invoice" eval="True"/>
+            <field name="list_price">10.0</field>
+            <field name="type">service</field>
+            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_voip')])]"/>
         </record>
     </odoo>
