@@ -28,7 +28,6 @@ class Project(models.Model):
             project.task_count = len(self.env['project.task'].search([
                 ('id', 'in', project.task_ids.mapped('id')),
                 ('parent_id', '=', False),
-                ('tag_ids', 'not ilike', 'Orphan'),
             ]))
 
 
