@@ -1,0 +1,15 @@
+"id","help","state","name","model_id/id","code","fields_lines/id","type","usage"
+"__export__.ir_act_server_775","","Execute Python Code","Update tasks with respective tickets","helpdesk.model_helpdesk_ticket","# Available variables:
+#  - time, datetime, dateutil, timezone: Python libraries
+#  - env: Odoo Environement
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record set of the current record on which the action is triggered; may be be void
+#  - records: record set of all records on which the action is triggered; may be void
+#  - log : log(message), function to log debug information in logging table
+#  - Warning: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+tickets = env['helpdesk.ticket'].search([('task_id', '!=', False)])
+for ticket in tickets:
+    ticket.task_id.write({'ticket_id': ticket.id})
+","","ir.actions.server","Server Action"

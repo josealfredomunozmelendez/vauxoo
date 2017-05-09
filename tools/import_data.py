@@ -1210,6 +1210,30 @@ class Migration(object):
         action = self.new_instance.execute(
             write_model, 'run', loaded_data.get('ids', False))
 
+    def update_task_ticket(self):
+        """ This will be compute using a server action loaded and run
+        """
+        # TODO This method can be merged with compute_tasks_display_name
+        # it does the same only need to manage different params
+        write_model = 'ir.actions.server'
+        data = []
+        with open("server_action_update_task_ticket.csv", "r") as csvfile:
+            reader = csv.reader(csvfile)
+            header = False
+            for row in reader:
+                if not header:
+                    header = row
+                else:
+                    data.append(row)
+
+        loaded_data = self.new_instance.execute(
+            write_model, 'load', header, data)
+        if not loaded_data.get('ids', False):
+            self.print_errors(write_model, loaded_data, data)
+
+        action = self.new_instance.execute(
+            write_model, 'run', loaded_data.get('ids', False))
+
     def migrate_project_task(self, domain=None, limit=None, defaults=None):
         _logger.info('Migrate Project Tasks')
         read_model = write_model = 'project.task'
@@ -3503,6 +3527,9 @@ def main(config, save_config, show_config, use_config,
 
     _logger.info('Compute tasks display name')
     vauxoo.compute_tasks_display_name()
+
+    _logger.info('Update tasks tickets')
+    vauxoo.update_task_ticket()
 
     # vauxoo.mapping_cleanup()
     cursor.commit()
