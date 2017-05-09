@@ -85,6 +85,19 @@
                 </tree>
             </field>
         </record>
+
+        <record id="view_employee_filter" model="ir.ui.view">
+            <field name="name">hr.employee.search</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="inside">
+                    <filter string="Is Cost" domain="[]" context="{'group_by':'is_cost'}" groups="vauxoo.directive"/>
+                    <filter string="Generate Income" domain="[]" context="{'group_by':'generate_income'}" groups="vauxoo.directive"/>
+                </xpath>
+             </field>
+         </record>
+
         <record model="ir.ui.view" id="hr_kanban_view_employees">
             <field name="name">hr.employee.kanban.analysis</field>
             <field name="model">hr.employee</field>
