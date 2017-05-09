@@ -235,15 +235,21 @@
                     <field name="message_follower_ids"/>
                     <field name="message_ids"/>
                     <field name="message_needaction_counter"/>
+                    <field name="hours_invoice"/>
+                    <field name="hours_informed"/>
                     <field name="theoretical_timesheet"/>
                     <field name="color"/>
+                    <field name="is_cost"/>
+                    <field name="generate_income"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="#{kanban_color(record.color.raw_value)}">
                                 <div class="o_kanban_card_header">
                                     <div class="o_kanban_card_header_title">
                                         <div class="o_kanban_image">
-
+                                            <h1>
+                                                <field name="employee_qty"/>
+                                            </h1>
                                         </div>
                                         <div class="oe_kanban_details">
                                             <div class="col-xs-6" style="text-align: left">
@@ -256,8 +262,8 @@
                                             </div>
                                             <div class="col-xs-6" style="text-align: right">
                                                 <ul>
-                                                    <li>Generate Income: </li>
-                                                    <li>It's Cost: </li>
+                                                    <li>Generate Income: <field name="generate_income"/></li>
+                                                    <li>It's Cost: <field name="is_cost"/></li>
                                                 </ul>
                                             </div>
 
@@ -285,11 +291,11 @@
                                                     <li>Perceived:</li>
                                                 </ul>
                                             </div>
-                                            <div class="col-xs-6" style="text-align: left">
+                                            <div class="col-xs-6" style="text-align: right">
                                                 <ul>
-                                                    <li></li>
-                                                    <li></li>
-                                                    <li></li>
+                                                    <li><field name="total_salary"/></li>
+                                                    <li><field name="salary_on_job"/></li>
+                                                    <li><field name="perceived_salary"/></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -302,12 +308,16 @@
                                                 <ul>
                                                     <li>Theoretical:</li>
                                                     <li>Current:</li>
+                                                    <li>Avg. Th.:</li>
+                                                    <li>Avg. Curr.:</li>
                                                 </ul>
                                             </div>
-                                            <div class="col-xs-6" style="text-align: left">
+                                            <div class="col-xs-6" style="text-align: right">
                                                 <ul>
-                                                    <li></li>
-                                                    <li></li>
+                                                    <li><field name="theoretical_cost"/></li>
+                                                    <li><field name="current_cost"/></li>
+                                                    <li><field name="theoretical_cost_avg"/></li>
+                                                    <li><field name="current_cost_avg"/></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -315,7 +325,8 @@
                                 </div>
 
                                 <div class="col-xs-12 o_kanban_card_manage_settings">
-
+                                    <field name="hours_informed" widget="progress" title="Informed Hours" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/>
+                                    <field name="hours_invoice" widget="progress" title="Invoiced Hours" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/>
                                 </div>
                             </div>
                         </t>
