@@ -19,6 +19,35 @@ class AccountBudget(models.Model):
              "reference always then with the execution we can see what "
              "was the real amount in usd."
     )
+    cost_share = fields.Float(
+        default=0.0,
+        help="Percentage that this budget represent of the total "
+             "Employee costs."
+    )
+    budget_income = fields.Float(
+        default=0.0,
+        help="Amount of income earned in this budget."
+    )
+    budget_expense = fields.Float(
+        default=0.0,
+        help="Amount of expense spent in this budget."
+    )
+    executed_income = fields.Float(
+        default=0.0,
+        help="Amount of income executed in this budget."
+    )
+    executed_expense = fields.Float(
+        default=0.0,
+        help="Amount of expense spent in this budget."
+    )
+    cost_per_hour = fields.Float(
+        default=0.0,
+        help="Cost of Employee per hour."
+    )
+    employee_cost = fields.Float(
+        default=0.0,
+        help="Amount of Employee Costs in the company."
+    )
     color = fields.Integer()
 
     _sql_constraints = [
