@@ -10,6 +10,102 @@ def last_day_of_month(any_day):
     return next_month - timedelta(days=next_month.day)
 
 
+class HrDepartment(models.Model):
+
+    _inherit = "hr.department"
+
+    is_cost = fields.Integer(
+        compute='_compute_total_salary',
+        help="Number of employees who are Cost")
+    generate_income = fields.Integer(
+        compute='_compute_total_salary',
+        help="Number of employees who Generate Income")
+    salary_on_job = fields.Float(
+        track_visibility='onchange',
+        compute='_compute_total_salary',
+        inverse='_inverse_total_salary',
+        help="Salary conceptual on job")
+    total_salary = fields.Float(
+        track_visibility='onchange',
+        compute='_compute_total_salary',
+        inverse='_inverse_total_salary',
+        help="How much it is costing after payroll comes in, USD")
+    theoretical_timesheet = fields.Float(
+        default=100.00,
+        track_visibility='onchange',
+        compute='_compute_total_salary',
+        help="Manually computed value to take know how is the effective of "
+             "this person in terms of timesheet use 120 for a great resource "
+             "10 for a newbie")
+    perceived_salary = fields.Float(
+        track_visibility='onchange',
+        compute='_compute_total_salary',
+        inverse='_inverse_total_salary',
+        help="How much this person is receiving monthly, USD")
+    theoretical_cost = fields.Float(
+        compute="_compute_total_salary",
+        track_visibility='onchange',
+        help="Computed cost from the total list of employees")
+    current_cost = fields.Float(
+        compute="_compute_total_salary",
+        track_visibility='onchange',
+        help="Computed cost from the total list of employees")
+    theoretical_cost_avg = fields.Float(
+        compute="_compute_total_salary",
+        track_visibility='onchange',
+        help="Computed cost from the total list of employees")
+    current_cost_avg = fields.Float(
+        compute="_compute_total_salary",
+        track_visibility='onchange',
+        help="Computed cost from the total list of employees")
+    hours_invoice = fields.Float(
+        compute='_compute_total_salary',
+        help="How many hours this person is being reporting")
+    hours_informed = fields.Float(
+        compute='_compute_total_salary',
+        help="How many hours this person is having billable")
+
+    @api.depends()
+    def _compute_total_salary(self):
+        for dep in self:
+            salary_on_job = 0.0
+            total_salary = 0.0
+            perceived_salary = 0.0
+            theoretical_cost = 0.0
+            current_cost = 0.0
+            hours_invoice = 0.0
+            hours_informed = 0.0
+            theoretical_timesheet = 0
+            is_cost = 0
+            generate_income = 0
+            for emp in dep.member_ids:
+                salary_on_job += emp.salary_on_job
+                total_salary += emp.total_salary
+                perceived_salary += emp.perceived_salary
+                theoretical_cost += emp.theoretical_cost
+                current_cost += emp.current_cost
+                hours_invoice += emp.hours_invoice
+                hours_informed += emp.hours_informed
+                theoretical_timesheet += emp.theoretical_timesheet
+                is_cost += int(emp.is_cost)
+                generate_income += int(emp.generate_income)
+            qty = dep.total_employee
+            dep.update(dict(
+                salary_on_job=salary_on_job,
+                total_salary=total_salary,
+                perceived_salary=perceived_salary,
+                theoretical_cost=theoretical_cost,
+                current_cost=current_cost,
+                theoretical_cost_avg=theoretical_cost / qty if qty else 0.0,
+                current_cost_avg=current_cost / qty if qty else 0.0,
+                hours_invoice=hours_invoice,
+                hours_informed=hours_informed,
+                theoretical_timesheet=theoretical_timesheet,
+                is_cost=is_cost,
+                generate_income=generate_income,
+            ))
+
+
 class HrJob(models.Model):
 
     _inherit = "hr.job"
