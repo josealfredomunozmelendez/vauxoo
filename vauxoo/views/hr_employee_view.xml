@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+        <menuitem
+            id="menu_company_briefing"
+            name="Company Briefing"
+            parent="base.menu_board_root"
+            sequence="60"/>
+
         <record id="hr_job_survey" model="ir.ui.view">
             <field name="name">hr.employee.job.wage</field>
             <field name="model">hr.job</field>
@@ -224,7 +230,14 @@
             <field name="view_id" ref="hr_kanban_view_employees"/>
             <field name="act_window_id" ref="action_employee_analysis"/>
         </record>
-        <menuitem action="action_employee_analysis" id="menu_action_employee_analysis" parent="hr.menu_hr_root" sequence="50"/>
+
+        <menuitem
+            action="action_employee_analysis"
+            id="menu_action_employee_analysis"
+            parent="vauxoo.menu_company_briefing"
+            sequence="50"
+            />
+
         <record id="employee_list_action_view" model="ir.actions.act_window.view">
             <field name="sequence" eval="20"/>
             <field name="view_mode">kanban</field>
@@ -358,7 +371,7 @@
         <menuitem
             action="action_job_analysis"
             id="menu_action_job_analysis"
-            parent="hr.menu_hr_root"
+            parent="vauxoo.menu_company_briefing"
             sequence="60"/>
 
         <record model="ir.ui.view" id="hr_kanban_view_department">
@@ -487,6 +500,6 @@
         <menuitem
             action="action_department_analysis"
             id="menu_action_department_analysis"
-            parent="hr.menu_hr_root"
+            parent="vauxoo.menu_company_briefing"
             sequence="60"/>
 </odoo>

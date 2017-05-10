@@ -132,7 +132,22 @@
                 </kanban>
             </field>
         </record>
-        <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
-            <field name="view_mode">kanban,tree,form</field>
+
+        <record id="action_budget_analysis" model="ir.actions.act_window">
+            <field name="name">Cost Budget Analysis</field>
+            <field name="res_model">crossovered.budget</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban</field>
         </record>
+        <record id="budget_analysis_kanban_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="crossovered_budget_view_kanban"/>
+            <field name="act_window_id" ref="action_budget_analysis"/>
+        </record>
+        <menuitem
+            action="action_budget_analysis"
+            id="menu_action_budget_analysis"
+            parent="vauxoo.menu_company_briefing"
+            sequence="60"/>
 </odoo>
