@@ -41,20 +41,12 @@
                     <field name="date_to"/>
                     <field name="company_id"/>
                     <field name="use_cost"/>
+                    <field name="cost_share"/>
+                    <field name="employee_cost"/>
+                    <field name="cost_per_hour"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
-                                <div class="o_dropdown_kanban dropdown">
-                                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
-                                        <span class="fa fa-bars fa-lg"/>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                        <t t-if="widget.deletable">
-                                            <li><a type="delete">Delete</a></li>
-                                        </t>
-                                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
-                                    </ul>
-                                </div>
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)}">
                                 <div class="o_kanban_card_header">
                                     <div class="o_kanban_card_header_title">
                                         <div class="o_primary"><field name="name"/> |
@@ -63,69 +55,92 @@
                                         <i class="fa fa-building-o"/> <b>To</b> <t t-esc="record.company_id.raw_value[1]"/>
                                     </div>
                                 </div>
-                                <div class="container o_kanban_card_content o_visible">
-                                 <div class="row">
-                                     <div style="color: brown" class="col-xs-12">
-                                         <h3><u>Timesheets</u></h3>
-                                     </div>
-                                 </div>
-                                 <div class="row">
-                                    <div style="color: brown" class="col-xs-4">
-                                      <span>Theoretical</span>
-                                    </div>
-                                    <div style="color: brown" class="col-xs-4">
-                                      <span>Invoiceable</span>
-                                    </div>
-                                    <div style="color: brown" class="col-xs-4">
-                                      <span>Informaed</span>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                  <div class="col-xs-6">
-                                      <t t-if="record.use_cost">
-                                       <span title='Percentage that this budget represent of the total Employee costs'>
-                                           33.33%</span><br/>
-                                       <span title='Cost per hour'>
-                                           32.26 USD</span><br/>
-                                       <span title='Expenses'>
-                                           -35.258,26 USD</span><br/>
-                                       <span title='Income'>
-                                           3.258,26 USD</span><br/>
-                                       <span title='Executed expenses'>
-                                           -5.258,26 USD</span><br/>
-                                       <span title='Executed incomes'>
-                                           7.258,26 USD</span><br/>
-                                      </t>
-                                  </div>
-                                  <div class="col-xs-6 text-center">
-                                    <div style="color: green" class="row">
-                                      <div class="col-xs-4">Planned</div>
-                                      <div class="col-xs-4">Real</div>
-                                      <div class="col-xs-4">Practical</div>
-                                      <div class="col-xs-4">35.000.00</div>
-                                      <div class="col-xs-4">1.002</div>
-                                      <div class="col-xs-4">22.000</div>
-                                    </div>
-                                    <div style="color: red" class="row">
-                                      <div class="col-xs-4">Planned</div>
-                                      <div class="col-xs-4">Real</div>
-                                      <div class="col-xs-4">Practical</div>
-                                      <div class="col-xs-4">25.000.00</div>
-                                      <div class="col-xs-4">3.002</div>
-                                      <div class="col-xs-4">19.000</div>
-                                    </div>
+                                <div class="container o_kanban_card_content col-xs-12">
                                     <div class="row">
-                                       <div style="border-right: solid;" class="col-xs-6">
-                                         <span style="font-size: 3em; text-align: left">46.20</span>
-                                       </div>
-                                       <div class="col-xs-6">
-                                         <span style="font-size: 3em; text-align: right">16.35</span>
-                                       </div>
+
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Timesheet</span>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Theoretical</li>
+                                                    <li>Invoiceable</li>
+                                                    <li>Informed</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li/>
+                                                    <li/>
+                                                    <li/>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Budget</span>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Planned</li>
+                                                    <li>Real</li>
+                                                    <li>Practical</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li/>
+                                                    <li/>
+                                                    <li/>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div>
-                                 </div>
                                 </div>
-                                <div class="oe_clear"/>
+                                <div t-if="record.use_cost.raw_value" class="col-xs-12 o_kanban_card_manage_settings">
+                                    <div class="col-xs-12" style="text-align: right">
+                                        <field
+                                            name="cost_share"
+                                            widget="progress"
+                                            title="Cost Share"
+                                            options="{'current_value': 'cost_share', 'max_value': 'employee_cost'}"
+                                            />
+                                    </div>
+                                    <div class="col-xs-12" style="text-align: right">
+                                        <div class="col-xs-6" style="text-align: right">
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Budget Income</li>
+                                                    <li>Exec. Income</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li><field name="budget_income"/></li>
+                                                    <li><field name="executed_income"/></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6" style="text-align: right">
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li>Budget Expense</li>
+                                                    <li>Exec. Expense</li>
+                                                    <li>Cost / hour</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6" style="text-align: right">
+                                                <ul>
+                                                    <li><field name="budget_expense"/></li>
+                                                    <li><field name="executed_expense"/></li>
+                                                    <li><field name="cost_per_hour"/></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </t>
                     </templates>
