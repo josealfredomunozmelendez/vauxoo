@@ -1,5 +1,7 @@
 # Manejo de Proyectos
 
+- [Como crear tareas a través de pedidos de venta](https://youtu.be/CbuO602vxjA)
+
 ## Equipos de Trabajo
 
 Todo el manejo de proyectos se hará a través de los equipos de proyecto.
