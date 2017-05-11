@@ -25,19 +25,19 @@ class AccountBudget(models.Model):
              "Employee costs."
     )
     budget_income = fields.Float(
-        default=0.0,
+        compute='_compute_amount',
         help="Amount of income earned in this budget."
     )
     budget_expense = fields.Float(
-        default=0.0,
+        compute='_compute_amount',
         help="Amount of expense spent in this budget."
     )
     executed_income = fields.Float(
-        default=0.0,
+        compute='_compute_amount',
         help="Amount of income executed in this budget."
     )
     executed_expense = fields.Float(
-        default=0.0,
+        compute='_compute_amount',
         help="Amount of expense spent in this budget."
     )
     cost_per_hour = fields.Float(
@@ -48,7 +48,21 @@ class AccountBudget(models.Model):
         default=0.0,
         help="Amount of Employee Costs in the company."
     )
-    color = fields.Integer()
+    planned_amount = fields.Float(
+        compute='_compute_amount',
+        help='Planned Amount for this Budget'
+    )
+    practical_amount = fields.Float(
+        compute='_compute_amount',
+        help='Practical Amount for this Budget'
+    )
+    theoretical_amount = fields.Float(
+        compute='_compute_amount',
+        help='Theoretical Amount for this Budget'
+    )
+    color = fields.Integer(
+        help="Color"
+    )
 
     _sql_constraints = [
         ('rate_usd_exist',
@@ -56,6 +70,36 @@ class AccountBudget(models.Model):
          'A negative or zero rate does not make sense please try a proper '
          'value.')
     ]
+
+    @api.depends()
+    def _compute_amount(self):
+        for budget in self:
+            planned_amount = 0.0
+            practical_amount = 0.0
+            theoretical_amount = 0.0
+            budget_income = 0.0
+            budget_expense = 0.0
+            executed_income = 0.0
+            executed_expense = 0.0
+            for cbl in budget.crossovered_budget_line:
+                planned = cbl.planned_amount
+                practical = cbl.practical_amount
+                planned_amount += planned
+                practical_amount += practical
+                theoretical_amount += cbl.theoritical_amount
+                budget_income += planned if planned > 0 else 0
+                budget_expense += planned if planned < 0 else 0
+                executed_income += practical if practical > 0 else 0
+                executed_expense += practical if practical < 0 else 0
+            budget.update(dict(
+                planned_amount=planned_amount,
+                practical_amount=practical_amount,
+                theoretical_amount=theoretical_amount,
+                budget_income=budget_income,
+                budget_expense=budget_expense,
+                executed_income=executed_income,
+                executed_expense=executed_expense,
+            ))
 
 
 class AccountBudgetLine(models.Model):
