@@ -24,6 +24,18 @@ class AccountBudget(models.Model):
         help="Percentage that this budget represent of the total "
              "Employee costs."
     )
+    theoretical_timesheet = fields.Float(
+        compute='_compute_amount',
+        help="Summarize theoretical timesheet on employees which are cost."
+    )
+    hours_invoice = fields.Float(
+        compute='_compute_amount',
+        help="Summarize Invoiceable Hours on employees which are cost."
+    )
+    hours_informed = fields.Float(
+        compute='_compute_amount',
+        help="Summarize Informed Hours on employees which are cost."
+    )
     budget_income = fields.Float(
         compute='_compute_amount',
         help="Amount of income earned in this budget."
@@ -41,11 +53,11 @@ class AccountBudget(models.Model):
         help="Amount of expense spent in this budget."
     )
     cost_per_hour = fields.Float(
-        default=0.0,
+        compute='_compute_amount',
         help="Cost of Employee per hour."
     )
     employee_cost = fields.Float(
-        default=0.0,
+        compute='_compute_amount',
         help="Amount of Employee Costs in the company."
     )
     planned_amount = fields.Float(
@@ -73,6 +85,13 @@ class AccountBudget(models.Model):
 
     @api.depends()
     def _compute_amount(self):
+        emp_obj = self.env['hr.employee']
+        emp_ids = emp_obj.search([('is_cost', '=', True)])
+        theoretical_timesheet = sum(emp_ids.mapped('theoretical_timesheet'))
+        hours_invoice = sum(emp_ids.mapped('hours_invoice'))
+        hours_informed = sum(emp_ids.mapped('hours_informed'))
+        employee_cost = sum([
+            emp.current_cost * emp.hours_informed for emp in emp_ids])
         for budget in self:
             planned_amount = 0.0
             practical_amount = 0.0
@@ -91,14 +110,21 @@ class AccountBudget(models.Model):
                 budget_expense += planned if planned < 0 else 0
                 executed_income += practical if practical > 0 else 0
                 executed_expense += practical if practical < 0 else 0
+            cost_per_hour=(
+                employee_cost / hours_informed if hours_informed else 0.0)
             budget.update(dict(
                 planned_amount=planned_amount,
                 practical_amount=practical_amount,
                 theoretical_amount=theoretical_amount,
                 budget_income=budget_income,
-                budget_expense=budget_expense,
+                budget_expense=-budget_expense,
                 executed_income=executed_income,
-                executed_expense=executed_expense,
+                executed_expense=-executed_expense,
+                theoretical_timesheet=theoretical_timesheet,
+                hours_invoice=hours_invoice,
+                hours_informed=hours_informed,
+                employee_cost=employee_cost,
+                cost_per_hour=cost_per_hour,
             ))
 
 

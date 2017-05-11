@@ -43,6 +43,7 @@
                     <field name="use_cost"/>
                     <field name="cost_share"/>
                     <field name="employee_cost"/>
+                    <field name="budget_expense"/>
                     <field name="cost_per_hour"/>
                     <templates>
                         <t t-name="kanban-box">
@@ -71,9 +72,9 @@
                                             </div>
                                             <div class="col-xs-6" style="text-align: right">
                                                 <ul>
-                                                    <li/>
-                                                    <li/>
-                                                    <li/>
+                                                    <li><field name="theoretical_timesheet"/></li>
+                                                    <li><field name="hours_invoice"/></li>
+                                                    <li><field name="hours_informed"/></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -105,7 +106,7 @@
                                             name="cost_share"
                                             widget="progress"
                                             title="Cost Share"
-                                            options="{'current_value': 'cost_share', 'max_value': 'employee_cost'}"
+                                            options="{'current_value': 'budget_expense', 'max_value': 'employee_cost'}"
                                             />
                                     </div>
                                     <div class="col-xs-12" style="text-align: right">
@@ -129,6 +130,7 @@
                                                     <li>Budget Expense</li>
                                                     <li>Exec. Expense</li>
                                                     <li>Cost / hour</li>
+                                                    <li>Employee Cost</li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-6" style="text-align: right">
@@ -136,6 +138,7 @@
                                                     <li><field name="budget_expense"/></li>
                                                     <li><field name="executed_expense"/></li>
                                                     <li><field name="cost_per_hour"/></li>
+                                                    <li><field name="employee_cost"/></li>
                                                 </ul>
                                             </div>
                                         </div>
