@@ -1,6 +1,7 @@
 # Manejo de Proyectos
 
 - [Como crear tareas a través de pedidos de venta](https://youtu.be/CbuO602vxjA)
+- [Como los clientes ven las cotizaciones desde el dashboard portal](https://youtu.be/oBSeZg8gMtA)
 
 ## Equipos de Trabajo
 
