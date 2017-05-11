@@ -36,21 +36,29 @@ class AccountBudget(models.Model):
         compute='_compute_amount',
         help="Summarize Informed Hours on employees which are cost."
     )
-    budget_income = fields.Float(
+    planned_income = fields.Float(
         compute='_compute_amount',
         help="Amount of income earned in this budget."
     )
-    budget_expense = fields.Float(
+    planned_expense = fields.Float(
         compute='_compute_amount',
         help="Amount of expense spent in this budget."
     )
-    executed_income = fields.Float(
+    practical_income = fields.Float(
         compute='_compute_amount',
         help="Amount of income executed in this budget."
     )
-    executed_expense = fields.Float(
+    practical_expense = fields.Float(
         compute='_compute_amount',
         help="Amount of expense spent in this budget."
+    )
+    theoretical_income = fields.Float(
+        compute='_compute_amount',
+        help="Amount of income expected in this budget."
+    )
+    theoretical_expense = fields.Float(
+        compute='_compute_amount',
+        help="Amount of expense expected in this budget."
     )
     cost_per_hour = fields.Float(
         compute='_compute_amount',
@@ -96,30 +104,37 @@ class AccountBudget(models.Model):
             planned_amount = 0.0
             practical_amount = 0.0
             theoretical_amount = 0.0
-            budget_income = 0.0
-            budget_expense = 0.0
-            executed_income = 0.0
-            executed_expense = 0.0
+            planned_income = 0.0
+            planned_expense = 0.0
+            practical_income = 0.0
+            practical_expense = 0.0
+            theoretical_income = 0.0
+            theoretical_expense = 0.0
             for cbl in budget.crossovered_budget_line:
                 planned = cbl.planned_amount
                 practical = cbl.practical_amount
+                theoretical = cbl.theoritical_amount
                 planned_amount += planned
                 practical_amount += practical
-                theoretical_amount += cbl.theoritical_amount
-                budget_income += planned if planned > 0 else 0
-                budget_expense += planned if planned < 0 else 0
-                executed_income += practical if practical > 0 else 0
-                executed_expense += practical if practical < 0 else 0
-            cost_per_hour=(
+                theoretical_amount += theoretical
+                planned_income += planned if planned > 0 else 0
+                planned_expense += planned if planned < 0 else 0
+                practical_income += practical if practical > 0 else 0
+                practical_expense += practical if practical < 0 else 0
+                theoretical_income += theoretical if theoretical > 0 else 0
+                theoretical_expense += theoretical if theoretical < 0 else 0
+            cost_per_hour = (
                 employee_cost / hours_informed if hours_informed else 0.0)
             budget.update(dict(
                 planned_amount=planned_amount,
                 practical_amount=practical_amount,
                 theoretical_amount=theoretical_amount,
-                budget_income=budget_income,
-                budget_expense=-budget_expense,
-                executed_income=executed_income,
-                executed_expense=-executed_expense,
+                planned_income=planned_income,
+                planned_expense=-planned_expense,
+                practical_income=practical_income,
+                practical_expense=-practical_expense,
+                theoretical_income=theoretical_income,
+                theoretical_expense=-theoretical_expense,
                 theoretical_timesheet=theoretical_timesheet,
                 hours_invoice=hours_invoice,
                 hours_informed=hours_informed,
