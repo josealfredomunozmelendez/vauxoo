@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
         <record id="create_task_from_ticket_automation" model="base.automation">
             <field name="name">Create task from ticket</field>
@@ -10,5 +9,4 @@
             <field name="action_server_id" ref="vauxoo.create_task_from_ticket_action"/>
         </record>
 
-    </data>
-</openerp>
+</odoo>

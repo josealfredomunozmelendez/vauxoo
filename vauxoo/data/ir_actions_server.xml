@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
         <record id="create_task_from_ticket_action" model="ir.actions.server">
             <field name="name">Create task from ticket</field>
@@ -33,5 +32,4 @@ for ticket in records:
     ticket.write({"task_id": task.id})</field>
         </record>
 
-    </data>
-</openerp>
+</odoo>

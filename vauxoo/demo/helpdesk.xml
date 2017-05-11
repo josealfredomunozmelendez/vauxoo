@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
         <record id="helpdesk.helpdesk_team1" model="helpdesk.team">
             <field name="name">Support</field>
@@ -25,5 +24,4 @@
             <field name="alias_name">infrastructure-support</field>
         </record>
 
-    </data>
-</openerp>
+</odoo>

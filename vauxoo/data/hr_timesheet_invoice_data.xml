@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
+<odoo noupdate="1">
+
         <record id="timesheet_invoice_factor1" model="hr_timesheet_invoice.factor">
             <field name="name">Yes (100%)</field>
             <field name="customer_name">100%</field>
@@ -37,5 +37,4 @@
             <field name="factor">100.0</field>
         </record>
 
-    </data>
-</openerp>
+</odoo>

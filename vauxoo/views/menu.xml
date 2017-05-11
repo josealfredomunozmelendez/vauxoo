@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+
         <menuitem name="Website Menus"
                   id="menu_website_menu"
                   parent="website.menu_website_configuration"
@@ -19,5 +19,5 @@
                   parent="account.account_account_menu"
                   action="action_invoice_rates"
                   sequence='100'/>
-    </data>
+
 </odoo>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
        <record id="product_uom_week" model="product.uom">
             <field name="name">Week(s)</field>
@@ -9,5 +8,4 @@
             <field name="uom_type">bigger</field>
         </record>
 
-    </data>
-</openerp>
+</odoo>

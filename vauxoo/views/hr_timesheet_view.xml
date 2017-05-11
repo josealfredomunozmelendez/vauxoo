@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <data>
+
         <record id="timesheet_search_view_filters" model="ir.ui.view">
             <field name="name">timesheet.search.view.filters</field>
             <field name="model">account.analytic.line</field>
@@ -36,5 +36,5 @@
                 </xpath>
             </field>
         </record>
-    </data>
+
 </odoo>

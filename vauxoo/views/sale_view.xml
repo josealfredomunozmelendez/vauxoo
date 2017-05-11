@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
+
         <record model="ir.ui.view" id="view_order_form">
             <field name="name">sale.order.note2html.form</field>
             <field name="model">sale.order</field>
@@ -29,5 +29,5 @@
                 </xpath>
             </field>
         </record>
-    </data>
-</openerp>
+
+</odoo>
