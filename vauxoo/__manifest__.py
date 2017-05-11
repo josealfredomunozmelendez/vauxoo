@@ -34,8 +34,9 @@
         "hr_timesheet_sheet",
 
         # Localizations
-
-        "l10n_mx_edi",
+        # TODO uncoment after Vauxoo/enterprise#75 merged or Vauxoo/enterprise 
+        # updated with odoo#1000
+        # "l10n_mx_edi",
         "l10n_mx_reports",
 
         # Website modules
