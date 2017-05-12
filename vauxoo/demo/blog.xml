@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- TAGS -->
+        <record id="blog_tag_1" model="blog.tag">
+            <field name="name">innovation</field>
+        </record>
+        <record id="blog_tag_2" model="blog.tag">
+            <field name="name">tools</field>
+        </record>
+
+        <!-- POSTS -->
+        <record id="blog_post_1" model="blog.post">
+            <field name="name">Hello World</field>
+            <field name="subtitle">Get to know Odoo</field>
+            <field name="blog_id" ref="blog_blog_vauxoo_news"/>
+            <field name="tag_ids" eval="[(6, 0, [ref('blog_tag_1')])]"/>
+            <field name="website_published" eval="True"/>
+            <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="website_meta_keywords">MetaKeyboard1, Metakeybord2</field>
+            <field name="website_meta_description">Hello World</field>
+            <field name="content"><![CDATA[
+<section class="s_text_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 mb16 mt16">
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis
+nibh vitae ex malesuada egestas. Duis a magna orci. Ut tristique erat nisi, nec
+tristique est fringilla vel. Pellentesque luctus varius turpis, ultricies
+vulputate turpis accumsan ac. Morbi lobortis, tortor non tristique placerat,
+nibh mi sollicitudin lorem, sit amet molestie est turpis eget lorem. Integer
+commodo nunc vel tellus finibus, efficitur tristique mi elementum. Curabitur
+tortor mauris, egestas nec porta nec, posuere mollis tortor. Donec sodales
+sollicitudin ante. Duis rutrum nibh sapien, eu vulputate nulla pellentesque sit
+amet. Sed congue lacus eget lectus malesuada interdum. </p>
+
+<p> Etiam facilisis efficitur imperdiet. Sed ultrices diam arcu, ac ultricies
+lacus feugiat sit amet. Sed dapibus, augue quis accumsan feugiat, eros diam
+rutrum lorem, a aliquet nulla neque eget enim. Donec facilisis turpis eget
+rutrum congue. Aliquam tincidunt ultrices mauris vel rhoncus. Praesent
+porttitor mi purus, imperdiet sodales enim laoreet egestas. Suspendisse
+potenti. Praesent imperdiet sit amet nisi eu pretium. Cras vel orci leo. Nulla
+eget odio convallis, laoreet felis efficitur, interdum justo. Aliquam
+dignissim, nulla vel ultricies elementum, felis elit consectetur justo, sit
+amet rutrum mauris nulla non elit. Donec eu risus tempor, vestibulum turpis
+vitae, accumsan elit. Quisque pellentesque velit diam, at elementum est
+dignissim ut. Aliquam eros nibh, venenatis eget sollicitudin at, porta ac
+ligula. </p>
+
+<p> Pellentesque semper sodales enim. Proin vitae arcu sapien. Ut ligula velit,
+laoreet non neque ac, tristique accumsan odio. Nam quis volutpat libero. In
+volutpat purus nec nunc interdum, non posuere felis tristique. Mauris ut mi nec
+arcu gravida vestibulum et quis orci. Vivamus blandit lacinia lacus a
+imperdiet. Curabitur lobortis, est interdum ornare tincidunt, nisi felis mollis
+sem, sed malesuada ante dolor a dolor. In et lectus sit amet odio dapibus
+sagittis vel sit amet nibh. Sed eu pretium libero, sit amet sagittis est. Donec
+maximus sed mauris vel varius. Aliquam faucibus nisl at arcu rutrum viverra.
+</p>
+
+<p> Aenean sit amet erat at justo porttitor hendrerit at fermentum leo.
+Maecenas ultrices odio id nunc pulvinar tristique. Integer lacinia auctor elit,
+eu fermentum libero euismod sit amet. Integer feugiat est in justo interdum
+gravida. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+per inceptos himenaeos. Fusce at orci condimentum, consequat nulla eu, ultrices
+dolor. Maecenas malesuada lorem eget nibh consectetur, et consequat quam
+consectetur. In mollis, metus vitae vehicula rhoncus, dui lorem consectetur
+lectus, blandit viverra nisi nisl nec nisi. Curabitur non iaculis felis, sit
+amet maximus turpis. Aenean eget rhoncus velit. In hac habitasse platea
+dictumst. Quisque pellentesque turpis non erat cursus, eget facilisis nisi
+lobortis. </p>
+
+<p> Nulla facilisi. Curabitur rhoncus nibh enim, et finibus dolor aliquam eu.
+Integer egestas vehicula sem sed vehicula. Vestibulum vel semper orci, sed
+cursus tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Suspendisse vitae nulla nec dolor laoreet mattis non id ex. Sed pellentesque
+neque mi, vel ultricies enim dignissim sed. Vivamus a dictum est. Aliquam eget
+magna eget urna tempus tempus. Donec vestibulum risus ac vestibulum commodo.
+Curabitur eu tincidunt mauris. Morbi sodales a ligula sed finibus. Sed viverra
+nisi non tincidunt tristique. Mauris posuere est turpis, sit amet lacinia
+ligula lacinia quis. Fusce ac ligula vitae ligula bibendum auctor at eget eros.
+</p>
+            </div>
+        </div>
+    </div>
+</section>
+]]>
+            </field>
+        </record>
+
+        <record id="blog_post_2" model="blog.post">
+            <field name="name">Before Vim... After Vim</field>
+            <field name="subtitle">Programmer's Landmark</field>
+            <field name="blog_id" ref="blog_blog_technical_hacks"/>
+            <field name="website_published" eval="True"/>
+            <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="tag_ids" eval="[(6, 0, [ref('blog_tag_2')])]"/>
+            <field name="content"><![CDATA[
+<section class="s_text_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 mb16 mt16">
+<p> Fusce quis leo neque. Nunc sed molestie risus, semper accumsan odio.
+Vestibulum augue justo, lobortis id elementum sit amet, suscipit sodales
+ligula. Etiam ultricies turpis et diam cursus commodo sit amet eu ante. Sed
+rhoncus sem consequat, fermentum nisl et, fringilla tortor. Maecenas a nisi ac
+tortor vehicula pellentesque vitae nec metus. Nullam gravida orci eget ligula
+consequat convallis nec sed tellus. Cras tempor tortor dolor, nec eleifend
+felis pulvinar et. Sed sit amet sem ac purus bibendum vulputate. Pellentesque
+id sapien dictum, laoreet est ut, viverra sapien. Quisque eget massa a ipsum
+sollicitudin lobortis. Proin nec ornare urna. Praesent non nibh lobortis,
+malesuada purus in, tincidunt velit. Cras accumsan scelerisque ante, sit amet
+mole>stie nulla commodo id. </p>
+
+<p> Nam non est consequat, blandit nisl id, placerat est. Nulla facilisi. Nunc
+cursus sem ante, quis laoreet velit tincidunt ac. Morbi quis orci nec nisl
+condimentum lacinia. Sed ullamcorper lobortis arcu ut sodales. Integer vel est
+ultricies augue bibendum venenatis vel vel velit. Vivamus accumsan id eros ac
+lacinia. Aenean tincidunt mauris a nisi aliquet, et efficitur ipsum
+condimentum. Morbi sapien sapien, eleifend tincidunt semper in, consequat vel
+leo. Morbi aliquam consequat nisi a mollis. Vestibulum placerat turpis in
+turpis interdum interdum. Proin tempor ipsum id est accumsan, vitae finibus
+elit venenatis. Nullam a erat condimentum est rhoncus iaculis nec non lorem.
+Aenean efficitur, nisl id rhoncus suscipit, odio ex scelerisque erat, in
+venenatis diam felis sit amet ligula. Nulla scelerisque dolor eget erat porta,
+quis dictum felis lacinia. Nulla auctor turpis feugiat consectetur tristique.
+</p>
+
+<p> Aenean facilisis elit at sem congue lobortis. Phasellus volutpat iaculis
+nulla nec aliquam. Integer a sollicitudin urna. Morbi fringilla, lorem eget
+venenatis vulputate, lacus felis blandit leo, eget lacinia nisi lacus ac augue.
+Cras metus orci, tincidunt vel ornare et, laoreet at mauris. Donec aliquet
+velit dui, ut efficitur nibh laoreet sit amet. Maecenas mattis massa non leo
+mattis, sit amet consequat ipsum congue. Suspendisse non imperdiet nibh, ut
+blandit purus. Pellentesque massa elit, dapibus ac efficitur non, porta non
+sapien. Sed faucibus elementum commodo. In hac habitasse platea dictumst.
+Nullam bibendum ante non arcu lacinia sodales. Etiam feugiat orci non ante
+gravida pretium. </p>
+
+<p> Sed efficitur mi metus, vitae semper erat condimentum ut. Cras vulputate
+elit sed libero suscipit gravida sit amet in metus. Integer tortor tortor,
+pulvinar in nisl nec, cursus finibus ipsum. Nunc a faucibus erat. Suspendisse
+potenti. Aenean ultrices lobortis libero, nec viverra felis cursus ut.
+Phasellus aliquet velit lacinia diam congue malesuada. Donec congue nisl sed
+odio gravida, a commodo nulla luctus. Cras vehicula magna nisi, sit amet
+egestas tellus mollis non. Ut sodales, dolor rhoncus suscipit egestas, massa
+tellus elementum erat, a ullamcorper magna dolor ac arcu. Aenean auctor elit ac
+cursus pulvinar. Duis vel velit quis massa egestas consequat. Maecenas ac orci
+a lacus vehicula fringilla. Curabitur non felis orci. </p>
+
+<p> Aliquam erat mi, suscipit eget pellentesque at, dapibus eu diam. Etiam
+suscipit interdum dui, at vehicula ligula aliquet non. Quisque ligula ex,
+tincidunt mattis tincidunt non, gravida sit amet turpis. Proin sit amet
+sollicitudin sapien. Nam tortor quam, venenatis tempor est et, condimentum
+dictum ex. Integer tincidunt nibh elit, eget dignissim nisi ultricies vitae. In
+hac habitasse platea dictumst. Nulla ultrices ullamcorper nisl, et iaculis
+neque feugiat sed. Maecenas hendrerit, eros in imperdiet vestibulum, nunc leo
+consequat massa, vel imperdiet lorem nunc sed est. Praesent laoreet ut leo eget
+accumsan. Aliquam iaculis bibendum urna. Integer eu erat efficitur, rutrum
+turpis eget, malesuada lorem. Nunc a interdum risus. </p>
+            </div>
+        </div>
+    </div>
+</section>
+]]>
+            </field>
+        </record>
+
+        <record id="blog_post_3" model="blog.post">
+            <field name="name">Next Activities Philosophy</field>
+            <field name="subtitle">Always set the next thing to do</field>
+            <field name="blog_id" ref="blog_blog_functional_hacks"/>
+            <field name="website_published" eval="True"/>
+            <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="tag_ids" eval="[(6, 0, [ref('blog_tag_1')])]"/>
+            <field name="content"><![CDATA[
+<section class="s_text_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 mb16 mt16">
+
+<p> Duis urna enim, aliquam in dapibus ac, volutpat eu magna. Duis molestie
+erat eu sem vestibulum dictum. Nam nibh tortor, ornare nec est ac, scelerisque
+efficitur massa. Ut faucibus euismod efficitur. Sed vel fermentum arcu. Nulla
+id ullamcorper nisi, at ultricies turpis. Proin tristique mollis urna sed
+imperdiet. Nulla cursus posuere volutpat. Aenean eu dolor lacus. Aenean quam
+diam, pretium in odio ut, rutrum imperdiet velit. Curabitur dignissim lectus
+vel libero egestas rutrum. Morbi vel nunc mattis, volutpat ex vel, dictum est.
+Phasellus euismod sollicitudin lacus, id mollis nisi ultrices et. Aenean mi
+velit, posuere vel mollis non, aliquet in eros. </p>
+
+<p> Integer eget rhoncus sem, et maximus felis. Suspendisse potenti. Morbi
+viverra, orci quis finibus efficitur, diam sem dapibus felis, ac interdum lorem
+risus id velit. Phasellus id turpis mollis orci convallis vestibulum. Donec
+pharetra erat sit amet felis feugiat, id suscipit purus vestibulum. Mauris
+pellentesque enim nec lacus accumsan venenatis. Interdum et malesuada fames ac
+ante ipsum primis in faucibus. Vestibulum eu rutrum erat, non porta sem.
+Phasellus ullamcorper volutpat efficitur. Quisque ut urna facilisis nunc
+suscipit hendrerit nec nec est. Duis fermentum mollis ipsum, id lobortis ante
+molestie quis. </p>
+
+<p> Pellentesque porta mollis erat. Cras congue porta erat, in aliquam eros
+iaculis ut. Proin sit amet dolor ligula. Phasellus efficitur enim non quam
+luctus, eget dictum lectus efficitur. Curabitur blandit tempor neque ac
+commodo. Sed sit amet metus vel lacus elementum venenatis. Integer laoreet dui
+et lacus bibendum congue. Morbi cursus viverra ante, et vestibulum mi aliquam
+at. </p>
+
+<p> Curabitur interdum dolor ac fringilla lobortis. Sed sit amet purus non
+nibh pellentesque accumsan. Cras maximus cursus dignissim. Morbi pulvinar risus
+eget tellus pellentesque, eget bibendum massa tempor. Donec ullamcorper
+faucibus nibh quis volutpat. Duis id sapien tortor. Etiam pellentesque augue in
+ligula sodales, mattis sollicitudin orci porta. Morbi ultrices mauris molestie
+dui varius, eu auctor leo lacinia. Donec ut nisi nulla. Vivamus rutrum tempor
+ante id volutpat. Vestibulum pharetra vestibulum diam in ultricies. Duis
+sodales ut tortor nec blandit. </p>
+
+<p> In gravida iaculis lorem id consequat. Phasellus eget elementum orci.
+Donec egestas ipsum eget ligula dapibus, eget gravida nibh semper. Aenean eros
+lectus, egestas vel molestie eu, suscipit quis ipsum. Sed non lacinia justo, ut
+imperdiet lectus. Nam condimentum faucibus odio, nec semper arcu condimentum
+nec. Aenean fringilla, augue at sodales interdum, mi enim finibus sem, sit amet
+molestie justo libero quis odio. In non sapien at massa varius condimentum ac
+sit amet eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Sed vel viverra purus. Suspendisse viverra iaculis augue nec elementum.V </p>
+            </div>
+        </div>
+    </div>
+</section>
+]]>
+            </field>
+        </record>
+
+        <record id="blog_post_4" model="blog.post">
+            <field name="name">Vauxoo Bistro</field>
+            <field name="subtitle">Success Restaurant Management with Odoo</field>
+            <field name="blog_id" ref="blog_blog_customer_cases"/>
+            <field name="website_published" eval="True"/>
+            <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="tag_ids" eval="[(6, 0, [ref('blog_tag_1')])]"/>
+            <field name="content"><![CDATA[
+<section class="s_text_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 mb16 mt16">
+<p> Donec id convallis eros, sit amet lacinia urna. Integer gravida, ipsum in
+luctus rhoncus, sapien tellus auctor lacus, a dictum diam nunc vel ex. Nulla
+tincidunt facilisis elementum. Aliquam eget laoreet sapien, vel pretium nulla.
+Donec accumsan blandit massa quis tincidunt. Integer suscipit dictum sapien,
+vitae gravida elit facilisis nec. Ut sit amet elit congue neque efficitur
+finibus sit amet volutpat augue. Nullam auctor lacus vitae tincidunt tincidunt.
+Nullam convallis metus molestie magna rutrum, et euismod ligula dapibus.
+Vestibulum sed orci porttitor, malesuada erat eget, consequat mauris.
+Suspendisse potenti. Nunc scelerisque sit amet massa a mattis. Maecenas non
+lectus elementum, sollicitudin nibh sit amet, suscipit felis. </p>
+
+<p> Mauris lobortis commodo diam sit amet hendrerit. Maecenas rutrum arcu quis
+purus accumsan semper. In in molestie nisi. Suspendisse pulvinar turpis
+venenatis sapien lacinia lacinia. Morbi interdum eleifend eros, semper
+vestibulum augue feugiat ut. Quisque aliquet orci molestie suscipit tempus.
+Suspendisse hendrerit lacus nunc, vitae egestas erat pulvinar ac. Maecenas
+blandit nulla purus, ut pharetra sapien ornare sit amet. Sed a rhoncus risus.
+Integer pharetra enim non pellentesque pretium. Suspendisse quis luctus lacus,
+facilisis faucibus diam. Duis at luctus nisl. Sed auctor arcu nec metus
+tristique, a scelerisque mi molestie. Aliquam facilisis maximus volutpat. Ut
+eleifend id lectus in accumsan. Morbi efficitur lectus est, a laoreet nibh
+dignissim et. </p>
+
+<p> Donec a risus sed massa rhoncus pulvinar. Donec consectetur molestie leo,
+nec dapibus arcu sollicitudin sit amet. Vestibulum blandit non urna ac aliquet.
+Fusce eget luctus neque, id sodales ligula. Proin ut felis interdum,
+sollicitudin neque et, ullamcorper magna. Suspendisse non feugiat justo. Donec
+pulvinar augue eget tristique fringilla. Duis maximus, turpis eget bibendum
+lacinia, tellus ipsum tristique lorem, et cursus urna magna et justo. Proin
+finibus convallis eros vitae aliquam. Suspendisse vel maximus nibh. </p>
+
+<p> Maecenas ac molestie neque, feugiat pretium ex. Phasellus maximus, nibh
+eget pellentesque dapibus, nulla mauris rutrum tellus, ac viverra eros nunc ut
+leo. Fusce dictum placerat pharetra. Suspendisse eleifend dolor et semper
+viverra. Praesent malesuada sit amet nulla ut varius. Sed blandit ut nibh a
+dictum. Vestibulum vitae ante vitae tellus euismod sodales sit amet vel mi.
+Duis dapibus leo imperdiet hendrerit congue. Ut sodales nulla in eros eleifend,
+a rhoncus lacus facilisis. Morbi commodo semper elit vitae tempus. Sed at elit
+et orci fringilla feugiat. Nunc bibendum porta metus, quis gravida nulla
+placerat in. </p>
+
+<p> Sed id felis vel nisl pellentesque accumsan sit amet a nunc. Curabitur id
+augue elit. Morbi et turpis non lectus dignissim tempus. Phasellus est felis,
+mattis nec tellus quis, aliquam interdum mauris. Nulla vitae ligula eu enim
+mattis tristique. In fermentum auctor lectus ut tempor. Proin eu vulputate
+turpis. Vestibulum maximus nibh in ligula porta, eu eleifend risus consequat.
+Donec faucibus justo eu semper imperdiet. Integer a gravida tellus. In
+elementum elementum libero, vel mollis nunc consectetur sed. Nam a arcu nulla.
+Vestibulum porttitor, augue eu lacinia molestie, leo dolor porttitor mauris, in
+iaculis nisi arcu vel lorem. Aliquam ultricies arcu sit amet metus suscipit, ac
+venenatis felis bibendum. </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+]]>
+            </field>
+        </record>
+
+</odoo>
