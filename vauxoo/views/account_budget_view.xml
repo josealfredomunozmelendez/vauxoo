@@ -195,7 +195,7 @@
             <field name="name">Cost Budget Analysis</field>
             <field name="res_model">crossovered.budget</field>
             <field name="view_type">form</field>
-            <field name="view_mode">kanban</field>
+            <field name="view_mode">kanban,tree,form</field>
         </record>
         <record id="budget_analysis_kanban_view" model="ir.actions.act_window.view">
             <field name="sequence" eval="20"/>
