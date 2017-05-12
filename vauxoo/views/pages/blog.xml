@@ -31,8 +31,8 @@
             </section>
         </xpath>
         <xpath expr="//div[@class='container']" position="before">
-            <data id="transparency" data-transparent="transparent"/>
-            <t t-set="carousel_posts" t-value="env['blog.post'].search([], limit=5)"/>
+            <t t-set="carousel_posts" t-value="blog_posts[:5] if not active_tag_ids else blog_posts"/>
+            <data t-if="carousel_posts" id="transparency" data-transparent="transparent"/>
             <div class="carousel slide text-center" data-ride="carousel" id="blogs_carousel">
                 <ol class="carousel-indicators">
                     <t t-set="idx" t-value="0"/>
