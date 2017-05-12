@@ -257,6 +257,21 @@ class HrEmployee(models.Model):
     hours_informed = fields.Float(
         compute='_compute_timesheet_average',
         help="How many hours this person is having billable")
+    employee_badge_ids = fields.One2many(
+        'gamification.badge',
+        string='Employee Badge',
+        compute='_compute_employee_badges',
+        help='Field to hold all employee badges'
+    )
+
+    @api.depends('direct_badge_ids', 'user_id.badge_ids.employee_id')
+    def _compute_employee_badges(self):
+        super(HrEmployee, self)._compute_employee_badges()
+        res = dict.fromkeys(self.ids, self.env['gamification.badge'])
+        for employee in self:
+            for badge in employee.badge_ids:
+                res[employee.id] |= badge.badge_id
+            employee.employee_badge_ids = res[employee.id]
 
     @api.multi
     def _inverse_total_salary(self):
@@ -297,7 +312,7 @@ class HrEmployee(models.Model):
         hours_billable = sum(employees_generate.mapped('hours_invoice'))
         budgeted = -sum(budgets.mapped('crossovered_budget_line').filtered(
             lambda line: line.planned_amount < 0.0).mapped('amount_usd'))
-        cost = hours and float((theoretical + budgeted) / hours) or 0.00
+        cost = float((theoretical + budgeted) / hours) if hours else 0.00
         cost_real = hours_real and float((salaries + budgeted)/hours_real)
         cost_billable = hours_real and float(
             (salaries + budgeted)/hours_billable)
