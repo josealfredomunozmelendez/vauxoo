@@ -224,9 +224,31 @@ p {
     }
 }
 .mtvh {
-    margin-top: 60vh;
+    margin-top: 55vh;
+}
+.blog-list {
+    a.active {
+        font-weight: 600;
+        color: @brand-primary;
+    }
+}
+.blog-tag {
+    background-color: @brand-primary;
+    color: @vauxoo-white;
+    top: 7px;
+    font-size: 16px;
+    padding: 6px;
+    position: relative;
+    font-weight: 600;
+    &:hover, &:active {
+        text-decoration: none;
+        color: @vauxoo-white;
+    }
 }
 .blog-post-retina {
+    .blog-tag {
+        font-weight: 500;
+    }
     .card-image {
             background-repeat: no-repeat;
             background-size: cover;
@@ -238,17 +260,7 @@ p {
     .padded-section {
         padding: 15px;
     }
-    .blog-tag {
-        background-color: @brand-primary;
-        color: @vauxoo-white;
-        top: 7px;
-        font-size: 16px;
-        padding: 6px;
-        position: relative;
-        &:hover {
-            text-decoration: none;
-        }
-    }
+
 }
 .footer-subscribe {
     height: 250px;

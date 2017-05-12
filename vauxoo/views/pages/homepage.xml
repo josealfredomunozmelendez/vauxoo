@@ -150,6 +150,11 @@
                   </a>
                 </div>
               </div>
+              <div class="row text-center arrow-scroll-down-center">
+                  <a href="#pre-footer" class="smoothly">
+                      <img src="/web/image/theme_vauxoo.scroll-down-dark"></img>
+                  </a>
+              </div>
             </div>
           </div>
         </div>
@@ -166,7 +171,7 @@
           </div>
         </div>
       </div>
-      <section class="s_body_content bg-white bg-cream horizontal">
+      <section class="s_body_content bg-white bg-cream horizontal" id="pre-footer">
         <div class="container">
           <div class="row text-center">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

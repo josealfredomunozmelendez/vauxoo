@@ -840,7 +840,7 @@ msgstr "Currency on report"
 #. module: vauxoo
 #: model:blog.blog,name:vauxoo.blog_blog_customer_cases
 msgid "Customer Cases"
-msgstr "Casos de Nuestros Clientes"
+msgstr "Casos de Éxito"
 
 #. module: vauxoo
 #: model:product.attribute.value,name:vauxoo.product_attribute_value_DHL
