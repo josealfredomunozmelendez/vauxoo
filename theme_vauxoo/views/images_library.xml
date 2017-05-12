@@ -108,6 +108,12 @@
         <field name="url">/theme_vauxoo/static/img/scroll-down.png</field>
         <field name="public" eval="True"/>
     </record>
+    <record id="theme_vauxoo.scroll-down-dark" model="ir.attachment">
+        <field name="name">Scroll Down Dark</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/scroll-down-dark.png</field>
+        <field name="public" eval="True"/>
+    </record>
     <record id="theme_vauxoo.shape" model="ir.attachment">
         <field name="name">Shape</field>
         <field name="type">url</field>

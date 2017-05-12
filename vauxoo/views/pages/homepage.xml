@@ -92,10 +92,15 @@
                 </div>
               </div>
             </div>
+                <div class="row text-center arrow-scroll-down-center">
+                    <a href="#odoo-section" class="smoothly">
+                        <img src="/web/image/theme_vauxoo.scroll-down-dark"></img>
+                    </a>
+                </div>
           </div>
         </div>
       </section>
-      <section class="s_body_content bg-white diagonal-left">
+      <section class="s_body_content bg-white diagonal-left" id="odoo-section">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
