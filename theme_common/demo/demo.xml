@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-  <data>
+<odoo>
+
     <template id="demo_layout" inherit_id="website.layout" primary="True">
       <xpath expr="//t[@t-call-assets='web.assets_frontend'][@t-js='false']" position="before">
         <t t-call-assets="theme_common.demo_assets_frontend"/>
@@ -295,5 +295,4 @@
       </t>
     </template>
 
-  </data>
-</openerp>
+</odoo>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
         <record id="implementation_team" model="project.project">
             <field name="name">Implementation</field>
@@ -21,5 +20,4 @@
             <field name="project_ids" eval="[(4, ref('vauxoo.implementation_team'))]"/>
         </record>
 
-   </data>
-</openerp>
+</odoo>

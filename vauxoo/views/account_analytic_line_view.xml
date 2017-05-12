@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
         <record id="account_analytic_line_invoiceable_lines" model="ir.ui.view">
             <field name="name">account.analytic.line.invoiceable.lines</field>
@@ -26,5 +25,4 @@
             </field>
         </record>
 
-    </data>
-</openerp>
+</odoo>

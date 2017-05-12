@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-  <data noupdate="0">
+<odoo>
 
         <record id="website_contract.analytic_account_portal" model="ir.rule">
             <field name="domain_force">[
@@ -37,5 +36,4 @@
                     ('partner_id', '=', user.partner_id.commercial_partner_id.id)]'''}"
         />
 
-  </data>
-</openerp>
+</odoo>
