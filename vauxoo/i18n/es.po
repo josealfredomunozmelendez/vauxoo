@@ -365,6 +365,11 @@ msgid "About the job"
 msgstr "Acerca del empleo"
 
 #. module: vauxoo
+#: model:sale.quote.template,website_description:vauxoo.website_quote_template_default
+msgid "About us"
+msgstr "Acerca de"
+
+#. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
 msgid "Acceptability Criteria"
 msgstr "Criterio de aceptación"
@@ -406,6 +411,75 @@ msgid "Address to show in the Header of the sale Order"
 msgstr "Direccion a mostar en el encabezado de la orden de venta"
 
 #. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_2
+msgid "Aenean facilisis elit at sem congue lobortis. Phasellus volutpat iaculis nulla\n"
+"nec aliquam. Integer a sollicitudin urna. Morbi fringilla, lorem eget venenatis\n"
+"vulputate, lacus felis blandit leo, eget lacinia nisi lacus ac augue. Cras\n"
+"metus orci, tincidunt vel ornare et, laoreet at mauris. Donec aliquet velit\n"
+"dui, ut efficitur nibh laoreet sit amet. Maecenas mattis massa non leo mattis,\n"
+"sit amet consequat ipsum congue. Suspendisse non imperdiet nibh, ut blandit\n"
+"purus. Pellentesque massa elit, dapibus ac efficitur non, porta non sapien. Sed\n"
+"faucibus elementum commodo. In hac habitasse platea dictumst. Nullam bibendum\n"
+"ante non arcu lacinia sodales. Etiam feugiat orci non ante gravida pretium."
+msgstr "Aenean facilisis elit at sem congue lobortis. Phasellus volutpat iaculis nulla\n"
+"nec aliquam. Integer a sollicitudin urna. Morbi fringilla, lorem eget venenatis\n"
+"vulputate, lacus felis blandit leo, eget lacinia nisi lacus ac augue. Cras\n"
+"metus orci, tincidunt vel ornare et, laoreet at mauris. Donec aliquet velit\n"
+"dui, ut efficitur nibh laoreet sit amet. Maecenas mattis massa non leo mattis,\n"
+"sit amet consequat ipsum congue. Suspendisse non imperdiet nibh, ut blandit\n"
+"purus. Pellentesque massa elit, dapibus ac efficitur non, porta non sapien. Sed\n"
+"faucibus elementum commodo. In hac habitasse platea dictumst. Nullam bibendum\n"
+"ante non arcu lacinia sodales. Etiam feugiat orci non ante gravida pretium."
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_1
+msgid "Aenean sit amet erat at justo porttitor hendrerit at fermentum leo. Maecenas\n"
+"ultrices odio id nunc pulvinar tristique. Integer lacinia auctor elit, eu\n"
+"fermentum libero euismod sit amet. Integer feugiat est in justo interdum\n"
+"gravida. Class aptent taciti sociosqu ad litora torquent per conubia nostra,\n"
+"per inceptos himenaeos. Fusce at orci condimentum, consequat nulla eu, ultrices\n"
+"dolor. Maecenas malesuada lorem eget nibh consectetur, et consequat quam\n"
+"consectetur. In mollis, metus vitae vehicula rhoncus, dui lorem consectetur\n"
+"lectus, blandit viverra nisi nisl nec nisi. Curabitur non iaculis felis, sit\n"
+"amet maximus turpis. Aenean eget rhoncus velit. In hac habitasse platea\n"
+"dictumst. Quisque pellentesque turpis non erat cursus, eget facilisis nisi\n"
+"lobortis."
+msgstr "Aenean sit amet erat at justo porttitor hendrerit at fermentum leo. Maecenas\n"
+"ultrices odio id nunc pulvinar tristique. Integer lacinia auctor elit, eu\n"
+"fermentum libero euismod sit amet. Integer feugiat est in justo interdum\n"
+"gravida. Class aptent taciti sociosqu ad litora torquent per conubia nostra,\n"
+"per inceptos himenaeos. Fusce at orci condimentum, consequat nulla eu, ultrices\n"
+"dolor. Maecenas malesuada lorem eget nibh consectetur, et consequat quam\n"
+"consectetur. In mollis, metus vitae vehicula rhoncus, dui lorem consectetur\n"
+"lectus, blandit viverra nisi nisl nec nisi. Curabitur non iaculis felis, sit\n"
+"amet maximus turpis. Aenean eget rhoncus velit. In hac habitasse platea\n"
+"dictumst. Quisque pellentesque turpis non erat cursus, eget facilisis nisi\n"
+"lobortis."
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_2
+msgid "Aliquam erat mi, suscipit eget pellentesque at, dapibus eu diam. Etiam suscipit\n"
+"interdum dui, at vehicula ligula aliquet non. Quisque ligula ex, tincidunt\n"
+"mattis tincidunt non, gravida sit amet turpis. Proin sit amet sollicitudin\n"
+"sapien. Nam tortor quam, venenatis tempor est et, condimentum dictum ex.\n"
+"Integer tincidunt nibh elit, eget dignissim nisi ultricies vitae. In hac\n"
+"habitasse platea dictumst. Nulla ultrices ullamcorper nisl, et iaculis neque\n"
+"feugiat sed. Maecenas hendrerit, eros in imperdiet vestibulum, nunc leo\n"
+"consequat massa, vel imperdiet lorem nunc sed est. Praesent laoreet ut leo eget\n"
+"accumsan. Aliquam iaculis bibendum urna. Integer eu erat efficitur, rutrum\n"
+"turpis eget, malesuada lorem. Nunc a interdum risus."
+msgstr "Aliquam erat mi, suscipit eget pellentesque at, dapibus eu diam. Etiam suscipit\n"
+"interdum dui, at vehicula ligula aliquet non. Quisque ligula ex, tincidunt\n"
+"mattis tincidunt non, gravida sit amet turpis. Proin sit amet sollicitudin\n"
+"sapien. Nam tortor quam, venenatis tempor est et, condimentum dictum ex.\n"
+"Integer tincidunt nibh elit, eget dignissim nisi ultricies vitae. In hac\n"
+"habitasse platea dictumst. Nulla ultrices ullamcorper nisl, et iaculis neque\n"
+"feugiat sed. Maecenas hendrerit, eros in imperdiet vestibulum, nunc leo\n"
+"consequat massa, vel imperdiet lorem nunc sed est. Praesent laoreet ut leo eget\n"
+"accumsan. Aliquam iaculis bibendum urna. Integer eu erat efficitur, rutrum\n"
+"turpis eget, malesuada lorem. Nunc a interdum risus."
+
+#. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_res_company_website_address_ids
 msgid "All contact public Contactsto be shown in contact form."
 msgstr "Todos los los contactos públicos a mostrar en el formulario de contacto."
@@ -429,6 +503,11 @@ msgstr "All products here will be considered as consultancythen it will be compa
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "All timesheet must have a value for billable time, this button trigger a write on them to ensure that."
 msgstr "All timesheet must have a value for billable time, this button trigger a write on them to ensure that."
+
+#. module: vauxoo
+#: model:blog.post,subtitle:vauxoo.blog_post_3
+msgid "Always set the next thing to do"
+msgstr "Siempre configura el siguiente paso por hacer"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.erp
@@ -533,6 +612,11 @@ msgstr "Un equipo ganador"
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Basic Information"
 msgstr "Informacion Básica"
+
+#. module: vauxoo
+#: model:blog.post,name:vauxoo.blog_post_2
+msgid "Before Vim... After Vim"
+msgstr "Antes de Vim... Después de Vim"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -724,6 +808,25 @@ msgid "Cross-disciplinary team"
 msgstr "Equipo multidisciplinario"
 
 #. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_3
+msgid "Curabitur interdum dolor ac fringilla lobortis. Sed sit amet purus non\n"
+"nibh pellentesque accumsan. Cras maximus cursus dignissim. Morbi pulvinar risus\n"
+"eget tellus pellentesque, eget bibendum massa tempor. Donec ullamcorper\n"
+"faucibus nibh quis volutpat. Duis id sapien tortor. Etiam pellentesque augue in\n"
+"ligula sodales, mattis sollicitudin orci porta. Morbi ultrices mauris molestie\n"
+"dui varius, eu auctor leo lacinia. Donec ut nisi nulla. Vivamus rutrum tempor\n"
+"ante id volutpat. Vestibulum pharetra vestibulum diam in ultricies. Duis\n"
+"sodales ut tortor nec blandit."
+msgstr "Curabitur interdum dolor ac fringilla lobortis. Sed sit amet purus non\n"
+"nibh pellentesque accumsan. Cras maximus cursus dignissim. Morbi pulvinar risus\n"
+"eget tellus pellentesque, eget bibendum massa tempor. Donec ullamcorper\n"
+"faucibus nibh quis volutpat. Duis id sapien tortor. Etiam pellentesque augue in\n"
+"ligula sodales, mattis sollicitudin orci porta. Morbi ultrices mauris molestie\n"
+"dui varius, eu auctor leo lacinia. Donec ut nisi nulla. Vivamus rutrum tempor\n"
+"ante id volutpat. Vestibulum pharetra vestibulum diam in ultricies. Duis\n"
+"sodales ut tortor nec blandit."
+
+#. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_currency_id
 #: model:ir.model.fields,field_description:vauxoo.field_set_invoice_currency_id
 msgid "Currency"
@@ -733,6 +836,11 @@ msgstr "Moneda"
 #: model:ir.model.fields,help:vauxoo.field_set_invoice_currency_id
 msgid "Currency on report"
 msgstr "Currency on report"
+
+#. module: vauxoo
+#: model:blog.blog,name:vauxoo.blog_blog_customer_cases
+msgid "Customer Cases"
+msgstr "Casos de Nuestros Clientes"
 
 #. module: vauxoo
 #: model:product.attribute.value,name:vauxoo.product_attribute_value_DHL
@@ -844,6 +952,46 @@ msgid "Display Name"
 msgstr "Nombre a mostrar"
 
 #. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_4
+msgid "Donec a risus sed massa rhoncus pulvinar. Donec consectetur molestie leo,\n"
+"nec dapibus arcu sollicitudin sit amet. Vestibulum blandit non urna ac aliquet.\n"
+"Fusce eget luctus neque, id sodales ligula. Proin ut felis interdum,\n"
+"sollicitudin neque et, ullamcorper magna. Suspendisse non feugiat justo. Donec\n"
+"pulvinar augue eget tristique fringilla. Duis maximus, turpis eget bibendum\n"
+"lacinia, tellus ipsum tristique lorem, et cursus urna magna et justo. Proin\n"
+"finibus convallis eros vitae aliquam. Suspendisse vel maximus nibh."
+msgstr "Donec a risus sed massa rhoncus pulvinar. Donec consectetur molestie leo,\n"
+"nec dapibus arcu sollicitudin sit amet. Vestibulum blandit non urna ac aliquet.\n"
+"Fusce eget luctus neque, id sodales ligula. Proin ut felis interdum,\n"
+"sollicitudin neque et, ullamcorper magna. Suspendisse non feugiat justo. Donec\n"
+"pulvinar augue eget tristique fringilla. Duis maximus, turpis eget bibendum\n"
+"lacinia, tellus ipsum tristique lorem, et cursus urna magna et justo. Proin\n"
+"finibus convallis eros vitae aliquam. Suspendisse vel maximus nibh."
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_4
+msgid "Donec id convallis eros, sit amet lacinia urna. Integer gravida, ipsum in\n"
+"luctus rhoncus, sapien tellus auctor lacus, a dictum diam nunc vel ex. Nulla\n"
+"tincidunt facilisis elementum. Aliquam eget laoreet sapien, vel pretium nulla.\n"
+"Donec accumsan blandit massa quis tincidunt. Integer suscipit dictum sapien,\n"
+"vitae gravida elit facilisis nec. Ut sit amet elit congue neque efficitur\n"
+"finibus sit amet volutpat augue. Nullam auctor lacus vitae tincidunt tincidunt.\n"
+"Nullam convallis metus molestie magna rutrum, et euismod ligula dapibus.\n"
+"Vestibulum sed orci porttitor, malesuada erat eget, consequat mauris.\n"
+"Suspendisse potenti. Nunc scelerisque sit amet massa a mattis. Maecenas non\n"
+"lectus elementum, sollicitudin nibh sit amet, suscipit felis."
+msgstr "Donec id convallis eros, sit amet lacinia urna. Integer gravida, ipsum in\n"
+"luctus rhoncus, sapien tellus auctor lacus, a dictum diam nunc vel ex. Nulla\n"
+"tincidunt facilisis elementum. Aliquam eget laoreet sapien, vel pretium nulla.\n"
+"Donec accumsan blandit massa quis tincidunt. Integer suscipit dictum sapien,\n"
+"vitae gravida elit facilisis nec. Ut sit amet elit congue neque efficitur\n"
+"finibus sit amet volutpat augue. Nullam auctor lacus vitae tincidunt tincidunt.\n"
+"Nullam convallis metus molestie magna rutrum, et euismod ligula dapibus.\n"
+"Vestibulum sed orci porttitor, malesuada erat eget, consequat mauris.\n"
+"Suspendisse potenti. Nunc scelerisque sit amet massa a mattis. Maecenas non\n"
+"lectus elementum, sollicitudin nibh sit amet, suscipit felis."
+
+#. module: vauxoo
 #: selection:hr.timesheet.reports.base,state:0
 msgid "Draft"
 msgstr "Borrador"
@@ -852,6 +1000,27 @@ msgstr "Borrador"
 #: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "Due to features of certain apps are dependent of the functionality of other apps, it is necessary that such apps be installed together, in order to ensure the optimal performance of them.."
 msgstr "Debido a que algunas características de algunas Apps dependen de la funcionalidad de otras Apps, es necesario instalarlas juntas, esto, para asegurar el correcto funcionamiento de cada una.."
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_3
+msgid "Duis urna enim, aliquam in dapibus ac, volutpat eu magna. Duis molestie\n"
+"erat eu sem vestibulum dictum. Nam nibh tortor, ornare nec est ac, scelerisque\n"
+"efficitur massa. Ut faucibus euismod efficitur. Sed vel fermentum arcu. Nulla\n"
+"id ullamcorper nisi, at ultricies turpis. Proin tristique mollis urna sed\n"
+"imperdiet. Nulla cursus posuere volutpat. Aenean eu dolor lacus. Aenean quam\n"
+"diam, pretium in odio ut, rutrum imperdiet velit. Curabitur dignissim lectus\n"
+"vel libero egestas rutrum. Morbi vel nunc mattis, volutpat ex vel, dictum est.\n"
+"Phasellus euismod sollicitudin lacus, id mollis nisi ultrices et. Aenean mi\n"
+"velit, posuere vel mollis non, aliquet in eros."
+msgstr "Duis urna enim, aliquam in dapibus ac, volutpat eu magna. Duis molestie\n"
+"erat eu sem vestibulum dictum. Nam nibh tortor, ornare nec est ac, scelerisque\n"
+"efficitur massa. Ut faucibus euismod efficitur. Sed vel fermentum arcu. Nulla\n"
+"id ullamcorper nisi, at ultricies turpis. Proin tristique mollis urna sed\n"
+"imperdiet. Nulla cursus posuere volutpat. Aenean eu dolor lacus. Aenean quam\n"
+"diam, pretium in odio ut, rutrum imperdiet velit. Curabitur dignissim lectus\n"
+"vel libero egestas rutrum. Morbi vel nunc mattis, volutpat ex vel, dictum est.\n"
+"Phasellus euismod sollicitudin lacus, id mollis nisi ultrices et. Aenean mi\n"
+"velit, posuere vel mollis non, aliquet in eros."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apps_tray
@@ -901,6 +1070,31 @@ msgstr "Enter the project name where the issues timesheet will be loaded"
 #: model:product.attribute.value,name:vauxoo.product_attribute_value_equipment
 msgid "Equipment"
 msgstr "Equipo"
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_1
+msgid "Etiam facilisis efficitur imperdiet. Sed ultrices diam arcu, ac ultricies lacus\n"
+"feugiat sit amet. Sed dapibus, augue quis accumsan feugiat, eros diam rutrum\n"
+"lorem, a aliquet nulla neque eget enim. Donec facilisis turpis eget rutrum\n"
+"congue. Aliquam tincidunt ultrices mauris vel rhoncus. Praesent porttitor mi\n"
+"purus, imperdiet sodales enim laoreet egestas. Suspendisse potenti. Praesent\n"
+"imperdiet sit amet nisi eu pretium. Cras vel orci leo. Nulla eget odio\n"
+"convallis, laoreet felis efficitur, interdum justo. Aliquam dignissim, nulla\n"
+"vel ultricies elementum, felis elit consectetur justo, sit amet rutrum mauris\n"
+"nulla non elit. Donec eu risus tempor, vestibulum turpis vitae, accumsan elit.\n"
+"Quisque pellentesque velit diam, at elementum est dignissim ut. Aliquam eros\n"
+"nibh, venenatis eget sollicitudin at, porta ac ligula."
+msgstr "Etiam facilisis efficitur imperdiet. Sed ultrices diam arcu, ac ultricies lacus\n"
+"feugiat sit amet. Sed dapibus, augue quis accumsan feugiat, eros diam rutrum\n"
+"lorem, a aliquet nulla neque eget enim. Donec facilisis turpis eget rutrum\n"
+"congue. Aliquam tincidunt ultrices mauris vel rhoncus. Praesent porttitor mi\n"
+"purus, imperdiet sodales enim laoreet egestas. Suspendisse potenti. Praesent\n"
+"imperdiet sit amet nisi eu pretium. Cras vel orci leo. Nulla eget odio\n"
+"convallis, laoreet felis efficitur, interdum justo. Aliquam dignissim, nulla\n"
+"vel ultricies elementum, felis elit consectetur justo, sit amet rutrum mauris\n"
+"nulla non elit. Donec eu risus tempor, vestibulum turpis vitae, accumsan elit.\n"
+"Quisque pellentesque velit diam, at elementum est dignissim ut. Aliquam eros\n"
+"nibh, venenatis eget sollicitudin at, porta ac ligula."
 
 #. module: vauxoo
 #: model:product.attribute.value,name:vauxoo.product_attribute_value_events
@@ -1019,6 +1213,36 @@ msgid "Full sales cycle"
 msgstr "Ciclo de ventas completo"
 
 #. module: vauxoo
+#: model:blog.blog,name:vauxoo.blog_blog_functional_hacks
+msgid "Functional Hacks"
+msgstr "Hacks Funcionales"
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_2
+msgid "Fusce quis leo neque. Nunc sed molestie risus, semper accumsan odio. Vestibulum\n"
+"augue justo, lobortis id elementum sit amet, suscipit sodales ligula. Etiam\n"
+"ultricies turpis et diam cursus commodo sit amet eu ante. Sed rhoncus sem\n"
+"consequat, fermentum nisl et, fringilla tortor. Maecenas a nisi ac tortor\n"
+"vehicula pellentesque vitae nec metus. Nullam gravida orci eget ligula\n"
+"consequat convallis nec sed tellus. Cras tempor tortor dolor, nec eleifend\n"
+"felis pulvinar et. Sed sit amet sem ac purus bibendum vulputate. Pellentesque\n"
+"id sapien dictum, laoreet est ut, viverra sapien. Quisque eget massa a ipsum\n"
+"sollicitudin lobortis. Proin nec ornare urna. Praesent non nibh lobortis,\n"
+"malesuada purus in, tincidunt velit. Cras accumsan scelerisque ante, sit amet\n"
+"mole&gt;stie nulla commodo id."
+msgstr "Fusce quis leo neque. Nunc sed molestie risus, semper accumsan odio. Vestibulum\n"
+"augue justo, lobortis id elementum sit amet, suscipit sodales ligula. Etiam\n"
+"ultricies turpis et diam cursus commodo sit amet eu ante. Sed rhoncus sem\n"
+"consequat, fermentum nisl et, fringilla tortor. Maecenas a nisi ac tortor\n"
+"vehicula pellentesque vitae nec metus. Nullam gravida orci eget ligula\n"
+"consequat convallis nec sed tellus. Cras tempor tortor dolor, nec eleifend\n"
+"felis pulvinar et. Sed sit amet sem ac purus bibendum vulputate. Pellentesque\n"
+"id sapien dictum, laoreet est ut, viverra sapien. Quisque eget massa a ipsum\n"
+"sollicitudin lobortis. Proin nec ornare urna. Praesent non nibh lobortis,\n"
+"malesuada purus in, tincidunt velit. Cras accumsan scelerisque ante, sit amet\n"
+"mole&gt;stie nulla commodo id."
+
+#. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.contact_us_form
 msgid "Get in touch with us"
 msgstr "Ponte en contacto con nosotros"
@@ -1027,6 +1251,11 @@ msgstr "Ponte en contacto con nosotros"
 #: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
 msgid "Get our latest news straight to your inbox"
 msgstr "Recibe nuestras ultimas noticias directo en tu correo"
+
+#. module: vauxoo
+#: model:blog.post,subtitle:vauxoo.blog_post_1
+msgid "Get to know Odoo"
+msgstr "Conoce Odoo"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
@@ -1052,6 +1281,12 @@ msgstr "Group to assign"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Healthcare, dental, vision, life insurance, Flexible Spending Account (FSA), Health Savings Account (HSA)"
 msgstr "Healthcare, dental, vision, life insurance, Flexible Spending Account (FSA), Health Savings Account (HSA)"
+
+#. module: vauxoo
+#: model:blog.post,name:vauxoo.blog_post_1
+#: model:blog.post,website_meta_description:vauxoo.blog_post_1
+msgid "Hello World"
+msgstr "Hola Mundo"
 
 #. module: vauxoo
 #. openerp-web
@@ -1135,9 +1370,49 @@ msgid "Implementation Services"
 msgstr "Servicios de implementación"
 
 #. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_3
+msgid "In gravida iaculis lorem id consequat. Phasellus eget elementum orci.\n"
+"Donec egestas ipsum eget ligula dapibus, eget gravida nibh semper. Aenean eros\n"
+"lectus, egestas vel molestie eu, suscipit quis ipsum. Sed non lacinia justo, ut\n"
+"imperdiet lectus. Nam condimentum faucibus odio, nec semper arcu condimentum\n"
+"nec. Aenean fringilla, augue at sodales interdum, mi enim finibus sem, sit amet\n"
+"molestie justo libero quis odio. In non sapien at massa varius condimentum ac\n"
+"sit amet eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n"
+"Sed vel viverra purus. Suspendisse viverra iaculis augue nec elementum.V"
+msgstr "In gravida iaculis lorem id consequat. Phasellus eget elementum orci.\n"
+"Donec egestas ipsum eget ligula dapibus, eget gravida nibh semper. Aenean eros\n"
+"lectus, egestas vel molestie eu, suscipit quis ipsum. Sed non lacinia justo, ut\n"
+"imperdiet lectus. Nam condimentum faucibus odio, nec semper arcu condimentum\n"
+"nec. Aenean fringilla, augue at sodales interdum, mi enim finibus sem, sit amet\n"
+"molestie justo libero quis odio. In non sapien at massa varius condimentum ac\n"
+"sit amet eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n"
+"Sed vel viverra purus. Suspendisse viverra iaculis augue nec elementum.V"
+
+#. module: vauxoo
 #: model:helpdesk.team,name:vauxoo.infraestructure_support_team
 msgid "Infrastructure"
 msgstr "Infraestructura"
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_3
+msgid "Integer eget rhoncus sem, et maximus felis. Suspendisse potenti. Morbi\n"
+"viverra, orci quis finibus efficitur, diam sem dapibus felis, ac interdum lorem\n"
+"risus id velit. Phasellus id turpis mollis orci convallis vestibulum. Donec\n"
+"pharetra erat sit amet felis feugiat, id suscipit purus vestibulum. Mauris\n"
+"pellentesque enim nec lacus accumsan venenatis. Interdum et malesuada fames ac\n"
+"ante ipsum primis in faucibus. Vestibulum eu rutrum erat, non porta sem.\n"
+"Phasellus ullamcorper volutpat efficitur. Quisque ut urna facilisis nunc\n"
+"suscipit hendrerit nec nec est. Duis fermentum mollis ipsum, id lobortis ante\n"
+"molestie quis."
+msgstr "Integer eget rhoncus sem, et maximus felis. Suspendisse potenti. Morbi\n"
+"viverra, orci quis finibus efficitur, diam sem dapibus felis, ac interdum lorem\n"
+"risus id velit. Phasellus id turpis mollis orci convallis vestibulum. Donec\n"
+"pharetra erat sit amet felis feugiat, id suscipit purus vestibulum. Mauris\n"
+"pellentesque enim nec lacus accumsan venenatis. Interdum et malesuada fames ac\n"
+"ante ipsum primis in faucibus. Vestibulum eu rutrum erat, non porta sem.\n"
+"Phasellus ullamcorper volutpat efficitur. Quisque ut urna facilisis nunc\n"
+"suscipit hendrerit nec nec est. Duis fermentum mollis ipsum, id lobortis ante\n"
+"molestie quis."
 
 #. module: vauxoo
 #: model:hr.job,name:vauxoo.job_intern_dev
@@ -1403,9 +1678,51 @@ msgid "Log out"
 msgstr "Cerrar sesión"
 
 #. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_1
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis nibh\n"
+"vitae ex malesuada egestas. Duis a magna orci. Ut tristique erat nisi, nec\n"
+"tristique est fringilla vel. Pellentesque luctus varius turpis, ultricies\n"
+"vulputate turpis accumsan ac. Morbi lobortis, tortor non tristique placerat,\n"
+"nibh mi sollicitudin lorem, sit amet molestie est turpis eget lorem. Integer\n"
+"commodo nunc vel tellus finibus, efficitur tristique mi elementum. Curabitur\n"
+"tortor mauris, egestas nec porta nec, posuere mollis tortor. Donec sodales\n"
+"sollicitudin ante. Duis rutrum nibh sapien, eu vulputate nulla pellentesque sit\n"
+"amet. Sed congue lacus eget lectus malesuada interdum."
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis nibh\n"
+"vitae ex malesuada egestas. Duis a magna orci. Ut tristique erat nisi, nec\n"
+"tristique est fringilla vel. Pellentesque luctus varius turpis, ultricies\n"
+"vulputate turpis accumsan ac. Morbi lobortis, tortor non tristique placerat,\n"
+"nibh mi sollicitudin lorem, sit amet molestie est turpis eget lorem. Integer\n"
+"commodo nunc vel tellus finibus, efficitur tristique mi elementum. Curabitur\n"
+"tortor mauris, egestas nec porta nec, posuere mollis tortor. Donec sodales\n"
+"sollicitudin ante. Duis rutrum nibh sapien, eu vulputate nulla pellentesque sit\n"
+"amet. Sed congue lacus eget lectus malesuada interdum."
+
+#. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apps_tray
 msgid "MXN"
 msgstr "MXN"
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_4
+msgid "Maecenas ac molestie neque, feugiat pretium ex. Phasellus maximus, nibh\n"
+"eget pellentesque dapibus, nulla mauris rutrum tellus, ac viverra eros nunc ut\n"
+"leo. Fusce dictum placerat pharetra. Suspendisse eleifend dolor et semper\n"
+"viverra. Praesent malesuada sit amet nulla ut varius. Sed blandit ut nibh a\n"
+"dictum. Vestibulum vitae ante vitae tellus euismod sodales sit amet vel mi.\n"
+"Duis dapibus leo imperdiet hendrerit congue. Ut sodales nulla in eros eleifend,\n"
+"a rhoncus lacus facilisis. Morbi commodo semper elit vitae tempus. Sed at elit\n"
+"et orci fringilla feugiat. Nunc bibendum porta metus, quis gravida nulla\n"
+"placerat in."
+msgstr "Maecenas ac molestie neque, feugiat pretium ex. Phasellus maximus, nibh\n"
+"eget pellentesque dapibus, nulla mauris rutrum tellus, ac viverra eros nunc ut\n"
+"leo. Fusce dictum placerat pharetra. Suspendisse eleifend dolor et semper\n"
+"viverra. Praesent malesuada sit amet nulla ut varius. Sed blandit ut nibh a\n"
+"dictum. Vestibulum vitae ante vitae tellus euismod sodales sit amet vel mi.\n"
+"Duis dapibus leo imperdiet hendrerit congue. Ut sodales nulla in eros eleifend,\n"
+"a rhoncus lacus facilisis. Morbi commodo semper elit vitae tempus. Sed at elit\n"
+"et orci fringilla feugiat. Nunc bibendum porta metus, quis gravida nulla\n"
+"placerat in."
 
 #. module: vauxoo
 #: model:product.attribute.value,name:vauxoo.product_attribute_value_maintenance
@@ -1426,6 +1743,31 @@ msgstr "Mark Timesheet as Invoiced"
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
 msgid "Mark timesheet elements as reported"
 msgstr "Mark timesheet elements as reported"
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_4
+msgid "Mauris lobortis commodo diam sit amet hendrerit. Maecenas rutrum arcu quis\n"
+"purus accumsan semper. In in molestie nisi. Suspendisse pulvinar turpis\n"
+"venenatis sapien lacinia lacinia. Morbi interdum eleifend eros, semper\n"
+"vestibulum augue feugiat ut. Quisque aliquet orci molestie suscipit tempus.\n"
+"Suspendisse hendrerit lacus nunc, vitae egestas erat pulvinar ac. Maecenas\n"
+"blandit nulla purus, ut pharetra sapien ornare sit amet. Sed a rhoncus risus.\n"
+"Integer pharetra enim non pellentesque pretium. Suspendisse quis luctus lacus,\n"
+"facilisis faucibus diam. Duis at luctus nisl. Sed auctor arcu nec metus\n"
+"tristique, a scelerisque mi molestie. Aliquam facilisis maximus volutpat. Ut\n"
+"eleifend id lectus in accumsan. Morbi efficitur lectus est, a laoreet nibh\n"
+"dignissim et."
+msgstr "Mauris lobortis commodo diam sit amet hendrerit. Maecenas rutrum arcu quis\n"
+"purus accumsan semper. In in molestie nisi. Suspendisse pulvinar turpis\n"
+"venenatis sapien lacinia lacinia. Morbi interdum eleifend eros, semper\n"
+"vestibulum augue feugiat ut. Quisque aliquet orci molestie suscipit tempus.\n"
+"Suspendisse hendrerit lacus nunc, vitae egestas erat pulvinar ac. Maecenas\n"
+"blandit nulla purus, ut pharetra sapien ornare sit amet. Sed a rhoncus risus.\n"
+"Integer pharetra enim non pellentesque pretium. Suspendisse quis luctus lacus,\n"
+"facilisis faucibus diam. Duis at luctus nisl. Sed auctor arcu nec metus\n"
+"tristique, a scelerisque mi molestie. Aliquam facilisis maximus volutpat. Ut\n"
+"eleifend id lectus in accumsan. Morbi efficitur lectus est, a laoreet nibh\n"
+"dignissim et."
 
 #. module: vauxoo
 #: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_state
@@ -1458,6 +1800,33 @@ msgid "My OpenERP.com account"
 msgstr "Mi Odoo Account"
 
 #. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_2
+msgid "Nam non est consequat, blandit nisl id, placerat est. Nulla facilisi. Nunc\n"
+"cursus sem ante, quis laoreet velit tincidunt ac. Morbi quis orci nec nisl\n"
+"condimentum lacinia. Sed ullamcorper lobortis arcu ut sodales. Integer vel est\n"
+"ultricies augue bibendum venenatis vel vel velit. Vivamus accumsan id eros ac\n"
+"lacinia. Aenean tincidunt mauris a nisi aliquet, et efficitur ipsum\n"
+"condimentum. Morbi sapien sapien, eleifend tincidunt semper in, consequat vel\n"
+"leo. Morbi aliquam consequat nisi a mollis. Vestibulum placerat turpis in\n"
+"turpis interdum interdum. Proin tempor ipsum id est accumsan, vitae finibus\n"
+"elit venenatis. Nullam a erat condimentum est rhoncus iaculis nec non lorem.\n"
+"Aenean efficitur, nisl id rhoncus suscipit, odio ex scelerisque erat, in\n"
+"venenatis diam felis sit amet ligula. Nulla scelerisque dolor eget erat porta,\n"
+"quis dictum felis lacinia. Nulla auctor turpis feugiat consectetur tristique."
+msgstr "Nam non est consequat, blandit nisl id, placerat est. Nulla facilisi. Nunc\n"
+"cursus sem ante, quis laoreet velit tincidunt ac. Morbi quis orci nec nisl\n"
+"condimentum lacinia. Sed ullamcorper lobortis arcu ut sodales. Integer vel est\n"
+"ultricies augue bibendum venenatis vel vel velit. Vivamus accumsan id eros ac\n"
+"lacinia. Aenean tincidunt mauris a nisi aliquet, et efficitur ipsum\n"
+"condimentum. Morbi sapien sapien, eleifend tincidunt semper in, consequat vel\n"
+"leo. Morbi aliquam consequat nisi a mollis. Vestibulum placerat turpis in\n"
+"turpis interdum interdum. Proin tempor ipsum id est accumsan, vitae finibus\n"
+"elit venenatis. Nullam a erat condimentum est rhoncus iaculis nec non lorem.\n"
+"Aenean efficitur, nisl id rhoncus suscipit, odio ex scelerisque erat, in\n"
+"venenatis diam felis sit amet ligula. Nulla scelerisque dolor eget erat porta,\n"
+"quis dictum felis lacinia. Nulla auctor turpis feugiat consectetur tristique."
+
+#. module: vauxoo
 #: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_customer_name
 msgid "Name"
 msgstr "Nombre"
@@ -1470,6 +1839,11 @@ msgstr "Nombre"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Need More Info?"
 msgstr "¿Necesitas más información?"
+
+#. module: vauxoo
+#: model:blog.post,name:vauxoo.blog_post_3
+msgid "Next Activities Philosophy"
+msgstr "Filosofía de Siguiente Actividad"
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_python_dev
@@ -1494,6 +1868,27 @@ msgstr "No outbound calls, you get leads and focus on providing value to them"
 #: model:ir.ui.view,arch_db:vauxoo.erp
 msgid "Now it is time to launch your product internally. We help you through the process of switching from the old school to the new school with full support of our team."
 msgstr "Ahora es tiempo de lanzar tu producto internamente. Te asesoramos en el proceso de transición de la vieja a la nueva escuela con la ayuda de nuestro equipo."
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_1
+msgid "Nulla facilisi. Curabitur rhoncus nibh enim, et finibus dolor aliquam eu.\n"
+"Integer egestas vehicula sem sed vehicula. Vestibulum vel semper orci, sed\n"
+"cursus tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n"
+"Suspendisse vitae nulla nec dolor laoreet mattis non id ex. Sed pellentesque\n"
+"neque mi, vel ultricies enim dignissim sed. Vivamus a dictum est. Aliquam eget\n"
+"magna eget urna tempus tempus. Donec vestibulum risus ac vestibulum commodo.\n"
+"Curabitur eu tincidunt mauris. Morbi sodales a ligula sed finibus. Sed viverra\n"
+"nisi non tincidunt tristique. Mauris posuere est turpis, sit amet lacinia\n"
+"ligula lacinia quis. Fusce ac ligula vitae ligula bibendum auctor at eget eros."
+msgstr "Nulla facilisi. Curabitur rhoncus nibh enim, et finibus dolor aliquam eu.\n"
+"Integer egestas vehicula sem sed vehicula. Vestibulum vel semper orci, sed\n"
+"cursus tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n"
+"Suspendisse vitae nulla nec dolor laoreet mattis non id ex. Sed pellentesque\n"
+"neque mi, vel ultricies enim dignissim sed. Vivamus a dictum est. Aliquam eget\n"
+"magna eget urna tempus tempus. Donec vestibulum risus ac vestibulum commodo.\n"
+"Curabitur eu tincidunt mauris. Morbi sodales a ligula sed finibus. Sed viverra\n"
+"nisi non tincidunt tristique. Mauris posuere est turpis, sit amet lacinia\n"
+"ligula lacinia quis. Fusce ac ligula vitae ligula bibendum auctor at eget eros."
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apps_tray
@@ -1529,6 +1924,11 @@ msgstr "Only a couple blocs from BART, Caltrain, Highway 101, carpool pickup, an
 #: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
 msgid "Orphan Task"
 msgstr "Tarea huerfana"
+
+#. module: vauxoo
+#: model:sale.quote.template,website_description:vauxoo.website_quote_template_default
+msgid "Our Offer"
+msgstr "Nuestra Oferta"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.careers
@@ -1596,6 +1996,40 @@ msgstr "Empresa"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Peet's and Philz coffee provided all day to order and pantry snacks"
 msgstr "Peet's and Philz coffee provided all day to order and pantry snacks"
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_3
+msgid "Pellentesque porta mollis erat. Cras congue porta erat, in aliquam eros\n"
+"iaculis ut. Proin sit amet dolor ligula. Phasellus efficitur enim non quam\n"
+"luctus, eget dictum lectus efficitur. Curabitur blandit tempor neque ac\n"
+"commodo. Sed sit amet metus vel lacus elementum venenatis. Integer laoreet dui\n"
+"et lacus bibendum congue. Morbi cursus viverra ante, et vestibulum mi aliquam\n"
+"at."
+msgstr "Pellentesque porta mollis erat. Cras congue porta erat, in aliquam eros\n"
+"iaculis ut. Proin sit amet dolor ligula. Phasellus efficitur enim non quam\n"
+"luctus, eget dictum lectus efficitur. Curabitur blandit tempor neque ac\n"
+"commodo. Sed sit amet metus vel lacus elementum venenatis. Integer laoreet dui\n"
+"et lacus bibendum congue. Morbi cursus viverra ante, et vestibulum mi aliquam\n"
+"at."
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_1
+msgid "Pellentesque semper sodales enim. Proin vitae arcu sapien. Ut ligula velit,\n"
+"laoreet non neque ac, tristique accumsan odio. Nam quis volutpat libero. In\n"
+"volutpat purus nec nunc interdum, non posuere felis tristique. Mauris ut mi nec\n"
+"arcu gravida vestibulum et quis orci. Vivamus blandit lacinia lacus a\n"
+"imperdiet. Curabitur lobortis, est interdum ornare tincidunt, nisi felis mollis\n"
+"sem, sed malesuada ante dolor a dolor. In et lectus sit amet odio dapibus\n"
+"sagittis vel sit amet nibh. Sed eu pretium libero, sit amet sagittis est. Donec\n"
+"maximus sed mauris vel varius. Aliquam faucibus nisl at arcu rutrum viverra."
+msgstr "Pellentesque semper sodales enim. Proin vitae arcu sapien. Ut ligula velit,\n"
+"laoreet non neque ac, tristique accumsan odio. Nam quis volutpat libero. In\n"
+"volutpat purus nec nunc interdum, non posuere felis tristique. Mauris ut mi nec\n"
+"arcu gravida vestibulum et quis orci. Vivamus blandit lacinia lacus a\n"
+"imperdiet. Curabitur lobortis, est interdum ornare tincidunt, nisi felis mollis\n"
+"sem, sed malesuada ante dolor a dolor. In et lectus sit amet odio dapibus\n"
+"sagittis vel sit amet nibh. Sed eu pretium libero, sit amet sagittis est. Donec\n"
+"maximus sed mauris vel varius. Aliquam faucibus nisl at arcu rutrum viverra."
 
 #. module: vauxoo
 #: model:hr.job,website_description:vauxoo.job_busines_analyist
@@ -1703,6 +2137,11 @@ msgstr "Productos para entrenamiento"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Profitable"
 msgstr "Profitable"
+
+#. module: vauxoo
+#: model:blog.post,subtitle:vauxoo.blog_post_2
+msgid "Programmer's Landmark"
+msgstr "Hito del Programador"
 
 #. module: vauxoo
 #: model:ir.model,name:vauxoo.model_project_project
@@ -1849,6 +2288,52 @@ msgstr "Sales rep"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Save on commute"
 msgstr "Save on commute"
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_2
+msgid "Sed efficitur mi metus, vitae semper erat condimentum ut. Cras vulputate elit\n"
+"sed libero suscipit gravida sit amet in metus. Integer tortor tortor, pulvinar\n"
+"in nisl nec, cursus finibus ipsum. Nunc a faucibus erat. Suspendisse potenti.\n"
+"Aenean ultrices lobortis libero, nec viverra felis cursus ut. Phasellus aliquet\n"
+"velit lacinia diam congue malesuada. Donec congue nisl sed odio gravida, a\n"
+"commodo nulla luctus. Cras vehicula magna nisi, sit amet egestas tellus mollis\n"
+"non. Ut sodales, dolor rhoncus suscipit egestas, massa tellus elementum erat, a\n"
+"ullamcorper magna dolor ac arcu. Aenean auctor elit ac cursus pulvinar. Duis\n"
+"vel velit quis massa egestas consequat. Maecenas ac orci a lacus vehicula\n"
+"fringilla. Curabitur non felis orci."
+msgstr "Sed efficitur mi metus, vitae semper erat condimentum ut. Cras vulputate elit\n"
+"sed libero suscipit gravida sit amet in metus. Integer tortor tortor, pulvinar\n"
+"in nisl nec, cursus finibus ipsum. Nunc a faucibus erat. Suspendisse potenti.\n"
+"Aenean ultrices lobortis libero, nec viverra felis cursus ut. Phasellus aliquet\n"
+"velit lacinia diam congue malesuada. Donec congue nisl sed odio gravida, a\n"
+"commodo nulla luctus. Cras vehicula magna nisi, sit amet egestas tellus mollis\n"
+"non. Ut sodales, dolor rhoncus suscipit egestas, massa tellus elementum erat, a\n"
+"ullamcorper magna dolor ac arcu. Aenean auctor elit ac cursus pulvinar. Duis\n"
+"vel velit quis massa egestas consequat. Maecenas ac orci a lacus vehicula\n"
+"fringilla. Curabitur non felis orci."
+
+#. module: vauxoo
+#: model:blog.post,content:vauxoo.blog_post_4
+msgid "Sed id felis vel nisl pellentesque accumsan sit amet a nunc. Curabitur id\n"
+"augue elit. Morbi et turpis non lectus dignissim tempus. Phasellus est felis,\n"
+"mattis nec tellus quis, aliquam interdum mauris. Nulla vitae ligula eu enim\n"
+"mattis tristique. In fermentum auctor lectus ut tempor. Proin eu vulputate\n"
+"turpis. Vestibulum maximus nibh in ligula porta, eu eleifend risus consequat.\n"
+"Donec faucibus justo eu semper imperdiet. Integer a gravida tellus. In\n"
+"elementum elementum libero, vel mollis nunc consectetur sed. Nam a arcu nulla.\n"
+"Vestibulum porttitor, augue eu lacinia molestie, leo dolor porttitor mauris, in\n"
+"iaculis nisi arcu vel lorem. Aliquam ultricies arcu sit amet metus suscipit, ac\n"
+"venenatis felis bibendum."
+msgstr "Sed id felis vel nisl pellentesque accumsan sit amet a nunc. Curabitur id\n"
+"augue elit. Morbi et turpis non lectus dignissim tempus. Phasellus est felis,\n"
+"mattis nec tellus quis, aliquam interdum mauris. Nulla vitae ligula eu enim\n"
+"mattis tristique. In fermentum auctor lectus ut tempor. Proin eu vulputate\n"
+"turpis. Vestibulum maximus nibh in ligula porta, eu eleifend risus consequat.\n"
+"Donec faucibus justo eu semper imperdiet. Integer a gravida tellus. In\n"
+"elementum elementum libero, vel mollis nunc consectetur sed. Nam a arcu nulla.\n"
+"Vestibulum porttitor, augue eu lacinia molestie, leo dolor porttitor mauris, in\n"
+"iaculis nisi arcu vel lorem. Aliquam ultricies arcu sit amet metus suscipit, ac\n"
+"venenatis felis bibendum."
 
 #. module: vauxoo
 #. openerp-web
@@ -2010,6 +2495,11 @@ msgid "Success Pack (25h)"
 msgstr "Success Pack (25h)"
 
 #. module: vauxoo
+#: model:blog.post,subtitle:vauxoo.blog_post_4
+msgid "Success Restaurant Management with Odoo"
+msgstr "Gestión Exitosa de Restaurante con Odoo"
+
+#. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.apps_faq
 msgid "Success packs are implementation services with a certain number of hours (depending on the apps to be installed) that include Odoo training, technical support and personalized assistance to customize the installed apps to the workflow of every company before implementation. This pack never expires, meaning the hours can be used whenever support is needed."
 msgstr "Success Pack son servicios de implementación con un cierto numero de horas definido (dependiendo de las Apps instaladas) con entrenamiento en Odoo, soporte técnico y asistencia personalizada para personalizar las Apps instaladas al flujo de trabajo de cada compañía antes de implementar. Este paquete nunca expira, esto quiere decir que las horas pueden ser usadas  cuando se requiera."
@@ -2060,6 +2550,11 @@ msgstr "Equipo"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Team / Company Size:"
 msgstr "Team / Company Size:"
+
+#. module: vauxoo
+#: model:blog.blog,name:vauxoo.blog_blog_technical_hacks
+msgid "Technical Hacks"
+msgstr "Hacks Técnicos"
 
 #. module: vauxoo
 #: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
@@ -2305,6 +2800,16 @@ msgstr "Vacation, Sick, and Holiday paid leaves"
 #: model:hr.job,website_description:vauxoo.job_sales_rep
 msgid "Variability of the Job:"
 msgstr "Variability of the Job:"
+
+#. module: vauxoo
+#: model:blog.post,name:vauxoo.blog_post_4
+msgid "Vauxoo Bistro"
+msgstr "Vauxoo Bistro"
+
+#. module: vauxoo
+#: model:blog.blog,name:vauxoo.blog_blog_vauxoo_news
+msgid "Vauxoo News"
+msgstr "Noticias Vauxoo"
 
 #. module: vauxoo
 #: model:ir.module.category,name:vauxoo.category_group
@@ -2698,6 +3203,11 @@ msgstr "getstarted@vauxoo.com"
 #: model:ir.model,name:vauxoo.model_hr_timesheet_reports_base
 msgid "hr.timesheet.reports.base"
 msgstr "hr.timesheet.reports.base"
+
+#. module: vauxoo
+#: model:blog.tag,name:vauxoo.blog_tag_1
+msgid "innovation"
+msgstr "innovación"
 
 #. module: vauxoo
 #: model:ir.model,name:vauxoo.model_lang_config_settings

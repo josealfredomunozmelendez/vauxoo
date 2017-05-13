@@ -116,6 +116,7 @@
         "data/product.xml",
         "data/project.xml",
         "data/jobs.xml",
+        "data/blog.xml",
 
         # Views
         # Backend stuff (A file per app)
@@ -144,6 +145,7 @@
         "demo/product.xml",
         "demo/project.xml",
         "demo/helpdesk.xml",
+        "demo/blog.xml",
     ],
     "test": [
     ],
