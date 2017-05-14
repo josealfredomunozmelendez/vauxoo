@@ -263,6 +263,27 @@ class HrEmployee(models.Model):
         compute='_compute_employee_badges',
         help='Field to hold all employee badges'
     )
+    employee_task_ids = fields.One2many(
+        'project.task',
+        string='Employee Tasks',
+        compute='_compute_employee_tasks',
+        help='Field to hold all employee tasks'
+    )
+    task_count = fields.Integer(
+        compute='_compute_employee_tasks',
+        help='Number of Tasks per employee'
+    )
+
+    @api.depends()
+    def _compute_employee_tasks(self):
+        task_obj = self.env['project.task']
+        for employee in self:
+            if not employee.user_id:
+                continue
+            task_ids = task_obj.search(
+                [('user_id', '=', employee.user_id.id)])
+            employee.employee_task_ids = task_ids
+            employee.task_count = len(task_ids)
 
     @api.depends('direct_badge_ids', 'user_id.badge_ids.employee_id')
     def _compute_employee_badges(self):
