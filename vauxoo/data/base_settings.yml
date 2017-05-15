@@ -32,10 +32,3 @@
 -
   !python {model: sale.config.settings}: |
     self.browse(ref('sale_config')).execute()
--
- Delete Odoo Quotation Default Template
--
-  !python {model: sale.quote.template}: |
-    default_template = self.env['ir.model.data'].xmlid_to_object('website_quote.website_quote_template_default')
-    if default_template:
-        default_template.unlink()
