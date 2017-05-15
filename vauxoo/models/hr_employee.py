@@ -251,6 +251,18 @@ class HrEmployee(models.Model):
         track_visibility='onchange',
         help="It is an direct income generator (True) or a passive "
              "generator (False)")
+    is_cost_select = fields.Selection(
+        compute='_compute_employee_select',
+        string='Selectable Field for is_cost',
+        selection=[('False', 'False'), ('True', 'True')],
+        help='A field for reporting purpose'
+    )
+    generate_income_select = fields.Selection(
+        compute='_compute_employee_select',
+        string='Selectable Field for generate_income',
+        selection=[('False', 'False'), ('True', 'True')],
+        help='A field for reporting purpose'
+    )
     hours_invoice = fields.Float(
         compute='_compute_timesheet_average',
         help="How many hours this person is being reporting")
@@ -273,6 +285,13 @@ class HrEmployee(models.Model):
         compute='_compute_employee_tasks',
         help='Number of Tasks per employee'
     )
+
+    @api.depends()
+    def _compute_employee_select(self):
+        for emp in self:
+            emp.is_cost_select = 'True' if emp.is_cost else 'False'
+            emp.generate_income_select = \
+                'True' if emp.generate_income else 'False'
 
     @api.depends()
     def _compute_employee_tasks(self):

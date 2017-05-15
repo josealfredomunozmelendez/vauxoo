@@ -114,6 +114,7 @@
                     <field name="theoretical_timesheet"/>
                     <field name="color"/>
                     <field name="employee_badge_ids"/>
+                    <field name="employee_task_ids"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="#{kanban_color(record.color.raw_value)}">
@@ -137,13 +138,28 @@
                                                     <li t-if="record.department_id.raw_value"><b><field name="department_id"/></b></li>
                                                 </ul>
                                             </div>
-                                            <div class="col-xs-6" style="text-align: right">
-                                                <ul>
-                                                    <li>Generate Income: <field name="generate_income"/></li>
-                                                    <li>It's Cost: <field name="is_cost"/></li>
-                                                </ul>
+                                            <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                                <div class="col-xs-9" style="text-align: right; padding:0">
+                                                    <ul>
+                                                        <li>Generate Income:</li>
+                                                        <li>It's Cost:</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-xs-3" style="text-align: left; padding:0">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="pull-right text-left">
+                                                                <field name="generate_income_select" widget="kanban_label_selection" options="{'classes': {'False': 'default', 'True': 'default', 'none': 'danger'}}"/>
+                                                            </span><br/>
+                                                        </li>
+                                                        <li>
+                                                            <span class="pull-right text-left">
+                                                                <field name="is_cost_select" widget="kanban_label_selection" options="{'classes': {'False': 'default', 'True': 'default', 'none': 'danger'}}"/>
+                                                            </span><br/>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-
                                             <div class="col-xs-8">
                                                 <ul class="oe_kanban_colorpicker" data-field="color"/>
                                                 <t t-foreach="record.employee_badge_ids.raw_value" t-as="member">
