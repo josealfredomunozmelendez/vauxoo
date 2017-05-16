@@ -470,7 +470,7 @@ class Migration(object):
             'website_meta_description', 'date_review_next',
             'message_last_post', 'partner_latitude', 'tz', 'employee',
             'website_meta_title', 'fax', 'website_published', 'opt_out',
-            'notify_email', 'ean13', 'l10n_mx_street3', 'l10n_mx_street4',
+            'ean13', 'l10n_mx_street3', 'l10n_mx_street4',
             'l10n_mx_city2', 'nacionality_diot', 'type_of_third',
             'type_of_operation',
             'regimen_fiscal_id/id',
@@ -626,7 +626,6 @@ class Migration(object):
                 partner[load_fields.index('company_id/id')] = False
                 partner[load_fields.index('website_published')] = False
                 partner[load_fields.index('opt_out')] = False
-                partner[load_fields.index('notify_email')] = 'none'
 
                 partner[load_fields.index('credit_limit')] = 0  # necessary?
 
@@ -891,8 +890,17 @@ class Migration(object):
         # Prepare load fields
         load_fields = []
         load_fields.extend(export_fields)
+        to_rename = [
+            ('notify_email', 'notification_type'),
+        ]
+        for item in to_rename:
+            load_fields[load_fields.index(item[0])] = item[1]
         for (field, value) in defaults.items():
             load_fields.append(field)
+        notify_mapping = dict([
+            (u'none', u'inbox'),
+            (u'always', u'email'),
+        ])
 
         # Domain: Active and non active res.users to avoid a problem of a
         # missing record in the registers. Avoid to migrate/update admin,
@@ -943,6 +951,9 @@ class Migration(object):
                     user[load_fields.index('lang')])
                 user[load_fields.index('groups_id/id')] = self.mapping_groups(
                     user[load_fields.index('groups_id/id')])
+                user[load_fields.index('notification_type')] = \
+                    notify_mapping.get(
+                        user[load_fields.index('notification_type')])
 
                 # Defaults
                 user[load_fields.index('company_ids/id')] = 'base.main_company'
@@ -3384,13 +3395,16 @@ def main(config, save_config, show_config, use_config,
     # # Internal Users (active)
     vauxoo.migrate_res_users(
         [('groups_id', 'not in', [portal]), ('active', '=', True)],
-        defaults={'notify_email': 'always'})
+        defaults={'notification_type': u'email'})
     # Internal Users (in active)
     vauxoo.migrate_res_users(
-        [('groups_id', 'not in', [portal]), ('active', '=', False)])
+        [('groups_id', 'not in', [portal]), ('active', '=', False)],
+        defaults={'notification_type': u'inbox'})
     # Portal Users
-    vauxoo.migrate_res_users([('groups_id', 'in', [portal])], defaults={
-        'groups_id/id': 'base.group_portal'})
+    vauxoo.migrate_res_users(
+        [('groups_id', 'in', [portal])],
+        defaults={'groups_id/id': 'base.group_portal',
+                  'notification_type': u'inbox'})
     vauxoo.migrate_employee()
 
     # Products
