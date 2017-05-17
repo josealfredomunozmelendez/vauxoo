@@ -257,6 +257,12 @@ class HrEmployee(models.Model):
     hours_informed = fields.Float(
         compute='_compute_timesheet_average',
         help="How many hours this person is having billable")
+    current_hours_invoiced = fields.Float(
+        compute='_compute_timesheet_average',
+        help="How many hours this person has reported current month")
+    current_hours_informed = fields.Float(
+        compute='_compute_timesheet_average',
+        help="How many hours from this person has invoiced current month")
     employee_badge_ids = fields.One2many(
         'gamification.badge',
         string='Employee Badge',
@@ -373,12 +379,18 @@ class HrEmployee(models.Model):
         end_date = datetime.strftime(end_date, '%Y-%m-%d')
         start_date = datetime.strftime(start_date, '%Y-%m-%d')
         for emp in self.filtered(lambda e: e.user_id):
-            domain = [('user_id', '=', emp.user_id.id),
-                      ('date', '<=', end_date),
-                      ('date', '>=', start_date)]
+            args = [('user_id', '=', emp.user_id.id)]
+            domain = args + [('date', '<=', end_date),
+                             ('date', '>=', start_date)]
             results = timesheets.search(domain)
             res = {
                 'hours_invoice': sum(results.mapped('invoiceables_hours')),
                 'hours_informed': sum(results.mapped('unit_amount'))
             }
+            domain = args + [('date', '>', end_date)]
+            ts = timesheets.search(domain)
+            res.update({
+                'current_hours_invoiced': sum(ts.mapped('invoiceables_hours')),
+                'current_hours_informed': sum(ts.mapped('unit_amount'))
+            })
             emp.update(res)

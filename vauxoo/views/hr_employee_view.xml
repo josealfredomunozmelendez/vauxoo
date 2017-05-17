@@ -245,8 +245,8 @@
                                             </div>
                                             <div class="col-xs-10" style="text-align: left; padding:0.0">
                                                 <ul>
-                                                    <li><field name="hours_informed" title="informed" widget="progress" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
-                                                    <li><field name="hours_invoice" title="invoiced" widget="progress" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                    <li><field name="hours_informed" title="Informed" widget="progress" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                    <li><field name="hours_invoice" title="Invoiced" widget="progress" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/></li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-2" style="text-align: right; padding:0.0">
@@ -262,8 +262,8 @@
                                             </div>
                                             <div class="col-xs-10" style="text-align: left; padding:0.0">
                                                 <ul>
-                                                    <li><field name="hours_informed" title="informed" widget="progress" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
-                                                    <li><field name="hours_invoice" title="invoiced" widget="progress" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                    <li><field name="current_hours_informed" title="Informed" widget="progress" options="{'current_value': 'current_hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                    <li><field name="current_hours_invoiced" title="Invoiced" widget="progress" options="{'current_value': 'current_hours_invoiced', 'max_value': 'theoretical_timesheet'}"/></li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-2" style="text-align: right; padding:0.0">
