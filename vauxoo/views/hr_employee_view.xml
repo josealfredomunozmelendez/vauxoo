@@ -237,9 +237,43 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 o_kanban_card_manage_settings">
-                                    <field name="hours_informed" widget="progress" title="Informed Hours" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/>
-                                    <field name="hours_invoice" widget="progress" title="Invoiced Hours" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/>
+                                <div t-if="record.theoretical_timesheet.raw_value != 0"  class="col-xs-12 o_kanban_card_manage_settings">
+                                    <div class="row">
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Last Month</span>
+                                            </div>
+                                            <div class="col-xs-10" style="text-align: left; padding:0.0">
+                                                <ul>
+                                                    <li><field name="hours_informed" title="informed" widget="progress" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                    <li><field name="hours_invoice" title="invoiced" widget="progress" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-2" style="text-align: right; padding:0.0">
+                                                <ul>
+                                                    <li>hours</li>
+                                                    <li>hours</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
+                                            <div class="o_kanban_card_manage_title" style="text-align: center">
+                                                <span>Current Month</span>
+                                            </div>
+                                            <div class="col-xs-10" style="text-align: left; padding:0.0">
+                                                <ul>
+                                                    <li><field name="hours_informed" title="informed" widget="progress" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                    <li><field name="hours_invoice" title="invoiced" widget="progress" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-2" style="text-align: right; padding:0.0">
+                                                <ul>
+                                                    <li>hours</li>
+                                                    <li>hours</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </t>
