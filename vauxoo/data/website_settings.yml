@@ -78,3 +78,15 @@
         ref('website_blog.opt_blog_rc_history'),
         ref('website_hr.aboutus')])
     records.write({'active': False})
+-
+  Disable Odoo Oauth provider
+-
+  !python {model: auth.oauth.provider}: |
+    record = self.browse(ref('auth_oauth.provider_openerp'))
+    record.write({'enabled': False})
+-
+  Change Google Log In button name to Login
+-
+  !python {model: auth.oauth.provider}: |
+    record = self.browse(ref('auth_oauth.provider_google'))
+    record.write({'body': 'Log In'})
