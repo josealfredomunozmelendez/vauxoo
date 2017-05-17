@@ -285,6 +285,18 @@ class HrEmployee(models.Model):
         compute='_compute_employee_tasks',
         help='Number of Tasks per employee'
     )
+    task_done = fields.Integer(
+        compute='_compute_employee_tasks',
+        help='Number of Tasks Done per employee'
+    )
+    task_todo = fields.Integer(
+        compute='_compute_employee_tasks',
+        help='Number of Tasks ToDo per employee'
+    )
+    task_perc = fields.Integer(
+        compute='_compute_employee_tasks',
+        help='Percentage of Done Tasks per employee'
+    )
 
     @api.depends()
     def _compute_employee_select(self):
@@ -300,9 +312,17 @@ class HrEmployee(models.Model):
             if not employee.user_id:
                 continue
             task_ids = task_obj.search(
-                [('user_id', '=', employee.user_id.id)])
+                [('user_id', '=', employee.user_id.id),
+                 ('stage_id', 'not in', ('Cancelled',)),
+                 ])
             employee.employee_task_ids = task_ids
-            employee.task_count = len(task_ids)
+            task_count = len(task_ids)
+            done = len(task_ids.filtered(lambda t: t.stage_id.name == 'Done'))
+            perc = 100 * done / task_count if task_count else 0.0
+            employee.task_count = task_count
+            employee.task_done = done
+            employee.task_todo = task_count - done
+            employee.task_perc = perc
 
     @api.depends('direct_badge_ids', 'user_id.badge_ids.employee_id')
     def _compute_employee_badges(self):
