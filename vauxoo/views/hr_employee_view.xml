@@ -115,6 +115,7 @@
                     <field name="color"/>
                     <field name="employee_badge_ids"/>
                     <field name="employee_task_ids"/>
+                    <field name="task_count"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="#{kanban_color(record.color.raw_value)}">
@@ -144,7 +145,7 @@
                                                         style="align: center; padding:0.0"
                                                         options="{'levelcolors': ['#a9d70b', '#f9c802', '#ff0000']}">Performance</field>
                                                 </div>
-                                                <div class="col-xs-12 o_kanban_card_manage_section o_kanban_manage_view" style="padding:0.0">
+                                                <div t-if="record.task_count.raw_value != 0" class="col-xs-12 o_kanban_card_manage_section o_kanban_manage_view" style="padding:0.0">
                                                     <div class="o_kanban_card_manage_title" style="text-align: center; padding:0.0">
                                                         <span>Tasks</span>
                                                     </div>
