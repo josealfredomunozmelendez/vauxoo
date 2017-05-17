@@ -309,6 +309,8 @@ class Migration(object):
             'sale_ok': 'True',
             'track_service': 'task',
             'project_id/id': 'vauxoo.implementation_team',
+            'uom_id/id': 'product.product_uom_hour',
+            'uom_po_id/id': 'product.product_uom_hour',
         }
         product_data = self.new_instance.execute(
             model, 'load', product.keys(), [product.values()])
