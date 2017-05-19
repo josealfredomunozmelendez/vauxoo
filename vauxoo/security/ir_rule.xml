@@ -7,33 +7,4 @@
                     ('project_ids.task_ids.partner_id', 'in', [user.partner_id.id, user.partner_id.commercial_partner_id.id])]</field>
         </record>
 
-        <function name="write" model="ir.model.data">
-            <function name="search" model="ir.model.data">
-                <value eval="[('module', '=', 'website_project'), ('name', '=', 'portal_task_rule')]"/>
-            </function>
-            <value eval="{'noupdate': False}" />
-        </function>
-
-        <record id="website_project.portal_task_rule" model="ir.rule">
-            <field name="domain_force">[
-                    ('project_id.privacy_visibility', '=', 'portal'),
-                    ('partner_id', '=', user.partner_id.commercial_partner_id.id)]
-            </field>
-        </record>
-
-        <function name="write" model="ir.model.data">
-            <function name="search" model="ir.model.data">
-                <value eval="[('module', '=', 'website_project'), ('name', '=', 'portal_task_rule')]"/>
-            </function>
-            <value eval="{'noupdate': True}" />
-        </function>
-
-        <function name="write" model="ir.rule" eval="
-                [ref('website_project.portal_project_rule')],
-                {'domain_force': '''[
-                    ('privacy_visibility', '=', 'portal'), '|',
-                    ('task_ids.partner_id', 'in', [user.partner_id.commercial_partner_id.id]),
-                    ('partner_id', '=', user.partner_id.commercial_partner_id.id)]'''}"
-        />
-
 </odoo>

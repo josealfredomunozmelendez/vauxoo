@@ -100,6 +100,7 @@
         'data/apps.xml',
 
         # Security
+        "security/ir_rule.yml",
         "security/ir_rule.xml",
         "security/res_groups.xml",
         "security/res_users.xml",
