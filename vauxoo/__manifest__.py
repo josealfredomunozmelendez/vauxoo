@@ -24,7 +24,6 @@
         'project_timesheet_synchro',
         "project_forecast",
         "rating_project",
-        "pad_project",
 
         # Human resources
         "hr_expense",
