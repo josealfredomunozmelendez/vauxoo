@@ -1,6 +1,6 @@
 # coding: utf-8
 {
-    "name": "ERP Instance",
+    "name": "Vauxoo ERP Instance",
     "author": "Vauxoo",
     "summary": """
     All the necessary modules to auto install our service instance
