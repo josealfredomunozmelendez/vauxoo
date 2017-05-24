@@ -1,5 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!--Pre footer with the subscribe/unsubscribe feature-->
+    <template id="footer_subscribe" name="Blog Footer Subscribe">
+        <section class="bg-black footer-subscribe">
+            <div class="container">
+                <div class="text-center">
+                    <h2>Get our latest news straight to your inbox</h2>
+                    <t t-set="email" t-value="user_id.email"/>
+                    <t t-set="object" t-value="blog if blog else posts[0].blog_id"/>
+                    <div class="input-group js_follow col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1" t-att-data-id="object.id"
+                                t-att-data-object="object._name"
+                                t-att-data-follow="object.id and object.message_is_follower and 'on' or 'off'"
+                                t-att-data-unsubscribe="'unsubscribe' if 'unsubscribe' in request.params else None">
+                        <input
+                                type="email" name="email"
+                                class="js_follow_email form-control btn-lg"
+                                placeholder="Your e-mail address"/>
+                        <span class="input-group-btn">
+                            <button href="#" t-attf-class="btn btn-default btn-lg js_unfollow_btn">Unsubscribe</button>
+                            <button href="#" t-attf-class="btn btn-primary btn-lg js_follow_btn">Subscribe</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!--Carousel with the images of the posts-->
+    <template id="posts_carousel" name="Posts Carousel">
+        <data t-if="carousel_posts" id="transparency" data-transparent="transparent"/>
+        <div class="carousel slide text-center" data-ride="carousel" id="blogs_carousel">
+            <ol class="carousel-indicators">
+                <t t-set="idx" t-value="0"/>
+                <t t-as="cpost" t-foreach="carousel_posts">
+                    <li data-target="#blogs_carousel" t-att-class="'active' if carousel_posts[0] == cpost else ''" t-att-data-slide-to="idx and idx or '0'"/>
+                    <t t-set="idx" t-value="idx+1"/>
+                </t>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <t t-set="idx" t-value="0"/>
+                <t t-as="cpost" t-foreach="carousel_posts">
+                    <t t-set="cover_properties" t-value="blog_posts_cover_properties[idx]"/>
+                    <div t-att-class="'item active' if carousel_posts[0] == cpost else 'item' " t-attf-style="background-image: #{cover_properties.get('background-image')};">
+                        <h1 t-field="cpost.name"/>
+                        <a class="btn btn-lg btn-secondary" t-attf-href="/blog/#{ slug(cpost.blog_id) }/post/#{ slug(cpost) }">Read</a>
+                    </div>
+                    <t t-set="idx" t-value="idx+1"/>
+                </t>
+            </div>
+        </div>
+    </template> 
+
+    <!--Used to render the Carousel + Post Items + Subscribe footer on the /blog page-->
+    <template id="latest_blogs" inherit_id="website_blog.latest_blogs">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <t t-set="blog_posts_cover_properties" t-value="[json.loads(b.cover_properties) for b in posts]"/>
+            <t t-set="carousel_posts" t-value="posts[:5] if not active_tag_ids else posts"/>
+            <t t-call="vauxoo.posts_carousel"/>
+            <section class="container mtvh mb32">
+                <t t-call="vauxoo.our_blogs"/>
+            </section>
+            <section class="container">
+                <div t-foreach="posts" t-as="blog_post" class="col-lg-4 col-sm-6 col-md-4 col-xs-10 col-xs-offset-1 col-md-offset-0 col-lg-offset-0 col-sm-offset-0 mb32 blog-post-retina" name="blog_post">
+                    <t t-call="vauxoo.blog_post_card"/>
+                </div>
+            </section>
+            <t t-call="vauxoo.footer_subscribe"/>
+            <div class="oe_structure"/>
+        </xpath>
+    </template>
+
+    <!--Customization of the page where a given blog/tag/page is rendered-->
     <template id="blog_header_carousel" inherit_id="website_blog.blog_post_short" name="Blog Header Carousel" priority="1">
         <xpath expr="//div[3]" position="attributes">
             <attribute name="class" add="mtvh" separator=" "/>
@@ -7,80 +78,79 @@
         <xpath expr="//div[2]" position="replace">
         </xpath>
         <xpath expr="//div[3]" position="after">
-            <section class="bg-black footer-subscribe">
-                <div class="container">
-                    <div class="text-center">
-                        <h2>Get our latest news straight to your inbox</h2>
-                        <t t-set="email" t-value="user_id.email"/>
-                        <t t-set="object" t-value="blog"/>
-                        <div class="input-group js_follow col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1" t-att-data-id="object.id"
-                                  t-att-data-object="object._name"
-                                  t-att-data-follow="object.id and object.message_is_follower and 'on' or 'off'"
-                                  t-att-data-unsubscribe="'unsubscribe' if 'unsubscribe' in request.params else None">
-                            <input
-                                  type="email" name="email"
-                                  class="js_follow_email form-control btn-lg"
-                                  placeholder="Your e-mail address"/>
-                            <span class="input-group-btn">
-                                <button href="#" t-attf-class="btn btn-default btn-lg js_unfollow_btn">Unsubscribe</button>
-                                <button href="#" t-attf-class="btn btn-primary btn-lg js_follow_btn">Subscribe</button>
-                            </span>
-                        </div>
+            <t t-call="vauxoo.footer_subscribe"/>
+        </xpath>
+        <xpath expr="//div[@class='container']" position="before">
+            <t t-set="carousel_posts" t-value="blog_posts[:5] if not active_tag_ids else blog_posts"/>
+            <t t-call="vauxoo.posts_carousel"/>
+        </xpath>
+    </template>
+
+    <!--Used to display the blog posts available on the env in fancy cards-->
+    <template id="blog_post_card" name="Blog Post Card">
+        <div class="nopadding bordered-div">
+            <div class="card-image" t-attf-style="background-image: #{blog_posts_cover_properties[blog_post_index].get('background-image')};">
+                <t t-set="tagcount" t-value="0"/>
+                <t t-foreach="blog_post.tag_ids" t-as="one_tag">
+                    <a t-if="tagcount &lt; 4" class="mr8 blog-tag" t-attf-href="#{blog_url(blog=blog_post.blog_id.id, tag=one_tag.id)}" t-esc="one_tag.name"/>
+                    <t t-set="tagcount" t-value="tagcount+1"/>
+                </t>
+            </div>
+            <section class="padded-section">
+                <a t-attf-href="/blog/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }">
+                    <h2 t-field="blog_post.name" class="mb4 o_blog_post_title mt0">Untitled Post</h2>
+                </a>
+                <div class="text-muted">
+                    <p t-esc="'%s...' % (blog_post.teaser[:65])" class="mb12 mt12 o_blog_post_teaser"/>
+                    <div name='blog_post_data' class='mb0 text-right'>
+                        <span class="text-right" t-field="blog_post.post_date" t-options='{"format": "MMMM yyyy"}'/>
                     </div>
                 </div>
             </section>
-        </xpath>
-        <xpath expr="//div[@class='container']" position="before">
-            <data id="transparency" data-transparent="transparent"/>
-            <t t-set="carousel_posts" t-value="env['blog.post'].search([], limit=5)"/>
-            <div class="carousel slide text-center" data-ride="carousel" id="blogs_carousel">
-                <ol class="carousel-indicators">
-                    <t t-set="idx" t-value="0"/>
-                    <t t-as="cpost" t-foreach="carousel_posts">
-                        <li data-target="#blogs_carousel" t-att-class="'active' if carousel_posts[0] == cpost else ''" t-att-data-slide-to="idx and idx or '0'"/>
-                        <t t-set="idx" t-value="idx+1"/>
-                    </t>
-                </ol>
-               <div class="carousel-inner" role="listbox">
-                    <t t-set="idx" t-value="0"/>
-                    <t t-as="cpost" t-foreach="carousel_posts">
-                        <t t-set="cover_properties" t-value="blog_posts_cover_properties[idx]"/>
-                        <div t-att-class="'item active' if carousel_posts[0] == cpost else 'item' " t-attf-style="background-image: #{cover_properties.get('background-image')};">
-                            <h1 t-field="cpost.name"/>
-                            <a class="btn btn-lg btn-secondary" t-attf-href="/blog/#{ slug(cpost.blog_id) }/post/#{ slug(cpost) }">Read</a>
-                        </div>
-                        <t t-set="idx" t-value="idx+1"/>
-                    </t>
-                </div>
-            </div>
-        </xpath>
+        </div>
     </template>
+
     <!-- Option: Blog Post List: retina layout -->
     <template id="opt_blog_post_retina_layout" name="Retina view" customize_show="True" active="False" inherit_id="website_blog.blog_post_short">
         <xpath expr="//div[@name='blog_post']" position="replace">
-                <div t-foreach="blog_posts" t-as="blog_post" class="col-lg-4 col-sm-6 col-md-4 col-xs-10 col-xs-offset-1 col-md-offset-0 col-lg-offset-0 col-sm-offset-0 mb32 blog-post-retina" name="blog_post">
-                    <div class="nopadding bordered-div">
-                        <div class="card-image" t-attf-style="background-image: #{blog_posts_cover_properties[blog_post_index].get('background-image')};">
-                            <t t-foreach="blog_post.tag_ids" t-as="one_tag">
-                                <a class="mr8 blog-tag" t-attf-href="#{blog_url(tag=one_tag.id, date_begin=False, date_end=False)}" t-esc="one_tag.name"/>
-                            </t>
-                        </div>
-                        <section class="padded-section">
-                            <a t-attf-href="/blog/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }">
-                                <h2 t-field="blog_post.name" class="mb4 o_blog_post_title mt0">Untitled Post</h2>
-                            </a>
-                            <div class="text-muted">
-                                <p t-esc="'%s...' % (blog_post.teaser[:65])" class="mb12 mt12 o_blog_post_teaser"/>
-                                <div name='blog_post_data' class='mb0 text-right'>
-                                    <span class="text-right" t-field="blog_post.post_date" t-options='{"format": "MMMM yyyy"}'/>
-                                </div>
-                            </div>
-                        </section>
+                <section class="container mb32">
+                    <t t-call="vauxoo.our_blogs"/>
+                </section>
+                <section class="container">
+                    <div t-foreach="blog_posts" t-as="blog_post" class="col-lg-4 col-sm-6 col-md-4 col-xs-10 col-xs-offset-1 col-md-offset-0 col-lg-offset-0 col-sm-offset-0 mb32 blog-post-retina" name="blog_post">
+                        <t t-call="vauxoo.blog_post_card"/>
                     </div>
-                </div>
+                </section>
         </xpath>
         <xpath expr="//div[@class='col-md-8 col-md-offset-2']" position="attributes">
             <attribute name="class">col-md-12</attribute>
         </xpath>
+    </template>
+
+    <!--Stripe of blogs listed horizontally under the carousel-->
+    <template id="our_blogs" name="Blog List">
+        <t t-set="blogs" t-value="env['blog.blog'].search([], limit=4)"/>
+        <div class="row text-center bordered-div ml16 mr16 blog-list">
+            <h4 class="col-lg-offset-1 col-md-offset-1 col-lg-2 col-md-2 hx-thin mt24"><a href="/blog" t-att-class="'active' if posts else ''">All blogs</a></h4>
+            <t t-foreach="blogs" t-as="b">
+                <t t-set="blogclass" t-value="'normal'"/>
+                <t t-if="blog">
+                    <t t-set="blogclass" t-value="'active' if blog.id == b.id else 'normal'"/>
+                </t>
+                <h4 class="col-lg-2 col-md-2 hx-thin mt24"><a t-att-class="blogclass" t-esc="b.name" t-att-href="'/blog/%s' % (b.id)"></a></h4>
+            </t>
+        </div>
+    </template>
+
+    <!--Stripe of available tags displayed horizontally-->
+    <template id="tags_stripe" name="Tags Stripe">
+    <div class="container text-center">
+        <h2>Explore our tags</h2>
+        <div class="col-md-12 col-lg-12 mb64">
+            <t t-foreach="tags" t-as="one_tag">
+                <a class="mr8 blog-tag" t-attf-href="#{blog_url(blog=blog_post.blog_id.id, tag=one_tag.id)}" t-esc="one_tag.name"/>
+            </t>
+        </div>
+    </div>
     </template>
 </odoo>

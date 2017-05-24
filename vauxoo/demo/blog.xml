@@ -19,6 +19,7 @@
             <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
             <field name="website_meta_keywords">MetaKeyboard1, Metakeybord2</field>
             <field name="website_meta_description">Hello World</field>
+            <field name="cover_properties">{"background-image": "url(/web/image/theme_vauxoo.hello_world)", "resize_class": "cover container cover_narrow", "background-color": "oe_black", "opacity": "0.0"}</field>
             <field name="content"><![CDATA[
 <section class="s_text_block">
     <div class="container">
@@ -94,6 +95,7 @@ ligula lacinia quis. Fusce ac ligula vitae ligula bibendum auctor at eget eros.
             <field name="website_published" eval="True"/>
             <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
             <field name="tag_ids" eval="[(6, 0, [ref('blog_tag_2')])]"/>
+            <field name="cover_properties">{"background-image": "url(/web/image/theme_vauxoo.vim)", "resize_class": "cover container cover_narrow", "background-color": "oe_black", "opacity": "0.0"}</field>
             <field name="content"><![CDATA[
 <section class="s_text_block">
     <div class="container">
@@ -172,6 +174,7 @@ turpis eget, malesuada lorem. Nunc a interdum risus. </p>
             <field name="website_published" eval="True"/>
             <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
             <field name="tag_ids" eval="[(6, 0, [ref('blog_tag_1')])]"/>
+            <field name="cover_properties">{"background-image": "url(/web/image/theme_vauxoo.philosophy)", "resize_class": "cover container cover_narrow", "background-color": "oe_black", "opacity": "0.0"}</field>
             <field name="content"><![CDATA[
 <section class="s_text_block">
     <div class="container">
@@ -237,6 +240,7 @@ Sed vel viverra purus. Suspendisse viverra iaculis augue nec elementum.V </p>
             <field name="website_published" eval="True"/>
             <field name="published_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
             <field name="tag_ids" eval="[(6, 0, [ref('blog_tag_1')])]"/>
+            <field name="cover_properties">{"background-image": "url(/web/image/theme_vauxoo.bistro)", "resize_class": "cover container cover_narrow", "background-color": "oe_black", "opacity": "0.0"}</field>
             <field name="content"><![CDATA[
 <section class="s_text_block">
     <div class="container">

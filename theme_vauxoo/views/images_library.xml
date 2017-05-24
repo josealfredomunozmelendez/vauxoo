@@ -108,6 +108,12 @@
         <field name="url">/theme_vauxoo/static/img/scroll-down.png</field>
         <field name="public" eval="True"/>
     </record>
+    <record id="theme_vauxoo.scroll-down-dark" model="ir.attachment">
+        <field name="name">Scroll Down Dark</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/scroll-down-dark.png</field>
+        <field name="public" eval="True"/>
+    </record>
     <record id="theme_vauxoo.shape" model="ir.attachment">
         <field name="name">Shape</field>
         <field name="type">url</field>
@@ -263,5 +269,37 @@
         <field name="type">url</field>
         <field name="url">/theme_vauxoo/static/img/quick_start.png</field>
         <field name="public" eval="True"/>
+    </record>
+    <record id="theme_vauxoo.hello_world" model="ir.attachment">
+        <field name="name">Hello world</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/hello_world.jpg</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">Blog Post Cover Hello World</field>
+    </record>
+    <record id="theme_vauxoo.philosophy" model="ir.attachment">
+        <field name="name">Philosophy</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/philosophy.jpg</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">Blog Post Cover Philosophy</field>
+    </record>
+    <record id="theme_vauxoo.vim" model="ir.attachment">
+        <field name="name">Vim</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/vim.jpg</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">Blog Post Cover Vim</field>
+    </record>
+    <record id="theme_vauxoo.bistro" model="ir.attachment">
+        <field name="name">Bistro</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/bistro.jpg</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">Blog Post Cover Bistro</field>
     </record>
 </odoo>

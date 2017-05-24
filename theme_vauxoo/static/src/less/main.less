@@ -224,9 +224,31 @@ p {
     }
 }
 .mtvh {
-    margin-top: 60vh;
+    margin-top: 55vh;
+}
+.blog-list {
+    a.active {
+        font-weight: 600;
+        color: @brand-primary;
+    }
+}
+.blog-tag {
+    background-color: @brand-primary;
+    color: @vauxoo-white;
+    top: 7px;
+    font-size: 16px;
+    padding: 6px;
+    position: relative;
+    font-weight: 600;
+    &:hover, &:active {
+        text-decoration: none;
+        color: @vauxoo-white;
+    }
 }
 .blog-post-retina {
+    .blog-tag {
+        font-weight: 500;
+    }
     .card-image {
             background-repeat: no-repeat;
             background-size: cover;
@@ -238,17 +260,7 @@ p {
     .padded-section {
         padding: 15px;
     }
-    .blog-tag {
-        background-color: @brand-primary;
-        color: @vauxoo-white;
-        top: 7px;
-        font-size: 16px;
-        padding: 6px;
-        position: relative;
-        &:hover {
-            text-decoration: none;
-        }
-    }
+
 }
 .footer-subscribe {
     height: 250px;
@@ -389,7 +401,7 @@ hr.title {
 }
 .diagonal-right {
     padding: 5% 20px; /* Added a percentage value for top/bottom padding to keep the wrapper inside of the parent */
-    padding-bottom: 15%;
+    padding-bottom: 10%;
     -webkit-transform: skewY(-2deg);
     -moz-transform: skewY(-2deg);
     -ms-transform: skewY(-2deg);
@@ -424,7 +436,7 @@ hr.title {
     background: @vauxoo-white;
     position: relative;
     z-index: 1;
-    padding: 5% 20px; /* Added a percentage value for top/bottom padding to keep the wrapper inside of the parent */
+    padding: 10% 20px; /* Added a percentage value for top/bottom padding to keep the wrapper inside of the parent */
     padding-bottom: 10%;
 
   &:before,
@@ -471,6 +483,11 @@ hr.title {
 }
 .arrow-scroll-down {
     padding-top: 30vh;
+
+}
+.arrow-scroll-down-center {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 .nopadding {
     padding: 0px !important;

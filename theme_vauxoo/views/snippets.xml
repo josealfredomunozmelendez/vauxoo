@@ -103,6 +103,11 @@
                                 </div>
                                 <a class="btn btn-default hidden-xs hidden-lg hidden-md mt4">Explore</a>
                             </div>
+                            <div class="row text-center arrow-scroll-down">
+                                <a href="#odoo-section" class="smoothly">
+                                    <img src="/web/image/theme_vauxoo.scroll-down"></img>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,7 +115,7 @@
         </section>
     </template>
     <template id="s_body_content" name="Body Content">
-        <section class="s_body_content bg-white diagonal-left">
+        <section class="s_body_content bg-white diagonal-left" id="odoo-section">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
