@@ -3404,7 +3404,8 @@ def main(config, save_config, show_config, use_config,
         defaults={'notification_type': u'inbox'})
     # Portal Users
     vauxoo.migrate_res_users(
-        [('groups_id', 'in', [portal])],
+        [('groups_id', 'in', [portal]),
+         '|', ('active', '=', True), ('active', '=', False)],
         defaults={'groups_id/id': 'base.group_portal',
                   'notification_type': u'inbox'})
     vauxoo.migrate_employee()
