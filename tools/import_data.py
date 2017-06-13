@@ -706,15 +706,20 @@ class Migration(object):
         defaults = defaults or {}
         read_model = write_model = 'res.groups'
 
+        # All groups
+        all_groups = self.legacy.execute('res.groups', 'search', [], 0, limit)
+
+        # Search the groups that has not been exported.
         domain = domain + [
-            ('module', '=', '__export__'), ('model', '=', read_model)]
-        # Search all the groups that has been exported.
+            ('module', '!=', '__export__'), ('model', '=', read_model)]
         model_data_groups = self.legacy.execute(
             'ir.model.data', 'search', domain, 0, limit)
-
-        groups_ids = self.legacy.execute(
+        not_exported_groups = self.legacy.execute(
             'ir.model.data', 'read', model_data_groups, ['res_id'])
-        groups_ids = [item.get('res_id') for item in groups_ids]
+        not_exported_groups = [
+            item.get('res_id') for item in not_exported_groups]
+
+        groups_ids = list(set(all_groups) - set(not_exported_groups))
 
         export_fields = load_fields = [
             'id', 'name', 'is_portal', 'share',
