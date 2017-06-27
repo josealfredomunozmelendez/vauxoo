@@ -706,15 +706,20 @@ class Migration(object):
         defaults = defaults or {}
         read_model = write_model = 'res.groups'
 
+        # All groups
+        all_groups = self.legacy.execute('res.groups', 'search', [], 0, limit)
+
+        # Search the groups that has not been exported.
         domain = domain + [
-            ('module', '=', '__export__'), ('model', '=', read_model)]
-        # Search all the groups that has been exported.
+            ('module', '!=', '__export__'), ('model', '=', read_model)]
         model_data_groups = self.legacy.execute(
             'ir.model.data', 'search', domain, 0, limit)
-
-        groups_ids = self.legacy.execute(
+        not_exported_groups = self.legacy.execute(
             'ir.model.data', 'read', model_data_groups, ['res_id'])
-        groups_ids = [item.get('res_id') for item in groups_ids]
+        not_exported_groups = [
+            item.get('res_id') for item in not_exported_groups]
+
+        groups_ids = list(set(all_groups) - set(not_exported_groups))
 
         export_fields = load_fields = [
             'id', 'name', 'is_portal', 'share',
@@ -1201,50 +1206,20 @@ class Migration(object):
             self.print_errors(model, dummys, to_mapping)
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
-    def compute_tasks_display_name(self):
-        """ This will be compute using a server action loaded and run
-        """
+    def load_and_run(self, server_action_file):
         write_model = 'ir.actions.server'
         data = []
-        with open("server_action_display_name.csv", "r") as csvfile:
+        with open(server_action_file, "r") as csvfile:
             reader = csv.reader(csvfile)
-            header = False
-            for row in reader:
-                if not header:
-                    header = row
-                else:
-                    data.append(row)
+            header = next(reader)
+            data = [row for row in reader]
 
         loaded_data = self.new_instance.execute(
             write_model, 'load', header, data)
         if not loaded_data.get('ids', False):
             self.print_errors(write_model, loaded_data, data)
 
-        action = self.new_instance.execute(
-            write_model, 'run', loaded_data.get('ids', False))
-
-    def update_task_ticket(self):
-        """ This will be compute using a server action loaded and run
-        """
-        # TODO This method can be merged with compute_tasks_display_name
-        # it does the same only need to manage different params
-        write_model = 'ir.actions.server'
-        data = []
-        with open("server_action_update_task_ticket.csv", "r") as csvfile:
-            reader = csv.reader(csvfile)
-            header = False
-            for row in reader:
-                if not header:
-                    header = row
-                else:
-                    data.append(row)
-
-        loaded_data = self.new_instance.execute(
-            write_model, 'load', header, data)
-        if not loaded_data.get('ids', False):
-            self.print_errors(write_model, loaded_data, data)
-
-        action = self.new_instance.execute(
+        self.new_instance.execute(
             write_model, 'run', loaded_data.get('ids', False))
 
     def migrate_project_task(self, domain=None, limit=None, defaults=None):
@@ -3543,10 +3518,13 @@ def main(config, save_config, show_config, use_config,
                   'account_id/.id': support_analytic_id.id})
 
     _logger.info('Compute tasks display name')
-    vauxoo.compute_tasks_display_name()
+    vauxoo.load_and_run('server_action_display_name.csv')
+
+    _logger.info('Compute tasks spent hours')
+    vauxoo.load_and_run('server_action_tasks_spent_hours.csv')
 
     _logger.info('Update tasks tickets')
-    vauxoo.update_task_ticket()
+    vauxoo.load_and_run('server_action_update_task_ticket.csv')
 
     # vauxoo.mapping_cleanup()
     cursor.commit()
