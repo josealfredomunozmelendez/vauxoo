@@ -44,10 +44,13 @@ class ProjectTask(models.Model):
                               help='Has been this user story '
                                    'approved by customer',
                               track_visibility='onchange')
+    accepted = fields.Boolean("Accepted Aceptability Criteria",
+                              help='Check if this criterion apply',
+                              track_visibility='onchange')
     label_subtasks = fields.Char(
         related="project_id.label_subtasks", readonly=True)
     # User Story Specific Information
-    description = fields.Html(track_visibility="onchange")
+    description = fields.Text(track_visibility="onchange")
     planned_hours = fields.Float(
         string='Initially Planned Hours',
         help='Estimated time to do the task, usually set by the project '
@@ -119,6 +122,23 @@ class ProjectTask(models.Model):
             task.message_post_with_template(template.id,
                                             message_type='notification')
             task.write({'approving_id': self.env.user.id, 'approved': True})
+        return True
+
+    @api.multi
+    def ask_review(self):
+        self.ensure_one()
+        if not self.accepted:
+            self.write({'stage_id': self.env.ref(
+                'vauxoo.project_stage_ask_review').id})
+        return True
+
+    @api.multi
+    def approve(self):
+        self.ensure_one()
+        if not self.accepted:
+            self.write({'stage_id': self.env.ref(
+                'vauxoo.project_stage_approve').id,
+                'accepted': True})
         return True
 
     @api.multi

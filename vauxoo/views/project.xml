@@ -41,11 +41,17 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='child_ids']" position="replace">
+                     <field name="message_needaction" invisible="1"/>
+                </xpath>
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name="owner_id"/>
                     <field name="approving_id"/>
                     <label for="create_uid" string="Who fill this story?"/>
                     <field name="create_uid" nolabel="1" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='description']" position="replace">
+                    <field name="description" nolabel="1" widget="html"/>
                 </xpath>
                 <xpath expr="//page[@name='description_page']" position="after">
                     <page name="user_story" string="User Story">
@@ -63,7 +69,15 @@
                         </group>
                         <newline/>
                         <group>
-                            <field name="child_ids" nolabel="1"/>
+                            <field name="child_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="name" string="Title"/>
+                                    <field name="description" string="Scenario"/>
+                                    <field name="accepted" string="Accepted"/>
+                                    <button icon="fa-info" name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be done"/>
+                                    <button icon="fa-check" name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'"/>
+                                </tree>
+                            </field>
                         </group>
                     </page>
                     <page name="documentation" string="Documentation">
@@ -127,6 +141,19 @@
                                 help="Please, Approve this User Story to start to work with it take care about if you are not the Owner of this User Story you will not be able to approve it."
                                 string="I approve start to work with this Story"/>
                     </div>
+                </xpath>
+                <xpath expr="//page[@name='description_page']" position="after">
+                    <page name="criteria" string="Acceptability Criteria">
+                        <group>
+                            <group>
+                                <field name="accepted"/>
+                            </group>
+                            <group>
+                                <button name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be d ne" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                                <button name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                            </group>
+                        </group>
+                    </page>
                 </xpath>
                 <xpath expr="//button[@name='toggle_active']" position="before">
                     <button class="oe_stat_button" name="%(act_vauxoo_timesheet_line_by_task)d" type="action" icon="fa-calendar" string="Timesheets" />
