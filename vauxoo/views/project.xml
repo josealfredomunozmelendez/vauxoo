@@ -41,6 +41,78 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="owner_id"/>
+                    <field name="approving_id"/>
+                    <label for="create_uid" string="Who fill this story?"/>
+                    <field name="create_uid" nolabel="1" readonly="1"/>
+                </xpath>
+                <xpath expr="//page[@name='description_page']" position="after">
+                    <page name="user_story" string="User Story">
+                        <group>
+                            <group>
+                                <field name="group_id"/>
+                                <field name="list_id"/>
+                                <field name="layer_id"/>
+                            </group>
+                            <group>
+                                <field name="difficulty_id" widget="radio"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="budget" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </group>
+                        <newline/>
+                        <group>
+                            <field name="child_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                    <page name="documentation" string="Documentation">
+                        <group>
+                            <separator colspan="4" string="Technical Conclusions" class="oe_horizontal_separator oe_clear"/>
+                                <div class="no_print">
+                                    <p class="oe_grey">
+                                        Here you need to declare technically how will be
+                                        solved this User Story. The technically conclusions
+                                        can have link to modules to be based on, link gists
+                                        or directly algorithms, link to files to change and
+                                        so on. In this place you can say where will you put
+                                        the code related to it, or documentation bnecesary
+                                        to be used to solve this case.
+                                    </p>
+                                </div>
+                            <field name="gap" colspan="4" placeholder="Add another info here ..." widget="html" nolabel="1"/>
+                            <separator colspan="4" string="Assumptions" class="oe_horizontal_separator oe_clear"/>
+                                <div class="no_print">
+                                    <p class="oe_grey">
+                                        On this place please set all the features that
+                                        explicitlly are outside (inside of the scope are the
+                                        acceptability criteria), Thisng that you considere are
+                                        part of other user story, and you will not or will
+                                        considere as part of this Story and need to be declared
+                                        explicitaly. It is important to set the scope and not
+                                        end doing things that needs to be part of other
+                                        Story or the end user is not complete agreed with it
+                                        and can be easily mixed.
+                                    </p>
+                                </div>
+                            <field name="asumption" colspan="4" placeholder="Add assumptions here ..." widget="html" nolabel="1"/>
+                            <separator colspan="4" string="Implementation Conclusions" class="oe_horizontal_separator oe_clear"/>
+                                <div class="no_print">
+                                    <p class="oe_grey">
+                                        One time you finish the story, here you need to say
+                                        considerations, learned lessons, things that you think
+                                        are important to know before implement, oportunities to
+                                        improve in the future and so on.
+                                        Some set of information can be great here are link to
+                                        manuals, videos, bugs information and some other
+                                        external things that you think are important.
+                                    </p>
+                                </div>
+                            <field name="implementation" colspan="4" placeholder="Add Implementation Conclusions here ..." widget="html" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="ticket_id"/>
                 </xpath>
@@ -64,10 +136,13 @@
                 <xpath expr="//field[@name='parent_id']" position="after">
                     <field name="product_id" invisible="1"/>
                 </xpath>
+                <xpath expr="//field[@name='remaining_hours']" position="after">
+                    <field name="billable_hours" widget="float_time" class="oe_subtotal_footer_separator" readonly="1"/>
+                </xpath>
             </field>
         </record>
 
-        <record id="project_task_extended_search_view" model="ir.ui.view">
+        <record id="view_task_search_form" model="ir.ui.view">
             <field name="name">Project Task Extended Search View</field>
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_search_form"/>
@@ -76,13 +151,19 @@
                     <field name="display_name"/>
                     <field name="id"/>
                     <field name="name" invisible="1"/>
+                    <field name="difficulty_id"/>
+                    <field name="group_id"/>
+                    <field name="list_id"/>
+                    <field name="layer_id"/>
                 </xpath>
                 <xpath expr="//group" position="inside">
-                    <separator/>
                     <filter name="color" string="Color" context="{'group_by': 'color'}"/>
+                    <filter name="difficulty_id" string="Difficulty" context="{'group_by':'difficulty_id'}"/>
+                    <filter name="group_id" string="Group" context="{'group_by':'group_id'}"/>
+                    <filter name="list_id" string="List" context="{'group_by':'list_id'}"/>
+                    <filter name="layer_id" string="Layer" context="{'group_by':'layer_id'}"/>
                 </xpath>
-                <xpath expr="//group" position="before">
-                    <separator/>
+                <xpath expr="//filter[@name='Stage']" position="after">
                     <filter name="user_story" string="User Stories" domain="[('sale_line_id', '!=', False), ('parent_id','=', False)]"/>
                     <filter name="acceptability_criteria" string="Acceptability Criteria" domain="[('sale_line_id', '!=', False),('parent_id','!=', False)]"/>
                     <filter name="orphan_task" string="Orphan Task" domain="[('tag_ids', 'ilike', 'Orphan')]"/>
