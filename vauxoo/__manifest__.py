@@ -138,6 +138,7 @@
         # Email templates
         "views/hr_timesheet_reports_email.xml",
         "data/website_quotation_template.xml",
+        "views/approving_start_to_work_email.xml",
     ],
     "demo": [
         "demo/product.xml",

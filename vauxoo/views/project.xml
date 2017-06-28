@@ -116,6 +116,18 @@
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="ticket_id"/>
                 </xpath>
+                <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="approved"/>
+                </xpath>
+                <xpath expr="//field[@name='progress']" position="after">
+                    <div class="no_print">
+                        <button name="do_approval"
+                                type="object"
+                                attrs="{'invisible':[('approved','=',True)]}"
+                                help="Please, Approve this User Story to start to work with it take care about if you are not the Owner of this User Story you will not be able to approve it."
+                                string="I approve start to work with this Story"/>
+                    </div>
+                </xpath>
                 <xpath expr="//button[@name='toggle_active']" position="before">
                     <button class="oe_stat_button" name="%(act_vauxoo_timesheet_line_by_task)d" type="action" icon="fa-calendar" string="Timesheets" />
                 </xpath>

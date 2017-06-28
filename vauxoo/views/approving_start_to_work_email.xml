@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="approving_start_work_userstory_mail" model="mail.template">
+            <field name="name">Approving Start to Work with User Story</field>
+            <field name="subject">The user ${user.name} has approved start to work with user Story HU${object.id}:${object.name}</field>
+            <field name="email_from">info@vauxoo.com</field>
+            <field name="email_to">${user.email|safe}</field>
+            <field name="lang">${user.lang}</field>
+            <field name="model_id" ref="vauxoo.model_project_task"/>
+            <field name="body_html" ><![CDATA[
+            <div style="margin: 10px auto;">
+            <table style="width:100%;text-align:justify;margin:0 auto;border-collapse:collapse;border-top:1px solid lightgray"">
+                <tbody>
+                    <tr>
+                        <td style="padding:15px 10px;font-size:20px">
+                            <p style="color:#A51D36;margin:0" >
+                                There is work to be done!</p><br/>
+                            <p dir="ltr" style="margin-top:0pt;margin-bottom:8pt;">
+                                <span style="font-size:13px;font-weight:bold; ">What do you need to start working on this user story?</span></p>
+
+                            <ul style="margin-top:0pt;margin-bottom:0pt;font-size:13px;list-style-type:disc;">
+                                <li dir="ltr">
+                                    <p dir="ltr" style="margin-top:0pt;margin-bottom:0pt;">
+                                        <span>User Story: HU${object.id}:${object.name}</span>
+                                    </p>
+                                </li>
+                                <li dir="ltr">
+                                    <p dir="ltr" style="margin-top:0pt;margin-bottom:0pt;">
+                                        <span>Description: ${object.description}</span>
+                                    </p>
+                                </li>
+                                <li dir="ltr">
+                                    <p dir="ltr" style="margin-top:0pt;margin-bottom:0pt;">
+                                        <span>Planned Hours: ${object.planned_hours}</span>
+                                    </p>
+                                </li>
+                            </ul> <br>
+
+
+
+                            <p dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:8pt;">
+                                <span style="font-weight:bold;">See the Acceptability Criteria:</span>
+                            </p>
+                            <ul style="margin-top:0pt;margin-bottom:0pt;font-size:13px;list-style-type:disc;">
+                                % for a in object.child_ids:
+                                <li dir="ltr">
+                                    <p dir="ltr" style="margin-top:0pt;margin-bottom:0pt;">
+                                        <span>${a.name}</span>
+                                    </p>
+                                </li>
+                                % endfor
+                            </ul><br/>
+
+
+                            <p dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:0pt;">
+                               Please enter <a href="/web#id=${object.id}&view_type=form&model=project.task">here</a> to get more details about the work to be done.
+                            </p><br/>
+
+                            <p dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:8pt;">
+                                <span>We would be delighted to assist you along the way. Please contact the project leader to advise you on any questions you may have.</span>
+                            </p><br/>
+
+                            <p dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:8pt;">
+                                <span style="font-weight:bold;">Let's do it!!</span>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:8pt;color:grey">
+                <span><br/>Vauxoo<br/>check </span><a href="https://twitter.com/Vauxoo/favorites"><span style="text-decoration:underline;">what they say about it.</span></a></span>
+            </div>
+        </div>]]></field>
+        </record>
+
+</odoo>
