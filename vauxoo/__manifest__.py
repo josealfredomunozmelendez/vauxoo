@@ -112,6 +112,7 @@
         "data/hr_timesheet_invoice_data.xml",
         "data/product.xml",
         "data/project.xml",
+        "data/project_task_estimation.xml",
         "data/jobs.xml",
         "data/blog.xml",
 
