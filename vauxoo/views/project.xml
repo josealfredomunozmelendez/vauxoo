@@ -47,11 +47,8 @@
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name="owner_id"/>
                     <field name="approving_id"/>
-                    <label for="create_uid" string="Who fill this story?"/>
+                    <label for="create_uid" string="Who fill this document?"/>
                     <field name="create_uid" nolabel="1" readonly="1"/>
-                </xpath>
-                <xpath expr="//field[@name='description']" position="replace">
-                    <field name="description" nolabel="1" widget="html"/>
                 </xpath>
                 <xpath expr="//page[@name='description_page']" position="after">
                     <page name="user_story" string="User Story">
@@ -73,9 +70,10 @@
                                 <tree editable="bottom">
                                     <field name="name" string="Title"/>
                                     <field name="description" string="Scenario"/>
-                                    <field name="accepted" string="Accepted"/>
-                                    <button icon="fa-info" name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be done"/>
-                                    <button icon="fa-check" name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'"/>
+                                    <field name="accepted" readonly="1"/>
+                                    <field name="difficulty_id"/>
+                                    <button icon="fa-info" name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be done" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                                    <button icon="fa-check" name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'" attrs="{'invisible': [('accepted', '=', True)]}"/>
                                 </tree>
                             </field>
                         </group>
@@ -126,31 +124,33 @@
                         </group>
                     </page>
                 </xpath>
-
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </xpath>
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="ticket_id"/>
                 </xpath>
                 <xpath expr="//field[@name='project_id']" position="after">
-                    <field name="approved"/>
+                    <field name="approved" attrs="{'invisible':[('parent_id', '!=', False)]}"/>
                 </xpath>
                 <xpath expr="//field[@name='progress']" position="after">
                     <div class="no_print">
                         <button name="do_approval"
                                 type="object"
-                                attrs="{'invisible':[('approved','=',True)]}"
+                                attrs="{'invisible':['|', ('approved', '=', True), ('parent_id', '!=', False)]}"
                                 help="Please, Approve this User Story to start to work with it take care about if you are not the Owner of this User Story you will not be able to approve it."
                                 string="I approve start to work with this Story"/>
                     </div>
                 </xpath>
                 <xpath expr="//page[@name='description_page']" position="after">
-                    <page name="criteria" string="Acceptability Criteria">
+                    <page name="criteria" string="Acceptability Criteria" attrs="{'invisible':[('parent_id', '=', False)]}">
                         <group>
                             <group>
                                 <field name="accepted"/>
                             </group>
                             <group>
-                                <button name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be d ne" attrs="{'invisible': [('accepted', '=', True)]}"/>
-                                <button name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                                <button icon="fa-info" name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be d ne" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                                <button icon="fa-check" name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'" attrs="{'invisible': [('accepted', '=', True)]}"/>
                             </group>
                         </group>
                     </page>

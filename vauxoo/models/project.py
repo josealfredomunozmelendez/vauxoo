@@ -44,13 +44,12 @@ class ProjectTask(models.Model):
                               help='Has been this user story '
                                    'approved by customer',
                               track_visibility='onchange')
-    accepted = fields.Boolean("Accepted Aceptability Criteria",
-                              help='Check if this criterion apply',
+    accepted = fields.Boolean(help='Check if this criterion apply',
                               track_visibility='onchange')
     label_subtasks = fields.Char(
         related="project_id.label_subtasks", readonly=True)
     # User Story Specific Information
-    description = fields.Text(track_visibility="onchange")
+    description = fields.Html(track_visibility="onchange")
     planned_hours = fields.Float(
         string='Initially Planned Hours',
         help='Estimated time to do the task, usually set by the project '
@@ -60,7 +59,7 @@ class ProjectTask(models.Model):
         'res.users',
         help="User Story's Owner, generally the person which asked to develop "
              "this feature on customer side",
-        track_visibility='always')
+        track_visibility='onchange')
     approving_id = fields.Many2one(
         'res.users',
         help="User which says this User Story must/can be done")
@@ -85,6 +84,16 @@ class ProjectTask(models.Model):
     def default_get(self, field_list):
         res = super(ProjectTask, self).default_get(field_list)
         res.update({'name': ''})
+        return res
+
+    @api.multi
+    def write(self, vals):
+        """ This overwrite is by bug found trying to do track of fields.Html
+        """
+        res = super(ProjectTask, self).write(vals)
+        if vals.get('description'):
+            body = ('<ul><li>Description: %s</li></ul>') % vals['description']
+            self.message_post(body=body)
         return res
 
     @api.depends('parent_id', 'sale_line_id', 'name')
