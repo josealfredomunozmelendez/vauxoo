@@ -130,14 +130,11 @@
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="ticket_id"/>
                 </xpath>
-                <xpath expr="//field[@name='project_id']" position="after">
-                    <field name="approved" attrs="{'invisible':[('parent_id', '!=', False)]}"/>
-                </xpath>
                 <xpath expr="//field[@name='progress']" position="after">
                     <div class="no_print">
                         <button name="do_approval"
                                 type="object"
-                                attrs="{'invisible':['|', ('approved', '=', True), ('parent_id', '!=', False)]}"
+                                attrs="{'invisible':['|', ('approving_id', '!=', False), ('parent_id', '!=', False)]}"
                                 help="Please, Approve this User Story to start to work with it take care about if you are not the Owner of this User Story you will not be able to approve it."
                                 string="I approve start to work with this Story"/>
                     </div>

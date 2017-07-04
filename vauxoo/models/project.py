@@ -40,10 +40,6 @@ class ProjectTask(models.Model):
         "Name", compute="_compute_display_name", store=True, index=True)
     product_id = fields.Many2one(
         related="sale_line_id.product_id", readonly=True)
-    approved = fields.Boolean("Is this User Story Approved to work with?",
-                              help='Has been this user story '
-                                   'approved by customer',
-                              track_visibility='onchange')
     accepted = fields.Boolean(help='Check if this criterion apply',
                               track_visibility='onchange')
     label_subtasks = fields.Char(
@@ -130,7 +126,7 @@ class ProjectTask(models.Model):
         for task in self:
             task.message_post_with_template(template.id,
                                             message_type='notification')
-            task.write({'approving_id': self.env.user.id, 'approved': True})
+            task.write({'approving_id': self.env.user.id})
         return True
 
     @api.multi
