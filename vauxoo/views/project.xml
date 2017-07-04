@@ -46,7 +46,7 @@
                 </xpath>
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name="owner_id"/>
-                    <label for="create_uid" string="Who fill this document?"/>
+                    <label for="create_uid" string="Who fill this?"/>
                     <field name="create_uid" nolabel="1" readonly="1"/>
                 </xpath>
                 <xpath expr="//field[@name='parent_id']" position="after">
