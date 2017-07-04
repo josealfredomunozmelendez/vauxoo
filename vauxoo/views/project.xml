@@ -58,9 +58,11 @@
                     <page name="user_story" string="User Story">
                         <group>
                             <group>
-                                <field name="difficulty_id" widget="radio"/>
-                                <field name="currency_id" invisible="1"/>
                                 <field name="budget" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="difficulty_id" widget="radio"/>
                             </group>
                         </group>
                         <newline/>
