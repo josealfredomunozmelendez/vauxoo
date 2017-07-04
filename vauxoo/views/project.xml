@@ -50,14 +50,14 @@
                     <label for="create_uid" string="Who fill this document?"/>
                     <field name="create_uid" nolabel="1" readonly="1"/>
                 </xpath>
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="group_id"/>
+                    <field name="list_id"/>
+                    <field name="layer_id"/>
+                </xpath>
                 <xpath expr="//page[@name='description_page']" position="after">
                     <page name="user_story" string="User Story">
                         <group>
-                            <group>
-                                <field name="group_id"/>
-                                <field name="list_id"/>
-                                <field name="layer_id"/>
-                            </group>
                             <group>
                                 <field name="difficulty_id" widget="radio"/>
                                 <field name="currency_id" invisible="1"/>
