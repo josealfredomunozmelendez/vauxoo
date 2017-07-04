@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-     <record id="ask_review_criteria_mail" model="mail.template">
+     <record id="ask_review_mail" model="mail.template">
          <field name="name">Ask for review Acceptability Criteria</field>
          <field name="subject">Ask for Review "${object.name}"</field>
          <field name="email_from">info@vauxoo.com</field>

@@ -5,13 +5,13 @@
             <field name="name">Ask for Review Acceptability Criteria</field>
             <field name="legend_blocked">Not validated</field>
             <field name="legend_priority">Use the priority for tasks related to gold customers</field>
-            <field name="mail_template_id" ref="vauxoo.ask_review_criteria_mail"/>
+            <field name="mail_template_id" ref="vauxoo.ask_review_mail"/>
         </record>
         <record id="project_stage_approve" model="project.task.type">
             <field name="sequence">5</field>
             <field name="name">Approve</field>
             <field name="legend_blocked">Not validated</field>
             <field name="legend_priority">Use the priority for tasks related to gold customers</field>
-            <field name="mail_template_id" ref="vauxoo.approve_criteria_mail"/>
+            <field name="mail_template_id" ref="vauxoo.approve_mail"/>
         </record>
 </odoo>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-     <record id="approve_criteria_mail" model="mail.template">
+     <record id="approve_mail" model="mail.template">
          <field name="name">Approve Acceptability Criteria</field>
          <field name="subject">Approve Criteria "${object.name}" by ${user.name}</field>
          <field name="email_from">info@vauxoo.com</field>

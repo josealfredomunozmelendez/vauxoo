@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <record id="approving_start_work_userstory_mail" model="mail.template">
+        <record id="appr_start_mail" model="mail.template">
             <field name="name">Approving Start to Work with User Story</field>
             <field name="subject">The user ${user.name} has approved start to work with user Story HU${object.id}:${object.name}</field>
             <field name="email_from">info@vauxoo.com</field>

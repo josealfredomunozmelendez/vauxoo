@@ -122,7 +122,7 @@ class ProjectTask(models.Model):
 
     @api.multi
     def do_approval(self):
-        template = self.env.ref('vauxoo.approving_start_work_userstory_mail')
+        template = self.env.ref('vauxoo.appr_start_mail')
         for task in self:
             task.message_post_with_template(template.id,
                                             message_type='notification')
