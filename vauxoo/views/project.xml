@@ -46,7 +46,6 @@
                 </xpath>
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name="owner_id"/>
-                    <field name="approving_id"/>
                     <label for="create_uid" string="Who fill this document?"/>
                     <field name="create_uid" nolabel="1" readonly="1"/>
                 </xpath>
@@ -131,6 +130,7 @@
                     <field name="ticket_id"/>
                 </xpath>
                 <xpath expr="//field[@name='progress']" position="after">
+                    <field name="approving_id" attrs="{'invisible': [('approving_id', '=', False)]}"/>
                     <div class="no_print">
                         <button name="do_approval"
                                 type="object"
