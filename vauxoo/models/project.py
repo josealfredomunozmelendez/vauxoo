@@ -7,7 +7,7 @@ class Project(models.Model):
     _inherit = "project.project"
 
     label_acronymous = fields.Char(
-        copy="False", size=4,
+        copy="False",
         help="Acronymous to show as prefix in the display name for the tasks"
              " without parent Tasks")
     label_subtasks = fields.Char(
@@ -15,7 +15,7 @@ class Project(models.Model):
         help="Acronymous to show as prefix in the display name for the tasks"
              " with parent Tasks")
     label_acronymous_subtasks = fields.Char(
-        copy="False", size=4,
+        copy="False",
         help="Acronymous to show as prefix in the display name for the tasks"
              " with parent Tasks")
 
