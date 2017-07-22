@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="approve_mail" model="mail.template">
+         <field name="name">Approve Acceptability Criteria</field>
+         <field name="subject">Approve Criteria "${object.name}" by ${user.name}</field>
+         <field name="email_from">info@vauxoo.com</field>
+         <field name="lang">${user.lang}</field>
+         <field name="model_id" ref="vauxoo.model_project_task"/>
+         <field name="body_html"><![CDATA[
+            <div style="margin: 10px auto;">
+            <table style="width:100%;text-align:justify;margin:0 auto;border-collapse:collapse;border-top:1px solid lightgray"">
+                <tbody>
+                    <tr>
+                        <td style="padding:15px 10px;font-size:20px">
+                            <p style="color:#A51D36;margin:0" >
+                                This Acceptability criteria has been approved!</p><br/>
+                            <p dir="ltr" style="margin-top:0pt;margin-bottom:8pt;">
+                                <span style="font-size:13px;font-weight:bold; ">Information of Acceptability Criteria approved:</span></p>
+
+                            <ul style="margin-top:0pt;margin-bottom:0pt;font-size:13px;list-style-type:disc;">
+                                <li dir="ltr">
+                                    <p dir="ltr" style="margin-top:0pt;margin-bottom:0pt;">
+                                        <span>User Story: HU${object.parent_id.id}:${object.parent_id.name}</span>
+                                    </p>
+                                </li>
+                                <li dir="ltr">
+                                    <p dir="ltr" style="margin-top:0pt;margin-bottom:0pt;">
+                                        <span>Scenario: ${object.name}</span>
+                                    </p>
+                                </li>
+                            </ul> <br>
+
+
+                            <p dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:0pt;">
+                               Please enter <a href="/web#id=${object.id}&view_type=form&model=project.task">here</a> to get more details about the work to be done.
+                            </p><br/>
+
+                            <p dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:8pt;">
+                                <span>For any questions we are at your disposal</span>
+                            </p><br/>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div dir="ltr" style="font-size:13px;margin-top:0pt;margin-bottom:8pt;color:grey">
+                <span><br/>Vauxoo<br/>check </span><a href="https://twitter.com/Vauxoo/favorites"><span style="text-decoration:underline;">what they say about it.</span></a></span>
+            </div>
+        </div>]]></field>
+     </record>
+</odoo>

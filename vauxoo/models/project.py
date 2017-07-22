@@ -7,15 +7,15 @@ class Project(models.Model):
     _inherit = "project.project"
 
     label_acronymous = fields.Char(
-        copy="False", default="HU", size=4,
+        copy="False",
         help="Acronymous to show as prefix in the display name for the tasks"
              " without parent Tasks")
     label_subtasks = fields.Char(
-        copy="False", default="Sub Tasks",
+        copy="False",
         help="Acronymous to show as prefix in the display name for the tasks"
              " with parent Tasks")
     label_acronymous_subtasks = fields.Char(
-        copy="False", default="CA", size=4,
+        copy="False",
         help="Acronymous to show as prefix in the display name for the tasks"
              " with parent Tasks")
 
@@ -40,6 +40,8 @@ class ProjectTask(models.Model):
         "Name", compute="_compute_display_name", store=True, index=True)
     product_id = fields.Many2one(
         related="sale_line_id.product_id", readonly=True)
+    accepted = fields.Boolean(help='Check if this criterion apply',
+                              track_visibility='onchange')
     label_subtasks = fields.Char(
         related="project_id.label_subtasks", readonly=True)
     # User Story Specific Information
@@ -53,7 +55,7 @@ class ProjectTask(models.Model):
         'res.users',
         help="User Story's Owner, generally the person which asked to develop "
              "this feature on customer side",
-        track_visibility='always')
+        track_visibility='onchange')
     approving_id = fields.Many2one(
         'res.users',
         help="User which says this User Story must/can be done")
@@ -78,6 +80,16 @@ class ProjectTask(models.Model):
     def default_get(self, field_list):
         res = super(ProjectTask, self).default_get(field_list)
         res.update({'name': ''})
+        return res
+
+    @api.multi
+    def write(self, vals):
+        """ This overwrite is by bug found trying to do track of fields.Html
+        """
+        res = super(ProjectTask, self).write(vals)
+        if vals.get('description'):
+            body = ('<ul><li>Description: %s</li></ul>') % vals['description']
+            self.message_post(body=body)
         return res
 
     @api.depends('parent_id', 'sale_line_id', 'name')
@@ -107,6 +119,32 @@ class ProjectTask(models.Model):
             elements = [order, story, criteria, name]
             elements = [e for e in elements if e]
             task.display_name = ":".join(elements)
+
+    @api.multi
+    def do_approval(self):
+        template = self.env.ref('vauxoo.appr_start_mail')
+        for task in self:
+            task.message_post_with_template(template.id,
+                                            message_type='notification')
+            task.write({'approving_id': self.env.user.id})
+        return True
+
+    @api.multi
+    def ask_review(self):
+        self.ensure_one()
+        if not self.accepted:
+            self.write({'stage_id': self.env.ref(
+                'vauxoo.project_stage_ask_review').id})
+        return True
+
+    @api.multi
+    def approve(self):
+        self.ensure_one()
+        if not self.accepted:
+            self.write({'stage_id': self.env.ref(
+                'vauxoo.project_stage_approve').id,
+                'accepted': True})
+        return True
 
     @api.multi
     def open_subtasks(self):

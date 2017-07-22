@@ -41,29 +41,42 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='child_ids']" position="replace">
+                     <field name="message_needaction" invisible="1"/>
+                </xpath>
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name="owner_id"/>
-                    <field name="approving_id"/>
-                    <label for="create_uid" string="Who fill this story?"/>
+                    <label for="create_uid" string="Who fill this?"/>
                     <field name="create_uid" nolabel="1" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="group_id"/>
+                    <field name="list_id"/>
+                    <field name="layer_id"/>
                 </xpath>
                 <xpath expr="//page[@name='description_page']" position="after">
                     <page name="user_story" string="User Story">
                         <group>
                             <group>
-                                <field name="group_id"/>
-                                <field name="list_id"/>
-                                <field name="layer_id"/>
+                                <field name="budget" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="currency_id" invisible="1"/>
                             </group>
                             <group>
                                 <field name="difficulty_id" widget="radio"/>
-                                <field name="currency_id" invisible="1"/>
-                                <field name="budget" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                             </group>
                         </group>
                         <newline/>
                         <group>
-                            <field name="child_ids" nolabel="1"/>
+                            <field name="child_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="name" string="Title"/>
+                                    <field name="description" string="Scenario"/>
+                                    <field name="accepted" readonly="1"/>
+                                    <field name="difficulty_id"/>
+                                    <button icon="fa-info" name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be done" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                                    <button icon="fa-check" name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                                </tree>
+                            </field>
                         </group>
                     </page>
                     <page name="documentation" string="Documentation">
@@ -112,9 +125,34 @@
                         </group>
                     </page>
                 </xpath>
-
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </xpath>
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="ticket_id"/>
+                </xpath>
+                <xpath expr="//field[@name='progress']" position="after">
+                    <field name="approving_id" attrs="{'invisible': [('approving_id', '=', False)]}"/>
+                    <div class="no_print">
+                        <button name="do_approval"
+                                type="object"
+                                attrs="{'invisible':['|', ('approving_id', '!=', False), ('parent_id', '!=', False)]}"
+                                help="Please, Approve this User Story to start to work with it take care about if you are not the Owner of this User Story you will not be able to approve it."
+                                string="I approve start to work with this Story"/>
+                    </div>
+                </xpath>
+                <xpath expr="//page[@name='description_page']" position="after">
+                    <page name="criteria" string="Acceptability Criteria" attrs="{'invisible':[('parent_id', '=', False)]}">
+                        <group>
+                            <group>
+                                <field name="accepted"/>
+                            </group>
+                            <group>
+                                <button icon="fa-info" name="ask_review" string="Ask For Review by Product Owner" type="object" help="Remember, when you ask for review this Acceptance criteria you should say where and How it must be d ne" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                                <button icon="fa-check" name="approve" string="Approve" type="object" help="Click here if you are sure it works, it will mark this as 'ready'" attrs="{'invisible': [('accepted', '=', True)]}"/>
+                            </group>
+                        </group>
+                    </page>
                 </xpath>
                 <xpath expr="//button[@name='toggle_active']" position="before">
                     <button class="oe_stat_button" name="%(act_vauxoo_timesheet_line_by_task)d" type="action" icon="fa-calendar" string="Timesheets" />
