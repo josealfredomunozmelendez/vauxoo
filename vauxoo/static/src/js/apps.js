@@ -4,9 +4,16 @@ odoo.define('theme_vauxoo.apps', function (require) {
     var core = require('web.core');
     var website = require('website.website');
     var Widget = require('web.Widget');
+
+    var qweb = core.qweb;
+    var _t = core._t;
+
     if(!$('.app-check').length) {
         return $.Deferred().reject("DOM doesn't contain a app button check");
     }
+    ajax.loadXML('/web/static/src/xml/base_common.xml', qweb).then(function () {
+        ajax.loadXML('/vauxoo/static/src/xml/apps.xml', qweb);
+    });
     /**
     Rendered on server side but widget generated in client side.
     */
@@ -22,8 +29,8 @@ odoo.define('theme_vauxoo.apps', function (require) {
         },
         onClick: function(){
             var input = this.$('.app-check');
-            console.log(input.data());
-            console.log('Hello Widget clicked');
+            var values = input.data();
+            var added = $(qweb.render("vauxoo.apps_selected", values)).appendTo(".js_apps_selected_placeholder");
         }
     });
     var Order = Widget.extend({
@@ -34,14 +41,10 @@ odoo.define('theme_vauxoo.apps', function (require) {
             this._super(parent);
         },
         start: function(){
-            console.log('Started My App');
-
             return this._super.apply(this, arguments);
         },
         onClick: function(){
             var input = this.$('.app-check');
-            console.log(input.data());
-            console.log('Hello Widget clicked');
         }
     });
 
@@ -52,9 +55,6 @@ odoo.define('theme_vauxoo.apps', function (require) {
         button_list.push(button);
     });
     $('#on_premise_apps').ready(function() {
-        // TODO : make it work. For now, once the iframe is loaded, the value of #page_count is
-        // still now set (the pdf is still loading)
-//        new App($(this)).setElement($('.app'));
         new Order($(this)).setElement($('.apps-tray'));
     });
 });

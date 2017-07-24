@@ -154,6 +154,7 @@
     ],
     "test": [
     ],
+    "qweb": ['static/src/xml/*.xml'],
     "auto_install": False,
     "application": True,
     "installable": True,
