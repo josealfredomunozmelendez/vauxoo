@@ -60,7 +60,7 @@
                     <a class="btn btn-lg btn-primary" href="/page/contactus">Free trial</a>
                 </div>
                 <div class="row text-center arrow-pentagon-shop">
-                    <a class="smoothly" href="#on_premise_apps">
+                    <a class="smoothly" href="#on_premise_apps_title">
                         <img src="/web/image/theme_vauxoo.scroll-down"/>
                     </a>
                 </div>
@@ -97,10 +97,11 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="col-lg-8 col-md-8 hidden-xs hidden-sm">
-                            <h2>Pick the apps you need</h2>
+                            <h2 id="on_premise_apps_title">Pick the apps you need</h2>
                         </div>
                         <div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
-                            <h2>Pick the apps you need</h2>
+                            <h2 id="on_premise_apps_title">Pick the apps you
+                                need</h2>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center app-boxes nopadding">
