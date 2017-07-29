@@ -3,7 +3,7 @@
 -
   !record {model: base.config.settings, id: general_config}:
     {
-        'auth_signup_uninvited': True,
+        'auth_signup_uninvited': 'b2c',
         'alias_domain': 'vauxoo.com',
         'group_multi_company': True,
         'auth_signup_reset_password': True,
