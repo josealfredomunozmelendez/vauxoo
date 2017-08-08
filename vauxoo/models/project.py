@@ -16,7 +16,7 @@ class Project(models.Model):
              " with parent Tasks")
     label_acronymous_subtasks = fields.Char(
         copy="False",
-        help="Acronymous to show as prefix in the display name for the tasks"
+        help="Acronyms to show as prefix in the display name for the tasks"
              " with parent Tasks")
 
     def _compute_task_count(self):

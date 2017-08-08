@@ -30,7 +30,6 @@
         "hr_appraisal",
         "hr_payroll",
         "hr_attendance",
-        "hr_timesheet_sheet",
 
         # Localizations
         "l10n_mx_edi",
@@ -47,7 +46,7 @@
         "website_blog",
         "website_customer",
         "website_slides",
-        "website_contract",
+        "website_subscription",
         "website_links",
         "website_hr",
         "website_helpdesk_form",
