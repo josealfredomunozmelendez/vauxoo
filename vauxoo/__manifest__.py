@@ -92,7 +92,7 @@
         "data/base_settings.yml",
         "data/website_settings.yml",
         'data/lang.xml',
-        'data/apps.xml',
+        # 'data/apps.xml',
 
         # Security
         "security/ir_rule.yml",
@@ -109,7 +109,7 @@
         "data/ir_actions_server.xml",
         "data/base_automation.xml",
         "data/hr_timesheet_invoice_data.xml",
-        "data/product.xml",
+        # "data/product.xml",
         "data/project.xml",
         "data/project_task_estimation.xml",
         "data/jobs.xml",
@@ -120,7 +120,7 @@
         "views/helpdesk.xml",
         "views/project.xml",
         "views/account_analytic_line_view.xml",
-        "views/hr_timesheet_reports_view.xml",
+        # "views/hr_timesheet_reports_view.xml",
         "views/hr_timesheet_view.xml",
         "views/menu.xml",
         'views/sale_view.xml',
@@ -137,7 +137,7 @@
         # Email templates
         "views/ask_review_criteria_email.xml",
         "views/approve_criteria_email.xml",
-        "views/hr_timesheet_reports_email.xml",
+        # "views/hr_timesheet_reports_email.xml",
         "data/website_quotation_template.xml",
         "views/approving_start_to_work_email.xml",
 
@@ -145,7 +145,7 @@
         "data/project_task_stages.xml",
     ],
     "demo": [
-        "demo/product.xml",
+        # "demo/product.xml",
         "demo/project.xml",
         "demo/helpdesk.xml",
         "demo/blog.xml",
