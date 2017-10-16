@@ -52,6 +52,7 @@
                     <field name="group_id"/>
                     <field name="list_id"/>
                     <field name="layer_id"/>
+                    <field name="is_layer"/>
                 </xpath>
                 <xpath expr="//page[@name='description_page']" position="after">
                     <page name="user_story" string="User Story">
@@ -192,6 +193,7 @@
                     <field name="group_id"/>
                     <field name="list_id"/>
                     <field name="layer_id"/>
+                    <field name="is_layer"/>
                 </xpath>
                 <xpath expr="//group" position="inside">
                     <filter name="color" string="Color" context="{'group_by': 'color'}"/>
@@ -199,6 +201,7 @@
                     <filter name="group_id" string="Group" context="{'group_by':'group_id'}"/>
                     <filter name="list_id" string="List" context="{'group_by':'list_id'}"/>
                     <filter name="layer_id" string="Layer" context="{'group_by':'layer_id'}"/>
+                    <filter name="is_layer" string="Is Layer?" context="{'group_by':'is_layer'}"/>
                 </xpath>
                 <xpath expr="//filter[@name='Stage']" position="after">
                     <filter name="user_story" string="User Stories" domain="[('sale_line_id', '!=', False), ('parent_id','=', False)]"/>

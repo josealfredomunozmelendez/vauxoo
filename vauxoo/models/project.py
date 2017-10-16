@@ -72,6 +72,7 @@ class ProjectTask(models.Model):
     group_id = fields.Many2one('project.task')
     list_id = fields.Many2one('project.task')
     layer_id = fields.Many2one('project.task')
+    is_layer = fields.Boolean(help='Is Layer?', track_visibility='onchange')
     gap = fields.Text(track_visibility="onchange")
     asumption = fields.Text(track_visibility="onchange")
     implementation = fields.Text(track_visibility="onchange")
