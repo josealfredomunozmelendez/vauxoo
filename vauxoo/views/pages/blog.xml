@@ -49,7 +49,7 @@
                 </t>
             </div>
         </div>
-    </template> 
+    </template>
 
     <!--Used to render the Carousel + Post Items + Subscribe footer on the /blog page-->
     <template id="latest_blogs" inherit_id="website_blog.latest_blogs">
@@ -152,5 +152,21 @@
             </t>
         </div>
     </div>
+    </template>
+
+    <!--Avatar for the blogpost-->
+    <template id="opt_blog_post_footer_author_avatar" name="Footer Author Avatar"
+        customize_show="True" active="False" inherit_id="website_blog.blog_post_complete">
+        <xpath expr="//t[@t-set='head']" position="after">
+            <t t-if="blog_post.author_avatar">
+                <div t-field="blog_post.author_avatar_big" class="o_blog_post_complete text-center" t-field-options='{"widget": "image", "class": "img-circle o_author_avatar_lg"}' />
+                <div class="text-center">
+                <h4 t-field="blog_post.author_id" style="display: inline-block;" t-field-options='{
+                    "widget": "contact",
+                    "fields": ["name"]
+                }'/>
+                </div>
+            </t>
+        </xpath>
     </template>
 </odoo>
