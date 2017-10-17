@@ -302,4 +302,36 @@
         <field name="res_model">ir.ui.view</field>
        <field name="datas_fname">Blog Post Cover Bistro</field>
     </record>
+    <record id="theme_vauxoo.nicolas" model="ir.attachment">
+        <field name="name">nicolas</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/nicolas.png</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">Testimonial nicolas</field>
+    </record>
+    <record id="theme_vauxoo.patricia" model="ir.attachment">
+        <field name="name">patricia</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/patricia.png</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">Testimonial patricia</field>
+    </record>
+    <record id="theme_vauxoo.ricardo" model="ir.attachment">
+        <field name="name">ricardo</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/ricardo.png</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">Testimonial ricardo</field>
+    </record>
+    <record id="theme_vauxoo.bg-pre-footer" model="ir.attachment">
+        <field name="name">bg-pre-footer</field>
+        <field name="type">url</field>
+        <field name="url">/theme_vauxoo/static/img/bg-pre-footer.png</field>
+        <field name="public" eval="True"/>
+        <field name="res_model">ir.ui.view</field>
+       <field name="datas_fname">bg-pre-footer</field>
+    </record>
 </odoo>

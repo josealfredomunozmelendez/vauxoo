@@ -664,6 +664,42 @@ h1.giant-number {
     }
 
 }
+.o_author_avatar_lg {
+    width: 130px;
+    display: inline;
+    margin-top: -5px;
+}
+.testimonial-carousel {
+    min-height: 250px;
+    p {
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 1.36;
+    }
+    .left, .right {
+        background-image: unset !important;
+    }
+    .media-heading {
+        font-weight: bold;
+    }
+    li {
+        box-shadow: unset !important;
+        background-color: @disabling_grey;
+        border-color: @disabling_grey;
+        &.active {
+            background-color: @brand-primary;
+            border-color: @brand-primary;
+        }
+    }
+    hr {
+        color: @gray-500;
+    }
+}
+.bg-special {
+    background-image: url(/web/image/theme_vauxoo.bg-pre-footer);
+    background-size: cover;
+    color: @vauxoo-white;
+}
 .header-pentagon-shop {
     min-height: 60vh;
     padding-top: 22vh;
@@ -721,4 +757,3 @@ h1.giant-number {
   transform: skew(0deg, -6deg);
   z-index: -1;
 }​
-

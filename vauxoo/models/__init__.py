@@ -9,3 +9,4 @@ from . import res_partner
 from . import hr_timesheet_invoice
 from . import hr_timesheet_reports
 from . import procurement
+from . import blog
