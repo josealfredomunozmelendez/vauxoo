@@ -5,7 +5,7 @@
          <link href="/login/static/src/css/web_login_style.css" rel="stylesheet"/>
       </xpath>
    </template>
-   <template id="login_layout" inherit_id="web.login_layout" name="Login Layout Inherit">
+   <template id="login_layout" inherit_id="web.login_layout" name="Login Layout Inherit" priority="14">
       <xpath expr="//t[@t-set='body_classname']" position="replace">
          <t t-set="body_classname" t-value="''"/>
       </xpath>
