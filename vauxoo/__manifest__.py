@@ -52,7 +52,6 @@
         "website_helpdesk_form",
         "website_sale_options",
         "website_sale_coupon",
-        "website_portal_sale",
         "website_livechat",
         "website_twitter",
         "payment_paypal",
