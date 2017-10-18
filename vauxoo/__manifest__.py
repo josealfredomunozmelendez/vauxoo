@@ -46,7 +46,7 @@
         "website_blog",
         "website_customer",
         "website_slides",
-        "website_subscription",
+        "sale_subscription",
         "website_links",
         "website_hr",
         "website_helpdesk_form",
