@@ -7,9 +7,9 @@ stages:
 
 variables:
     PSQL_VERSION: "9.5"
-    VERSION: "saas-16"
+    VERSION: "11.0"
     ODOO_REPO: "vauxoo/odoo"
-    ODOO_BRANCH: "saas-16"
+    ODOO_BRANCH: "11.0"
     INCLUDE: "vauxoo"
     INSTALL: "vauxoo"
     CUSTOMER: "vauxoo"
@@ -69,7 +69,7 @@ build:
 compile_doc:
   stage: test
   only:
-    - saas-16@vauxoo/instance
+    - 11.0@vauxoo/instance
   when: on_success
   tags:
     - build
@@ -85,7 +85,7 @@ compile_doc:
 upload_image:
   stage: upload_image
   only:
-    - saas-16@vauxoo/instance
+    - 11.0@vauxoo/instance
   when: on_success
   tags:
     - build
