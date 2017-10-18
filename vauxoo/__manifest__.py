@@ -55,7 +55,7 @@
         "website_livechat",
         "website_twitter",
         "payment_paypal",
-        "marketing_campaign",
+        "marketing_automation",
         "login",
 
         # Sales
