@@ -9,21 +9,21 @@
       <xpath expr="//t[@t-set='body_classname']" position="replace">
          <t t-set="body_classname" t-value="''"/>
       </xpath>
-      <xpath expr="//div[@class='row']" position="attributes">
+      <xpath expr="//div[hasclass('row')]" position="attributes">
          <attribute name="class">body_login</attribute>
       </xpath>
-      <xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']" position="before">
+      <xpath expr="//div[hasclass('col-md-6', 'col-md-offset-3', 'o_database_list')]" position="before">
          <div id="background-wrapper" t-attf-style="background-image: url('#{background_src}');"/>
       </xpath>
-      <xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']" position="attributes">
+      <xpath expr="//div[hasclass('col-md-6', 'col-md-offset-3', 'o_database_list')]" position="attributes">
          <attribute name="class">col-lg-4 col-md-6 col-sm-6 col-xs-11 o_database_list</attribute>
       </xpath>
-      <xpath expr="//div[@class='text-center']/img" position="replace">
+      <xpath expr="//div[hasclass('text-center')]/img" position="replace">
          <a href="/">
             <img class="company_logo" t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}"/>
          </a>
       </xpath>
-      <xpath expr="//div[@class='text-center'][2]" position="attributes">
+      <xpath expr="//div[hasclass('text-center')][2]" position="attributes">
          <attribute name="class">text-center col-md-12 col-xs-12 mt8</attribute>
       </xpath>
    </template>
@@ -49,7 +49,7 @@
       <xpath expr="//input[@name='password']" position="attributes">
          <attribute name="placeholder">Password...</attribute>
       </xpath>
-      <xpath expr="//span[@class='input-group-btn']/a[@href='/web/database/selector']" position="replace">
+      <xpath expr="//span[hasclass('input-group-btn')]/a[@href='/web/database/selector']" position="replace">
          <a class="btn btn-default btn-select" href="/web/database/selector">
             <i class="fa fa-database"/>
          </a>
@@ -81,20 +81,20 @@
       </xpath>
    </template>
    <template id="auth_oauth_login" inherit_id="auth_oauth.login" name="Disable Inline Oauth Login">
-      <xpath expr="//div[@class='pull-right']" position="replace">
+      <xpath expr="//div[hasclass('pull-right')]" position="replace">
       </xpath>
    </template>
    <template id="auth_oauth_reset_password" inherit_id="auth_oauth.reset_password" name="Disable Oauth Buttons Password">
-      <xpath expr="//div[@class='pull-right']" position="replace">
+      <xpath expr="//div[hasclass('pull-right')]" position="replace">
       </xpath>
    </template>
 
    <template id="auth_oauth_signup" inherit_id="auth_oauth.signup" name="Disable Oauth Buttons Signup">
-      <xpath expr="//div[@class='pull-right']" position="replace">
+      <xpath expr="//div[hasclass('pull-right')]" position="replace">
       </xpath>
    </template>
    <template id="signup" inherit_id="auth_signup.signup" name="Signup">
-      <xpath expr="//div[@class='clearfix oe_login_buttons']" position="after">
+      <xpath expr="//div[hasclass('clearfix', 'oe_login_buttons')]" position="after">
          <div class="col-md-12 col-xs-12 text-center">
             <p>Or register using:</p>
          </div>

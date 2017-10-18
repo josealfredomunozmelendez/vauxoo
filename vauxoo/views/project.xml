@@ -232,7 +232,7 @@
                 <xpath expr="//field[@name='name']" position="replace">
                     <field name="display_name"/>
                 </xpath>
-                <xpath expr="//div[@class='oe_clear']" position="after">
+                <xpath expr="//div[hasclass('oe_clear')]" position="after">
                     <t t-if="record.subtask_count.raw_value">
                         <a name="open_subtasks" type="object" class="pull-right">
                             <field name="subtask_count"/><span> <t t-esc="record.label_subtasks.value"/></span>

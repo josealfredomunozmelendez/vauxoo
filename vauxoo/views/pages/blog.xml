@@ -80,7 +80,7 @@
         <xpath expr="//div[3]" position="after">
             <t t-call="vauxoo.footer_subscribe"/>
         </xpath>
-        <xpath expr="//div[@class='container']" position="before">
+        <xpath expr="//div[hasclass('container')]" position="before">
             <t t-set="carousel_posts" t-value="blog_posts[:5] if not active_tag_ids else blog_posts"/>
             <t t-call="vauxoo.posts_carousel"/>
         </xpath>
@@ -122,7 +122,7 @@
                     </div>
                 </section>
         </xpath>
-        <xpath expr="//div[@class='col-md-8 col-md-offset-2']" position="attributes">
+        <xpath expr="//div[hasclass('col-md-8', 'col-md-offset-2')]" position="attributes">
             <attribute name="class">col-md-12</attribute>
         </xpath>
     </template>

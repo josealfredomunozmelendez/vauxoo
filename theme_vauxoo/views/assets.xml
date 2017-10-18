@@ -17,7 +17,7 @@
     </template>
     <!-- Snippets -->
     <template id="snippets" inherit_id="website.snippets">
-        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']/t[last()]" position="after">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]/t[last()]" position="after">
             <t t-snippet="theme_vauxoo.s_cover" t-thumbnail="/theme_vauxoo/static/img/s_cover.png"/>
             <t t-snippet="theme_vauxoo.s_under_cover" t-thumbnail="/theme_vauxoo/static/img/s_under_cover.png"/>
             <t t-snippet="theme_vauxoo.s_body_content" t-thumbnail="/theme_vauxoo/static/img/s_body_content.png"/>

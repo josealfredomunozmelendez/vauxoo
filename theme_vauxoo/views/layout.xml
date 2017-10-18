@@ -50,7 +50,7 @@
         <xpath expr="//div[@id='wrapwrap']/header/div" position="attributes">
             <attribute name="class" add="mt32 mb32" separator=" "/>
         </xpath>
-        <xpath expr="//div[@class='navbar-header']" position="attributes">
+        <xpath expr="//div[hasclass('navbar-header')]" position="attributes">
             <attribute name="class" add="animated-menu" separator=" "/>
         </xpath>
         <xpath expr="//button" position="replace">
@@ -60,10 +60,10 @@
                 <span></span>
             </div>
         </xpath>
-        <xpath expr="//div[@class='collapse navbar-collapse navbar-top-collapse']/ul" position="attributes">
+        <xpath expr="//div[hasclass('collapse', 'navbar-collapse', 'navbar-top-collapse')]/ul" position="attributes">
             <attribute name="class">nav text-center hidden-lg hidden-md hidden-sm custom-mobile-menu</attribute>
         </xpath>
-        <xpath expr="//div[@class='collapse navbar-collapse navbar-top-collapse']/ul" position="after">
+        <xpath expr="//div[hasclass('collapse', 'navbar-collapse', 'navbar-top-collapse')]/ul" position="after">
             <t t-call="theme_vauxoo.menu_elements"/>
         </xpath>
         <xpath expr="//div[@id='wrapwrap']/header" position="after">
@@ -90,7 +90,7 @@
     </template>
     <!-- Customize Layout -->
     <template id="custom_layout" inherit_id="website.layout" name="Custom Theme Layout">
-        <xpath expr="//li[@class='divider']" position="replace"/>
+        <xpath expr="//li[hasclass('divider')]" position="replace"/>
     </template>
     <template id="footer_default" inherit_id="website.footer_default" name="Vauxoo Footer">
         <xpath expr="//div[@id='footer']" position="replace">
@@ -165,7 +165,7 @@
         </xpath>
     </template>
     <template id="footer_copyright" inherit_id="website.layout_footer_copyright" name="Vauxoo Copyright">
-        <xpath expr="//div[@class='container mt16 mb8']" position="replace">
+        <xpath expr="//div[hasclass('container', 'mt16', 'mb8')]" position="replace">
             <div class="container mt16 mb8 div-copyright">
                 <div class="text-center text-copyright mt16 mb16">&amp;copy; VAUXOO, 2017</div>
             </div>

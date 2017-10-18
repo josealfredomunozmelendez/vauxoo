@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="403" inherit_id="website.403" name="Error: Page not found!">
-        <xpath expr="//div[@class='container']" position="replace">
+        <xpath expr="//div[hasclass('container')]" position="replace">
             <data data-transparent="transparent" id="transparency"/>
             <div class="oe_structure oe_empty bg-error" id="vauxoo_header" style="background-image: url(/web/image/theme_vauxoo.doordonot);"/>
             <div class="container" id="cover_container" style="min-height: unset;">
