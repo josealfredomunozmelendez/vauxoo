@@ -10,7 +10,6 @@
             <field name="label_acronymous_subtasks">CA</field>
             <field name="privacy_visibility">portal</field>
             <field name="rating_status">stage</field>
-            <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>

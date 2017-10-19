@@ -2477,7 +2477,7 @@ class Migration(object):
             # task_ids,  # TODO important
             # 'analytic_account_id', 'analytic_account_id/id',
             # # TODO review this with Nhomar
-            # 'privacy_visiblity', 'use_tasks', 'use_timesheets',
+            # 'privacy_visiblity', 'use_timesheets',
             # 'use_issues', 'members',
             # analytic_account_id, planned_hours, effective_hours, date_start,
             # sequence, currency_id, parent_id, type_ids (stages),

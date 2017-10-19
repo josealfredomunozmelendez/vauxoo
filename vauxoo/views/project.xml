@@ -7,12 +7,12 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='label_tasks']" position="after">
-                    <span attrs="{'invisible': [('use_tasks', '=', False)]}">, the Acronymous is: </span>
-                    <field name="label_acronymous" class="oe_inline oe_input_align" attrs="{'invisible': [('use_tasks', '=', False)]}"/>
-                    <span attrs="{'invisible': [('use_tasks', '=', False)]}">, Subtasks will be called: </span>
-                    <field name="label_subtasks" class="oe_inline oe_input_align" attrs="{'invisible': [('use_tasks', '=', False)]}"/>
-                    <span attrs="{'invisible': [('use_tasks', '=', False)]}"> With Acronymous: </span>
-                    <field name="label_acronymous_subtasks" class="oe_inline oe_input_align" attrs="{'invisible': [('use_tasks', '=', False)]}"/>
+                    <span>, the Acronymous is: </span>
+                    <field name="label_acronymous" class="oe_inline oe_input_align"/>
+                    <span>, Subtasks will be called: </span>
+                    <field name="label_subtasks" class="oe_inline oe_input_align"/>
+                    <span> With Acronymous: </span>
+                    <field name="label_acronymous_subtasks" class="oe_inline oe_input_align"/>
                 </xpath>
             </field>
         </record>

@@ -7,7 +7,6 @@
             <field name="label_tasks">Projects</field>
             <field name="privacy_visibility">employees</field>
             <field name="rating_status">no</field>
-            <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>
@@ -22,7 +21,6 @@
             <field name="label_tasks">Projects</field>
             <field name="privacy_visibility">followers</field>
             <field name="rating_status">no</field>
-            <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
@@ -36,7 +34,6 @@
             <field name="label_tasks">Projects</field>
             <field name="privacy_visibility">employees</field>
             <field name="rating_status">no</field>
-            <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
         </record>
         <record id="vauxoo.i_d_team" model="project.project">
@@ -49,7 +46,6 @@
             <field name="label_tasks">Courses</field>
             <field name="privacy_visibility">employees</field>
             <field name="rating_status">stage</field>
-            <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
@@ -63,7 +59,6 @@
             <field name="label_tasks">Tickets</field>
             <field name="privacy_visibility">employees</field>
             <field name="rating_status">stage</field>
-            <field name="use_tasks" eval="True"/>
             <field name="allow_timesheets" eval="True"/>
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>
