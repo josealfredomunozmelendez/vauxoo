@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="erp" name="ERP on-premise" page="True">
+  <template id="erp" name="ERP on-premise">
     <t t-call="website.layout">
       <div class="oe_structure oe_empty" id="wrap">
         <section class="s_body_content text-center header-pentagon" style="background-image: url(/web/image/theme_vauxoo.erp_hero)">

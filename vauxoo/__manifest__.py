@@ -82,22 +82,30 @@
         "views/pages/about.xml",
         "views/pages/careers.xml",
         "views/pages/erp.xml",
-        "views/pages/shop.xml",
-        "views/pages/contactus.xml",
-        "views/pages/job_detail_template.xml",
+        # "views/pages/shop.xml", TODO: This should be refactored with
+        # new website.page approach.
+        # "views/pages/contactus.xml", TODO: This should be refactored with
+        # new website.page approach.
+        # "views/pages/job_detail_template.xml", TODO: This should be
+        # refactored with new website.page approach.
         "views/pages/apps.xml",
 
         # Main Configuration
-        "data/base_settings.yml",
-        "data/website_settings.yml",
-        'data/lang.xml',
+        # "data/base_settings.yml",
+        # "data/website_settings.yml",
+        # 'data/lang.xml',
+        # TODO: Once finished the config the lang of the website should be in
+        #  the same file of the config itself.
         # 'data/apps.xml',
 
         # Security
-        "security/ir_rule.yml",
+        # "security/ir_rule.yml", TODO: May be we can find a better way to do
+        #  this it is broken now in 11.0
         "security/ir_rule.xml",
         "security/res_groups.xml",
-        "security/res_users.xml",
+        # "security/res_users.xml", TODO: This is broken because a topic in
+        # lang BUT we should not write IDs outside this module then this file
+        #  should be removed and do it in another way.
         "security/ir.model.access.csv",
 
         # Data

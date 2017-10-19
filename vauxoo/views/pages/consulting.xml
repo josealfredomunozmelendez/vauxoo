@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="vauxoo_consulting" name="Consulting" page="True">
+  <template id="vauxoo_consulting" name="Consulting">
     <t t-call="website.layout">
       <div id="wrap">
         <div class="header-unit" style="height: 800px;">

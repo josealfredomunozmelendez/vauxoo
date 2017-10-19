@@ -5,9 +5,7 @@
     ctx = dict(self.env.context, active_test=True)
     self.with_context(ctx).browse(ref('website.layout_logo_show')).write({'active': True})
     self.with_context(ctx).browse(ref('website_blog.opt_blog_post_author_avatar')).write({'active': False})
-    self.with_context(ctx).browse(ref('vauxoo.opt_blog_post_retina_layout')).write({'active': True})
     self.with_context(ctx).browse(ref('website_blog.opt_blog_rc_follow_us')).write({'active': True})
-    self.with_context(ctx).browse(ref('vauxoo.products_retina_view')).write({'active': True})
 -
   Setting Website Information
 -
