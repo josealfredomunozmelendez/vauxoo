@@ -5,7 +5,6 @@
         <field name="name">Vauxoo de SA de CV</field>
         <field name="website">https://vauxoo.com</field>
         <field name="phone">+52 (477) 773.33.46</field>
-        <field name="fax">+58 (424) 434.89.08</field>
         <field name="email">info@vauxoo.com</field>
     </record>
     <record id="base.main_partner" model="res.partner">

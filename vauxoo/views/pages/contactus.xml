@@ -52,9 +52,6 @@
           <h4>
             <t t-esc="res_company.phone"/>
           </h4>
-          <h4>
-            <t t-esc="res_company.fax"/>
-          </h4>
           <a href="mailto:getstarted@vauxoo.com">
             <h4>getstarted@vauxoo.com</h4>
           </a>
