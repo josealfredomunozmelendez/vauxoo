@@ -43,7 +43,7 @@
         </ul>
     </template>
     <!-- Customize header  -->
-    <template id="layout" inherit_id="website.layout">
+    <template id="layout" inherit_id="website.layout" priority="14">
         <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
             <attribute name="class">black_header</attribute>
         </xpath>

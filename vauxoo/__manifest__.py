@@ -43,16 +43,16 @@
         "website_sale_digital",
         "website_quote",
         "website_forum_doc",
-        "website_blog",
+        # "website_blog",
         "website_customer",
         "website_slides",
         "sale_subscription",
         "website_links",
         "website_hr",
-        "website_helpdesk_form",
+        # "website_helpdesk_form",
         "website_sale_options",
         "website_sale_coupon",
-        "website_livechat",
+        # "website_livechat",
         "website_twitter",
         "payment_paypal",
         "marketing_automation",
@@ -124,7 +124,7 @@
 
         # Views
         # Backend stuff (A file per app)
-        "views/helpdesk.xml",
+        # "views/helpdesk.xml",
         "views/project.xml",
         "views/account_analytic_line_view.xml",
         # "views/hr_timesheet_reports_view.xml",
@@ -154,7 +154,7 @@
     "demo": [
         # "demo/product.xml",
         "demo/project.xml",
-        "demo/helpdesk.xml",
+        # "demo/helpdesk.xml",
         "demo/blog.xml",
     ],
     "test": [
