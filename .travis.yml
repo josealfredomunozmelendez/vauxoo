@@ -31,7 +31,6 @@ virtualenv:
 env:
   global:
   - PHANTOMJS_TESTS="0"
-  - TEST_OTHER_PROJECTS="${HOME}/addons-vauxoo"
   - LINT_CHECK=0 TESTS="0"
   - VERSION="11.0" ODOO_REPO="vauxoo/odoo"
   - INCLUDE="vauxoo"

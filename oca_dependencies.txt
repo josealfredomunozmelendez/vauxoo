@@ -1,3 +1,2 @@
 enterprise git@github.com:Vauxoo/enterprise.git
-addons-vauxoo https://github.com/vauxoo/addons-vauxoo.git saas-15
 server-tools https://github.com/Vauxoo/server-tools.git saas-15
