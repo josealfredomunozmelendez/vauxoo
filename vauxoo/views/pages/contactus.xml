@@ -125,7 +125,7 @@
       </section>
     </xpath>
   </template>
-  <template id="contactus_thanks" inherit_id="website_crm.contactus_thanks" name="Thank You">
+  <template id="contactus_thanks" inherit_id="website_crm.contactus_thanks_ir_ui_view" name="Thank You">
     <xpath expr="//div[@id='wrap']" position="replace">
         <div id="wrap">
           <div class="oe_structure"/>
