@@ -111,7 +111,7 @@
         "data/ir_actions_server.xml",
         "data/base_automation.xml",
         "data/hr_timesheet_invoice_data.xml",
-        # "data/product.xml",
+        "data/product.xml",
         "data/project.xml",
         "data/project_task_estimation.xml",
         "data/jobs.xml",
