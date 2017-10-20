@@ -13,8 +13,11 @@
             ]"/>
         </record>
 
-        <record id="auth_signup.default_template_user" model="res.users">
-            <field name="lang">es_ES</field>
-        </record>
+        <!-- TODO: This is broken because a topic in -->
+        <!-- lang BUT we should not write IDs outside this module then this file -->
+        <!-- should be removed and do it in another way. -->
+        <!-- <record id="auth_signup.default_template_user" model="res.users"> -->
+        <!--     <field name="lang">es_ES</field> -->
+        <!-- </record> -->
 
 </odoo>

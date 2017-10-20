@@ -100,9 +100,7 @@
         #  this it is broken now in 11.0
         "security/ir_rule.xml",
         "security/res_groups.xml",
-        # "security/res_users.xml", TODO: This is broken because a topic in
-        # lang BUT we should not write IDs outside this module then this file
-        #  should be removed and do it in another way.
+        "security/res_users.xml",
         "security/ir.model.access.csv",
 
         # Data
