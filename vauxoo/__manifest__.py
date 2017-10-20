@@ -82,8 +82,7 @@
         "views/pages/about.xml",
         "views/pages/careers.xml",
         "views/pages/erp.xml",
-        # "views/pages/shop.xml", TODO: This should be refactored with
-        # new website.page approach.
+        "views/pages/shop.xml",
         # "views/pages/contactus.xml", TODO: This should be refactored with
         # new website.page approach.
         # "views/pages/job_detail_template.xml", TODO: This should be
