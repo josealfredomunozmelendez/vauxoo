@@ -92,7 +92,7 @@
 
         # Main Configuration
         "data/res_config_settings.yml",
-        # "data/website_settings.yml",
+        "data/website_settings.yml",
         # 'data/lang.xml',
         # TODO: Once finished the config the lang of the website should be in
         #  the same file of the config itself.
