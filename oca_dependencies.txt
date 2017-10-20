@@ -1,2 +1,2 @@
 enterprise git@github.com:Vauxoo/enterprise.git
-server-tools https://github.com/Vauxoo/server-tools.git saas-15
+server-tools https://github.com/Vauxoo/server-tools.git
