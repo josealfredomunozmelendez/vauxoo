@@ -24,9 +24,7 @@
         'group_multi_currency': True,
         'group_product_variant': True,
         'group_website_multiimage': True,
-        'default_invoice_policy': 'delivery',
-        'default_lang_id': ref('base.lang_es').id,
-        'language_ids': [(4, ref('base.lang_es').id)]
+        'default_invoice_policy': 'delivery'
     }
 -
   !python {model: res.config.settings}: |
