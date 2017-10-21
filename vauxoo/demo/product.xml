@@ -6,7 +6,7 @@
             <field name="sale_ok" eval="1"/>
             <field name="purchase_ok" eval="0"/>
             <field name="type">service</field>
-            <field name="track_service">task</field>
+            <field name="service_type">timesheet</field>
             <field name="project_id" ref="vauxoo.implementation_team"/>
             <field name="list_price">5400</field>
             <field name="standard_price">3600</field>

@@ -144,7 +144,7 @@
         "data/project_task_stages.xml",
     ],
     "demo": [
-        # "demo/product.xml",
+        "demo/product.xml",
         "demo/project.xml",
         "demo/helpdesk.xml",
         "demo/blog.xml",
