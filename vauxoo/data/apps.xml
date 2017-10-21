@@ -191,7 +191,7 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_invoicing'), ref('vauxoo.product_attribute_value_sale'), ref('vauxoo.product_attribute_value_crm'), ref('vauxoo.product_attribute_value_website'), ref('vauxoo.product_attribute_value_ecommerce'), ref('vauxoo.product_attribute_value_pos'), ref('vauxoo.product_attribute_value_accounting'), ref('vauxoo.product_attribute_value_project'), ref('vauxoo.product_attribute_value_inventory'), ref('vauxoo.product_attribute_value_manufacturing'), ref('vauxoo.product_attribute_value_purchase'), ref('vauxoo.product_attribute_value_timesheet'), ref('vauxoo.product_attribute_value_email_marketing'), ref('vauxoo.product_attribute_value_expenses'), ref('vauxoo.product_attribute_value_events'), ref('vauxoo.product_attribute_value_leaves'), ref('vauxoo.product_attribute_value_recruitment'), ref('vauxoo.product_attribute_value_appraisal'), ref('vauxoo.product_attribute_value_subscription'), ref('vauxoo.product_attribute_value_sign'), ref('vauxoo.product_attribute_value_equipment'), ref('vauxoo.product_attribute_value_quality_control'), ref('vauxoo.product_attribute_value_studio'), ref('vauxoo.product_attribute_value_helpdesk'), ref('vauxoo.product_attribute_value_maintenance'), ref('vauxoo.product_attribute_value_plm')])]"/>
         </record>
         <record id="product_product_invoicing" model="product.product">
-            <field name="image" type="base64" file="account/static/description/icon.png"/>
+            <field name="image" type="base64" file="account_invoicing/static/description/icon.png"/>
             <field name="type">service</field>
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
@@ -258,7 +258,7 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_pos')])]"/>
         </record>
         <record id="product_product_accounting" model="product.product">
-            <field name="image" type="base64" file="account/static/description/icon.png"/>
+            <field name="image" type="base64" file="account_invoicing/static/description/icon.png"/>
             <field name="type">service</field>
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
@@ -324,7 +324,7 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_timesheet')])]"/>
         </record>
         <record id="product_product_marketing" model="product.product">
-            <field name="image" type="base64" file="marketing_campaign/static/description/icon.png"/>
+            <field name="image" type="base64" file="marketing_automation/static/description/icon.png"/>
             <field name="type">service</field>
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
@@ -390,7 +390,7 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_appraisal')])]"/>
         </record>
         <record id="product_product_subscription" model="product.product">
-            <field name="image" type="base64" file="website_contract/static/description/icon.png"/>
+            <field name="image" type="base64" file="sale_subscription/static/description/icon.png"/>
             <field name="type">service</field>
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
@@ -534,7 +534,7 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_Ebay')])]"/>
         </record>
         <record id="product_product_voip" model="product.product">
-            <field name="image" type="base64" file="crm_voip/static/description/icon.png"/>
+            <field name="image" type="base64" file="voip/static/description/icon.png"/>
             <field name="type">service</field>
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>

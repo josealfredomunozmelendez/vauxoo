@@ -90,7 +90,7 @@
         # Main Configuration
         "data/res_config_settings.yml",
         "data/website_settings.yml",
-        # 'data/apps.xml',
+        "data/apps.xml",
 
         # Security
         # "security/ir_rule.yml", TODO: May be we can find a better way to do
