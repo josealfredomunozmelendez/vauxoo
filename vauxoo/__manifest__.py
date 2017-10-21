@@ -84,8 +84,7 @@
         "views/pages/erp.xml",
         "views/pages/shop.xml",
         "views/pages/contactus.xml",
-        # "views/pages/job_detail_template.xml", TODO: This should be
-        # refactored with new website.page approach.
+        "views/pages/job_detail_template.xml",
         "views/pages/apps.xml",
 
         # Main Configuration

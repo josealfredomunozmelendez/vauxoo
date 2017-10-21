@@ -86,7 +86,7 @@
             </div>
         </xpath>
     </template>
-    <template id="thankyou" inherit_id="website_hr_recruitment.thankyou">
+    <template id="thankyou" inherit_id="website_hr_recruitment.thankyou_ir_ui_view">
         <xpath expr="//div[hasclass('oe_structure')]" position="replace">
             <div class="oe_structure bg-cream" style="min-height: 60vh;">
                 <div class="container text-center pad10perc">
