@@ -68,7 +68,7 @@ def rst2html(rst, opts=None):
 
     @param: rst Text multiline in rst format
     """
-    if not isinstance(rst, basestring) or not rst:
+    if not isinstance(rst, str) or not rst:
         # In order to ensure the correct functioning with None and False types
         return u''
     template = NamedTemporaryFile('w', suffix='.txt', delete=False)
