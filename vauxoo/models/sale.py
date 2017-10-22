@@ -1,5 +1,5 @@
 # coding: utf-8
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from . import rst2html
 
 
@@ -36,6 +36,32 @@ class SaleOrderLine(models.Model):
             lines[line] += qty
         for line, qty in lines.items():
             line.qty_delivered = qty
+        return res
+
+    def _timesheet_create_task_prepare_values(self):
+        self.ensure_one()
+        task = super(
+            SaleOrderLine, self)._timesheet_create_task_prepare_values()
+        task.update(
+            name=self.name.split('\n')[0],
+            kanban_state="blocked",
+            user_id=self.env['project.project'].browse(
+                task.get('project_id')).user_id.id,
+            color=6)
+        # TODO maybe this default color for the user stories can be configured
+        # somewhere as a system parameter
+        return task
+
+    def _timesheet_create_task(self):
+        """ All task created form sale order are marked as blocked task until
+        the sale order has been paid.
+        """
+        res = super(SaleOrderLine, self)._timesheet_create_task()
+        tasks = self.env['project.task']
+        for task in res.values():
+            tasks = tasks | task
+        tasks.message_post(body=_(
+            "This task will be blocked until the sale order has been paid"))
         return res
 
 
