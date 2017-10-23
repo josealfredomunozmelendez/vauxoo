@@ -1,4 +1,13 @@
 -
+  Install Spanish language (if not installed yet)
+-
+  !python {model: base.language.install}: |
+    lang = self.env.ref('base.lang_es')
+    if not lang.active:
+        self.create({"lang": lang.code, "website_ids":
+            [(6, 0, self.env["website"].search([]).mapped('id'))],
+        }).lang_install()
+-
   Configuration Settings
 -
   !record {model: res.config.settings, id: config_settings}:
@@ -24,6 +33,8 @@
         'group_multi_currency': True,
         'group_product_variant': True,
         'group_website_multiimage': True,
+        'default_lang_id': base.lang_es,
+        'language_ids': [base.lang_es, base.lang_en],
         'default_invoice_policy': 'delivery'
     }
 -
