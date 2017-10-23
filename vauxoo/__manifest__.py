@@ -93,8 +93,6 @@
         "data/apps.xml",
 
         # Security
-        # "security/ir_rule.yml", TODO: May be we can find a better way to do
-        #  this it is broken now in 11.0
         "security/ir_rule.xml",
         "security/res_groups.xml",
         "security/res_users.xml",
