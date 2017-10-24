@@ -61,13 +61,13 @@
                                 <h4>
                                     <a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" t-field="product.name" />
                                 </h4>
-                                <!--<t t-call="rating.rating_star_card">-->
-                                    <!--<t t-set="rating_stat" t-value="product.rating_get_stats([('website_published', '=', True)])"/>-->
-                                    <!--<t t-set="max_rate" t-value="5"/>-->
-                                    <!--<t t-set="min_rate" t-value="1"/>-->
-                                    <!--<t t-set="rating_default_value" t-value="'%.2f' % (rating_stat.get('avg', 0.0),)"/>-->
-                                    <!--<t t-set="rating_disabled" t-value="True"/>-->
-                                <!--</t>-->
+                                <t t-call="rating.rating_star_card">
+                                    <t t-set="rating_stat" t-value="product.rating_get_stats([('website_published', '=', True)])"/>
+                                    <t t-set="max_rate" t-value="5"/>
+                                    <t t-set="min_rate" t-value="1"/>
+                                    <t t-set="rating_default_value" t-value="'%.2f' % (rating_stat.get('avg', 0.0),)"/>
+                                    <t t-set="rating_disabled" t-value="True"/>
+                                </t>
                                 <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price text-right" t-if="product.product_variant_ids">
 
                                         <t t-if="(compute_currency(product.lst_price) - product.website_price ) &gt; 0.01  and website.get_current_pricelist().discount_policy=='without_discount'">
@@ -84,13 +84,13 @@
                                 <h4>
                                     <a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))" t-field="product.name" />
                                 </h4>
-                                <!--<t t-call="rating.rating_star_card">-->
-                                    <!--<t t-set="rating_stat" t-value="product.rating_get_stats([('website_published', '=', True)])"/>-->
-                                    <!--<t t-set="max_rate" t-value="5"/>-->
-                                    <!--<t t-set="min_rate" t-value="1"/>-->
-                                    <!--<t t-set="rating_default_value" t-value="'%.2f' % (rating_stat.get('avg', 0.0),)"/>-->
-                                    <!--<t t-set="rating_disabled" t-value="True"/>-->
-                                <!--</t>-->
+                                <t t-call="rating.rating_star_card">
+                                    <t t-set="rating_stat" t-value="product.rating_get_stats([('website_published', '=', True)])"/>
+                                    <t t-set="max_rate" t-value="5"/>
+                                    <t t-set="min_rate" t-value="1"/>
+                                    <t t-set="rating_default_value" t-value="'%.2f' % (rating_stat.get('avg', 0.0),)"/>
+                                    <t t-set="rating_disabled" t-value="True"/>
+                                </t>
                                 <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
 
                                         <t t-if="(compute_currency(product.lst_price) - product.website_price ) &gt; 0.01  and website.get_current_pricelist().discount_policy=='without_discount'">
