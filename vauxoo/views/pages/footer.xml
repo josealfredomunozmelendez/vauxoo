@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="vauxoo_footer" inherit_id="website.layout" name="Vauxoo Footer">
+    <template id="footer" inherit_id="website.layout" name="Vauxoo Footer">
         <xpath expr="//footer" position="replace">
             <footer class="footer_vauxoo bg-epsilon">
                 <div id="products"/>
@@ -76,7 +76,7 @@
             </t>
         </div>
     </template>
-    <template id="vauxoo.social_buttons_copyright" name="Social Buttons">
+    <template id="social_buttons_copyright" name="Social Buttons">
         <div aria-label="..." class="btn-group btn-group-xs" role="group">
             <a class="btn btn-xs btn-link" t-att-href="website and website.social_facebook or '#'" t-if="website and website.social_facebook">
                 <i class="fa fa-3x fa-facebook-square fa-lg"/>
