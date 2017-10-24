@@ -117,7 +117,6 @@
         "views/helpdesk.xml",
         "views/project.xml",
         "views/account_analytic_line_view.xml",
-        # "views/hr_timesheet_reports_view.xml",
         "views/hr_timesheet_view.xml",
         "views/menu.xml",
         'views/sale_view.xml',
@@ -134,7 +133,6 @@
         # Email templates
         "views/ask_review_criteria_email.xml",
         "views/approve_criteria_email.xml",
-        # "views/hr_timesheet_reports_email.xml",
         "data/website_quotation_template.xml",
         "views/approving_start_to_work_email.xml",
 

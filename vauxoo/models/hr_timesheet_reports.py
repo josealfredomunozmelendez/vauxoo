@@ -42,11 +42,6 @@ class HrTimesheetReportsBase(models.Model):
                 'record': record,
                 'id': record.id}
 
-    @api.depends()
-    def _get_print_data(self, name, args):
-        for wzd in self:
-            wzd.records = self._get_result_ids()
-
     def _get_total_time(self, grouped, field):
         total_list = [g[field] for g in grouped]
         return sum(total_list)
@@ -269,7 +264,6 @@ class HrTimesheetReportsBase(models.Model):
         help="Filter should be by date, group_by is ignored, the model "
         "which the filter should belong to is timesheet.")
     show_details = fields.Boolean('Show Detailed Timesheets')
-    records = fields.Text('Records', compute='_get_print_data',)
     state = fields.Selection(
         [('draft', 'Draft'), ('sent', 'Sent')], 'Status',
         help='Message sent already to customer (it will block edition)')
