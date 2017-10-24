@@ -3,6 +3,7 @@
     <template id="vauxoo_footer" inherit_id="website.layout" name="Vauxoo Footer">
         <xpath expr="//footer" position="replace">
             <footer class="footer_vauxoo bg-epsilon">
+                <div id="products"/>
                 <div class="container container-vx">
                     <section class="row">
                         <div class="col-md-3 col-lg-3 col-xs-12 sub text-center">
