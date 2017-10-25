@@ -48,6 +48,7 @@ test:
     - apt-get update && apt-get install -y tree dos2unix
     - pip install deployv-addon-gitlab-tools
     - deployvcmd gitlab_tools check_keys
+    - source /.repo_requirements/virtualenv/python3.5/bin/activate
     - git clone https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
     - export PATH=${HOME}/maintainer-quality-tools/travis:${HOME}/gitlab_tools:${PATH}
     - travis_install_nightly
