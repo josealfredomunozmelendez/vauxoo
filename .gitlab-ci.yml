@@ -13,7 +13,7 @@ variables:
     INCLUDE: "vauxoo"
     INSTALL: "vauxoo"
     CUSTOMER: "vauxoo"
-    BASE_IMAGE: "vauxoo/odoo-100-image"
+    BASE_IMAGE: "vauxoo/odoo-110-image"
     http_proxy: http://172.17.0.1:3128
     https_proxy: http://172.17.0.1:3128
     ftp_proxy: http://172.17.0.1:3128
