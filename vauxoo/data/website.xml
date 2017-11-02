@@ -6,4 +6,7 @@
         <field name="parent_id" ref="website.main_menu"/>
         <field name="sequence" type="int">200</field>
     </record>
+    <record id="website.default_website" model="website">
+        <field name="favicon" type="base64" file="vauxoo/static/src/img/iconvauxoo.ico"/>
+    </record>
 </odoo>
