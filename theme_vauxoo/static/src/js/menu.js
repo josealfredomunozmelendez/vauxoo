@@ -12,9 +12,11 @@ odoo.define('theme_vauxoo.menu', function (require) {
 
     // make al in page links scroll smoothly
     $('a.smoothly').click(function(){
-        $('html, body').animate({
-            scrollTop: $( $(this).attr('href') ).offset().top
-        }, 500);
+        var target = $( $(this).attr('href') );
+        target.css('padding-top', function(){
+            return 200
+        });
+        $('html, body').animate({ scrollTop: target.offset().top }, 500 );
         return false;
     });
 

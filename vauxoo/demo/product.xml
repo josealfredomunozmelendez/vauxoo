@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
         <record id="product_sprint" model="product.template">
             <field name="name">Sprint</field>
             <field name="sale_ok" eval="1"/>
@@ -26,5 +25,4 @@
         Este servicios se ofrece en modalidad a distancia, en caso de requerir la presencia física de nuestros consultores, los gastos de transporte, alimentación y hospedaje serán cubiertos por el cliente.
             </field>
         </record>
-
 </odoo>

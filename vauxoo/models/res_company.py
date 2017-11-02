@@ -15,3 +15,9 @@ class ResCompany(models.Model):
                                            store=False,
                                            help="All contact public Contacts"
                                            "to be shown in contact form.")
+    currency_id = fields.Many2one(
+        'res.currency',
+        string='Currency',
+        required=True,
+        related='country_id.currency_id',
+    )
