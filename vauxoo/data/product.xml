@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
        <record id="product_uom_week" model="product.uom">
             <field name="name">Week(s)</field>
             <field name="category_id" eval="ref('product.uom_categ_wtime')"/>
             <field name="factor_inv" eval="7.0"/>
             <field name="uom_type">bigger</field>
         </record>
-
 </odoo>

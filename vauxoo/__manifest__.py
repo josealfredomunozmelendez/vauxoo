@@ -118,6 +118,8 @@
         "views/project.xml",
         "views/account_analytic_line_view.xml",
         "views/hr_timesheet_view.xml",
+        "views/hr_employee_view.xml",
+        "views/account_budget_view.xml",
         "views/menu.xml",
         'views/sale_view.xml',
 
@@ -127,8 +129,7 @@
         'report/sale_report_templates.xml',
 
         # Wizards (One Per Wizard)
-        "wizard/set_invoice_view.xml",
-        "views/wizard_view.xml",
+        "wizard/employee_user_view.xml",
 
         # Email templates
         "views/ask_review_criteria_email.xml",
@@ -147,6 +148,7 @@
     ],
     "test": [
     ],
+    "qweb": ['static/src/xml/*.xml'],
     "auto_install": False,
     "application": True,
     "installable": True,

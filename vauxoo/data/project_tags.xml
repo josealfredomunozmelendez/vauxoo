@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
         <record id="tag_helpdesk_ticket" model="project.tags">
             <field name="name">Helpdesk Ticket</field>
             <field name="color">7</field>
@@ -20,5 +19,4 @@
             <field name="name">Support L2</field>
             <field name="color">7</field>
         </record>
-
 </odoo>
