@@ -2,7 +2,7 @@
 import time
 import datetime
 from email import utils
-from openerp import models, fields, api
+from odoo import models, fields, api
 
 
 class BlogPost(models.Model):
