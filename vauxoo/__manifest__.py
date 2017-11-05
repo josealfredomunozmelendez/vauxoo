@@ -57,6 +57,8 @@
         "payment_paypal",
         "marketing_automation",
         "login",
+        "website_blog_rss",
+        "website_product_rss",
 
         # Sales
         "sale_margin",
