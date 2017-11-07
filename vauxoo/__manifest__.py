@@ -94,12 +94,6 @@
         "data/website_settings.yml",
         "data/apps.xml",
 
-        # Security
-        "security/ir_rule.xml",
-        "security/res_groups.xml",
-        "security/res_users.xml",
-        "security/ir.model.access.csv",
-
         # Data
         'data/res_currency.xml',
         'data/company.xml',
@@ -113,6 +107,12 @@
         "data/project_task_estimation.xml",
         "data/jobs.xml",
         "data/blog.xml",
+
+        # Security
+        "security/ir_rule.xml",
+        "security/res_groups.xml",
+        "security/res_users.xml",
+        "security/ir.model.access.csv",
 
         # Views
         # Backend stuff (A file per app)
