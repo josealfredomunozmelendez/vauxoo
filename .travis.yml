@@ -31,6 +31,7 @@ env:
   - LINT_CHECK=0 TESTS="0"
   - VERSION="11.0" ODOO_REPO="vauxoo/odoo"
   - INCLUDE="vauxoo"
+  - PSQL_VERSION="9.5"
 
   matrix:
   - LINT_CHECK=1
