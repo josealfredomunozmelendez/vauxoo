@@ -1,47 +1,86 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import json
-import psycopg2
 import csv
 import pprint
 import logging
+from collections import defaultdict
+import psycopg2
 import odoorpc
 import click
 import click_log
 import py
-from collections import defaultdict
-from itertools import izip
+from odoo_csv_tools.import_threaded import import_data
+from odoo_csv_tools.export_threaded import export_data
 
 __version__ = '1.0.1'
 
-logging.addLevelName( logging.ERROR, "\033[1;31m%s\033[1;0m" % logging.getLevelName(logging.ERROR))
-logging.addLevelName( logging.INFO, "\033[1;32m%s\033[1;0m" % logging.getLevelName(logging.INFO))
-logging.addLevelName( logging.WARNING, "\033[1;33m%s\033[1;0m" % logging.getLevelName(logging.WARNING))
-logging.addLevelName( logging.DEBUG, "\033[1;34m%s\033[1;0m" % logging.getLevelName(logging.DEBUG))
-logging.addLevelName( logging.CRITICAL, "\033[1;41m%s\033[1;0m" % logging.getLevelName(logging.CRITICAL))
+logging.addLevelName(
+    logging.ERROR,
+    "\033[1;31m%s\033[1;0m" % logging.getLevelName(logging.ERROR))
+logging.addLevelName(
+    logging.INFO,
+    "\033[1;32m%s\033[1;0m" % logging.getLevelName(logging.INFO))
+logging.addLevelName(
+    logging.WARNING,
+    "\033[1;33m%s\033[1;0m" % logging.getLevelName(logging.WARNING))
+logging.addLevelName(
+    logging.DEBUG,
+    "\033[1;34m%s\033[1;0m" % logging.getLevelName(logging.DEBUG))
+logging.addLevelName(
+    logging.CRITICAL,
+    "\033[1;41m%s\033[1;0m" % logging.getLevelName(logging.CRITICAL))
 
 _logger = logging.getLogger('vxmigration')
 _logger.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-ch.setFormatter(formatter)
-_logger.addHandler(ch)
+CH_VAR = logging.StreamHandler()
+CH_VAR.setLevel(logging.DEBUG)
+FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+CH_VAR.setFormatter(FORMATTER)
+_logger.addHandler(CH_VAR)
 
 
 class Migration(object):
 
-    def __init__(self, legacy, new_instance, cursor):
+    def __init__(
+            self, legacy, new_instance, cursor, max_connection, batch_size):
         self.legacy = legacy
         self.new_instance = new_instance
         self.cr = cursor
         self.group_size = 100
         self.dummy_ir_models = []
+        self.max_connection = max_connection
+        self.batch_size = batch_size
+        self.new_instance.env.context.update(
+            {'tracking_disable': True,
+             'write_metadata': True})
 
         header = ['model', 'record', 'id', 'name', 'message']
-        with open('migration_errors.csv', 'wb') as csvfile:
+        with open('migration_errors.csv', 'w', newline='') as csvfile:
             wr = csv.writer(csvfile)
             wr.writerow(header)
+
+    def load(self, model, load_fields, load_data_group):
+        # loaded_data = self.new_instance.execute(
+        #     model, 'load', load_fields, load_data_group)
+        messages, fails, ids = import_data(
+            registry=self.new_instance, model=model,
+            header=load_fields, data=load_data_group,
+            max_connection=self.max_connection, batch_size=self.batch_size)
+
+        if not ids:
+            self.write_errors(model, load_fields, load_data_group)
+        return {'failed': fails, 'messages': messages, 'ids': ids}
+
+    def export(self, model, ids, export_fields):
+        # export_data = self.legacy.execute(
+        #     model, 'export_data', ids, export_fields)
+        # return export_data
+
+        ids = export_data(
+            registry=self.legacy, model=model, ids=ids, header=export_fields,
+            max_connection=self.max_connection, batch_size=self.batch_size)
+        return {'datas': ids}
 
     def test(self):
         for instance in [self.legacy, self.new_instance]:
@@ -91,7 +130,7 @@ class Migration(object):
         """ Now we have only one Spanish, make the mapping to the records
         that have Spanish.
         """
-        return u'Spanish / Espa\xf1ol' if lang in ['es_MX', 'es_VE', 'es_PA'] \
+        return r'Spanish / Español' if lang in ['es_MX', 'es_VE', 'es_PA'] \
             else lang
 
     def mapping_groups(self, groups):
@@ -125,12 +164,15 @@ class Migration(object):
             'ifrs_report.group_ifrsreport',
             'ifrs_report.group_ifrsreport_user',
             'invoice_datetime.group_invoice_hide_datetime',
-            'l10n_facturae_groups_multipac_vauxoo.group_l10n_mx_facturae_multipac_manager',
-            'l10n_facturae_groups_multipac_vauxoo.group_l10n_mx_facturae_multipac_user',
+            'l10n_facturae_groups_multipac_vauxoo'
+            '.group_l10n_mx_facturae_multipac_manager',
+            'l10n_facturae_groups_multipac_vauxoo'
+            '.group_l10n_mx_facturae_multipac_user',
             'l10n_mx_facturae_22_regimen_fiscal.group_regimen_fiscal_manager',
             'l10n_mx_facturae_22_regimen_fiscal.group_regimen_fiscal_user',
             'l10n_mx_facturae_base.group_l10n_mx_facturae_print_inv_default',
-            'l10n_mx_facturae_group_show_wizards.res_group_facturae_show_default_wizards',
+            'l10n_mx_facturae_group_show_wizards'
+            '.res_group_facturae_show_default_wizards',
             'l10n_mx_facturae_groups.group_l10n_mx_facturae_manager',
             'l10n_mx_facturae_groups.group_l10n_mx_facturae_user',
             'l10n_mx_facturae_groups.group_l10n_mx_xml_cancel',
@@ -139,7 +181,8 @@ class Migration(object):
             'l10n_mx_params_pac.res_group_pacs',
             'lunch.group_lunch_manager',
             'lunch.group_lunch_user',
-            'mail_add_followers_multirecord.group_mail_add_followers_multirecord',
+            'mail_add_followers_multirecord'
+            '.group_mail_add_followers_multirecord',
             'marketing.group_marketing_manager',
             'marketing.group_marketing_user',
             'mass_mailing.group_mass_mailing_campaign',
@@ -194,14 +237,14 @@ class Migration(object):
             # TODO Do not import this companies by now
             # id 3, Vauxoo CA, Venezuela
             # id 4, Vauxoo SA, Peru
-            # [model, 1, 'dummy_res_company_mx', '__export__', 'res_company_3'],
-            # [model, 1, 'dummy_res_company_con', '__export__', 'res_company_4'],
+            # [model, 1, 'dummy_res_company_mx', '__export__',
+            # 'res_company_3'],
+            # [model, 1, 'dummy_res_company_con', '__export__',
+            # 'res_company_4'],
         ]
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, values)
+        dummys = self.load(
+            'ir.model.data', fields, values)
 
-        if not dummys.get('ids', False):
-            self.print_errors('res.company', dummys, values)
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
     def res_country_state_mapping(self):
@@ -216,9 +259,8 @@ class Migration(object):
         ])
         export_fields = ['code', 'id', 'name', 'country_id/id',
                          'country_id/code', 'country_id/.id']
-        legacy_data = self.legacy.execute(
-            'res.country.state', 'export_data', legacy_ids,
-            export_fields).get('datas', [])
+        legacy_data = self.export(
+            'res.country.state', legacy_ids, export_fields).get('datas', [])
 
         to_import = []
         to_mapping = []
@@ -239,10 +281,7 @@ class Migration(object):
 
         # Importing non Mexico states
         load_fields = ['code', 'id', 'name', 'country_id/id']
-        loaded_data = self.new_instance.execute(
-            model, 'load', load_fields, to_import)
-        if not loaded_data.get('ids', False):
-            self.print_errors(model, loaded_data, to_import)
+        self.load(model, load_fields, to_import)
 
         # Mapping repated data in source
         # __export__.res_country_state_118  ANZ Anzoategui Venezuela  105
@@ -265,10 +304,8 @@ class Migration(object):
         values = [state + [model, '_'.join(['dummy', state[2]])]
                   for state in to_mapping]
 
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, values)
-        if not dummys.get('ids', False):
-            self.print_errors(model, dummys, values)
+        dummys = self.load(
+            'ir.model.data', fields, values)
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
     def mapping_res_currency(self):
@@ -290,32 +327,10 @@ class Migration(object):
             [model, 3, 'dummy_res_currency_usd2', '__export__',
              'res_currency_196'],
         ]
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, values)
+        dummys = self.load(
+            'ir.model.data', fields, values)
 
-        if not dummys.get('ids', False):
-            self.print_errors('res.company', dummys, values)
         self.dummy_ir_models.extend(dummys.get('ids', []))
-
-    def mapping_product_product(self):
-        """ Create a product used to refer to the migrated projects.
-        """
-        _logger.info("Mapping products to use")
-        model = 'product.product'
-        product = {
-            'id': 'vauxoo_migration_migrated_user_stories',
-            'name': 'Migrated User Story',
-            'type': 'service',
-            'sale_ok': 'True',
-            'track_service': 'task',
-            'project_id/id': 'vauxoo.implementation_team',
-            'uom_id/id': 'product.product_uom_hour',
-            'uom_po_id/id': 'product.product_uom_hour',
-        }
-        product_data = self.new_instance.execute(
-            model, 'load', product.keys(), [product.values()])
-        if not product_data.get('ids', False):
-            self.print_errors_dict(model, product_data, [product])
 
     def mapping_cleanup(self):
         """ Delete the created ir.model.data records created for avoid
@@ -328,68 +343,26 @@ class Migration(object):
         self.new_instance.execute(
             'ir.model.data', 'unlink', self.dummy_ir_models)
 
-    def print_errors(self, model, load_res, export_data, group_num=''):
-        """ Show the records with importation errors """
-        errors = []
-        for fail in load_res.get('messages'):
-            index = fail.get('record')
-            errors.append([
-                model, '_'.join([str(group_num), str(index)]),
-                export_data[index][0],
-                export_data[index][1],
-                fail.get('message')
-            ])
-            _logger.error(pprint.pformat(load_res.get('messages')))
-            # self.print_debug(load_fields, data)
-
-        errors.append([
-            model, 'fail_ids',
-            group_num,
-            [item[0].split('_')[-1] for item in export_data],
-            "Please need to be reloaded"])
-        self.write_errors(errors)
-
-    def print_errors_dict(self, model, load_res, export_data):
-        """ Show the records with importation errors """
-        # TODO this method can be merged with print_errors
-        errors = []
-        for fail in load_res.get('messages'):
-            index = fail.get('record')
-            errors.append([
-                model, index, export_data[index].get('id'),
-                export_data[index].get('name'),
-                fail.get('message')
-            ])
-            _logger.error(pprint.pformat(load_res.get('messages')))
-            # self.print_debug(load_fields, data)
-
-        errors.append([
-            model, 'fail_ids',
-            group_num,
-            [item[0].split('_')[-1] for item in export_data],
-            "Please need to be reloaded"])
-        self.write_errors(errors)
-
     def write_exported(self, headers, values):
         fname = 'export.csv'
         data = []
         for row in values:
             data.append([
-                unicode(value).encode("ascii", "ignore").replace(',', '')
+                value.encode("ascii", "ignore").replace(',', '')
                 for value in row])
-        with open(fname, 'ab') as csvfile:
+        with open(fname, 'a', newline='') as csvfile:
             wr = csv.writer(csvfile, delimiter=";")
             wr.writerows(data)
 
-    def write_errors(self, errors):
-        data = []
-        for row in errors:
-            data.append([
-                unicode(value).encode("ascii", "ignore").replace(',', '')
-                for value in row])
-        with open('migration_errors.csv', 'ab') as csvfile:
+    def write_errors(self, model, header, records):
+        """ write in migration_errors.csv the list of records that were not
+        imported for any error while importing. This way the user will be
+        able to fix the error and re imported without mapping again.
+        """
+        with open(model + '.csv', 'a', newline='') as csvfile:
             wr = csv.writer(csvfile)
-            wr.writerows(data)
+            wr.writerow(header)
+            wr.writerows(records)
 
     def migrate_fiscal_position(self, domain=None, limit=None):
         """ Old regiment.fiscal model records to account.fiscal.position
@@ -421,27 +394,15 @@ class Migration(object):
             # account_ids, tax_ids, write_uid, create_uid, country_id,
             # country_group_id,
         ]
-
         load_fields = []
         load_fields.extend(export_fields)
         load_fields[load_fields.index('description')] = 'note'
-
         position_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to create %s" % (len(position_ids),))
-
-        position_ids, group_number = self.chunks(position_ids)
-
-        for (group, position_sub_group) in enumerate(position_ids, 1):
-            position_data = self.legacy.execute(
-                read_model, 'export_data', position_sub_group,
-                export_fields).get('datas', [])
-            _logger.debug("Group %s-%s" % (group, group_number))
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, position_data)
-
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, position_data)
+        position_data = self.export(
+            read_model, position_ids, export_fields).get('datas', [])
+        self.load(write_model, load_fields, position_data)
 
     def migrate_res_partner(self, domain=None, limit=None):
         """ This method allow migrate the specific data of the res_partner
@@ -456,7 +417,6 @@ class Migration(object):
         partner_ids = self.legacy.execute(
             model, 'search', domain, 0, limit)
         _logger.info("Partners to migrate %s" % (len(partner_ids),))
-        partner_ids, group_number = self.chunks(partner_ids)
 
         export_fields = [
             'id', 'name', 'activation', 'website_description', 'image_medium',
@@ -608,61 +568,53 @@ class Migration(object):
             load_fields[load_fields.index(item[0])] = item[1]
 
         type_mapping = dict([
-            (u'Default', 'Contact'),
-            (u'Invoice', 'Invoice address'),
-            (u'Shipping', 'Shipping address'),
-            (u'Other', 'Other address'),
+            (r'Default', 'Contact'),
+            (r'Invoice', 'Invoice address'),
+            (r'Shipping', 'Shipping address'),
+            (r'Other', 'Other address'),
         ])
+        partner_data = self.export(
+            model, partner_ids, export_fields).get('datas', [])
 
-        for (group, partner_sub_group) in enumerate(partner_ids, 1):
-            partner_data = self.legacy.execute(
-                model, 'export_data', partner_sub_group,
-                export_fields).get('datas', [])
-            load_data_group = []
+        load_data_group = []
 
-            _logger.debug("Group %s-%s" % (group, group_number))
+        for (item, partner) in enumerate(partner_data, 1):
+            # Set default values
+            partner[load_fields.index('company_id/id')] = False
+            partner[load_fields.index('website_published')] = False
+            partner[load_fields.index('opt_out')] = False
 
-            for (item, partner) in enumerate(partner_data, 1):
+            partner[load_fields.index('credit_limit')] = 0  # necessary?
 
-                # Set default values
-                partner[load_fields.index('company_id/id')] = False
-                partner[load_fields.index('website_published')] = False
-                partner[load_fields.index('opt_out')] = False
+            # Mapping
+            partner[load_fields.index('company_type')] = (
+                'company' if partner[load_fields.index('company_type')]
+                else 'person')
+            partner[load_fields.index('type')] = type_mapping.get(
+                partner[load_fields.index('type')])
+            partner[load_fields.index('lang')] = self.res_lang_mapping(
+                partner[load_fields.index('lang')])
+            vat = partner[load_fields.index('vat')]
 
-                partner[load_fields.index('credit_limit')] = 0  # necessary?
+            generic_vat_to_avoid = [
+                'MXXEXX010101000', 'MXEXX010101000', 'MXXAXX010101000',
+            ]
+            if vat and vat in generic_vat_to_avoid:
+                partner[load_fields.index('vat')] = ''
+            elif vat and vat[:2] in ['EC', 'ES', 'MX', 'PE', 'VE']:
+                partner[load_fields.index('vat')] = vat[2:].strip()
+            # payment_term = self.get_value('property_payment_term_id')
+            # if payment_term == 'Contado USD BBVA Bancomer':
+            #     self.change_value('property_payment_term_id', False)
+            country_id = partner[load_fields.index('country_id/id')]
+            if country_id == "base.mx":
+                load_fields[export_fields.index('street2')] = \
+                    'l10n_mx_edi_colony'
 
-                # Mapping
-                partner[load_fields.index('company_type')] = (
-                    'company' if partner[load_fields.index('company_type')]
-                    else 'person')
-                partner[load_fields.index('type')] = type_mapping.get(
-                    partner[load_fields.index('type')])
-                partner[load_fields.index('lang')] = self.res_lang_mapping(
-                    partner[load_fields.index('lang')])
-                vat = partner[load_fields.index('vat')]
+            load_data_group.append(partner)
 
-                generic_vat_to_avoid = [
-                    'MXXEXX010101000', 'MXEXX010101000', 'MXXAXX010101000',
-                ]
-                if vat and vat in generic_vat_to_avoid:
-                    partner[load_fields.index('vat')] = ''
-                elif vat and vat[:2] in ['EC', 'ES', 'MX', 'PE', 'VE']:
-                    partner[load_fields.index('vat')] = vat[2:].strip()
-                # payment_term = self.get_value('property_payment_term_id')
-                # if payment_term == 'Contado USD BBVA Bancomer':
-                #     self.change_value('property_payment_term_id', False)
-                country_id = partner[load_fields.index('country_id/id')]
-                if country_id == "base.mx":
-                    load_fields[export_fields.index('street2')] = \
-                        'l10n_mx_edi_colony'
-
-                load_data_group.append(partner)
-
-            partner_ids = self.new_instance.execute(
-                model, 'load', load_fields, load_data_group)
-
-            if not partner_ids.get('ids', False):
-                self.print_errors(model, partner_ids, partner_data)
+        partner_ids = self.load(
+            model, load_fields, load_data_group)
 
     def migrate_app_categ(self, domain=None, limit=None, defaults=None):
         """ All the application category that has been exported in legacy
@@ -688,15 +640,10 @@ class Migration(object):
             # todo review
             # 'parent_id', 'module_ids', 'child_ids',
         ]
-        apps_data = self.legacy.execute(
-            read_model, 'export_data', categ_apps_ids,
-            export_fields).get('datas')
+        apps_data = self.export(
+            read_model, categ_apps_ids, export_fields).get('datas')
 
-        loaded_data = self.new_instance.execute(
-            write_model, 'load', load_fields, apps_data)
-
-        if not loaded_data.get('ids', False):
-            self.print_errors(write_model, loaded_data, apps_data)
+        self.load(write_model, load_fields, apps_data)
 
     def migrate_res_groups(self, domain=None, limit=None, defaults=None):
         """ All the groups that has been exported in legacy instance
@@ -726,18 +673,14 @@ class Migration(object):
             'comment', 'create_date', 'write_date', 'implied_ids/id',
             # 'category_id/id',  # not for now
         ]
-        groups_data = self.legacy.execute(
-            read_model, 'export_data', groups_ids, export_fields).get('datas')
+        groups_data = self.export(
+            read_model, groups_ids, export_fields).get('datas')
 
         for group in groups_data:
             group[load_fields.index('implied_ids/id')] = self.mapping_groups(
                 group[load_fields.index('implied_ids/id')])
 
-        loaded_data = self.new_instance.execute(
-            write_model, 'load', load_fields, groups_data)
-
-        if not loaded_data.get('ids', False):
-            self.print_errors(write_model, loaded_data, groups_data)
+        self.load(write_model, load_fields, groups_data)
 
     def migrate_res_users(self, domain=None, limit=None, defaults=None):
         """ This method allow migrate the specific data of the res_users
@@ -747,7 +690,7 @@ class Migration(object):
         domain = domain or []
         defaults = defaults or {}
         export_fields = [
-            # 'state',  TODO map 'Activated:' u'Never Connected', u'Confirmed'
+            # 'state',  TODO map 'Activated:' r'Never Connected', r'Confirmed'
 
             'id',
             'name',
@@ -905,8 +848,8 @@ class Migration(object):
         for (field, value) in defaults.items():
             load_fields.append(field)
         notify_mapping = dict([
-            (u'none', u'inbox'),
-            (u'always', u'email'),
+            (r'none', r'inbox'),
+            (r'always', r'email'),
         ])
 
         # Domain: Active and non active res.users to avoid a problem of a
@@ -927,53 +870,38 @@ class Migration(object):
         values = [
             ['res.users', 6, 'dummy_user_01', '__export__', 'res_users_935'],
         ]
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, values)
+        dummys = self.load(
+            'ir.model.data', fields, values)
         if not dummys.get('ids', False):
-            self.print_errors('res.company', dummys, values)
             return
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
         user_ids = self.legacy.execute('res.users', 'search', domain, 0, limit)
         _logger.info("Users to create %s" % (len(user_ids),))
 
-        user_ids, group_number = self.chunks(user_ids)
+        user_data = self.export(
+            'res.users', user_ids, export_fields).get('datas', [])
 
-        for (group, user_sub_group) in enumerate(user_ids, 1):
-            user_data = self.legacy.execute(
-                'res.users', 'export_data',
-                user_sub_group, export_fields).get('datas', [])
-            load_data_group = []
+        load_data_group = []
+        for user in user_data:
+            # set default values
+            for (field, value) in defaults.items():
+                user.append(value)
+            # Pre process
+            user[load_fields.index('lang')] = self.res_lang_mapping(
+                user[load_fields.index('lang')])
+            user[load_fields.index('groups_id/id')] = self.mapping_groups(
+                user[load_fields.index('groups_id/id')])
+            user[load_fields.index('notification_type')] = \
+                notify_mapping.get(
+                    user[load_fields.index('notification_type')])
+            # Defaults
+            user[load_fields.index('company_ids/id')] = 'base.main_company'
+            user[load_fields.index('company_id/id')] = 'base.main_company'
+            load_data_group.append(user)
 
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for user in user_data:
-
-                # set default values
-                for (field, value) in defaults.items():
-                    user.append(value)
-
-                # Pre process
-                user[load_fields.index('lang')] = self.res_lang_mapping(
-                    user[load_fields.index('lang')])
-                user[load_fields.index('groups_id/id')] = self.mapping_groups(
-                    user[load_fields.index('groups_id/id')])
-                user[load_fields.index('notification_type')] = \
-                    notify_mapping.get(
-                        user[load_fields.index('notification_type')])
-
-                # Defaults
-                user[load_fields.index('company_ids/id')] = 'base.main_company'
-                user[load_fields.index('company_id/id')] = 'base.main_company'
-
-                load_data_group.append(user)
-
-            user_ids = self.new_instance.execute(
-                'res.users', 'load', load_fields, load_data_group)
-
-            if not user_ids.get('ids', False):
-                self.print_errors('res.users', user_ids, user_data,
-                                  group_num=group)
+        user_ids = self.load(
+            'res.users', load_fields, load_data_group)
 
     def migrate_employee(self, domain=None, limit=None, defaults=None):
         """ Migrate only the employee name
@@ -998,19 +926,9 @@ class Migration(object):
         employee_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info("Employees to create %s" % (len(employee_ids),))
-
-        employee_ids, group_number = self.chunks(employee_ids)
-
-        for (group, employee_sub_group) in enumerate(employee_ids, 1):
-            employee_data = self.legacy.execute(
-                read_model, 'export_data',
-                employee_sub_group, export_fields).get('datas', [])
-            _logger.debug("Group %s-%s" % (group, group_number))
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, employee_data)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, employee_data,
-                                  group_num=group)
+        employee_data = self.export(
+            read_model, employee_ids, export_fields).get('datas', [])
+        self.load(write_model, load_fields, employee_data)
 
     def migrate_project_stages(self):
         """ Create and mapping project stages.
@@ -1046,8 +964,8 @@ class Migration(object):
                     stages.append(row)
 
         # Load project.tasks.type
-        stages_data = self.new_instance.execute(
-            'project.task.type', 'load', header, stages)
+        stages_data = self.load(
+            'project.task.type', header, stages)
 
         _logger.info(pprint.pformat(stages_data))
 
@@ -1107,10 +1025,7 @@ class Migration(object):
             'name': 'Orphan Task',
             'color': 4,
         }
-        tag_data = self.new_instance.execute(
-            model, 'load', tag.keys(), [tag.values()])
-        if not tag_data.get('ids', False):
-            self.print_errors_dict(model, tag_data, [tag])
+        self.load(model, list(tag.keys()), [list(tag.values())])
 
         # Mapping repated data in source
         self.map_repeated('project.tags', [
@@ -1157,8 +1072,6 @@ class Migration(object):
         tag_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info("tags to create %s" % (len(tag_ids),))
-        tag_ids, group_number = self.chunks(tag_ids)
-
         export_fields = [
             'id', 'name',
             'create_date', 'write_date',
@@ -1168,28 +1081,18 @@ class Migration(object):
         load_fields.extend(export_fields)
         load_fields.append('color')
 
-        for (group, tag_sub_group) in enumerate(tag_ids, 1):
-            export_data = self.legacy.execute(
-                read_model, 'export_data', tag_sub_group,
-                export_fields).get('datas', [])
+        export_data = self.export(
+            read_model, tag_ids, export_fields).get('datas', [])
+        # preprocess
+        load_data_group = []
+        for (index, tag) in enumerate(export_data, 0):
+            # defaults
+            tag.append(1)
+            load_data_group.append(tag)
+            suffix = defaults.get('suffix', '')
+            tag[0] = tag[0] + suffix
 
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            # preprocess
-            load_data_group = []
-            for (index, tag) in enumerate(export_data, 0):
-
-                # defaults
-                tag.append(1)
-                load_data_group.append(tag)
-                suffix = defaults.get('suffix', '')
-                tag[0] = tag[0] + suffix
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
+        self.load(write_model, load_fields, load_data_group)
 
     def map_repeated(self, model, values):
         """ Mapping repated data in source """
@@ -1200,10 +1103,8 @@ class Migration(object):
             to_mapping.append(
                 [new_id, '__export__', item[1], model,
                  '_'.join(['dummy', item[1]])])
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, to_mapping)
-        if not dummys.get('ids', False):
-            self.print_errors(model, dummys, to_mapping)
+        dummys = self.load(
+            'ir.model.data', fields, to_mapping)
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
     def load_and_run(self, server_action_file):
@@ -1214,10 +1115,8 @@ class Migration(object):
             header = next(reader)
             data = [row for row in reader]
 
-        loaded_data = self.new_instance.execute(
-            write_model, 'load', header, data)
-        if not loaded_data.get('ids', False):
-            self.print_errors(write_model, loaded_data, data)
+        loaded_data = self.load(
+            write_model, header, data)
 
         self.new_instance.execute(
             write_model, 'run', loaded_data.get('ids', False))
@@ -1231,8 +1130,6 @@ class Migration(object):
         task_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info("Tasks to create %s" % (len(task_ids),))
-        task_ids, group_number = self.chunks(task_ids)
-
         export = ['id', 'name', 'active', 'color', 'date_end',
                   'date_start', 'date_deadline', 'delay_hours',
                   'description', 'effective_hours', 'kanban_state',
@@ -1246,7 +1143,6 @@ class Migration(object):
                   'date_last_stage_update',
                   'categ_ids/id',
                   '.id']
-
         load_fields = []
         load_fields.extend(export)
         load_fields[export.index('userstory_id/id')] = 'parent_id/id'
@@ -1256,80 +1152,60 @@ class Migration(object):
         load_fields.append('date_assign')
         load_fields.append('tag_ids/id')
         load_fields.append('project_id/id')
-        load_fields.append('sale_line_id/id')
-        load_fields.append('procurement_id/id')
 
-        for (group, task_sub_group) in enumerate(task_ids, 1):
-            task_data = self.legacy.execute(
-                read_model, 'export_data', task_sub_group,
-                export).get('datas', [])
-            load_data_group = []
+        task_data = self.export(
+            read_model, task_ids, export).get('datas', [])
+        load_data_group = []
+        for (item, task) in enumerate(task_data):
+            # Mapping
+            legacy_id = task[export.index('.id')]
+            task[export.index('name')] = \
+                task[export.index('name')] + " [T" + legacy_id + "]"
+            kanban_st_mapping = dict([
+                (r'In Progress', 'Grey'),
+                (r'Blocked', 'Red'),
+                (r'Ready for next stage', 'Green')])
+            task[export.index('kanban_state')] = \
+                kanban_st_mapping.get(
+                    task[export.index('kanban_state')])
+            priority_mapping = dict([
+                (r'Normal', 'Low'),
+                (r'Low', 'Low'),
+                (r'High', 'Normal')])
+            task[export.index('priority')] = \
+                priority_mapping.get(task[export.index('priority')])
+            task[export.index('stage_id/id')] = \
+                self.mapping_project_stage.get(
+                    task[export.index('stage_id/id')])
+            task.append(task[export.index('date_start')])  # date_assign
 
-            _logger.debug("Group %s-%s" % (group, group_number))
+            sprint = task[export.index('sprint_id/id')] or ''
+            category = task[export.index('categ_ids/id')] or ''
+            extra_tag = defaults.get('tag_ids/id') \
+                if 'tag_ids/id' in defaults else ''
+            tags = ','.join([sprint, category, extra_tag])
+            tag_ids = ','.join([item for item in tags.split(',') if item])
+            task.append(tag_ids)
 
-            for (item, task) in enumerate(task_data):
+            # defaults
+            # story_xml = task[export.index('userstory_id/id')] or \
+            #     str()
+            task.append(defaults.get('project_id/id'))
+            if 'parent_id/id' in defaults:
+                task[load_fields.index('parent_id/id')] = defaults.get(
+                    'parent_id/id')
 
-                # Mapping
-                legacy_id = task[export.index('.id')]
-                task[export.index('name')] = \
-                    task[export.index('name')] + " [T" + legacy_id + "]"
-                kanban_st_mapping = dict([
-                    (u'In Progress', 'Grey'),
-                    (u'Blocked', 'Red'),
-                    (u'Ready for next stage', 'Green')])
-                task[export.index('kanban_state')] = \
-                    kanban_st_mapping.get(
-                        task[export.index('kanban_state')])
-                priority_mapping = dict([
-                    (u'Normal', 'Non Starred'),
-                    (u'Low', 'Non Starred'),
-                    (u'High', 'Starred')])
-                task[export.index('priority')] = \
-                    priority_mapping.get(task[export.index('priority')])
-                task[export.index('stage_id/id')] = \
-                    self.mapping_project_stage.get(
-                        task[export.index('stage_id/id')])
-                task.append(task[export.index('date_start')])  # date_assign
+            # cleaun up not used to be loaded fields
+            task.pop(export.index('.id'))
+            task.pop(export.index('categ_ids/id'))
+            task.pop(export.index('sprint_id/id'))
 
-                sprint = task[export.index('sprint_id/id')] or ''
-                category = task[export.index('categ_ids/id')] or ''
-                extra_tag = defaults.get('tag_ids/id') \
-                    if 'tag_ids/id' in defaults else ''
-                tags = ','.join([sprint, category, extra_tag])
-                tag_ids = ','.join([item for item in tags.split(',') if item])
-                task.append(tag_ids)
+            # pprint.pprint(self.list2dict(load_fields, task))
 
-                # defaults
-                story_xml = task[export.index('userstory_id/id')] or \
-                    str()
-                task.append(defaults.get('project_id/id'))
-                if defaults.get('internal', False):
-                    task.append('')
-                    task.append('')
-                else:
-                    task.append(
-                        story_xml and story_xml + '_sale_line' or str())
-                    task.append(
-                        story_xml and story_xml + '_procurement_order' or
-                        str())
-                if 'parent_id/id' in defaults:
-                    task[load_fields.index('parent_id/id')] = defaults.get(
-                        'parent_id/id')
+            load_data_group.append(task)
 
-                # cleaun up not used to be loaded fields
-                task.pop(export.index('.id'))
-                task.pop(export.index('categ_ids/id'))
-                task.pop(export.index('sprint_id/id'))
-
-                # pprint.pprint(self.list2dict(load_fields, task))
-
-                load_data_group.append(task)
-
-            task_ids = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-
-            if not task_ids.get('ids', False):
-                self.print_errors(write_model, task_ids, task_data)
+        task_ids = self.load(
+            write_model, load_fields, load_data_group)
 
     def migrate_helpdesk_team(self):
         _logger.info('Create Helpdesk team')
@@ -1345,10 +1221,7 @@ class Migration(object):
             ['vauxoo_migration_infrastructure_support_team', 'Infrastructure',
              'True', 'True', 'True', 'infrastructure', support_team, 'True'],
         ]
-        loaded_data = self.new_instance.execute(
-            write_model, 'load', load_fields, load_data_group)
-        if not loaded_data.get('ids', False):
-            self.print_errors(write_model, loaded_data, load_data_group)
+        self.load(write_model, load_fields, load_data_group)
 
     def migrate_helpdesk_stages(self):
         """ Create new helpdesk stages
@@ -1373,8 +1246,8 @@ class Migration(object):
                     stages.append(row)
 
         # Load helpdesk stage
-        stages_data = self.new_instance.execute(
-            'helpdesk.stage', 'load', header, stages)
+        stages_data = self.load(
+            'helpdesk.stage', header, stages)
 
         _logger.info(pprint.pformat(stages_data))
 
@@ -1429,8 +1302,6 @@ class Migration(object):
         issue_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info("issues to create %s" % (len(issue_ids),))
-        issue_ids, group_number = self.chunks(issue_ids)
-
         export_fields = [
             'id', 'name', 'active', 'description',
             'partner_id/id', 'user_id/id',
@@ -1444,7 +1315,6 @@ class Migration(object):
             'categ_ids/id',
             '.id',
         ]
-
         load_fields = []
         load_fields.extend(export_fields[:-1])
         # load_fields[load_fields.index('project_id/id')] = 'tag_ids'
@@ -1452,66 +1322,58 @@ class Migration(object):
         load_fields.append('team_id/id')
         load_fields.append('ticket_type_id/id')
 
-        for (group, issue_sub_group) in enumerate(issue_ids, 1):
-            export_data = self.legacy.execute(
-                read_model, 'export_data', issue_sub_group,
-                export_fields).get('datas', [])
-            _logger.debug("Group %s-%s" % (group, group_number))
+        export_data = self.export(
+            read_model, issue_ids, export_fields).get('datas', [])
 
-            load_data_group = []
-            for issue in export_data:
+        load_data_group = []
+        for issue in export_data:
+            # Mapping
+            legacy_id = issue.pop(export_fields.index('.id'))
+            name = issue[load_fields.index('name')]
+            issue[load_fields.index('name')] = \
+                name + " [PI" + str(legacy_id) + "]"
+            task = issue[load_fields.index('task_id/id')] or str()
+            issue[load_fields.index('task_id/id')] = task
+            priority_mapping = dict([
+                (r'Low', 'All'),
+                (r'Normal', 'Low priority'),
+                (r'High', 'High priority'),
+            ])
+            issue[load_fields.index('priority')] = priority_mapping.get(
+                issue[load_fields.index('priority')])
+            issue[load_fields.index('stage_id/id')] = \
+                self.mapping_helpdesk_stage.get(
+                    issue[load_fields.index('stage_id/id')])
+            tags = issue[load_fields.index('tag_ids/id')] or str()
+            issue[load_fields.index('tag_ids/id')] = ','.join(
+                [item + '_htag' for item in tags.split(',') if item])
 
-                # Mapping
-                legacy_id = issue.pop(export_fields.index('.id'))
-                name = issue[load_fields.index('name')]
-                issue[load_fields.index('name')] = \
-                    name + " [PI" + str(legacy_id) + "]"
-                task = issue[load_fields.index('task_id/id')] or str()
-                issue[load_fields.index('task_id/id')] = task
-                priority_mapping = dict([
-                    (u'Low', 'All'),
-                    (u'Normal', 'Low priority'),
-                    (u'High', 'High priority'),
-                ])
-                issue[load_fields.index('priority')] = priority_mapping.get(
-                    issue[load_fields.index('priority')])
-                issue[load_fields.index('stage_id/id')] = \
-                    self.mapping_helpdesk_stage.get(
-                        issue[load_fields.index('stage_id/id')])
-                tags = issue[load_fields.index('tag_ids/id')] or str()
-                issue[load_fields.index('tag_ids/id')] = ','.join(
-                    [item + '_htag' for item in tags.split(',') if item])
+            # defaults
+            issue.append(defaults.get('team_id/id'))
+            issue.append('helpdesk.type_incident')
 
-                # defaults
-                issue.append(defaults.get('team_id/id'))
-                issue.append('helpdesk.type_incident')
+            load_data_group.append(issue)
 
-                load_data_group.append(issue)
+        self.load(write_model, load_fields, load_data_group)
 
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
-
-    def migrate_customer_user_stories(self, domain=None, limit=None,
-                                      defaults=None):
-        """Migrate user_stories as tasks were project is a sale order line"""
+    def migrate_user_stories(self, domain=None, limit=None, defaults=None,
+                             context=None):
+        """Migrate user_stories as tasks were project is another task"""
+        if context is None:
+            context = {}
         read_model = 'user.story'
-        write_model1 = 'project.task'
-        write_model2 = 'sale.order.line'
-        write_model3 = 'procurement.order'
+        write_model = 'project.task'
         domain = domain or []
         defaults = defaults or {}
 
         _logger.info("Migrate Customers User Stories (%s as %s)" % (
-            read_model, (write_model1, write_model2, write_model3)))
+            read_model, write_model))
 
         export_fields = [
             'id', 'name', 'user_id/id', '.id',
 
             # data necessary to set te customer
-            'owner_id/partner_id/id',  # TODO where to add this important data
+            'owner_id/id',  # TODO where to add this important data
             'project_id/partner_id/id',
 
             # 'user_execute_id/id',  # TODO review
@@ -1530,183 +1392,80 @@ class Migration(object):
             # 'display_name',  # TODO  Is not set sad face
         ]
 
-        task_load_fields = [
+        load_fields = [
             'id',
             'name',
             'partner_id/id',
+            'owner_id/id',
             'description',
-            'procurement_id/id',
+            'gap',
+            'asumption',
+            'implementation',
             'project_id/id',
+            'parent_id/id',
             'tag_ids/id',
             'stage_id/id',
             'kanban_state',
-            'sale_line_id/id',
             'planned_hours',
             'user_id/id',
-            'create_date', 'create_uid/id',
-            'write_date', 'write_uid/id',
-        ]
-
-        sale_line_fields = [
-            'id',
-            'name',
-            'order_id/id',
-            'product_id/id', 'product_uom/id',
-            'create_date', 'create_uid/id',
-            'write_date', 'write_uid/id',
-            'customer_lead',
-            'procurement_ids/id',
-        ]
-
-        procurement_fields = [
-            'id',
-            'name',
-            'product_id/id',
-            'product_uom/id',
-            'product_qty',
-            'group_id/id',
-            'partner_dest_id/id',
-            'origin',
-            'warehouse_id/id',
-            'location_id/id',
-            # 'date_planned', 'priority',
-            # 'state',  # u'Running'
-            'create_date', 'create_uid/id',
-            'write_date', 'write_uid/id',
+            'create_date',
+            'create_uid/id',
+            'write_date',
+            'write_uid/id',
         ]
 
         story_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info("User Stories to create " + str(len(story_ids)))
 
-        story_ids, group_number = self.chunks(story_ids)
-        for (group, sub_group) in enumerate(story_ids, 1):
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            user_story_data = [self.list2dict(export_fields, item)
-                               for item in export_data]
+        export_data = self.export(
+            read_model, story_ids, export_fields).get('datas', [])
+        user_story_data = [self.list2dict(export_fields, item)
+                           for item in export_data]
 
-            task_load_data_group = []
-            sale_line_load_data_group = []
-            procurement_load_data_group = []
-            _logger.debug("Group %s-%s" % (group, group_number))
+        load_data_group = []
+        # preprocessing data
+        for user_story in user_story_data:
+            stage, kanban_state = self.story_state.get(
+                user_story.get('state'))
+            tags = ','.join([
+                user_story.get('sprint_ids/id') or str(),
+                user_story.get('categ_ids/id') or str()
+            ])
+            if context.get('internal', False):
+                project = user_story.pop('project_id/id')
+                tags += ','.join([project or str()])
+            tag_ids = ','.join([item for item in tags.split(',') if item])
+            parent_id = user_story.get('project_id/id')
 
-            # preprocessing data
-            for user_story in user_story_data:
+            user_story.update(defaults)
+            task = [
+                user_story.get('id'),
+                user_story.get('name') + " [US%s]" % user_story.get('.id'),
+                user_story.get('project_id/partner_id/id'),  # partner_id
+                user_story.get('owner_id/id'),
+                user_story.get('description'),
+                user_story.get('info'),  # gap
+                user_story.get('asumption'),
+                user_story.get('implementation'),
+                user_story.get('project_id/id'),  # project_id
+                parent_id,
+                tag_ids,
+                stage,
+                kanban_state,
+                user_story.get('planned_hours'),
+                user_story.get('user_id/id'),
+                user_story.get('create_date'),
+                user_story.get('create_uid/id'),
+                user_story.get('write_date'),
+                user_story.get('write_uid/id'),
+            ]
+            load_data_group.append(task)
 
-                user_story_id = user_story.get('id')
-                name = user_story.get('name')
-                sale_id = user_story.get('project_id/id')
-                sale_name = user_story.get('project_id/name')
-                description = user_story.get('description')
-                info = user_story.get('info')
-                asumption = user_story.get('asumption')
-                implementation = user_story.get('implementation')
-                partner_id = user_story.get('project_id/partner_id/id')
-                stage, kanban_state = self.story_state.get(
-                    user_story.get('state'))
-                task_name = name + " [US" + user_story.get('.id') + "]"
+        self.load(write_model, load_fields, load_data_group)
 
-                proc_group_id = sale_id + '_procurement_group'
-                procurement_id = user_story_id + '_procurement_order'
-                task_id = user_story_id
-                sale_line_id = user_story_id + '_sale_line'
-                sale_line_procurement_name = '\n\n\n'.join([
-                    task_name, description])
-
-                user_story.update(defaults)
-                product_id = user_story.get('product_id/id')
-                project_id = user_story.get('project_id/id')
-                product_uom = user_story.get('product_uom/id')
-
-                sprints = user_story.get('sprint_ids/id') or str()
-                tags = user_story.get('categ_ids/id') or str()
-                tags = ','.join([sprints, tags])
-                tag_ids = ','.join([item for item in tags.split(',') if item])
-
-                procurement = [
-                    procurement_id,
-                    sale_line_procurement_name,
-                    product_id,
-                    product_uom,
-                    1,
-                    proc_group_id,
-                    partner_id,
-                    sale_name,
-                    'stock.warehouse0',
-                    'stock.stock_location_customers',
-                    user_story.get('create_date'),
-                    user_story.get('create_uid/id'),
-                    user_story.get('write_date'),
-                    user_story.get('write_uid/id'),
-                ]
-
-                sale_line = [
-                    sale_line_id,
-                    sale_line_procurement_name,
-                    sale_id,
-                    product_id,
-                    product_uom,
-                    user_story.get('create_date'),
-                    user_story.get('create_uid/id'),
-                    user_story.get('write_date'),
-                    user_story.get('write_uid/id'),
-                    7,
-                    procurement_id,
-                ]
-
-                task = [
-                    task_id,
-                    task_name,
-                    partner_id,
-                    '<br><br><br>'.join([
-                        '**Description**', description,
-                        '**Technical Conclusions**', info,
-                        '**Assumptions**', asumption,
-                        '**Implementation**', implementation]),
-                    procurement_id,
-                    project_id,
-                    tag_ids,
-                    stage,
-                    kanban_state,
-                    sale_line_id,
-                    user_story.get('planned_hours'),
-                    user_story.get('user_id/id'),
-                    user_story.get('create_date'),
-                    user_story.get('create_uid/id'),
-                    user_story.get('write_date'),
-                    user_story.get('write_uid/id'),
-                ]
-
-                procurement_load_data_group.append(procurement)
-                sale_line_load_data_group.append(sale_line)
-                task_load_data_group.append(task)
-
-            # First procurement
-            self.new_instance.env.context.update(
-                {'procurement_autorun_defer': True})
-            procurement_order_data = self.new_instance.env[write_model3].load(
-                procurement_fields, procurement_load_data_group)
-            if not procurement_order_data.get('ids', False):
-                self.print_errors_dict(write_model3, procurement_order_data,
-                                       user_story_data)
-
-            # Third sale order line
-            sale_line_data = self.new_instance.execute(
-                write_model2, 'load', sale_line_fields,
-                sale_line_load_data_group)
-            if not sale_line_data.get('ids', False):
-                self.print_errors_dict(write_model2, sale_line_data,
-                                       user_story_data)
-
-            # Second task
-            task_data = self.new_instance.execute(
-                write_model1, 'load', task_load_fields, task_load_data_group)
-            if not task_data.get('ids', False):
-                self.print_errors_dict(write_model1, task_data,
-                                       user_story_data)
-
+    # TODO I think this code can be deprecated since
+    # migrate_customer_user_stories now does the same_
     def migrate_internal_user_stories(self, domain=None, limit=None,
                                       defaults=None):
         """Migrate user_stories as project_tasks"""
@@ -1757,58 +1516,49 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         _logger.info("User Stories to create " + str(len(story_ids)))
 
-        story_ids, group_number = self.chunks(story_ids)
-        for (group, sub_group) in enumerate(story_ids, 1):
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            story_data = [self.list2dict(export_fields, item)
-                          for item in export_data]
-            task_load_data_group = []
-            _logger.debug("Group %s-%s" % (group, group_number))
+        export_data = self.export(
+            read_model, story_ids, export_fields).get('datas', [])
+        story_data = [self.list2dict(export_fields, item)
+                      for item in export_data]
 
-            # preprocessing data
-            for user_story in story_data:
+        task_load_data_group = []
+        # preprocessing data
+        for user_story in story_data:
+            # Mapping
+            stage, kanban_state = self.story_state.get(
+                user_story.get('state'))
+            project = user_story.get('project_id/id') or str()
+            sprint = user_story.get('sprint_ids/id') or str()
+            tags = user_story.get('categ_ids/id') or str()
+            tags = ','.join([project, sprint, tags])
+            tag_ids = ','.join([item for item in tags.split(',') if item])
+            user_story.update(defaults)
+            task = [
+                user_story.get('id'),
+                user_story.get('name') +
+                " [US" + user_story.get('.id') + "]",
+                user_story.get('project_id/partner_id/id'),
+                '<br><br><br>'.join([
+                    '**Description**', user_story.get('description'),
+                    '**Technical Conclusions**', user_story.get('info'),
+                    '**Assumptions**', user_story.get('asumption'),
+                    '**Implementation**', user_story.get('implementation')
+                ]),
+                user_story.get('project_id/id'),
+                tag_ids,
+                user_story.get('create_date'),
+                user_story.get('write_date'),
+                user_story.get('create_uid/id'),
+                user_story.get('write_uid/id'),
+                stage,
+                kanban_state,
+                user_story.get('user_id/id'),
+                user_story.get('planned_hours'),
+            ]
+            task_load_data_group.append(task)
 
-                # Mapping
-                stage, kanban_state = self.story_state.get(
-                    user_story.get('state'))
-                project = user_story.get('project_id/id') or str()
-                sprint = user_story.get('sprint_ids/id') or str()
-                tags = user_story.get('categ_ids/id') or str()
-                tags = ','.join([project, sprint, tags])
-                tag_ids = ','.join([item for item in tags.split(',') if item])
-
-                user_story.update(defaults)
-                task = [
-                    user_story.get('id'),
-                    user_story.get('name') +
-                    " [US" + user_story.get('.id') + "]",
-                    user_story.get('project_id/partner_id/id'),
-                    '<br><br><br>'.join([
-                        '**Description**', user_story.get('description'),
-                        '**Technical Conclusions**', user_story.get('info'),
-                        '**Assumptions**', user_story.get('asumption'),
-                        '**Implementation**', user_story.get('implementation')
-                    ]),
-                    user_story.get('project_id/id'),
-                    tag_ids,
-                    user_story.get('create_date'),
-                    user_story.get('write_date'),
-                    user_story.get('create_uid/id'),
-                    user_story.get('write_uid/id'),
-                    stage,
-                    kanban_state,
-                    user_story.get('user_id/id'),
-                    user_story.get('planned_hours'),
-                ]
-                task_load_data_group.append(task)
-
-            # Second task
-            task_data = self.new_instance.execute(
-                write_model, 'load', task_fields, task_load_data_group)
-            if not task_data.get('ids', False):
-                self.print_errors_dict(write_model, task_data, story_data)
+        # Second task
+        self.load(write_model, task_fields, task_load_data_group)
 
     def migrate_sprint(self, domain=None, limit=None):
         """ Method to migrate sprint model as project_tag"""
@@ -1830,30 +1580,19 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         _logger.info("--- Sprints to create %s" % (len(sprint_ids),))
 
-        sprint_ids, group_number = self.chunks(sprint_ids)
-
         load_fields = export_fields
+        sprint_data = self.export(
+            read_model, sprint_ids, export_fields).get('datas', [])
 
-        for (group, sprint_sub_group) in enumerate(sprint_ids, 1):
-            sprint_data = self.legacy.execute(
-                read_model, 'export_data', sprint_sub_group,
-                export_fields).get('datas', [])
-            load_data_group = []
+        load_data_group = []
+        for sprint in sprint_data:
+            if 'sprint' not in sprint[load_fields.index('name')].lower():
+                sprint[load_fields.index('name')] = 'Sprint - ' + \
+                    sprint[load_fields.index('name')]
+            sprint[load_fields.index('color')] = 5
+            load_data_group.append(sprint)
 
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for sprint in sprint_data:
-                if 'sprint' not in sprint[load_fields.index('name')].lower():
-                    sprint[load_fields.index('name')] = 'Sprint - ' + \
-                        sprint[load_fields.index('name')]
-                sprint[load_fields.index('color')] = 5
-                load_data_group.append(sprint)
-
-            sprint_ids = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-
-            if not sprint_ids.get('ids', False):
-                self.print_errors(write_model, sprint_ids, sprint_data)
+        self.load(write_model, load_fields, load_data_group)
 
     def migrate_user_story_difficulty(self, limit=None):
         """ Method to migrate user.story.difficulty as project.tags"""
@@ -1871,20 +1610,11 @@ class Migration(object):
         story_ids = self.legacy.execute(read_model, 'search', [], 0, limit)
         _logger.info("-- User Stories Tags to create %s" % (len(story_ids),))
 
-        story_ids, group_number = self.chunks(story_ids)
-
         load_fields = []
         load_fields.extend(export_fields)
-
-        for (group, story_sub_group) in enumerate(story_ids, 1):
-            story_data = self.legacy.execute(
-                read_model, 'export_data', story_sub_group,
-                export_fields).get('datas', [])
-            _logger.debug("Group %s-%s" % (group, group_number))
-            story_ids = self.new_instance.execute(
-                write_model, 'load', load_fields, story_data)
-            if not story_ids.get('ids', False):
-                self.print_errors('project.tags', story_ids, story_data)
+        story_data = self.export(
+            read_model, story_ids, export_fields).get('datas', [])
+        self.load(write_model, load_fields, story_data)
 
     def migrate_acceptability_criteria(self, domain=None, limit=None,
                                        defaults=None):
@@ -1913,9 +1643,12 @@ class Migration(object):
             'create_uid/id',
             'write_uid/id',
             # TODO review this with Katherine
-            # 'accep_crit_state', 'accepted'
+            # 'accep_crit_state',
             # 'difficulty', 'display_name', 'project_id', 'sequence',
-            # 'sk_id', 'us_ac_numbers', 'user_execute_id',
+            # 'sk_id', 'us_ac_numbers',
+            'user_execute_id/id',
+            'accepted',
+            'accep_crit_id/owner_id/id',
         ]
 
         load_fields = [
@@ -1933,76 +1666,55 @@ class Migration(object):
             'partner_id/id',
             'create_uid/id',
             'write_uid/id',
-            'sale_line_id/id',
-            'procurement_id/id',
+            'accepted',
+            'owner_id/id',
         ]
 
         record_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info(read_model + " to export %s" % (len(record_ids),))
 
-        record_ids, group_number = self.chunks(record_ids)
-        for (group, sub_group) in enumerate(record_ids, 1):
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            criteria_data = [self.list2dict(export_fields, item)
-                             for item in export_data]
-            load_data_group = []
-            _logger.debug("Group %s-%s" % (group, group_number))
+        export_data = self.export(
+            read_model, record_ids, export_fields).get('datas', [])
+        criteria_data = [self.list2dict(export_fields, item)
+                         for item in export_data]
+        load_data_group = []
 
-            # preprocessing data
-            for criteria in criteria_data:
-                criteria.update(defaults)
-                sprint = criteria.get('sprint_id/id') or ''
-                difficulty = criteria.get('difficulty_level/id') or ''
-                category = criteria.get('categ_ids/id') or ''
-                tags = ','.join([
-                    tag
-                    for tag in [sprint, difficulty] + category.split(',')
-                    if tag])
-                stage = ('project.project_stage_data_2'
-                         if criteria.get('development') else
-                         'project.project_stage_data_0')
-
-                story_xml = criteria.get('accep_crit_id/id') or str()
-
-                if defaults.get('internal', False):
-                    sale_line = ''
-                    procurement_order = ''
-                else:
-                    sale_line = story_xml + '_sale_line' if story_xml else ''
-                    procurement_order = \
-                        story_xml + '_procurement_order' if story_xml else ''
-
-                task = [
-                    criteria.get('id'),
-                    criteria.get('name') + " [AC" + criteria.get('.id') + "]",
-                    criteria.get('scenario'),  # description
-                    tags,
-                    stage,
-                    criteria.get('user_id/id'),
-                    criteria.get('create_date'),
-                    criteria.get('write_date'),
-                    story_xml,  # parent_id/id
-                    criteria.get('project_id/id'),
-                    criteria.get('sequence_ac') or 10,
-                    criteria.get('accep_crit_id/project_id/partner_id/id'),
-                    criteria.get('create_uid/id'),
-                    criteria.get('write_uid/id'),
-                    sale_line,
-                    procurement_order,
-                ]
-
-                load_data_group.append(task)
-
-            # pprint.pprint(
-            # [self.list2dict(load_fields, item) for item in load_data_group])
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-            if not loaded_data.get('ids', False):
-                self.print_errors_dict(write_model, loaded_data, criteria_data)
+        # preprocessing data
+        for criteria in criteria_data:
+            criteria.update(defaults)
+            sprint = criteria.get('sprint_id/id') or ''
+            difficulty = criteria.get('difficulty_level/id') or ''
+            category = criteria.get('categ_ids/id') or ''
+            tags = ','.join([
+                tag for tag in [sprint, difficulty] + category.split(',')
+                if tag])
+            stage = ('project.project_stage_data_2'
+                     if criteria.get('development') else
+                     'project.project_stage_data_0')
+            story_xml = criteria.get('accep_crit_id/id') or str()
+            task = [
+                criteria.get('id'),
+                criteria.get('name') + " [AC" + criteria.get('.id') + "]",
+                criteria.get('scenario'),  # description
+                tags,
+                stage,
+                criteria.get('user_execute_id/id'),
+                criteria.get('create_date'),
+                criteria.get('write_date'),
+                story_xml,  # parent_id/id
+                criteria.get('project_id/id'),
+                criteria.get('sequence_ac') or 10,
+                criteria.get('accep_crit_id/project_id/partner_id/id'),
+                criteria.get('create_uid/id'),
+                criteria.get('write_uid/id'),
+                criteria.get('accepted'),
+                criteria.get('accep_crit_id/owner_id/id'),
+            ]
+            load_data_group.append(task)
+        # pprint.pprint(
+        # [self.list2dict(load_fields, item) for item in load_data_group])
+        self.load(write_model, load_fields, load_data_group)
 
     def migrate_project_teams(self, domain=None, limit=None):
         """ Will load the new project teams from csv file and will
@@ -2021,19 +1733,13 @@ class Migration(object):
                     header = row
                 else:
                     data.append(row)
-        loaded_data = self.new_instance.execute(
-            write_model, 'load', header, data)
-        if not loaded_data.get('ids', False):
-            self.print_errors(write_model, loaded_data, data)
+        self.load(write_model, header, data)
 
         # Set up sub tasks projects
         load_fields = ['id', 'subtask_project_id/id']
         values = [['vauxoo_migration_research_development_team',
                    'vauxoo_migration_research_development_team']]
-        loaded_data = self.new_instance.execute(
-            write_model, 'load', load_fields, values)
-        if not loaded_data.get('ids', False):
-            self.print_errors(write_model, loaded_data, values)
+        self.load(write_model, load_fields, values)
 
     def migrate_sale_orders(self, domain=None, limit=None):
         _logger.info('Migration sale orders')
@@ -2063,35 +1769,27 @@ class Migration(object):
 
         sale_ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(sale_ids),))
-        ids, group_number = self.chunks(sale_ids)
+        export_data = self.export(
+            read_model, sale_ids, export_fields).get('datas', [])
 
-        for (group, sub_group) in enumerate(ids, 1):
-            _logger.debug("Group %s-%s" % (group, group_number))
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            load_data_group = []
+        load_data_group = []
+        # preprocessing data
+        for record in export_data:
+            # Mapping
+            state_mapping = dict([
+                (r'Draft Quotation', r'Quotation'),
+                (r'Quotation Sent', r'Quotation Sent'),
+                (r'Sale to Invoice', r'Sales Order'),
+                (r'Sales Order', r'Sales Order'),
+                (r'Invoice Exception', r'Sales Order'),
+                (r'Done', r'Locked'),
+                (r'Cancelled', r'Cancelled'),
+            ])
+            record[load_fields.index('state')] = state_mapping.get(
+                record[load_fields.index('state')])
+            load_data_group.append(record)
 
-            # preprocessing data
-            for record in export_data:
-                # Mapping
-                state_mapping = dict([
-                    (u'Draft Quotation', u'Quotation'),
-                    (u'Quotation Sent', u'Quotation Sent'),
-                    (u'Sale to Invoice', u'Sales Order'),
-                    (u'Sales Order', u'Sales Order'),
-                    (u'Invoice Exception', u'Sales Order'),
-                    (u'Done', u'Locked'),
-                    (u'Cancelled', u'Cancelled'),
-                ])
-                record[load_fields.index('state')] = state_mapping.get(
-                    record[load_fields.index('state')])
-                load_data_group.append(record)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
+        self.load(write_model, load_fields, load_data_group)
         return sale_ids
 
     def migrate_analytic_account(self, domain=None, limit=None):
@@ -2117,33 +1815,25 @@ class Migration(object):
 
         sale_ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(sale_ids),))
-        ids, group_number = self.chunks(sale_ids)
+        export_data = self.export(
+            read_model, sale_ids, export_fields).get('datas', [])
 
-        for (group, sub_group) in enumerate(ids, 1):
-            _logger.debug("Group %s-%s" % (group, group_number))
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            load_data_group = []
+        load_data_group = []
+        # preprocessing data
+        for record in export_data:
+            state_mapping = dict([
+                (r'Draft Quotation', r'Quotation'),
+                (r'Quotation Sent', r'Quotation Sent'),
+                (r'Sale to Invoice', r'Sales Order'),
+                (r'Sales Order', r'Sales Order'),
+                (r'Invoice Exception', r'Sales Order'),
+                (r'Done', r'Locked'),
+                (r'Cancelled', r'Cancelled'),
+            ])
+            record[4] = state_mapping.get(record[4])
+            load_data_group.append(record)
 
-            # preprocessing data
-            for record in export_data:
-                state_mapping = dict([
-                    (u'Draft Quotation', u'Quotation'),
-                    (u'Quotation Sent', u'Quotation Sent'),
-                    (u'Sale to Invoice', u'Sales Order'),
-                    (u'Sales Order', u'Sales Order'),
-                    (u'Invoice Exception', u'Sales Order'),
-                    (u'Done', u'Locked'),
-                    (u'Cancelled', u'Cancelled'),
-                ])
-                record[4] = state_mapping.get(record[4])
-                load_data_group.append(record)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
+        self.load(write_model, load_fields, load_data_group)
         return sale_ids
 
     def migrate_leads_sources(self, domain=None, limit=None):
@@ -2166,17 +1856,10 @@ class Migration(object):
         source_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(source_ids),))
-        sources, group_number = self.chunks(source_ids)
+        export_data = self.export(
+            read_model, source_ids, export_fields).get('datas', [])
 
-        for (group, sub_group) in enumerate(sources, 1):
-            _logger.debug("Group %s-%s" % (group, group_number))
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, export_data)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
+        self.load(write_model, load_fields, export_data)
 
         # Mapping the sources that are with different xml in saas-14
         fields = ['res_id', 'module', 'name', 'model', 'id']
@@ -2191,10 +1874,8 @@ class Migration(object):
         ]
         values = [source + [write_model, '_'.join(['dummy', source[2]])]
                   for source in to_mapping]
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, values)
-        if not dummys.get('ids', False):
-            self.print_errors(write_model, dummys, values)
+        dummys = self.load(
+            'ir.model.data', fields, values)
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
     def migrate_leads_stages(self, domain=None, limit=None):
@@ -2221,17 +1902,10 @@ class Migration(object):
 
         stage_ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(stage_ids),))
-        stages, group_number = self.chunks(stage_ids)
 
-        for (group, sub_group) in enumerate(stages, 1):
-            _logger.debug("Group %s-%s" % (group, group_number))
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, export_data)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
+        export_data = self.export(
+            read_model, stage_ids, export_fields).get('datas', [])
+        self.load(write_model, load_fields, export_data)
 
     def migrate_leads(self, domain=None, limit=None):
         _logger.info('Migrate Leads')
@@ -2249,7 +1923,6 @@ class Migration(object):
             'country_id/id',
             'create_date', 'create_uid/id',
             'date_action_last',
-            'date_action_next',
             'date_assign',
             'date_closed',
             'date_deadline',
@@ -2303,7 +1976,6 @@ class Migration(object):
             'country_id',
             'create_date', 'create_uid',
             'date_action_last',
-            'date_action_next',
             'date_assign',
             'date_closed',
             'date_deadline',
@@ -2356,32 +2028,30 @@ class Migration(object):
             ('Very High', 'Very High'),
         ])
 
-        record_data = self.legacy.execute(
-            read_model, 'export_data', lead_ids,
-            export_fields)
+        record_data = self.export(read_model, lead_ids, export_fields)
         xml_ids = defaultdict()
         for (item, record) in enumerate(record_data.get('datas', []), 1):
             for field in load_fields:
-                if field.endswith('_id') or field.endswith('_uid'):
-                    index = load_fields.index(field)
-                    xml_ids[record[index]] = record[index] and xml_ids.get(
-                        record[index], False) or record[index] and (
-                        self.new_instance.execute('ir.model.data',
-                                                  'xmlid_to_res_id',
-                                                  record[index]) or
-                            None) or None
-                    record[index] = xml_ids[record[index]]
+                if not (field.endswith('_id') or field.endswith('_uid')):
+                    continue
+                index = load_fields.index(field)
+                xml_ids[record[index]] = record[index] and xml_ids.get(
+                    record[index], False) or record[index] and (
+                    self.new_instance.execute(
+                        'ir.model.data', 'xmlid_to_res_id',
+                        record[index]) or None) or None
+                record[index] = xml_ids[record[index]]
 
             # Mapping
             record[load_fields.index('priority')] = mapping_priority.get(
                 record[load_fields.index('priority')])
 
             record = [self.clean_str(i) for i in record]
-            dict_vals = dict(izip(load_fields, record))
+            dict_vals = dict(zip(load_fields, record))
             insert = self.cr.mogrify("""
             INSERT INTO crm_lead (
             id,name,active,city,color,contact_name,country_id,create_date,
-            create_uid,date_action_last,date_action_next,date_assign,date_closed,
+            create_uid,date_action_last,date_assign,date_closed,
             date_deadline,date_last_stage_update,date_open,day_close,day_open,
             description,email_cc,email_from,function,message_bounce,mobile,
             opt_out,partner_assigned_id,partner_id,partner_latitude,
@@ -2390,7 +2060,7 @@ class Migration(object):
             type,user_id,write_date,write_uid) VALUES
             (%(id)s,%(name)s,%(active)s,%(city)s,%(color)s,%(contact_name)s,
             %(country_id)s,%(create_date)s,%(create_uid)s,%(date_action_last)s,
-            %(date_action_next)s,%(date_assign)s,%(date_closed)s,%(date_deadline)s,
+            %(date_assign)s,%(date_closed)s,%(date_deadline)s,
             %(date_last_stage_update)s,%(date_open)s,%(day_close)s,
             %(day_open)s,%(description)s,%(email_cc)s,%(email_from)s,
             %(function)s,%(message_bounce)s,%(mobile)s,%(opt_out)s,
@@ -2406,8 +2076,8 @@ class Migration(object):
             last_id = last_id[0][0] if last_id else False
             self.cr.execute('ALTER SEQUENCE crm_lead_id_seq RESTART WITH %s',
                             (last_id + 1, ))
-        # loaded_data = self.new_instance.execute(
-            # write_model, 'load', load_fields, load_data_group)
+        # loaded_data = self.load(
+            # write_model, load_fields, load_data_group)
 
     def migrate_sale_order_lines(self, domain=None, limit=None):
         _logger.info('Migration sale orders lines')
@@ -2425,53 +2095,44 @@ class Migration(object):
             'create_date', 'create_uid/id',
             'write_date', 'write_uid/id',
         ]
-
         load_fields = []
         load_fields.extend(export_fields)
-
         ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(ids),))
-        ids, group_number = self.chunks(ids)
+        export_data = self.export(
+            read_model, ids, export_fields).get('datas', [])
 
-        for (group, sub_group) in enumerate(ids, 1):
-            _logger.debug("Group %s-%s" % (group, group_number))
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            load_data_group = []
+        load_data_group = []
+        # preprocessing data
+        for record in export_data:
+            state_mapping = dict([
+                (r'Draft', r'Quotation'),
+                (r'Draft', r'Quotation Sent'),
+                (r'Confirmed', r'Sales Order'),
+                (r'Exception', r'Sales Order'),
+                (r'Done', r'Locked'),
+                (r'Cancelled', r'Cancelled'),
+            ])
+            record[load_fields.index('state')] = state_mapping.get(
+                record[load_fields.index('state')])
+            load_data_group.append(record)
+        self.load(write_model, load_fields, load_data_group)
 
-            # preprocessing data
-            for record in export_data:
-                state_mapping = dict([
-                    (u'Draft', u'Quotation'),
-                    (u'Draft', u'Quotation Sent'),
-                    (u'Confirmed', u'Sales Order'),
-                    (u'Exception', u'Sales Order'),
-                    (u'Done', u'Locked'),
-                    (u'Cancelled', u'Cancelled'),
-                ])
-                record[load_fields.index('state')] = state_mapping.get(
-                    record[load_fields.index('state')])
-                load_data_group.append(record)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
-
-    def migrate_customer_project(self, domain=None, limit=None):
-        """ Create sale order per customer project.project """
+    def migrate_customer_project(self, domain=None, limit=None, defaults=None):
+        """ Create task for each customer project.project """
         domain = domain or []
+        defaults = defaults or {}
         read_model = 'project.project'
-        write_model = 'sale.order'
+        write_model = 'project.task'
         _logger.info("Migrate Customer Projects (%s as %s)" % (
             read_model, write_model))
 
         export_fields = [
             'id', 'name', 'partner_id/id', 'user_id/id', 'date_start',
-            'currency_id/id', 'descriptions', 'date', '.id',
-            'create_date', 'create_uid/id',
-            'write_date', 'write_uid/id',
+            'currency_id/id', 'descriptions',
+            # 'state', TODO need mapping
+            'create_date', 'write_date',
+            'create_uid/id', 'write_uid/id',
             # task_ids,  # TODO important
             # 'analytic_account_id', 'analytic_account_id/id',
             # # TODO review this with Nhomar
@@ -2480,6 +2141,7 @@ class Migration(object):
             # analytic_account_id, planned_hours, effective_hours, date_start,
             # sequence, currency_id, parent_id, type_ids (stages),
             # task_ids,
+            '.id',
         ]
 
         load_fields = [
@@ -2487,75 +2149,43 @@ class Migration(object):
             'name',
             'partner_id/id',
             'user_id/id',
-            'date_order',
+            'date_start',
             'currency_id/id',
-            'note',
-            'validity_date',
-            'state',
-            'procurement_group_id/id',
-            'client_order_ref',
+            'description',
+            # 'stage_id/id',
+            'project_id/id',
             'create_date', 'write_date',
             'create_uid/id', 'write_uid/id',
-            # TODO ask nhomar
-            # 'manager_id',  # Account Manager
         ]
-        procurement_group_fields = ['id', 'name']
 
         project_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
 
         _logger.info(read_model + " to migrate %s" % (len(project_ids),))
+        export_data = self.export(
+            read_model, project_ids, export_fields).get('datas', [])
+        projects = [self.list2dict(export_fields, item)
+                    for item in export_data]
 
-        project_groups, group_number = self.chunks(project_ids)
-        for (group, sub_group) in enumerate(project_groups, 1):
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            projects = [self.list2dict(export_fields, item)
-                        for item in export_data]
-            _logger.debug("Group %s-%s" % (group, group_number))
-            sales_data = []
-            procurement_group_data = []
-
-            # preprocessing data
-            for project in projects:
-                sale = [
-                    project.get('id'),
-                    'MP' + str(project.get('.id')),  # name
-                    project.get('partner_id/id'),
-                    project.get('user_id/id'),
-                    project.get('date_start'),  # date order
-                    project.get('currency_id/id'),
-                    project.get('descriptions'),  # note
-                    project.get('date'),  # validity date
-                    'Sales Order',
-                    project.get('id') + '_procurement_group',
-                    project.get('name') + ' [Migrated Project]',  # Reference
-                    project.get('create_date'),
-                    project.get('write_date'),
-                    project.get('create_uid/id'),
-                    project.get('write_uid/id'),
-                ]
-                procurement_group = [
-                    project.get('id') + '_procurement_group',
-                    project.get('name') + ' [Migrated Project]',
-                ]
-                sales_data.append(sale)
-                procurement_group_data.append(procurement_group)
-
-            procurement_loaded_data = self.new_instance.execute(
-                'procurement.group', 'load', procurement_group_fields,
-                procurement_group_data)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, sales_data)
-
-            if not loaded_data.get('ids', False):
-                self.print_errors_dict(write_model, loaded_data, projects)
-
-            if not loaded_data.get('ids', False):
-                self.print_errors_dict(
-                    'procurement.group', procurement_loaded_data, projects)
+        task_data = []
+        # preprocessing data
+        for project in projects:
+            task = [
+                project.get('id'),
+                project.get('name') + " [P%s]" % str(project.get('.id')),
+                project.get('partner_id/id'),
+                project.get('user_id/id'),
+                project.get('date_start'),
+                project.get('currency_id/id'),
+                project.get('descriptions'),
+                defaults.get('project_id/id', False),
+                project.get('create_date'),
+                project.get('write_date'),
+                project.get('create_uid/id'),
+                project.get('write_uid/id'),
+            ]
+            task_data.append(task)
+        self.load(write_model, load_fields, task_data)
 
     def migrate_internal_project(self, domain=None, limit=None):
         """ Create project tags per internal project.project """
@@ -2564,34 +2194,22 @@ class Migration(object):
         write_model = 'project.tags'
         _logger.info("Migrate Internal Projects (%s as %s)" % (
             read_model, write_model))
-
         export_fields = ['id', 'name', '.id']
         load_fields = ['id', 'name', 'color']
         color = 4
-
         project_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         _logger.info(read_model + " to migrate %s" % (len(project_ids),))
-
         tags = []
-        project_groups, group_number = self.chunks(project_ids)
-        for (group, sub_group) in enumerate(project_groups, 1):
-            export_data = self.legacy.execute(
-                read_model, 'export_data', sub_group,
-                export_fields).get('datas', [])
-            _logger.debug("Group %s-%s" % (group, group_number))
-            tag_data = []
-
-            # preprocessing data
-            for tag in export_data:
-                tags.append(int(tag[2]))
-                tag[2] = color
-                tag_data.append(tag)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, tag_data)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, export_data)
+        export_data = self.export(
+            read_model, project_ids, export_fields).get('datas', [])
+        tag_data = []
+        # preprocessing data
+        for tag in export_data:
+            tags.append(int(tag[2]))
+            tag[2] = color
+            tag_data.append(tag)
+        self.load(write_model, load_fields, tag_data)
         return tags
 
     def mapping_invoice_rate(self):
@@ -2615,17 +2233,13 @@ class Migration(object):
             [model, '7', 'dummy_factor_07', '__export__',
              'hr_timesheet_invoice_factor_5'],
         ]
-        dummys = self.new_instance.execute(
-            'ir.model.data', 'load', fields, values)
-        if not dummys.get('ids', False):
-            self.print_errors('res.company', dummys, values)
+        dummys = self.load(
+            'ir.model.data', fields, values)
         self.dummy_ir_models.extend(dummys.get('ids', []))
 
     @staticmethod
     def clean_str(val):
-        return isinstance(
-            val, (str, unicode)) and val.encode(
-                'UTF8', 'ignore') or val or None
+        return val or None
 
     def migrate_timesheets(self, domain=None, limit=None, defaults=None):
         """ Method to migrate timesheets get together old models """
@@ -2688,8 +2302,7 @@ class Migration(object):
         record_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit)
         click.echo(read_model + "to export %s" % (len(record_ids),))
-        record_data = self.legacy.execute(
-            read_model, 'export_data', record_ids, export_fields)
+        record_data = self.export(read_model, record_ids, export_fields)
 
         # time_file = open('/tmp/hr_timesheet.csv', 'wb')
         # query = self.cr.mogrify(
@@ -2703,16 +2316,16 @@ class Migration(object):
             old_id_task = record[0]
             record.pop(0)
             for field in load_fields:
-                if ((field.endswith('_id') or field.endswith('_uid') or
+                if not ((field.endswith('_id') or field.endswith('_uid') or
                         field == 'to_invoice') and field != 'account_id'):
-                    index = load_fields.index(field)
-                    xml_ids[record[index]] = record[index] and xml_ids.get(
-                        record[index], False) or record[index] and (
-                        self.new_instance.execute('ir.model.data',
-                                                  'xmlid_to_res_id',
-                                                  record[index]) or
-                            None) or None
-                    record[index] = xml_ids[record[index]]
+                    continue
+                index = load_fields.index(field)
+                xml_ids[record[index]] = record[index] and xml_ids.get(
+                    record[index], False) or record[index] and (
+                    self.new_instance.execute(
+                        'ir.model.data', 'xmlid_to_res_id',
+                        record[index]) or None) or None
+                record[index] = xml_ids[record[index]]
             # todo by now, all the timesheets will have implementation
             # project/analytic account
             index = load_fields.index('amount')
@@ -2722,7 +2335,7 @@ class Migration(object):
             record[load_fields.index('project_id')] = defaults.get(
                 'project_id/.id')
             record.append(defaults.get('account_id/.id'))
-            dict_vals = dict(izip(load_fields, record))
+            dict_vals = dict(zip(load_fields, record))
             qry = self.cr.mogrify("""
                     INSERT INTO account_analytic_line (
                                   name,task_id,create_date,write_date,
@@ -2753,36 +2366,6 @@ class Migration(object):
         # time_file = open('/tmp/hr_timesheet.csv', 'rb')
         # self.cr.copy_expert(query, time_file)
 
-    def migrate_stock_location_route(self, domain=None, limit=None):
-        """ Method to migrate stock.location.route model """
-        read_model = 'stock.location.route'
-        write_model = 'stock.location.route'
-        domain = domain or []
-
-        export_fields = [
-            'id', 'name', 'create_date', 'write_date', 'create_uid/id',
-            'write_uid/id']
-
-        route_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit
-        )
-        _logger.info("-- Routes to create %s" % (len(route_ids),))
-
-        route_ids, group_number = self.chunks(route_ids)
-
-        load_fields = export_fields
-
-        for (group, route_sub_group) in enumerate(route_ids, 1):
-            route_data = self.legacy.execute(
-                read_model, 'export_data', route_sub_group, export_fields
-            ).get('datas', [])
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, route_data)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, route_data)
-
     def migrate_product_public_category(self, domain=None, limit=None):
         """ Method to migrate product.public.category model """
         read_model = 'product.public.category'
@@ -2798,28 +2381,17 @@ class Migration(object):
         pub_categ_ids = self.legacy.execute(
             read_model, 'search', domain, 0, limit
         )
-        _logger.info("-- Public categories to create %s" % (len(pub_categ_ids),))
-
-        pub_categ_ids, group_number = self.chunks(pub_categ_ids)
-
+        _logger.info("-- Public categories to create %s" % (
+            len(pub_categ_ids),))
         load_fields = export_fields
+        pub_categ_data = self.export(
+            read_model, pub_categ_ids, export_fields).get('datas', [])
 
-        for (group, pub_categ_sub_group) in enumerate(pub_categ_ids, 1):
-            pub_categ_data = self.legacy.execute(
-                read_model, 'export_data', pub_categ_sub_group, export_fields
-            ).get('datas', [])
-            load_data_group = []
+        load_data_group = []
+        for (item, pub_categ) in enumerate(pub_categ_data, 1):
+            load_data_group.append(pub_categ)
 
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for (item, pub_categ) in enumerate(pub_categ_data, 1):
-                load_data_group.append(pub_categ)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group
-            )
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, pub_categ_data)
+        self.load(write_model, load_fields, load_data_group)
 
     def migrate_product_attribute(self, domain=None, limit=None):
         """ Method to migrate product.attribute model """
@@ -2832,26 +2404,14 @@ class Migration(object):
             'create_date', 'create_uid/id',
             'write_date', 'write_uid/id',
         ]
-
         attribute_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit
-        )
+            read_model, 'search', domain, 0, limit)
         _logger.info("-- Attributes to create %s" % (len(attribute_ids),))
-
-        attribute_ids, group_number = self.chunks(attribute_ids)
-
         load_fields = export_fields
+        attribute_data = self.export(
+            read_model, attribute_ids, export_fields).get('datas', [])
 
-        for (group, attribute_sub_group) in enumerate(attribute_ids, 1):
-            attribute_data = self.legacy.execute(
-                read_model, 'export_data', attribute_sub_group, export_fields
-            ).get('datas', [])
-
-            _logger.debug("Group %s-%s" % (group, group_number))
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, attribute_data)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, attribute_data)
+        self.load(write_model, load_fields, attribute_data)
 
     def migrate_product_attribute_value(self, domain=None, limit=None):
         """ Method to migrate product.attribute.value model """
@@ -2866,23 +2426,13 @@ class Migration(object):
         ]
 
         value_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit
-        )
+            read_model, 'search', domain, 0, limit)
         _logger.info("-- Attributes values to create %s" % (len(value_ids),))
 
-        value_ids, group_number = self.chunks(value_ids)
-
         load_fields = export_fields
-
-        for (group, value_sub_group) in enumerate(value_ids, 1):
-            value_data = self.legacy.execute(
-                read_model, 'export_data', value_sub_group, export_fields
-            ).get('datas', [])
-            _logger.debug("Group %s-%s" % (group, group_number))
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, value_data)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, value_data)
+        value_data = self.export(
+            read_model, value_ids, export_fields).get('datas', [])
+        self.load(write_model, load_fields, value_data)
 
     def migrate_product_category(self, domain=None, limit=None):
         """ Method to migrate product.category model """
@@ -2895,32 +2445,18 @@ class Migration(object):
             'create_date', 'create_uid/id',
             'write_date', 'write_uid/id',
         ]
-
         prod_cat_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit
-        )
-        _logger.info("-- Product categories to create %s" % (len(prod_cat_ids),))
-
-        prod_cat_ids, group_number = self.chunks(prod_cat_ids)
-
+            read_model, 'search', domain, 0, limit)
+        _logger.info("-- Product categories to create %s" % (
+            len(prod_cat_ids),))
         load_fields = export_fields
+        prod_cat_data = self.export(
+            read_model, prod_cat_ids, export_fields).get('datas', [])
+        load_data_group = []
+        for (item, prod_cat) in enumerate(prod_cat_data, 1):
+            load_data_group.append(prod_cat)
 
-        for (group, prod_cat_sub_group) in enumerate(prod_cat_ids, 1):
-            prod_cat_data = self.legacy.execute(
-                read_model, 'export_data', prod_cat_sub_group, export_fields
-            ).get('datas', [])
-            load_data_group = []
-
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for (item, prod_cat) in enumerate(prod_cat_data, 1):
-                load_data_group.append(prod_cat)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group
-            )
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, prod_cat_data)
+        self.load(write_model, load_fields, load_data_group)
 
     def migrate_product_uom_categ(self, domain=None, limit=None):
         """ Method to migrate product.uom.categ model """
@@ -2933,32 +2469,17 @@ class Migration(object):
             'create_date', 'create_uid/id',
             'write_date', 'write_uid/id',
         ]
-
         categ_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit
-        )
+            read_model, 'search', domain, 0, limit)
         _logger.info("--- Uom categories to create %s" % (len(categ_ids),))
-
-        categ_ids, group_number = self.chunks(categ_ids)
-
         load_fields = export_fields
+        categ_data = self.export(
+            read_model, categ_ids, export_fields).get('datas', [])
+        load_data_group = []
+        for (item, categ) in enumerate(categ_data, 1):
+            load_data_group.append(categ)
 
-        for (group, categ_sub_group) in enumerate(categ_ids, 1):
-            categ_data = self.legacy.execute(
-                read_model, 'export_data', categ_sub_group, export_fields
-            ).get('datas', [])
-            load_data_group = []
-
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for (item, categ) in enumerate(categ_data, 1):
-                load_data_group.append(categ)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group
-            )
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, categ_data)
+        self.load(write_model, load_fields, load_data_group)
 
     def migrate_product_uom(self, domain=None, limit=None):
         """ Method to migrate product.uom model """
@@ -2974,30 +2495,16 @@ class Migration(object):
         ]
 
         uom_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit
-        )
+            read_model, 'search', domain, 0, limit)
         _logger.info("--- Uom to create %s" % (len(uom_ids),))
-
-        uom_ids, group_number = self.chunks(uom_ids)
-
         load_fields = export_fields
+        uom_data = self.export(
+            read_model, uom_ids, export_fields).get('datas', [])
+        load_data_group = []
+        for (item, uom) in enumerate(uom_data, 1):
+            load_data_group.append(uom)
 
-        for (group, uom_sub_group) in enumerate(uom_ids, 1):
-            uom_data = self.legacy.execute(
-                read_model, 'export_data', uom_sub_group, export_fields
-            ).get('datas', [])
-            load_data_group = []
-
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for (item, uom) in enumerate(uom_data, 1):
-                load_data_group.append(uom)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group
-            )
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, uom_data)
+        self.load(write_model, load_fields, load_data_group)
 
     def migrate_product_template(self, domain=None, limit=None):
         """ Method to migrate product.template model """
@@ -3010,13 +2517,13 @@ class Migration(object):
             'event_ok', 'purchase_ok', 'sale_ok', 'website_published',
             'default_code', 'website_meta_keywords', 'website_meta_title',
             'create_date', 'message_last_post', 'write_date', 'list_price',
-            'sale_delay', 'volume', 'warranty', 'website_description',
-            'color', 'rules_count', 'website_sequence', 'website_size_x',
+            'sale_delay', 'volume', 'website_description',
+            'color', 'website_sequence', 'website_size_x',
             'description_purchase', 'description_sale', 'purchase_line_warn',
             'purchase_line_warn_msg', 'sale_line_warn_msg', 'website_size_y',
             'website_meta_description', 'sale_line_warn', 'type',
             'description', 'company_id/id', 'create_uid/id', 'write_uid/id',
-            'uom_id/id', 'uom_po_id/id', 'categ_id/id', 'route_ids/id',
+            'uom_id/id', 'uom_po_id/id', 'categ_id/id',
             'public_categ_ids/id',
 
             # TODO This fields will be enabled once we have the related records
@@ -3073,33 +2580,21 @@ class Migration(object):
 
         domain = ['|', ('active', '=', False), ('active', '=', True)] + domain
         product_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit
-        )
+            read_model, 'search', domain, 0, limit)
         _logger.info("- Products Template to create %s" % (len(product_ids),))
+        product_data = self.export(
+            read_model, product_ids, export_fields).get('datas', [])
+        load_data_group = []
+        for product in product_data:
+            # defaults
+            product[load_fields.index('company_id/id')] = False
+            product[load_fields.index('website_published')] = False
+            load_data_group.append(product)
 
-        product_ids, group_number = self.chunks(product_ids)
-
-        for (group, product_sub_group) in enumerate(product_ids, 1):
-            product_data = self.legacy.execute(
-                read_model, 'export_data', product_sub_group, export_fields
-            ).get('datas', [])
-            load_data_group = []
-
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for product in product_data:
-                # defaults
-                product[load_fields.index('company_id/id')] = False
-                product[load_fields.index('website_published')] = False
-
-                load_data_group.append(product)
-
-            self.new_instance.env.context.update(
-                {'create_product_product': True})
-            loaded_data = self.new_instance.env[write_model].load(
-                load_fields, load_data_group)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, product_data)
+        self.new_instance.env.context.update(
+            {'create_product_product': True})
+        self.new_instance.env[write_model].load(
+            load_fields, load_data_group)
 
     def migrate_product_product(self, domain=None, limit=None):
         """ Method to migrate product.product model """
@@ -3112,8 +2607,8 @@ class Migration(object):
             'event_ok', 'purchase_ok', 'sale_ok', 'website_published',
             'default_code', 'website_meta_keywords', 'website_meta_title',
             'create_date', 'message_last_post', 'write_date', 'list_price',
-            'sale_delay', 'volume', 'warranty', 'website_description',
-            'color', 'rules_count', 'website_sequence', 'website_size_x',
+            'sale_delay', 'volume', 'website_description',
+            'color', 'website_sequence', 'website_size_x',
             'description_purchase', 'description_sale', 'purchase_line_warn',
             'purchase_line_warn_msg', 'sale_line_warn_msg', 'website_size_y',
             'website_meta_description', 'sale_line_warn', 'type',
@@ -3130,28 +2625,16 @@ class Migration(object):
             read_model, 'search', domain, 0, limit
         )
         _logger.info("- Products to create %s" % (len(prod_prod_ids),))
+        prod_prod_data = self.export(
+            read_model, prod_prod_ids, export_fields).get('datas', [])
+        load_data_group = []
+        for prod in prod_prod_data:
+            # defaults
+            prod[load_fields.index('company_id/id')] = False
+            prod[load_fields.index('website_published')] = False
+            load_data_group.append(prod)
 
-        prod_prod_ids, group_number = self.chunks(prod_prod_ids)
-
-        for (group, prod_prod_sub_group) in enumerate(prod_prod_ids, 1):
-            prod_prod_data = self.legacy.execute(
-                read_model, 'export_data', prod_prod_sub_group, export_fields
-            ).get('datas', [])
-            load_data_group = []
-
-            _logger.debug("Group %s-%s" % (group, group_number))
-
-            for prod in prod_prod_data:
-                # defaults
-                prod[load_fields.index('company_id/id')] = False
-                prod[load_fields.index('website_published')] = False
-
-                load_data_group.append(prod)
-
-            loaded_data = self.new_instance.execute(
-                write_model, 'load', load_fields, load_data_group)
-            if not loaded_data.get('ids', False):
-                self.print_errors(write_model, loaded_data, prod_prod_data)
+        self.load(write_model, load_fields, load_data_group)
 
     def get_tasks(self, projects):
         read_model = 'project.task'
@@ -3168,9 +2651,7 @@ class Migration(object):
     def get_tags(self, model):
         tasks = self.legacy.execute(
             model, 'search', [('categ_ids', '!=', False)])
-        tags = self.legacy.execute(
-            model, 'export_data', tasks, ['categ_ids/.id']
-        ).get('datas')
+        tags = self.export(model, tasks, ['categ_ids/.id']).get('datas')
         tag_ids = []
         for item in tags:
             tag_ids.extend(item[0].split(','))
@@ -3180,8 +2661,8 @@ class Migration(object):
     def get_customer_projects(self):
         read_model = 'project.project'
         user_stories = self.legacy.execute('user.story', 'search', [])
-        projects_w_stories = self.legacy.execute(
-            'user.story', 'export_data', user_stories, ['project_id/.id'])
+        projects_w_stories = self.export(
+            'user.story', user_stories, ['project_id/.id'])
         projects_w_stories = list(
             set([int(item[0]) for item in projects_w_stories.get('datas')]))
         domain = [
@@ -3205,6 +2686,44 @@ class Migration(object):
         # Odoo Partner, Vauxoo Admin, Nhomar Hernandez, Alejandro Negrin
         project_ids = self.legacy.execute(read_model, 'search', domain)
         return project_ids
+
+    def load_csv(self, csvfile):
+        """ receive a csvfile with already prepare and mapped record and try to
+        re load into instance.
+        """
+        with open(csvfile, 'r') as csvfilefile:
+            rd = csv.reader(csvfilefile)
+            data = list(rd)
+
+        model = csvfile.replace('.csv', '')
+        self.load(model, data[0], data[1:])
+
+    def migrate_per_model(self, model, domain=None, defaults=None,
+                          context=None):
+        """ Run migration for only one model and set of ids.
+        """
+        domain = domain and eval(domain) or []
+        defaults = defaults and eval(defaults) or {}
+        context = context and eval(context) or {}
+
+        if model == 'project.task':
+            self.migrate_project_task(
+                domain, defaults=defaults)
+        elif model == 'user.story':
+            self.mapping_project_stages()
+            self.migrate_user_stories(
+                domain=domain, defaults=defaults, context=context)
+        elif model == 'acceptability.criteria':
+            self.migrate_acceptability_criteria(
+                domain=domain, defaults=defaults)
+        elif model == 'sale.order.line':
+            sales_to_export = self.get_sales_to_export()
+            self.migrate_sale_order_lines([
+                ('order_id', 'in', sales_to_export),
+                # TODO This ones has been commented we have a problem not
+                # detected yet
+                ('id', 'not in', [1008, 1361, 1718, 2212]),
+            ])
 
 
 class Config(dict):
@@ -3278,11 +2797,20 @@ pass_config = click.make_pass_decorator(Config, ensure=True)
               help='Odoo DB server port. default 5432')
 @click.option("--dbuser", type=str, help='DB user')
 @click.option("--dbpwd", type=str, help='DB user password')
+@click.option('--model', type=str, help="migrate the records of the model")
+@click.option('--domain', type=str, help="migrate the records in domain")
+@click.option('--defaults', type=str, help="Default values for migrated"
+              " records")
+@click.option('--context', type=str, help="Context to use in migration."
+              " Example: internal")
+@click.option('--load-csv', type=str, help="CSV w/records to retry load.")
 @pass_config
 def main(config, save_config, show_config, use_config,
          legacy_host=None, legacy_port=None, legacy_db=None, legacy_user=None,
          legacy_pwd=None, nhost=None, nport=None, ndb=None, nuser=None,
          npwd=None,
+         model=None, domain=None, defaults=None, context=None,
+         load_csv=None,
          dbhost=None, dbport=None, dbuser=None, dbpwd=None):
     """ This tools with let us to import from/export to 8.0 to saas-14
 
@@ -3304,8 +2832,8 @@ def main(config, save_config, show_config, use_config,
         )
         config.save()
         _logger.info(pprint.pformat(config))
-        _logger.info("Configuration saved in " +
-                   str(click.get_app_dir('vxmigration')))
+        _logger.info(
+            "Configuration saved in " + str(click.get_app_dir('vxmigration')))
         quit()
     if use_config:
         config.load()
@@ -3327,11 +2855,11 @@ def main(config, save_config, show_config, use_config,
     if legacy_db is None or ndb is None or legacy_user is None or \
        nuser is None or legacy_pwd is None or npwd is None:
         if legacy_db is None or ndb is None:
-            _logger.info("Both legacy and new databases are required")
+            _logger.error("Both legacy and new databases are required")
         if legacy_user is None or nuser is None:
-            _logger.info("Both legacy and new odoo users are required")
+            _logger.error("Both legacy and new odoo users are required")
         if legacy_pwd is None or npwd is None:
-            _logger.info("Both legacy and new odoo passwords are required")
+            _logger.error("Both legacy and new odoo passwords are required")
         quit()
 
     legacy = conect_and_login(legacy_host, legacy_port, legacy_db, legacy_user,
@@ -3339,26 +2867,32 @@ def main(config, save_config, show_config, use_config,
     saas14 = conect_and_login(nhost, nport, ndb, nuser, npwd)
     cursor = conect_and_login(dbhost, dbport, ndb, dbuser, dbpwd, False)
 
-    vauxoo = Migration(legacy, saas14, cursor.cursor())
+    vauxoo = Migration(legacy, saas14, cursor.cursor(), 12, 100)
     vauxoo.test()
+
+    if model:
+        vauxoo.migrate_per_model(model, domain, defaults, context)
+        quit()
+    if load_csv:
+        vauxoo.load_csv(load_csv)
+        quit()
 
     # Mapping
     vauxoo.res_company_mapping()
-    vauxoo.mapping_product_product()
 
     # # All res.partners
     vauxoo.res_country_state_mapping()
     vauxoo.migrate_fiscal_position()
     _logger.info('Migrate partners without parent_id')
-    vauxoo.migrate_res_partner(
-        [('parent_id', '=', False),
-         ('id', 'not in', [
+    vauxoo.migrate_res_partner([
+        ('parent_id', '=', False),
+        ('id', 'not in', [
             # partners realted to the administrator user and the companies
             1,  # Vauxoo Odoo Partner Company Partner
             3,  # Vauxoo Admin admin Partner
-            39, # Vauxoo CA Company Partner
-            4342, # Vat error talk with @nhomar
-         ])])
+            39,  # Vauxoo CA Company Partner
+            4342,  # Vat error talk with @nhomar
+        ])])
     _logger.info('Migrate partners with parent_id')
     vauxoo.migrate_res_partner([('parent_id', '!=', False)])
 
@@ -3367,24 +2901,24 @@ def main(config, save_config, show_config, use_config,
     vauxoo.migrate_res_groups()
     _model, portal = vauxoo.legacy.execute(
         'ir.model.data', 'get_object_reference', 'base', 'group_portal')
+
     # # Internal Users (active)
     vauxoo.migrate_res_users(
         [('groups_id', 'not in', [portal]), ('active', '=', True)],
-        defaults={'notification_type': u'email'})
+        defaults={'notification_type': r'email'})
     # Internal Users (in active)
     vauxoo.migrate_res_users(
         [('groups_id', 'not in', [portal]), ('active', '=', False)],
-        defaults={'notification_type': u'inbox'})
+        defaults={'notification_type': r'inbox'})
     # Portal Users
     vauxoo.migrate_res_users(
         [('groups_id', 'in', [portal]),
          '|', ('active', '=', True), ('active', '=', False)],
         defaults={'groups_id/id': 'base.group_portal',
-                  'notification_type': u'inbox'})
+                  'notification_type': r'inbox'})
     vauxoo.migrate_employee()
 
     # Products
-    vauxoo.migrate_stock_location_route()
     vauxoo.migrate_product_attribute()
     vauxoo.migrate_product_attribute_value()
     vauxoo.migrate_product_public_category()
@@ -3397,11 +2931,13 @@ def main(config, save_config, show_config, use_config,
     # Sale Order
     sales_to_export = vauxoo.get_sales_to_export()
     vauxoo.migrate_sale_orders([('id', 'in', sales_to_export)])
-    vauxoo.migrate_sale_order_lines([
-        ('order_id', 'in', sales_to_export),
-        # TODO This ones has been commented we have a problem not detected yet
-        ('id', 'not in', [1008, 1361, 1718, 2212]),
-    ])
+    # TODO we have a problem that need to ve solved with string and bool on
+    # date field.
+    # vauxoo.migrate_sale_order_lines([
+    #   ('order_id', 'in', sales_to_export),
+    #   # TODO This ones has been commented we have a problem not detected yet
+    #   ('id', 'not in', [1008, 1361, 1718, 2212]),
+    # ])
     # vauxoo.migrate_analytic_account()
 
     # Leads
@@ -3412,7 +2948,6 @@ def main(config, save_config, show_config, use_config,
     # Projects Basic
     vauxoo.migrate_project_teams()
     vauxoo.migrate_project_stages()
-    vauxoo.mapping_project_stages()
     vauxoo.mapping_invoice_rate()  # required for timesheets
     vauxoo.mapping_res_currency()
 
@@ -3433,23 +2968,39 @@ def main(config, save_config, show_config, use_config,
     vauxoo.migrate_sprint()
     vauxoo.migrate_user_story_difficulty()
 
-    # Customer Projects
+    # Mapping project and tasks for all the records in project
+    vauxoo.mapping_project_stages()
     customer_projects = vauxoo.get_customer_projects()
     customer_team = 'vauxoo.implementation_team'
-    customer_team_id = vauxoo.new_instance.env.ref(customer_team)
-    customer_analytic_id = vauxoo.new_instance.env.ref(
-        customer_team + '_account_analytic_account')
-    customer_tasks = vauxoo.get_tasks(customer_projects)
-    vauxoo.migrate_customer_project([('id', 'in', customer_projects)])
-    vauxoo.migrate_customer_user_stories(
+    internal_projects = vauxoo.get_internal_projects()
+    internal_team = '.vauxoo_migration_research_development_team'
+
+    # Projects
+    vauxoo.migrate_customer_project(
+        [('id', 'in', customer_projects)],
+        defaults={'project_id/id': customer_team})
+    vauxoo.migrate_internal_project([('id', 'in', internal_projects)])
+
+    # User Stories
+    vauxoo.migrate_user_stories(
         [('project_id', 'in', customer_projects)],
-        defaults={
-            'product_id/id': 'vauxoo_migration_migrated_user_stories',
-            'product_uom/id': 'product.product_uom_unit',
-            'project_id/id': customer_team})
+        defaults={'project_id/id': customer_team})
+
+    vauxoo.migrate_user_stories(
+        [('project_id', 'in', internal_projects)],
+        defaults={'project_id/id': internal_team},
+        context={'internal': True})
+
+    # Acceptability Criteria
     vauxoo.migrate_acceptability_criteria(
         [('project_id', 'in', customer_projects)],
         defaults={'project_id/id': customer_team})
+    vauxoo.migrate_acceptability_criteria(
+        [('project_id', 'in', internal_projects)],
+        defaults={'project_id/id': internal_team})
+
+    # Tasks
+    customer_tasks = vauxoo.get_tasks(customer_projects)
     vauxoo.migrate_project_task(
         [('id', 'in', customer_tasks),
          ('userstory_id', '!=', False)],
@@ -3460,35 +3011,31 @@ def main(config, save_config, show_config, use_config,
     vauxoo.migrate_project_task(orphan_tasks, defaults={
         'project_id/id': customer_team, 'parent_id/id': '',
         'tag_ids/id': 'vauxoo_migration_orphan_task_tag'})
-    vauxoo.migrate_timesheets(
-        [('task_id', 'in', customer_tasks)],
-        defaults={'project_id/.id': customer_team_id.id,
-                  'account_id/.id': customer_analytic_id.id})
 
-    # Internal Projects
-    internal_projects = vauxoo.get_internal_projects()
-    internal_team = '.vauxoo_migration_research_development_team'
-    internal_team_id = vauxoo.new_instance.env.ref(internal_team)
-    internal_analytic_id = vauxoo.new_instance.env.ref(
-        internal_team + '_account_analytic_account')
     internal_tasks = vauxoo.get_tasks(internal_projects)
-    vauxoo.migrate_internal_project([('id', 'in', internal_projects)])
-    vauxoo.migrate_internal_user_stories(
-        [('project_id', 'in', internal_projects)],
-        defaults={'project_id/id': internal_team})
-    vauxoo.migrate_acceptability_criteria(
-        [('project_id', 'in', internal_projects)],
-        defaults={'project_id/id': internal_team, 'internal': True})
     vauxoo.migrate_project_task(
         [('id', 'in', internal_tasks),
          ('userstory_id', '!=', False)],
-        defaults={'project_id/id': internal_team, 'internal': True})
+        defaults={'project_id/id': internal_team})
     orphan_tasks = [
         ('id', 'in', internal_tasks),
         ('userstory_id', '=', False)]
     vauxoo.migrate_project_task(orphan_tasks, defaults={
         'project_id/id': internal_team, 'parent_id/id': '',
         'tag_ids/id': 'vauxoo_migration_orphan_task_tag'})
+
+    # Timesheets
+    customer_team_id = vauxoo.new_instance.env.ref(customer_team)
+    customer_analytic_id = vauxoo.new_instance.env.ref(
+        customer_team + '_account_analytic_account')
+    vauxoo.migrate_timesheets(
+        [('task_id', 'in', customer_tasks)],
+        defaults={'project_id/.id': customer_team_id.id,
+                  'account_id/.id': customer_analytic_id.id})
+
+    internal_team_id = vauxoo.new_instance.env.ref(internal_team)
+    internal_analytic_id = vauxoo.new_instance.env.ref(
+        internal_team + '_account_analytic_account')
     vauxoo.migrate_timesheets(
         [('task_id', 'in', internal_tasks)],
         defaults={'project_id/.id': internal_team_id.id,
@@ -3503,8 +3050,7 @@ def main(config, save_config, show_config, use_config,
     issue_tasks = vauxoo.get_issue_tasks()
     vauxoo.migrate_project_task(
         [('id', 'in', issue_tasks)],
-        defaults={'project_id/id': support_team, 'parent_id/id': '',
-                  'internal': True})
+        defaults={'project_id/id': support_team, 'parent_id/id': ''})
     vauxoo.migrate_helpdesk_team()
     vauxoo.migrate_helpdesk_stages()
     vauxoo.mapping_helpdesk_stages()
@@ -3528,6 +3074,7 @@ def main(config, save_config, show_config, use_config,
     cursor.commit()
 
     _logger.info('Migration script finish')
+
 
 if __name__ == '__main__':
     main()
