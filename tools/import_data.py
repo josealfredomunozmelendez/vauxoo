@@ -956,12 +956,8 @@ class Migration(object):
         stages = []
         with open("project_task_type.csv", "r") as csvfile:
             reader = csv.reader(csvfile)
-            header = False
-            for row in reader:
-                if not header:
-                    header = row
-                else:
-                    stages.append(row)
+            header = next(reader)
+            stages = [row for row in reader]
 
         # Load project.tasks.type
         stages_data = self.load(
@@ -1240,12 +1236,8 @@ class Migration(object):
         stages = []
         with open("helpdesk_stage.csv", "r") as csvfile:
             reader = csv.reader(csvfile)
-            header = False
-            for row in reader:
-                if not header:
-                    header = row
-                else:
-                    stages.append(row)
+            header = next(reader)
+            stages = [row for row in reader]
 
         # Load helpdesk stage
         stages_data = self.load(
@@ -1633,12 +1625,9 @@ class Migration(object):
         data = []
         with open("project_project.csv", "r") as csvfile:
             reader = csv.reader(csvfile)
-            header = False
-            for row in reader:
-                if not header:
-                    header = row
-                else:
-                    data.append(row)
+            header = next(reader)
+            data = [row for row in reader]
+
         self.load(write_model, header, data)
 
         # Set up sub tasks projects
