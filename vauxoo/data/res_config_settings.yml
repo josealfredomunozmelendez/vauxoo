@@ -30,6 +30,7 @@
         'group_sale_layout': True,
         # Website Settings
         'website_name': 'www.vauxoo.com',
+        'website_name': 'www.vauxoo.com',
         'has_google_analytics_dashboard': True,
         'group_multi_currency': True,
         'group_product_variant': True,

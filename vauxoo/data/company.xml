@@ -7,9 +7,9 @@
         <field name="email">info@vauxoo.com</field>
         <field name="social_googleplus">https://plus.google.com/+vauxoo</field>
         <field name="social_twitter">https://twitter.com/vauxoo</field>
-        <field name="social_facebook">https://facebook.com/vauxoo"</field>
-        <field name="social_github">https://github.com/vauxoo"</field>
-        <field name="social_linkedin">https://www.linkedin.com/company/vauxoo"</field>
+        <field name="social_facebook">https://facebook.com/vauxoo</field>
+        <field name="social_github">https://github.com/vauxoo</field>
+        <field name="social_linkedin">https://www.linkedin.com/company/vauxoo</field>
     </record>
     <record id="base.main_partner" model="res.partner">
         <field name="vat">VAU111017GC9</field>
