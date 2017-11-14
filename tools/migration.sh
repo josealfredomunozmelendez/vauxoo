@@ -96,7 +96,7 @@ echo $'\nStep 14: Prepare database to run sql scripts'
 psql -d $DATABASE -c 'CREATE EXTENSION IF NOT EXISTS dblink;'
 
 echo $'\nStep 15: Set scripts parameters (confidential credentials)'
-sed -i 's/host= dbname= user= password=/host='$PGHOST' dbname='$LEGACYDB' user='$PGUSER' password='$PGPASSWORD'/g' import_msq_from_v8_to_saas.sql import_attch_from_v8_to_saas.sql
+sed -i 's/host= port= dbname= user= password=/host='$LEGACYPGHOST' port='$LEGACYPGPORT' dbname='$LEGACYDB' user='$LEGACYPGUSER' password='$LEGACYPGPASSWORD'/g' import_msq_from_v8_to_saas.sql import_attch_from_v8_to_saas.sql
 
 echo $'\nStep 16: Clean up the messages, attachment and followers doing the migration'
 psql -f $TOOLS_DIR/cleaunp_msg_attch_followers.sql -d $DATABASE

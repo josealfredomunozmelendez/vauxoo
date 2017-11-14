@@ -44,7 +44,7 @@ RETURNS void AS $$
 
     BEGIN
         PERFORM dblink_connect('con' ,
-            'host= dbname= user= password=');
+            'host= port= dbname= user= password=');
         SELECT jsonb_build_object('project.product', 'sale.order',
                                  'project.issue', 'helpdesk.ticket') INTO models;
         SELECT
