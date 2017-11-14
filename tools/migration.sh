@@ -6,8 +6,8 @@ ODOO_LOG_FILE="${LOG_DIR}/${START_DATETIME}_server.log"
 LOG_FILE="${LOG_DIR}/${START_DATETIME}_migration.log"
 ERROR_FILE="${LOG_DIR}/${START_DATETIME}_errors.log"
 
-ODOO_STOP="pkill --signal 9 -f \"python ${ODOO_PATH}/odoo-bin -c /home/odoo/.openerp_serverrc\""
-ODOO_START="python $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc --logfile=$ODOO_LOG_FILE --workers=$WORKERS &"
+ODOO_STOP="supervisorctl stop odoo"
+ODOO_START="supervisorctl start odoo"
 TOOLS_DIR="${INSTANCE_DIR}/tools"
 
 exec > >(tee -a ${LOG_FILE} )
@@ -31,7 +31,7 @@ dropdb $DATABASE --if-exist
 rm $DB_FILESTORE/$DATABASE -rf
 
 echo $'\nStep 4: Create new database '$DATABASE' with vauxoo module installed'
-COUNTRY='MX' python $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -i vauxoo --without-demo=all --stop-after-init
+COUNTRY='MX' python3.5 $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -i vauxoo --without-demo=all --stop-after-init
 
 echo $'\nStep 5: Restart odoo server'
 eval $ODOO_START
@@ -63,7 +63,7 @@ echo '
  "nuser": "'$MIGRATIONLOGIN'"}' > $CONFIG_PATH
 
 echo $'\nStep 9: Create migration user (duplicate from admin)'
-python ${TOOLS_DIR}/create_migration_user.py --host $ODOOHOST --port $ODOOPORT --database $DATABASE --user $ADMINLOGIN --password $ADMINPASSWORD --login $MIGRATIONLOGIN --newpwd $MIGRATIONPWD
+python3.5 ${TOOLS_DIR}/create_migration_user.py --host $ODOOHOST --port $ODOOPORT --database $DATABASE --user $ADMINLOGIN --password $ADMINPASSWORD --login $MIGRATIONLOGIN --newpwd $MIGRATIONPWD
 
 echo $'\nStep 10: Checkout patch to let us set magic fields (create/update dates and users)'
 cd $ODOO_PATH
@@ -124,7 +124,7 @@ cd $DB_FILESTORE
 rsync -Pavhe cp --ignore-existing $LEGACYDB/ $DATABASE/
 
 echo $'\nStep 23: Update database with -u all'
-python $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -u all --stop-after-init
+python3.5 $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -u all --stop-after-init
 
 echo $'\nStep 24: Start Odoo server normally'
 eval $ODOO_START
