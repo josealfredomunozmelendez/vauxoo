@@ -27,20 +27,20 @@ cd $ODOO_PATH
 git reset --hard
 
 echo $'\nStep 3: Delete database if exists ' $DATABASE ' and delete also the related filestore'
-dropdb $DATABASE --if-exist
+dropdb -h $PGHOST -p $PGPORT -U $PGUSER -w $DATABASE --if-exist
 rm $DB_FILESTORE/$DATABASE -rf
 
 echo $'\nStep 4: Create new database '$DATABASE' with vauxoo module installed'
-COUNTRY='MX' python3.5 $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -i vauxoo --without-demo=all --stop-after-init
+COUNTRY='MX' python3.5 $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -i vauxoo --without-demo=all --stop-after-init -r $PGUSER -w $PGPASSWORD --db_host=$PGHOST --db_port=$PGPORT
 
 echo $'\nStep 5: Restart odoo server'
 eval $ODOO_START
 
 echo $'\nStep 6: Update current administrator user name and password'
-psql $DATABASE -c "UPDATE res_users SET login='"$ADMINLOGIN"', password = '"$ADMINPASSWORD"' WHERE id=1;"
+psql -h $PGHOST -p $PGPORT -U $PGUSER -w -d $DATABASE -c "UPDATE res_users SET login='"$ADMINLOGIN"', password = '"$ADMINPASSWORD"' WHERE id=1;"
 
 echo $'\nStep 7: Deactivate the automated actions so do not get messy in the migration process'
-psql $DATABASE -c "UPDATE base_automation SET active='f' WHERE id=1;"
+psql -h $PGHOST -p $PGPORT -U $PGUSER -w -d $DATABASE -c "UPDATE base_automation SET active='f' WHERE id=1;"
 
 echo $'\nStep 8: Configure migration script'
 cd ${TOOLS_DIR}
