@@ -153,7 +153,6 @@ RETURNS void AS $$
         models jsonb;
         partners jsonb;
         records jsonb;
-        mmodel integer;
         partner integer;
         new_key varchar;
         data_name varchar;
@@ -174,20 +173,6 @@ RETURNS void AS $$
                                   quote_literal('crm.lead')||','||
                                   quote_literal('project.task')  || ')') AS
             t1 (res_model varchar, res_id integer, partner_id integer) LOOP
-
-            IF (models->follower.res_model) IS NULL THEN
-                mname := 'model_'||replace(follower.res_model, '.', '_');
-                SELECT
-                    ir_data_name INTO mmodel
-                FROM
-                    dblink('con',
-                           'SELECT res_id FROM ir_model_data WHERE name='||
-                            quote_literal(mname)) AS
-                    t1 (ir_data_name varchar);
-                models := models || jsonb_build_object(follower.res_model, mmodel);
-            ELSE
-                mmodel := (SELECT value FROM jsonb_each_text(models) WHERE key=follower.res_model);
-            END IF;
 
             IF (cmodels->follower.res_model) IS NULL THEN
                 cmodel := follower.res_model;
@@ -220,8 +205,8 @@ RETURNS void AS $$
             IF new_id iS NOT NULL AND
                 NOT EXISTS (SELECT res_id FROM mail_followers WHERE res_model=cmodel AND res_id=new_id AND partner_id=partner) AND
                 partner IS NOT NULL THEN
-                INSERT INTO mail_followers(res_model, res_id, res_model_id, partner_id) VALUES
-                                    (cmodel, new_id, mmodel, partner);
+                INSERT INTO mail_followers(res_model, res_id, partner_id) VALUES
+                                    (cmodel, new_id, partner);
             END IF;
 
         END LOOP;
