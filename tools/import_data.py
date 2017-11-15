@@ -1631,6 +1631,7 @@ class Migration(object):
             'create_date',
             'write_date',
             'accep_crit_id/id',
+            'project_id/id',
             'sequence_ac',
             'accep_crit_id/project_id/partner_id/id',
             'categ_ids/id',
@@ -1654,7 +1655,8 @@ class Migration(object):
             'user_id/id',
             'create_date',
             'write_date',
-            'parent_id/id',
+            'list_id/id',  # user story
+            'group_id/id',  # old project_id
             'project_id/id',
             'sequence',
             'partner_id/id',
@@ -1676,7 +1678,6 @@ class Migration(object):
 
         # preprocessing data
         for criteria in criteria_data:
-            criteria.update(defaults)
             sprint = criteria.get('sprint_id/id') or ''
             difficulty = criteria.get('difficulty_level/id') or ''
             category = criteria.get('categ_ids/id') or ''
@@ -1686,7 +1687,9 @@ class Migration(object):
             stage = ('project.project_stage_data_2'
                      if criteria.get('development') else
                      'project.project_stage_data_0')
-            story_xml = criteria.get('accep_crit_id/id') or str()
+            group_id = criteria.get('project_id/id')
+
+            criteria.update(defaults)
             task = [
                 criteria.get('id'),
                 criteria.get('name') + " [AC" + criteria.get('.id') + "]",
@@ -1696,7 +1699,8 @@ class Migration(object):
                 criteria.get('user_execute_id/id'),
                 criteria.get('create_date'),
                 criteria.get('write_date'),
-                story_xml,  # parent_id/id
+                criteria.get('accep_crit_id/id'),  # User Story (list_id)
+                group_id,  # Old Project
                 criteria.get('project_id/id'),
                 criteria.get('sequence_ac') or 10,
                 criteria.get('accep_crit_id/project_id/partner_id/id'),
