@@ -57,16 +57,18 @@
         <field name="comment">Head Offices</field>
     </record>
     <record id="partner_lima" model="res.partner">
-        <field name="name">Lima</field>
+        <field name="name">Grupo comercializador digital s.a.c.</field>
         <field name="phone">99792-0109</field>
         <field name="email">ventas@vauxoo.com</field>
         <field name="street_name">Av. La Mar</field>
+        <field name="customer">1</field>
         <field name="street_number">390</field>
         <field name="street2">Miraflores</field>
         <field name="parent_id" ref="base.main_partner"/>
         <field name="website_published" eval="1"/>
         <field name="country_id" ref="base.pe"/>
         <field name="type">other</field>
+        <field name="company_type">company</field>
         <field name="comment">Sales and Projects</field>
     </record>
     <record id="partner_valencia" model="res.partner">
@@ -82,7 +84,6 @@
         <field name="type">other</field>
         <field name="comment">Research and Development</field>
     </record>
-
     <record id="partner_company_ve" model="res.partner">
         <field name="name">Vauxoo CA</field>
         <field name="country_id" ref="base.ve"/>
@@ -91,15 +92,25 @@
         <field name="name">Vauxoo CA</field>
         <field name="currency_id" ref="base.VEF"/>
         <field name="partner_id" ref="partner_company_ve"/>
+        <field name="social_googleplus">https://plus.google.com/+vauxoo</field>
+        <field name="social_twitter">https://twitter.com/vauxoo</field>
+        <field name="social_facebook">https://facebook.com/vauxoo</field>
+        <field name="social_github">https://github.com/vauxoo</field>
+        <field name="social_linkedin">https://www.linkedin.com/company/vauxoo</field>
     </record>
-
-    <record id="partner_company_pe" model="res.partner">
-        <field name="name">Vauxoo SA</field>
-        <field name="country_id" ref="base.pe"/>
+    <record id="company_valencia" model="res.company">
+        <field name="name">Valencia</field>
+        <field name="currency_id" ref="base.VEF"/>
+        <field name="partner_id" ref="partner_valencia"/>
     </record>
     <record id="company_pe" model="res.company">
-        <field name="name">Vauxoo SA</field>
+        <field name="name">Grupo comercializador digital s.a.c</field>
         <field name="currency_id" ref="base.PEN"/>
-        <field name="partner_id" ref="partner_company_pe"/>
+        <field name="partner_id" ref="partner_lima"/>
+        <field name="social_googleplus">https://plus.google.com/+vauxoo</field>
+        <field name="social_twitter">https://twitter.com/vauxoo</field>
+        <field name="social_facebook">https://facebook.com/vauxoo</field>
+        <field name="social_github">https://github.com/vauxoo</field>
+        <field name="social_linkedin">https://www.linkedin.com/company/vauxoo</field>
     </record>
 </odoo>

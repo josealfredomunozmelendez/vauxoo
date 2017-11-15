@@ -61,6 +61,7 @@
         "login",
         "website_blog_rss",
         "website_product_rss",
+        "website_calendar",
 
         # Sales
         "sale_margin",
