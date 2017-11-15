@@ -1356,11 +1356,8 @@ class Migration(object):
 
         self.load(write_model, load_fields, load_data_group)
 
-    def migrate_user_stories(self, domain=None, limit=None, defaults=None,
-                             context=None):
+    def migrate_user_story(self, domain=None, limit=None, defaults=None):
         """Migrate user_stories as tasks were project is another task"""
-        if context is None:
-            context = {}
         read_model = 'user.story'
         write_model = 'project.task'
         domain = domain or []
@@ -1402,7 +1399,7 @@ class Migration(object):
             'asumption',
             'implementation',
             'project_id/id',
-            'parent_id/id',
+            'group_id/id',
             'tag_ids/id',
             'stage_id/id',
             'kanban_state',
@@ -1432,11 +1429,8 @@ class Migration(object):
                 user_story.get('sprint_ids/id') or str(),
                 user_story.get('categ_ids/id') or str()
             ])
-            if context.get('internal', False):
-                project = user_story.pop('project_id/id')
-                tags += ','.join([project or str()])
             tag_ids = ','.join([item for item in tags.split(',') if item])
-            parent_id = user_story.get('project_id/id')
+            group_id = user_story.get('project_id/id')
 
             user_story.update(defaults)
             task = [
@@ -1448,8 +1442,8 @@ class Migration(object):
                 user_story.get('info'),  # gap
                 user_story.get('asumption'),
                 user_story.get('implementation'),
-                user_story.get('project_id/id'),  # project_id
-                parent_id,
+                user_story.get('project_id/id'),  # project_id (team)
+                group_id,  # task (old project_id)
                 tag_ids,
                 stage,
                 kanban_state,
@@ -2688,8 +2682,7 @@ class Migration(object):
                 domain, defaults=defaults)
         elif model == 'user.story':
             self.mapping_project_stages()
-            self.migrate_user_stories(
-                domain=domain, defaults=defaults, context=context)
+            self.migrate_user_story(domain=domain, defaults=defaults)
         elif model == 'acceptability.criteria':
             self.migrate_acceptability_criteria(
                 domain=domain, defaults=defaults)
@@ -2961,14 +2954,12 @@ def main(config, save_config, show_config, use_config,
         defaults={'project_id/id': customer_team})
 
     # User Stories
-    vauxoo.migrate_user_stories(
+    vauxoo.migrate_user_story(
         [('project_id', 'in', customer_projects)],
         defaults={'project_id/id': customer_team})
-
-    vauxoo.migrate_user_stories(
+    vauxoo.migrate_user_story(
         [('project_id', 'in', internal_projects)],
-        defaults={'project_id/id': internal_team},
-        context={'internal': True})
+        defaults={'project_id/id': internal_team})
 
     # Acceptability Criteria
     vauxoo.migrate_acceptability_criteria(
