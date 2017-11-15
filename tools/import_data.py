@@ -1137,6 +1137,8 @@ class Migration(object):
                   'remaining_hours', 'partner_id/id', 'company_id/id',
                   'user_id/id', 'stage_id/id', 'sequence',
                   'userstory_id/id', 'sprint_id/id', 'priority',
+                  'project_id/id',
+                  'parent_id/id',
                   'total_hours',
                   'create_date', 'create_uid/id',
                   'write_date', 'write_uid/id',
@@ -1145,10 +1147,16 @@ class Migration(object):
                   '.id']
         load_fields = []
         load_fields.extend(export)
-        load_fields[export.index('userstory_id/id')] = 'parent_id/id'
+
+        # Mapping
+        load_fields[export.index('userstory_id/id')] = 'list_id/id'
+        load_fields[export.index('project_id/id')] = 'group_id/id'
+
+        # Remove not to import
         load_fields.remove('.id')
         load_fields.remove('categ_ids/id')
         load_fields.remove('sprint_id/id')
+
         load_fields.append('date_assign')
         load_fields.append('tag_ids/id')
         load_fields.append('project_id/id')
@@ -1187,13 +1195,7 @@ class Migration(object):
             tag_ids = ','.join([item for item in tags.split(',') if item])
             task.append(tag_ids)
 
-            # defaults
-            # story_xml = task[export.index('userstory_id/id')] or \
-            #     str()
             task.append(defaults.get('project_id/id'))
-            if 'parent_id/id' in defaults:
-                task[load_fields.index('parent_id/id')] = defaults.get(
-                    'parent_id/id')
 
             # cleaun up not used to be loaded fields
             task.pop(export.index('.id'))
@@ -2983,7 +2985,7 @@ def main(config, save_config, show_config, use_config,
         ('id', 'in', customer_tasks),
         ('userstory_id', '=', False)]
     vauxoo.migrate_project_task(orphan_tasks, defaults={
-        'project_id/id': customer_team, 'parent_id/id': '',
+        'project_id/id': customer_team,
         'tag_ids/id': 'vauxoo_migration_orphan_task_tag'})
 
     internal_tasks = vauxoo.get_tasks(internal_projects)
@@ -2995,7 +2997,7 @@ def main(config, save_config, show_config, use_config,
         ('id', 'in', internal_tasks),
         ('userstory_id', '=', False)]
     vauxoo.migrate_project_task(orphan_tasks, defaults={
-        'project_id/id': internal_team, 'parent_id/id': '',
+        'project_id/id': internal_team,
         'tag_ids/id': 'vauxoo_migration_orphan_task_tag'})
 
     # Timesheets
@@ -3024,7 +3026,7 @@ def main(config, save_config, show_config, use_config,
     issue_tasks = vauxoo.get_issue_tasks()
     vauxoo.migrate_project_task(
         [('id', 'in', issue_tasks)],
-        defaults={'project_id/id': support_team, 'parent_id/id': ''})
+        defaults={'project_id/id': support_team})
     vauxoo.migrate_helpdesk_team()
     vauxoo.migrate_helpdesk_stages()
     vauxoo.mapping_helpdesk_stages()
