@@ -2118,13 +2118,13 @@ class Migration(object):
             load_data_group.append(record)
         self.load(write_model, load_fields, load_data_group)
 
-    def migrate_customer_project(self, domain=None, limit=None, defaults=None):
-        """ Create task for each customer project.project """
+    def migrate_project_project(self, domain=None, limit=None, defaults=None):
+        """ Create task for each project.project """
         domain = domain or []
         defaults = defaults or {}
         read_model = 'project.project'
         write_model = 'project.task'
-        _logger.info("Migrate Customer Projects (%s as %s)" % (
+        _logger.info("Migrate Projects (%s as %s)" % (
             read_model, write_model))
 
         export_fields = [
@@ -2168,8 +2168,10 @@ class Migration(object):
                     for item in export_data]
 
         task_data = []
+
         # preprocessing data
         for project in projects:
+            project.update(defaults)
             task = [
                 project.get('id'),
                 project.get('name') + " [P%s]" % str(project.get('.id')),
@@ -2178,7 +2180,7 @@ class Migration(object):
                 project.get('date_start'),
                 project.get('currency_id/id'),
                 project.get('descriptions'),
-                defaults.get('project_id/id', False),
+                project.get('project_id/id', False),
                 project.get('create_date'),
                 project.get('write_date'),
                 project.get('create_uid/id'),
@@ -2186,31 +2188,6 @@ class Migration(object):
             ]
             task_data.append(task)
         self.load(write_model, load_fields, task_data)
-
-    def migrate_internal_project(self, domain=None, limit=None):
-        """ Create project tags per internal project.project """
-        domain = domain or []
-        read_model = 'project.project'
-        write_model = 'project.tags'
-        _logger.info("Migrate Internal Projects (%s as %s)" % (
-            read_model, write_model))
-        export_fields = ['id', 'name', '.id']
-        load_fields = ['id', 'name', 'color']
-        color = 4
-        project_ids = self.legacy.execute(
-            read_model, 'search', domain, 0, limit)
-        _logger.info(read_model + " to migrate %s" % (len(project_ids),))
-        tags = []
-        export_data = self.export(
-            read_model, project_ids, export_fields).get('datas', [])
-        tag_data = []
-        # preprocessing data
-        for tag in export_data:
-            tags.append(int(tag[2]))
-            tag[2] = color
-            tag_data.append(tag)
-        self.load(write_model, load_fields, tag_data)
-        return tags
 
     def mapping_invoice_rate(self):
         """ Mapping the Invoice rate """
@@ -2976,10 +2953,12 @@ def main(config, save_config, show_config, use_config,
     internal_team = '.vauxoo_migration_research_development_team'
 
     # Projects
-    vauxoo.migrate_customer_project(
+    vauxoo.migrate_project_project(
         [('id', 'in', customer_projects)],
         defaults={'project_id/id': customer_team})
-    vauxoo.migrate_internal_project([('id', 'in', internal_projects)])
+    vauxoo.migrate_project_project(
+        [('id', 'in', internal_projects)],
+        defaults={'project_id/id': customer_team})
 
     # User Stories
     vauxoo.migrate_user_stories(
