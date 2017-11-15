@@ -17,7 +17,7 @@
         "account_online_sync",
         "account_cancel",
         "account_voucher",
-        "account_analytic_default"
+        "account_analytic_default",
         "account_accountant",
         "account_payment",
 
@@ -31,6 +31,7 @@
         "hr_appraisal",
         "hr_payroll",
         "hr_attendance",
+        "hr_maintenance",
 
         # Localizations
         "l10n_mx_edi",
