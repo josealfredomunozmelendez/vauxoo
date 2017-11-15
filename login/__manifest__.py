@@ -9,7 +9,7 @@
 {
     'name': 'Odoo Web Login Screen',
     'summary': 'The new configurable Odoo Web Login Screen',
-    'version': '10.0.1.0',
+    'version': '11.0.1.0',
     'category': 'Website',
 
     'author': "binhnguyenxuan (www.xubi.me)",

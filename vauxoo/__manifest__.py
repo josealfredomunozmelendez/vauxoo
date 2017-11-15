@@ -8,7 +8,7 @@
     "website": "http://www.vauxoo.com",
     "license": "LGPL-3",
     "category": "Vauxoo",
-    "version": "10.0.2.0.1",
+    "version": "11.0.2.0.1",
     "depends": [
         # Account section
         "account_asset",
@@ -16,9 +16,10 @@
         "account_reports_followup",
         "account_online_sync",
         "account_cancel",
-        "account_test",
         "account_voucher",
-        "account_analytic_default",
+        "account_analytic_default"
+        "account_accountant",
+        "account_payment",
 
         # Project Section.
         'project_timesheet_synchro',
@@ -71,6 +72,7 @@
         "mass_editing",
         "board",
         "contacts",
+        "google_account",
 
         # Product
         "product_cost_usd",
