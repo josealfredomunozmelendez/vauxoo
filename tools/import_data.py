@@ -1666,6 +1666,7 @@ class Migration(object):
             'write_uid/id',
             'accepted',
             'owner_id/id',
+            'layer_id/id',
         ]
 
         record_ids = self.legacy.execute(
@@ -1710,6 +1711,7 @@ class Migration(object):
                 criteria.get('write_uid/id'),
                 criteria.get('accepted'),
                 criteria.get('accep_crit_id/owner_id/id'),
+                '__export__.project_task_migration_01',
             ]
             load_data_group.append(task)
         # pprint.pprint(
@@ -1740,6 +1742,15 @@ class Migration(object):
         values = [['vauxoo_migration_research_development_team',
                    'vauxoo_migration_research_development_team']]
         self.load(write_model, load_fields, values)
+
+    def mapping_layer(self):
+        """ Create a task of type layer that all the tasks will be related on
+        """
+        _logger.info('Mapping layer')
+        write_model = 'project.task'
+        load_fields = ['id', 'name']
+        load_data = [['__export__.project_task_migration_01', 'Layer 1']]
+        self.load(write_model, load_fields, load_data)
 
     def migrate_sale_orders(self, domain=None, limit=None):
         _logger.info('Migration sale orders')
@@ -2926,6 +2937,7 @@ def main(config, save_config, show_config, use_config,
     vauxoo.migrate_project_stages()
     vauxoo.mapping_invoice_rate()  # required for timesheets
     vauxoo.mapping_res_currency()
+    vauxoo.mapping_layer()
 
     # Project Tags
     project_tags = vauxoo.get_tags('project.task') + \
