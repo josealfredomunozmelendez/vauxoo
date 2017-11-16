@@ -59,7 +59,7 @@ echo '
  "nhost": "'$ODOOHOST'",
  "nport": '$ODOOPORT',
  "npwd": "'$MIGRATIONPWD'",
- "nuser": "'$MIGRATIONLOGIN'"}' > $CONFIG_PATH
+ "nuser": "'$MIGRATIONLOGIN'"}' > ~/.vxmigration
 
 echo $'\nStep 9: Create migration user (duplicate from admin)'
 python3.5 ${TOOLS_DIR}/create_migration_user.py --host $ODOOHOST --port $ODOOPORT --database $DATABASE --user $ADMINLOGIN --password $ADMINPASSWORD --login $MIGRATIONLOGIN --newpwd $MIGRATIONPWD

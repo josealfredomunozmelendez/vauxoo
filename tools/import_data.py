@@ -2604,8 +2604,7 @@ class Migration(object):
 class Config(dict):
     def __init__(self, *args, **kwargs):
         self.config = py.path.local(
-            click.get_app_dir('vxmigration')
-        ).join('config.json')
+            click.get_app_dir('vxmigration', force_posix=True))
 
         super(Config, self).__init__(*args, **kwargs)
 
@@ -2708,7 +2707,7 @@ def main(config, save_config, show_config, use_config,
         config.save()
         _logger.info(pprint.pformat(config))
         _logger.info(
-            "Configuration saved in " + str(click.get_app_dir('vxmigration')))
+            "Configuration saved in " + str(config.config))
         quit()
     if use_config:
         config.load()
