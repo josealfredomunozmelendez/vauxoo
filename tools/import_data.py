@@ -55,11 +55,6 @@ class Migration(object):
             {'tracking_disable': True,
              'write_metadata': True})
 
-        header = ['model', 'record', 'id', 'name', 'message']
-        with open('migration_errors.csv', 'w', newline='') as csvfile:
-            wr = csv.writer(csvfile)
-            wr.writerow(header)
-
     def load(self, model, load_fields, load_data_group):
         # loaded_data = self.new_instance.execute(
         #     model, 'load', load_fields, load_data_group)
@@ -355,7 +350,7 @@ class Migration(object):
             wr.writerows(data)
 
     def write_errors(self, model, header, records):
-        """ write in migration_errors.csv the list of records that were not
+        """ write the list of records that were not
         imported for any error while importing. This way the user will be
         able to fix the error and re imported without mapping again.
         """

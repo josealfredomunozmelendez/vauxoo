@@ -4,7 +4,6 @@ source migration.conf
 START_DATETIME="$(date +%Y-%m-%d_%H-%M)"
 ODOO_LOG_FILE="${LOG_DIR}/${START_DATETIME}_server.log"
 LOG_FILE="${LOG_DIR}/${START_DATETIME}_migration.log"
-ERROR_FILE="${LOG_DIR}/${START_DATETIME}_errors.log"
 
 ODOO_STOP="supervisorctl stop odoo"
 ODOO_START="supervisorctl start odoo"
@@ -79,14 +78,6 @@ sleep 60
 
 echo $'\nStep 13: Run the migration script'
 time vxmigration --use-config
-
-if [[ $(wc -l <migration_errors.csv) -ge 2 ]]
-then
-    mv migration_errors.csv $ERROR_FILE
-    echo 'You can check the logs in'
-    echo $ERROR_FILE
-    exit
-fi
 
 echo ' ---------------------- SQL Scripts ------------------------------------'
 
