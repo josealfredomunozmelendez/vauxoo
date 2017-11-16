@@ -26,7 +26,7 @@ cd $ODOO_PATH
 git reset --hard
 
 echo $'\nStep 3: Delete database if exists ' $DATABASE ' and delete also the related filestore'
-dropdb -h $PGHOST -p $PGPORT -U $PGUSER -w $DATABASE --if-exist
+dropdb -h $PGHOST -p $PGPORT -U $PGUSER $DATABASE --if-exist
 rm $DB_FILESTORE/$DATABASE -rf
 
 echo $'\nStep 4: Create new database '$DATABASE' with vauxoo module installed'
