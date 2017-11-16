@@ -31,7 +31,7 @@ dropdb -h $PGHOST -p $PGPORT -U $PGUSER -w $DATABASE --if-exist
 rm $DB_FILESTORE/$DATABASE -rf
 
 echo $'\nStep 4: Create new database '$DATABASE' with vauxoo module installed'
-COUNTRY='MX' python3.5 $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -i vauxoo --without-demo=all --stop-after-init -r $PGUSER -w $PGPASSWORD --db_host=$PGHOST --db_port=$PGPORT
+su -c "COUNTRY='MX' python3.5 $ODOO_PATH/odoo-bin -c /home/odoo/.openerp_serverrc -d $DATABASE -i vauxoo --without-demo=all --stop-after-init -r $PGUSER -w $PGPASSWORD --db_host=$PGHOST --db_port=$PGPORT"
 
 echo $'\nStep 5: Restart odoo server'
 eval $ODOO_START
