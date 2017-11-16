@@ -21,6 +21,7 @@
         <field name="zip">85134</field>
         <field name="city">Ciudad Obregón</field>
         <field name="state_id" ref="base.state_mx_son"/>
+        <field name="country_id" ref="base.mx"/>
     </record>
     <record id="partner_colima" model="res.partner">
         <field name="name">Colima</field>
@@ -98,10 +99,14 @@
         <field name="social_github">https://github.com/vauxoo</field>
         <field name="social_linkedin">https://www.linkedin.com/company/vauxoo</field>
     </record>
+    <record id="partner_company_ve_valencia" model="res.partner">
+        <field name="name">Valencia</field>
+        <field name="country_id" ref="base.ve"/>
+    </record>
     <record id="company_valencia" model="res.company">
         <field name="name">Valencia</field>
         <field name="currency_id" ref="base.VEF"/>
-        <field name="partner_id" ref="partner_valencia"/>
+        <field name="partner_id" ref="partner_company_ve_valencia"/>
     </record>
     <record id="company_pe" model="res.company">
         <field name="name">Grupo comercializador digital s.a.c</field>
