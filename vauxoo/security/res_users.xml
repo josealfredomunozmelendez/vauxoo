@@ -11,7 +11,7 @@
                 (4, ref('analytic.group_analytic_accounting')),
             ]"/>
             <field name="company_ids"
-                   eval="[(6, 0, [ref('base.main_company'), ref('base.company_valencia'), ref('vauxoo.company_ve'), ref('vauxoo.company_pe')])]"/>
+                   eval="[(6, 0, [ref('base.main_company'), ref('vauxoo.company_valencia'), ref('vauxoo.company_ve'), ref('vauxoo.company_pe')])]"/>
         </record>
 
         <record id="auth_signup.default_template_user" model="res.users">
