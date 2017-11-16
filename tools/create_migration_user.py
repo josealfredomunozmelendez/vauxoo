@@ -33,10 +33,13 @@ def main(host=None, port=None, database=None, user=None, password=None,
         quit()
 
     saas14 = conect_and_login(host, port, database, user, password)
-    migration_user = saas14.execute('res.users', 'copy', [1], {
-        'name': login, 'login': login, 'password': newpwd})
+    migration_user = saas14.execute(
+        'res.users', 'search', [('login', '=', login,)])
+    if not migration_user:
+        migration_user = saas14.execute('res.users', 'copy', [1], {
+            'name': login, 'login': login, 'password': newpwd})
 
-    click.echo('New user created with ID %s' %(migration_user,))
+    click.echo('New user created with ID %s' % (migration_user,))
 
 
 if __name__ == '__main__':
