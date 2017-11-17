@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="default_magic_user" model="ir.config_parameter">
+        <field name="key">magic_uid</field>
+        <field name="value">1</field>
+    </record>
+    <record id="default_magic_active" model="ir.config_parameter">
+        <field name="key">magic_active</field>
+        <field name="value">False</field>
+    </record>
+</odoo>

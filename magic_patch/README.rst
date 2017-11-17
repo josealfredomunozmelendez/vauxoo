@@ -4,6 +4,15 @@ Magic Patch
 Allow you to import metadata on every record. The metadata are the create_uid,
 create_date, write_uid, write_date.
 
+In order to active this functionality you have to set the ir config paramaters
+'magic_uid' and 'magic_active'
+
+After applied the migration the module should be uninstalled. And, in order to
+view the metadata properly is required to make a -u all after uninstall
+magic_patch module.
+
+
+
 Contributors
 ------------
 

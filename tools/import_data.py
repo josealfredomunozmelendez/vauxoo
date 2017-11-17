@@ -55,6 +55,48 @@ class Migration(object):
             {'tracking_disable': True,
              'write_metadata': True})
 
+    def install_magic_patch(self, magic_user):
+        Module = self.new_instance.env['ir.module.module']
+        item = 'magic_patch'
+        # Get the module ids by name
+        module_ids = Module.search([['name', '=', item]])
+
+        # there should be 1 module in module_ids, but iterate for each module
+        # object
+        for module in Module.browse(module_ids):
+            if module.state == 'installed':
+                # If installed, just print that it has install
+                _logger.info("%s has already been installed." % module.name)
+            else:
+                # Otherwise, install it
+                _logger.debug("Installing %s ... " % module.name)
+                module.button_immediate_install()
+                _logger.debug("Done.")
+        uid = self.new_instance.env['res.users'].search(
+            [('login', '=', magic_user)])
+        magic_uid = self.new_instance.env.ref(
+            'magic_patch.default_magic_user')
+        self.new_instance.env['ir.config_parameter'].write(
+            magic_uid.ids, {'value': uid[0]})
+        magic_active = self.new_instance.env.ref(
+            'magic_patch.default_magic_active')
+        self.new_instance.env['ir.config_parameter'].write(
+            magic_active.ids, {'value': True})
+
+    def uninstall_magic_patch(self):
+        Module = self.new_instance.env['ir.module.module']
+        item = 'magic_patch'
+        module_ids = Module.search([['name', '=', item]])
+        for module in Module.browse(module_ids):
+            if module.state == 'uninstalled':
+                # If installed, just print that it has install
+                _logger.info("%s has already been Uninstalled." % module.name)
+            else:
+                # Otherwise, install it
+                _logger.debug("Uninstalling %s ... " % module.name)
+                module.button_immediate_uninstall()
+                _logger.debug("Done.")
+
     def load(self, model, load_fields, load_data_group):
         messages, fails, ids = import_data(
             registry=self.new_instance, model=model,
@@ -2772,6 +2814,9 @@ def main(config, save_config, show_config, use_config,
     vauxoo = Migration(legacy, saas14, cursor.cursor(), 12, 100)
     vauxoo.test()
 
+    # Install the magic module and pass the magic user (Migration user)
+    vauxoo.install_magic_patch(nuser)
+
     if model:
         vauxoo.migrate_per_model(model, domain, defaults, context)
         quit()
@@ -2986,6 +3031,7 @@ def main(config, save_config, show_config, use_config,
 
     # vauxoo.mapping_cleanup()
     cursor.commit()
+    vauxoo.uninstall_magic_patch()
 
     _logger.info('Migration script finish')
 
