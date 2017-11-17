@@ -79,6 +79,9 @@ class Migration(object):
                 for msg in res['messages']:
                     _logger.error(msg)
                     _logger.error(batch[msg['record']])
+
+            if not res.get('ids', False):
+                self.write_errors(model, load_fields, batch)
         return loaded_data
 
     def export(self, model, ids, export_fields):
