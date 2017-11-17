@@ -56,8 +56,6 @@ class Migration(object):
              'write_metadata': True})
 
     def load(self, model, load_fields, load_data_group):
-        # loaded_data = self.new_instance.execute(
-        #     model, 'load', load_fields, load_data_group)
         messages, fails, ids = import_data(
             registry=self.new_instance, model=model,
             header=load_fields, data=load_data_group,
@@ -66,6 +64,22 @@ class Migration(object):
         if not ids:
             self.write_errors(model, load_fields, load_data_group)
         return {'failed': fails, 'messages': messages, 'ids': ids}
+
+    def import_data(self, model, load_fields, load_data_group):
+        load_data_batchs, batchs = self.chunks(load_data_group)
+        loaded_data = {'ids': [], 'messages': []}
+        for (group, batch) in enumerate(load_data_batchs, 1):
+            _logger.debug("Group %s-%s" % (group, batchs))
+            res = self.new_instance.execute(
+                model, 'load', load_fields, batch)
+            loaded_data['ids'].extend(res['ids'] or [])
+            loaded_data['messages'].extend(res['messages'] or [])
+            if res['messages']:
+                _logger.error('batch %s, %s', group, batchs)
+                for msg in res['messages']:
+                    _logger.error(msg)
+                    _logger.error(batch[msg['record']])
+        return loaded_data
 
     def export(self, model, ids, export_fields):
         # export_data = self.legacy.execute(
@@ -865,7 +879,9 @@ class Migration(object):
         values = [
             ['res.users', 6, 'dummy_user_01', '__export__', 'res_users_935'],
         ]
-        dummys = self.load(
+        # dummys = self.load(
+        #     'ir.model.data', fields, values)
+        dummys = self.import_data(
             'ir.model.data', fields, values)
         if not dummys.get('ids', False):
             return
@@ -895,7 +911,9 @@ class Migration(object):
             user[load_fields.index('company_id/id')] = 'base.main_company'
             load_data_group.append(user)
 
-        user_ids = self.load(
+        # user_ids = self.load(
+        #     'res.users', load_fields, load_data_group)
+        user_ids = self.import_data(
             'res.users', load_fields, load_data_group)
 
     def migrate_employee(self, domain=None, limit=None, defaults=None):
@@ -1129,7 +1147,7 @@ class Migration(object):
                   'user_id/id', 'stage_id/id', 'sequence',
                   'userstory_id/id', 'sprint_id/id', 'priority',
                   'project_id/id',
-                  'parent_id/id',
+                  # 'parent_id/id',  # Es parent_ids y es m2m
                   'total_hours',
                   'create_date', 'create_uid/id',
                   'write_date', 'write_uid/id',
@@ -1197,7 +1215,9 @@ class Migration(object):
 
             load_data_group.append(task)
 
-        task_ids = self.load(
+        # task_ids = self.load(
+        #     write_model, load_fields, load_data_group)
+        task_ids = self.import_data(
             write_model, load_fields, load_data_group)
 
     def migrate_helpdesk_team(self):
@@ -1445,7 +1465,8 @@ class Migration(object):
             ]
             load_data_group.append(task)
 
-        self.load(write_model, load_fields, load_data_group)
+        # self.load(write_model, load_fields, load_data_group)
+        self.import_data(write_model, load_fields, load_data_group)
 
     def migrate_sprint(self, domain=None, limit=None):
         """ Method to migrate sprint model as project_tag"""
@@ -1607,7 +1628,8 @@ class Migration(object):
             load_data_group.append(task)
         # pprint.pprint(
         # [self.list2dict(load_fields, item) for item in load_data_group])
-        self.load(write_model, load_fields, load_data_group)
+        # self.load(write_model, load_fields, load_data_group)
+        self.import_data(write_model, load_fields, load_data_group)
 
     def migrate_project_teams(self, domain=None, limit=None):
         """ Will load the new project teams from csv file and will
@@ -2510,7 +2532,8 @@ class Migration(object):
             prod[load_fields.index('website_published')] = False
             load_data_group.append(prod)
 
-        self.load(write_model, load_fields, load_data_group)
+        # self.load(write_model, load_fields, load_data_group)
+        self.import_data(write_model, load_fields, load_data_group)
 
     def get_tasks(self, projects):
         read_model = 'project.task'
@@ -2535,6 +2558,7 @@ class Migration(object):
         return tag_ids
 
     def get_customer_projects(self):
+        _logger.info("Getting Customers HU's Projects")
         read_model = 'project.project'
         user_stories = self.legacy.execute('user.story', 'search', [])
         projects_w_stories = self.export(
@@ -2555,6 +2579,7 @@ class Migration(object):
         return sales
 
     def get_internal_projects(self):
+        _logger.info("Getting Internal HU's Projects")
         read_model = 'project.project'
         domain = ['|', ('partner_id', '=', False),
                   ('partner_id', 'in', [1, 3, 26, 4, 5156])]
@@ -2851,30 +2876,37 @@ def main(config, save_config, show_config, use_config,
     internal_team = '.vauxoo_migration_research_development_team'
 
     # Projects
+    _logger.info("Migrating Customer projects")
     vauxoo.migrate_project_project(
         [('id', 'in', customer_projects)],
         defaults={'project_id/id': customer_team})
+    _logger.info("Migrating Internal projects")
     vauxoo.migrate_project_project(
         [('id', 'in', internal_projects)],
         defaults={'project_id/id': customer_team})
 
     # User Stories
+    _logger.info("Migrating Customer User Stories")
     vauxoo.migrate_user_story(
         [('project_id', 'in', customer_projects)],
         defaults={'project_id/id': customer_team})
+    _logger.info("Migrating Internal User Stories")
     vauxoo.migrate_user_story(
         [('project_id', 'in', internal_projects)],
         defaults={'project_id/id': internal_team})
 
     # Acceptability Criteria
+    _logger.info("Migrating Customer CA")
     vauxoo.migrate_acceptability_criteria(
         [('project_id', 'in', customer_projects)],
         defaults={'project_id/id': customer_team})
+    _logger.info("Migrating Internal CA")
     vauxoo.migrate_acceptability_criteria(
         [('project_id', 'in', internal_projects)],
         defaults={'project_id/id': internal_team})
 
     # Tasks
+    _logger.info("Migrating Customer Tasks")
     customer_tasks = vauxoo.get_tasks(customer_projects)
     vauxoo.migrate_project_task(
         [('id', 'in', customer_tasks),
@@ -2887,6 +2919,7 @@ def main(config, save_config, show_config, use_config,
         'project_id/id': customer_team,
         'tag_ids/id': 'vauxoo_migration_orphan_task_tag'})
 
+    _logger.info("Migrating Internal Tasks")
     internal_tasks = vauxoo.get_tasks(internal_projects)
     vauxoo.migrate_project_task(
         [('id', 'in', internal_tasks),
