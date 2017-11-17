@@ -2116,27 +2116,30 @@ class Migration(object):
     def mapping_invoice_rate(self):
         """ Mapping the Invoice rate """
         _logger.info("Mapping Invoice Rate")
-        model = 'hr_timesheet_invoice.factor'
-        fields = ['model', 'res_id', 'id', 'module', 'name']
-        values = [
-            [model, '1', 'dummy_factor_01', 'hr_timesheet_invoice',
-             'timesheet_invoice_factor1'],
-            [model, '2', 'dummy_factor_02', 'hr_timesheet_invoice',
-             'timesheet_invoice_factor2'],
-            [model, '3', 'dummy_factor_03', '__export__',
-             'hr_timesheet_invoice_factor_7'],
-            [model, '4', 'dummy_factor_04', 'hr_timesheet_invoice',
-             'timesheet_invoice_factor4'],
-            [model, '5', 'dummy_factor_05', 'hr_timesheet_invoice',
-             'timesheet_invoice_factor3'],
-            [model, '6', 'dummy_factor_06', '__export__',
-             'hr_timesheet_invoice_factor_6'],
-            [model, '7', 'dummy_factor_07', '__export__',
-             'hr_timesheet_invoice_factor_5'],
-        ]
-        dummys = self.load(
-            'ir.model.data', fields, values)
-        self.dummy_ir_models.extend(dummys.get('ids', []))
+        self.inv_rate_mapping = dict([
+            (self.legacy.env.ref(
+                'hr_timesheet_invoice.timesheet_invoice_factor1').id,
+             self.new_instance.env.ref('vauxoo.timesheet_invoice_factor1').id),
+            (self.legacy.env.ref(
+                'hr_timesheet_invoice.timesheet_invoice_factor2').id,
+             self.new_instance.env.ref('vauxoo.timesheet_invoice_factor2').id),
+            (self.legacy.env.ref(
+                '__export__.hr_timesheet_invoice_factor_7').id,
+             self.new_instance.env.ref('vauxoo.timesheet_invoice_factor5').id),
+            (self.legacy.env.ref(
+                'hr_timesheet_invoice.timesheet_invoice_factor4').id,
+             self.new_instance.env.ref('vauxoo.timesheet_invoice_factor4').id),
+            (self.legacy.env.ref(
+                'hr_timesheet_invoice.timesheet_invoice_factor3').id,
+             self.new_instance.env.ref('vauxoo.timesheet_invoice_factor3').id),
+            (self.legacy.env.ref(
+                '__export__.hr_timesheet_invoice_factor_6').id,
+             self.new_instance.env.ref('vauxoo.timesheet_invoice_factor6').id),
+
+            (self.legacy.env.ref(
+                '__export__.hr_timesheet_invoice_factor_5').id,
+             self.new_instance.env.ref('vauxoo.timesheet_invoice_factor7').id),
+        ])
 
     @staticmethod
     def clean_str(val):
@@ -2235,6 +2238,9 @@ class Migration(object):
             record[index] = record[index] or 0.0
             record[load_fields.index('project_id')] = defaults.get(
                 'project_id/.id')
+            record[
+                load_fields.index('to_invoice')] = self.inv_rate_mapping.get(
+                record[load_fields.index('to_invoice')])
             record.append(defaults.get('account_id/.id'))
             dict_vals = dict(zip(load_fields, record))
             qry = self.cr.mogrify("""
@@ -2939,6 +2945,7 @@ def main(config, save_config, show_config, use_config,
     customer_team_id = vauxoo.new_instance.env.ref(customer_team)
     customer_analytic_id = vauxoo.new_instance.env.ref(
         customer_team + '_account_analytic_account')
+    _logger.info("Migrating Customer Timesheets")
     vauxoo.migrate_timesheets(
         [('task_id', 'in', customer_tasks)],
         defaults={'project_id/.id': customer_team_id.id,
@@ -2947,6 +2954,7 @@ def main(config, save_config, show_config, use_config,
     internal_team_id = vauxoo.new_instance.env.ref(internal_team)
     internal_analytic_id = vauxoo.new_instance.env.ref(
         internal_team + '_account_analytic_account')
+    _logger.info("Migrating Internal Timesheets")
     vauxoo.migrate_timesheets(
         [('task_id', 'in', internal_tasks)],
         defaults={'project_id/.id': internal_team_id.id,
@@ -2959,6 +2967,7 @@ def main(config, save_config, show_config, use_config,
         support_team + '_account_analytic_account')
     helpdesk_team = 'helpdesk.helpdesk_team1'
     issue_tasks = vauxoo.get_issue_tasks()
+    _logger.info("Migrating Issues Tasks")
     vauxoo.migrate_project_task(
         [('id', 'in', issue_tasks)],
         defaults={'project_id/id': support_team})
