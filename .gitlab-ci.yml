@@ -54,6 +54,11 @@ test:
     - travis_install_nightly
     - travis_run_tests
     - travis_after_tests_success || true
+    - coverage html --rcfile=${TRAVIS_BUILD_DIR}/.coveragerc -d $CI_COMMIT_REF_NAME
+    - coverage report -m --show-missing --rcfile=${TRAVIS_BUILD_DIR}/.coveragerc | tee $CI_COMMIT_REF_NAME/coverage.txt
+  artifacts:
+    paths:
+      - $CI_COMMIT_REF_NAME
 
 nodemo:
   stage: test
@@ -105,6 +110,28 @@ compile_doc:
     - git clone -q git@git.vauxoo.com:vauxoo/instance.wiki.git
     - cd instance.wiki && cp -R ../vauxoo/doc/* . && cat ../vauxoo/doc/home.md ../README.md > home.md && git add .
     - ../check_doc.sh
+  environment:
+    name: documentation
+    url: https://git.vauxoo.com/vauxoo/instance/wikis
+
+pages:
+  stage: test_build
+  dependencies:
+    - test
+  variables:
+    http_proxy: ""
+    https_proxy: ""
+  script:
+    - mkdir public/$CI_COMMIT_REF_NAME -p || true ; mv $CI_COMMIT_REF_NAME public/$CI_COMMIT_REF_NAME/coverage
+    - cp -r public/$CI_COMMIT_REF_NAME/coverage/* public/$CI_COMMIT_REF_NAME/
+    - echo "Coverage report can be found in:"
+    - echo "https://${CI_PROJECT_NAMESPACE}.pages.vauxoo.com/${CI_PROJECT_NAME}/${CI_COMMIT_REF_NAME}/coverage"
+  environment:
+    name: coverage
+    url: https://${CI_PROJECT_NAMESPACE}.pages.vauxoo.com/${CI_PROJECT_NAME}/${CI_COMMIT_REF_NAME}/coverage
+  artifacts:
+    paths:
+      - public
 
 upload_image:
   stage: upload_image

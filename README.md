@@ -1,5 +1,5 @@
 [![Build Status](https://git.vauxoo.com/vauxoo/instance/badges/10.0/build.svg)](https://git.vauxoo.com/vauxoo/instance/pipelines)
-[![Coverage Report](https://git.vauxoo.com/vauxoo/instance/badges/10.0/coverage.svg)](https://git.vauxoo.com/vauxoo/instance/commits/10.0)
+[![Coverage Report](https://git.vauxoo.com/vauxoo/instance/badges/10.0/coverage.svg)](https://vauxoo.pages.vauxoo.com/instance/11.0/coverage)
 
 Modules for vauxoo.com
 ===
