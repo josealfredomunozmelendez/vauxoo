@@ -2567,15 +2567,9 @@ class Migration(object):
         return tag_ids
 
     def get_customer_projects(self):
-        _logger.info("Getting Customers HU's Projects")
+        _logger.info("Getting Customers Projects")
         read_model = 'project.project'
-        user_stories = self.legacy.execute('user.story', 'search', [])
-        projects_w_stories = self.export(
-            'user.story', user_stories, ['project_id/.id'])
-        projects_w_stories = list(
-            set([int(item[0]) for item in projects_w_stories.get('datas')]))
         domain = [
-            ('id', 'in', projects_w_stories),
             ('partner_id', '!=', False),
             ('partner_id', 'not in', [1, 3, 26, 4, 5156])]
         project_ids = self.legacy.execute(read_model, 'search', domain)
@@ -2588,7 +2582,7 @@ class Migration(object):
         return sales
 
     def get_internal_projects(self):
-        _logger.info("Getting Internal HU's Projects")
+        _logger.info("Getting Internal Projects")
         read_model = 'project.project'
         domain = ['|', ('partner_id', '=', False),
                   ('partner_id', 'in', [1, 3, 26, 4, 5156])]
