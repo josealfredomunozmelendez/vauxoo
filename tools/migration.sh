@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 source migration.conf
 
 START_DATETIME="$(date +%Y-%m-%d_%H-%M)"
@@ -9,8 +11,6 @@ exec 2> >(tee -a ${LOG_FILE} >&2)
 
 echo 'You can check the logs in'
 echo $LOG_FILE
-
-set -e
 
 echo $'\nStep 1: Update current administrator user name and password'
 PGPASSWORD=$PGPASSWORD psql -h $PGHOST -p $PGPORT -U $PGUSER -w -d $DATABASE -c "UPDATE res_users SET login='"$ADMINLOGIN"', password = '"$ADMINPASSWORD"' WHERE id=1;"
