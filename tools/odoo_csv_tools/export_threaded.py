@@ -58,7 +58,7 @@ class RPCThreadExport(RpcThread):
                 _logger.error("export %s failed" % batch_number)
                 _logger.error(e.faultString)
             except Exception as e:
-                _logger.info("Unknown Problem")
+                _logger.error("Unknown Problem")
                 exc_type, exc_value, _ = sys.exc_info()
                 _logger.error(exc_type)
                 _logger.error(exc_value)
