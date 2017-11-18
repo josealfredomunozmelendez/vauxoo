@@ -136,6 +136,20 @@ class Migration(object):
             max_connection=self.max_connection, batch_size=self.batch_size)
         return {'datas': ids}
 
+    def export_data(self, model, ids, export_fields):
+        export_data_batchs, batchs = self.chunks(ids)
+        exported_data = {'datas': []}
+        for (group, batch) in enumerate(export_data_batchs, 1):
+            _logger.debug("Group %s-%s" % (group, batchs))
+            res = self.legacy.execute(
+                model, 'export_data', batch, export_fields)
+            exported_data['datas'].extend(res['datas'] or [])
+            """
+            if not res.get('ids', False):
+                self.write_errors(model, load_fields, batch)
+            """
+        return exported_data
+
     def test(self):
         for instance in [self.legacy, self.new_instance]:
             user = instance.env.user
