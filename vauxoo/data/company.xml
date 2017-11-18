@@ -2,6 +2,7 @@
 <odoo noupdate="1">
     <record id="base.main_company" model="res.company">
         <field name="name">Vauxoo de SA de CV</field>
+        <field name="logo" type="base64" file="vauxoo/static/src/img/vauxoo.png"/>
         <field name="website">https://vauxoo.com</field>
         <field name="phone">+52 (477) 773.33.46</field>
         <field name="email">info@vauxoo.com</field>
@@ -91,6 +92,7 @@
     </record>
     <record id="company_ve" model="res.company">
         <field name="name">Vauxoo CA</field>
+        <field name="logo" type="base64" file="vauxoo/static/src/img/vauxoo.png"/>
         <field name="currency_id" ref="base.VEF"/>
         <field name="partner_id" ref="partner_company_ve"/>
         <field name="social_googleplus">https://plus.google.com/+vauxoo</field>
@@ -105,11 +107,13 @@
     </record>
     <record id="company_valencia" model="res.company">
         <field name="name">Valencia</field>
+        <field name="logo" type="base64" file="vauxoo/static/src/img/vauxoo.png"/>
         <field name="currency_id" ref="base.VEF"/>
         <field name="partner_id" ref="partner_company_ve_valencia"/>
     </record>
     <record id="company_pe" model="res.company">
         <field name="name">Grupo comercializador digital s.a.c</field>
+        <field name="logo" type="base64" file="vauxoo/static/src/img/vauxoo.png"/>
         <field name="currency_id" ref="base.PEN"/>
         <field name="partner_id" ref="partner_lima"/>
         <field name="social_googleplus">https://plus.google.com/+vauxoo</field>
