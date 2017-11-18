@@ -19,29 +19,13 @@ echo $'\nStep 2: Deactivate the automated actions so do not get messy in the mig
 PGPASSWORD=$PGPASSWORD psql -h $PGHOST -p $PGPORT -U $PGUSER -w -d $DATABASE -c "UPDATE base_automation SET active='f' WHERE id=1;"
 
 echo $'\nStep 3: Configure migration script'
-pip install --editable .
-vxmigration --save-config
-echo '
-{"legacy_db": "'$LEGACYDB'",
- "legacy_host": "'$LEGACYHOST'",
- "legacy_port": '$LEGACYPORT',
- "legacy_pwd": "'$LEGACYPWD'",
- "legacy_user": "'$LEGACYUSER'",
- "dbport": '$PGPORT',
- "dbpwd": "'$PGPASSWORD'",
- "dbhost": "'$PGHOST'",
- "dbuser": "'$PGUSER'",
- "ndb": "'$DATABASE'",
- "nhost": "'$ODOOHOST'",
- "nport": '$ODOOPORT',
- "npwd": "'$MIGRATIONPWD'",
- "nuser": "'$MIGRATIONLOGIN'"}' > $HOME/.vxmigration
+python3.5 import_data.py --save-config --legacy-db $LEGACYDB --legacy-host $LEGACYHOST --legacy-port $LEGACYPORT --legacy-pwd $LEGACYPWD --legacy-user $LEGACYUSER --dbport $PGPORT --dbpwd $PGPASSWORD --dbhost $PGHOST --dbuser $PGUSER --ndb $DATABASE --nhost $ODOOHOST --nport $ODOOPORT --npwd $MIGRATIONPWD --nuser $MIGRATIONLOGIN
 
 echo $'\nStep 4: Create migration user (duplicate from admin)'
 python3.5 ./create_migration_user.py --host $ODOOHOST --port $ODOOPORT --database $DATABASE --user $ADMINLOGIN --password $ADMINPASSWORD --login $MIGRATIONLOGIN --newpwd $MIGRATIONPWD
 
 echo $'\nStep 5: Run the migration script'
-time vxmigration --use-config
+python3.5 import_data.py --use-config
 
 echo ' ---------------------- SQL Scripts ------------------------------------'
 
@@ -66,6 +50,9 @@ echo ' ---------------------- Clean Up -------------------------------------'
 
 echo $'\nStep 11: Re activate the automated actions'
 PGPASSWORD=$PGPASSWORD psql -h $PGHOST -p $PGPORT -U $PGUSER -w -d $DATABASE -c "UPDATE base_automation SET active='t' WHERE id=1;"
+
+echo $'\nStep 12: Copy files from vauxoo80 to filestore vauxoo110'
+rsync -Pavhe "ssh -p 3202" --ignore-existing fs@files.vauxoo.com:/home/fs/filestore $ODOO_FILESTORE_PATH/$DATABASE
 
 END_DATETIME="$(date +%Y-%m-%d_%H-%M)"
 echo 'Script start at ' $START_DATETIME ' and ends at ' $END_DATETIME
