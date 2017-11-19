@@ -113,6 +113,7 @@
                 <kanban class="o_kanban_dashboard o_salesteam_kanban">
                     <field name="theoretical_timesheet"/>
                     <field name="color"/>
+                    <field name="id"/>
                     <field name="employee_badge_ids"/>
                     <field name="employee_task_ids"/>
                     <field name="task_count"/>
@@ -122,7 +123,7 @@
                                 <div class="o_kanban_card_header">
                                     <div class="o_kanban_card_header_title">
                                         <div class="o_kanban_image">
-                                            <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id.value)"/>
+                                            <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id.raw_value)"/>
                                         </div>
                                         <div class="oe_kanban_details">
                                             <div class="col-xs-8" style="text-align: left">
