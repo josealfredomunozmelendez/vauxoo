@@ -750,6 +750,32 @@ class Migration(object):
 
         self.load(write_model, load_fields, groups_data)
 
+    def migrate_auth_oauth_provider(self, domain=None, limit=None,
+                                    defaults=None):
+        _logger.info('Migrate Oauth Provider')
+        domain = domain or []
+        defaults = defaults or {}
+        read_model = write_model = 'auth.oauth.provider'
+        export_fields = [
+            'id',
+            'name',
+            'auth_endpoint',
+            'validation_endpoint',
+            'name',
+            'body',
+            'enabled',
+            'data_endpoint',
+            'scope',
+            'client_id/id',
+        ]
+        load_fields = export_fields
+        record_ids = self.legacy.execute(
+            read_model, 'search', domain, 0, limit)
+        _logger.info("OAuth2 provider to create %s" % (len(record_ids),))
+        data = self.export(
+            read_model, record_ids, export_fields).get('datas', [])
+        self.load(write_model, load_fields, data)
+
     def migrate_res_users(self, domain=None, limit=None, defaults=None):
         """ This method allow migrate the specific data of the res_users
         model.
@@ -784,6 +810,10 @@ class Migration(object):
             'share',
             'signature',
             'write_date',
+
+            'oauth_access_token',
+            'oauth_provider_id/id',  # oauth.oauth.provider
+            'oauth_uid',
 
             # All the next fields were moved to mail.alias model, we do not
             # know if we will use it yet
@@ -2862,6 +2892,7 @@ def main(config, save_config, show_config, use_config,
     vauxoo.migrate_res_groups()
     _model, portal = vauxoo.legacy.execute(
         'ir.model.data', 'get_object_reference', 'base', 'group_portal')
+    vauxoo.migrate_auth_oauth_provider()
 
     # # Internal Users (active)
     vauxoo.migrate_res_users(
