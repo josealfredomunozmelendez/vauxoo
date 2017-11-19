@@ -145,6 +145,7 @@
 
         # Stages Data
         "data/project_task_stages.xml",
+        "data/sales.xml",
     ],
     "demo": [
         "demo/product.xml",
