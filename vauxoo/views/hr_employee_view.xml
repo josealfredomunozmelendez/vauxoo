@@ -110,7 +110,7 @@
             <field name="priority">100</field>
             <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_dashboard o_salesteam_kanban">
+                <kanban class="o_kanban_dashboard o_employee_dashboard">
                     <field name="theoretical_timesheet"/>
                     <field name="color"/>
                     <field name="id"/>
@@ -130,7 +130,7 @@
                                                 <strong>
                                                     <h3> <field name="name"/> </h3>
                                                 </strong>
-                                                <ul>
+                                                <ul >
                                                     <li t-if="record.job_id.raw_value"><i><field name="job_id"/></i></li>
                                                     <li t-if="record.department_id.raw_value"><b><field name="department_id"/></b></li>
                                                 </ul>
@@ -151,13 +151,13 @@
                                                         <span>Tasks</span>
                                                     </div>
                                                     <div class="col-xs-6" style="text-align: right">
-                                                        <ul>
+                                                        <ul >
                                                             <li>ToDo: </li>
                                                             <li>Done: </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xs-6" style="text-align: left">
-                                                        <ul>
+                                                        <ul >
                                                             <li><field name="task_todo"/></li>
                                                             <li><field name="task_done"/></li>
                                                         </ul>
@@ -203,14 +203,14 @@
                                                 <span>Salary</span>
                                             </div>
                                             <div class="col-xs-6" style="text-align: right">
-                                                <ul>
+                                                <ul >
                                                     <li>Total:</li>
                                                     <li>On Job:</li>
                                                     <li>Perceived:</li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-6" style="text-align: left">
-                                                <ul>
+                                                <ul >
                                                     <li><field name="total_salary"/></li>
                                                     <li><field name="salary_on_job"/></li>
                                                     <li><field name="perceived_salary"/></li>
@@ -223,13 +223,13 @@
                                                 <span>Cost</span>
                                             </div>
                                             <div class="col-xs-6" style="text-align: right">
-                                                <ul>
+                                                <ul >
                                                     <li>Theoretical:</li>
                                                     <li>Current:</li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-6" style="text-align: left">
-                                                <ul>
+                                                <ul >
                                                     <li><field name="theoretical_cost"/></li>
                                                     <li><field name="current_cost"/></li>
                                                 </ul>
@@ -245,13 +245,13 @@
                                                 <span>Last Month</span>
                                             </div>
                                             <div class="col-xs-10" style="text-align: left; padding:0.0">
-                                                <ul>
+                                                <ul >
                                                     <li><field name="hours_informed" title="Informed" widget="progress" options="{'current_value': 'hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
                                                     <li><field name="hours_invoice" title="Invoiced" widget="progress" options="{'current_value': 'hours_invoice', 'max_value': 'theoretical_timesheet'}"/></li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-2" style="text-align: right; padding:0.0">
-                                                <ul>
+                                                <ul >
                                                     <li>hours</li>
                                                     <li>hours</li>
                                                 </ul>
@@ -262,13 +262,13 @@
                                                 <span>Current Month</span>
                                             </div>
                                             <div class="col-xs-10" style="text-align: left; padding:0.0">
-                                                <ul>
+                                                <ul >
                                                     <li><field name="current_hours_informed" title="Informed" widget="progress" options="{'current_value': 'current_hours_informed', 'max_value': 'theoretical_timesheet'}"/></li>
                                                     <li><field name="current_hours_invoiced" title="Invoiced" widget="progress" options="{'current_value': 'current_hours_invoiced', 'max_value': 'theoretical_timesheet'}"/></li>
                                                 </ul>
                                             </div>
                                             <div class="col-xs-2" style="text-align: right; padding:0.0">
-                                                <ul>
+                                                <ul >
                                                     <li>hours</li>
                                                     <li>hours</li>
                                                 </ul>
@@ -333,7 +333,7 @@
             <field name="priority">100</field>
             <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_dashboard o_salesteam_kanban">
+                <kanban class="o_kanban_dashboard o_employee_dashboard">
                     <field name="message_is_follower"/>
                     <field name="message_follower_ids"/>
                     <field name="message_ids"/>
@@ -462,7 +462,7 @@
             <field name="priority">100</field>
             <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_dashboard o_salesteam_kanban">
+                <kanban class="o_kanban_dashboard o_employee_dashboard">
                     <field name="message_is_follower"/>
                     <field name="message_follower_ids"/>
                     <field name="message_ids"/>
