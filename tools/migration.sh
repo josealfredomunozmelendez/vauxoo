@@ -19,6 +19,7 @@ echo $'\nStep 2: Deactivate the automated actions so do not get messy in the mig
 PGPASSWORD=$PGPASSWORD psql -h $PGHOST -p $PGPORT -U $PGUSER -w -d $PGDATABASE -c "UPDATE base_automation SET active='f' WHERE id=1;"
 
 echo $'\nStep 3: Configure migration script'
+pip install --user Click OdooRPC Py simplejson psycopg2 click-log
 python3.5 import_data.py --save-config --legacy-db $LEGACYDB --legacy-host $LEGACYHOST --legacy-port $LEGACYPORT --legacy-pwd $LEGACYPWD --legacy-user $LEGACYUSER --dbport $PGPORT --dbpwd $PGPASSWORD --dbhost $PGHOST --dbuser $PGUSER --ndb $PGDATABASE --nhost $ODOOHOST --nport $ODOOPORT --npwd $MIGRATIONPWD --nuser $MIGRATIONLOGIN
 
 echo $'\nStep 4: Create migration user (duplicate from admin)'
