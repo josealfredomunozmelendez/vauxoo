@@ -1,0 +1,6 @@
+click
+odoorpc
+py
+simplejson
+psycopg2
+click-log
