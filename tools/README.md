@@ -25,8 +25,8 @@ con los datos correctos. Estos son los valores a configurar:
 - servidor odoo instancia vauxoo80
 
  ```bash
- LEGACYHOST="172.17.0.2"
- LEGACYPORT="8072"
+ LEGACYHOST="nginx.url"
+ LEGACYPORT="433"
  LEGACYDB="vauxoo80"
  LEGACYUSER="admin"
  LEGACYPWD="admin"
@@ -35,8 +35,8 @@ con los datos correctos. Estos son los valores a configurar:
 - servidor odoo instancia vauxoo110
 
  ```bash
- ODOOHOST="0.0.0.0"
- ODOOPORT="8072"
+ ODOOHOST="nginx.url"
+ ODOOPORT="443"
  ADMINLOGIN='admin'
  ADMINPASSWORD='admin'
 
@@ -73,23 +73,34 @@ a correr el script.
 
 Las siguientes anotaciones son importantes:
 
-- Los containers vauxoo80 y vauxoo110 deben tener expuestos los puertos
-  de odoo, ssh y postgres.
-- Notese que se usa el puerto 8072 en lugar del 8069. Esto se debe a que
-  esta herramienta es multi proceso y hacemos consultas que llevaran un
-  tiempo considerable. Al utilizar el puerto 8072 estamos usando el
-  --longpolling-port que nos permite evitar errores de concurrencia al intentar
-  leer o escribir varios conjuntos de registros al mismo tiempo. Esto aplica
-  para vauxoo80 y vauxoo110
 - Si la instancia esta configurada con nginx, es preferible usar la direccion
   proporcionada por nginx y el puerto 443. Esto debido a que nginx se encarga
-  de administrar la carga del multi procesamiento,  y evitar errores (es una
+  de administrar la carga del multi procesamiento, y evitar errores (es una
   conexcion json+ssl)
 
   ```bash
   ODOOHOST="url.nginx"
   ODOOPORT="443"
+  LEGACYHOST="nginx.url"
+  LEGACYPORT="433"
   ```
+
+- Si no se esta usando nginx, usar el puerto 8072 en lugar del 8069.
+  Esto se debe a que esta herramienta es multi proceso y hacemos consultas que
+  llevaran un tiempo considerable. Al utilizar el puerto 8072 estamos usando el
+  --longpolling-port de odoo que nos permite evitar errores de concurrencia al
+  intentar leer o escribir varios conjuntos de registros al mismo tiempo.
+
+  ```bash
+  ODOOHOST="0.0.0.0"
+  ODOOPORT="8072"
+  LEGACYHOST="172.17.0.1"
+  LEGACYPORT="8072"
+  ```
+
+  Notese que el host puede ser cualquier ip valida que sea accesible de donde
+  estas corriendo el script: local, ip interna de un container vecino, una ip
+  accesible desde internet, un dominio accesible desde internet.
 
 Migración
 ---------
