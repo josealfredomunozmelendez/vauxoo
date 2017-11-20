@@ -11,16 +11,75 @@ Pre Migración
 
 Modificar el archivo de configuración del script de migración en
 `instance/tools/migration.conf` para que este se pueda ejecutar posteriormente
-con los datos correctos. Los datos a configurar son host/port/user/password de:
+con los datos correctos. Estos son los valores a configurar:
 
-- servidor postgres instancia vauxoo80
-- servidor postgres instancia vauxoo110
+- servidor postgres instancia legacy vauxoo80
+
+ ```bash
+ LEGACYPGHOST="172.17.0.1"
+ LEGACYPGPORT="5432"
+ LEGACYPGUSER='odoo'
+ LEGACYPGPASSWORD='odoo'
+ ```
+
 - servidor odoo instancia vauxoo80
-- servidor odoo instancia vauxoo110
-- y los workers que esta usando la instancia vauxoo110.
 
-*NOTA:* Los containers vauxoo80 y vauxoo110 deben tener expuestos los puertos
-de odoo, ssh y postgres.
+ ```bash
+ LEGACYHOST="172.17.0.2"
+ LEGACYPORT="8072"
+ LEGACYDB="vauxoo80"
+ LEGACYUSER="admin"
+ LEGACYPWD="admin"
+ ```
+
+- servidor odoo instancia vauxoo110
+
+ ```bash
+ ODOOHOST="0.0.0.0"
+ ODOOPORT="8072"
+ ADMINLOGIN='admin'
+ ADMINPASSWORD='admin'
+
+ MIGRATIONLOGIN='migration'
+ MIGRATIONPWD='migration'
+ ```
+
+ El usuario migración no existe, ese será creado en el proceso y será con el
+ cual se creen todos los registros.
+
+Los datos del servidor postgres vauxoo110, no necesitan ser configurados ya
+que estos se toman automaticamente de las variables de entorno activas. Lo
+mismo aplica para el path del filerstore de vauxo110 y los workers que utiliza.
+
+```bash
+$PGHOST
+$PGPORT
+$PGUSER
+$PGPASSWORD
+$PGDATABASE
+$WORKERS
+$ODOO_FILESTORE_PATH
+```
+
+Las siguientes anotaciones son importantes:
+
+- Los containers vauxoo80 y vauxoo110 deben tener expuestos los puertos
+  de odoo, ssh y postgres.
+- Notese que se usa el puerto 8072 en lugar del 8069. Esto se debe a que
+  esta herramienta es multi proceso y hacemos consultas que llevaran un
+  tiempo considerable. Al utilizar el puerto 8072 estamos usando el
+  --longpolling-port que nos permite evitar errores de concurrencia al intentar
+  leer o escribir varios conjuntos de registros al mismo tiempo. Esto aplica
+  para vauxoo80 y vauxoo110
+- Si la instancia esta configurada con nginx, es preferible usar la direccion
+  proporcionada por nginx y el puerto 443. Esto debido a que nginx se encarga
+  de administrar la carga del multi procesamiento,  y evitar errores (es una
+  conexcion json+ssl)
+
+  ```bash
+  ODOOHOST="url.nginx"
+  ODOOPORT="443"
+  ```
 
 Migración
 ---------
