@@ -3162,9 +3162,6 @@ def main(config, save_config, show_config, use_config,
         defaults={'project_id/.id': support_team_id.id,
                   'account_id/.id': support_analytic_id.id})
 
-    _logger.info('Compute tasks display name')
-    vauxoo.load_and_run('server_action_display_name.csv')
-
     _logger.info('Compute tasks spent hours')
     vauxoo.load_and_run('server_action_tasks_spent_hours.csv')
 
