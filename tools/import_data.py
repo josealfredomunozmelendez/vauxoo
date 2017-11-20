@@ -2197,7 +2197,7 @@ class Migration(object):
                 project.get('write_uid/id'),
             ]
             task_data.append(task)
-        self.load(write_model, load_fields, task_data)
+        self.import_data(write_model, load_fields, task_data)
 
     def mapping_invoice_rate(self):
         """ Mapping the Invoice rate """
