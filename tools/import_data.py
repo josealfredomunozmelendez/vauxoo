@@ -1789,8 +1789,9 @@ class Migration(object):
         """
         _logger.info('Mapping layer')
         write_model = 'project.task'
-        load_fields = ['id', 'name']
-        load_data = [['__export__.project_task_migration_01', 'Layer 1']]
+        load_fields = ['id', 'name', 'is_layer']
+        load_data = [[
+            '__export__.project_task_migration_01', 'Layer 1', 'True']]
         self.load(write_model, load_fields, load_data)
 
     def migrate_sale_orders(self, domain=None, limit=None):
