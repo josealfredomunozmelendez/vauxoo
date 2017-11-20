@@ -9,7 +9,20 @@ Pasos a seguir desde instancia de updates:
 Pre Migración
 -------------
 
-Modificar el archivo de configuración del script de migración en
+1. El script de migración necesita crear un EXTENSION para poder conectarse a
+   la base de datos de instancia vauxoo80. Para realizarlo el usuario de
+   postgres en vauxoo110 debe ser temporalmente un superusuario
+
+ ```bash
+ # su postgres
+ # unset PGPASSWORD; unset PGUSER; unset PGHOST; psql
+ database=# alter user vauxoo110dev with superuser;
+ ```
+
+ Al cerrar la sesión y re abrir estas variables de entorno vuelven a su valor
+ original.
+
+2. Modificar el archivo de configuración del script de migración en
 `instance/tools/migration.conf` para que este se pueda ejecutar posteriormente
 con los datos correctos. Estos son los valores a configurar:
 
