@@ -1483,7 +1483,7 @@ class Migration(object):
 
             load_data_group.append(issue)
 
-        self.load(write_model, load_fields, load_data_group)
+        self.import_data(write_model, load_fields, load_data_group)
 
     def migrate_user_story(self, domain=None, limit=None, defaults=None):
         """Migrate user_stories as tasks were project is another task"""
