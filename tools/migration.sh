@@ -61,7 +61,7 @@ echo $'\nStep 11: Re activate the automated actions'
 PGPASSWORD=$PGPASSWORD psql -h $PGHOST -p $PGPORT -U $PGUSER -w -d $PGDATABASE -c "UPDATE base_automation SET active='t' WHERE id=1;"
 
 echo $'\nStep 12: Copy files from vauxoo80 to filestore vauxoo110'
-rsync -Pavhe "ssh -p 3202" --ignore-existing fs@files.vauxoo.com:/home/fs/filestore $ODOO_FILESTORE_PATH/$PGDATABASE
+rsync -Pavhe "ssh -p 3202" --ignore-existing fs@files.vauxoo.com:/home/fs/filestore/ $ODOO_FILESTORE_PATH/$PGDATABASE/
 
 END_DATETIME="$(date +%Y-%m-%d_%H-%M)"
 echo 'Script start at ' $START_DATETIME ' and ends at ' $END_DATETIME
