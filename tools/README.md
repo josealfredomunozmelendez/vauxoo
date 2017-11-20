@@ -114,6 +114,9 @@ Correr el script de migracion que esta en la carpeta tools de instance.
 
 > **NOTA:** El script de migraciøn debe correrse en la instancia **vauxoo110**.
 
+Al terminar de correr el script este generara en el home del usuario un archivo
+log donde muestra que sucedió, este archivo es del formato fecha_migration.log
+
 Post Migración
 --------------
 
@@ -123,14 +126,12 @@ este bien sin errores.
 Observaciones
 -------------
 
-Al terminar de correr el script este generara en el home del usuario un archivo
-log donde muestra que sucedió, este archivo es del formato fecha_migration.log
-
-Cuando ocurre un error en el script de migracion, ese registro o grupo de
-registros que no pudieron ser importados se almacenan en un archivo de la
-forma "nombre.modelo.csv". Este archivo contiene los registros que estan
-pendientes aun por importar. Con este commando podemos importarlos, tras
-resolver el error que hubo con ellos.
+Mas que todo para pruebas de migracion y ambiente de desarrollo, cuando ocurre
+un error en el script de migracion, los registros que no pudieron ser
+importados se almacenan en un archivo de la forma "import.nombre.modelo.csv".
+Este archivo contiene los registros que estan pendientes aun por importar ya
+mapeados solo esperando por ser importados neuvamente, tras resolver el error
+que hubo con ellos.
 
 ```bash
 # cd /home/odoo/instance/extra_addons/instance/tools

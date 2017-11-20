@@ -104,7 +104,7 @@ class Migration(object):
             max_connection=self.max_connection, batch_size=self.batch_size)
 
         if not ids:
-            self.write_errors(model, load_fields, load_data_group)
+            self.write_errors('import.' + model, load_fields, load_data_group)
         return {'failed': fails, 'messages': messages, 'ids': ids}
 
     def import_data(self, model, load_fields, load_data_group):
@@ -2771,7 +2771,7 @@ class Migration(object):
             rd = csv.reader(csvfilefile)
             data = list(rd)
 
-        model = csvfile.replace('.csv', '')
+        model = csvfile.replace('.csv', '').replace('import.', '')
         self.load(model, data[0], data[1:])
 
     def migrate_per_model(self, model, domain=None, defaults=None,
