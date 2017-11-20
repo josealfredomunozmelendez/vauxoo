@@ -131,19 +131,23 @@ class Migration(object):
         #     model, 'export_data', ids, export_fields)
         # return export_data
 
-        ids = export_data(
+        data = export_data(
             registry=self.legacy, model=model, ids=ids, header=export_fields,
             max_connection=self.max_connection, batch_size=self.batch_size)
-        return {'datas': ids}
+
+        if not data:
+            self.write_errors('export.' + model, ids, [])
+            _logger.error('Values were not exported')
+        return data
 
     def export_data(self, model, ids, export_fields):
         export_data_batchs, batchs = self.chunks(ids)
-        exported_data = {'datas': []}
+        exported_data = []
         for (group, batch) in enumerate(export_data_batchs, 1):
             _logger.debug("Group %s-%s" % (group, batchs))
             res = self.legacy.execute(
                 model, 'export_data', batch, export_fields)
-            exported_data['datas'].extend(res['datas'] or [])
+            exported_data.extend(res['datas'] or [])
             """
             if not res.get('ids', False):
                 self.write_errors(model, load_fields, batch)
@@ -328,7 +332,9 @@ class Migration(object):
         export_fields = ['code', 'id', 'name', 'country_id/id',
                          'country_id/code', 'country_id/.id']
         legacy_data = self.export(
-            'res.country.state', legacy_ids, export_fields).get('datas', [])
+            'res.country.state', legacy_ids, export_fields)
+        if not legacy_data:
+            return
 
         to_import = []
         to_mapping = []
@@ -469,7 +475,10 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to create %s" % (len(position_ids),))
         position_data = self.export(
-            read_model, position_ids, export_fields).get('datas', [])
+            read_model, position_ids, export_fields)
+        if not position_data:
+            return
+
         self.load(write_model, load_fields, position_data)
 
     def migrate_res_partner(self, domain=None, limit=None):
@@ -642,7 +651,9 @@ class Migration(object):
             (r'Other', 'Other address'),
         ])
         partner_data = self.export(
-            model, partner_ids, export_fields).get('datas', [])
+            model, partner_ids, export_fields)
+        if not partner_data:
+            return
 
         load_data_group = []
 
@@ -709,7 +720,9 @@ class Migration(object):
             # 'parent_id', 'module_ids', 'child_ids',
         ]
         apps_data = self.export(
-            read_model, categ_apps_ids, export_fields).get('datas')
+            read_model, categ_apps_ids, export_fields)
+        if not apps_data:
+            return
 
         self.load(write_model, load_fields, apps_data)
 
@@ -742,7 +755,9 @@ class Migration(object):
             # 'category_id/id',  # not for now
         ]
         groups_data = self.export(
-            read_model, groups_ids, export_fields).get('datas')
+            read_model, groups_ids, export_fields)
+        if not groups_data:
+            return
 
         for group in groups_data:
             group[load_fields.index('implied_ids/id')] = self.mapping_groups(
@@ -773,7 +788,10 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         _logger.info("OAuth2 provider to create %s" % (len(record_ids),))
         data = self.export(
-            read_model, record_ids, export_fields).get('datas', [])
+            read_model, record_ids, export_fields)
+        if not data:
+            return
+
         self.load(write_model, load_fields, data)
 
     def migrate_res_users(self, domain=None, limit=None, defaults=None):
@@ -980,7 +998,9 @@ class Migration(object):
         _logger.info("Users to create %s" % (len(user_ids),))
 
         user_data = self.export(
-            'res.users', user_ids, export_fields).get('datas', [])
+            'res.users', user_ids, export_fields)
+        if not user_data:
+            return
 
         load_data_group = []
         for user in user_data:
@@ -1029,7 +1049,10 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         _logger.info("Employees to create %s" % (len(employee_ids),))
         employee_data = self.export(
-            read_model, employee_ids, export_fields).get('datas', [])
+            read_model, employee_ids, export_fields)
+        if not employee_data:
+            return
+
         self.load(write_model, load_fields, employee_data)
 
     def migrate_project_stages(self):
@@ -1180,7 +1203,10 @@ class Migration(object):
         load_fields.append('color')
 
         export_data = self.export(
-            read_model, tag_ids, export_fields).get('datas', [])
+            read_model, tag_ids, export_fields)
+        if not export_data:
+            return
+
         # preprocess
         load_data_group = []
         for (index, tag) in enumerate(export_data, 0):
@@ -1260,7 +1286,10 @@ class Migration(object):
         load_fields.append('project_id/id')
 
         task_data = self.export(
-            read_model, task_ids, export).get('datas', [])
+            read_model, task_ids, export)
+        if not task_data:
+            return
+
         load_data_group = []
         for (item, task) in enumerate(task_data):
             # Mapping
@@ -1421,7 +1450,9 @@ class Migration(object):
         load_fields.append('ticket_type_id/id')
 
         export_data = self.export(
-            read_model, issue_ids, export_fields).get('datas', [])
+            read_model, issue_ids, export_fields)
+        if not export_data:
+            return
 
         load_data_group = []
         for issue in export_data:
@@ -1514,7 +1545,10 @@ class Migration(object):
         _logger.info("User Stories to create " + str(len(story_ids)))
 
         export_data = self.export(
-            read_model, story_ids, export_fields).get('datas', [])
+            read_model, story_ids, export_fields)
+        if not export_data:
+            return
+
         user_story_data = [self.list2dict(export_fields, item)
                            for item in export_data]
 
@@ -1579,7 +1613,9 @@ class Migration(object):
 
         load_fields = export_fields
         sprint_data = self.export(
-            read_model, sprint_ids, export_fields).get('datas', [])
+            read_model, sprint_ids, export_fields)
+        if not sprint_data:
+            return
 
         load_data_group = []
         for sprint in sprint_data:
@@ -1610,7 +1646,10 @@ class Migration(object):
         load_fields = []
         load_fields.extend(export_fields)
         story_data = self.export(
-            read_model, story_ids, export_fields).get('datas', [])
+            read_model, story_ids, export_fields)
+        if not story_data:
+            return
+
         self.load(write_model, load_fields, story_data)
 
     def migrate_acceptability_criteria(self, domain=None, limit=None,
@@ -1675,7 +1714,10 @@ class Migration(object):
         _logger.info(read_model + " to export %s" % (len(record_ids),))
 
         export_data = self.export(
-            read_model, record_ids, export_fields).get('datas', [])
+            read_model, record_ids, export_fields)
+        if not export_data:
+            return
+
         criteria_data = [self.list2dict(export_fields, item)
                          for item in export_data]
         load_data_group = []
@@ -1780,7 +1822,9 @@ class Migration(object):
         sale_ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(sale_ids),))
         export_data = self.export(
-            read_model, sale_ids, export_fields).get('datas', [])
+            read_model, sale_ids, export_fields)
+        if not export_data:
+            return
 
         load_data_group = []
         # preprocessing data
@@ -1826,7 +1870,9 @@ class Migration(object):
         sale_ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(sale_ids),))
         export_data = self.export(
-            read_model, sale_ids, export_fields).get('datas', [])
+            read_model, sale_ids, export_fields)
+        if not export_data:
+            return
 
         load_data_group = []
         # preprocessing data
@@ -1867,7 +1913,9 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(source_ids),))
         export_data = self.export(
-            read_model, source_ids, export_fields).get('datas', [])
+            read_model, source_ids, export_fields)
+        if not export_data:
+            return
 
         self.load(write_model, load_fields, export_data)
 
@@ -1914,7 +1962,10 @@ class Migration(object):
         _logger.info(write_model + " to migrate %s" % (len(stage_ids),))
 
         export_data = self.export(
-            read_model, stage_ids, export_fields).get('datas', [])
+            read_model, stage_ids, export_fields)
+        if not export_data:
+            return
+
         self.load(write_model, load_fields, export_data)
 
     def migrate_leads(self, domain=None, limit=None):
@@ -2039,8 +2090,11 @@ class Migration(object):
         ])
 
         record_data = self.export(read_model, lead_ids, export_fields)
+        if not record_data:
+            return
+
         xml_ids = defaultdict()
-        for (item, record) in enumerate(record_data.get('datas', []), 1):
+        for (item, record) in enumerate(record_data, 1):
             for field in load_fields:
                 if not (field.endswith('_id') or field.endswith('_uid')):
                     continue
@@ -2110,7 +2164,9 @@ class Migration(object):
         ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(ids),))
         export_data = self.export(
-            read_model, ids, export_fields).get('datas', [])
+            read_model, ids, export_fields)
+        if not export_data:
+            return
 
         load_data_group = []
         # preprocessing data
@@ -2173,7 +2229,10 @@ class Migration(object):
 
         _logger.info(read_model + " to migrate %s" % (len(project_ids),))
         export_data = self.export(
-            read_model, project_ids, export_fields).get('datas', [])
+            read_model, project_ids, export_fields)
+        if not export_data:
+            return
+
         projects = [self.list2dict(export_fields, item)
                     for item in export_data]
 
@@ -2293,6 +2352,8 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         click.echo(read_model + "to export %s" % (len(record_ids),))
         record_data = self.export(read_model, record_ids, export_fields)
+        if not record_data:
+            return
 
         # time_file = open('/tmp/hr_timesheet.csv', 'wb')
         # query = self.cr.mogrify(
@@ -2300,7 +2361,7 @@ class Migration(object):
         #     FROM STDIN WITH DELIMITER '|' NULL AS 'null' CSV QUOTE "" """,
         #     (AsIs(','.join(load_fields)),))
         xml_ids = defaultdict()
-        for (item, record) in enumerate(record_data.get('datas', []), 1):
+        for (item, record) in enumerate(record_data, 1):
             old_id_hr = record[0]
             record.pop(0)
             old_id_task = record[0]
@@ -2378,7 +2439,9 @@ class Migration(object):
             len(pub_categ_ids),))
         load_fields = export_fields
         pub_categ_data = self.export(
-            read_model, pub_categ_ids, export_fields).get('datas', [])
+            read_model, pub_categ_ids, export_fields)
+        if not pub_categ_data:
+            return
 
         load_data_group = []
         for (item, pub_categ) in enumerate(pub_categ_data, 1):
@@ -2402,7 +2465,9 @@ class Migration(object):
         _logger.info("-- Attributes to create %s" % (len(attribute_ids),))
         load_fields = export_fields
         attribute_data = self.export(
-            read_model, attribute_ids, export_fields).get('datas', [])
+            read_model, attribute_ids, export_fields)
+        if not attribute_data:
+            return
 
         self.load(write_model, load_fields, attribute_data)
 
@@ -2424,7 +2489,10 @@ class Migration(object):
 
         load_fields = export_fields
         value_data = self.export(
-            read_model, value_ids, export_fields).get('datas', [])
+            read_model, value_ids, export_fields)
+        if not value_data:
+            return
+
         self.load(write_model, load_fields, value_data)
 
     def migrate_product_category(self, domain=None, limit=None):
@@ -2444,7 +2512,10 @@ class Migration(object):
             len(prod_cat_ids),))
         load_fields = export_fields
         prod_cat_data = self.export(
-            read_model, prod_cat_ids, export_fields).get('datas', [])
+            read_model, prod_cat_ids, export_fields)
+        if not prod_cat_data:
+            return
+
         load_data_group = []
         for (item, prod_cat) in enumerate(prod_cat_data, 1):
             load_data_group.append(prod_cat)
@@ -2467,7 +2538,10 @@ class Migration(object):
         _logger.info("--- Uom categories to create %s" % (len(categ_ids),))
         load_fields = export_fields
         categ_data = self.export(
-            read_model, categ_ids, export_fields).get('datas', [])
+            read_model, categ_ids, export_fields)
+        if not categ_data:
+            return
+
         load_data_group = []
         for (item, categ) in enumerate(categ_data, 1):
             load_data_group.append(categ)
@@ -2492,7 +2566,10 @@ class Migration(object):
         _logger.info("--- Uom to create %s" % (len(uom_ids),))
         load_fields = export_fields
         uom_data = self.export(
-            read_model, uom_ids, export_fields).get('datas', [])
+            read_model, uom_ids, export_fields)
+        if not uom_data:
+            return
+
         load_data_group = []
         for (item, uom) in enumerate(uom_data, 1):
             load_data_group.append(uom)
@@ -2576,7 +2653,10 @@ class Migration(object):
             read_model, 'search', domain, 0, limit)
         _logger.info("- Products Template to create %s" % (len(product_ids),))
         product_data = self.export(
-            read_model, product_ids, export_fields).get('datas', [])
+            read_model, product_ids, export_fields)
+        if not product_data:
+            return
+
         load_data_group = []
         for product in product_data:
             # defaults
@@ -2619,7 +2699,10 @@ class Migration(object):
         )
         _logger.info("- Products to create %s" % (len(prod_prod_ids),))
         prod_prod_data = self.export(
-            read_model, prod_prod_ids, export_fields).get('datas', [])
+            read_model, prod_prod_ids, export_fields)
+        if not prod_prod_data:
+            return
+
         load_data_group = []
         for prod in prod_prod_data:
             # defaults
@@ -2645,7 +2728,10 @@ class Migration(object):
     def get_tags(self, model):
         tasks = self.legacy.execute(
             model, 'search', [('categ_ids', '!=', False)])
-        tags = self.export(model, tasks, ['categ_ids/.id']).get('datas')
+        tags = self.export(model, tasks, ['categ_ids/.id'])
+        if not tags:
+            return
+
         tag_ids = []
         for item in tags:
             tag_ids.extend(item[0].split(','))
