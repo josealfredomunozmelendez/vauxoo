@@ -138,15 +138,21 @@ que hubo con ellos.
 $ python3.5 import_data.py --load-csv FILENAME
 ```
 
-Mas que todo para pruebas de migracion y ambiente de desarrollo, podemos
-indicar a la herramienta un modelo, un domain y un set defaults (que sustituyen
-el mapping necesario) y asi poder exportar / mapear / importar un grupo
-determinado de elementos segun se especifique en sus parametros, solo este sub
-grupo sin tener que procesar todo el universo de registros de ese modelo.
+Mismo caso para cuando hay registros que no pudieron ser exportados tendremos
+el archivo "export.nombre.modelo.csv" el cual almacena una lista de ids
+separados por coma. Somos capaces de de exportar / mappear / importar los
+registos nuevamente con el siguiente commando.
 
 ```bash
 # cd /home/odoo/instance/extra_addons/instance/tools
 $ python3.5 import_data.py --model STR --domain STR --defaults STR --context STR
 ```
+
+En este comando no aplica para todos los modelos, pero se puede desarrollar a
+medida que se necesiter. Los defaults sustituyen el mapping necesario asi que
+son muy importantes. Solo este sub grupo de registros señalados por los parametros
+son los que serán procesados sin tener que procesar todo el universo de
+registros de ese modelo.
+
 > **NOTA:** Si vas a correr el script de migración varias veces tener en cuenta de
 que el filestore no se llene con archivos basura.
