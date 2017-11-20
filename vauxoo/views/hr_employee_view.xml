@@ -117,85 +117,29 @@
                     <field name="employee_badge_ids"/>
                     <field name="employee_task_ids"/>
                     <field name="task_count"/>
+                    <field name="generate_income"/>
+                    <field name="is_cost"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="#{kanban_color(record.color.raw_value)}">
-                                <div class="o_kanban_card_header">
-                                    <div class="o_kanban_card_header_title">
-                                        <div class="o_kanban_image">
-                                            <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id.raw_value)"/>
-                                        </div>
-                                        <div class="oe_kanban_details">
-                                            <div class="col-xs-8" style="text-align: left">
-                                                <strong>
-                                                    <h3> <field name="name"/> </h3>
-                                                </strong>
-                                                <ul >
-                                                    <li t-if="record.job_id.raw_value"><i><field name="job_id"/></i></li>
-                                                    <li t-if="record.department_id.raw_value"><b><field name="department_id"/></b></li>
-                                                </ul>
-                                                <t t-foreach="record.employee_badge_ids.raw_value" t-as="member">
-                                                    <img class="oe_kanban_avatar_smallbox" style="width: 30px; height: 30px; margin-right: 2px;" t-att-src="kanban_image('gamification.badge', 'image', member)" t-att-data-member_id="member"/>
-                                                </t>
-                                            </div>
-                                            <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_view" style="padding:0.0">
-                                                <div class="col-xs-12" style="align: center; padding:0.0">
-                                                    <field
-                                                        name="task_perc"
-                                                        widget="gauge"
-                                                        style="align: center; padding:0.0"
-                                                        options="{'levelcolors': ['#a9d70b', '#f9c802', '#ff0000']}">Performance</field>
-                                                </div>
-                                                <div t-if="record.task_count.raw_value != 0" class="col-xs-12 o_kanban_card_manage_section o_kanban_manage_view" style="padding:0.0">
-                                                    <div class="o_kanban_card_manage_title" style="text-align: center; padding:0.0">
-                                                        <span>Tasks</span>
-                                                    </div>
-                                                    <div class="col-xs-6" style="text-align: right">
-                                                        <ul >
-                                                            <li>ToDo: </li>
-                                                            <li>Done: </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-xs-6" style="text-align: left">
-                                                        <ul >
-                                                            <li><field name="task_todo"/></li>
-                                                            <li><field name="task_done"/></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="o_invisible">
-                                            <div class="col-xs-9" style="text-align: right; padding:0">
-                                                <ul>
-                                                    <li>Generate Income:</li>
-                                                    <li>It's Cost:</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xs-3" style="text-align: left; padding:0">
-                                                <ul>
-                                                    <li>
-                                                        <span class="pull-right text-left">
-                                                            <field name="generate_income"/>
-                                                        </span><br/>
-                                                    </li>
-                                                    <li>
-                                                        <span class="pull-right text-left">
-                                                            <field name="is_cost"/>
-                                                        </span><br/>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-xs-12 text-right">
-                                                <a type="edit">Settings</a>
-                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
-                                            </div>
-
-                                        </div>
+                                <t t-call="dashboardHeader"/>
+                                <div class="container o_kanban_card_content">
+                                    <div class="row">
+                                        <t t-call="dashboardTop"/>
+                                    </div>
+                                    <div class="row">
+                                        <t t-call="dashboardMiddle"/>
                                     </div>
                                 </div>
-
+                                <div class="container o_kanban_card_manage_pane">
+                                    <t t-call="dashboardManage"/>
+                                </div>
+                                <div class="container o_kanban_card_manage_pane">
+                                    <t t-call="dashboardFooter"/>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-name="dashboardFooter">
                                 <div class="container o_kanban_card_content col-xs-12">
                                     <div class="row">
                                         <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
@@ -238,7 +182,7 @@
                                     </div>
                                 </div>
 
-                                <div t-if="record.theoretical_timesheet.raw_value != 0"  class="col-xs-12 o_kanban_card_manage_settings">
+                                <div t-if="record.theoretical_timesheet.raw_value != 0"  class="col-xs-12">
                                     <div class="row">
                                         <div class="col-xs-6 o_kanban_card_manage_section o_kanban_manage_view">
                                             <div class="o_kanban_card_manage_title" style="text-align: center">
@@ -275,6 +219,75 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                        </t>
+                        <t t-name="dashboardManage">
+                            <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                <div class="col-xs-8">
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="row o_kanban_card_settings">
+                                <div class="col-xs-8">
+                                    <field name="is_cost" widget="set_widget"/>
+                                </div>
+                            </div>
+                            <div class="row o_kanban_card_settings">
+                                <div class="col-xs-8">
+                                    <field name="generate_income" widget="set_widget"/>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <a t-if="widget.editable" type="edit">Edit</a>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-name="dashboardTop">
+                            <div class="col-xs-6 o_kanban_primary_left">
+                                <t t-foreach="record.employee_badge_ids.raw_value" t-as="member">
+                                    <img class="oe_kanban_avatar_smallbox" style="width: 30px; height: 30px; margin-right: 2px;" t-att-src="kanban_image('gamification.badge', 'image', member)" t-att-data-member_id="member"/>
+                                </t>
+                            </div>
+                            <div class="col-xs-6 o_kanban_primary_right">
+                                <field name="task_perc" widget="gauge" style="align: center; padding:0.0" options="{'levelcolors': ['#a9d70b', '#f9c802', '#ff0000']}">Performance</field>
+                            </div>
+                        </t>
+                        <t t-name="dashboardMiddle">
+                            <div class="col-xs-6 o_kanban_primary_left">
+                                <span class="text-center"><b><u>Tasks</u></b></span>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <ul>
+                                            <li><span class="text-right">ToDo:</span></li>
+                                            <li><span class="text-right">Done:</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <ul class="text-left">
+                                            <li><span class="text-left"><field name="task_todo"/></span></li>
+                                            <li><span class="text-left"><field name="task_done"/></span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 o_kanban_primary_right">
+                            </div>
+                        </t>
+                        <t t-name="dashboardHeader">
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <div class="o_kanban_image">
+                                            <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id.raw_value)"/>
+                                        </div>
+                                        <a type="object" name="open_action"><field name="name"/></a>
+                                    </div>
+                                    <div class="o_secondary">
+                                        <span t-if="record.job_id.raw_value"><i><field name="job_id"/></i></span>
+                                        <span t-if="record.department_id.raw_value"><br/> on <b><field name="department_id"/></b></span>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#"><i class="fa fa-ellipsis-v"/></a>
                                 </div>
                             </div>
                         </t>

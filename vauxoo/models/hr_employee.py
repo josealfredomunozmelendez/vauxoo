@@ -65,6 +65,13 @@ class HrDepartment(models.Model):
         compute='_compute_total_salary',
         help="How many hours this person is having billable")
 
+    @api.multi
+    def open_action(self):
+        """return action based on type for related journals"""
+        action_name = self._context.get('action_name', False)
+
+
+
     @api.depends()
     def _compute_total_salary(self):
         for dep in self:

@@ -12,6 +12,7 @@
     <template id="assets_backend" name="account assets" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
             <link rel="stylesheet" href="/vauxoo/static/src/less/dashboard.less"/>
+            <script type="text/javascript" src="/vauxoo/static/src/js/widget.js"></script>
         </xpath>
     </template>
 </odoo>
