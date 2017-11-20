@@ -2832,7 +2832,8 @@ def print_version(ctx, param, value):
 
 def conect_and_login(host, port, db, user, pwd, odoo=True):
     if odoo:
-        instance = odoorpc.ODOO(host, port=port, timeout=9999999)
+        protocol = 'jsonrpc+ssl' if port == 443 else 'jsonrpc'
+        instance = odoorpc.ODOO(host, protocol, port=port, timeout=9999999)
         instance.login(db, user, pwd)
         _logger.info(
             "Connected to database %s (%s) in host %s:%s as %s" % (

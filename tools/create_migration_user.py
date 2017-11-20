@@ -5,7 +5,8 @@ import click
 
 
 def conect_and_login(host, port, database, user, password):
-    instance = odoorpc.ODOO(host, port=port, timeout=9999999)
+    protocol = 'jsonrpc+ssl' if port == 443 else 'jsonrpc'
+    instance = odoorpc.ODOO(host, protocol, port=port, timeout=9999999)
     instance.login(database, user, password)
     click.echo(
         "Connected to database %s (%s) in host %s:%s as %s" % (
