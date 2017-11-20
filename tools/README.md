@@ -61,6 +61,16 @@ $WORKERS
 $ODOO_FILESTORE_PATH
 ```
 
+> **NOTA**: Si alguna de estas variables hace falta por definir en el entorno
+> actual e intentas correr el script indicará un mensaje como:
+>
+```bash
+./migration.sh: line 12: ODOO_FILESTORE_PATH: parameter null or not set
+```
+>
+Lo unico necesario es que exportes/asignes la variable en tu consola y vuelvas
+a correr el script.
+
 Las siguientes anotaciones son importantes:
 
 - Los containers vauxoo80 y vauxoo110 deben tener expuestos los puertos

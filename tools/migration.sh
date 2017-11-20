@@ -3,6 +3,14 @@ set -e
 
 source migration.conf
 
+: ${PGHOST:?}
+: ${PGPORT:?}
+: ${PGDATABASE:?}
+: ${PGUSER:?}
+: ${PGPASSWORD:?}
+: ${WORKERS:?}
+: ${ODOO_FILESTORE_PATH:?}
+
 START_DATETIME="$(date +%Y-%m-%d_%H-%M)"
 LOG_FILE="$HOME/${START_DATETIME}_migration.log"
 
