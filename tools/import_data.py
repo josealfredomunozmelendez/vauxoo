@@ -2762,15 +2762,15 @@ pass_config = click.make_pass_decorator(Config, ensure=True)
 @click_log.simple_verbosity_option()
 @click.option('--legacy-host', default='127.0.0.1',
               help='Od oo server host. default 127.0.0.1')
-@click.option('--legacy-port', type=int, default=8069,
-              help='O doo server port. default 8069')
+@click.option('--legacy-port', type=int, default=8072,
+              help='O doo server port. default 8072')
 @click.option("--legacy-db", type=str, help='Database name')
 @click.option("--legacy-user", type=str, help='Odoo user')
 @click.option("--legacy-pwd", type=str, help='Odoo user password')
 @click.option('--nhost', default='127.0.0.1',
               help='Odoo  server host. default 127.0.0.1')
-@click.option('--nport', type=int, default=8069,
-              help='Odoo server port. default 8069')
+@click.option('--nport', type=int, default=8072,
+              help='Odoo server port. default 8072')
 @click.option("--ndb", type=str, help='Database name')
 @click.option("--nuser", type=str, help='Odoo user')
 @click.option("--npwd", type=str, help='Odoo user password')
@@ -2785,6 +2785,9 @@ pass_config = click.make_pass_decorator(Config, ensure=True)
               help='Odoo DB server port. default 5432')
 @click.option("--dbuser", type=str, help='DB user')
 @click.option("--dbpwd", type=str, help='DB user password')
+@click.option('--workers', type=int, help="Workers of new instace. Is used to"
+                                          " to compute the max connection for"
+                                          " threading")
 @click.option('--model', type=str, help="migrate the records of the model")
 @click.option('--domain', type=str, help="migrate the records in domain")
 @click.option('--defaults', type=str, help="Default values for migrated"
@@ -2797,6 +2800,7 @@ def main(config, save_config, show_config, use_config,
          legacy_host=None, legacy_port=None, legacy_db=None, legacy_user=None,
          legacy_pwd=None, nhost=None, nport=None, ndb=None, nuser=None,
          npwd=None,
+         workers=None,
          model=None, domain=None, defaults=None, context=None,
          load_csv=None,
          dbhost=None, dbport=None, dbuser=None, dbpwd=None):
@@ -2816,6 +2820,7 @@ def main(config, save_config, show_config, use_config,
             legacy_db=legacy_db, legacy_user=legacy_user,
             legacy_pwd=legacy_pwd,
             nhost=nhost, nport=nport, ndb=ndb, nuser=nuser, npwd=npwd,
+            workers=workers,
             dbhost=dbhost, dbport=dbport, dbuser=dbuser, dbpwd=dbpwd
         )
         config.save()
@@ -2835,19 +2840,23 @@ def main(config, save_config, show_config, use_config,
         ndb = config.get('ndb')
         nuser = config.get('nuser')
         npwd = config.get('npwd')
+        workers = config.get('workers')
         dbhost = config.get('dbhost')
         dbport = config.get('dbport')
         dbuser = config.get('dbuser')
         dbpwd = config.get('dbpwd')
+        _logger.info(
+            "Configuration used " + str(config.config))
+        _logger.info(pprint.pformat(config))
 
-    if legacy_db is None or ndb is None or legacy_user is None or \
-       nuser is None or legacy_pwd is None or npwd is None:
-        if legacy_db is None or ndb is None:
-            _logger.error("Both legacy and new databases are required")
-        if legacy_user is None or nuser is None:
-            _logger.error("Both legacy and new odoo users are required")
-        if legacy_pwd is None or npwd is None:
-            _logger.error("Both legacy and new odoo passwords are required")
+    if None in [legacy_host, legacy_port, legacy_db, legacy_user, legacy_pwd]:
+        _logger.error("Legacy connection data is required")
+        quit()
+    if None in [nhost, nport, ndb, nuser, npwd, workers]:
+        _logger.error("New Instance connection data is required")
+        quit()
+    if None in [dbhost, dbport, dbuser, dbpwd]:
+        _logger.error("New Instance POSTGRES connection data is required")
         quit()
 
     legacy = conect_and_login(legacy_host, legacy_port, legacy_db, legacy_user,
@@ -2855,7 +2864,7 @@ def main(config, save_config, show_config, use_config,
     saas14 = conect_and_login(nhost, nport, ndb, nuser, npwd)
     cursor = conect_and_login(dbhost, dbport, ndb, dbuser, dbpwd, False)
 
-    vauxoo = Migration(legacy, saas14, cursor.cursor(), 12, 100)
+    vauxoo = Migration(legacy, saas14, cursor.cursor(), workers-1, 100)
     vauxoo.test()
 
     # Install the magic module and pass the magic user (Migration user)
