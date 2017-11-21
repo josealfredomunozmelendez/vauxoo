@@ -2185,7 +2185,7 @@ class Migration(object):
             record[load_fields.index('state')] = state_mapping.get(
                 record[load_fields.index('state')])
             load_data_group.append(record)
-        self.load(write_model, load_fields, load_data_group)
+        self.import_data(write_model, load_fields, load_data_group)
 
     def migrate_project_project(self, domain=None, limit=None, defaults=None):
         """ Create task for each project.project """
