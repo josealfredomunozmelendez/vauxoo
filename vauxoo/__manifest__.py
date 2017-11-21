@@ -138,10 +138,8 @@
         "wizard/employee_user_view.xml",
 
         # Email templates
-        "views/ask_review_criteria_email.xml",
-        "views/approve_criteria_email.xml",
         "data/website_quotation_template.xml",
-        "views/approving_start_to_work_email.xml",
+        "data/email_templates.xml",
 
         # Stages Data
         "data/project_task_stages.xml",
