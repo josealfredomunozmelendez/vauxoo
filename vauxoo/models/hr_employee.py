@@ -319,12 +319,13 @@ class HrEmployee(models.Model):
 
     @api.depends('direct_badge_ids', 'user_id.badge_ids.employee_id')
     def _compute_employee_badges(self):
+        gamifi_badge = self.env['gamification.badge']
         super(HrEmployee, self)._compute_employee_badges()
-        res = dict.fromkeys(self.ids, self.env['gamification.badge'])
+        res = dict.fromkeys(self.ids, gamifi_badge)
         for employee in self:
             for badge in employee.badge_ids:
                 res[employee.id] |= badge.badge_id
-            employee.employee_badge_ids = res[employee.id]
+            employee.employee_badge_ids = res.get(employee.id) or gamifi_badge
 
     @api.multi
     def _inverse_total_salary(self):
