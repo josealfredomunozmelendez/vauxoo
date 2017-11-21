@@ -184,7 +184,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="replace">
                     <field name="id"/>
-                    <field name="name" invisible="1"/>
+                    <field name="name"/>
                     <field name="difficulty_id"/>
                     <field name="group_id"/>
                     <field name="list_id"/>
@@ -198,11 +198,6 @@
                     <filter name="list_id" string="List" context="{'group_by':'list_id'}"/>
                     <filter name="layer_id" string="Layer" context="{'group_by':'layer_id'}"/>
                     <filter name="is_layer" string="Is Layer?" context="{'group_by':'is_layer'}"/>
-                </xpath>
-                <xpath expr="//filter[@name='Stage']" position="after">
-                    <filter name="user_story" string="User Stories" domain="[('sale_line_id', '!=', False), ('parent_id','=', False)]"/>
-                    <filter name="acceptability_criteria" string="Acceptability Criteria" domain="[('sale_line_id', '!=', False),('parent_id','!=', False)]"/>
-                    <filter name="orphan_task" string="Orphan Task" domain="[('tag_ids', 'ilike', 'Orphan')]"/>
                 </xpath>
             </field>
         </record>
