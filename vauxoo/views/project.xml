@@ -185,6 +185,7 @@
                 <xpath expr="//field[@name='name']" position="replace">
                     <field name="id"/>
                     <field name="name"/>
+                    <field name="description"/>
                     <field name="difficulty_id"/>
                     <field name="group_id"/>
                     <field name="list_id"/>
