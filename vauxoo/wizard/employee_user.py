@@ -18,26 +18,26 @@ class Wizard(models.TransientModel):
     def link_user(self):
         self.ensure_one()
         # Groups to assign: selected one and employee
-        emp_group = self.env['res.groups'].search([('name', '=', 'Employee')])
+        emp_group = self.env.ref('base.group_user')
         recv_group = set([self.group_id.id, emp_group.id])
         # Dict to use in write method
         vals = {'groups_id': [(6, 0, list(recv_group))]}
         ids_employee = self._context.get('active_ids')
         employees = self.env['hr.employee'].browse(ids_employee)
         for employee in employees:
-            if employee.user_id:
-                # Only assign group
-                employee.user_id.write(vals)
-            else:
+            if not employee.user_id:
                 # Try to find an user with same email
-                userid = self.env['res.users'].search([('login', '=',
-                                                        employee.work_email)])
+                user_id = self.env['res.users'].search(
+                    [('login', '=', employee.work_email)])
                 # Only an user would be got, res_users_login_key constraint
                 # Avoid existence of two users with the same email (login)
-                if userid:  # Assign user and group
-                    employee.user_id = userid.id
-                    userid.write(vals)
-                else:
+                if not user_id:
                     raise UserError(_(
                         "User not created. Doesn't exists an user with same"
                         " email address."))
+                # Assign user and group
+                employee.user_id = user_id.id
+                user_id.write(vals)
+                continue
+            # Only assign group
+            employee.user_id.write(vals)
