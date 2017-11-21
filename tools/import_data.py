@@ -1043,6 +1043,7 @@ class Migration(object):
             'image',
             'image_small',
             'image_medium',
+            'company_id/id',
         ]
 
         employee_ids = self.legacy.execute(
@@ -1052,6 +1053,10 @@ class Migration(object):
             read_model, employee_ids, export_fields)
         if not employee_data:
             return
+
+        # Apply Defaults
+        for record in employee_data:
+            record[-1] = False
 
         self.load(write_model, load_fields, employee_data)
 
