@@ -2112,6 +2112,8 @@ class Migration(object):
             # Mapping
             record[load_fields.index('priority')] = mapping_priority.get(
                 record[load_fields.index('priority')])
+            record[load_fields.index('type')] = record[
+                load_fields.index('type')].a.lower()
 
             record = [self.clean_str(i) for i in record]
             dict_vals = dict(zip(load_fields, record))
