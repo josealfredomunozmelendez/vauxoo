@@ -2085,11 +2085,11 @@ class Migration(object):
         _logger.info(write_model + " to migrate %s" % (len(lead_ids),))
 
         mapping_priority = dict([
-            ('Very Low', 'Low'),
-            ('Low', 'Low'),
-            ('Normal', 'Normal'),
-            ('High', 'High'),
-            ('Very High', 'Very High'),
+            ('Very Low', '1'),
+            ('Low', '1'),
+            ('Normal', '0'),
+            ('High', '2'),
+            ('Very High', '3'),
         ])
 
         record_data = self.export(read_model, lead_ids, export_fields)
@@ -2113,7 +2113,7 @@ class Migration(object):
             record[load_fields.index('priority')] = mapping_priority.get(
                 record[load_fields.index('priority')])
             record[load_fields.index('type')] = record[
-                load_fields.index('type')].a.lower()
+                load_fields.index('type')].lower()
 
             record = [self.clean_str(i) for i in record]
             dict_vals = dict(zip(load_fields, record))
