@@ -65,11 +65,11 @@ que estos se toman automaticamente de las variables de entorno activas. Lo
 mismo aplica para el path del filerstore de vauxo110 y los workers que utiliza.
 
 ```bash
-$PGHOST
-$PGPORT
-$PGUSER
-$PGPASSWORD
-$PGDATABASE
+$DB_HOST
+$DB_PORT
+$DB_USER
+$DB_PASSWORD
+$DB_NAME
 $WORKERS
 $ODOO_FILESTORE_PATH
 ```
