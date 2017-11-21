@@ -131,16 +131,6 @@
                 <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="ticket_id"/>
                 </xpath>
-                <xpath expr="//field[@name='progress']" position="after">
-                    <field name="approving_id" attrs="{'invisible': [('approving_id', '=', False)]}"/>
-                    <div class="no_print">
-                        <button name="do_approval"
-                                type="object"
-                                attrs="{'invisible':['|', ('approving_id', '!=', False), ('parent_id', '!=', False)]}"
-                                help="Please, Approve this User Story to start to work with it take care about if you are not the Owner of this User Story you will not be able to approve it."
-                                string="I approve start to work with this Story"/>
-                    </div>
-                </xpath>
                 <xpath expr="//page[@name='description_page']" position="after">
                     <page name="criteria" string="Acceptability Criteria" attrs="{'invisible':[('parent_id', '=', False)]}">
                         <group>
@@ -173,6 +163,16 @@
                 </xpath>
                 <xpath expr="//field[@name='remaining_hours']" position="after">
                     <field name="billable_hours" widget="float_time" class="oe_subtotal_footer_separator" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='progress']" position="after">
+                    <field name="approving_id" attrs="{'invisible': [('approving_id', '=', False)]}"/>
+                    <div class="no_print">
+                        <button name="do_approval"
+                                type="object"
+                                attrs="{'invisible':['|', ('approving_id', '!=', False), ('parent_id', '!=', False)]}"
+                                help="Please, Approve this User Story to start to work with it take care about if you are not the Owner of this User Story you will not be able to approve it."
+                                string="I approve start to work with this Story"/>
+                    </div>
                 </xpath>
             </field>
         </record>
