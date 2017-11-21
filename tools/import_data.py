@@ -1818,6 +1818,7 @@ class Migration(object):
         load_fields = []
         load_fields.extend(export_fields)
         # load_fields[export_fields.index('categ_ids/id')] = 'tag_ids/id'
+        load_fields.append('confirmation_date')
 
         sale_ids = self.legacy.execute(read_model, 'search', domain, 0, limit)
         _logger.info(write_model + " to migrate %s" % (len(sale_ids),))
@@ -1839,6 +1840,7 @@ class Migration(object):
                 (r'Done', r'Locked'),
                 (r'Cancelled', r'Cancelled'),
             ])
+            record.append(record[load_fields.index('write_date')])
             record[load_fields.index('state')] = state_mapping.get(
                 record[load_fields.index('state')])
             load_data_group.append(record)
@@ -3018,13 +3020,9 @@ def main(config, save_config, show_config, use_config,
     # Sale Order
     sales_to_export = vauxoo.get_sales_to_export()
     vauxoo.migrate_sale_orders([('id', 'in', sales_to_export)])
-    # TODO we have a problem that need to ve solved with string and bool on
-    # date field.
-    # vauxoo.migrate_sale_order_lines([
-    #   ('order_id', 'in', sales_to_export),
-    #   # TODO This ones has been commented we have a problem not detected yet
-    #   ('id', 'not in', [1008, 1361, 1718, 2212]),
-    # ])
+    vauxoo.migrate_sale_order_lines([
+        ('order_id', 'in', sales_to_export),
+    ])
     # vauxoo.migrate_analytic_account()
 
     # Leads
