@@ -1691,7 +1691,6 @@ class Migration(object):
         load_fields = [
             'id',
             'name',
-            'description',
             'tag_ids/id',
             'stage_id/id',
             'user_id/id',
@@ -1738,8 +1737,8 @@ class Migration(object):
             criteria.update(defaults)
             task = [
                 criteria.get('id'),
-                criteria.get('name') + " [AC" + criteria.get('.id') + "]",
-                criteria.get('scenario'),  # description
+                criteria.get('name') + ': '  + criteria.get('scenario') +
+                " [AC%s]" % criteria.get('.id'),  # name
                 tags,
                 stage,
                 criteria.get('user_execute_id/id'),
