@@ -205,94 +205,6 @@ class Migration(object):
         return r'Spanish / Español' if lang in ['es_MX', 'es_VE', 'es_PA'] \
             else lang
 
-    def mapping_groups(self, groups):
-        """ Remove deprecated groups from the res users groups to import list
-        """
-        deprecated_to_remove = set([
-            'account.group_supplier_inv_check_total',
-            'account_analytic_analysis.group_template_required',
-            'account_financial_report.group_afreport',
-            'account_financial_report.group_afreport_user',
-            'account_group_auditory.group_account_user_audit',
-            'base.group_document_user',
-            'base.group_hr_attendance',
-            'base.group_hr_manager',
-            'base.group_hr_user',
-            'base.group_mono_salesteams',
-            'base.group_multi_salesteams',
-            'base.group_sale_manager',
-            'base.group_sale_salesman',
-            'base.group_sale_salesman_all_leads',
-            'base.group_survey_manager',
-            'base.group_survey_user',
-            'base.group_website_designer',
-            'base.group_website_publisher',
-            'city.group_res_country_state_city_manager',
-            'crm.group_fund_raising',
-            'crm.group_scheduled_calls',
-            'ctp_training_tools.certificate_manager',
-            'expired_task_information.group_config_task_expiry',
-            'gamification.group_goal_manager',
-            'ifrs_report.group_ifrsreport',
-            'ifrs_report.group_ifrsreport_user',
-            'invoice_datetime.group_invoice_hide_datetime',
-            'l10n_facturae_groups_multipac_vauxoo'
-            '.group_l10n_mx_facturae_multipac_manager',
-            'l10n_facturae_groups_multipac_vauxoo'
-            '.group_l10n_mx_facturae_multipac_user',
-            'l10n_mx_facturae_22_regimen_fiscal.group_regimen_fiscal_manager',
-            'l10n_mx_facturae_22_regimen_fiscal.group_regimen_fiscal_user',
-            'l10n_mx_facturae_base.group_l10n_mx_facturae_print_inv_default',
-            'l10n_mx_facturae_group_show_wizards'
-            '.res_group_facturae_show_default_wizards',
-            'l10n_mx_facturae_groups.group_l10n_mx_facturae_manager',
-            'l10n_mx_facturae_groups.group_l10n_mx_facturae_user',
-            'l10n_mx_facturae_groups.group_l10n_mx_xml_cancel',
-            'l10n_mx_facturae_groups.group_l10n_mx_xml_regenerate_xml',
-            'l10n_mx_ir_attachment_facturae.group_l10n_mx_itfm_force_signed',
-            'l10n_mx_params_pac.res_group_pacs',
-            'lunch.group_lunch_manager',
-            'lunch.group_lunch_user',
-            'mail_add_followers_multirecord'
-            '.group_mail_add_followers_multirecord',
-            'marketing.group_marketing_manager',
-            'marketing.group_marketing_user',
-            'mass_mailing.group_mass_mailing_campaign',
-            'note.group_note_fancy',
-            'portal_sale.group_payment_options',
-            'product.group_mrp_properties',
-            'product.group_purchase_pricelist',
-            'product.group_uos',
-            'project.group_delegate_task',
-            'project.group_tasks_work_on_tasks',
-            'project_followers_rule.group_followers_project',
-            'project_issue_management.project_auditor',
-            'purchase.group_advance_bidding',
-            'sale.group_invoice_so_lines',
-            'sale.group_mrp_properties',
-            'sale_order_copy_line.group_sale_order_line_copy',
-            'sale_stock.group_invoice_deli_orders',
-            'set_group_by_department.res_group_vx_administrative_team',
-            'set_group_by_department.res_group_vx_manager_team',
-            'set_group_by_department.res_group_vx_technical_team',
-            'share.group_share_user',
-            'share.group_shared',
-            'sprint_kanban.group_sprint_kanban_manager',
-            'sprint_kanban.group_sprint_kanban_user',
-            'stock.group_locations',
-            'user_story.group_management_reports',
-            'user_story.group_user_story_manager',
-            'user_story.group_user_story_user',
-            'website_mail.group_comment'
-        ])
-
-        if not groups:
-            return groups
-
-        groups = set(groups.split(','))
-        groups = groups - deprecated_to_remove
-        return ','.join(groups)
-
     def res_company_mapping(self):
         """ Will create the xml_id for the existent companies
         """
@@ -726,45 +638,6 @@ class Migration(object):
 
         self.load(write_model, load_fields, apps_data)
 
-    def migrate_res_groups(self, domain=None, limit=None, defaults=None):
-        """ All the groups that has been exported in legacy instance
-        """
-        _logger.info('Migrate Groups')
-        domain = domain or []
-        defaults = defaults or {}
-        read_model = write_model = 'res.groups'
-
-        # All groups
-        all_groups = self.legacy.execute('res.groups', 'search', [], 0, limit)
-
-        # Search the groups that has not been exported.
-        domain = domain + [
-            ('module', '!=', '__export__'), ('model', '=', read_model)]
-        model_data_groups = self.legacy.execute(
-            'ir.model.data', 'search', domain, 0, limit)
-        not_exported_groups = self.legacy.execute(
-            'ir.model.data', 'read', model_data_groups, ['res_id'])
-        not_exported_groups = [
-            item.get('res_id') for item in not_exported_groups]
-
-        groups_ids = list(set(all_groups) - set(not_exported_groups))
-
-        export_fields = load_fields = [
-            'id', 'name', 'is_portal', 'share',
-            'comment', 'create_date', 'write_date', 'implied_ids/id',
-            # 'category_id/id',  # not for now
-        ]
-        groups_data = self.export(
-            read_model, groups_ids, export_fields)
-        if not groups_data:
-            return
-
-        for group in groups_data:
-            group[load_fields.index('implied_ids/id')] = self.mapping_groups(
-                group[load_fields.index('implied_ids/id')])
-
-        self.load(write_model, load_fields, groups_data)
-
     def migrate_auth_oauth_provider(self, domain=None, limit=None,
                                     defaults=None):
         _logger.info('Migrate Oauth Provider')
@@ -1010,8 +883,6 @@ class Migration(object):
             # Pre process
             user[load_fields.index('lang')] = self.res_lang_mapping(
                 user[load_fields.index('lang')])
-            user[load_fields.index('groups_id/id')] = self.mapping_groups(
-                user[load_fields.index('groups_id/id')])
             user[load_fields.index('notification_type')] = \
                 notify_mapping.get(
                     user[load_fields.index('notification_type')])
@@ -2994,7 +2865,6 @@ def main(config, save_config, show_config, use_config,
 
     # # Users
     # # vauxoo.migrate_app_categ()
-    vauxoo.migrate_res_groups()
     _model, portal = vauxoo.legacy.execute(
         'ir.model.data', 'get_object_reference', 'base', 'group_portal')
     vauxoo.migrate_auth_oauth_provider()
@@ -3002,11 +2872,13 @@ def main(config, save_config, show_config, use_config,
     # # Internal Users (active)
     vauxoo.migrate_res_users(
         [('groups_id', 'not in', [portal]), ('active', '=', True)],
-        defaults={'notification_type': r'email'})
+        defaults={'groups_id/id': 'base.group_user',
+                  'notification_type': r'email'})
     # Internal Users (in active)
     vauxoo.migrate_res_users(
         [('groups_id', 'not in', [portal]), ('active', '=', False)],
-        defaults={'notification_type': r'inbox'})
+        defaults={'groups_id/id': 'base.group_user',
+                  'notification_type': r'inbox'})
     # Portal Users
     vauxoo.migrate_res_users(
         [('groups_id', 'in', [portal]),
