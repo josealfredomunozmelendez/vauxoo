@@ -67,10 +67,9 @@ class HrDepartment(models.Model):
 
     @api.multi
     def open_action(self):
-        """return action based on type for related journals"""
-        action_name = self._context.get('action_name', False)
-
-
+        """TODO: return action based on type for related EMPLOYEE ACTION"""
+        self._context.get('action_name', False)
+        return {}
 
     @api.depends()
     def _compute_total_salary(self):
