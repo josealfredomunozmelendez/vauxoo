@@ -12,7 +12,7 @@ source migration.conf
 : ${ODOO_FILESTORE_PATH:?}
 
 START_DATETIME="$(date +%Y-%m-%d_%H-%M)"
-LOG_FILE="$HOME/${START_DATETIME}_migration.log"
+LOG_FILE="/tmp/${START_DATETIME}_migration.log"
 
 exec > >(tee -a ${LOG_FILE} )
 exec 2> >(tee -a ${LOG_FILE} >&2)
@@ -38,16 +38,21 @@ python3.5 import_data.py --use-config
 
 echo ' ---------------------- SQL Scripts ------------------------------------'
 
-PCPASSWORD=$DB_PASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER -w -d postgres -c "SHOW SERVER_VERSION;"
+PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER -w -d postgres -c "SHOW SERVER_VERSION;"
 
 echo $'\nStep 6: Prepare database to run sql scripts'
-PCPASSWORD=$DB_PASSWORD psql  -h $DB_HOST -p $DB_PORT -U $DB_USER -w -d $DB_NAME -c 'CREATE EXTENSION IF NOT EXISTS dblink;'
+PGPASSWORD=$DB_PASSWORD psql  -h $DB_HOST -p $DB_PORT -U $DB_USER -w -d $DB_NAME -c 'CREATE EXTENSION IF NOT EXISTS dblink;'
 
 echo $'\nStep 7: Set scripts parameters (confidential credentials)'
-sed -i 's/host= port= dbname= user= password=/host='$LEGACYPGHOST' port='$LEGACYPGPORT' dbname='$LEGACYDB' user='$LEGACYPGUSER' password='$LEGACYPGPASSWORD'/g' import_msq_from_v8_to_saas.sql import_attch_from_v8_to_saas.sql
+if [ $DB_HOST == '127.0.0.1']; then
+    THEHOST=$LEGACYPGHOST
+else
+    THEHOST='127.0.0.1'
+fi
+sed -i 's/host= port= dbname= user= password=/host='$THEHOST' port='$LEGACYPGPORT' dbname='$LEGACYDB' user='$LEGACYPGUSER' password='$LEGACYPGPASSWORD'/g' import_msq_from_v8_to_saas.sql import_attch_from_v8_to_saas.sql
 
 echo $'\nStep 8: Clean up the messages, attachment and followers doing the migration'
-PCPASSWORD=$DB_PASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER -w -f cleaunp_msg_attch_followers.sql -d $DB_NAME
+PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER -w -f cleaunp_msg_attch_followers.sql -d $DB_NAME
 
 echo $'\nStep 9: Migrate the mail messages'
 time PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER -w -f import_msq_from_v8_to_saas.sql -d $DB_NAME
