@@ -2881,7 +2881,7 @@ def main(config, save_config, show_config, use_config,
     saas14 = conect_and_login(nhost, nport, ndb, nuser, npwd)
     cursor = conect_and_login(dbhost, dbport, ndb, dbuser, dbpwd, False)
 
-    vauxoo = Migration(legacy, saas14, cursor, workers-1, 100)
+    vauxoo = Migration(legacy, saas14, cursor, workers-1 or 1, 100)
     vauxoo.test()
 
     # Install the magic module and pass the magic user (Migration user)
