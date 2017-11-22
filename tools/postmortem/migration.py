@@ -192,3 +192,13 @@ class Migration(object):
 
         model = csvfile.replace('.csv', '').replace('import.', '')
         self.load(model, data[0], data[1:])
+
+    def get_recoreds_to_update(self, model):
+        model_data = self.new_instance.env['ir.model.data']
+        to_update = model_data.search([
+            ('module', '=', '__export__'), ('model', '=', model)])
+        res = model_data.browse(to_update)
+        ids = [
+            self.legacy.env.ref('.'.join([item.module, item.name]))
+            for item in res]
+        return ids
