@@ -8,7 +8,7 @@
     "website": "http://www.vauxoo.com",
     "license": "LGPL-3",
     "category": "Vauxoo",
-    "version": "11.0.2.0.1",
+    "version": "11.0.2.0.2",
     "depends": [
         # Account section
         "account_asset",
