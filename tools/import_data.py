@@ -911,9 +911,9 @@ class Migration(object):
             user[load_fields.index('company_ids/id')] = 'base.main_company'
             user[load_fields.index('company_id/id')] = 'base.main_company'
             load_data_group.append(user)
-        user_ids = self.load(
+        self.load(
             'res.users', load_fields, load_data_group)
-        return user_ids.get('ids') or []
+        return user_ids
 
     def migrate_employee(self, domain=None, limit=None, defaults=None):
         """ Migrate only the employee name
