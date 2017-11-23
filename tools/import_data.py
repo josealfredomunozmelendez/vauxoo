@@ -46,7 +46,8 @@ class Migration(object):
             self, legacy, new_instance, cursor, max_connection, batch_size):
         self.legacy = legacy
         self.new_instance = new_instance
-        self.cr = cursor
+        self.cr = cursor.cursor()
+        self.cursor = cursor
         self.group_size = 100
         self.dummy_ir_models = []
         self.max_connection = max_connection
@@ -1231,6 +1232,7 @@ class Migration(object):
                     SET project_id = %s
                 WHERE id in %s""", (project_id, tuple(task_ids),))
         self.cr.execute(qry)
+        self.cursor.commit()
 
     def migrate_helpdesk_team(self):
         _logger.info('Create Helpdesk team')
@@ -1382,6 +1384,7 @@ class Migration(object):
                     SET team_id = %s
                 WHERE id in %s""", (team_id, tuple(ids),))
         self.cr.execute(qry)
+        self.cursor.commit()
 
     def migrate_user_story(self, domain=None, limit=None, defaults=None):
         """Migrate user_stories as tasks were project is another task"""
@@ -1493,6 +1496,7 @@ class Migration(object):
                     SET project_id = %s
                 WHERE id in %s""", (project_id, tuple(ids),))
         self.cr.execute(qry)
+        self.cursor.commit()
 
     def migrate_sprint(self, domain=None, limit=None):
         """ Method to migrate sprint model as project_tag"""
@@ -1668,6 +1672,7 @@ class Migration(object):
                     SET project_id = %s
                 WHERE id in %s""", (project_id, tuple(ids),))
         self.cr.execute(qry)
+        self.cursor.commit()
 
     def migrate_project_teams(self, domain=None, limit=None):
         """ Will load the new project teams from csv file and will
@@ -2177,6 +2182,7 @@ class Migration(object):
                     SET project_id = %s
                 WHERE id in %s""", (project_id, tuple(task_ids),))
         self.cr.execute(qry)
+        self.cursor.commit()
 
     def mapping_invoice_rate(self):
         """ Mapping the Invoice rate """
@@ -2875,7 +2881,7 @@ def main(config, save_config, show_config, use_config,
     saas14 = conect_and_login(nhost, nport, ndb, nuser, npwd)
     cursor = conect_and_login(dbhost, dbport, ndb, dbuser, dbpwd, False)
 
-    vauxoo = Migration(legacy, saas14, cursor.cursor(), workers-1, 100)
+    vauxoo = Migration(legacy, saas14, cursor, workers-1, 100)
     vauxoo.test()
 
     # Install the magic module and pass the magic user (Migration user)
