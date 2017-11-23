@@ -192,3 +192,27 @@ def import_data(registry, model, header=None, data=None,
         len(data), model, (time() - st)))
     _logger.debug("Import Finished")
     return writer.messages, writer.fails, writer.ids
+
+
+def import_data2(registry, model, header=None, data=None,
+                ignore=False, split=False, check=True,
+                max_connection=1, batch_size=10, skip=0):
+    ignore = ignore or []
+    if not header or data is None:
+        raise ValueError(
+            "Please provide either a data file or a header and data")
+
+    writer = ListWriter()
+    writer.writerow(filter_header_ignore(ignore, header))
+    rpc_thread = RPCThreadImport(
+        int(max_connection), registry, model,
+        filter_header_ignore(ignore, header), writer, batch_size)
+    st = time()
+    for number, setdata in enumerate(data):
+        rpc_thread.launch_batch(setdata, number, check)
+
+    rpc_thread.wait()
+    _logger.debug("%s %s imported, total time %s second(s)" % (
+        len(data), model, (time() - st)))
+    _logger.debug("Import Finished")
+    return writer.messages, writer.fails, writer.ids
