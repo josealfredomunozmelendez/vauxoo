@@ -732,10 +732,6 @@ class Migration(object):
             'signature',
             'write_date',
 
-            'oauth_access_token',
-            'oauth_provider_id/id',  # oauth.oauth.provider
-            'oauth_uid',
-
             # All the next fields were moved to mail.alias model, we do not
             # know if we will use it yet
             # 'alias_id/id',
