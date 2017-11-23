@@ -9,4 +9,5 @@ class HelpdeskTicket(models.Model):
     def _default_team_id(self):
         return False
 
-    team_id = fields.Many2one('helpdesk.team', string='Helpdesk Team', default=False, index=True)
+    team_id = fields.Many2one(
+        'helpdesk.team', string='Helpdesk Team', default=False, index=True)
