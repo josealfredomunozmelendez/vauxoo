@@ -44,7 +44,7 @@ echo $'\nStep 6: Prepare database to run sql scripts'
 PGPASSWORD=$DB_PASSWORD psql  -h $DB_HOST -p $DB_PORT -U $DB_USER -w -d $DB_NAME -c 'CREATE EXTENSION IF NOT EXISTS dblink;'
 
 echo $'\nStep 7: Set scripts parameters (confidential credentials)'
-if [ $DB_HOST == '127.0.0.1']; then
+if [ $DB_HOST == '127.0.0.1' ]; then
     THEHOST=$LEGACYPGHOST
 else
     THEHOST='127.0.0.1'
@@ -66,7 +66,7 @@ echo $'\nStep 11: Re activate the automated actions'
 PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -p $DB_PORT -U $DB_USER -w -d $DB_NAME -c "UPDATE base_automation SET active='t' WHERE id=1;"
 
 echo $'\nStep 12: Copy files from vauxoo80 to filestore vauxoo110'
-rsync -Pavhe "ssh -p 3202" --ignore-existing fs@files.vauxoo.com:/home/fs/filestore/ $ODOO_FILESTORE_PATH/$DB_NAME/
+rsync -Paqhe "ssh -p 3202" --ignore-existing fs@files.vauxoo.com:/home/fs/filestore/ $ODOO_FILESTORE_PATH/$DB_NAME/
 
 END_DATETIME="$(date +%Y-%m-%d_%H-%M)"
 echo 'Script start at ' $START_DATETIME ' and ends at ' $END_DATETIME
