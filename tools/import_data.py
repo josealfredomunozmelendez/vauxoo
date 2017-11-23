@@ -1340,7 +1340,6 @@ class Migration(object):
         load_fields.extend(export_fields[:-1])
         # load_fields[load_fields.index('project_id/id')] = 'tag_ids'
         load_fields[load_fields.index('categ_ids/id')] = 'tag_ids/id'
-        load_fields.append('team_id/id')
         load_fields.append('ticket_type_id/id')
 
         export_data = self.export(
@@ -1370,21 +1369,18 @@ class Migration(object):
             tags = issue[load_fields.index('tag_ids/id')] or str()
             issue[load_fields.index('tag_ids/id')] = ','.join(
                 [item + '_htag' for item in tags.split(',') if item])
-
             # defaults
-            issue.append(defaults.get('team_id/id'))
             issue.append('helpdesk.type_incident')
-
             load_data_group.append(issue)
 
-        ids = self.load_data(
+        ids = self.load(
             write_model, load_fields, load_data_group).get('ids') or []
-        project = defaults.get('project_id/id') or False
-        project_id = self.new_instance.env.ref(project).id
+        team = defaults.get('team_id/id') or False
+        team_id = self.new_instance.env.ref(team).id
         qry = self.cr.mogrify(
-            """UPDATE project_task
-                    SET project_id = %s
-                WHERE id in %s""", (project_id, tuple(ids),))
+            """UPDATE helpdesk_ticket
+                    SET team_id = %s
+                WHERE id in %s""", (team_id, tuple(ids),))
         self.cr.execute(qry)
 
     def migrate_user_story(self, domain=None, limit=None, defaults=None):

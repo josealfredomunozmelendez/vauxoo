@@ -6,7 +6,7 @@
     'author': 'Vauxoo',
     'website': 'https://vauxoo.com',
     'license': 'AGPL-3',
-    'depends': ['base'],
+    'depends': ['base', 'helpdesk'],
     'data': [
         'data/ir_config.xml',
     ],
