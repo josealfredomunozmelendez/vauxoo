@@ -24,7 +24,7 @@ def main():
         read_model = model if isinstance(model, str) else model[0]
         write_model = model if isinstance(model, str) else model[1]
 
-        ids = vauxoo.legacy.env[read_model].search([])
+        ids = vauxoo.get_recoreds_to_update(model)
         legacy_data = vauxoo.export(read_model, ids, export_fields)
         vauxoo.load(write_model, load_fields, legacy_data)
 
