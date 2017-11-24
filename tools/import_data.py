@@ -1639,7 +1639,7 @@ class Migration(object):
             criteria.update(defaults)
             task = [
                 criteria.get('id'),
-                criteria.get('name') + ': '  + criteria.get('scenario') +
+                criteria.get('name') + ': ' + criteria.get('scenario') +
                 " [AC%s]" % criteria.get('.id'),  # name
                 tags,
                 stage,
@@ -2726,6 +2726,21 @@ class Migration(object):
                 ('id', 'not in', [1008, 1361, 1718, 2212]),
             ])
 
+    def get_records_to_update(self, model):
+        """ Used for postmortem. read exported records in new_instance to then
+        find the id of the records in legacy instance.
+
+        return: legacy ids (int list)
+        """
+        model_data = self.new_instance.env['ir.model.data']
+        to_update = model_data.search([
+            ('module', '=', '__export__'), ('model', '=', model)])
+        res = model_data.browse(to_update)
+        ids = [
+            self.legacy.env.ref('.'.join([item.module, item.name])).id
+            for item in res]
+        return ids
+
 
 class Config(dict):
     def __init__(self, *args, **kwargs):
@@ -2754,17 +2769,17 @@ def print_version(ctx, param, value):
     ctx.exit()
 
 
-def conect_and_login(host, port, db, user, pwd, odoo=True):
+def conect_and_login(host, port, database, user, pwd, odoo=True):
     if odoo:
         protocol = 'jsonrpc+ssl' if port == 443 else 'jsonrpc'
         instance = odoorpc.ODOO(host, protocol, port=port, timeout=9999999)
-        instance.login(db, user, pwd)
+        instance.login(database, user, pwd)
         _logger.info(
-            "Connected to database %s (%s) in host %s:%s as %s" % (
-                db, instance.version, host, port, user))
+            "Connected to database %s (%s) in host %s:%s as %s",
+            database, instance.version, host, port, user)
     else:
         instance = psycopg2.connect(
-            host=host, user=user, password=pwd, port=port, dbname=db)
+            host=host, user=user, password=pwd, port=port, dbname=database)
     return instance
 
 

@@ -6,7 +6,8 @@ import logging
 import json
 import psycopg2
 import odoorpc
-from migration import Migration
+from import_data import Migration
+from import_data import conect_and_login
 
 
 logging.addLevelName(
@@ -32,20 +33,6 @@ CH_VAR.setLevel(logging.DEBUG)
 FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 CH_VAR.setFormatter(FORMATTER)
 _logger.addHandler(CH_VAR)
-
-
-def conect_and_login(host, port, database, user, pwd, odoo=True):
-    if odoo:
-        protocol = 'jsonrpc+ssl' if port == 443 else 'jsonrpc'
-        instance = odoorpc.ODOO(host, protocol, port=port, timeout=9999999)
-        instance.login(database, user, pwd)
-        _logger.info(
-            "Connected to database %s (%s) in host %s:%s as %s",
-            database, instance.version, host, port, user)
-    else:
-        instance = psycopg2.connect(
-            host=host, user=user, password=pwd, port=port, dbname=database)
-    return instance
 
 
 def prepare_connection(config):
