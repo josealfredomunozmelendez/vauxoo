@@ -2732,13 +2732,23 @@ class Migration(object):
 
         return: legacy ids (int list)
         """
-        model_data = self.new_instance.env['ir.model.data']
-        to_update = model_data.search([
-            ('module', '=', '__export__'), ('model', '=', model)])
-        res = model_data.browse(to_update)
-        ids = [
-            self.legacy.env.ref('.'.join([item.module, item.name])).id
-            for item in res]
+        if model == 'res.partner':
+            ids = self.legacy.env[model].search([
+                ('id', 'not in', [
+                    1,  # Vauxoo Odoo Partner Company Partner
+                    3,  # Vauxoo Admin admin Partner
+                    39,  # Vauxoo CA Company Partner
+                    4342,  # Vat error talk with @nhomar
+                ])])
+        else:
+            model_data = self.new_instance.env['ir.model.data']
+            to_update = model_data.search([
+                ('module', '=', '__export__'), ('model', '=', model)])
+            res = model_data.browse(to_update)
+            ids = [
+                self.legacy.env.ref(
+                    '.'.join([item.module, item.name])).id
+                for item in res]
         return ids
 
 
