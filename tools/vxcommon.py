@@ -61,7 +61,7 @@ def prepare_connection(config):
         False)
 
     return Migration(
-        legacy, new, cursor.cursor(), config.get('workers')-1 or 1, 100)
+        legacy, new, cursor, config.get('workers')-1 or 1, 100)
 
 
 def connect():

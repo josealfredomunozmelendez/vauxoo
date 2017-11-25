@@ -15,18 +15,18 @@ def main():
         'res.company',
         'res.country.state',
         ['regimen.fiscal', 'account.fiscal.position'],
-        'res.partner',
         'auth.oauth.provider',
+        'res.partner',
     ]
     export_fields = load_fields = ['id', 'create_uid/id', 'write_uid/id']
 
     for model in models:
         read_model = model if isinstance(model, str) else model[0]
         write_model = model if isinstance(model, str) else model[1]
-
         ids = vauxoo.get_records_to_update(model)
-        legacy_data = vauxoo.export(read_model, ids, export_fields)
-        vauxoo.load(write_model, load_fields, legacy_data)
+        if ids:
+            legacy_data = vauxoo.export(read_model, ids, export_fields)
+            vauxoo.load(write_model, load_fields, legacy_data)
 
     vauxoo.uninstall_magic_patch()
 
