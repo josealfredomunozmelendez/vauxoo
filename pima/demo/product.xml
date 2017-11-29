@@ -6,11 +6,11 @@
             <field name="purchase_ok" eval="0"/>
             <field name="type">service</field>
             <field name="service_type">timesheet</field>
-            <field name="project_id" ref="vauxoo.implementation_team"/>
+            <field name="project_id" ref="pima.implementation_team"/>
             <field name="list_price">5400</field>
             <field name="standard_price">3600</field>
-            <field name="uom_id" ref="vauxoo.product_uom_week"/>
-            <field name="uom_po_id" ref="vauxoo.product_uom_week"/>
+            <field name="uom_id" ref="pima.product_uom_week"/>
+            <field name="uom_po_id" ref="pima.product_uom_week"/>
             <field name="description_sale">
         Servicio de 1 semanas contínua de trabajo de la cantidad de desarrolladores necesaria para cubrir el esfuerzo requerido de 120 Horas (Incluyendo la gestión del proyecto), enmarcado en un proceso iterativo e incremental de desarrollo de software, enfocado en la adaptabilidad y entrega rápida de software funcionando, que incluye:
 

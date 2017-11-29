@@ -155,8 +155,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
             <field name="website_published" eval="True"/>
         </record>
         <record id="product_template_extra_integrations" model="product.template">
@@ -165,8 +165,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
             <field name="website_published" eval="True"/>
         </record>
         <record id="product_template_implementation_services" model="product.template">
@@ -175,8 +175,8 @@
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">2380.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
             <field name="website_published" eval="True"/>
             <field name="description_sale">
 The recommended Success Pack for your setup is the 25 hours Basic Success Pack at 2,380 USD
@@ -188,7 +188,7 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
         <record id="product_attribute_line_1" model="product.attribute.line">
             <field name="product_tmpl_id" ref="product_template_app"/>
             <field name="attribute_id" ref="product_attribute_app"/>
-            <field name="value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_invoicing'), ref('vauxoo.product_attribute_value_sale'), ref('vauxoo.product_attribute_value_crm'), ref('vauxoo.product_attribute_value_website'), ref('vauxoo.product_attribute_value_ecommerce'), ref('vauxoo.product_attribute_value_pos'), ref('vauxoo.product_attribute_value_accounting'), ref('vauxoo.product_attribute_value_project'), ref('vauxoo.product_attribute_value_inventory'), ref('vauxoo.product_attribute_value_manufacturing'), ref('vauxoo.product_attribute_value_purchase'), ref('vauxoo.product_attribute_value_timesheet'), ref('vauxoo.product_attribute_value_email_marketing'), ref('vauxoo.product_attribute_value_expenses'), ref('vauxoo.product_attribute_value_events'), ref('vauxoo.product_attribute_value_leaves'), ref('vauxoo.product_attribute_value_recruitment'), ref('vauxoo.product_attribute_value_appraisal'), ref('vauxoo.product_attribute_value_subscription'), ref('vauxoo.product_attribute_value_sign'), ref('vauxoo.product_attribute_value_equipment'), ref('vauxoo.product_attribute_value_quality_control'), ref('vauxoo.product_attribute_value_studio'), ref('vauxoo.product_attribute_value_helpdesk'), ref('vauxoo.product_attribute_value_maintenance'), ref('vauxoo.product_attribute_value_plm')])]"/>
+            <field name="value_ids" eval="[(6,0,[ref('pima.product_attribute_value_invoicing'), ref('vauxoo.product_attribute_value_sale'), ref('vauxoo.product_attribute_value_crm'), ref('vauxoo.product_attribute_value_website'), ref('vauxoo.product_attribute_value_ecommerce'), ref('vauxoo.product_attribute_value_pos'), ref('vauxoo.product_attribute_value_accounting'), ref('vauxoo.product_attribute_value_project'), ref('vauxoo.product_attribute_value_inventory'), ref('vauxoo.product_attribute_value_manufacturing'), ref('vauxoo.product_attribute_value_purchase'), ref('vauxoo.product_attribute_value_timesheet'), ref('vauxoo.product_attribute_value_email_marketing'), ref('vauxoo.product_attribute_value_expenses'), ref('vauxoo.product_attribute_value_events'), ref('vauxoo.product_attribute_value_leaves'), ref('vauxoo.product_attribute_value_recruitment'), ref('vauxoo.product_attribute_value_appraisal'), ref('vauxoo.product_attribute_value_subscription'), ref('vauxoo.product_attribute_value_sign'), ref('vauxoo.product_attribute_value_equipment'), ref('vauxoo.product_attribute_value_quality_control'), ref('vauxoo.product_attribute_value_studio'), ref('vauxoo.product_attribute_value_helpdesk'), ref('vauxoo.product_attribute_value_maintenance'), ref('vauxoo.product_attribute_value_plm')])]"/>
         </record>
         <record id="product_product_invoicing" model="product.product">
             <field name="image" type="base64" file="account_invoicing/static/description/icon.png"/>
@@ -196,10 +196,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_invoicing')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_invoicing')])]"/>
 
         </record>
         <record id="product_product_sale" model="product.product">
@@ -208,10 +208,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_sale')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_sale')])]"/>
         </record>
         <record id="product_product_crm" model="product.product">
             <field name="image" type="base64" file="crm/static/description/icon.png"/>
@@ -219,10 +219,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_crm')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_crm')])]"/>
         </record>
         <record id="product_product_website" model="product.product">
             <field name="image" type="base64" file="website/static/description/icon.png"/>
@@ -230,10 +230,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_website')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_website')])]"/>
         </record>
         <record id="product_product_ecommerce" model="product.product">
             <field name="image" type="base64" file="website_sale/static/description/icon.png"/>
@@ -241,10 +241,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_ecommerce')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_ecommerce')])]"/>
         </record>
         <record id="product_product_pos" model="product.product">
             <field name="image" type="base64" file="point_of_sale/static/description/icon.png"/>
@@ -252,10 +252,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_pos')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_pos')])]"/>
         </record>
         <record id="product_product_accounting" model="product.product">
             <field name="image" type="base64" file="account_invoicing/static/description/icon.png"/>
@@ -263,10 +263,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_accounting')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_accounting')])]"/>
         </record>
         <record id="product_product_project" model="product.product">
             <field name="image" type="base64" file="project/static/description/icon.png"/>
@@ -274,10 +274,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_project')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_project')])]"/>
         </record>
         <record id="product_product_inventory" model="product.product">
             <field name="image" type="base64" file="stock/static/description/icon.png"/>
@@ -285,10 +285,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_inventory')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_inventory')])]"/>
         </record>
         <record id="product_product_manufacturing" model="product.product">
             <field name="image" type="base64" file="mrp/static/description/icon.png"/>
@@ -296,10 +296,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_manufacturing')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_manufacturing')])]"/>
         </record>
         <record id="product_product_purchase" model="product.product">
             <field name="image" type="base64" file="purchase/static/description/icon.png"/>
@@ -307,10 +307,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_purchase')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_purchase')])]"/>
         </record>
         <record id="product_product_timesheet" model="product.product">
             <field name="image" type="base64" file="hr_timesheet/static/description/icon.png"/>
@@ -318,10 +318,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_timesheet')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_timesheet')])]"/>
         </record>
         <record id="product_product_marketing" model="product.product">
             <field name="image" type="base64" file="marketing_automation/static/description/icon.png"/>
@@ -329,10 +329,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_email_marketing')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_email_marketing')])]"/>
         </record>
         <record id="product_product_expenses" model="product.product">
             <field name="image" type="base64" file="hr_expense/static/description/icon.png"/>
@@ -340,10 +340,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_expenses')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_expenses')])]"/>
         </record>
         <record id="product_product_leaves" model="product.product">
             <field name="image" type="base64" file="hr_holidays/static/description/icon.png"/>
@@ -351,10 +351,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_leaves')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_leaves')])]"/>
         </record>
         <record id="product_product_event" model="product.product">
             <field name="image" type="base64" file="event/static/description/icon.png"/>
@@ -362,10 +362,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_events')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_events')])]"/>
         </record>
         <record id="product_product_recruitment" model="product.product">
             <field name="image" type="base64" file="hr_recruitment/static/description/icon.png"/>
@@ -373,10 +373,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_recruitment')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_recruitment')])]"/>
         </record>
         <record id="product_product_appraisal" model="product.product">
             <field name="image" type="base64" file="hr_appraisal/static/description/icon.png"/>
@@ -384,10 +384,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_appraisal')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_appraisal')])]"/>
         </record>
         <record id="product_product_subscription" model="product.product">
             <field name="image" type="base64" file="sale_subscription/static/description/icon.png"/>
@@ -395,10 +395,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_subscription')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_subscription')])]"/>
         </record>
         <record id="product_product_sign" model="product.product">
             <field name="image" type="base64" file="website_sign/static/description/icon.png"/>
@@ -406,10 +406,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_sign')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_sign')])]"/>
         </record>
         <record id="product_product_maintenance" model="product.product">
             <field name="image" type="base64" file="maintenance/static/description/icon.png"/>
@@ -417,10 +417,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_maintenance')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_maintenance')])]"/>
         </record>
         <record id="product_product_quality" model="product.product">
             <field name="image" type="base64" file="quality/static/description/icon.png"/>
@@ -428,10 +428,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_quality_control')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_quality_control')])]"/>
         </record>
         <record id="product_product_studio" model="product.product">
             <field name="image" type="base64" file="web_studio/static/description/icon.png"/>
@@ -439,10 +439,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_studio')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_studio')])]"/>
         </record>
         <record id="product_product_helpdesk" model="product.product">
             <field name="image" type="base64" file="helpdesk/static/description/icon.png"/>
@@ -450,10 +450,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_helpdesk')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_helpdesk')])]"/>
         </record>
         <record id="product_product_mrp_maintenance" model="product.product">
             <field name="image" type="base64" file="mrp_maintenance/static/description/icon.png"/>
@@ -461,10 +461,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_maintenance')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_maintenance')])]"/>
         </record>
         <record id="product_product_plm" model="product.product">
             <field name="image" type="base64" file="mrp_plm/static/description/icon.png"/>
@@ -472,10 +472,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">12.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_app"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_plm')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_app"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_plm')])]"/>
         </record>
 
         <record id="product_product_DHL" model="product.product">
@@ -484,10 +484,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_DHL')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_DHL')])]"/>
         </record>
         <record id="product_product_UPS" model="product.product">
             <field name="image" type="base64" file="delivery_ups/static/description/icon.png"/>
@@ -495,10 +495,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_UPS')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_UPS')])]"/>
         </record>
         <record id="product_product_USPS" model="product.product">
             <field name="image" type="base64" file="delivery_usps/static/description/icon.png"/>
@@ -506,10 +506,10 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_USPS')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_USPS')])]"/>
         </record>
         <record id="product_product_FedEx" model="product.product">
             <field name="image" type="base64" file="delivery_fedex/static/description/icon.png"/>
@@ -517,21 +517,21 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_FedEx')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_FedEx')])]"/>
         </record>
         <record id="product_product_Ebay" model="product.product">
-            <field name="image" type="base64" file="vauxoo/static/src/img/sale_ebay.png"/>
+            <field name="image" type="base64" file="pima/static/src/img/sale_ebay.png"/>
             <field name="type">service</field>
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_Ebay')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_Ebay')])]"/>
         </record>
         <record id="product_product_voip" model="product.product">
             <field name="image" type="base64" file="voip/static/description/icon.png"/>
@@ -539,9 +539,9 @@ With a Success Pack, you are assigned an expert to provide unique personalized a
             <field name="recurring_invoice" eval="True"/>
             <field name="list_price">10.0</field>
             <field name="type">service</field>
-            <field name="uom_id" ref="vauxoo.contract_uom_month"/>
-            <field name="uom_po_id" ref="vauxoo.contract_uom_month"/>
-            <field name="product_tmpl_id" ref="vauxoo.product_template_extra_integrations"/>
-            <field name="attribute_value_ids" eval="[(6,0,[ref('vauxoo.product_attribute_value_voip')])]"/>
+            <field name="uom_id" ref="pima.contract_uom_month"/>
+            <field name="uom_po_id" ref="pima.contract_uom_month"/>
+            <field name="product_tmpl_id" ref="pima.product_template_extra_integrations"/>
+            <field name="attribute_value_ids" eval="[(6,0,[ref('pima.product_attribute_value_voip')])]"/>
         </record>
     </odoo>

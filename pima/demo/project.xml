@@ -10,8 +10,8 @@
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="vauxoo.training_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('vauxoo.training_team')"/>
+        <record id="pima.training_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('pima.training_team')"/>
         </record>
 
         <record id="internal_management_team" model="project.project">
@@ -23,8 +23,8 @@
             <field name="allow_timesheets" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="vauxoo.internal_management_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('vauxoo.internal_management_team')"/>
+        <record id="pima.internal_management_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('pima.internal_management_team')"/>
         </record>
 
         <record id="i_d_team" model="project.project">
@@ -35,8 +35,8 @@
             <field name="rating_status">no</field>
             <field name="allow_timesheets" eval="True"/>
         </record>
-        <record id="vauxoo.i_d_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('vauxoo.i_d_team')"/>
+        <record id="pima.i_d_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('pima.i_d_team')"/>
         </record>
 
         <record id="consulting_team" model="project.project">
@@ -48,8 +48,8 @@
             <field name="allow_timesheets" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="vauxoo.consulting_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('vauxoo.consulting_team')"/>
+        <record id="pima.consulting_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('pima.consulting_team')"/>
         </record>
 
         <record id="support_team" model="project.project">
@@ -62,7 +62,7 @@
             <field name="allow_forecast" eval="True"/>
             <field name="alias_name" eval="False"/>
         </record>
-        <record id="vauxoo.support_team" model="project.project">
-            <field name="subtask_project_id" eval="ref('vauxoo.support_team')"/>
+        <record id="pima.support_team" model="project.project">
+            <field name="subtask_project_id" eval="ref('pima.support_team')"/>
         </record>
 </odoo>

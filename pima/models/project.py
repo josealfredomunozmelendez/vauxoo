@@ -93,7 +93,7 @@ class ProjectTask(models.Model):
 
     @api.multi
     def do_approval(self):
-        template = self.env.ref('vauxoo.appr_start_mail')
+        template = self.env.ref('pima.appr_start_mail')
         for task in self:
             task.message_post_with_template(template.id,
                                             message_type='notification')
@@ -105,7 +105,7 @@ class ProjectTask(models.Model):
         self.ensure_one()
         if not self.accepted:
             self.write({'stage_id': self.env.ref(
-                'vauxoo.project_stage_ask_review').id})
+                'pima.project_stage_ask_review').id})
         return True
 
     @api.multi
@@ -113,7 +113,7 @@ class ProjectTask(models.Model):
         self.ensure_one()
         if not self.accepted:
             self.write({'stage_id': self.env.ref(
-                'vauxoo.project_stage_approve').id,
+                'pima.project_stage_approve').id,
                 'accepted': True})
         return True
 

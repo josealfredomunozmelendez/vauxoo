@@ -1,4 +1,4 @@
-odoo.define('theme_vauxoo.apps', function (require) {
+odoo.define('theme_pima.apps', function (require) {
     "use strict";
     var ajax = require('web.ajax');
     var core = require('web.core');
@@ -12,7 +12,7 @@ odoo.define('theme_vauxoo.apps', function (require) {
         return $.Deferred().reject("DOM doesn't contain a app button check");
     }
     ajax.loadXML('/web/static/src/xml/base_common.xml', qweb).then(function () {
-        ajax.loadXML('/vauxoo/static/src/xml/apps.xml', qweb);
+        ajax.loadXML('/pima/static/src/xml/apps.xml', qweb);
     });
     /**
     Rendered on server side but widget generated in client side.
@@ -30,7 +30,7 @@ odoo.define('theme_vauxoo.apps', function (require) {
         onClick: function(){
             var input = this.$('.app-check');
             var values = input.data();
-            var added = $(qweb.render("vauxoo.apps_selected", values)).appendTo(".js_apps_selected_placeholder");
+            var added = $(qweb.render("pima.apps_selected", values)).appendTo(".js_apps_selected_placeholder");
         }
     });
     var Order = Widget.extend({

@@ -2,7 +2,7 @@
 Install all apps needed to comply with Vauxoo instance
 ------------------------------------------------------
 
-This is the app module for instance vauxoo, it gathers all the dependencies
+This is the app module for instance pima, it gathers all the dependencies
 required and all the configurations that are generate specially for our
 instance.
 
@@ -24,7 +24,7 @@ We have add the next fields to the timehseet line
 This fields are visibile for the user on the tree view of timehseet lines
 (account.analytic.line)
 
-**NOTE:** I take part of odoo/hr_timehseet_invoice and addons-vauxoo/user_story
+**NOTE:** I take part of odoo/hr_timehseet_invoice and addons-pima/user_story
 8.0 modules to be able to have this functionality.
 
 Timesheet Reports
@@ -62,4 +62,4 @@ Vauxoo Report
 
 Qweb Vauxoo's Quotation Report
 
-**NOTE:** Old vauxoo_sale_reports module
+**NOTE:** Old pima_sale_reports module

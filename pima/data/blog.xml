@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
 
-    <record id="blog_blog_vauxoo_news" model="blog.blog">
+    <record id="blog_blog_pima_news" model="blog.blog">
         <field name="name">Vauxoo News</field>
     </record>
 

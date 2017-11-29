@@ -1,4 +1,4 @@
-odoo.define('vauxoo.widgets', function (require) {
+odoo.define('pima.widgets', function (require) {
 "use strict";
 var registry = require('web.field_registry');
 var basic_fields = require('web.basic_fields');

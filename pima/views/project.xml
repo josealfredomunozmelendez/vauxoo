@@ -15,7 +15,7 @@
                 </xpath>
             </field>
         </record>
-        <record id="act_vauxoo_timesheet_line_by_task" model="ir.actions.act_window">
+        <record id="act_pima_timesheet_line_by_task" model="ir.actions.act_window">
             <field name="name">Activities</field>
             <field name="res_model">account.analytic.line</field>
             <field name="view_type">form</field>
@@ -145,7 +145,7 @@
                     </page>
                 </xpath>
                 <xpath expr="//button[@name='toggle_active']" position="before">
-                    <button class="oe_stat_button" name="%(act_vauxoo_timesheet_line_by_task)d" type="action" icon="fa-calendar" string="Timesheets" />
+                    <button class="oe_stat_button" name="%(act_pima_timesheet_line_by_task)d" type="action" icon="fa-calendar" string="Timesheets" />
                 </xpath>
                 <xpath expr="//field[@name='name']" position="before">
                     <field name="id"/>

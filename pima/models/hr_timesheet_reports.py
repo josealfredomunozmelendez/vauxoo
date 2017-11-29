@@ -308,7 +308,7 @@ class HrTimesheetReportsBase(models.Model):
 
     @api.multi
     def do_report(self):
-        return self.env['report'].get_action('vauxoo.timesheet_report_vauxoo')
+        return self.env['report'].get_action('pima.timesheet_report_vauxoo')
 
     @api.multi
     def go_to_timesheet(self):
@@ -359,7 +359,7 @@ class HrTimesheetReportsBase(models.Model):
         self.ensure_one()
         try:
             template_id = self.env.ref(
-                'vauxoo.email_reports_base')  # noqa
+                'pima.email_reports_base')  # noqa
         except ValueError:
             template_id = False
         try:

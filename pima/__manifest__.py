@@ -5,7 +5,7 @@
     "summary": """
     All the necessary modules to auto install our service instance
     """,
-    "website": "http://www.vauxoo.com",
+    "website": "http://www.pima.com",
     "license": "LGPL-3",
     "category": "Vauxoo",
     "version": "11.0.2.0.2",
@@ -38,7 +38,7 @@
         "l10n_mx_reports",
 
         # Website modules
-        "theme_vauxoo",
+        "theme_pima",
         'website_crm',
         "website_event",
         "website_hr_recruitment",

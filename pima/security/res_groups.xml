@@ -16,12 +16,12 @@
         <field name="name">Manager</field>
         <field name="category_id" ref="module_category"/>
         <field name="implied_ids"
-               eval="[(4, ref('vauxoo.developer'))]"/>
+               eval="[(4, ref('pima.developer'))]"/>
     </record>
     <record id="directive" model="res.groups">
         <field name="name">Directive</field>
         <field name="category_id" ref="module_category"/>
         <field name="implied_ids"
-               eval="[(4, ref('vauxoo.manager'))]"/>
+               eval="[(4, ref('pima.manager'))]"/>
     </record>
 </odoo>

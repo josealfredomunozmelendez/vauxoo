@@ -206,6 +206,6 @@
         <menuitem
             action="action_budget_analysis"
             id="menu_action_budget_analysis"
-            parent="vauxoo.menu_company_briefing"
+            parent="pima.menu_company_briefing"
             sequence="60"/>
 </odoo>

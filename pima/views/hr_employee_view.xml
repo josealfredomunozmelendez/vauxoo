@@ -46,7 +46,7 @@
             <field name="inherit_id" ref="sale_timesheet.hr_timesheet_employee_extd_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//page[last()]" position="after">
-                    <page string="Cost Analysis" name="cost" groups="vauxoo.directive">
+                    <page string="Cost Analysis" name="cost" groups="pima.directive">
                         <group>
                             <group string="Performance">
                                 <field name="theoretical_timesheet"/>
@@ -98,8 +98,8 @@
             <field name="inherit_id" ref="hr.view_employee_filter"/>
             <field name="arch" type="xml">
                 <xpath expr="//group" position="inside">
-                    <filter string="Is Cost" domain="[]" context="{'group_by':'is_cost'}" groups="vauxoo.directive"/>
-                    <filter string="Generate Income" domain="[]" context="{'group_by':'generate_income'}" groups="vauxoo.directive"/>
+                    <filter string="Is Cost" domain="[]" context="{'group_by':'is_cost'}" groups="pima.directive"/>
+                    <filter string="Generate Income" domain="[]" context="{'group_by':'generate_income'}" groups="pima.directive"/>
                 </xpath>
              </field>
          </record>
@@ -108,7 +108,7 @@
             <field name="name">hr.employee.kanban.analysis</field>
             <field name="model">hr.employee</field>
             <field name="priority">100</field>
-            <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
+            <field name="groups_id" eval="[(6, 0, [ref('pima.directive')])]"/>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_dashboard o_employee_dashboard">
                     <field name="theoretical_timesheet"/>
@@ -327,7 +327,7 @@
         <menuitem
             action="action_employee_analysis"
             id="menu_action_employee_analysis"
-            parent="vauxoo.menu_company_briefing"
+            parent="pima.menu_company_briefing"
             sequence="50"
             />
 
@@ -342,7 +342,7 @@
             <field name="name">hr.job.kanban.analysis</field>
             <field name="model">hr.job</field>
             <field name="priority">100</field>
-            <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
+            <field name="groups_id" eval="[(6, 0, [ref('pima.directive')])]"/>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_dashboard o_employee_dashboard">
                     <field name="message_is_follower"/>
@@ -464,14 +464,14 @@
         <menuitem
             action="action_job_analysis"
             id="menu_action_job_analysis"
-            parent="vauxoo.menu_company_briefing"
+            parent="pima.menu_company_briefing"
             sequence="60"/>
 
         <record model="ir.ui.view" id="hr_kanban_view_department">
             <field name="name">hr.department.kanban.analysis</field>
             <field name="model">hr.department</field>
             <field name="priority">100</field>
-            <field name="groups_id" eval="[(6, 0, [ref('vauxoo.directive')])]"/>
+            <field name="groups_id" eval="[(6, 0, [ref('pima.directive')])]"/>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_dashboard o_employee_dashboard">
                     <field name="message_is_follower"/>
@@ -593,6 +593,6 @@
         <menuitem
             action="action_department_analysis"
             id="menu_action_department_analysis"
-            parent="vauxoo.menu_company_briefing"
+            parent="pima.menu_company_briefing"
             sequence="60"/>
 </odoo>

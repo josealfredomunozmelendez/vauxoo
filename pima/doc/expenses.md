@@ -12,7 +12,7 @@ reembolsos o notificar relación de gastos al departamento administrativo.
 1. El correo que se usará para que los empleados envíen sus expenses y que
 automáticamente generarán un gasto en el sistema.Este valor puede se configura
 en la sección **Expenses > Configuration > Settings** y por defecto es
-*expense@vauxoo.com*
+*expense@pima.com*
 
 2. _Necesitamos configurar_ un diario de gastos, para ello creamos un diario
 llamado **Expense Journal** el cual tiene que ser de tipo **Purchase** para

@@ -8,8 +8,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -86,8 +86,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -129,8 +129,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -177,17 +177,17 @@
   <record id="appr_start_mail" model="mail.template">
     <field name="name">Approving Start to Work with User Story</field>
     <field name="subject">The user ${user.name} has approved start to work with user Story HU${object.id}:${object.name}</field>
-    <field name="email_from">info@vauxoo.com</field>
+    <field name="email_from">info@pima.com</field>
     <field name="email_to">${user.email|safe}</field>
-    <field name="model_id" ref="vauxoo.model_project_task"/>
+    <field name="model_id" ref="pima.model_project_task"/>
     <field name="body_html"><![CDATA[
 % set record = ctx.get('record')
 % set company = object.company_id or (record and record.company_id) or user.company_id
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -247,16 +247,16 @@
   <record id="approve_mail" model="mail.template">
     <field name="name">Approve Acceptability Criteria</field>
     <field name="subject">Approve Criteria "${object.name}" by ${user.name}</field>
-    <field name="email_from">info@vauxoo.com</field>
-    <field name="model_id" ref="vauxoo.model_project_task"/>
+    <field name="email_from">info@pima.com</field>
+    <field name="model_id" ref="pima.model_project_task"/>
     <field name="body_html"><![CDATA[
 % set record = ctx.get('record')
 % set company = object.company_id or (record and record.company_id) or user.company_id
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -302,16 +302,16 @@
   <record id="ask_review_mail" model="mail.template">
     <field name="name">Ask for review Acceptability Criteria</field>
     <field name="subject">Ask for Review "${object.name}"</field>
-    <field name="email_from">info@vauxoo.com</field>
-    <field name="model_id" ref="vauxoo.model_project_task"/>
+    <field name="email_from">info@pima.com</field>
+    <field name="model_id" ref="pima.model_project_task"/>
     <field name="body_html"><![CDATA[
 % set record = ctx.get('record')
 % set company = object.company_id or (record and record.company_id) or user.company_id
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -363,8 +363,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -422,8 +422,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -479,8 +479,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -533,8 +533,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -645,8 +645,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -757,8 +757,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -868,8 +868,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -919,8 +919,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -962,8 +962,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1112,8 +1112,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1265,8 +1265,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1330,8 +1330,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1377,8 +1377,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1523,8 +1523,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1578,8 +1578,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1657,8 +1657,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1709,8 +1709,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1752,8 +1752,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1808,8 +1808,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1945,8 +1945,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -1996,8 +1996,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2138,8 +2138,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2224,8 +2224,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2301,8 +2301,8 @@
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2380,8 +2380,8 @@ for the one, it’s genuine for the rest.</p>
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2446,8 +2446,8 @@ ${object.wizard_id.welcome_message or ''}
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2488,8 +2488,8 @@ ${object.wizard_id.welcome_message or ''}
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2552,8 +2552,8 @@ ${object.wizard_id.welcome_message or ''}
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2614,8 +2614,8 @@ ${object.wizard_id.welcome_message or ''}
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2657,8 +2657,8 @@ ${object.wizard_id.welcome_message or ''}
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2740,8 +2740,8 @@ ${object.wizard_id.welcome_message or ''}
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2820,8 +2820,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2865,8 +2865,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -2932,8 +2932,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3001,8 +3001,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3066,8 +3066,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3136,8 +3136,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3181,8 +3181,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3236,8 +3236,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3294,8 +3294,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3371,8 +3371,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3423,8 +3423,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3480,8 +3480,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3547,8 +3547,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>
@@ -3605,8 +3605,8 @@ from ${object.company_id.name}.
 <div class="or-email" style="font-family: sans-serif; font-size: 15px; color: #4A4A4A; padding: 10px; margin: 0 auto; min-width: 224px; max-width: 600px;">
   <div class="or-header" style="margin: 0; padding: 0;">
     <div class="or-logo" style="margin: 0; padding: 10px; text-align: center;">
-      <a href="https://www.vauxoo.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
-        <img src="https://www.vauxoo.com/logo.png" style="margin: 0; padding: 0;">
+      <a href="https://www.pima.com/" target="_blank" style="margin: 0; padding: 0; color: #7F0B1E; text-decoration: none;">
+        <img src="https://www.pima.com/logo.png" style="margin: 0; padding: 0;">
       </a>
     </div>
   </div>

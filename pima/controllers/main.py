@@ -7,4 +7,4 @@ class Pricing(http.Controller):
 
     @http.route('/pricing', type='http', auth='public', website=True)
     def pricing(self, **post):
-        return request.render('vauxoo.apps_pricing', {})
+        return request.render('pima.apps_pricing', {})

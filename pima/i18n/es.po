@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* vauxoo
+# 	* pima
 #
 msgid ""
 msgstr ""
@@ -16,8 +16,8 @@ msgstr ""
 "Language: es\n"
 "X-Generator: Poedit 2.0.1\n"
 
-#. module: vauxoo
-#: model:product.template,description_sale:vauxoo.product_sprint
+#. module: pima
+#: model:product.template,description_sale:pima.product_sprint
 msgid ""
 "\n"
 "        Servicio de 1 semanas contínua de trabajo de la cantidad de desarrolladores necesaria para cubrir el esfuerzo requerido de 120 Horas (Incluyendo la gestión del proyecto), enmarcado en un proceso iterativo e incremental de desarrollo de software, enfocado en la adaptabilidad y entrega rápida de software funcionando, que incluye:\n"
@@ -47,8 +47,8 @@ msgstr ""
 "        Este servicios se ofrece en modalidad a distancia, en caso de requerir la presencia física de nuestros consultores, los gastos de transporte, alimentación y hospedaje serán cubiertos por el cliente.\n"
 "            "
 
-#. module: vauxoo
-#: model:mail.template,body_html:vauxoo.email_reports_base
+#. module: pima
+#: model:mail.template,body_html:pima.email_reports_base
 msgid ""
 "\n"
 "<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
@@ -80,8 +80,8 @@ msgstr ""
 "</div>\n"
 "            "
 
-#. module: vauxoo
-#: model:product.template,description_sale:vauxoo.product_template_implementation_services
+#. module: pima
+#: model:product.template,description_sale:pima.product_template_implementation_services
 msgid ""
 "\n"
 "The recommended Success Pack for your setup is the 25 hours Basic Success Pack at 2,380 USD\n"
@@ -95,135 +95,135 @@ msgstr ""
 "Con el Success Pack, se te asignará un experto que te proveerán de asistencia personalizada para ayudarte a personalizar tu solución y optimizar tus flujos de trabajo como parte de tu implementación inicial. Estas horas nunca expiran permitiéndote usarlas cuando las necesites.\n"
 "            "
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "$15k"
 msgstr "$15k"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "$2,380 USD"
 msgstr "$2,380 USD"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "$8 USD"
 msgstr "$8 USD"
 
-#. module: vauxoo
-#: model:mail.template,subject:vauxoo.email_reports_base
+#. module: pima
+#: model:mail.template,subject:pima.email_reports_base
 msgid "${(object.title|safe)}"
 msgstr "${(object.title|safe)}"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "(Paid monthly)"
 msgstr "(Pago mensual)"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "(Paid once)"
 msgstr "(Pago único)"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "(Paid only once)"
 msgstr "(Pago único)"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "(monthly)"
 msgstr "(mensual)"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "10  / 40 people"
 msgstr "10  / 40 personas"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "3 months"
 msgstr "3 meses"
 
-#. module: vauxoo
-#: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor6
+#. module: pima
+#: model:hr_timesheet_invoice.factor,name:pima.timesheet_invoice_factor6
 msgid "33%"
 msgstr "33%"
 
-#. module: vauxoo
-#: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor3
+#. module: pima
+#: model:hr_timesheet_invoice.factor,name:pima.timesheet_invoice_factor3
 msgid "50%"
 msgstr "50%"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "50% YoY"
 msgstr "50% YoY"
 
-#. module: vauxoo
-#: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor4
+#. module: pima
+#: model:hr_timesheet_invoice.factor,name:pima.timesheet_invoice_factor4
 msgid "80%"
 msgstr "80%"
 
-#. module: vauxoo
-#: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor5
+#. module: pima
+#: model:hr_timesheet_invoice.factor,name:pima.timesheet_invoice_factor5
 msgid "85%"
 msgstr "85%"
 
-#. module: vauxoo
-#: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor2
+#. module: pima
+#: model:hr_timesheet_invoice.factor,name:pima.timesheet_invoice_factor2
 msgid "90%"
 msgstr "90%"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "<br/>We also provide Odoo Essential training and a evaluation of the project."
 msgstr "<br/>También podemos darte entrenamiento básico y evaluación de tu proyecto."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contactus_thanks
-#: model:ir.ui.view,arch_db:vauxoo.thankyou
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contactus_thanks
+#: model:ir.ui.view,arch_db:pima.thankyou
 msgid "<i class=\"fa fa-long-arrow-left\" aria-hidden=\"true\"/> Back to home"
 msgstr "<i class=\"fa fa-long-arrow-left\" aria-hidden=\"true\"/> Volver al inicio"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "<i class=\"fa fa-play\" aria-hidden=\"true\"/> Play Video"
 msgstr "<i class=\"fa fa-play\" aria-hidden=\"true\"/> Ver Video"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_project_form_labels
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_project_form_labels
 msgid "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\"> With Acronymous: </span>"
 msgstr "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\"> Como con acrónimo: </span>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_project_form_labels
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_project_form_labels
 msgid "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\">, Subtasks will be called: </span>"
 msgstr "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\">, Las sub tareas serán canceladas: </span>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_project_form_labels
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_project_form_labels
 msgid "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\">, the Acronymous is: </span>"
 msgstr "<span attrs=\"{'invisible': [('use_tasks', '=', False)]}\">, el acrónimo es: </span>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid ""
 "<span class=\"app-name pull-left hx-thin\">Invoicing</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
@@ -231,8 +231,8 @@ msgstr ""
 "<span class=\"app-name pull-left hx-thin\">Facturación</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid ""
 "<span class=\"app-name pull-left hx-thin\">Manufacturing</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
@@ -240,8 +240,8 @@ msgstr ""
 "<span class=\"app-name pull-left hx-thin\">Fabricación</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid ""
 "<span class=\"app-name pull-left hx-thin\">Project</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
@@ -249,8 +249,8 @@ msgstr ""
 "<span class=\"app-name pull-left hx-thin\">Projectos</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid ""
 "<span class=\"app-name pull-left hx-thin\">Quality Control</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
@@ -258,8 +258,8 @@ msgstr ""
 "<span class=\"app-name pull-left hx-thin\">Control de calidad</span>\n"
 "                        <span class=\"app-price pull-right\">$4 USD</span>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
 msgid ""
 "<span class=\"btn btn-primary btn-lg o_website_form_send nomargin\">Submit</span>\n"
 "                                <span id=\"o_website_form_result\"/>"
@@ -267,8 +267,8 @@ msgstr ""
 "<span class=\"btn btn-primary btn-lg o_website_form_send nomargin\">Enviar</span>\n"
 "                                <span id=\"o_website_form_result\"/>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid ""
 "<span class=\"btn btn-primary btn-lg o_website_form_send\">Send</span>\n"
 "                <span id=\"o_website_form_result\"/>"
@@ -276,142 +276,142 @@ msgstr ""
 "<span class=\"btn btn-primary btn-lg o_website_form_send\">Enviar</span>\n"
 "                <span id=\"o_website_form_result\"/>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
-msgid "<strong class=\"link-primary\">ventas@vauxoo.com</strong>"
-msgstr "<strong class=\"link-primary\">ventas@vauxoo.com</strong>"
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
+msgid "<strong class=\"link-primary\">ventas@pima.com</strong>"
+msgstr "<strong class=\"link-primary\">ventas@pima.com</strong>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "<strong> What is a success pack?</strong>"
 msgstr "<strong> ¿Qué es un Success Pack?</strong>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "<strong> What is the difference between Quick-Start and On-premise?</strong>"
 msgstr "<strong> ¿Cual es la diferencia entre Quick-Start y On-premise?</strong>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "<strong> Why some applications are related to others?</strong>"
 msgstr "<strong> ¿Por qué algunas aplicaciones están relacionadas a otras?</strong>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "<strong>$20 USD</strong>"
 msgstr "<strong>$20 USD</strong>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "<strong>$4,368 USD</strong>"
 msgstr "<strong>$4,368 USD</strong>"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "<strong>Challenges</strong>"
 msgstr "<strong>Retos</strong>"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "<strong>Must Have</strong>"
 msgstr "<strong>Requerido</strong>"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "<strong>Responsibilities</strong>"
 msgstr "<strong>Responsibilidades</strong>"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "<strong>What's great in the job?</strong>"
 msgstr "<strong>¿Que es lo bueno de este empleo?</strong>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "A nimble team.<br/>doing mighty things"
 msgstr "Un equipo ágil.<br/>haciendo cosas poderosas"
 
-#. module: vauxoo
-#: model:website.menu,name:vauxoo.menu_about
+#. module: pima
+#: model:website.menu,name:pima.menu_about
 msgid "About"
 msgstr "Acerca"
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:86
+#: code:addons/pima/static/src/xml/base.xml:86
 #, python-format
 msgid "About OpenERP"
 msgstr "Acerca de OpenERP"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "About the job"
 msgstr "Acerca del empleo"
 
-#. module: vauxoo
-#: model:sale.quote.template,website_description:vauxoo.website_quote_template_default
+#. module: pima
+#: model:sale.quote.template,website_description:pima.website_quote_template_default
 msgid "About us"
 msgstr "Acerca de"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_task_extended_search_view
 msgid "Acceptability Criteria"
 msgstr "Criterio de aceptación"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_accounting
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_accounting
 msgid "Accounting"
 msgstr "Contabilidad"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Achieve monthly targets"
 msgstr "Lograr objetivos mensuales"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_project_project_label_acronymous_subtasks
-#: model:ir.model.fields,help:vauxoo.field_project_project_label_subtasks
-#: model:ir.model.fields,help:vauxoo.field_project_task_label_subtasks
+#. module: pima
+#: model:ir.model.fields,help:pima.field_project_project_label_acronymous_subtasks
+#: model:ir.model.fields,help:pima.field_project_project_label_subtasks
+#: model:ir.model.fields,help:pima.field_project_task_label_subtasks
 msgid "Acronymous to show as prefix in the display name for the tasks with parent Tasks"
 msgstr "Acronimo a mostrar como prefijo en el nombre desplegado para las tareas con tareas padre."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_project_project_label_acronymous
+#. module: pima
+#: model:ir.model.fields,help:pima.field_project_project_label_acronymous
 msgid "Acronymous to show as prefix in the display name for the tasks without parent Tasks"
 msgstr "Acronimo a mostrar como prefijo en el nombre desplegado para las tareas sin tareas padre."
 
-#. module: vauxoo
-#: model:ir.actions.act_window,name:vauxoo.act_vauxoo_timesheet_line_by_task
+#. module: pima
+#: model:ir.actions.act_window,name:pima.act_vauxoo_timesheet_line_by_task
 msgid "Activities"
 msgstr "Actividades"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_crm_team_address_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_crm_team_address_id
 msgid "Address to show in the Header of the sale Order"
 msgstr "Direccion a mostar en el encabezado de la orden de venta"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_2
+#. module: pima
+#: model:blog.post,content:pima.blog_post_2
 msgid "Aenean facilisis elit at sem congue lobortis. Phasellus volutpat iaculis nulla\n"
 "nec aliquam. Integer a sollicitudin urna. Morbi fringilla, lorem eget venenatis\n"
 "vulputate, lacus felis blandit leo, eget lacinia nisi lacus ac augue. Cras\n"
@@ -431,8 +431,8 @@ msgstr "Aenean facilisis elit at sem congue lobortis. Phasellus volutpat iaculis
 "faucibus elementum commodo. In hac habitasse platea dictumst. Nullam bibendum\n"
 "ante non arcu lacinia sodales. Etiam feugiat orci non ante gravida pretium."
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_1
+#. module: pima
+#: model:blog.post,content:pima.blog_post_1
 msgid "Aenean sit amet erat at justo porttitor hendrerit at fermentum leo. Maecenas\n"
 "ultrices odio id nunc pulvinar tristique. Integer lacinia auctor elit, eu\n"
 "fermentum libero euismod sit amet. Integer feugiat est in justo interdum\n"
@@ -456,8 +456,8 @@ msgstr "Aenean sit amet erat at justo porttitor hendrerit at fermentum leo. Maec
 "dictumst. Quisque pellentesque turpis non erat cursus, eget facilisis nisi\n"
 "lobortis."
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_2
+#. module: pima
+#: model:blog.post,content:pima.blog_post_2
 msgid "Aliquam erat mi, suscipit eget pellentesque at, dapibus eu diam. Etiam suscipit\n"
 "interdum dui, at vehicula ligula aliquet non. Quisque ligula ex, tincidunt\n"
 "mattis tincidunt non, gravida sit amet turpis. Proin sit amet sollicitudin\n"
@@ -479,181 +479,181 @@ msgstr "Aliquam erat mi, suscipit eget pellentesque at, dapibus eu diam. Etiam s
 "accumsan. Aliquam iaculis bibendum urna. Integer eu erat efficitur, rutrum\n"
 "turpis eget, malesuada lorem. Nunc a interdum risus."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_res_company_website_address_ids
+#. module: pima
+#: model:ir.model.fields,help:pima.field_res_company_website_address_ids
 msgid "All contact public Contactsto be shown in contact form."
 msgstr "Todos los los contactos públicos a mostrar en el formulario de contacto."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_prod_ent_ids
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_prod_ent_ids
 msgid "All lines on invoices that have this product will be ignored as Effectivally Invoiced time already invoiced"
 msgstr "All lines on invoices that have this product will be ignored as Effectivally Invoiced time already invoiced"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_prod_train_ids
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_prod_train_ids
 msgid "All lines that have this products will Be ignored due to this is just for products"
 msgstr "All lines that have this products will Be ignored due to this is just for products"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_prod_cons_ids
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_prod_cons_ids
 msgid "All products here will be considered as consultancythen it will be compared by currency and by considering the product in this reports to use the unit_price and the currency"
 msgstr "All products here will be considered as consultancythen it will be compared by currency and by considering the product in this reports to use the unit_price and the currency"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "All timesheet must have a value for billable time, this button trigger a write on them to ensure that."
 msgstr "All timesheet must have a value for billable time, this button trigger a write on them to ensure that."
 
-#. module: vauxoo
-#: model:blog.post,subtitle:vauxoo.blog_post_3
+#. module: pima
+#: model:blog.post,subtitle:pima.blog_post_3
 msgid "Always set the next thing to do"
 msgstr "Siempre configura el siguiente paso por hacer"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Analysis"
 msgstr "Análisis"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_account_analytic_line
+#. module: pima
+#: model:ir.model,name:pima.model_account_analytic_line
 msgid "Analytic Line"
 msgstr "Línea Analítica"
 
-#. module: vauxoo
-#: model:product.attribute,name:vauxoo.product_attribute_app
-#: model:product.product,name:vauxoo.product_product_accounting
-#: model:product.product,name:vauxoo.product_product_appraisal
-#: model:product.product,name:vauxoo.product_product_crm
-#: model:product.product,name:vauxoo.product_product_ecommerce
-#: model:product.product,name:vauxoo.product_product_event
-#: model:product.product,name:vauxoo.product_product_expenses
-#: model:product.product,name:vauxoo.product_product_helpdesk
-#: model:product.product,name:vauxoo.product_product_inventory
-#: model:product.product,name:vauxoo.product_product_invoicing
-#: model:product.product,name:vauxoo.product_product_leaves
-#: model:product.product,name:vauxoo.product_product_maintenance
-#: model:product.product,name:vauxoo.product_product_manufacturing
-#: model:product.product,name:vauxoo.product_product_marketing
-#: model:product.product,name:vauxoo.product_product_mrp_maintenance
-#: model:product.product,name:vauxoo.product_product_plm
-#: model:product.product,name:vauxoo.product_product_pos
-#: model:product.product,name:vauxoo.product_product_project
-#: model:product.product,name:vauxoo.product_product_purchase
-#: model:product.product,name:vauxoo.product_product_quality
-#: model:product.product,name:vauxoo.product_product_recruitment
-#: model:product.product,name:vauxoo.product_product_sale
-#: model:product.product,name:vauxoo.product_product_sign
-#: model:product.product,name:vauxoo.product_product_studio
-#: model:product.product,name:vauxoo.product_product_subscription
-#: model:product.product,name:vauxoo.product_product_timesheet
-#: model:product.product,name:vauxoo.product_product_website
-#: model:product.template,name:vauxoo.product_product_accounting_product_template
-#: model:product.template,name:vauxoo.product_product_appraisal_product_template
-#: model:product.template,name:vauxoo.product_product_crm_product_template
-#: model:product.template,name:vauxoo.product_product_ecommerce_product_template
-#: model:product.template,name:vauxoo.product_product_event_product_template
-#: model:product.template,name:vauxoo.product_product_expenses_product_template
-#: model:product.template,name:vauxoo.product_product_helpdesk_product_template
-#: model:product.template,name:vauxoo.product_product_inventory_product_template
-#: model:product.template,name:vauxoo.product_product_invoicing_product_template
-#: model:product.template,name:vauxoo.product_product_leaves_product_template
-#: model:product.template,name:vauxoo.product_product_maintenance_product_template
-#: model:product.template,name:vauxoo.product_product_manufacturing_product_template
-#: model:product.template,name:vauxoo.product_product_marketing_product_template
-#: model:product.template,name:vauxoo.product_product_mrp_maintenance_product_template
-#: model:product.template,name:vauxoo.product_product_plm_product_template
-#: model:product.template,name:vauxoo.product_product_pos_product_template
-#: model:product.template,name:vauxoo.product_product_project_product_template
-#: model:product.template,name:vauxoo.product_product_purchase_product_template
-#: model:product.template,name:vauxoo.product_product_quality_product_template
-#: model:product.template,name:vauxoo.product_product_recruitment_product_template
-#: model:product.template,name:vauxoo.product_product_sale_product_template
-#: model:product.template,name:vauxoo.product_product_sign_product_template
-#: model:product.template,name:vauxoo.product_product_studio_product_template
-#: model:product.template,name:vauxoo.product_product_subscription_product_template
-#: model:product.template,name:vauxoo.product_product_timesheet_product_template
-#: model:product.template,name:vauxoo.product_product_website_product_template
-#: model:product.template,name:vauxoo.product_template_app
+#. module: pima
+#: model:product.attribute,name:pima.product_attribute_app
+#: model:product.product,name:pima.product_product_accounting
+#: model:product.product,name:pima.product_product_appraisal
+#: model:product.product,name:pima.product_product_crm
+#: model:product.product,name:pima.product_product_ecommerce
+#: model:product.product,name:pima.product_product_event
+#: model:product.product,name:pima.product_product_expenses
+#: model:product.product,name:pima.product_product_helpdesk
+#: model:product.product,name:pima.product_product_inventory
+#: model:product.product,name:pima.product_product_invoicing
+#: model:product.product,name:pima.product_product_leaves
+#: model:product.product,name:pima.product_product_maintenance
+#: model:product.product,name:pima.product_product_manufacturing
+#: model:product.product,name:pima.product_product_marketing
+#: model:product.product,name:pima.product_product_mrp_maintenance
+#: model:product.product,name:pima.product_product_plm
+#: model:product.product,name:pima.product_product_pos
+#: model:product.product,name:pima.product_product_project
+#: model:product.product,name:pima.product_product_purchase
+#: model:product.product,name:pima.product_product_quality
+#: model:product.product,name:pima.product_product_recruitment
+#: model:product.product,name:pima.product_product_sale
+#: model:product.product,name:pima.product_product_sign
+#: model:product.product,name:pima.product_product_studio
+#: model:product.product,name:pima.product_product_subscription
+#: model:product.product,name:pima.product_product_timesheet
+#: model:product.product,name:pima.product_product_website
+#: model:product.template,name:pima.product_product_accounting_product_template
+#: model:product.template,name:pima.product_product_appraisal_product_template
+#: model:product.template,name:pima.product_product_crm_product_template
+#: model:product.template,name:pima.product_product_ecommerce_product_template
+#: model:product.template,name:pima.product_product_event_product_template
+#: model:product.template,name:pima.product_product_expenses_product_template
+#: model:product.template,name:pima.product_product_helpdesk_product_template
+#: model:product.template,name:pima.product_product_inventory_product_template
+#: model:product.template,name:pima.product_product_invoicing_product_template
+#: model:product.template,name:pima.product_product_leaves_product_template
+#: model:product.template,name:pima.product_product_maintenance_product_template
+#: model:product.template,name:pima.product_product_manufacturing_product_template
+#: model:product.template,name:pima.product_product_marketing_product_template
+#: model:product.template,name:pima.product_product_mrp_maintenance_product_template
+#: model:product.template,name:pima.product_product_plm_product_template
+#: model:product.template,name:pima.product_product_pos_product_template
+#: model:product.template,name:pima.product_product_project_product_template
+#: model:product.template,name:pima.product_product_purchase_product_template
+#: model:product.template,name:pima.product_product_quality_product_template
+#: model:product.template,name:pima.product_product_recruitment_product_template
+#: model:product.template,name:pima.product_product_sale_product_template
+#: model:product.template,name:pima.product_product_sign_product_template
+#: model:product.template,name:pima.product_product_studio_product_template
+#: model:product.template,name:pima.product_product_subscription_product_template
+#: model:product.template,name:pima.product_product_timesheet_product_template
+#: model:product.template,name:pima.product_product_website_product_template
+#: model:product.template,name:pima.product_template_app
 msgid "App"
 msgstr "App"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.detail
-#: model:ir.ui.view,arch_db:vauxoo.view_set_invoice_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.detail
+#: model:ir.ui.view,arch_db:pima.view_set_invoice_form
 msgid "Apply"
 msgstr "Aplicar"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_appraisal
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_appraisal
 msgid "Appraisal"
 msgstr "Evaluación"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Apps"
 msgstr "Aplicaciones"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Avg Deal Size:"
 msgstr "Tamaño de trato prom:"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Award-winning team"
 msgstr "Un equipo ganador"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Basic Information"
 msgstr "Informacion Básica"
 
-#. module: vauxoo
-#: model:blog.post,name:vauxoo.blog_post_2
+#. module: pima
+#: model:blog.post,name:pima.blog_post_2
 msgid "Before Vim... After Vim"
 msgstr "Antes de Vim... Después de Vim"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Benefits"
 msgstr "Beneficios"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Brand-name product and services in categories like travel, electronics, health, fitness, cellular, and more"
 msgstr "Brand-name product and services in categories like travel, electronics, health, fitness, cellular, and more"
 
-#. module: vauxoo
-#: model:hr.job,name:vauxoo.job_busines_analyist
+#. module: pima
+#: model:hr.job,name:pima.job_busines_analyist
 msgid "Business analyst"
 msgstr "Analista de negocios"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_crm
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_crm
 msgid "CRM"
 msgstr "CRM"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.employee_link_user_form
-#: model:ir.ui.view,arch_db:vauxoo.view_set_invoice_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.employee_link_user_form
+#: model:ir.ui.view,arch_db:pima.view_set_invoice_form
 msgid "Cancel"
 msgstr "Cancelar"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.header_apps
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.header_apps
 msgid ""
 "Choose your tools to start your business straighatway with our Online management\n"
 "\n"
@@ -665,150 +665,150 @@ msgstr ""
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        en linea."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Clean Timesheets"
 msgstr "Clean Timesheets"
 
-#. module: vauxoo
-#: model:ir.actions.act_window,help:vauxoo.act_vauxoo_timesheet_line_by_task
+#. module: pima
+#: model:ir.actions.act_window,help:pima.act_vauxoo_timesheet_line_by_task
 msgid "Click to record activities."
 msgstr "Haga clic para registrar las actividades."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_task_extended_search_view
 msgid "Color"
 msgstr "Color"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Comment Issues"
 msgstr "Comment Issues"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_comment_invoices
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_comment_invoices
 msgid "Comment about Invoices"
 msgstr "Comment about Invoices"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_comment_issues
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_comment_timesheet
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_comment_issues
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_comment_timesheet
 msgid "Comment about Timesheets"
 msgstr "Comment about Timesheets"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_ci2html
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_ci2html
 msgid "Comments Invoices html"
 msgstr "Comments Invoices html"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_ciss2html
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_ciss2html
 msgid "Comments Issues html"
 msgstr "Comments Issues html"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_cts2html
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_cts2html
 msgid "Comments TS html"
 msgstr "Comments TS html"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_res_company
+#. module: pima
+#: model:ir.model,name:pima.model_res_company
 msgid "Companies"
 msgstr "Compañías"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_company_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_company_id
 msgid "Company"
 msgstr "Compañía"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Company Growth:"
 msgstr "Company Growth:"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Company Maturity:"
 msgstr "Company Maturity:"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_company_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_company_id
 msgid "Company which this report belongs to"
 msgstr "Company which this report belongs to"
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:58
+#: code:addons/pima/static/src/xml/base.xml:58
 #, python-format
 msgid "Compose new Message"
 msgstr "Compose new Message"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Consulting"
 msgstr "Consultoría"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_partner_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_partner_id
 msgid "Contact"
 msgstr "Contacto"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Contact us"
 msgstr "Contáctenos"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_partner_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_partner_id
 msgid "Contact which you will send this report."
 msgstr "Contacto al que se enviará este reporte."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_sale_order_line_desc2html
-#: model:ir.model.fields,field_description:vauxoo.field_sale_order_note2html
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_sale_order_line_desc2html
+#: model:ir.model.fields,field_description:pima.field_sale_order_note2html
 msgid "Converted RST"
 msgstr "Converted RST"
 
-#. module: vauxoo
-#: model:base.automation,name:vauxoo.create_task_from_ticket_automation
-#: model:ir.actions.server,name:vauxoo.create_task_from_ticket_action
-#: model:ir.actions.server,name:vauxoo.create_task_from_ticket_automation_ir_actions_server
+#. module: pima
+#: model:base.automation,name:pima.create_task_from_ticket_automation
+#: model:ir.actions.server,name:pima.create_task_from_ticket_action
+#: model:ir.actions.server,name:pima.create_task_from_ticket_automation_ir_actions_server
 msgid "Create task from ticket"
 msgstr "Crear tarea desde ticket"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_create_uid
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_create_uid
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_create_uid
-#: model:ir.model.fields,field_description:vauxoo.field_lang_config_settings_create_uid
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_create_uid
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard_create_uid
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_create_uid
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_create_uid
+#: model:ir.model.fields,field_description:pima.field_lang_config_settings_create_uid
+#: model:ir.model.fields,field_description:pima.field_set_invoice_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_create_date
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_create_date
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_create_date
-#: model:ir.model.fields,field_description:vauxoo.field_lang_config_settings_create_date
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_create_date
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard_create_date
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_create_date
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_create_date
+#: model:ir.model.fields,field_description:pima.field_lang_config_settings_create_date
+#: model:ir.model.fields,field_description:pima.field_set_invoice_create_date
 msgid "Created on"
 msgstr "Creado el"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Cross-disciplinary team"
 msgstr "Equipo multidisciplinario"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_3
+#. module: pima
+#: model:blog.post,content:pima.blog_post_3
 msgid "Curabitur interdum dolor ac fringilla lobortis. Sed sit amet purus non\n"
 "nibh pellentesque accumsan. Cras maximus cursus dignissim. Morbi pulvinar risus\n"
 "eget tellus pellentesque, eget bibendum massa tempor. Donec ullamcorper\n"
@@ -826,36 +826,36 @@ msgstr "Curabitur interdum dolor ac fringilla lobortis. Sed sit amet purus non\n
 "ante id volutpat. Vestibulum pharetra vestibulum diam in ultricies. Duis\n"
 "sodales ut tortor nec blandit."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_currency_id
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_currency_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_currency_id
+#: model:ir.model.fields,field_description:pima.field_set_invoice_currency_id
 msgid "Currency"
 msgstr "Moneda"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_set_invoice_currency_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_set_invoice_currency_id
 msgid "Currency on report"
 msgstr "Currency on report"
 
-#. module: vauxoo
-#: model:blog.blog,name:vauxoo.blog_blog_customer_cases
+#. module: pima
+#: model:blog.blog,name:pima.blog_blog_customer_cases
 msgid "Customer Cases"
 msgstr "Casos de Éxito"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_DHL
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_DHL
 msgid "DHL"
 msgstr "DHL"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.timesheet_line_search_view_filters
+#: model:ir.ui.view,arch_db:pima.timesheet_search_view_filters
 msgid "Day"
 msgstr "Día"
 
-#. module: vauxoo
-#: model:res.company,overdue_msg:vauxoo.company_pe
-#: model:res.company,overdue_msg:vauxoo.company_ve
+#. module: pima
+#: model:res.company,overdue_msg:pima.company_pe
+#: model:res.company,overdue_msg:pima.company_ve
 msgid ""
 "Dear Sir/Madam,\n"
 "\n"
@@ -875,51 +875,51 @@ msgstr ""
 "Thank you in advance for your cooperation.\n"
 "Best Regards,"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Delivery"
 msgstr "Entrega"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Development"
 msgstr "Desarollo"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Direct coordination with functional consultants for qualification and follow ups"
 msgstr "Coordinación directa con nuestros consultores funcionales para calificación y seguimiento"
 
-#. module: vauxoo
-#: model:res.groups,name:vauxoo.directive
+#. module: pima
+#: model:res.groups,name:pima.directive
 msgid "Directive"
 msgstr "Directive"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_factor
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_factor
 msgid "Discount (%)"
 msgstr "Descuento (%)"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Discount Programs"
 msgstr "Programas de descuento"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_invoice_factor_factor
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_invoice_factor_factor
 msgid "Discount in percentage"
 msgstr "Descuento en porcentaje"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "Discover more than 1,000 apps that\n"
 "\n"
@@ -937,22 +937,22 @@ msgstr ""
 "                      <br/>\n"
 "                      de tu negocio."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Discover more than 1,000 apps that can help you to get the most out of your business."
 msgstr "Descubre mas de 1,000 apps que pueden ayudarte a obtener lo máximo de tu negocio."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_display_name
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_display_name
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_display_name
-#: model:ir.model.fields,field_description:vauxoo.field_lang_config_settings_display_name
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_display_name
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard_display_name
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_display_name
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_display_name
+#: model:ir.model.fields,field_description:pima.field_lang_config_settings_display_name
+#: model:ir.model.fields,field_description:pima.field_set_invoice_display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_4
+#. module: pima
+#: model:blog.post,content:pima.blog_post_4
 msgid "Donec a risus sed massa rhoncus pulvinar. Donec consectetur molestie leo,\n"
 "nec dapibus arcu sollicitudin sit amet. Vestibulum blandit non urna ac aliquet.\n"
 "Fusce eget luctus neque, id sodales ligula. Proin ut felis interdum,\n"
@@ -968,8 +968,8 @@ msgstr "Donec a risus sed massa rhoncus pulvinar. Donec consectetur molestie leo
 "lacinia, tellus ipsum tristique lorem, et cursus urna magna et justo. Proin\n"
 "finibus convallis eros vitae aliquam. Suspendisse vel maximus nibh."
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_4
+#. module: pima
+#: model:blog.post,content:pima.blog_post_4
 msgid "Donec id convallis eros, sit amet lacinia urna. Integer gravida, ipsum in\n"
 "luctus rhoncus, sapien tellus auctor lacus, a dictum diam nunc vel ex. Nulla\n"
 "tincidunt facilisis elementum. Aliquam eget laoreet sapien, vel pretium nulla.\n"
@@ -991,18 +991,18 @@ msgstr "Donec id convallis eros, sit amet lacinia urna. Integer gravida, ipsum i
 "Suspendisse potenti. Nunc scelerisque sit amet massa a mattis. Maecenas non\n"
 "lectus elementum, sollicitudin nibh sit amet, suscipit felis."
 
-#. module: vauxoo
+#. module: pima
 #: selection:hr.timesheet.reports.base,state:0
 msgid "Draft"
 msgstr "Borrador"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "Due to features of certain apps are dependent of the functionality of other apps, it is necessary that such apps be installed together, in order to ensure the optimal performance of them.."
 msgstr "Debido a que algunas características de algunas Apps dependen de la funcionalidad de otras Apps, es necesario instalarlas juntas, esto, para asegurar el correcto funcionamiento de cada una.."
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_3
+#. module: pima
+#: model:blog.post,content:pima.blog_post_3
 msgid "Duis urna enim, aliquam in dapibus ac, volutpat eu magna. Duis molestie\n"
 "erat eu sem vestibulum dictum. Nam nibh tortor, ornare nec est ac, scelerisque\n"
 "efficitur massa. Ut faucibus euismod efficitur. Sed vel fermentum arcu. Nulla\n"
@@ -1022,57 +1022,57 @@ msgstr "Duis urna enim, aliquam in dapibus ac, volutpat eu magna. Duis molestie\
 "Phasellus euismod sollicitudin lacus, id mollis nisi ultrices et. Aenean mi\n"
 "velit, posuere vel mollis non, aliquet in eros."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "EUR"
 msgstr "EUR"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Eat &amp; Drink"
 msgstr "Comida &amp; Bebidas"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_Ebay
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_Ebay
 msgid "Ebay"
 msgstr "Ebay"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Edit Online"
 msgstr "Editar en linea"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_order_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_order_form
 msgid "Edit inline"
 msgstr "Editar en linea"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Email"
 msgstr "Correo electrónico"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_email_marketing
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_email_marketing
 msgid "Email Marketing"
 msgstr "Marketing"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.helpdesk_team_form_project
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.helpdesk_team_form_project
 msgid "Enter the project name where the issues timesheet will be loaded"
 msgstr "Enter the project name where the issues timesheet will be loaded"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_equipment
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_equipment
 msgid "Equipment"
 msgstr "Equipo"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_1
+#. module: pima
+#: model:blog.post,content:pima.blog_post_1
 msgid "Etiam facilisis efficitur imperdiet. Sed ultrices diam arcu, ac ultricies lacus\n"
 "feugiat sit amet. Sed dapibus, augue quis accumsan feugiat, eros diam rutrum\n"
 "lorem, a aliquet nulla neque eget enim. Donec facilisis turpis eget rutrum\n"
@@ -1096,23 +1096,23 @@ msgstr "Etiam facilisis efficitur imperdiet. Sed ultrices diam arcu, ac ultricie
 "Quisque pellentesque velit diam, at elementum est dignissim ut. Aliquam eros\n"
 "nibh, venenatis eget sollicitudin at, porta ac ligula."
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_events
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_events
 msgid "Events"
 msgstr "Eventos"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_expenses
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_expenses
 msgid "Expenses"
 msgstr "Gastos"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Explore"
 msgstr "Explorar"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.shop
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.shop
 msgid ""
 "Explore our library of apps that can be integrated into your workflow to enhance the\n"
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -1122,8 +1122,8 @@ msgstr ""
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
 "                            mejorar la productividad de tu negocio."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "Explore our step-by-step methodology that we use to create the most seamless\n"
 "\n"
@@ -1139,46 +1139,46 @@ msgstr ""
 "                <br class=\"hidden-xs hidden-sm\"/>\n"
 "                transparentes en el manejo de tu empresa con Odoo."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.extra_integrations
-#: model:product.product,name:vauxoo.product_product_DHL
-#: model:product.product,name:vauxoo.product_product_Ebay
-#: model:product.product,name:vauxoo.product_product_FedEx
-#: model:product.product,name:vauxoo.product_product_UPS
-#: model:product.product,name:vauxoo.product_product_USPS
-#: model:product.product,name:vauxoo.product_product_voip
-#: model:product.template,name:vauxoo.product_product_DHL_product_template
-#: model:product.template,name:vauxoo.product_product_Ebay_product_template
-#: model:product.template,name:vauxoo.product_product_FedEx_product_template
-#: model:product.template,name:vauxoo.product_product_UPS_product_template
-#: model:product.template,name:vauxoo.product_product_USPS_product_template
-#: model:product.template,name:vauxoo.product_product_voip_product_template
-#: model:product.template,name:vauxoo.product_template_extra_integrations
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.extra_integrations
+#: model:product.product,name:pima.product_product_DHL
+#: model:product.product,name:pima.product_product_Ebay
+#: model:product.product,name:pima.product_product_FedEx
+#: model:product.product,name:pima.product_product_UPS
+#: model:product.product,name:pima.product_product_USPS
+#: model:product.product,name:pima.product_product_voip
+#: model:product.template,name:pima.product_product_DHL_product_template
+#: model:product.template,name:pima.product_product_Ebay_product_template
+#: model:product.template,name:pima.product_product_FedEx_product_template
+#: model:product.template,name:pima.product_product_UPS_product_template
+#: model:product.template,name:pima.product_product_USPS_product_template
+#: model:product.template,name:pima.product_product_voip_product_template
+#: model:product.template,name:pima.product_template_extra_integrations
 msgid "Extra Integrations"
 msgstr "Integraciones extra"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_FedEx
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_FedEx
 msgid "FedEx"
 msgstr "FedEx"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_filter_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_filter_id
 msgid "Filter"
 msgstr "Filtro"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_filter_invoice_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_filter_invoice_id
 msgid "Filter of Invoices to be shown TIP = Go to Accounting/Customer Invoices in order to create the filter you want to show on thisreport."
 msgstr "Filter of Invoices to be shown TIP = Go to Accounting/Customer Invoices in order to create the filter you want to show on thisreport."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_filter_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_filter_id
 msgid "Filter should be by date, group_by is ignored, the model which the filter should belong to is timesheet."
 msgstr "Filter should be by date, group_by is ignored, the model which the filter should belong to is timesheet."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.shop
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.shop
 msgid ""
 "For every need\n"
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -1188,37 +1188,37 @@ msgstr ""
 "                            <br class=\"hidden-xs hidden-sm\"/>\n"
 "                            hay una App."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "For further questions, please contact our support team at"
 msgstr "Para otras preguntas, contacta a nuestro equipo de soporte en"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.header_apps
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.header_apps
 msgid "Free trial"
 msgstr "Prueba gratis"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "From diagnosis to implementation, our team brings a great deal of experience in the fields of Odoo development, Software, Quality Assurance, Full Stack Development, Design and Business Analysis."
 msgstr "Del diagnostico a la implementación, nuestro equipo aporta su basta experiencia en las áreas de desarrollo en Odoo, Software, Aseguramiento de Calidad, Desarrollo Full Stack, Diseño y Análisis de Negocio."
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Full sales cycle"
 msgstr "Ciclo de ventas completo"
 
-#. module: vauxoo
-#: model:blog.blog,name:vauxoo.blog_blog_functional_hacks
+#. module: pima
+#: model:blog.blog,name:pima.blog_blog_functional_hacks
 msgid "Functional Hacks"
 msgstr "Hacks Funcionales"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_2
+#. module: pima
+#: model:blog.post,content:pima.blog_post_2
 msgid "Fusce quis leo neque. Nunc sed molestie risus, semper accumsan odio. Vestibulum\n"
 "augue justo, lobortis id elementum sit amet, suscipit sodales ligula. Etiam\n"
 "ultricies turpis et diam cursus commodo sit amet eu ante. Sed rhoncus sem\n"
@@ -1242,100 +1242,100 @@ msgstr "Fusce quis leo neque. Nunc sed molestie risus, semper accumsan odio. Ves
 "malesuada purus in, tincidunt velit. Cras accumsan scelerisque ante, sit amet\n"
 "mole&gt;stie nulla commodo id."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Get in touch with us"
 msgstr "Ponte en contacto con nosotros"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.blog_header_carousel
 msgid "Get our latest news straight to your inbox"
 msgstr "Recibe nuestras ultimas noticias directo en tu correo"
 
-#. module: vauxoo
-#: model:blog.post,subtitle:vauxoo.blog_post_1
+#. module: pima
+#: model:blog.post,subtitle:pima.blog_post_1
 msgid "Get to know Odoo"
 msgstr "Conoce Odoo"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid "Get to know us"
 msgstr "Conocenos"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.timesheet_line_search_view_filters
+#: model:ir.ui.view,arch_db:pima.timesheet_search_view_filters
 msgid "Group By"
 msgstr "Agrupar por"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_group_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard_group_id
 msgid "Group to assign"
 msgstr "Group to assign"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Healthcare, dental, vision, life insurance, Flexible Spending Account (FSA), Health Savings Account (HSA)"
 msgstr "Healthcare, dental, vision, life insurance, Flexible Spending Account (FSA), Health Savings Account (HSA)"
 
-#. module: vauxoo
-#: model:blog.post,name:vauxoo.blog_post_1
-#: model:blog.post,website_meta_description:vauxoo.blog_post_1
+#. module: pima
+#: model:blog.post,name:pima.blog_post_1
+#: model:blog.post,website_meta_description:pima.blog_post_1
 msgid "Hello World"
 msgstr "Hola Mundo"
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:87
+#: code:addons/pima/static/src/xml/base.xml:87
 #, python-format
 msgid "Help"
 msgstr "Ayuda"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_helpdesk
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_helpdesk
 msgid "Helpdesk"
 msgstr "Soporte"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_helpdesk_team
+#. module: pima
+#: model:ir.model,name:pima.model_helpdesk_team
 msgid "Helpdesk Team"
 msgstr "ayuda de servicio de asistencia"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "High commissions for good performers"
 msgstr "Comiciones altas para"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_set_invoice_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_set_invoice_form
 msgid "Hours for"
 msgstr "Hours for"
 
-#. module: vauxoo
-#: model:ir.actions.report.xml,name:vauxoo.hr_timesheet_reports_base
-#: model:ir.actions.report.xml,name:vauxoo.qweb_hr_timesheet_reports_base
+#. module: pima
+#: model:ir.actions.report.xml,name:pima.hr_timesheet_reports_base
+#: model:ir.actions.report.xml,name:pima.qweb_hr_timesheet_reports_base
 msgid "Hr timesheet reports base"
 msgstr "Hr timesheet reports base"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_id
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_id
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_id
-#: model:ir.model.fields,field_description:vauxoo.field_lang_config_settings_id
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard_id
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_id
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_id
+#: model:ir.model.fields,field_description:pima.field_lang_config_settings_id
+#: model:ir.model.fields,field_description:pima.field_set_invoice_id
 msgid "ID"
 msgstr "ID"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid ""
 "If you like solving problems, propose solutions and disruptive thinking so, this is your place. We are looking for individuals who want to\n"
 "\n"
@@ -1359,18 +1359,18 @@ msgstr ""
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
 " “Make extraordinary things”."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "Implementation"
 msgstr "Implementación"
 
-#. module: vauxoo
-#: model:product.template,name:vauxoo.product_template_implementation_services
+#. module: pima
+#: model:product.template,name:pima.product_template_implementation_services
 msgid "Implementation Services"
 msgstr "Servicios de implementación"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_3
+#. module: pima
+#: model:blog.post,content:pima.blog_post_3
 msgid "In gravida iaculis lorem id consequat. Phasellus eget elementum orci.\n"
 "Donec egestas ipsum eget ligula dapibus, eget gravida nibh semper. Aenean eros\n"
 "lectus, egestas vel molestie eu, suscipit quis ipsum. Sed non lacinia justo, ut\n"
@@ -1388,13 +1388,13 @@ msgstr "In gravida iaculis lorem id consequat. Phasellus eget elementum orci.\n"
 "sit amet eros. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n"
 "Sed vel viverra purus. Suspendisse viverra iaculis augue nec elementum.V"
 
-#. module: vauxoo
-#: model:helpdesk.team,name:vauxoo.infraestructure_support_team
+#. module: pima
+#: model:helpdesk.team,name:pima.infraestructure_support_team
 msgid "Infrastructure"
 msgstr "Infraestructura"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_3
+#. module: pima
+#: model:blog.post,content:pima.blog_post_3
 msgid "Integer eget rhoncus sem, et maximus felis. Suspendisse potenti. Morbi\n"
 "viverra, orci quis finibus efficitur, diam sem dapibus felis, ac interdum lorem\n"
 "risus id velit. Phasellus id turpis mollis orci convallis vestibulum. Donec\n"
@@ -1414,153 +1414,153 @@ msgstr "Integer eget rhoncus sem, et maximus felis. Suspendisse potenti. Morbi\n
 "suscipit hendrerit nec nec est. Duis fermentum mollis ipsum, id lobortis ante\n"
 "molestie quis."
 
-#. module: vauxoo
-#: model:hr.job,name:vauxoo.job_intern_dev
+#. module: pima
+#: model:hr.job,name:pima.job_intern_dev
 msgid "Intern"
 msgstr "Intern"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_name
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_name
 msgid "Internal Name"
 msgstr "Nombre interno"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_inventory
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_inventory
 msgid "Inventory"
 msgstr "Inventario"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_account_analytic_line_invoice_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_account_analytic_line_invoice_id
 msgid "Invoice"
 msgstr "Factura"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Invoice Information"
 msgstr "Informacion de factura"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_tree
-#: model:ir.ui.view,arch_db:vauxoo.view_set_invoice_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
+#: model:ir.ui.view,arch_db:pima.view_reports_base_tree
+#: model:ir.ui.view,arch_db:pima.view_set_invoice_form
 msgid "Invoice Line"
 msgstr "Linea de Factura"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Invoice Lines with this products"
 msgstr "Invoice Lines with this products"
 
-#. module: vauxoo
-#: model:ir.actions.act_window,name:vauxoo.action_invoice_rates
-#: model:ir.model,name:vauxoo.model_hr_timesheet_invoice_factor
-#: model:ir.ui.menu,name:vauxoo.menu_invoice_rate
+#. module: pima
+#: model:ir.actions.act_window,name:pima.action_invoice_rates
+#: model:ir.model,name:pima.model_hr_timesheet_invoice_factor
+#: model:ir.ui.menu,name:pima.menu_invoice_rate
 msgid "Invoice Rate"
 msgstr "Invoice Rate"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_account_analytic_line_to_invoice
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_account_analytic_line_to_invoice
 msgid "Invoiceable"
 msgstr "Facturable"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_account_analytic_line_invoiceables_hours
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_account_analytic_line_invoiceables_hours
 msgid "Invoiceable Hours"
 msgstr "Invoiceable Hours"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_filter_invoice_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_filter_invoice_id
 msgid "Invoices"
 msgstr "Facturas"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Invoices Section"
 msgstr "Invoices Section"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Invoices on this filter"
 msgstr "Invoices on this filter"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_invoicing
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_invoicing
 msgid "Invoicing"
 msgstr "Facturación"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_filter_issue_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_filter_issue_id
 msgid "Issues"
 msgstr "Issues"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Issues Section"
 msgstr "Issues Section"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Issues on this filter"
 msgstr "Issues on this filter"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_account_analytic_line_to_invoice
+#. module: pima
+#: model:ir.model.fields,help:pima.field_account_analytic_line_to_invoice
 msgid "It allows to set the discount while making invoice, keep empty if the activities should not be invoiced."
 msgstr "It allows to set the discount while making invoice, keep empty if the activities should not be invoiced."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_comment_invoices
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_comment_invoices
 msgid "It will appear just above list of invoices."
 msgstr "It will appear just above list of invoices."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_comment_issues
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_comment_issues
 msgid "It will appear just above the resumed issues."
 msgstr "It will appear just above the resumed issues."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_ci2html
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_ciss2html
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_comment_timesheet
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_cts2html
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_ci2html
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_ciss2html
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_comment_timesheet
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_cts2html
 msgid "It will appear just above the resumed timesheets."
 msgstr "It will appear just above the resumed timesheets."
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Job Complexity:"
 msgstr "Job Complexity:"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Job Security:"
 msgstr "Job Security:"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
 msgid "Job application form"
 msgstr "Formulario de solicitud de trabajo"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Job openings"
 msgstr "Ofertas de trabajo"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.detail
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.detail
 msgid "Jobs"
 msgstr "Empleos"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid ""
 "Join our team.\n"
 "\n"
@@ -1572,113 +1572,113 @@ msgstr ""
 "                    <br/>\n"
 "                    tenemos buen Café."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Just Print report"
 msgstr "Just Print report"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Just print report and send a message with the report to followers."
 msgstr "Just print report and send a message with the report to followers."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_project_project_label_acronymous
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_project_project_label_acronymous
 msgid "Label Acronymous"
 msgstr "Label Acronymous"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_project_project_label_acronymous_subtasks
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_project_project_label_acronymous_subtasks
 msgid "Label Acronymous Subtasks"
 msgstr "Label Acronymous Subtasks"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_project_project_label_subtasks
-#: model:ir.model.fields,field_description:vauxoo.field_project_task_label_subtasks
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_project_project_label_subtasks
+#: model:ir.model.fields,field_description:pima.field_project_task_label_subtasks
 msgid "Label Subtasks"
 msgstr "Label Subtasks"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_invoice_factor_customer_name
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_invoice_factor_customer_name
 msgid "Label for the customer"
 msgstr "Label for the customer"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Large apps scope: CRM, MRP, Accounting, Inventory, HR, Project Mgt, etc."
 msgstr "Large apps scope: CRM, MRP, Accounting, Inventory, HR, Project Mgt, etc."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard___last_update
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor___last_update
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base___last_update
-#: model:ir.model.fields,field_description:vauxoo.field_lang_config_settings___last_update
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice___last_update
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard___last_update
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor___last_update
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base___last_update
+#: model:ir.model.fields,field_description:pima.field_lang_config_settings___last_update
+#: model:ir.model.fields,field_description:pima.field_set_invoice___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_write_uid
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_write_uid
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_write_uid
-#: model:ir.model.fields,field_description:vauxoo.field_lang_config_settings_write_uid
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_write_uid
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard_write_uid
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_write_uid
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_write_uid
+#: model:ir.model.fields,field_description:pima.field_lang_config_settings_write_uid
+#: model:ir.model.fields,field_description:pima.field_set_invoice_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_employee_user_wizard_write_date
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_write_date
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_write_date
-#: model:ir.model.fields,field_description:vauxoo.field_lang_config_settings_write_date
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_write_date
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_employee_user_wizard_write_date
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_write_date
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_write_date
+#: model:ir.model.fields,field_description:pima.field_lang_config_settings_write_date
+#: model:ir.model.fields,field_description:pima.field_set_invoice_write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.timesheet_line_search_view_filters
+#: model:ir.ui.view,arch_db:pima.timesheet_search_view_filters
 msgid "Last Week"
 msgstr "Última Semana"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_leaves
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_leaves
 msgid "Leaves"
 msgstr "Ausencias"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Let's build something great"
 msgstr "Construyamos algo genial"
 
-#. module: vauxoo
-#: model:ir.actions.act_window,name:vauxoo.create_employee_user_wizard
+#. module: pima
+#: model:ir.actions.act_window,name:pima.create_employee_user_wizard
 msgid "Link User from Employee"
 msgstr "Link User from Employee"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.employee_link_user_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.employee_link_user_form
 msgid "Link User/Assign Group"
 msgstr "Link User/Assign Group"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.employee_link_user_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.employee_link_user_form
 msgid "Link user/Assign group"
 msgstr "Link user/Assign group"
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:88
+#: code:addons/pima/static/src/xml/base.xml:88
 #, python-format
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_1
+#. module: pima
+#: model:blog.post,content:pima.blog_post_1
 msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis nibh\n"
 "vitae ex malesuada egestas. Duis a magna orci. Ut tristique erat nisi, nec\n"
 "tristique est fringilla vel. Pellentesque luctus varius turpis, ultricies\n"
@@ -1698,13 +1698,13 @@ msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis
 "sollicitudin ante. Duis rutrum nibh sapien, eu vulputate nulla pellentesque sit\n"
 "amet. Sed congue lacus eget lectus malesuada interdum."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "MXN"
 msgstr "MXN"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_4
+#. module: pima
+#: model:blog.post,content:pima.blog_post_4
 msgid "Maecenas ac molestie neque, feugiat pretium ex. Phasellus maximus, nibh\n"
 "eget pellentesque dapibus, nulla mauris rutrum tellus, ac viverra eros nunc ut\n"
 "leo. Fusce dictum placerat pharetra. Suspendisse eleifend dolor et semper\n"
@@ -1724,28 +1724,28 @@ msgstr "Maecenas ac molestie neque, feugiat pretium ex. Phasellus maximus, nibh\
 "et orci fringilla feugiat. Nunc bibendum porta metus, quis gravida nulla\n"
 "placerat in."
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_maintenance
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_maintenance
 msgid "Maintenance"
 msgstr "Mantenimiento"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_manufacturing
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_manufacturing
 msgid "Manufacturing"
 msgstr "Fabricación"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Mark Timesheet as Invoiced"
 msgstr "Mark Timesheet as Invoiced"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Mark timesheet elements as reported"
 msgstr "Mark timesheet elements as reported"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_4
+#. module: pima
+#: model:blog.post,content:pima.blog_post_4
 msgid "Mauris lobortis commodo diam sit amet hendrerit. Maecenas rutrum arcu quis\n"
 "purus accumsan semper. In in molestie nisi. Suspendisse pulvinar turpis\n"
 "venenatis sapien lacinia lacinia. Morbi interdum eleifend eros, semper\n"
@@ -1769,38 +1769,38 @@ msgstr "Mauris lobortis commodo diam sit amet hendrerit. Maecenas rutrum arcu qu
 "eleifend id lectus in accumsan. Morbi efficitur lectus est, a laoreet nibh\n"
 "dignissim et."
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_state
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_state
 msgid "Message sent already to customer (it will block edition)"
 msgstr "Message sent already to customer (it will block edition)"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
-#: model:product.uom,name:vauxoo.contract_uom_month
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.timesheet_line_search_view_filters
+#: model:ir.ui.view,arch_db:pima.timesheet_search_view_filters
+#: model:product.uom,name:pima.contract_uom_month
 msgid "Month"
 msgstr "Mes"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.timesheet_line_search_view_filters
+#: model:ir.ui.view,arch_db:pima.timesheet_search_view_filters
 msgid "Month and day"
 msgstr "Mes y día"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "Monthly Billing"
 msgstr "Cargo mensual "
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:85
+#: code:addons/pima/static/src/xml/base.xml:85
 #, python-format
 msgid "My OpenERP.com account"
 msgstr "Mi Odoo Account"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_2
+#. module: pima
+#: model:blog.post,content:pima.blog_post_2
 msgid "Nam non est consequat, blandit nisl id, placerat est. Nulla facilisi. Nunc\n"
 "cursus sem ante, quis laoreet velit tincidunt ac. Morbi quis orci nec nisl\n"
 "condimentum lacinia. Sed ullamcorper lobortis arcu ut sodales. Integer vel est\n"
@@ -1826,51 +1826,51 @@ msgstr "Nam non est consequat, blandit nisl id, placerat est. Nulla facilisi. Nu
 "venenatis diam felis sit amet ligula. Nulla scelerisque dolor eget erat porta,\n"
 "quis dictum felis lacinia. Nulla auctor turpis feugiat consectetur tristique."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_invoice_factor_customer_name
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_invoice_factor_customer_name
 msgid "Name"
 msgstr "Nombre"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Need More Info?"
 msgstr "¿Necesitas más información?"
 
-#. module: vauxoo
-#: model:blog.post,name:vauxoo.blog_post_3
+#. module: pima
+#: model:blog.post,name:pima.blog_post_3
 msgid "Next Activities Philosophy"
 msgstr "Filosofía de Siguiente Actividad"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "Nice to have"
 msgstr "Nice to have"
 
-#. module: vauxoo
-#: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor7
+#. module: pima
+#: model:hr_timesheet_invoice.factor,name:pima.timesheet_invoice_factor7
 msgid "No (0%)"
 msgstr "No (0%)"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "No outbound calls, you get leads and focus on providing value to them"
 msgstr "No outbound calls, you get leads and focus on providing value to them"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Now it is time to launch your product internally. We help you through the process of switching from the old school to the new school with full support of our team."
 msgstr "Ahora es tiempo de lanzar tu producto internamente. Te asesoramos en el proceso de transición de la vieja a la nueva escuela con la ayuda de nuestro equipo."
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_1
+#. module: pima
+#: model:blog.post,content:pima.blog_post_1
 msgid "Nulla facilisi. Curabitur rhoncus nibh enim, et finibus dolor aliquam eu.\n"
 "Integer egestas vehicula sem sed vehicula. Vestibulum vel semper orci, sed\n"
 "cursus tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n"
@@ -1890,115 +1890,115 @@ msgstr "Nulla facilisi. Curabitur rhoncus nibh enim, et finibus dolor aliquam eu
 "nisi non tincidunt tristique. Mauris posuere est turpis, sit amet lacinia\n"
 "ligula lacinia quis. Fusce ac ligula vitae ligula bibendum auctor at eget eros."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
-#: model:product.template,name:vauxoo.users
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
+#: model:product.template,name:pima.users
 msgid "Number of users"
 msgstr "Número de usuarios"
 
-#. module: vauxoo
-#: model:hr.job,name:vauxoo.job_odoo_dev
+#. module: pima
+#: model:hr.job,name:pima.job_odoo_dev
 msgid "Odoo developer"
 msgstr "Odoo developer"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "On Premise"
 msgstr "On Premise"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "One day at Vauxoo"
 msgstr "Un día en Vauxoo"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Only a couple blocs from BART, Caltrain, Highway 101, carpool pickup, and Bay Bridge."
 msgstr "Only a couple blocs from BART, Caltrain, Highway 101, carpool pickup, and Bay Bridge."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_task_extended_search_view
 msgid "Orphan Task"
 msgstr "Tarea huerfana"
 
-#. module: vauxoo
-#: model:sale.quote.template,website_description:vauxoo.website_quote_template_default
+#. module: pima
+#: model:sale.quote.template,website_description:pima.website_quote_template_default
 msgid "Our Offer"
 msgstr "Nuestra Oferta"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid "Our culture"
 msgstr "Nuestra cultura"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Our development is based on sprints, which are short periods of development that are continuosly submitted to your validation so you will keep informed during the whole process."
 msgstr "Nuestros desarrollos están basados en Sprints, estos son cortos periodos de desarrollo que son constantemente desplegados para ser validados, de tal manera siempre estarás informado durante todo el proceso."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Our goal is to keep delivering value to companies from Latin America by applying the best methodologies."
 msgstr "Nuestro objetivo es mantenernos agregando valor a compañías de Latinoamérica aplicando las mejores metodologías."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Our offices"
 msgstr "Nuestras oficinas"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Our story"
 msgstr "Nuestra historia"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Overachieving Possibilities:"
 msgstr "Overachieving Possibilities:"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_user_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_user_id
 msgid "Owner of the report, generally the person that create it."
 msgstr "Owner of the report, generally the person that create it."
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_plm
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_plm
 msgid "PLM"
 msgstr "PLM"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "PTOs"
 msgstr "PTOs"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_res_partner
+#. module: pima
+#: model:ir.model,name:pima.model_res_partner
 msgid "Partner"
 msgstr "Empresa"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Peet's and Philz coffee provided all day to order and pantry snacks"
 msgstr "Peet's and Philz coffee provided all day to order and pantry snacks"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_3
+#. module: pima
+#: model:blog.post,content:pima.blog_post_3
 msgid "Pellentesque porta mollis erat. Cras congue porta erat, in aliquam eros\n"
 "iaculis ut. Proin sit amet dolor ligula. Phasellus efficitur enim non quam\n"
 "luctus, eget dictum lectus efficitur. Curabitur blandit tempor neque ac\n"
@@ -2012,8 +2012,8 @@ msgstr "Pellentesque porta mollis erat. Cras congue porta erat, in aliquam eros\
 "et lacus bibendum congue. Morbi cursus viverra ante, et vestibulum mi aliquam\n"
 "at."
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_1
+#. module: pima
+#: model:blog.post,content:pima.blog_post_1
 msgid "Pellentesque semper sodales enim. Proin vitae arcu sapien. Ut ligula velit,\n"
 "laoreet non neque ac, tristique accumsan odio. Nam quis volutpat libero. In\n"
 "volutpat purus nec nunc interdum, non posuere felis tristique. Mauris ut mi nec\n"
@@ -2031,266 +2031,266 @@ msgstr "Pellentesque semper sodales enim. Proin vitae arcu sapien. Ut ligula vel
 "sagittis vel sit amet nibh. Sed eu pretium libero, sit amet sagittis est. Donec\n"
 "maximus sed mauris vel varius. Aliquam faucibus nisl at arcu rutrum viverra."
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Personal Evolution:"
 msgstr "Personal Evolution:"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Phone Number"
 msgstr "Nº teléfono"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.on_premise_apps
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.on_premise_apps
 msgid "Pick the apps you need"
 msgstr "Selecciona las Apps que necesitas"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Play any sport with colleagues and the bill is covered"
 msgstr "Play any sport with colleagues and the bill is covered"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_pos
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_pos
 msgid "Point of Sale"
 msgstr "Punto de venta"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Pre-tax commuter benefitsbr <br>(parking and transit)"
 msgstr "Pre-tax commuter benefitsbr <br>(parking and transit)"
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:84
+#: code:addons/pima/static/src/xml/base.xml:84
 #, python-format
 msgid "Preferences"
 msgstr "Preferencias"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Prime location"
 msgstr "Prime location"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_tree
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_tree
 msgid "Print and Send"
 msgstr "Imprimir y enviar"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_procurement_order
+#. module: pima
+#: model:ir.model,name:pima.model_procurement_order
 msgid "Procurement"
 msgstr "Abastecimiento"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_project_task_product_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_project_task_product_id
 msgid "Product"
 msgstr "Producto"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Product Information"
 msgstr "Información de producto"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_product_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_product_id
 msgid "Product to Compute Totals"
 msgstr "Productos para calcular totales"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_prod_cons_ids
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_prod_cons_ids
 msgid "Products for Consultancy"
 msgstr "Productos para consultoría"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_prod_ent_ids
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_prod_ent_ids
 msgid "Products for Enterprises"
 msgstr "Productos para empresas"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_prod_train_ids
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_prod_train_ids
 msgid "Products for Training"
 msgstr "Productos para entrenamiento"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Profitable"
 msgstr "Profitable"
 
-#. module: vauxoo
-#: model:blog.post,subtitle:vauxoo.blog_post_2
+#. module: pima
+#: model:blog.post,subtitle:pima.blog_post_2
 msgid "Programmer's Landmark"
 msgstr "Hito del Programador"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_project_project
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_project
+#. module: pima
+#: model:ir.model,name:pima.model_project_project
+#: model:product.attribute.value,name:pima.product_attribute_value_project
 msgid "Project"
 msgstr "Proyecto"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_purchase
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_purchase
 msgid "Purchase"
 msgstr "Compras"
 
-#. module: vauxoo
-#: model:hr.job,name:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,name:pima.job_python_dev
 msgid "Python developer"
 msgstr "Python developer"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_quality_control
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_quality_control
 msgid "Quality Control"
 msgstr "Control de calidad"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Quick Start"
 msgstr "Quick Start"
 
-#. module: vauxoo
-#: code:addons/vauxoo/models/hr_timesheet_reports.py:105
+#. module: pima
+#: code:addons/pima/models/hr_timesheet_reports.py:105
 #, python-format
 msgid "Rate between currencies can not be 0"
 msgstr "Rate between currencies can not be 0"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.blog_header_carousel
 msgid "Read"
 msgstr "Read"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.detail
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.detail
 msgid "Ready to join us?"
 msgstr "¿Listo para unirte?"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_records
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_records
 msgid "Records"
 msgstr "Records"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_recruitment
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_recruitment
 msgid "Recruitment"
 msgstr "Recruitment"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_helpdesk_ticket_task_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_helpdesk_ticket_task_id
 msgid "Related task where the timesheet of this ticket will be loaded"
 msgstr "Related task where the timesheet of this ticket will be loaded"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_name
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_name
 msgid "Report Title"
 msgstr "Report Title"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Request analysis"
 msgstr "Solicita análisis"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Request demo"
 msgstr "Solicitar demo"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Request development"
 msgstr "Solicita desarrollo"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Request quote"
 msgstr "Solicitar cotización"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Request support"
 msgstr "Solicitar soporte"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "Responsibilities"
 msgstr "Responsibilities"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_user_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_user_id
 msgid "Responsible"
 msgstr "Responsable"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
 msgid "Resume"
 msgstr "Reanudar"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_sale
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_sale
 msgid "Sale"
 msgstr "Ventas"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_crm_team
+#. module: pima
+#: model:ir.model,name:pima.model_crm_team
 msgid "Sales Channel"
 msgstr "Canal de Ventas"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Sales Cycle:"
 msgstr "Sales Cycle:"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_sale_order
+#. module: pima
+#: model:ir.model,name:pima.model_sale_order
 msgid "Sales Order"
 msgstr "Aviso para pedido de venta"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_sale_order_line
+#. module: pima
+#: model:ir.model,name:pima.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
 
-#. module: vauxoo
-#: model:hr.job,name:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,name:pima.job_sales_rep
 msgid "Sales rep"
 msgstr "Sales rep"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Save on commute"
 msgstr "Save on commute"
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_2
+#. module: pima
+#: model:blog.post,content:pima.blog_post_2
 msgid "Sed efficitur mi metus, vitae semper erat condimentum ut. Cras vulputate elit\n"
 "sed libero suscipit gravida sit amet in metus. Integer tortor tortor, pulvinar\n"
 "in nisl nec, cursus finibus ipsum. Nunc a faucibus erat. Suspendisse potenti.\n"
@@ -2312,8 +2312,8 @@ msgstr "Sed efficitur mi metus, vitae semper erat condimentum ut. Cras vulputate
 "vel velit quis massa egestas consequat. Maecenas ac orci a lacus vehicula\n"
 "fringilla. Curabitur non felis orci."
 
-#. module: vauxoo
-#: model:blog.post,content:vauxoo.blog_post_4
+#. module: pima
+#: model:blog.post,content:pima.blog_post_4
 msgid "Sed id felis vel nisl pellentesque accumsan sit amet a nunc. Curabitur id\n"
 "augue elit. Morbi et turpis non lectus dignissim tempus. Phasellus est felis,\n"
 "mattis nec tellus quis, aliquam interdum mauris. Nulla vitae ligula eu enim\n"
@@ -2335,45 +2335,45 @@ msgstr "Sed id felis vel nisl pellentesque accumsan sit amet a nunc. Curabitur i
 "iaculis nisi arcu vel lorem. Aliquam ultricies arcu sit amet metus suscipit, ac\n"
 "venenatis felis bibendum."
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:44
-#: code:addons/vauxoo/static/src/xml/base.xml:47
+#: code:addons/pima/static/src/xml/base.xml:44
+#: code:addons/pima/static/src/xml/base.xml:47
 #, python-format
 msgid "See Embeded doc for the actual Elements"
 msgstr "See Embeded doc for the actual Elements"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Send Report by Email"
 msgstr "Send Report by Email"
 
-#. module: vauxoo
+#. module: pima
 #: selection:hr.timesheet.reports.base,state:0
 msgid "Sent"
 msgstr "Sent"
 
-#. module: vauxoo
-#: model:ir.actions.act_window,name:vauxoo.action_set_invoice
+#. module: pima
+#: model:ir.actions.act_window,name:pima.action_set_invoice
 msgid "Set Invoice"
 msgstr "Set Invoice"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_filter_issue_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_filter_issue_id
 msgid "Set the filter for issues TIP = go to issues and look for  the filter that adjust to your needs of issues to be shown."
 msgstr "Set the filter for issues TIP = go to issues and look for  the filter that adjust to your needs of issues to be shown."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
 msgid "Short Introduction"
 msgstr "Breve introducción"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid ""
 "Short summary of the job: A sales job for smart people and can\n"
 "                learn quickly new industries management practices. You will be\n"
@@ -2387,51 +2387,51 @@ msgstr ""
 "                qualification to the negotiation, going through astonishing\n"
 "                product demos."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_show_details
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_show_details
 msgid "Show Detailed Timesheets"
 msgstr "Show Detailed Timesheets"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_sign
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_sign
 msgid "Sign"
 msgstr "Firmar"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "Some frequently asked questions"
 msgstr "Algunas preguntas frecuentes"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Sponsored Events"
 msgstr "Sponsored Events"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Sport Activity"
 msgstr "Sport Activity"
 
-#. module: vauxoo
-#: model:product.template,name:vauxoo.product_sprint
+#. module: pima
+#: model:product.template,name:pima.product_sprint
 msgid "Sprint"
 msgstr "Sprint"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "Start Now"
 msgstr "Iniciar Ahora"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "Starting a new business project?\n"
 "\n"
@@ -2449,8 +2449,8 @@ msgstr ""
 "                      <br/>\n"
 "tttconstruir tu idea de 0 a 100."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "Starting a new business project?\n"
 "    With our success pack you can build your idea from zero to hero."
@@ -2458,64 +2458,64 @@ msgstr ""
 "¿Iniciando un nuevo proyecto de negocio?\n"
 "    Con nuestro paquete de éxito puedes construir tu idea de nada a todo."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_hr_timesheet_reports_base_state
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_hr_timesheet_reports_base_state
 msgid "Status"
 msgstr "Estado"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_studio
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_studio
 msgid "Studio"
 msgstr "Estúdio"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "Sub-Total"
 msgstr "Sub-Total"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Subject"
 msgstr "Asunto"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.blog_header_carousel
 msgid "Subscribe"
 msgstr "Suscribir"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_subscription
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
+#: model:product.attribute.value,name:pima.product_attribute_value_subscription
 msgid "Subscription"
 msgstr "Suscripción"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "Success Pack (25h)"
 msgstr "Success Pack (25h)"
 
-#. module: vauxoo
-#: model:blog.post,subtitle:vauxoo.blog_post_4
+#. module: pima
+#: model:blog.post,subtitle:pima.blog_post_4
 msgid "Success Restaurant Management with Odoo"
 msgstr "Gestión Exitosa de Restaurante con Odoo"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "Success packs are implementation services with a certain number of hours (depending on the apps to be installed) that include Odoo training, technical support and personalized assistance to customize the installed apps to the workflow of every company before implementation. This pack never expires, meaning the hours can be used whenever support is needed."
 msgstr "Success Pack son servicios de implementación con un cierto numero de horas definido (dependiendo de las Apps instaladas) con entrenamiento en Odoo, soporte técnico y asistencia personalizada para personalizar las Apps instaladas al flujo de trabajo de cada compañía antes de implementar. Este paquete nunca expira, esto quiere decir que las horas pueden ser usadas  cuando se requiera."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "Support"
 msgstr "Soporte"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_helpdesk_team_project_id
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_helpdesk_team_project_id
 msgid "Support Project"
 msgstr "Proyecto de soporte"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "Tailor-made.\n"
 "\n"
@@ -2531,293 +2531,293 @@ msgstr ""
 "                <br class=\"hidden-xs hidden-sm\"/>\n"
 "                ERP on-premise"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_project_task
-#: model:ir.model.fields,field_description:vauxoo.field_helpdesk_ticket_task_id
+#. module: pima
+#: model:ir.model,name:pima.model_project_task
+#: model:ir.model.fields,field_description:pima.field_helpdesk_ticket_task_id
 msgid "Task"
 msgstr "Tarea"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Team"
 msgstr "Equipo"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Team / Company Size:"
 msgstr "Team / Company Size:"
 
-#. module: vauxoo
-#: model:blog.blog,name:vauxoo.blog_blog_technical_hacks
+#. module: pima
+#: model:blog.blog,name:pima.blog_blog_technical_hacks
 msgid "Technical Hacks"
 msgstr "Hacks Técnicos"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Technical Information"
 msgstr "Información técnica"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.report_saleorder
-#: model:ir.ui.view,arch_db:vauxoo.view_order_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.report_saleorder
+#: model:ir.ui.view,arch_db:pima.view_order_form
 msgid "Terms and Conditions"
 msgstr "Términos y condiciones"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_order_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_order_form
 msgid "Terms and conditions"
 msgstr "Términos y condiciones"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contactus_thanks
-#: model:ir.ui.view,arch_db:vauxoo.thankyou
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contactus_thanks
+#: model:ir.ui.view,arch_db:pima.thankyou
 msgid "Thank you!"
 msgstr "¡Gracias!"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Thanks to the constant effort of our team and the highest standards of quality that we integrate into our development process, we have been awarded by Odoo with the highest distinctions since 2012."
 msgstr "Gracias al constante esfuerzo de nuestro equipo y los estándares más altos de calidad integrados en nuestro proceso de desarrollo, hemos sido premiados por Odoo on las más altas distinciones desde 2012."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_faq
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_faq
 msgid "The Quick-Start model is aimed for businesses seeking to launch their products/services using Vauxoo servers. The subscription is billed monthly, which means you can unsubscribe any time you want. On the other hand, On-premise is a more customized option and is billed yearly, including monthly maintenance and the deployment of your product."
 msgstr "El modelo Quick-Start está dirigido para empresas que buscan lanzar sus productos utilizando los servidores de Vauxoo. La suscripción es cargada mensual, lo que significa que puedes cancelar la suscripción en cualquier momento. Por otro lado, On-premise es más una opción más personalizada y es cargada anualmente, incluyendo  mantenimiento mensual y el despliegue de tu producto."
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "The culture"
 msgstr "La cultura"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "The founder’s story"
 msgstr "La historia del fundador"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_helpdesk_team_project_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_helpdesk_team_project_id
 msgid "The project where the task related to the tickets will be created"
 msgstr "The project where the task related to the tickets will be created"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.timesheet_line_search_view_filters
+#: model:ir.ui.view,arch_db:pima.timesheet_search_view_filters
 msgid "This Week"
 msgstr "Esta semana"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_currency_id
-#: model:ir.model.fields,help:vauxoo.field_hr_timesheet_reports_base_product_id
+#. module: pima
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_currency_id
+#: model:ir.model.fields,help:pima.field_hr_timesheet_reports_base_product_id
 msgid "This product will be used to compute totals"
 msgstr "This product will be used to compute totals"
 
-#. module: vauxoo
-#: code:addons/vauxoo/models/procurement.py:22
+#. module: pima
+#: code:addons/pima/models/procurement.py:22
 #, python-format
 msgid "This task will be blocked until the sale order has been paid"
 msgstr "This task will be blocked until the sale order has been paid"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_set_invoice_total_timesheet
+#. module: pima
+#: model:ir.model.fields,help:pima.field_set_invoice_total_timesheet
 msgid "This will be the quantity to be setted to this invoice be sure quantities are consistent"
 msgstr "This will be the quantity to be setted to this invoice be sure quantities are consistent"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_helpdesk_ticket
-#: model:ir.model.fields,field_description:vauxoo.field_project_task_ticket_id
+#. module: pima
+#: model:ir.model,name:pima.model_helpdesk_ticket
+#: model:ir.model.fields,field_description:pima.field_project_task_ticket_id
 msgid "Ticket"
 msgstr "Tiquet"
 
-#. module: vauxoo
-#: model:product.uom.categ,name:vauxoo.uom_categ_time
+#. module: pima
+#: model:product.uom.categ,name:pima.uom_categ_time
 msgid "Time"
 msgstr "Time"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_timesheet
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_timesheet
 msgid "Timesheet"
 msgstr "Timesheet"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Timesheet Comments"
 msgstr "Timesheet Comments"
 
-#. module: vauxoo
-#: model:ir.actions.act_window,name:vauxoo.action_hr_report_base_tree
+#. module: pima
+#: model:ir.actions.act_window,name:pima.action_hr_report_base_tree
 msgid "Timesheet Report"
 msgstr "Timesheet Report"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Timesheet Section"
 msgstr "Timesheet Section"
 
-#. module: vauxoo
-#: model:ir.ui.menu,name:vauxoo.menu_hr_report_base
+#. module: pima
+#: model:ir.ui.menu,name:pima.menu_hr_report_base
 msgid "Timesheet report"
 msgstr "Timesheet report"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_task_form_ticket
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_task_form_ticket
 msgid "Timesheets"
 msgstr "Partes de horas"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.view_reports_base_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.view_reports_base_form
 msgid "Timesheets with this filter"
 msgstr "Timesheets with this filter"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_line_search_view_filters
-#: model:ir.ui.view,arch_db:vauxoo.timesheet_search_view_filters
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.timesheet_line_search_view_filters
+#: model:ir.ui.view,arch_db:pima.timesheet_search_view_filters
 msgid "Today"
 msgstr "Hoy"
 
-#. module: vauxoo
+#. module: pima
 #. openerp-web
-#: code:addons/vauxoo/static/src/xml/base.xml:12
+#: code:addons/pima/static/src/xml/base.xml:12
 #, python-format
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "Total"
 msgstr "Total"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_total_money
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_set_invoice_total_money
 msgid "Total Timesheet in Money"
 msgstr "Total Timesheet in Money"
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_set_invoice_total_timesheet
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_set_invoice_total_timesheet
 msgid "Total Timesheet to set"
 msgstr "Total Timesheet to set"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_account_analytic_line_invoiceables_hours
+#. module: pima
+#: model:ir.model.fields,help:pima.field_account_analytic_line_invoiceables_hours
 msgid "Total hours to charge"
 msgstr "Total hours to charge"
 
-#. module: vauxoo
-#: model:ir.model.fields,help:vauxoo.field_set_invoice_total_money
+#. module: pima
+#: model:ir.model.fields,help:pima.field_set_invoice_total_money
 msgid "Total in money with the currency and product of the report which you comes from"
 msgstr "Total in money with the currency and product of the report which you comes from"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.account_analytic_line_invoiceable_lines
-#: model:ir.ui.view,arch_db:vauxoo.account_analytic_line_invoiceable_lines2
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.account_analytic_line_invoiceable_lines
+#: model:ir.ui.view,arch_db:pima.account_analytic_line_invoiceable_lines2
 msgid "Total invoiceable time"
 msgstr "Total invoiceable time"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Tuesday Dinners, Monthly Lunch Mixers, Monthly Happy Hour, Annual day event"
 msgstr "Tuesday Dinners, Monthly Lunch Mixers, Monthly Happy Hour, Annual day event"
 
-#. module: vauxoo
-#: model:hr.job,name:vauxoo.job_designer
+#. module: pima
+#: model:hr.job,name:pima.job_designer
 msgid "UI designer"
 msgstr "UI designer"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_UPS
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_UPS
 msgid "UPS"
 msgstr "UPS"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "US + Canada Territory"
 msgstr "US + Canada Territory"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "USD"
 msgstr "USD"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_USPS
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_USPS
 msgid "USPS"
 msgstr "USPS"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.blog_header_carousel
 msgid "Unsubscribe"
 msgstr "Anular subscripción"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.opt_blog_post_retina_layout
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.opt_blog_post_retina_layout
 msgid "Untitled Post"
 msgstr "Post sin título"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.project_task_extended_search_view
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.project_task_extended_search_view
 msgid "User Stories"
 msgstr "User Stories"
 
-#. module: vauxoo
-#: code:addons/vauxoo/wizard/employee_user_wizard.py:41
+#. module: pima
+#: code:addons/pima/wizard/employee_user_wizard.py:41
 #, python-format
 msgid "User not created. Doesn't exists an user with same email address."
 msgstr "User not created. Doesn't exists an user with same email address."
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Vacation, Sick, and Holiday paid leaves"
 msgstr "Vacation, Sick, and Holiday paid leaves"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "Variability of the Job:"
 msgstr "Variability of the Job:"
 
-#. module: vauxoo
-#: model:blog.post,name:vauxoo.blog_post_4
+#. module: pima
+#: model:blog.post,name:pima.blog_post_4
 msgid "Vauxoo Bistro"
 msgstr "Vauxoo Bistro"
 
-#. module: vauxoo
-#: model:blog.blog,name:vauxoo.blog_blog_vauxoo_news
+#. module: pima
+#: model:blog.blog,name:pima.blog_blog_vauxoo_news
 msgid "Vauxoo News"
 msgstr "Noticias Vauxoo"
 
-#. module: vauxoo
-#: model:ir.module.category,name:vauxoo.category_group
+#. module: pima
+#: model:ir.module.category,name:pima.category_group
 msgid "Vauxoo Privilege Groups"
 msgstr "Vauxoo Privilege Groups"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid ""
 "Vauxoo is about people. We are here because of our customers and our team. We’re human-first and we want the best for our team,\n"
 "\n"
@@ -2829,8 +2829,8 @@ msgstr ""
 "                    <br class=\"hidden-xs hidden-sm\"/>\n"
 "                    nuestros clientes, amigos y el entorno."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid ""
 "View 4 more\n"
 "                            <span class=\"fa fa-chevron-down\"/>"
@@ -2838,23 +2838,23 @@ msgstr ""
 "Ver 4 mas\n"
 "                            <span class=\"fa fa-chevron-down\"/>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid "View openings"
 msgstr "Ver vacantes"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_voip
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_voip
 msgid "VoIP (Asterisk)"
 msgstr "VoIP (Asterisk)"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Want to get on board?<br/>"
 msgstr "¿Quieres subirte al barco?<br/>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid ""
 "Want to learn more about our culture?\n"
 "\n"
@@ -2864,8 +2864,8 @@ msgstr ""
 "\n"
 "                      <br/>"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "Want us to take a look at your idea?\n"
 "\n"
@@ -2883,8 +2883,8 @@ msgstr ""
 "                      <br/>\n"
 "                      dependiendo de sus necesidades."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "Want us to take a look at your idea?\n"
 "We offer the best consulting and best practices for your business."
@@ -2892,28 +2892,28 @@ msgstr ""
 "¿Quieres que le echemos un ojo a tu idea?\n"
 "Ofrecemos los mejores servicios en consultoría para tu negocio dependiendo de sus necesidades."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "We also offer"
 msgstr "También ofrecemos"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "We also provide Odoo Essential training and a evaluation of the project."
 msgstr "También contamos con entrenamientos esenciales de Odoo y evaluación de proyectos."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "We are a team of passionate people whose goal is to improve everyone’s life through disruptive products. We build <br class=\"hidden-xs hidden-sm\"/>great products to solve your business problems. Our products are designed for small to medium size companies willing <br lass=\"hidden-xs hidden-sm\"/>to optimize their performance."
 msgstr "Somos un equipo de gente apasionada la cual tiene como objetivo mejorar la vida de todos mediante productos disyuntivos. Construimos <br class=\"hidden-xs hidden-sm”/>excelentes productos para resolver tus problemas. Nuestros productos están diseñados para compañías pequeñas y medianas con ganas<br lass=\"hidden-xs hidden-sm\"/> de optimizar su desempeño."
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "We are looking a developer who has a natural inkling to build business applications and  interesting apps in order to improve our development model. You want to excel at software development and building amazing services for people. You enjoy coding by hand as well as using frameworks. You’ve worked with cross-disciplinary teams and enjoyed it. And you’re full of ideas."
 msgstr "We are looking a developer who has a natural inkling to build business applications and  interesting apps in order to improve our development model. You want to excel at software development and building amazing services for people. You enjoy coding by hand as well as using frameworks. You’ve worked with cross-disciplinary teams and enjoyed it. And you’re full of ideas."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "We assess the\n"
 "\n"
@@ -2943,8 +2943,8 @@ msgstr ""
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        de herramientas."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "We build every single\n"
 "\n"
@@ -2966,8 +2966,8 @@ msgstr ""
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        asegurándonos que manejarás tu negocio sin problemas."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "We implement the\n"
 "\n"
@@ -2997,13 +2997,13 @@ msgstr ""
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        perfectamente."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "We offer you the support of our expert team whenever you need assistance during your management, as well as coaching If you happen to configure or adapt new features to your product."
 msgstr "Te ofrecemos soporte por parte de nuestro equipo de expertos cuando la necesites, asi como entrenamiento si llegaras a configurar o adaptar nuevas características a tu producto."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid ""
 "We provide supervision\n"
 "\n"
@@ -3033,77 +3033,77 @@ msgstr ""
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        actualizado."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.erp
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.erp
 msgid "We rely on our expert team to fully comprehend the nature of your business, target market and internal workflow through our Gap analysis."
 msgstr "Confiamos en nuestro equipo de expertos para comprender la naturaleza de tu negocio, el objetivo de mercado y el flujo interno mediante Análisis de Brecha"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "We will make your Mondays less painful and your Fridays more rewarding. A typical day may consist of working for a client or internal project while creating high quality code, testing it and integrating with other Vauxoo’s apps . You will work closely with a team leader and occasionally with the customer. Some days you can wake up and start to work from your bedroom (after a good protein breakfast of course), other days you can come to the office,  programming and have a lunch with your partners. You will learn a lot and grow fast, which is just one of the many perks of being a python developer at Vauxoo."
 msgstr "We will make your Mondays less painful and your Fridays more rewarding. A typical day may consist of working for a client or internal project while creating high quality code, testing it and integrating with other Vauxoo’s apps . You will work closely with a team leader and occasionally with the customer. Some days you can wake up and start to work from your bedroom (after a good protein breakfast of course), other days you can come to the office,  programming and have a lunch with your partners. You will learn a lot and grow fast, which is just one of the many perks of being a python developer at Vauxoo."
 
-#. module: vauxoo
-#: model:ir.model.fields,field_description:vauxoo.field_res_company_website_address_ids
+#. module: pima
+#: model:ir.model.fields,field_description:pima.field_res_company_website_address_ids
 msgid "Web Contacts"
 msgstr "Contactos web"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_website
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_website
 msgid "Website"
 msgstr "Sitio Web"
 
-#. module: vauxoo
-#: model:ir.ui.menu,name:vauxoo.menu_website_menu
+#. module: pima
+#: model:ir.ui.menu,name:pima.menu_website_menu
 msgid "Website Menus"
 msgstr "Menus del sitio web"
 
-#. module: vauxoo
-#: model:product.uom,name:vauxoo.product_uom_week
+#. module: pima
+#: model:product.uom,name:pima.product_uom_week
 msgid "Week(s)"
 msgstr "Semana(s)"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid "What are your skills?"
 msgstr "¿Cuales son tus habilidades?"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "What do we offer"
 msgstr "What do we offer"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "What people say about us?"
 msgstr "¿Qué se dice de nosotros?"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.careers
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.careers
 msgid "Why Vauxoo?"
 msgstr "¿Por qué Vauxoo?"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.about
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.about
 msgid "Winning"
 msgstr "Advertencia"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apps_tray
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apps_tray
 msgid "Yearly Billing"
 msgstr "Cargo anual"
 
-#. module: vauxoo
-#: model:hr_timesheet_invoice.factor,name:vauxoo.timesheet_invoice_factor1
+#. module: pima
+#: model:hr_timesheet_invoice.factor,name:pima.timesheet_invoice_factor1
 msgid "Yes (100%)"
 msgstr "Si (100%)"
 
-#. module: vauxoo
-#: model:ir.actions.act_window,help:vauxoo.act_vauxoo_timesheet_line_by_task
+#. module: pima
+#: model:ir.actions.act_window,help:pima.act_vauxoo_timesheet_line_by_task
 msgid ""
 "You can register and track your workings hours by project every\n"
 "                    day. Every time spent on a project will become a cost and can be re-invoiced to\n"
@@ -3113,48 +3113,48 @@ msgstr ""
 "                    day. Every time spent on a project will become a cost and can be re-invoiced to\n"
 "                    customers if required."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.thankyou
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.thankyou
 msgid "You have succesfully submitted your application.<br class=\"hidden-sm hidden-xs\"/> We will contact you to provide further information.<br class=\"hidden-sm hidden-xs\"/> Stay tuned to your mail!"
 msgstr "Has enviado correctamente tu solicitud.<br class=\"hidden-sm hidden-xs\"/> Te contactaremos para darte más información.<br class=\"hidden-sm hidden-xs\"/> ¡Echale un ojo a tu correo!"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_busines_analyist
-#: model:hr.job,website_description:vauxoo.job_designer
-#: model:hr.job,website_description:vauxoo.job_intern_dev
-#: model:hr.job,website_description:vauxoo.job_odoo_dev
-#: model:hr.job,website_description:vauxoo.job_sales_rep
+#. module: pima
+#: model:hr.job,website_description:pima.job_busines_analyist
+#: model:hr.job,website_description:pima.job_designer
+#: model:hr.job,website_description:pima.job_intern_dev
+#: model:hr.job,website_description:pima.job_odoo_dev
+#: model:hr.job,website_description:pima.job_sales_rep
 msgid "You sell management software to directors of SMEs: interesting projects and people"
 msgstr "You sell management software to directors of SMEs: interesting projects and people"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Your Company"
 msgstr "Su compañía"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
 msgid "Your Email"
 msgstr "Su correo electrónico"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Your Name"
 msgstr "Su nombre"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
 msgid "Your Phone Number"
 msgstr "Su número de teléfono "
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
 msgid "Your Question"
 msgstr "Su pregunta"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.header_apps
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.header_apps
 msgid ""
 "Your business.\n"
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
@@ -3164,69 +3164,69 @@ msgstr ""
 "                        <br class=\"hidden-xs hidden-sm\"/>\n"
 "                        de 0 a 100."
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.blog_header_carousel
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.blog_header_carousel
 msgid "Your e-mail address"
 msgstr "Tu correo electrónico"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contactus_thanks
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contactus_thanks
 msgid "Your message has been sent. Stay tuned to <br class=\"hidden-xs hidden-sm\"/> your mail where we will send you a quick <br class=\"hidden-xs hidden-sm\"/> answer."
 msgstr "Tu mensaje ha sido enviado correctamente. Mantente atento a<br class=\"hidden-xs hidden-sm\"/> tu correo a donde te enviaremos una respuesta <br class=\"hidden-xs hidden-sm\"/> rápida."
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid "Your skills"
 msgstr "Your skills"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.apply
-msgid "careers@vauxoo.com"
-msgstr "careers@vauxoo.com"
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.apply
+msgid "careers@pima.com"
+msgstr "careers@pima.com"
 
-#. module: vauxoo
-#: model:product.attribute.value,name:vauxoo.product_attribute_value_ecommerce
+#. module: pima
+#: model:product.attribute.value,name:pima.product_attribute_value_ecommerce
 msgid "eCommerce"
 msgstr "eCommerce"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_employee_user_wizard
+#. module: pima
+#: model:ir.model,name:pima.model_employee_user_wizard
 msgid "employee_user.wizard"
 msgstr "employee_user.wizard"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.contact_us_form
-msgid "getstarted@vauxoo.com"
-msgstr "getstarted@vauxoo.com"
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.contact_us_form
+msgid "getstarted@pima.com"
+msgstr "getstarted@pima.com"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_hr_timesheet_reports_base
+#. module: pima
+#: model:ir.model,name:pima.model_hr_timesheet_reports_base
 msgid "hr.timesheet.reports.base"
 msgstr "hr.timesheet.reports.base"
 
-#. module: vauxoo
-#: model:blog.tag,name:vauxoo.blog_tag_1
+#. module: pima
+#: model:blog.tag,name:pima.blog_tag_1
 msgid "innovation"
 msgstr "innovación"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_lang_config_settings
+#. module: pima
+#: model:ir.model,name:pima.model_lang_config_settings
 msgid "lang.config.settings"
 msgstr "lang.config.settings"
 
-#. module: vauxoo
-#: model:ir.ui.view,arch_db:vauxoo.employee_link_user_form
-#: model:ir.ui.view,arch_db:vauxoo.view_set_invoice_form
+#. module: pima
+#: model:ir.ui.view,arch_db:pima.employee_link_user_form
+#: model:ir.ui.view,arch_db:pima.view_set_invoice_form
 msgid "or"
 msgstr "o"
 
-#. module: vauxoo
-#: model:ir.model,name:vauxoo.model_set_invoice
+#. module: pima
+#: model:ir.model,name:pima.model_set_invoice
 msgid "set.invoice"
 msgstr "set.invoice"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid ""
 "•   A functional and technical Odoo training.<br>\n"
 "    •   Huge hours of python development.<br>\n"
@@ -3244,8 +3244,8 @@ msgstr ""
 "    •   No solution architect, no business analyst, no Gantt chart, etc.<br>\n"
 "    •   A full-time job with an attractive economic welfare package, where the limits are only yours.<br>"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid ""
 "•   Contributions to Open Source projects.<br>\n"
 "    •   GitHub user, with projects (Or any public VCS).<br>\n"
@@ -3257,8 +3257,8 @@ msgstr ""
 "    •   Unix/Linux platform knowledge.<br>\n"
 "    •   Basic Odoo knowledge.<br>"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid ""
 "•   You develop apps/scripts/features that your team need and users enjoy.<br>\n"
 "    •   You work on a certain framework or existing apps.<br>\n"
@@ -3268,8 +3268,8 @@ msgstr ""
 "    •   You work on a certain framework or existing apps.<br>\n"
 "    •   You bring quality and real value to the projects you are involved in.<br>"
 
-#. module: vauxoo
-#: model:hr.job,website_description:vauxoo.job_python_dev
+#. module: pima
+#: model:hr.job,website_description:pima.job_python_dev
 msgid ""
 "•   You have previous programming experience in Python.<br>\n"
 "    •   Relational databases management are your thing.<br>\n"

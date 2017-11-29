@@ -14,7 +14,7 @@
 #  - Warning: Warning Exception to use with raise
 # To return an action, assign: action = {...}
 
-helpdesk_ticket_tag = env.ref('vauxoo.tag_helpdesk_ticket').id
+helpdesk_ticket_tag = env.ref('pima.tag_helpdesk_ticket').id
 
 for ticket in records:
     if ticket.task_id:
