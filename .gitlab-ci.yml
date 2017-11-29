@@ -10,9 +10,9 @@ variables:
     VERSION: "11.0"
     ODOO_REPO: "vauxoo/odoo"
     ODOO_BRANCH: "11.0"
-    INCLUDE: "vauxoo"
-    INSTALL: "vauxoo"
-    CUSTOMER: "vauxoo"
+    INCLUDE: "pima"
+    INSTALL: "pima"
+    CUSTOMER: "pima"
     BASE_IMAGE: "vauxoo/odoo-110-image"
     http_proxy: http://172.17.0.1:3128
     https_proxy: http://172.17.0.1:3128
@@ -98,7 +98,7 @@ build:
 compile_doc:
   stage: test
   only:
-    - 11.0@vauxoo/instance
+    - 11.0@vauxoo/pima
   when: on_success
   tags:
     - build
@@ -107,12 +107,12 @@ compile_doc:
     https_proxy: http://127.0.0.1:3128
     ftp_proxy: http://127.0.0.1:3128
   script:
-    - git clone -q git@git.vauxoo.com:vauxoo/instance.wiki.git
-    - cd instance.wiki && cp -R ../vauxoo/doc/* . && cat ../vauxoo/doc/home.md ../README.md > home.md && git add .
+    - git clone -q git@git.pima.com:vauxoo/pima.wiki.git
+    - cd instance.wiki && cp -R ../pima/doc/* . && cat ../pima/doc/home.md ../README.md > home.md && git add .
     - ../check_doc.sh
   environment:
     name: documentation
-    url: https://git.vauxoo.com/vauxoo/instance/wikis
+    url: https://git.vauxoo.com/vauxoo/pima/wikis
 
 pages:
   stage: test_build
@@ -136,7 +136,7 @@ pages:
 upload_image:
   stage: upload_image
   only:
-    - 11.0@vauxoo/instance
+    - 11.0@vauxoo/pima
   when: on_success
   tags:
     - build
