@@ -1,70 +1,47 @@
 # coding: utf-8
 {
-    "name": "Vauxoo ERP Instance",
-    "author": "Vauxoo",
+    "name": "Pima ERP Instance",
+    "author": "PIMA",
     "summary": """
     All the necessary modules to auto install our service instance
     """,
     "website": "http://www.pima.com",
     "license": "LGPL-3",
-    "category": "Vauxoo",
+    "category": "PIMA",
     "version": "11.0.2.0.2",
     "depends": [
         # Account section
-        "account_asset",
+        "account_accountant",
         "account_budget",
         "account_reports_followup",
         "account_online_sync",
-        "account_cancel",
         "account_voucher",
         "account_analytic_default",
         "account_accountant",
         "account_payment",
 
         # Project Section.
-        'project_timesheet_synchro',
         "project_forecast",
-        "rating_project",
+        "helpdesk",
 
         # Human resources
         "hr_expense",
-        "hr_appraisal",
-        "hr_payroll",
-        "hr_attendance",
-        "hr_maintenance",
 
         # Localizations
         "l10n_mx_edi",
         "l10n_mx_reports",
 
         # Website modules
-        "theme_pima",
-        'website_crm',
-        "website_event",
-        "website_hr_recruitment",
-        "website_sale_digital",
-        "website_quote",
-        "website_forum_doc",
-        "website_blog",
-        "website_customer",
-        "website_slides",
-        "sale_subscription",
-        "website_links",
-        "website_hr",
-        "website_helpdesk_form",
-        "website_sale_options",
-        "website_sale_coupon",
-        "website_livechat",
-        "website_twitter",
-        "payment_paypal",
-        "marketing_automation",
         "login",
-        "website_blog_rss",
-        "website_product_rss",
-        "website_calendar",
 
         # Sales
+        "crm",
+        "sale_management",
         "sale_margin",
+        "sale_timesheet",
+        "sale_expense",
+        "sale_stock",
+        "sale_subscription",
 
         # Tools
         "document",
@@ -81,75 +58,60 @@
     ],
     "data": [
         # Website stuff (A file per page)
-        "views/pages/assets.xml",
-        "views/pages/image_library.xml",
-        "views/pages/blog.xml",
-        "views/pages/homepage.xml",
-        "views/pages/about.xml",
-        "views/pages/careers.xml",
-        "views/pages/erp.xml",
-        "views/pages/shop.xml",
-        "views/pages/contactus.xml",
-        "views/pages/job_detail_template.xml",
-        "views/pages/apps.xml",
 
         # Main Configuration
         "data/res_config_settings.yml",
-        "data/website_settings.yml",
-        "data/apps.xml",
+        # "data/website_settings.yml",
+        # "data/apps.xml",
 
         # Data
-        'data/res_currency.xml',
-        'data/company.xml',
-        'data/website.xml',
-        'data/project_tags.xml',
-        "data/ir_actions_server.xml",
-        "data/base_automation.xml",
-        "data/hr_timesheet_invoice_data.xml",
-        "data/product.xml",
-        "data/project.xml",
-        "data/project_task_estimation.xml",
-        "data/jobs.xml",
-        "data/blog.xml",
+        # 'data/res_currency.xml',
+        # 'data/company.xml',
+        # 'data/website.xml',
+        # 'data/project_tags.xml',
+        # "data/ir_actions_server.xml",
+        # "data/base_automation.xml",
+        # "data/hr_timesheet_invoice_data.xml",
+        # "data/product.xml",
+        # "data/project.xml",
+        # "data/project_task_estimation.xml",
+        # "data/jobs.xml",
+        # "data/blog.xml",
 
         # Security
         "security/ir_rule.xml",
         "security/res_groups.xml",
         "security/res_users.xml",
-        "security/ir.model.access.csv",
+        # "security/ir.model.access.csv",
 
         # Views
         # Backend stuff (A file per app)
-        "views/helpdesk.xml",
-        "views/project.xml",
-        "views/account_analytic_line_view.xml",
-        "views/hr_timesheet_view.xml",
-        "views/hr_employee_view.xml",
-        "views/account_budget_view.xml",
-        "views/menu.xml",
-        'views/sale_view.xml',
-
-        # Reports
-        "report/layout.xml",
-        "report/timesheet_template.xml",
-        'report/sale_report_templates.xml',
-
-        # Wizards (One Per Wizard)
-        "wizard/employee_user_view.xml",
-
-        # Email templates
-        "data/website_quotation_template.xml",
-        "data/email_templates.xml",
-
-        # Stages Data
-        "data/project_task_stages.xml",
-        "data/sales.xml",
+        # "views/helpdesk.xml",
+        # "views/project.xml",
+        # "views/account_analytic_line_view.xml",
+        # "views/hr_timesheet_view.xml",
+        # "views/hr_employee_view.xml",
+        # "views/account_budget_view.xml",
+        # "views/menu.xml",
+        # 'views/sale_view.xml',
+        #
+        # # Reports
+        # "report/layout.xml",
+        # "report/timesheet_template.xml",
+        # 'report/sale_report_templates.xml',
+        #
+        # # Wizards (One Per Wizard)
+        # "wizard/employee_user_view.xml",
+        #
+        # # Email templates
+        # "data/website_quotation_template.xml",
+        # "data/email_templates.xml",
+        #
+        # # Stages Data
+        # "data/project_task_stages.xml",
+        # "data/sales.xml",
     ],
     "demo": [
-        "demo/product.xml",
-        "demo/project.xml",
-        "demo/helpdesk.xml",
-        "demo/blog.xml",
     ],
     "test": [
     ],

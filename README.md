@@ -1,5 +1,5 @@
-[![Build Status](https://git.vauxoo.com/vauxoo/instance/badges/10.0/build.svg)](https://git.vauxoo.com/vauxoo/instance/pipelines)
-[![Coverage Report](https://git.vauxoo.com/vauxoo/instance/badges/10.0/coverage.svg)](https://vauxoo.pages.vauxoo.com/instance/11.0/coverage)
+[![Build Status](https://git.vauxoo.com/vauxoo/pima/badges/10.0/build.svg)](https://git.vauxoo.com/vauxoo/pima/pipelines)
+[![Coverage Report](https://git.vauxoo.com/vauxoo/pima/badges/10.0/coverage.svg)](https://vauxoo.pages.vauxoo.com/instance/11.0/coverage)
 
 Modules for vauxoo.com
 ===
@@ -67,7 +67,7 @@ Deploy locally to hack it
    command line:
 
     ```bash
-    $ t2d git@git.vauxoo.com:Vauxoo/instance.git 10.0
+    $ t2d git@git.vauxoo.com:vauxoo/pima.git 10.0
     ```
 
     The resulf after run this t2d script will be a log that have a list of
@@ -101,7 +101,7 @@ Deploy locally to hack it
    like this:
 
     ```bash
-    [root@a458896bf8f5]~/build/vauxoo/instance$
+    [root@a458896bf8f5]~/build/vauxoo/pima$
     (10.0) $
     ```
 
@@ -109,7 +109,7 @@ Deploy locally to hack it
     development environment that have clone of the repositories used for
     vauxoo instance:
 
-        - main repository will be ALWAYS inside /root/build/vauxoo/instance
+        - main repository will be ALWAYS inside /root/build/vauxoo/pima
         - the oca dependencies repositories will be inside /root folder.
 
     The remotes has been already configured so can start working to create
@@ -133,7 +133,7 @@ Deploy locally to hack it
    using the next command:
 
     ```bash
-    /root/odoo-saas-15/odoo-bin -d openerp_test --db-filter=openerp_test
+    /root/odoo-11.0/odoo-bin -d openerp_test --db-filter=openerp_test
     ```
 
 8. Last but not least, you will need to have more than one console view to your

@@ -14,7 +14,7 @@
     {
         # General Settings
         'auth_signup_uninvited': 'b2c',
-        'alias_domain': 'pima.com',
+        'alias_domain': 'production.pima-mex.com',
         'group_multi_company': True,
         'auth_signup_reset_password': True,
         'auth_oauth_google_enabled': True,
@@ -28,15 +28,13 @@
         'use_sale_note': True,
         'default_invoice_policy': 'delivery',
         'group_sale_layout': True,
-        # Website Settings
-        'website_name': 'www.pima.com',
-        'website_name': 'www.pima.com',
-        'has_google_analytics_dashboard': True,
         'group_multi_currency': True,
         'group_product_variant': True,
-        'group_website_multiimage': True,
         'default_lang_id': base.lang_es,
         'language_ids': [base.lang_es, base.lang_en],
+        # Website Settings
+        'website_name': 'production.pima-mex.com',
+        'has_google_analytics_dashboard': True,
         'default_invoice_policy': 'delivery'
     }
 -
