@@ -95,43 +95,43 @@ build:
     - pip install deployv-addon-gitlab-tools
     - deployvcmd gitlab_tools test_images
 
-compile_doc:
-  stage: test
-  only:
-    - 11.0@vauxoo/pima
-  when: on_success
-  tags:
-    - build
-  variables:
-    http_proxy: http://127.0.0.1:3128
-    https_proxy: http://127.0.0.1:3128
-    ftp_proxy: http://127.0.0.1:3128
-  script:
-    - git clone -q git@git.pima.com:vauxoo/pima.wiki.git
-    - cd instance.wiki && cp -R ../pima/doc/* . && cat ../pima/doc/home.md ../README.md > home.md && git add .
-    - ../check_doc.sh
-  environment:
-    name: documentation
-    url: https://git.vauxoo.com/vauxoo/pima/wikis
+#compile_doc:
+#  stage: test
+#  only:
+#    - 11.0@vauxoo/pima
+#  when: on_success
+#  tags:
+#    - build
+#  variables:
+#    http_proxy: http://127.0.0.1:3128
+#    https_proxy: http://127.0.0.1:3128
+#    ftp_proxy: http://127.0.0.1:3128
+#  script:
+#    - git clone -q git@git.pima.com:vauxoo/pima.wiki.git
+#    - cd instance.wiki && cp -R ../pima/doc/* . && cat ../pima/doc/home.md ../README.md > home.md && git add .
+#    - ../check_doc.sh
+#  environment:
+#    name: documentation
+#    url: https://git.vauxoo.com/vauxoo/pima/wikis
 
-pages:
-  stage: test_build
-  dependencies:
-    - test
-  variables:
-    http_proxy: ""
-    https_proxy: ""
-  script:
-    - mkdir public/$CI_COMMIT_REF_NAME -p || true ; mv $CI_COMMIT_REF_NAME public/$CI_COMMIT_REF_NAME/coverage
-    - cp -r public/$CI_COMMIT_REF_NAME/coverage/* public/$CI_COMMIT_REF_NAME/
-    - echo "Coverage report can be found in:"
-    - echo "https://${CI_PROJECT_NAMESPACE}.pages.vauxoo.com/${CI_PROJECT_NAME}/${CI_COMMIT_REF_NAME}/coverage"
-  environment:
-    name: coverage
-    url: https://${CI_PROJECT_NAMESPACE}.pages.vauxoo.com/${CI_PROJECT_NAME}/${CI_COMMIT_REF_NAME}/coverage
-  artifacts:
-    paths:
-      - public
+#pages:
+#  stage: test_build
+#  dependencies:
+#    - test
+#  variables:
+#    http_proxy: ""
+#    https_proxy: ""
+#  script:
+#    - mkdir public/$CI_COMMIT_REF_NAME -p || true ; mv $CI_COMMIT_REF_NAME public/$CI_COMMIT_REF_NAME/coverage
+#    - cp -r public/$CI_COMMIT_REF_NAME/coverage/* public/$CI_COMMIT_REF_NAME/
+#    - echo "Coverage report can be found in:"
+#    - echo "https://${CI_PROJECT_NAMESPACE}.pages.vauxoo.com/${CI_PROJECT_NAME}/${CI_COMMIT_REF_NAME}/coverage"
+#  environment:
+#    name: coverage
+#    url: https://${CI_PROJECT_NAMESPACE}.pages.vauxoo.com/${CI_PROJECT_NAME}/${CI_COMMIT_REF_NAME}/coverage
+#  artifacts:
+#    paths:
+#      - public
 
 upload_image:
   stage: upload_image
