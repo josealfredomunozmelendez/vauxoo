@@ -21,6 +21,7 @@
         'default_user_rights': True,
         # Sale Settings
         'group_use_lead': True,
+        'group_analytic_account_for_purchases': True,
         'group_uom': True,
         'multi_sales_price_method': 'percentage',
         'group_warning_sale': True,
