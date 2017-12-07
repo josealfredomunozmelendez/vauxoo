@@ -52,9 +52,6 @@
         "board",
         "contacts",
         "google_account",
-
-        # Product
-        "product_cost_usd",
     ],
     "data": [
         # Website stuff (A file per page)
