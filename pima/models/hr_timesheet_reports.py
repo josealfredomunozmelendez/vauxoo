@@ -307,10 +307,6 @@ class HrTimesheetReportsBase(models.Model):
     }
 
     @api.multi
-    def do_report(self):
-        return self.env['report'].get_action('pima.timesheet_report_vauxoo')
-
-    @api.multi
     def go_to_timesheet(self):
         self.ensure_one()
         context = dict(self._context)

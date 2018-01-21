@@ -8,7 +8,7 @@
     "website": "http://www.pima.com",
     "license": "LGPL-3",
     "category": "PIMA",
-    "version": "11.0.2.0.2",
+    "version": "11.0.1.0.0",
     "depends": [
         # Account section
         "account_accountant",
@@ -21,6 +21,7 @@
         "account_payment",
 
         # Project Section.
+        "purchase_requisition",
         "project_forecast",
         "helpdesk",
 
@@ -35,6 +36,7 @@
         "login",
 
         # Sales
+        "mrp",
         "crm",
         "sale_management",
         "sale_margin",
@@ -54,59 +56,32 @@
         "google_account",
     ],
     "data": [
-        # Website stuff (A file per page)
-
         # Main Configuration
         "data/res_config_settings.yml",
-        # "data/website_settings.yml",
-        # "data/apps.xml",
-
         # Data
-        # 'data/res_currency.xml',
-        # 'data/company.xml',
-        # 'data/website.xml',
-        # 'data/project_tags.xml',
-        # "data/ir_actions_server.xml",
-        # "data/base_automation.xml",
-        # "data/hr_timesheet_invoice_data.xml",
-        # "data/product.xml",
-        # "data/project.xml",
-        # "data/project_task_estimation.xml",
-        # "data/jobs.xml",
-        # "data/blog.xml",
-
+        'data/res_currency.xml',
+        'data/company.xml',
+        'data/project_tags.xml',
+        "data/hr_timesheet_invoice_data.xml",
+        "data/product.xml",
+        "data/project_task_estimation.xml",
         # Security
         "security/ir_rule.xml",
-        "security/res_groups.xml",
         "security/res_users.xml",
-        # "security/ir.model.access.csv",
-
+        "security/ir.model.access.csv",
         # Views
-        # Backend stuff (A file per app)
-        # "views/helpdesk.xml",
-        # "views/project.xml",
-        # "views/account_analytic_line_view.xml",
-        # "views/hr_timesheet_view.xml",
-        # "views/hr_employee_view.xml",
-        # "views/account_budget_view.xml",
-        # "views/menu.xml",
-        # 'views/sale_view.xml',
-        #
+        "views/project.xml",
+        "views/account_analytic_line_view.xml",
+        "views/account_budget_view.xml",
+        "views/menu.xml",
         # # Reports
-        # "report/layout.xml",
-        # "report/timesheet_template.xml",
-        # 'report/sale_report_templates.xml',
-        #
+        "report/layout.xml",
+        "report/timesheet_template.xml",
+        'report/sale_report_templates.xml',
         # # Wizards (One Per Wizard)
-        # "wizard/employee_user_view.xml",
-        #
-        # # Email templates
-        # "data/website_quotation_template.xml",
-        # "data/email_templates.xml",
-        #
+        "wizard/employee_user_view.xml",
         # # Stages Data
-        # "data/project_task_stages.xml",
-        # "data/sales.xml",
+        "data/sales.xml",
     ],
     "demo": [
     ],

@@ -1,125 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
     <record id="base.main_company" model="res.company">
-        <field name="name">Vauxoo de SA de CV</field>
-        <field name="logo" type="base64" file="pima/static/src/img/vauxoo.png"/>
-        <field name="website">https://pima.com</field>
-        <field name="phone">+52 (477) 773.33.46</field>
-        <field name="email">info@pima.com</field>
-        <field name="social_googleplus">https://plus.google.com/+pima</field>
-        <field name="social_twitter">https://twitter.com/pima</field>
-        <field name="social_facebook">https://facebook.com/pima</field>
-        <field name="social_github">https://github.com/pima</field>
-        <field name="social_linkedin">https://www.linkedin.com/company/pima</field>
+        <field name="name">Procesos Industriales de Manufactura Automatizadas, S.A. de C.V.</field>
+        <field name="logo" type="base64" file="pima/static/src/img/icon.png"/>
+        <field name="website">http://pima-mex.com/</field>
+        <field name="phone">+52 (656) 170.35.32</field>
+        <field name="email">info@pima-mex.com</field>
     </record>
     <record id="base.main_partner" model="res.partner">
-        <field name="vat">VAU111017GC9</field>
-        <field name="property_account_position_id" search="[('name', '=', 'Personas morales del régimen general')]"/>
-        <field name="street_name">Campobasso Norte</field>
-        <field name="street2">Fraccionamiento Montecarlo</field>
-        <field name="street_number">3206</field>
-        <field name="street_number2">9000</field>
-        <field name="zip">85134</field>
-        <field name="city">Ciudad Obregón</field>
-        <field name="state_id" ref="base.state_mx_son"/>
-        <field name="country_id" ref="base.mx"/>
-    </record>
-    <record id="partner_colima" model="res.partner">
-        <field name="name">Colima</field>
-        <field name="street_name">Av. Venustiano Carranza</field>
-        <field name="phone">+52 312 3236597</field>
-        <field name="email">getstarted@pima.com</field>
-        <field name="street_number">1726</field>
-        <field name="street_number2">7</field>
-        <field name="street2">Residencial Esmeralda Norte</field>
-        <field name="zip">28017</field>
-        <field name="city">Colima</field>
-        <field name="state_id" ref="base.state_mx_col"/>
-        <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="1"/>
-        <field name="country_id" ref="base.mx"/>
-        <field name="type">other</field>
-        <field name="comment">Headquarters</field>
-    </record>
-    <record id="partner_leon" model="res.partner">
-        <field name="name">León</field>
-        <field name="phone">+52 477 7733346</field>
-        <field name="email">ventas@pima.com</field>
-        <field name="street_name">Lunik</field>
-        <field name="street_number">119</field>
-        <field name="street_number2">7</field>
-        <field name="street2">Futurama Monterrey</field>
-        <field name="zip">37180</field>
-        <field name="city">León</field>
-        <field name="state_id" ref="base.state_mx_gto"/>
-        <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="1"/>
-        <field name="country_id" ref="base.mx"/>
-        <field name="type">other</field>
-        <field name="comment">Head Offices</field>
-    </record>
-    <record id="partner_lima" model="res.partner">
-        <field name="name">Grupo comercializador digital s.a.c.</field>
-        <field name="phone">99792-0109</field>
-        <field name="email">ventas@pima.com</field>
-        <field name="street_name">Av. La Mar</field>
-        <field name="customer">1</field>
-        <field name="street_number">390</field>
-        <field name="street2">Miraflores</field>
-        <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="1"/>
-        <field name="country_id" ref="base.pe"/>
-        <field name="type">other</field>
-        <field name="company_type">company</field>
-        <field name="comment">Sales and Projects</field>
-    </record>
-    <record id="partner_valencia" model="res.partner">
-        <field name="name">Valencia</field>
-        <field name="phone">+58 424 4348908</field>
-        <field name="email">info@pima.com</field>
-        <field name="street_name">Avenida Bolívar, Torre Camoruco</field>
+        <field name="vat">PIM010216QW1</field>
+        <field name="property_account_position_id" search="[('name', '=', '601 - General de Ley Personas Morales')]"/>
+        <field name="street_name">Alberto Carrera Torres</field>
         <field name="street2"></field>
-        <field name="city">Valencia</field>
-        <field name="parent_id" ref="base.main_partner"/>
-        <field name="website_published" eval="1"/>
-        <field name="country_id" ref="base.ve"/>
-        <field name="type">other</field>
-        <field name="comment">Research and Development</field>
-    </record>
-    <record id="partner_company_ve" model="res.partner">
-        <field name="name">Vauxoo CA</field>
-        <field name="country_id" ref="base.ve"/>
-    </record>
-    <record id="company_ve" model="res.company">
-        <field name="name">Vauxoo CA</field>
-        <field name="logo" type="base64" file="pima/static/src/img/vauxoo.png"/>
-        <field name="currency_id" ref="base.VEF"/>
-        <field name="partner_id" ref="partner_company_ve"/>
-        <field name="social_googleplus">https://plus.google.com/+pima</field>
-        <field name="social_twitter">https://twitter.com/pima</field>
-        <field name="social_facebook">https://facebook.com/pima</field>
-        <field name="social_github">https://github.com/pima</field>
-        <field name="social_linkedin">https://www.linkedin.com/company/pima</field>
-    </record>
-    <record id="partner_company_ve_valencia" model="res.partner">
-        <field name="name">Valencia</field>
-        <field name="country_id" ref="base.ve"/>
-    </record>
-    <record id="company_valencia" model="res.company">
-        <field name="name">Valencia</field>
-        <field name="logo" type="base64" file="pima/static/src/img/vauxoo.png"/>
-        <field name="currency_id" ref="base.VEF"/>
-        <field name="partner_id" ref="partner_company_ve_valencia"/>
-    </record>
-    <record id="company_pe" model="res.company">
-        <field name="name">Grupo comercializador digital s.a.c</field>
-        <field name="logo" type="base64" file="pima/static/src/img/vauxoo.png"/>
-        <field name="currency_id" ref="base.PEN"/>
-        <field name="partner_id" ref="partner_lima"/>
-        <field name="social_googleplus">https://plus.google.com/+pima</field>
-        <field name="social_twitter">https://twitter.com/pima</field>
-        <field name="social_facebook">https://facebook.com/pima</field>
-        <field name="social_github">https://github.com/pima</field>
-        <field name="social_linkedin">https://www.linkedin.com/company/pima</field>
+        <field name="street_number">7909</field>
+        <field name="street_number2"></field>
+        <field name="zip">32679</field>
+        <field name="city">Ciudad Juárez</field>
+        <field name="l10n_mx_edi_colony">Parque Industrial Los Aztecas</field>
+        <field name="state_id" ref="base.state_mx_chih"/>
+        <field name="country_id" ref="base.mx"/>
     </record>
 </odoo>

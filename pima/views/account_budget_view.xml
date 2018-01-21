@@ -203,9 +203,15 @@
             <field name="view_id" ref="crossovered_budget_view_kanban"/>
             <field name="act_window_id" ref="action_budget_analysis"/>
         </record>
+       <menuitem
+            id="menu_company_briefing"
+            name="Company Briefing"
+            parent="base.menu_board_root"
+            sequence="60"/>
+
         <menuitem
             action="action_budget_analysis"
             id="menu_action_budget_analysis"
-            parent="pima.menu_company_briefing"
+            parent="menu_company_briefing"
             sequence="60"/>
 </odoo>
