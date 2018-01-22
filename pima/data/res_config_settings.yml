@@ -34,7 +34,7 @@
         'default_lang_id': base.lang_es,
         'language_ids': [base.lang_es, base.lang_en],
         # Website Settings
-        'website_name': 'production.pima-mex.com',
+        # 'website_name': 'production.pima-mex.com',
         'has_google_analytics_dashboard': True,
         'default_invoice_policy': 'delivery'
     }

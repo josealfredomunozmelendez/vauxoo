@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id='pricing' inherit_id="website_quote.pricing">
-        <xpath expr="//p[@t-field='quotation.note']" position="replace">
-            <div class="row" t-if="quotation.note" style="page-break-before: always;">
-                <div t-raw="quotation.note2html"/>
-            </div>
-        </xpath>
-    </template>
     <template id='report_saleorder_document' inherit_id="sale.report_saleorder_document">
         <xpath expr="//p[@t-field='doc.note']" position="replace">
         </xpath>

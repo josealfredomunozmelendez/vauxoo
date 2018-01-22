@@ -48,7 +48,6 @@ class TestEmployeeUser(TransactionCase):
             {'active_ids': [employee_test.id, ]}).create(
                 {'group_id': group_test.id})
         employee_wz.link_user()
-        # verify if linked user belong to Vauxoo Technical Team group
         user = employee_test.user_id
         self.assertIn(group_test, user.groups_id, '*** Linked user does not \
                       belong to selected group ***')
